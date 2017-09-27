@@ -961,34 +961,24 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.15.3. 相关功能需求
 
-| Receipt.Login.Wait         | 系统提示用户输入登录名和密码                           |
-| -------------------------- | ---------------------------------------- |
-| Receipt.Login.Input        | 系统获取用户输入的登录名和密码                          |
-| Receipt.Login.Check        | 系统判定用户名和密码是否匹配                           |
-| Receipt.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
-| Receipt.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
-| Receipt.Login.Exit         | 用户放弃登录，选择退出系统                            |
-| Receipt.Login.Retry        | 用户要求重新登录，参见Receipt.Login.Wait            |
-| Receipt.Limits.Application | 用户向系统申请审批单据                              |
-| Receipt.Limits.Check       | 系统查询用户权限信息以确认是否允许审批                      |
-| Receipt.Limits.Valid       | 系统提示用户权限合法，并显示当前单据列表，参见Receipt.Show      |
-| Receipt.Limits.Invalid     | 系统提示用户权限不足无法审批单据，要求用户退出审批单据功能，参见Receipt.Exit |
-| Receipt.Show.List          | 系统显示当前提交单据列表                             |
-| Receipt.Show.Null          | 系统提示当前没有提交单据                             |
-| Receipt.Show.Read          | 用户点击一张单据，系统显示其详细信息                       |
-| Receipt.Show.Exit          | 用户要求退出审批单据功能，参见Receipt.Exit              |
-| Receipt.Check.Select       | 用户选中要审批的单张或多张单据并确认                       |
-| REceipt.Check.Reminder     | 系统提示用户选择批准或不批准                           |
-| Receipt.Check.Commit       | 用户选择批准单据或不批准单据                           |
-| Receipt.Check.Clear        | 用户要求系统清空已选单据重新选择                         |
-| Receipt.Check.Cancel       | 用户放弃审批单据，参见Receipt.Exit                  |
-| Receipt.Process.Pass       | 系统修改用户审批通过的单据的审核状态为批准                    |
-| Receipt.Process.Fail       | 系统修改用户审批不通过的单据状态为不批准                     |
-| Receipt.Process.Update     | 系统根据审批通过的单据的数据更新后台数据                     |
-| Receipt.Process.Inform     | 系统向被审批单据的提交者发送消息来提示其提交单据的状态              |
-| Receipt.Process.Refresh    | 系统在当前提交单据列表中删除被审批的单据，显示当前提交单据列表          |
-| Receipt.Continue           | 系统返回上层界面允许用户继续审批单据，参见Receipt.Show.List   |
-| Receipt.Exit               | 系统退出审批单据功能                               |
+| Log.Login              | 系统应当读取用户输入的用户名和密码来判定是否允许登录               |
+| ---------------------- | ---------------------------------------- |
+| Log.Login.Wait         | 系统提示用户输入登录名和密码                           |
+| Log.Login.Input        | 系统获取用户输入的登录名和密码                          |
+| Log.Login.Check        | 系统判定用户名和密码是否匹配                           |
+| Log.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
+| Log.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
+| Log.Login.Exit         | 用户放弃登录，选择退出系统                            |
+| Log.Login.Retry        | 用户要求重新登录，参见Log.Login.Wait                |
+| Log.Limits.Application | 用户向系统申查询日志                               |
+| Log.Limits.Check       | 系统查询用户权限信息以确认是否允许查询                      |
+| Log.Limits.Valid       | 系统提示用户权限合法，并显示日志列表，参见Log.Show            |
+| Log.Limits.Invalid     | 系统提示用户权限不足无法查询日志，要求用户退出查询日志功能，参见Log.Exit |
+| Log.Show.List          | 系统显示当前日志列表                               |
+| Log.Show.Choose        | 用户选择一条日志要求查看其详细内容                        |
+| Log.Show.Details       | 系统显示用户选择日志的详细内容                          |
+| Log.Show.Back          | 用户要求返回日志列表                               |
+| Log.Exit               | 系统退出查询日志功能                               |
 
 ###3.2.16. 制定促销策略
 
