@@ -261,7 +261,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Classification.Add.Invalid       | 库存管理人员输入非法的信息后，系统提示重新输入或取消               |
 | Classification.Delete.Select     | 系统应当允许库存管理人员选择要删除的节点                     |
 | Classification.Delete.Submit     | 库存管理人员确认删除后，系统应该更新分类信息                   |
-| Classification.Delete.Invalid    | 删除无效后，体统                                 |
+| Classification.Delete.Invalid    | 删除无效后，提示删除失败，取消删除操作                      |
 | Classification.Modify.Select     | 选择要修改的节点                                 |
 | Classification.Modify.Name       | 选择要修改名称                                  |
 | Classification.Modify.Name.Input | 系统应该允许库存管理人员输入新的名称                       |
@@ -403,6 +403,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 库存管理人员每天对库存进行盘点，对所有的入库出库信息进行确认，系统应当自动显示当天所有的入库出库信息。每天只能进行一次库存盘点，当天盘点之后的入库不计入盘点列表，推迟到下一次的盘点信息。
 
+优先级 = 中
+
 ####3.2.4.2.  刺激/响应序列
 
 刺激: 库存管理人员选择库存盘点功能
@@ -430,6 +432,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 ####3.2.5.1. 特性描述
 
 已经被识别和认证的库存管理人员处理各种库存单据
+
+优先级 = 高
 
 ####3.2.5.2.  刺激/响应序列
 
