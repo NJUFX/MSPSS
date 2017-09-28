@@ -719,7 +719,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 | 编号                                | 需求说明                                     |
 | --------------------------------- | ---------------------------------------- |
 | MakeReceipt.Exit                  | 在制定收款单时，允许财务人员退出填写界面，系统要舍弃财务人员之前未保存的操作并且回到之前的界面 |
-| MakeReceip.Input                  | 单据编号（XJFYD-yyyyMMdd-xxxxx）,操作员（当前登录用户），银行账户，条目清单，总额。条目清单中包括：条目名，金额，备注 |
+| MakeReceip.Input                  | 单据编号（SKD-yyyyMMdd-xxxxx），客户（同时包含供应商和销售商），操作员（当前登录用户），转账列表，总额汇总。转账列表中的一项包含：银行账户，转账金额，备注。|
 | MakeReceipt.Discard               | 财务人员选择放弃填写报表，参见MakeReceipt.Discard       |
 | MakeReceipt.Wrong                 | 财务人员输入信息格式错误                             |
 | MakeReceipt.Input.Commit          | 财务人员选择提交已经填写好的报表，系统会检查报表的填写状况，具体参见MakeReceipt.Commit |
