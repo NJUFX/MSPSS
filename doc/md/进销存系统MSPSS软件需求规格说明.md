@@ -246,25 +246,29 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.1.3. 相关功能需求
 
-| 编号                               | 需求描述                          |
-| -------------------------------- | ----------------------------- |
-| Classification.Start             | 当库存管理人员请求对商品管理时，系统进入商品管理界面    |
-| Classification.End               | 当库存管理人员结束商品管理时，系统返回库存管理人员初始界面 |
-| Classification.Select            | 系统应该允许库存管理人员选择要进行的操作          |
-| Classification.Select.End        | 在库存管理人员选择要进行的操作后跳转到相应的界面      |
-| Classification.Add.Select        | 系统应该允许库存管理人员选择要添加的节点          |
-| Classification.Add.Description   | 系统应该允许库存管理人员输入新添加的分类信息        |
-| Classification.Add.Submit        | 在库存管理人员确认提交后，系统保存基本信息         |
-| Classification.Add.Invalid       | 库存管理人员输入非法的信息后，系统提示重新输入或取消    |
-| Classification.Delete.Select     | 系统应当允许库存管理人员选择要删除的节点          |
-| Classification.Delete.Submit     | 库存管理人员确认删除后，系统应该更新分类信息        |
-| Classification.Delete.Invalid    | 删除无效后，体统                      |
-| Classification.Modify.Select     | 选择要修改的节点                      |
-| Classification.Modify.Name       | 选择要修改名称                       |
-| Classification.Modify.Name.Input | 系统应该允许库存管理人员输入新的名称            |
-| Classification.Modify.Location   | 系统应该允许库存管理人员选择新的位置            |
-| Classification.Modify.Submit     | 库存管理人员确认提交后，系统保存新的信息          |
-| Classifiction.Modify.Invalid     | 修改无效后，系统提示重新操作或者取消            |
+| 编号                               | 需求描述                                     |
+| -------------------------------- | ---------------------------------------- |
+| Classification.Start             | 当库存管理人员请求对商品管理时，系统进入商品管理界面               |
+| Classification.Input             | 系统应该允许库存管理人员进行键盘输入或鼠标选择                  |
+| Classification.Select            | 系统应该允许库存管理人员选择要进行的操作                     |
+| Classification.Select.Add        | 系统应该允许库存管理人员选择增加分类，参见Classification.Add  |
+| Classification.Select.Delete     | 系统应当允许库存管理人员选择删除分类，参见Classification.Delete |
+| Classification.Select.Modify     | 系统应当允许库存管理人员选择修改分类， 参见Classification.Modify |
+| Classification.Select.End        | 在库存管理人员选择要进行的操作后跳转到相应的界面                 |
+| Classification.Add.Select        | 系统应该允许库存管理人员选择要添加的节点                     |
+| Classification.Add.Description   | 系统应该允许库存管理人员输入新添加的分类信息                   |
+| Classification.Add.Submit        | 在库存管理人员确认提交后，系统保存基本信息                    |
+| Classification.Add.Invalid       | 库存管理人员输入非法的信息后，系统提示重新输入或取消               |
+| Classification.Delete.Select     | 系统应当允许库存管理人员选择要删除的节点                     |
+| Classification.Delete.Submit     | 库存管理人员确认删除后，系统应该更新分类信息                   |
+| Classification.Delete.Invalid    | 删除无效后，体统                                 |
+| Classification.Modify.Select     | 选择要修改的节点                                 |
+| Classification.Modify.Name       | 选择要修改名称                                  |
+| Classification.Modify.Name.Input | 系统应该允许库存管理人员输入新的名称                       |
+| Classification.Modify.Location   | 系统应该允许库存管理人员选择新的位置                       |
+| Classification.Modify.Submit     | 库存管理人员确认提交后，系统保存新的信息                     |
+| Classification.Modify.Invalid    | 修改无效后，系统提示重新操作或者取消                       |
+| Classification.End               | 系统应当允许库存管理人员结束当前页面跳转回去                   |
 
 ### 3.2.2. 商品管理
 
@@ -330,28 +334,38 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 #### 3.3.2.3. 相关功能需求
 
-| 编号                          | 需求描述                                   |
-| --------------------------- | -------------------------------------- |
-| Management.Start            | 当库存管理人员请求对商品管理时，系统进入商品管理界面             |
-| Management.End              | 当库存管理人员结束商品管理时，系统返回库存管理人员初始界面          |
-| Management.Select           | 系统应当允许库存管理人员选择要进行的操作                   |
-| Management.Add              | 系统应当允许库存管理人员输入商品信息                     |
-| Management.Add.Submit       | 在库存管理人员输入商品信息提交好，应当更新商品信息              |
-| Management.Add.Invalid      | 输入的商品信息非法时系统提示错误要求重新输入或取消              |
-| Management.Add.Blank        | 当库存管理人员输入的信息中存在没有输入的项时，系统提示库存管理人员输入或取消 |
-| Management.Delete           | 系统应当提示输入要删除的商品的关键字信息                   |
-| Management.Delete.List      | 系统应当显示满足关键字的商品列表                       |
-| Management.Delete.Determine | 系统应该允许系统管理人员选择要删除的商品                   |
-| Management.Delete.End       | 系统应该提示删除成功并更新商品数据                      |
-| Management.Modify           | 系统应当允许库存管理人员输入商品信息                     |
-| Management.Modify.List      | 系统应当显示满足关键字的商品列表                       |
-| Management.Modify.Determine | 系统应当显示选中的商品的具体信息                       |
-| Management.Modify.Submit    | 在库存管理人员修改并保存后，系统应该更新商品信息               |
-| Management.Modify.Invalid   | 当修改后的商品信息非法时系统提示错误要求重新输入或取消            |
-| Management.Observe          | 系统应该允许库存管理人员查看商品信息                     |
-| Management.Observe.Input    | 库存管理人员输入关键字信息                          |
-| Management.Observe.List     | 系统显示满足关键字的商品列表                         |
-| Management.Observe.Select   | 当库存管理人员选中某商品进行查看时系统显示该商品的所有信息          |
+| 编号                           | 需求描述                                     |
+| ---------------------------- | ---------------------------------------- |
+| Management.Start             | 当库存管理人员请求对商品管理时，系统进入商品管理界面               |
+| Management.End               | 当库存管理人员结束商品管理时，系统返回库存管理人员初始界面            |
+| Management.Select            | 系统应当允许库存管理人员选择要进行的操作                     |
+| Management.Select.Add        | 系统应当允许库存管理人员选择添加商品，参见Management.Add      |
+| Management.Select.Delete     | 系统应当允许库存管理人员选择删除商品，参见Management.Delete   |
+| Management.Select.Modify     | 系统应当允许库存管理人员选择修改商品，参见Management.Modify   |
+| Management.Input             | 系统应当允许库存管理人员用键盘输入                        |
+| Management.Input.Keyword     | 系统应当允许库存管理人员输入商品关键字                      |
+| Management.Input.Information | 系统应当允许库存管理人员输入商品信息                       |
+| Management.Input.Invalid     | 系统应当在输入不合法时提醒重新输入                        |
+| Management.Select.Obeserve   | 系统应当允许库存管理人员选择查看商品，参见Management.Obeserve |
+| Management.Add.Input         | 系统应当允许库存管理人员输入商品信息，参见Management.Input.Information |
+| Management.Add.Submit        | 在库存管理人员输入商品信息提交好，应当更新商品信息                |
+| Management.Add.Invalid       | 输入的商品信息非法时系统提示错误要求重新输入或取消，参见Managemnt.Input.Invalid |
+| Management.Add.Blank         | 当库存管理人员输入的信息中存在没有输入的项时，系统提示库存管理人员输入或取消   |
+| Management.Delete            | 系统应当提示输入要删除的商品的关键字信息                     |
+| Management.Delete.Input      | 系统应当允许库存管理人员输入关键字，参见Management.Input.keyword |
+| Management.Delete.List       | 系统应当显示满足关键字的商品列表                         |
+| Management.Delete.Determine  | 系统应该允许系统管理人员选择要删除的商品                     |
+| Management.Delete.End        | 系统应该提示删除成功并更新商品数据                        |
+| Management.Modify            | 系统应当提示库存管理人员输入商品关键字                      |
+| Management.Modify.Input      | 系统应当允许库存管理人员输入商品关键字，参见Management.Input.Keyword |
+| Management.Modify.List       | 系统应当显示满足关键字的商品列表                         |
+| Management.Modify.Determine  | 系统应当显示选中的商品的具体信息                         |
+| Management.Modify.Submit     | 在库存管理人员修改并保存后，系统应该更新商品信息                 |
+| Management.Modify.Invalid    | 当修改后的商品信息非法时系统提示错误要求重新输入或取消，参见Management.Input.Invalid |
+| Management.Observe           | 系统应该允许库存管理人员查看商品信息                       |
+| Management.Observe.Input     | 库存管理人员输入关键字信息，参见Management.Input.Keyword |
+| Management.Observe.List      | 系统显示满足关键字的商品列表                           |
+| Management.Observe.Select    | 当库存管理人员选中某商品进行查看时系统显示该商品的所有信息            |
 
 ### 3.2.3. 库存查看
 
@@ -449,18 +463,22 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.5.3. 相关功能需求
 
-| 编号                      | 需求描述                            |
-| ----------------------- | ------------------------------- |
-| Invoices.Start          | 库存管理人员请求处理库存单据时，系统进入相应的界面       |
-| Invoices.End            | 当库存管理人员结束处理库存单据时，系统返回库存管理人员初始界面 |
-| Invoices.Present        | 允许库存管理人员查看收到的库存赠送单              |
-| Invoices.Present.Update | 库存管理人员更新库存信息                    |
-| Invoices.Present.Done   | 单据已被库存管理人员处理                    |
-| Invoices.Number         | 允许库存管理人员生成库存报损报溢单               |
-| Invoices.Number.Input   | 允许库存管理人员输入相关信息                  |
-| Invoices.Number.Submit  | 库存管理人员保存并提交，系统更新信息              |
-| Invoices.Alert          | 允许库存管理人员查看生成的报警单                |
-| Invoices.Alert.Submit   | 允许库存管理人员提交                      |
+| 编号                       | 需求描述                                     |
+| ------------------------ | ---------------------------------------- |
+| Invoices.Start           | 库存管理人员请求处理库存单据时，系统进入相应的界面                |
+| Invoices.Select          | 系统应当允许库存管理人员选择要处理的表单                     |
+| Invoices.Select.Present  | 系统应当允许库存管理人员选择库存赠送单，参见Invoices.Present   |
+| Invoices.Select.Repetory | 系统应当允许库存管理人员选择库存报损单或库存报溢单，参见Invoices.Repetory |
+| Invoices.Select.Alert    | 系统应当允许库存管理人员选择库存报警单，参见Invoices.Alert     |
+| Invoices.End             | 当库存管理人员结束处理库存单据时，系统返回库存管理人员初始界面          |
+| Invoices.Present         | 允许库存管理人员查看收到的库存赠送单                       |
+| Invoices.Present.Update  | 库存管理人员更新库存信息                             |
+| Invoices.Present.Done    | 单据已被库存管理人员处理                             |
+| Invoices.repertory       | 允许库存管理人员生成库存报损报溢单                        |
+| Invoices.repertory.Input | 允许库存管理人员输入相关信息                           |
+| Invoices.Number.Submit   | 库存管理人员保存并提交，系统更新信息                       |
+| Invoices.Alert           | 允许库存管理人员查看生成的报警单                         |
+| Invoices.Alert.Submit    | 允许库存管理人员提交                               |
 
 ### 3.2.6客户管理
 
