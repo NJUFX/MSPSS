@@ -391,11 +391,12 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.3.3. 相关需求描述
 
-| 编号            | 需求描述              |
-| ------------- | ----------------- |
-| Check.Time    | 系统应当允许库存管理人员选择时间段 |
-| Check.Display | 系统返回这一时间段内的所有入库出库 |
-| Check.End     | 系统允许用户在此进程的任意时间退出 |
+| 编号                    | 需求描述                   |
+| --------------------- | ---------------------- |
+| Check.Time            | 系统应当允许库存管理人员选择时间段      |
+| Check.Display         | 系统返回这一时间段内的所有入库出库      |
+| Check.Display.Invalid | 系统提示输入时间无效或该时间段内无出入库信息 |
+| Check.End             | 系统允许用户在此进程的任意时间退出      |
 
 ###3.2.4. 库存盘点
 
@@ -469,6 +470,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 | 编号                       | 需求描述                                     |
 | ------------------------ | ---------------------------------------- |
+| Invoices.Input           | 库存管理人员请求输入库存信息                           |
+| Invoices.Input.Invalid   | 系统提示输入信息无效，提示重新输入或取消操作                   |
 | Invoices.Start           | 库存管理人员请求处理库存单据时，系统进入相应的界面                |
 | Invoices.Select          | 系统应当允许库存管理人员选择要处理的表单                     |
 | Invoices.Select.Present  | 系统应当允许库存管理人员选择库存赠送单，参见Invoices.Present   |
@@ -479,9 +482,10 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Invoices.Present.Update  | 库存管理人员更新库存信息                             |
 | Invoices.Present.Done    | 单据已被库存管理人员处理                             |
 | Invoices.repertory       | 允许库存管理人员生成库存报损报溢单                        |
-| Invoices.repertory.Input | 允许库存管理人员输入相关信息                           |
+| Invoices.repertory.Input | 允许库存管理人员输入相关库存信息，参见Invoices.Input        |
 | Invoices.Number.Submit   | 库存管理人员保存并提交，系统更新信息                       |
-| Invoices.Alert           | 允许库存管理人员查看生成的报警单                         |
+| Invoices.Alert           | 允许库存管理人员生成报警单                            |
+| Invoices.Alert.Input     | 允许库存管理人员输入相关库存信息，参加Invoices.Input        |
 | Invoices.Alert.Submit    | 允许库存管理人员提交                               |
 
 ### 3.2.6客户管理
@@ -719,7 +723,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 | 编号                                | 需求说明                                     |
 | --------------------------------- | ---------------------------------------- |
 | MakeReceipt.Exit                  | 在制定收款单时，允许财务人员退出填写界面，系统要舍弃财务人员之前未保存的操作并且回到之前的界面 |
-| MakeReceip.Input                  | 单据编号（SKD-yyyyMMdd-xxxxx），客户（同时包含供应商和销售商），操作员（当前登录用户），转账列表，总额汇总。转账列表中的一项包含：银行账户，转账金额，备注。|
+| MakeReceip.Input                  | 单据编号（SKD-yyyyMMdd-xxxxx），客户（同时包含供应商和销售商），操作员（当前登录用户），转账列表，总额汇总。转账列表中的一项包含：银行账户，转账金额，备注。 |
 | MakeReceipt.Discard               | 财务人员选择放弃填写报表，参见MakeReceipt.Discard       |
 | MakeReceipt.Wrong                 | 财务人员输入信息格式错误                             |
 | MakeReceipt.Input.Commit          | 财务人员选择提交已经填写好的报表，系统会检查报表的填写状况，具体参见MakeReceipt.Commit |
