@@ -1088,6 +1088,39 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.17.3. 相关功能需求
 
+<<<<<<< HEAD
+| Promotion.Login.Wait          | 系统提示用户输入登录名和密码                           |
+| ----------------------------- | ---------------------------------------- |
+| Promotion.Login.Input         | 系统获取用户输入的登录名和密码                          |
+| Promotion.Login.Check         | 系统判定用户名和密码是否匹配                           |
+| Promotion.Login.Valid         | 系统提示用户登录成功并修改登录状态                        |
+| Promotion.Login.Invalid       | 系统提示用户登录失败，用户名和密码不匹配                     |
+| Promotion.Login.Exit          | 用户放弃登录，选择退出系统                            |
+| Promotion.Login.Retry         | 用户要求重新登录，参见Promotion.Login.Wait          |
+| Promotion.Limits.Application  | 用户向系统申请制定促销策略                            |
+| Promotion.Limits.Check        | 系统查询用户权限信息以确认是否允许制定                      |
+| Promotion.Limits.Valid        | 系统提示用户权限合法，并显示起始时间选项，参见Promotion.Time    |
+| Promotion.Limits.Invalid      | 系统提示用户权限不足无法制定策略，要求用户退出制定促销策略列表，参见Promotion.Exit |
+| Promotion.Time.Reminder       | 系统提示用户输入促销的开始和结束时间                       |
+| Promotion.Time.Input          | 系统获取用户输入促销开始的开始和结束时间                     |
+| Promotion.Select.Show         | 系统显示当前可选择促销策略类型                          |
+| Promotion.Select.Input        | 用户选择一个策略类型点击制定                           |
+| Promotion.Select.Cancel       | 用户放弃制定策略功能，参见Read.Exit                   |
+| Promotion.Select.Search       | 系统查询用户选择的促销策略类型需要填写的信息                   |
+| Promotion.Condition.Show      | 系统显示当前促销策略下的需要填写的信息                      |
+| Promotion.Condition.Input     | 用户输入需要填写的信息                              |
+| Promotion.Condition.Clear     | 用户要求系统清空所有已填写的信息                         |
+| Promotion.Condition.Invalid   | 系统提示用户输入的信息不完整或不合法，要求用户重新输入（参见Promotion.Condition.Input）或退出制定策略功能（参见Promotion.Exit） |
+| Promotion.Condition.Rechoose  | 用户要求重新选择促销策略类型，系统返回上一操作界面供用户重新选择，参见Promotion.Select.Show |
+| Promotion.Condition.formulate | 用户要求系统根据当前输入的信息制定促销策略                    |
+| Promotion.Condition.Pass      | 系统提示用户新策略制定成功                            |
+| Promotion.Condition.Repeat    | 系统判定促销策略与已有策略重复，要求用户重新输入条件，参见Promotion.Condition.Show |
+| Promotion.Process.Update      | 系统根据用户输入的策略信息更新后台数据                      |
+| Promotion.Process.Message     | 系统根据策略生成并发送单据                            |
+| Promotion.Process.Show        | 系统显示用户制定过策略后的当前策略列表                      |
+| Promotion.Continue            | 系统返回选择起始时间界面，参见Promotion.Time.Reminder   |
+| Promotion.Exit                | 用户要求退出制定促销策略功能                           |
+=======
 | 编号                         | 需求说明                                     |
 | -------------------------- | ---------------------------------------- |
 | Receipt.Login.Wait         | 系统提示用户输入登录名和密码                           |
@@ -1117,6 +1150,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Receipt.Process.Refresh    | 系统在当前提交单据列表中删除被审批的单据，显示当前提交单据列表          |
 | Receipt.Continue           | 系统返回上层界面允许用户继续审批单据，参见Receipt.Show.List   |
 | Receipt.Exit               | 系统退出审批单据功能                               |
+>>>>>>> cf1dbf19a4b1358858e2c27fbbb42e5661cbf76b
 
 ### 3.3. 非功能需求
 
