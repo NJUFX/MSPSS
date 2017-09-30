@@ -1,4 +1,26 @@
-# 功能测试用例集
+# 进销存管理系统MSPSS需求测试用例
+
+# <center>进销存管理系统</center>
+
+
+
+# <center>MSPSS(Management System of Purchase-Sell-Stock)</center>
+
+
+
+
+
+# <center> 需求测试用例</center>
+
+
+
+
+
+# <center>v1.0 正式版</center>
+
+<br><br><br>
+
+## <center>南京大学FX工作组</center><br><center>伏家兴，韩新虎，刘雅歆，徐光耀</center><br><center>2017-09-30</center>
 
 ## 用例1 商品分类
 
