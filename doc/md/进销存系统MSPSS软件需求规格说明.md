@@ -1,3 +1,4 @@
+
 <<<<<<< HEAD
 =======
 # 进销存系统
@@ -28,12 +29,12 @@
 
 ## 更新历史
 
-| **修改人员** | **日期**     | **变更原因** | **版本号**  |
-| -------- | ---------- | -------- | -------- |
-| FX全组人员   | 2017-09-26 | 最初草稿     | V1.0  草稿 |
-|          |            |          |          |
-|          |            |          |          |
-|          |            |          |          |
+| **修改人员** | **日期**     | **变更原因**      | **版本号**  |
+| -------- | ---------- | ------------- | -------- |
+| FX全组人员   | 2017-09-26 | 最初草稿          | V1.0  草稿 |
+| 伏家兴      | 2017-09-30 | 修改进货销售人员的功能需求 | V1.1     |
+|          |            |               |          |
+|          |            |               |          |
 
 ## 1.引言
 
@@ -524,24 +525,24 @@ CI:客户端与服务器使用RMI的方式进行通信
 | CustomerManager.Seek                  | 系统允许进货销售人员人员选择查找客户的命令                    |
 | CustomerManager.Seek.Input            | 系统应该允许进货销售人员在查找客户的任务中进行键盘输入              |
 | CustomerManager.Seek.End              | 在进货销售人员输入结束查找命令时，系统要结束一个查找任务             |
-| CustomerManager.Seek.Del              | 在进货销售人员输入删除已输入信息的命令时，系统执行删除已输入信息的命令      |
-| CustomerManager.Seek.Valid            | 在进货销售人员输入系统中存在的客户编号或关键词时，系统显示所有符合条件的客户信息。 |
-| CustomerManager.Seek.Invalid          | 在进货销售人员输入系统中不存在的客户编号或者关键词时，系统提示核对信息并重新输入。 |
+| CustomerManager.Seek.Del              | 在进货销售人员输入删除已输入的信息或数据的命令时，系统执行删除已输入信息的命令  |
+| CustomerManager.Seek.Valid            | 在进货销售人员输入系统中存在的客户编号或关键词时，系统显示所有符合条件的客户。  |
+| CustomerManager.Seek.Invalid          | 在进货销售人员输入系统中不存在的客户编号或者关键词时，系统提示核对输入的信息并重新输入。 |
 | CustomerManager.Add                   | 系统允许进货销售人员人员选择增加客户的命令                    |
 | CustomerManager.Add.Input             | 系统应该允许进货销售人员在增加客户的任务中进行键盘输入              |
-| CustomerManager.Add.Del               | 在进货销售人员输入删除已输入信息的命令时，系统执行删除已输入信息的命令      |
+| CustomerManager.Add.Del               | 在进货销售人员输入删除已输入的信息的命令时，系统执行删除已输入信息的命令     |
 | CustomerManager.Add.Seek              | 在进货销售人员输入增加客户的命令后，系统查找是否与已有客户重复。         |
 | CustomerManager.Add.Invalid.Repeat    | 在进货销售人员输入的客户属性和系统中已有的客户重复时，系统不做增加客户处理，并提示核对信息重新输入。 |
-| CustomerManager.Add.Invalid.Lack      | 在进货销售人员输入的客户属性不完整时，系统不做增加操作并提示核对信息重新输入。  |
+| CustomerManager.Add.Invalid.Lack      | 在进货销售人员输入的客户属性不完整时，系统不做增加操作并提示核对输入的信息重新输入。 |
 | CustomerManager.Add.Valid             | 在进货销售人员输入的客户属性完整且没有与系统中已有的客户重复时，系统中新建一个客户，并提示新建成功。 |
 | CustomerManager.Add.End               | 在进货销售人员输入结束增加客户命令时，系统要结束一个增加客户任务。        |
 | CustomerManager.Add.End.Null          | 在进货销售人员未输入任何信息就输入结束命令时，系统关闭增加客户任务不做任何处理。 |
 | CustomerManager.Add.End.Uninish       | 在进货销售人员已输入客户属性后但未输入增加客户命令而是选择结束命令时，系统提示操作尚未成功，询问操作人是否结束操作。 |
-| CustomerManager.Add.Update            | 在增加客户的操作成功后，系统更新数据库                      |
+| CustomerManager.Add.Update            | 在增加客户的操作成功后，系统更新数据                       |
 | CustomerManager.Del                   | 系统允许进货销售人员人员选择删除客户的命令                    |
 | CustomerManager.Del.Input             | 系统允许进货销售人员在删除客户任务中进行键盘输入。                |
 | CustomerManager.Del.Seek              | 在进货销售人员输入关键词或者编号后，系统内查找所有符合条件的客户。        |
-| CustomerManager.Del.Seek.Invalid      | 当系统内不存在符合条件的客户时，系统提示核对信息重新输入。            |
+| CustomerManager.Del.Seek.Invalid      | 当系统内不存在符合条件的客户时，系统提示核对输入的信息重新输入。         |
 | CustomerManager.Del.Seek.Valid        | 系统中存在符合搜索条件的客户时，显示所有符合条件的客户。             |
 | CustomerManager.Del.Start             | 在进货销售人员找到要删除的客户时，选择该客户发起删除客户的请求。         |
 | CustomerManager.Del.Check             | 在进货销售人员输入删除命令时，系统询问是否进行删除                |
