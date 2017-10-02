@@ -169,7 +169,18 @@ UI1.1.1 在销售列表为空时，如果收银员输入会员识别（快捷键
 UI1.1.1.1 在收银员完成输入（快捷键Enter）时，如果系统无法识别会员，显示错误信息，如图…
 
 UI2……
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E7%99%BB%E9%99%86%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%9F%A5%E7%9C%8B%E6%8A%A5%E8%A1%A8%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BA%93%E5%AD%98%E7%AE%A1%E7%90%86%E4%BA%BA%E5%91%98%E8%B5%B7%E5%A7%8B%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BA%93%E5%AD%98%E6%9F%A5%E7%9C%8B.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%A2%9E%E5%8A%A0%E5%95%86%E5%93%81.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%95%86%E5%93%81%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)<br>
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%88%B6%E5%AE%9A%E5%8D%95%E6%8D%AE%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
+
 
 ### 3.1.2. 硬件接口
 
