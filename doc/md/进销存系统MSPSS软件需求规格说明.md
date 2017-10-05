@@ -28,12 +28,12 @@
 
 ## 更新历史
 
-| **修改人员** | **日期**     | **变更原因**      | **版本号**  |
-| -------- | ---------- | ------------- | -------- |
-| FX全组人员   | 2017-09-26 | 最初草稿          | V1.0  草稿 |
-| 伏家兴      | 2017-09-30 | 修改进货销售人员的功能需求 | V1.1     |
-|          |            |               |          |
-|          |            |               |          |
+| **修改人员** | **日期**     | **变更原因** | **版本号**  |
+| -------- | ---------- | -------- | -------- |
+| FX全组人员   | 2017-09-26 | 最初草稿     | V1.0  草稿 |
+|          |            |          |          |
+|          |            |          |          |
+|          |            |          |          |
 
 ## 1.引言
 
@@ -169,18 +169,6 @@ UI1.1.1 在销售列表为空时，如果收银员输入会员识别（快捷键
 UI1.1.1.1 在收银员完成输入（快捷键Enter）时，如果系统无法识别会员，显示错误信息，如图…
 
 UI2……
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E7%99%BB%E9%99%86%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%9F%A5%E7%9C%8B%E6%8A%A5%E8%A1%A8%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BA%93%E5%AD%98%E7%AE%A1%E7%90%86%E4%BA%BA%E5%91%98%E8%B5%B7%E5%A7%8B%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BA%93%E5%AD%98%E6%9F%A5%E7%9C%8B.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%A2%9E%E5%8A%A0%E5%95%86%E5%93%81.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%95%86%E5%93%81%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)<br>
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%88%B6%E5%AE%9A%E5%8D%95%E6%8D%AE%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2.png)<br>
-
 
 ### 3.1.2. 硬件接口
 
@@ -536,24 +524,24 @@ CI:客户端与服务器使用RMI的方式进行通信
 | CustomerManager.Seek                  | 系统允许进货销售人员人员选择查找客户的命令                    |
 | CustomerManager.Seek.Input            | 系统应该允许进货销售人员在查找客户的任务中进行键盘输入              |
 | CustomerManager.Seek.End              | 在进货销售人员输入结束查找命令时，系统要结束一个查找任务             |
-| CustomerManager.Seek.Del              | 在进货销售人员输入删除已输入的信息或数据的命令时，系统执行删除已输入信息的命令  |
-| CustomerManager.Seek.Valid            | 在进货销售人员输入系统中存在的客户编号或关键词时，系统显示所有符合条件的客户。  |
-| CustomerManager.Seek.Invalid          | 在进货销售人员输入系统中不存在的客户编号或者关键词时，系统提示核对输入的信息并重新输入。 |
+| CustomerManager.Seek.Del              | 在进货销售人员输入删除已输入信息的命令时，系统执行删除已输入信息的命令      |
+| CustomerManager.Seek.Valid            | 在进货销售人员输入系统中存在的客户编号或关键词时，系统显示所有符合条件的客户信息。 |
+| CustomerManager.Seek.Invalid          | 在进货销售人员输入系统中不存在的客户编号或者关键词时，系统提示核对信息并重新输入。 |
 | CustomerManager.Add                   | 系统允许进货销售人员人员选择增加客户的命令                    |
 | CustomerManager.Add.Input             | 系统应该允许进货销售人员在增加客户的任务中进行键盘输入              |
-| CustomerManager.Add.Del               | 在进货销售人员输入删除已输入的信息的命令时，系统执行删除已输入信息的命令     |
+| CustomerManager.Add.Del               | 在进货销售人员输入删除已输入信息的命令时，系统执行删除已输入信息的命令      |
 | CustomerManager.Add.Seek              | 在进货销售人员输入增加客户的命令后，系统查找是否与已有客户重复。         |
 | CustomerManager.Add.Invalid.Repeat    | 在进货销售人员输入的客户属性和系统中已有的客户重复时，系统不做增加客户处理，并提示核对信息重新输入。 |
-| CustomerManager.Add.Invalid.Lack      | 在进货销售人员输入的客户属性不完整时，系统不做增加操作并提示核对输入的信息重新输入。 |
+| CustomerManager.Add.Invalid.Lack      | 在进货销售人员输入的客户属性不完整时，系统不做增加操作并提示核对信息重新输入。  |
 | CustomerManager.Add.Valid             | 在进货销售人员输入的客户属性完整且没有与系统中已有的客户重复时，系统中新建一个客户，并提示新建成功。 |
 | CustomerManager.Add.End               | 在进货销售人员输入结束增加客户命令时，系统要结束一个增加客户任务。        |
 | CustomerManager.Add.End.Null          | 在进货销售人员未输入任何信息就输入结束命令时，系统关闭增加客户任务不做任何处理。 |
 | CustomerManager.Add.End.Uninish       | 在进货销售人员已输入客户属性后但未输入增加客户命令而是选择结束命令时，系统提示操作尚未成功，询问操作人是否结束操作。 |
-| CustomerManager.Add.Update            | 在增加客户的操作成功后，系统更新数据                       |
+| CustomerManager.Add.Update            | 在增加客户的操作成功后，系统更新数据库                      |
 | CustomerManager.Del                   | 系统允许进货销售人员人员选择删除客户的命令                    |
 | CustomerManager.Del.Input             | 系统允许进货销售人员在删除客户任务中进行键盘输入。                |
 | CustomerManager.Del.Seek              | 在进货销售人员输入关键词或者编号后，系统内查找所有符合条件的客户。        |
-| CustomerManager.Del.Seek.Invalid      | 当系统内不存在符合条件的客户时，系统提示核对输入的信息重新输入。         |
+| CustomerManager.Del.Seek.Invalid      | 当系统内不存在符合条件的客户时，系统提示核对信息重新输入。            |
 | CustomerManager.Del.Seek.Valid        | 系统中存在符合搜索条件的客户时，显示所有符合条件的客户。             |
 | CustomerManager.Del.Start             | 在进货销售人员找到要删除的客户时，选择该客户发起删除客户的请求。         |
 | CustomerManager.Del.Check             | 在进货销售人员输入删除命令时，系统询问是否进行删除                |
@@ -878,11 +866,11 @@ CI:客户端与服务器使用RMI的方式进行通信
 | InitialAccount.Initialize.Save   | 财务人员在保存期初建账时，系统会提示是否建账，选择保存，则修改系统数据，并保存账户至账户列表 |
 | InitialAccount.Initialize.Concle | 财务人员在保存期初建账时，系统会提示是否建账，选择放弃，则放弃填写的账户数据，并返回至账户初始化界面 |
 
-###3.2.14. 查看导出报表
+###3.2.14. 查看导出销售明细表
 
 ####3.2.14.1.  特性描述
 
-一个经过系统权限审核的用户决定查看并导出报表，系统提示选择报表类型，用户选择查看报表类型及筛选条件，系统返回用户所需要查看的报表并根据用户选择决定是否导出报表至Excel格式。
+一个经过系统权限审核的用户决定查看并导出销售明细表，用户根据系统提示输入筛选条件，系统返回用户所需要查看的销售明细表，并根据用户选择决定是否导出报表至Excel格式。
 
 优先级=高
 
@@ -892,79 +880,119 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
 
-刺激：用户登录后要求查看报表
+刺激：用户登录后要求查看销售明细表
 
-响应：系统审核用户权限，符合权限则返回当前报表类型，否则提示权限不足
-
-刺激：用户选择报表类型
-
-响应：系统返回对应报表的筛选条件
+响应：系统审核用户权限，符合权限则提示用户选择**时间区间，商品名，客户，业务员，仓库**中的一个或多个条件作为筛选条件，否则提示权限不足
 
 刺激：用户填写筛选条件并提交
 
 响应：系统根据用户提交的条件检索报表并显示
 
-刺激：用户完成报表阅读，选择继续
+刺激：用户要求导出销售明细表
 
-响应：系统询问用户是否需要导出当前报表
+响应：系统导出excel存放在本地
 
-刺激：用户选择导出报表或不导出报表
+刺激：用户结束查看导出销售明细表
 
-响应：系统获取用户选择，如果用户要求导出报表那么报表以excel格式导出到本地
-
-刺激：用户结束导出报表选择，选择继续
-
-响应：系统询问用户是否继续阅读其他报表
-
-刺激：用户选择继续阅读或不继续阅读，提交选项
-
-响应：系统根据用户选项返回报表类型选择界面或结束当前过程
+响应：系统退出当前功能
 
 ####3.2.14.3. 相关功能需求
 
-| 编号                      | 需求说明                                     |
-| ----------------------- | ---------------------------------------- |
-| Read.Login.Wait         | 系统提示用户输入登录名和密码                           |
-| Read.Login.Input        | 系统获取用户输入的登录名和密码                          |
-| Read.Login.Check        | 系统判定用户名和密码是否匹配                           |
-| Read.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
-| Read.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
-| Read.Login.Exit         | 用户放弃登录，选择退出系统                            |
-| Read.Login.Retry        | 用户要求重新登录，参见Read.Login.Wait               |
-| Read.Limits.Application | 用户向系统申请查询报表                              |
-| Read.Limits.Check       | 系统查询用户权限信息以确认是否允许查询                      |
-| Read.Limits.Valid       | 系统提示用户权限合法，并提示用户选择报表类型，参见Read.Select.Show |
-| Read.Limits.Invalid     | 系统提示用户权限不足无法查看报表，要求用户退出查询功能，参见Read.Exit  |
-| Read.Select.Show        | 系统显示当前可选择报表类型                            |
-| Read.Select.Input       | 用户选择一个报表类型点击查询                           |
-| Read.Select.Cancel      | 用户要求系统退出查看报表功能，参见Read.Exit               |
-| Read.Select.Search      | 系统查询用户选择的报表类型对应的筛选条件                     |
-| Read.Condition.Show     | 系统显示当前报表类型下的筛选条件                         |
-| Read.Condition.Input    | 用户输入筛选条件                                 |
-| Read.Condition.Clear    | 用户要求系统清空所有已选的筛选条件                        |
-| Read.Condition.Invalid  | 系统提示用户输入的条件不完整或不合法，要求用户重新输入（参见Read.Condition.Input）或退出查询报表功能（参见Read.Exit） |
-| Read.Condition.Rechoose | 用户要求重新选择报表类型，系统返回上一操作界面供用户重新选择，参见Read.Select.Show |
-| Read.Condition.Search   | 用户要求系统查询符合条件的报表                          |
-| Read.Show.List          | 系统显示符合筛选条件的报表                            |
-| Read.Show.Null          | 系统提示用户当前条件下没有符合要求的报表                     |
-| Read.Show.Change        | 用户要求重新选择筛选条件，系统返回上一操作界面，参见Read.Condition.Show |
-| Read.Show.Export        | 用户要求系统导出当前报表，参见Read.Export               |
-| Read.Show.Exit          | 用户要求退出查看报表功能，参见Read.Exit                 |
-| Read.Export.Outout      | 系统导出用户要求的报表并存放在本地                        |
-| Read.Export.Reminder    | 系统提示用户当前报表已导出                            |
-| Read.Export.Continue    | 用户要求继续查看报表，系统返回上层界面，参见Read.Select.Show   |
-| Read.Exit               | 系统退出导出报表功能                               |
-|                         |                                          |
+| SalesList.Login.Wait         | 系统提示用户输入登录名和密码                           |
+| ---------------------------- | ---------------------------------------- |
+| SalesList.Login.Input        | 系统获取用户输入的登录名和密码                          |
+| SalesList.Login.Check        | 系统判定用户名和密码是否匹配                           |
+| SalesList.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
+| SalesList.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
+| SalesList.Login.Exit         | 用户放弃登录，选择退出系统                            |
+| SalesList.Login.Retry        | 用户要求重新登录，参见SalesList.Login.Wait          |
+| SalesList.Limits.Application | 用户向系统申请查询销售明细表                           |
+| SalesList.Limits.Check       | 系统查询用户权限信息以确认是否允许查询                      |
+| SalesList.Limits.Valid       | 系统提示用户权限合法，并提示用户选择筛选条件，参见SalesList.Condition.Show |
+| SalesList.Limits.Invalid     | 系统提示用户权限不足无法查看报表，要求用户退出查看经营情况表功能，参见SalesList.Exit |
+| SalesList.Condition.Show     | 系统显示筛选条件：**时间区间，商品名，客户，业务员，仓库**          |
+| SalesList.Condition.Input    | 用户输入筛选条件                                 |
+| SalesList.Condition.Clear    | 用户要求系统清空所有已选的筛选条件                        |
+| SalesList.Condition.Invalid  | 系统提示用户输入的条件不完整或不合法，要求用户重新输入（参见SalesList.Condition.Input）或退出查询报表功能（参见SalesList.Exit） |
+| SalesList.Condition.Rechoose | 用户重新输入条件                                 |
+| SalesList.Condition.Search   | 用户要求系统查询符合条件的报表                          |
+| SalesList.Show.List          | 系统显示符合筛选条件的报表                            |
+| SalesList.Show.Null          | 系统提示用户当前条件下没有符合要求的报表                     |
+| SalesList.Show.Export        | 用户要求系统导出当前报表，参见SalesList.Export          |
+| SalesList.Show.Exit          | 用户要求退出查看报表功能，参见SalesList.Exit            |
+| SalesList.Export.Outout      | 系统导出用户要求的报表并存放在本地                        |
+| SalesList.Export.Reminder    | 系统提示用户当前报表已导出                            |
+| SalesList.Export.Continue    | 用户要求继续查看报表，系统返回上层界面，参见SalesList.Condition.Show |
+| SalesList.Exit               | 系统退出导出报表功能                               |
 
-###3.2.15. 审批单据
+### 3.2.15. 查看导出经营情况表
 
-####3.2.15.1. 特性描述
+#### 3.2.15.1.  特性描述
+
+一个经过系统权限审核的用户决定查看并导出经营情况表，用户根据系统提示输入筛选条件，系统返回用户所需要查看的经营情况表，并根据用户选择决定是否导出报表至Excel格式。
+
+优先级=高
+
+#### 3.2.15.2. 刺激/响应序列
+
+刺激：用户输入登录名和密码
+
+响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
+
+刺激：用户登录后要求查看经营情况表
+
+响应：系统审核用户权限，符合权限则提示用户选择**时间区间**作为筛选条件，否则提示权限不足
+
+刺激：用户填写筛选条件并提交
+
+响应：系统根据用户提交的条件检索报表并显示
+
+刺激：用户要求导出经营情况表
+
+响应：系统导出excel存放在本地
+
+刺激：用户结束查看导出经营情况表
+
+响应：系统退出当前功能
+
+#### 3.2.15.3 相关功能需求
+
+| ManageList.Login.Wait         | 系统提示用户输入登录名和密码                           |
+| ----------------------------- | ---------------------------------------- |
+| ManageList.Login.Input        | 系统获取用户输入的登录名和密码                          |
+| ManageList.Login.Check        | 系统判定用户名和密码是否匹配                           |
+| ManageList.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
+| ManageList.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
+| ManageList.Login.Exit         | 用户放弃登录，选择退出系统                            |
+| ManageList.Login.Retry        | 用户要求重新登录，参见ManageList.Login.Wait         |
+| ManageList.Limits.Application | 用户向系统申请查询经营情况表                           |
+| ManageList.Limits.Check       | 系统查询用户权限信息以确认是否允许查询                      |
+| ManageList.Limits.Valid       | 系统提示用户权限合法，并提示用户选择筛选条件，参见ManageList.Select.Show |
+| ManageList.Limits.Invalid     | 系统提示用户权限不足无法查看报表，要求用户退出查看经营情况表功能，参见ManageList.Exit |
+| ManageList.Condition.Show     | 系统显示筛选条件：**时间区间**                        |
+| ManageList.Condition.Input    | 用户输入筛选条件                                 |
+| ManageList.Condition.Clear    | 用户要求系统清空所有已选的筛选条件                        |
+| ManageList.Condition.Invalid  | 系统提示用户输入的条件不完整或不合法，要求用户重新输入（参见ManageList.Condition.Input）或退出查询报表功能（参见ManageList.Exit） |
+| SalesList.Condition.Rechoose  | 用户重新输入条件                                 |
+| ManageList.Condition.Search   | 用户要求系统查询符合条件的报表                          |
+| ManageList.Show.List          | 系统显示符合筛选条件的报表                            |
+| ManageList.Show.Null          | 系统提示用户当前条件下没有符合要求的报表                     |
+| ManageList.Show.Export        | 用户要求系统导出当前报表，参见ManageList.Export         |
+| ManageList.Show.Exit          | 用户要求退出查看报表功能，参见ManageList.Exit           |
+| ManageList.Export.Outout      | 系统导出用户要求的报表并存放在本地                        |
+| ManageList.Export.Reminder    | 系统提示用户当前报表已导出                            |
+| ManageList.Export.Continue    | 用户要求继续查看报表，系统返回上层界面，参见ManageList.Condition.Show |
+| ManageList.Exit               | 系统退出导出报表功能                               |
+
+###3.2.16. 审批单据
+
+####3.2.16.1. 特性描述
 
 一个经过系统权限审核的用户决定审批单据，系统显示当前提交单据列表，用户可以单张或多张审批单据，用户审批后系统修改单据状态、更新后台数据并发送信息给单据提交者，并显示更新后的提交单据列表
 
 优先级=高
 
-####3.2.15.2. 刺激/响应序列
+####3.2.16.2. 刺激/响应序列
 
 刺激：用户输入登录名和密码
 
@@ -982,7 +1010,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 响应：系统获取审批结果或结束当前进程
 
-####3.2.15.3. 相关功能需求
+####3.2.16.3. 相关功能需求
 
 | 编号                         | 需求说明                                     |
 | -------------------------- | ---------------------------------------- |
@@ -1014,15 +1042,17 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Receipt.Continue           | 系统返回上层界面允许用户继续审批单据，参见Receipt.Show.List   |
 | Receipt.Exit               | 系统退出审批单据功能                               |
 
-###3.2.16. 查询日志
 
-####3.2.16.1. 特性描述
+
+###3.2.17. 查询日志
+
+####3.2.17.1. 特性描述
 
 一个通过身份核实的用户选择查询日志，系统显示当前日志列表，用户选择一条日志进行阅读，结束阅读后返回列表，继续阅读或退出
 
 优先级=高
 
-####3.2.16.2. 刺激/响应序列
+####3.2.17.2. 刺激/响应序列
 
 刺激：用户输入登录名和密码
 
@@ -1044,7 +1074,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 响应：系统显示下一条日志内容或退出当前操作
 
-####3.2.16.3. 相关功能需求
+####3.2.17.3. 相关功能需求
 
 | 编号                     | 需求说明                                     |
 | ---------------------- | ---------------------------------------- |
@@ -1066,15 +1096,15 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Log.Show.Back          | 用户要求返回日志列表                               |
 | Log.Exit               | 系统退出查询日志功能                               |
 
-###3.2.17. 制定促销策略
+###3.2.18. 制定促销策略
 
-####3.2.17.1. 特性描述
+####3.2.18.1. 特性描述
 
 一个经过系统身份核验的用户要求制定销售策略，系统提供当前可制定策略列表供用户选择，用户选择其中一个策略后系统显示需要填写的信息，用户提交信息完成策略制定
 
 优先级=高
 
-####3.2.17.2. 刺激/响应序列
+####3.2.18.2. 刺激/响应序列
 
 刺激：用户输入登录名和密码
 
@@ -1100,7 +1130,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 响应：系统退出当前操作或提示用户输入促销开始和结束时间
 
-####3.2.17.3. 相关功能需求
+####3.2.18.3. 相关功能需求
 
 <<<<<<< HEAD
 | Promotion.Login.Wait          | 系统提示用户输入登录名和密码                           |
@@ -1135,35 +1165,6 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Promotion.Continue            | 系统返回选择起始时间界面，参见Promotion.Time.Reminder   |
 | Promotion.Exit                | 用户要求退出制定促销策略功能                           |
 =======
-| 编号                         | 需求说明                                     |
-| -------------------------- | ---------------------------------------- |
-| Receipt.Login.Wait         | 系统提示用户输入登录名和密码                           |
-| Receipt.Login.Input        | 系统获取用户输入的登录名和密码                          |
-| Receipt.Login.Check        | 系统判定用户名和密码是否匹配                           |
-| Receipt.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
-| Receipt.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
-| Receipt.Login.Exit         | 用户放弃登录，选择退出系统                            |
-| Receipt.Login.Retry        | 用户要求重新登录，参见Receipt.Login.Wait            |
-| Receipt.Limits.Application | 用户向系统申请审批单据                              |
-| Receipt.Limits.Check       | 系统查询用户权限信息以确认是否允许审批                      |
-| Receipt.Limits.Valid       | 系统提示用户权限合法，并显示当前单据列表，参见Receipt.Show      |
-| Receipt.Limits.Invalid     | 系统提示用户权限不足无法审批单据，要求用户退出审批单据功能，参见Receipt.Exit |
-| Receipt.Show.List          | 系统显示当前提交单据列表                             |
-| Receipt.Show.Null          | 系统提示当前没有提交单据                             |
-| Receipt.Show.Read          | 用户点击一张单据，系统显示其详细信息                       |
-| Receipt.Show.Exit          | 用户要求退出审批单据功能，参见Receipt.Exit              |
-| Receipt.Check.Select       | 用户选中要审批的单张或多张单据并确认                       |
-| REceipt.Check.Reminder     | 系统提示用户选择批准或不批准                           |
-| Receipt.Check.Commit       | 用户选择批准单据或不批准单据                           |
-| Receipt.Check.Clear        | 用户要求系统清空已选单据重新选择                         |
-| Receipt.Check.Cancel       | 用户放弃审批单据，参见Receipt.Exit                  |
-| Receipt.Process.Pass       | 系统修改用户审批通过的单据的审核状态为批准                    |
-| Receipt.Process.Fail       | 系统修改用户审批不通过的单据状态为不批准                     |
-| Receipt.Process.Update     | 系统根据审批通过的单据的数据更新后台数据                     |
-| Receipt.Process.Inform     | 系统向被审批单据的提交者发送消息来提示其提交单据的状态              |
-| Receipt.Process.Refresh    | 系统在当前提交单据列表中删除被审批的单据，显示当前提交单据列表          |
-| Receipt.Continue           | 系统返回上层界面允许用户继续审批单据，参见Receipt.Show.List   |
-| Receipt.Exit               | 系统退出审批单据功能                               |
 >>>>>>> cf1dbf19a4b1358858e2c27fbbb42e5661cbf76b
 
 ### 3.3. 非功能需求
