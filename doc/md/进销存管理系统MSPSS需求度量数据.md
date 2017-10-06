@@ -16,7 +16,7 @@
 
 
 
-# <center>v1.0 正式版</center>
+# <center>v1.1 正式版</center>
 
 <br><br><br>
 
@@ -33,7 +33,7 @@
 | **修改人员** | **日期**     | **变更原因** | **版本号**  |
 | -------- | ---------- | -------- | -------- |
 | FX全组人员   | 2017-09-30 | 最初草稿     | V1.0  草稿 |
-|          |            |          |          |
+| 徐光耀，刘雅歆  | 2017-10-06 | 用例文档发生变更 | V1.1     |
 |          |            |          |          |
 |          |            |          |          |
 
@@ -467,48 +467,7 @@
 
 
 
-### 2.12 查看导出及调整报表
 
-| ViewReport.Exit                          | 系统应该允许财务人员退出查看导出报表界面                     |
-| ---------------------------------------- | ---------------------------------------- |
-| ViewReport.Choose                        | 系统应该允许财务人员选择查看或导出报表的类型，其中包括： 销售明细表， 经营历程表， 经营情况表**（输入）** |
-| ViewReport.Choose.SaleList               | 财务人员执行提填写销售明细表操作，参见ViewReport.SaleList   |
-| ViewReport.Choose.BusinessProcessTable   | 财务人员执行填写经营历程表操作，参见ViewReport.BusinessProcessTable |
-| ViewReport.Choose.StatementOfOperation   | 财务人员执行填写经营情况表，参见ViewReport.StatementOfOperation |
-| ViewReport.SaleList                      | 财务人员在查看报表之前，应该输入目标的条件**（输入，查询，输出）**      |
-| ViewReport.SaleList.Filter               | 财务人员在查看单据时，应该输入相关信息，  时间区间，商品名，客户，业务员，仓库**（输入，查询，输出）** |
-| ViewReport.SaleList.Filter.Invalid       | 如果没有信息，则显示无相关信息**（输出）**                  |
-| ViewReport.SaleLIst.Filter.Valid         | 销售明细列表中包括： 时间（精确到天），商品名，型号，数量，单价，总额**（输出）** |
-| ViewReport.SaleList.Export               | 财务人员可以导出报表，参见ViewReport.Export           |
-| ViewReport.BusinessProcessTable          | 系统执行查看经营历程表操作                            |
-| ViewReport.BusinessProcessTable.Filter   | 财务人员输入筛选条件：时间区间，单据类型，客户，业务员，仓库**（输入，查询，输出）** |
-| ViewReport.BusinessProcessTable.Filter.Invalid | 如果没有信息，则显示无相关信息**（输出）**                  |
-| ViewReport.BusinessProcessTable.Filter.Valid | 时间里的所有单据，单据分为：1. 销售类单据（销售出货单，销售退货单） 2. 进货类单据（进货单，进货退货单） 3. 财务类单据（付款单，收款单，现金费用单）4. 库存类单据（报溢单，报损单，赠送单）,只能进行查看操作**（输出）** |
-| ViewReport.BusinessProcessTable.HotForging | 财务人员进行红冲操作，参见ViewReport.HotForging       |
-| ViewReport.BusinessProcessTable.Export   | 系统执行导出报表操作，参见ViewReport.Export           |
-| ViewReport.StatementOfOperation          | 财务人员查看经营情况表                              |
-| ViewReport.StatementOfOperation.Filter   | 财务人员输入目标的时间区间**（输入，输出，查询）**              |
-| ViewReport.StatementOfOperation.Filter.Invalid | 如果没有信息，则显示无相关信息**（输出）**                  |
-| ViewReport.StatementOfOperation.Filter.Valid | 显示信息：	1. 收入类：销售收入、商品类收入（商品报溢收入 成本调价收入 进货退货差价 代金券与实际收款差额收入）。收入类显示折让后总收入，并显示折让了多少。2. 支出类：销售成本、商品类支出（商品报损 商品赠出）。支出类显示总支出。3. 利润：折让后总收入-总支出**（输出）** |
-| ViewReport.StatementOfOperation.Export   | 系统执行导出操作，参见ViewReport.Export             |
-| ViewReport.HotForging                    | 系统允许财务人员执行红冲操作                           |
-| ViewReport.HotForging.New                | 财务人员新建单据                                 |
-| ViewReport.HotForging.Copy               | 财务人员执行红冲操作，复制目标单据，财务人员修改单据**（输入）**       |
-| ViewReport.HotForging.Commit             | 财务人员提交单据，系统发送单据给总经理，并修改系统数据**（逻辑文件，输出）** |
-| ViewReport.HotForging.Discard            | 系统允许财务人员放弃红冲操作                           |
-| ViewReport.Export                        | 在导出表单之前，财务人员应该先选择要导出的具体报表**（输入，外部接口）**   |
-| ViewReport.Export.Concle                 | 在报表导出的初始阶段，系统允许财务人员取消导出报表                |
-
-
-
-| 输入      | 7                     |
-| ------- | --------------------- |
-| 输出      | 11                    |
-| 查询      | 4                     |
-| 内部逻辑文件  | 1                     |
-| 对外接口文件  | 1                     |
-| 功能点测度总数 | 7x4+11x5+4x4+10+7=116 |
-| FP      | 117.16                |
 
 
 
@@ -533,7 +492,33 @@
 | 功能点测度总数 | 1x4+3x5+1x4+2x10=43 |
 | FP      | 43.43               |
 
+### 2.13 查看导出经营历程表
 
+| 编号                                     | 需求说明                                     |
+| -------------------------------------- | ---------------------------------------- |
+| BusinessProcessTable.Exit              | 系统应该允许财务人员退出查看导出报表界面**（内部逻辑）**           |
+| BusinessProcessTable                   | 系统执行查看经营历程表操作                            |
+| BusinessProcessTable.Filter            | 财务人员输入筛选条件：时间区间，单据类型，客户，业务员，仓库**（输入，查询）** |
+| BusinessProcessTable.Filter.Invalid    | 如果没有信息，则显示无相关信息**（内部逻辑，输出）**             |
+| BusinessProcessTable.Filter.Valid      | 时间里的所有单据，单据分为：1. 销售类单据（销售出货单，销售退货单） 2. 进货类单据（进货单，进货退货单） 3. 财务类单据（付款单，收款单，现金费用单）4. 库存类单据（报溢单，报损单，赠送单）,只能进行查看操作**（内部逻辑，查询，输出）** |
+| BusinessProcessTable.HotForging        | 财务人员进行红冲操作，参见BusinessProcessTable.HotForging |
+| BusinessProcessTable.Export            | 系统执行导出报表操作，参见BusinessProcessTable.Export |
+| BusinessProcessTable.HotForging        | 系统允许财务人员执行红冲操作                           |
+| BusinessProcessTable.HotForging.New    | 财务人员新建单据**（输入）**                         |
+| BusinessProcessTable.HotForging.Copy   | 财务人员执行红冲操作，复制目标单据，财务人员修改单据**（内部逻辑，输出，输入）** |
+| BusinessProcessTable.HotForging.Commit | 财务人员提交单据，系统发送单据给总经理，并修改系统数据**（内部逻辑，输出）** |
+| BusinessProcessTable.Discard           | 系统允许财务人员放弃红冲操作                           |
+| BusinessProcessTable.Export            | 在导出表单之前，财务人员应该先选择要导出的具体报表**（输入）**        |
+| BusinessProcessTable.Export.Concle     | 在报表导出的初始阶段，系统允许财务人员取消导出报表**（内部逻辑）**      |
+
+| 输入      | 4                         |
+| ------- | ------------------------- |
+| 输出      | 4                         |
+| 查询      | 2                         |
+| 内部逻辑文件  | 6                         |
+| 对外接口文件  | 0                         |
+| 功能点测度总数 | 4*4+4*5+2*4+6*10+0*7=104  |
+| FP      | 104*（0.65+0.01*36）=105.04 |
 
 ### 2.14 查看导出销售明细表
 
@@ -571,7 +556,7 @@
 | 内部逻辑文件  | 4                         |
 | 对外接口文件  | 0                         |
 | 功能点测度总数 | 2*4+10*5+5*4+4*10+0*7=118 |
-| FP      | 165*（0.65+0.01*36）=119.18 |
+| FP      | 118*（0.65+0.01*36）=119.18 |
 
 ### 2.15查看导出经营情况表
 
@@ -609,7 +594,7 @@
 | 内部逻辑文件  | 5                         |
 | 对外接口文件  | 0                         |
 | 功能点测度总数 | 2*4+10*5+5*4+5*10+0*7=128 |
-| FP      | 165*（0.65+0.01*36）=129.28 |
+| FP      | 128*（0.65+0.01*36）=129.28 |
 
 ### 2.16审批单据
 

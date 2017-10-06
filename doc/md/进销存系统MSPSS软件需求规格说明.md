@@ -18,7 +18,7 @@
 
 
 
-# <center>v1.0 正式版</center>
+# <center>v1.1 正式版</center>
 
 <br><br><br>
 
@@ -31,7 +31,7 @@
 | **修改人员** | **日期**     | **变更原因** | **版本号**  |
 | -------- | ---------- | -------- | -------- |
 | FX全组人员   | 2017-09-26 | 最初草稿     | V1.0  草稿 |
-|          |            |          |          |
+| 徐光耀，刘雅歆  | 2017-10-06 | 用例文档调整   | V1.1     |
 |          |            |          |          |
 |          |            |          |          |
 
@@ -774,70 +774,13 @@ CI:客户端与服务器使用RMI的方式进行通信
 | MakeReceipt.Diacard.Sure          | 系统不保存填写的表单，退出填表操作                        |
 | MakeReceipt.Discard.Concel        | 取消放弃填写,返回填写操作                            |
 
-###3.2.12. 查看或导出报表
+###3.2.12. 期初建账
 
 ####3.2.12.1. 特性描述
 
-财务人员在需要获取报表信息或者需要导出报表时，一个经过权限认证的财务人员可以通过系统制定收款单，选择报表类型，输入相关信息查看报表后，可以选择红冲调整账户或者导出报表，最后系统保存操作至系统日志
-
-####3.2.12.2. 刺激/响应序列
-
-刺激： 财务人员可以选择报表类型
-
-响应： 系统返回对应报表类型的搜索界面
-
-刺激： 财务人员输入相关报表的信息
-
-响应： 系统返回有关的报表列表
-
-刺激： 财务人员选择红冲操作
-
-响应： 系统返回红冲界面
-
-刺激： 财务人员选择导出选择的报表
-
-响应： 系统导出报表至对应内部或外部位置
-
-####3.2.12.3. 相关功能需求
-
-| 编号                                       | 需求说明                                     |
-| ---------------------------------------- | ---------------------------------------- |
-| ViewReport.Exit                          | 系统应该允许财务人员退出查看导出报表界面                     |
-| ViewReport.Choose                        | 系统应该允许财务人员选择查看或导出报表的类型，其中包括： 销售明细表， 经营历程表， 经营情况表 |
-| ViewReport.Choose.SaleList               | 财务人员执行提填写销售明细表操作，参见ViewReport.SaleList   |
-| ViewReport.Choose.BusinessProcessTable   | 财务人员执行填写经营历程表操作，参见ViewReport.BusinessProcessTable |
-| ViewReport.Choose.StatementOfOperation   | 财务人员执行填写经营情况表，参见ViewReport.StatementOfOperation |
-| ViewReport.SaleList                      | 财务人员在查看报表之前，应该输入目标的条件                    |
-| ViewReport.SaleList.Filter               | 财务人员在查看单据时，应该输入相关信息， 时间区间，商品名，客户，业务员，仓库  |
-| ViewReport.SaleList.Filter.Invalid       | 如果没有信息，则显示无相关信息                          |
-| ViewReport.SaleLIst.Filter.Valid         | 销售明细列表中包括： 时间（精确到天），商品名，型号，数量，单价，总额      |
-| ViewReport.SaleList.Export               | 财务人员可以导出报表，参见ViewReport.Export           |
-| ViewReport.BusinessProcessTable          | 系统执行查看经营历程表操作                            |
-| ViewReport.BusinessProcessTable.Filter   | 财务人员输入筛选条件：时间区间，单据类型，客户，业务员，仓库           |
-| ViewReport.BusinessProcessTable.Filter.Invalid | 如果没有信息，则显示无相关信息                          |
-| ViewReport.BusinessProcessTable.Filter.Valid | 时间里的所有单据，单据分为：1. 销售类单据（销售出货单，销售退货单） 2. 进货类单据（进货单，进货退货单） 3. 财务类单据（付款单，收款单，现金费用单）4. 库存类单据（报溢单，报损单，赠送单）,只能进行查看操作 |
-| ViewReport.BusinessProcessTable.HotForging | 财务人员进行红冲操作，参见ViewReport.HotForging       |
-| ViewReport.BusinessProcessTable.Export   | 系统执行导出报表操作，参见ViewReport.Export           |
-| ViewReport.StatementOfOperation          | 财务人员查看经营情况表                              |
-| ViewReport.StatementOfOperation.Filter   | 财务人员输入目标的时间区间                            |
-| ViewReport.StatementOfOperation.Filter.Invalid | 如果没有信息，则显示无相关信息                          |
-| ViewReport.StatementOfOperation.Filter.Valid | 显示信息： 1. 收入类：销售收入、商品类收入（商品报溢收入 成本调价收入 进货退货差价 代金券与实际收款差额收入）。收入类显示折让后总收入，并显示折让了多少。2. 支出类：销售成本、商品类支出（商品报损 商品赠出）。支出类显示总支出。3. 利润：折让后总收入-总支出 |
-| ViewReport.StatementOfOperation.Export   | 系统执行导出操作，参见ViewReport.Export             |
-| ViewReport.HotForging                    | 系统允许财务人员执行红冲操作                           |
-| ViewReport.HotForging.New                | 财务人员新建单据                                 |
-| ViewReport.HotForging.Copy               | 财务人员执行红冲操作，复制目标单据，财务人员修改单据               |
-| ViewReport.HotForging.Commit             | 财务人员提交单据，系统发送单据给总经理，并修改系统数据              |
-| ViewReport.HotForging.Discard            | 系统允许财务人员放弃红冲操作                           |
-| ViewReport.Export                        | 在导出表单之前，财务人员应该先选择要导出的具体报表                |
-| ViewReport.Export.Concle                 | 在报表导出的初始阶段，系统允许财务人员取消导出报表                |
-
-###3.2.13. 期初建账
-
-####3.2.13.1. 特性描述
-
 财务人员在每一个阶段的初始阶段，一个经过系统权限认证的财务人员可以通过系统初始化这个阶段的公司账户，填写相关信息之后，系统会保存初始信息及账户，以后可以随时查看系统初始化数据，最后，保存操作至系统日志
 
-####3.2.13.2. 刺激/响应序列
+####3.2.12.2. 刺激/响应序列
 
 刺激： 财务选择期初建账操作
 
@@ -855,7 +798,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 响应： 系统保存账户至公司账户，并保存初始化数据
 
-####3.2.13.3. 相关功能需求
+####3.2.12.3. 相关功能需求
 
 | 编号                               | 需求说明                                     |
 | -------------------------------- | ---------------------------------------- |
@@ -865,6 +808,49 @@ CI:客户端与服务器使用RMI的方式进行通信
 | InitialAccount.Initialize.quit   | 财务人员在填写报表时，可以选择放弃报表，系统会返回上一界面，不保存已修改信息   |
 | InitialAccount.Initialize.Save   | 财务人员在保存期初建账时，系统会提示是否建账，选择保存，则修改系统数据，并保存账户至账户列表 |
 | InitialAccount.Initialize.Concle | 财务人员在保存期初建账时，系统会提示是否建账，选择放弃，则放弃填写的账户数据，并返回至账户初始化界面 |
+
+### 3.2.13. 查看或导出经营历程表
+
+#### 3.2.13.1. 特性描述
+
+财务人员在需要获取报表信息或者需要导出经营历程表时，一个经过权限认证的财务人员可以通过系统制定收款单，选择报表类型，输入相关信息查看报表后，可以选择红冲调整账户或者导出报表，最后系统保存操作至系统日志
+
+#### 3.2.13.2. 刺激/响应序列
+
+刺激：用户输入登录名和密码
+
+响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
+
+刺激： 财务人员输入相关报表的信息
+
+响应： 系统返回有关的报表列表
+
+刺激： 财务人员选择红冲操作
+
+响应： 系统返回红冲界面
+
+刺激： 财务人员选择导出选择的报表
+
+响应： 系统导出报表至对应内部或外部位置
+
+#### 3.2.13.3. 相关功能需求
+
+| 编号                                     | 需求说明                                     |
+| -------------------------------------- | ---------------------------------------- |
+| BusinessProcessTable.Exit              | 系统应该允许财务人员退出查看导出报表界面                     |
+| BusinessProcessTable                   | 系统执行查看经营历程表操作                            |
+| BusinessProcessTable.Filter            | 财务人员输入筛选条件：时间区间，单据类型，客户，业务员，仓库           |
+| BusinessProcessTable.Filter.Invalid    | 如果没有信息，则显示无相关信息                          |
+| BusinessProcessTable.Filter.Valid      | 时间里的所有单据，单据分为：1. 销售类单据（销售出货单，销售退货单） 2. 进货类单据（进货单，进货退货单） 3. 财务类单据（付款单，收款单，现金费用单）4. 库存类单据（报溢单，报损单，赠送单）,只能进行查看操作 |
+| BusinessProcessTable.HotForging        | 财务人员进行红冲操作，参见BusinessProcessTable.HotForging |
+| BusinessProcessTable.Export            | 系统执行导出报表操作，参见BusinessProcessTable.Export |
+| BusinessProcessTable.HotForging        | 系统允许财务人员执行红冲操作                           |
+| BusinessProcessTable.HotForging.New    | 财务人员新建单据                                 |
+| BusinessProcessTable.HotForging.Copy   | 财务人员执行红冲操作，复制目标单据，财务人员修改单据               |
+| BusinessProcessTable.HotForging.Commit | 财务人员提交单据，系统发送单据给总经理，并修改系统数据              |
+| BusinessProcessTable.Discard           | 系统允许财务人员放弃红冲操作                           |
+| BusinessProcessTable.Export            | 在导出表单之前，财务人员应该先选择要导出的具体报表                |
+| BusinessProcessTable.Export.Concle     | 在报表导出的初始阶段，系统允许财务人员取消导出报表                |
 
 ###3.2.14. 查看导出销售明细表
 
