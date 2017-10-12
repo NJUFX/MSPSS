@@ -358,16 +358,16 @@
 
 | 编号                       | 需求描述                                     |
 | ------------------------ | ---------------------------------------- |
-| SalesLIst.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
-| SalesLIst.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
-| SalesLIst.Input.Invalid  | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
-| SalesLIst.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
-| SalesLIst.Create         | 系统生成相应的单据                                |
-| SalesLIst.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
-| SalesLIst.Create.Valid   | 系统成功生成相应单据（输出）                           |
-| SalesLIst.End            | 系统允许进货销售人员结束制定单据的请求。                     |
-| SalesLIst.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
-| SalesLIst.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
+| SalesList.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
+| SalesList.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
+| SalesList.Input.Invalid  | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
+| SalesList.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
+| SalesList.Create         | 系统生成相应的单据                                |
+| SalesList.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
+| SalesList.Create.Valid   | 系统成功生成相应单据（输出）                           |
+| SalesList.End            | 系统允许进货销售人员结束制定单据的请求。                     |
+| SalesList.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
+| SalesList.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
 
 
 
@@ -386,16 +386,16 @@
 
 | 编号                             | 需求描述                                     |
 | ------------------------------ | ---------------------------------------- |
-| SalesReturnLIst.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
-| SalesReturnLIst.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
-| SalesReturnLIstt.Input.Invalid | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
-| SalesReturnLIst.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
-| SalesReturnLIst.Create         | 系统生成相应的单据                                |
-| SalesReturnLIst.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
-| SalesReturnLIst.Create.Valid   | 系统成功生成相应单据（输出）                           |
-| SalesReturnLIst.End            | 系统允许进货销售人员结束制定单据的请求。                     |
-| SalesReturnLIst.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
-| SalesReturnLIst.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
+| SalesReturnList.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
+| SalesReturnList.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
+| SalesReturnList.Input.Invalid  | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
+| SalesReturnList.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
+| SalesReturnList.Create         | 系统生成相应的单据                                |
+| SalesReturnList.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
+| SalesReturnList.Create.Valid   | 系统成功生成相应单据（输出）                           |
+| SalesReturnList.End            | 系统允许进货销售人员结束制定单据的请求。                     |
+| SalesReturnList.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
+| SalesReturnList.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
 
 
 

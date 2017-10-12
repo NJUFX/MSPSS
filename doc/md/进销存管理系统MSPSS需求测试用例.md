@@ -410,16 +410,16 @@
 
 | 编号                       | TUS8-1 | TUS8-2 | TUS8-3 | TUS8-4 | TUS8-5 | TUS8-6 | TUS8-7 | TUS8-8 |      |
 | ------------------------ | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| SalesLIst.Select         |   1    |        |        |        |        |        |        |        |      |
-| SalesLIst.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| SalesLIst.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| SalesLIstt.Input.Valid   |        |        |   3    |        |        |        |        |        |      |
-| SalesLIst.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| SalesLIst.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| SalesLIst.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| SalesLIst.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| SalesLIst.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| SalesLIst.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| SalesList.Select         |   1    |        |        |        |        |        |        |        |      |
+| SalesList.Input          |        |   2    |   3    |        |        |        |        |        |      |
+| SalesList.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
+| SalesList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
+| SalesList.Create         |        |        |        |   4    |   5    |        |        |        |      |
+| SalesList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
+| SalesList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
+| SalesList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
+| SalesList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
+| SalesList.End.Update     |        |        |        |   4    |        |        |        |        |      |
 
 
 
@@ -444,16 +444,16 @@
 
 | 编号                             | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
 | ------------------------------ | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| SalesReturnLIst.Select         |   1    |        |        |        |        |        |        |        |      |
-| SalesReturnLIst.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| SalesReturnLIst.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| SalesReturnLIst.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| SalesReturnLIst.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| SalesReturnLIst.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| SalesReturnLIst.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| SalesReturnLIst.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| SalesReturnLIst.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| SalesReturnLIst.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| SalesReturnList.Select         |   1    |        |        |        |        |        |        |        |      |
+| SalesReturnList.Input          |        |   2    |   3    |        |        |        |        |        |      |
+| SalesReturnList.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
+| SalesReturnList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
+| SalesReturnList.Create         |        |        |        |   4    |   5    |        |        |        |      |
+| SalesReturnList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
+| SalesReturnList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
+| SalesReturnList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
+| SalesReturnList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
+| SalesReturnList.End.Update     |        |        |        |   4    |        |        |        |        |      |
 
 ##用例9 账户管理
 
