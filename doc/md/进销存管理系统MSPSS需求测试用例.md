@@ -340,18 +340,18 @@
 
 ### 7.2测试用例套件覆盖情况
 
-| 编号                         | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
-| -------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| MakeReceipt.Select         |   1    |        |        |        |        |        |        |        |      |
-| MakeReceipt.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| MakeReceipt.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| MakeReceipt.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| MakeReceipt.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| MakeReceipt.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| MakeReceipt.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| MakeReceipt.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| MakeReceipt.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| MakeReceipt.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| 编号                          | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
+| --------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
+| PurchaseList.Select         |   1    |        |        |        |        |        |        |        |      |
+| PurchaseList.Input          |        |   2    |   3    |        |        |        |        |        |      |
+| PurchaseList.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
+| PurchaseList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
+| PurchaseList.Create         |        |        |        |   4    |   5    |        |        |        |      |
+| PurchaseList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
+| PurchaseList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
+| PurchaseList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
+| PurchaseList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
+| PurchaseList.End.Update     |        |        |        |   4    |        |        |        |        |      |
 
 
 
@@ -374,18 +374,18 @@
 
 ### 7.2测试用例套件覆盖情况
 
-| 编号                         | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
-| -------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| MakeReceipt.Select         |   1    |        |        |        |        |        |        |        |      |
-| MakeReceipt.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| MakeReceipt.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| MakeReceipt.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| MakeReceipt.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| MakeReceipt.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| MakeReceipt.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| MakeReceipt.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| MakeReceipt.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| MakeReceipt.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| 编号                                | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
+| --------------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
+| PurchaseReturnList.Select         |   1    |        |        |        |        |        |        |        |      |
+| PurchaseReturnList.Input          |        |   2    |   3    |        |        |        |        |        |      |
+| PurchaseReturnListt.Input.Invalid |        |   2    |        |        |        |        |        |        |      |
+| PurchaseReturnList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
+| PurchaseReturnList.Create         |        |        |        |   4    |   5    |        |        |        |      |
+| PurchaseReturnList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
+| PurchaseReturnList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
+| PurchaseReturnList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
+| PurchaseReturnList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
+| PurchaseReturnList.End.Update     |        |        |        |   4    |        |        |        |        |      |
 
 
 
@@ -408,18 +408,18 @@
 
 ###8.2 测试用例套件覆盖情况
 
-| 编号                         | TUS8-1 | TUS8-2 | TUS8-3 | TUS8-4 | TUS8-5 | TUS8-6 | TUS8-7 | TUS8-8 |      |
-| -------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| MakeReceipt.Select         |   1    |        |        |        |        |        |        |        |      |
-| MakeReceipt.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| MakeReceipt.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| MakeReceipt.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| MakeReceipt.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| MakeReceipt.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| MakeReceipt.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| MakeReceipt.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| MakeReceipt.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| MakeReceipt.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| 编号                       | TUS8-1 | TUS8-2 | TUS8-3 | TUS8-4 | TUS8-5 | TUS8-6 | TUS8-7 | TUS8-8 |      |
+| ------------------------ | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
+| SalesLIst.Select         |   1    |        |        |        |        |        |        |        |      |
+| SalesLIst.Input          |        |   2    |   3    |        |        |        |        |        |      |
+| SalesLIst.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
+| SalesLIstt.Input.Valid   |        |        |   3    |        |        |        |        |        |      |
+| SalesLIst.Create         |        |        |        |   4    |   5    |        |        |        |      |
+| SalesLIst.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
+| SalesLIst.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
+| SalesLIst.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
+| SalesLIst.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
+| SalesLIst.End.Update     |        |        |        |   4    |        |        |        |        |      |
 
 
 
@@ -442,24 +442,18 @@
 
 ### 7.2测试用例套件覆盖情况
 
-| 编号                         | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
-| -------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| MakeReceipt.Select         |   1    |        |        |        |        |        |        |        |      |
-| MakeReceipt.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| MakeReceipt.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| MakeReceipt.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| MakeReceipt.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| MakeReceipt.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| MakeReceipt.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| MakeReceipt.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| MakeReceipt.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| MakeReceipt.End.Update     |        |        |        |   4    |        |        |        |        |      |
-
-
-
-
-
-
+| 编号                             | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
+| ------------------------------ | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
+| SalesReturnLIst.Select         |   1    |        |        |        |        |        |        |        |      |
+| SalesReturnLIst.Input          |        |   2    |   3    |        |        |        |        |        |      |
+| SalesReturnLIst.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
+| SalesReturnLIst.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
+| SalesReturnLIst.Create         |        |        |        |   4    |   5    |        |        |        |      |
+| SalesReturnLIst.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
+| SalesReturnLIst.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
+| SalesReturnLIst.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
+| SalesReturnLIst.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
+| SalesReturnLIst.End.Update     |        |        |        |   4    |        |        |        |        |      |
 
 ##用例9 账户管理
 
