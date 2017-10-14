@@ -1050,10 +1050,6 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.14.2. 刺激/响应序列
 
-刺激：用户输入登录名和密码
-
-响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
-
 刺激：用户登录后要求查看销售明细表
 
 响应：系统审核用户权限，符合权限则提示用户选择**时间区间，商品名，客户，业务员，仓库**中的一个或多个条件作为筛选条件，否则提示权限不足
@@ -1072,15 +1068,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.14.3. 相关功能需求
 
-| SalesList.Login.Wait         | 系统提示用户输入登录名和密码                           |
-| ---------------------------- | ---------------------------------------- |
-| SalesList.Login.Input        | 系统获取用户输入的登录名和密码                          |
-| SalesList.Login.Check        | 系统判定用户名和密码是否匹配                           |
-| SalesList.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
-| SalesList.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
-| SalesList.Login.Exit         | 用户放弃登录，选择退出系统                            |
-| SalesList.Login.Retry        | 用户要求重新登录，参见SalesList.Login.Wait          |
 | SalesList.Limits.Application | 用户向系统申请查询销售明细表                           |
+| ---------------------------- | ---------------------------------------- |
 | SalesList.Limits.Check       | 系统查询用户权限信息以确认是否允许查询                      |
 | SalesList.Limits.Valid       | 系统提示用户权限合法，并提示用户选择筛选条件，参见SalesList.Condition.Show |
 | SalesList.Limits.Invalid     | 系统提示用户权限不足无法查看报表，要求用户退出查看经营情况表功能，参见SalesList.Exit |
@@ -1109,10 +1098,6 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 #### 3.2.15.2. 刺激/响应序列
 
-刺激：用户输入登录名和密码
-
-响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
-
 刺激：用户登录后要求查看经营情况表
 
 响应：系统审核用户权限，符合权限则提示用户选择**时间区间**作为筛选条件，否则提示权限不足
@@ -1131,15 +1116,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 #### 3.2.15.3 相关功能需求
 
-| ManageList.Login.Wait         | 系统提示用户输入登录名和密码                           |
-| ----------------------------- | ---------------------------------------- |
-| ManageList.Login.Input        | 系统获取用户输入的登录名和密码                          |
-| ManageList.Login.Check        | 系统判定用户名和密码是否匹配                           |
-| ManageList.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
-| ManageList.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
-| ManageList.Login.Exit         | 用户放弃登录，选择退出系统                            |
-| ManageList.Login.Retry        | 用户要求重新登录，参见ManageList.Login.Wait         |
 | ManageList.Limits.Application | 用户向系统申请查询经营情况表                           |
+| ----------------------------- | ---------------------------------------- |
 | ManageList.Limits.Check       | 系统查询用户权限信息以确认是否允许查询                      |
 | ManageList.Limits.Valid       | 系统提示用户权限合法，并提示用户选择筛选条件，参见ManageList.Select.Show |
 | ManageList.Limits.Invalid     | 系统提示用户权限不足无法查看报表，要求用户退出查看经营情况表功能，参见ManageList.Exit |
@@ -1168,10 +1146,6 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.16.2. 刺激/响应序列
 
-刺激：用户输入登录名和密码
-
-响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
-
 刺激：用户登录后要求审核单据
 
 响应：系统审核用户权限，符合权限则返回显示当前提交单据列表，否则提示权限不足
@@ -1186,16 +1160,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.16.3. 相关功能需求
 
-| 编号                         | 需求说明                                     |
-| -------------------------- | ---------------------------------------- |
-| Receipt.Login.Wait         | 系统提示用户输入登录名和密码                           |
-| Receipt.Login.Input        | 系统获取用户输入的登录名和密码                          |
-| Receipt.Login.Check        | 系统判定用户名和密码是否匹配                           |
-| Receipt.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
-| Receipt.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
-| Receipt.Login.Exit         | 用户放弃登录，选择退出系统                            |
-| Receipt.Login.Retry        | 用户要求重新登录，参见Receipt.Login.Wait            |
 | Receipt.Limits.Application | 用户向系统申请审批单据                              |
+| -------------------------- | ---------------------------------------- |
 | Receipt.Limits.Check       | 系统查询用户权限信息以确认是否允许审批                      |
 | Receipt.Limits.Valid       | 系统提示用户权限合法，并显示当前单据列表，参见Receipt.Show      |
 | Receipt.Limits.Invalid     | 系统提示用户权限不足无法审批单据，要求用户退出审批单据功能，参见Receipt.Exit |
@@ -1213,10 +1179,7 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Receipt.Process.Update     | 系统根据审批通过的单据的数据更新后台数据                     |
 | Receipt.Process.Inform     | 系统向被审批单据的提交者发送消息来提示其提交单据的状态              |
 | Receipt.Process.Refresh    | 系统在当前提交单据列表中删除被审批的单据，显示当前提交单据列表          |
-| Receipt.Continue           | 系统返回上层界面允许用户继续审批单据，参见Receipt.Show.List   |
 | Receipt.Exit               | 系统退出审批单据功能                               |
-
-
 
 ###3.2.17. 查询日志
 
@@ -1227,10 +1190,6 @@ CI:客户端与服务器使用RMI的方式进行通信
 优先级=高
 
 ####3.2.17.2. 刺激/响应序列
-
-刺激：用户输入登录名和密码
-
-响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
 
 刺激：用户登录后要求查询日志
 
@@ -1250,17 +1209,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.17.3. 相关功能需求
 
-| 编号                     | 需求说明                                     |
-| ---------------------- | ---------------------------------------- |
-| Log.Login              | 系统应当读取用户输入的用户名和密码来判定是否允许登录               |
-| Log.Login.Wait         | 系统提示用户输入登录名和密码                           |
-| Log.Login.Input        | 系统获取用户输入的登录名和密码                          |
-| Log.Login.Check        | 系统判定用户名和密码是否匹配                           |
-| Log.Login.Valid        | 系统提示用户登录成功并修改登录状态                        |
-| Log.Login.Invalid      | 系统提示用户登录失败，用户名和密码不匹配                     |
-| Log.Login.Exit         | 用户放弃登录，选择退出系统                            |
-| Log.Login.Retry        | 用户要求重新登录，参见Log.Login.Wait                |
 | Log.Limits.Application | 用户向系统申查询日志                               |
+| ---------------------- | ---------------------------------------- |
 | Log.Limits.Check       | 系统查询用户权限信息以确认是否允许查询                      |
 | Log.Limits.Valid       | 系统提示用户权限合法，并显示日志列表，参见Log.Show            |
 | Log.Limits.Invalid     | 系统提示用户权限不足无法查询日志，要求用户退出查询日志功能，参见Log.Exit |
@@ -1279,10 +1229,6 @@ CI:客户端与服务器使用RMI的方式进行通信
 优先级=高
 
 ####3.2.18.2. 刺激/响应序列
-
-刺激：用户输入登录名和密码
-
-响应：系统审核登录名和密码是否正确，正确则允许登录，否则提示用户名和密码不匹配
 
 刺激：用户登录后要求制定促销策略
 
@@ -1306,16 +1252,8 @@ CI:客户端与服务器使用RMI的方式进行通信
 
 ####3.2.18.3. 相关功能需求
 
-<<<<<<< HEAD
-| Promotion.Login.Wait          | 系统提示用户输入登录名和密码                           |
-| ----------------------------- | ---------------------------------------- |
-| Promotion.Login.Input         | 系统获取用户输入的登录名和密码                          |
-| Promotion.Login.Check         | 系统判定用户名和密码是否匹配                           |
-| Promotion.Login.Valid         | 系统提示用户登录成功并修改登录状态                        |
-| Promotion.Login.Invalid       | 系统提示用户登录失败，用户名和密码不匹配                     |
-| Promotion.Login.Exit          | 用户放弃登录，选择退出系统                            |
-| Promotion.Login.Retry         | 用户要求重新登录，参见Promotion.Login.Wait          |
 | Promotion.Limits.Application  | 用户向系统申请制定促销策略                            |
+| ----------------------------- | ---------------------------------------- |
 | Promotion.Limits.Check        | 系统查询用户权限信息以确认是否允许制定                      |
 | Promotion.Limits.Valid        | 系统提示用户权限合法，并显示起始时间选项，参见Promotion.Time    |
 | Promotion.Limits.Invalid      | 系统提示用户权限不足无法制定策略，要求用户退出制定促销策略列表，参见Promotion.Exit |
@@ -1323,12 +1261,12 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Promotion.Time.Input          | 系统获取用户输入促销开始的开始和结束时间                     |
 | Promotion.Select.Show         | 系统显示当前可选择促销策略类型                          |
 | Promotion.Select.Input        | 用户选择一个策略类型点击制定                           |
-| Promotion.Select.Cancel       | 用户放弃制定策略功能，参见Read.Exit                   |
+| Promotion.Select.Cancel       | 用户放弃制定策略功能，参见Promotion.Exit              |
 | Promotion.Select.Search       | 系统查询用户选择的促销策略类型需要填写的信息                   |
 | Promotion.Condition.Show      | 系统显示当前促销策略下的需要填写的信息                      |
 | Promotion.Condition.Input     | 用户输入需要填写的信息                              |
 | Promotion.Condition.Clear     | 用户要求系统清空所有已填写的信息                         |
-| Promotion.Condition.Invalid   | 系统提示用户输入的信息不完整或不合法，要求用户重新输入（参见Promotion.Condition.Input）或退出制定策略功能（参见Promotion.Exit） |
+| Promotion.Condition.Invalid   | 系统提示用户输入的信息不完整，要求用户重新输入（参见Promotion.Condition.Input）或退出制定策略功能（参见Promotion.Exit） |
 | Promotion.Condition.Rechoose  | 用户要求重新选择促销策略类型，系统返回上一操作界面供用户重新选择，参见Promotion.Select.Show |
 | Promotion.Condition.formulate | 用户要求系统根据当前输入的信息制定促销策略                    |
 | Promotion.Condition.Pass      | 系统提示用户新策略制定成功                            |
@@ -1338,6 +1276,9 @@ CI:客户端与服务器使用RMI的方式进行通信
 | Promotion.Process.Show        | 系统显示用户制定过策略后的当前策略列表                      |
 | Promotion.Continue            | 系统返回选择起始时间界面，参见Promotion.Time.Reminder   |
 | Promotion.Exit                | 用户要求退出制定促销策略功能                           |
+
+<<<<<<< HEAD
+
 =======
 >>>>>>> cf1dbf19a4b1358858e2c27fbbb42e5661cbf76b
 
