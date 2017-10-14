@@ -1,5 +1,5 @@
 #软工二大作业 进销存系统<br>
-<a href="#mingzi">点击我跳转</a>
+<a href="#mingzi"></a>
 
 
 
@@ -22,7 +22,7 @@
 # 文件内容说明：
 
 ### src为源代码 doc为文档和图片  doc/md是文档 doc/img是图 doc/md/dev开发过程中为开发过程中的中间文档<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<a name="mingzi"></a> 
+
 
 
 ​    
