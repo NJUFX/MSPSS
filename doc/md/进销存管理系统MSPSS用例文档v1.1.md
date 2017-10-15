@@ -1,6 +1,6 @@
 <center>进销存管理系统</center>
 
-
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%96%87%E6%A1%A3%E5%B0%81%E9%9D%A2/%E7%94%A8%E4%BE%8B%E6%96%87%E6%A1%A3.png)
 
 #<center>MSPSS(Management System of Purchase-Sell-Stock)</center> 
 
