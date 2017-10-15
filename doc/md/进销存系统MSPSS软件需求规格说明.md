@@ -1,11 +1,9 @@
 <<<<<<< HEAD
 =======
+![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%96%87%E6%A1%A3%E5%B0%81%E9%9D%A2/%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E.png)
 # 进销存系统
 
 # <center>进销存管理系统</center>
-
-
-
 #<center>MSPSS(Management System of Purchase-Sell-Stock)</center> 
 
 
