@@ -1,4 +1,5 @@
 ![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%96%87%E6%A1%A3%E5%B0%81%E9%9D%A2/%E9%9C%80%E6%B1%82%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.png)
+<<<<<<< HEAD
 
 <center>伏家兴，韩新虎，刘雅歆，徐光耀</center><br><center>2017-10-16</center>
 
@@ -66,7 +67,38 @@
 ##用例1 商品分类<a name="1"></a>
 
 ###1.1测试用例套件<a name="2"></a>
+=======
+<br>
+# 进销存管理系统MSPSS需求测试用例<a name=" 进销存管理系统MSPSS需求测试用例"></a>
 
+# <center>进销存管理系统</center>
+
+
+
+# <center>MSPSS(Management System of Purchase-Sell-Stock)</center>
+
+
+
+
+
+# <center> 需求测试用例</center>
+
+
+
+
+
+# <center>v1.1 正式版</center>
+
+<br><br><br>
+
+## <center>南京大学FX工作组</center><br><center>伏家兴，韩新虎，刘雅歆，徐光耀</center><br><center>2017-10-15</center>
+
+
+
+
+##用例1 商品分类<a name="1"></a>
+
+###1.1测试用例套件<a name="1.1"></a>
 | ID     | 输入--选择要进行的操作 | 输入--下一步操作 | 输入--分类位置 | 输入--分类信息 | 预期输出             |
 | ------ | ------------ | --------- | -------- | -------- | ---------------- |
 | TUS1-1 | 增加分类         |           | 单独的节点    | 正确信息     | 提示添加成功，并更新数据库    |
