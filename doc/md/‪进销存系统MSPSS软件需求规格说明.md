@@ -4,7 +4,7 @@
 # 进销存系统<a name="1"></a>
 
 # <center>进销存管理系统</center><a name="2"></a>
-#<center>MSPSS(Management System of Purchase-Sell-Stock)</center> <a name="3"></a>
+# <center>MSPSS(Management System of Purchase-Sell-Stock)</center> <a name="3"></a>
 
 
 
@@ -20,7 +20,7 @@
 
 <br><br><br>
 
-##<center>南京大学FX工作组</center><br><center>伏家兴，韩新虎，刘雅歆，徐光耀</center><br><center>2017-09-26</center><a name="6"></a>
+## <center>南京大学FX工作组</center><br><center>伏家兴，韩新虎，刘雅歆，徐光耀</center><br><center>2017-09-26</center><a name="6"></a>
 
 ## 目录
 
