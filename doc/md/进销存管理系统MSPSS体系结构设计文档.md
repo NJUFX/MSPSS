@@ -285,7 +285,7 @@
 
 
 
-名词解释：
+<br>**名词解释**
 
 DAE: Default Account Executive默认业务员
 
@@ -297,27 +297,27 @@ InValue 应收额度
 
 
 
-数据库表结构（属性-数据类型）:
+<br>**数据库表结构（属性-数据类型）**
 
-CustomerPO
+**CustomerPO**
 
 | ID     | category | level | name   | telephone | address | postcode | email  | Invalue | in     | out    | manager |
 | ------ | -------- | ----- | ------ | --------- | ------- | -------- | ------ | ------- | ------ | ------ | ------- |
 | String | String   | int   | String | String    | String  | String   | String | double  | double | double | String  |
 
-PurchasePO
+**PurchasePO**
 
 | ID     | supplier | store  | worker | commodity   | sum    | remark |
 | ------ | -------- | ------ | ------ | ----------- | ------ | ------ |
 | String | String   | String | String | CommodityPO | double | String |
 
-SalesPO
+**SalesPO**
 
 | ID     | customer | DAE    | worker | store  | commodity   | befSum | discount | vocher | aftSum | remark |
 | ------ | -------- | ------ | ------ | ------ | ----------- | ------ | -------- | ------ | ------ | ------ |
 | String | String   | String | String | String | CommodityPO | double | double   | double | double | String |
 
-CommodityPO
+**CommodityPO**
 
 | ID     | name   | type   | quantity | price  | sum    | remark |
 | ------ | ------ | ------ | -------- | ------ | ------ | ------ |
