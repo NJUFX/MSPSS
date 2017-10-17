@@ -256,7 +256,10 @@ DAE: Default Account Executive, 默认业务员
 | StockSellerBLService.searchCustomer | 语法   | public boolean searchCustomer(String keyword); |
 |                                     | 前置条件 | 输入的关键词合法                                 |
 |                                     | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
-| StockSellerBLService.showCustomer   | 语法   | public ArrayList< Customer > showCustomer(String keyType, String keyword); |
+| StockSellerBLService.getCustomer    | 语法   | public CustomerVO getCustomer(String ID); |
+|                                     | 前置条件 | 输入的客户编号符合规范                              |
+|                                     | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| StockSellerBLService.showCustomer   | 语法   | public ArrayList< CustomerVO > showCustomer(int keyType, String keyword); |
 |                                     | 前置条件 | 输入的关键词合法                                 |
 |                                     | 后置条件 | 返回符合关键词的所有客户，如果没有符合关键词的客户，则返回空列表         |
 | StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
@@ -274,18 +277,21 @@ DAE: Default Account Executive, 默认业务员
 
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (String supplier, String store, String worker, ArrayList< CommodityPO > prolist, double sum, String remark); |
+| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (String supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货单，返回true，提示生成成功                      |
-| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (String supplier, String store, String worker, CommodityPO commodity, double sum, String remark); |
+| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (String supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
-| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(String customer, String DAE, String worker, String store, ArrayList< CommodityPO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(String customer, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售单，返回true，提示生成成功                      |
-| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (String customer, String DAE, String worker, String store, ArrayList< CommodityPO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (String customer, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
+| StockSellerBLService.showList            | 语法   | public boolean showList(BillVO bill);    |
+|                                          | 前置条件 | 系统刚完成制定单据的操作                             |
+|                                          | 后置条件 | 展示已制定的单据                                 |
 
 
 
