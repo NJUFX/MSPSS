@@ -201,6 +201,8 @@
 
 图5.1-2 服务器端模块视图
 
+
+
 表5.1-1 客户端各层的职责
 
 | 层       | 职责                      |
@@ -210,6 +212,8 @@
 | 业务逻辑层   | 对于用户界面的输入进行响应并进行业务处理逻辑  |
 | 客户端网络模块 | 利用 Java RMI 机制查找 RMI 服务 |
 
+
+
 表5.1-2 服务器端各层的职责
 
 | 层       | 职责                                |
@@ -218,12 +222,16 @@
 | 数据层     | 负责数据的持久化以及数据访问接口                  |
 | 客户端网络模块 | 利用 Java RMI 机制开启 RMI 服务，注册 RMI 服务 |
 
+
+
 每一层都只是使用下方直接接触的层。层与层之间仅仅是通过接口的调用来完成的。层与层之间的接口如表5.1-3所示。
 
 | 接口                                       | 服务调用方    | 服务提供方    |
 | ---------------------------------------- | -------- | -------- |
 | StockManagerBLService<br>StockSellerBLService<br>FinancerBLService<br>ChiefManagerBLService<br>MainBLService<br>AdminBLService | 客户端展示层   | 客户端业务逻辑层 |
 | CustomerDataService<br>StockDataService<br>SystemDataService<br>BillDataService<br>CommodityDataService | 客户端业务逻辑层 | 服务器端数据层  |
+
+
 
 ### <a name="5.2"></a>5.2用户界面层的分解
 
