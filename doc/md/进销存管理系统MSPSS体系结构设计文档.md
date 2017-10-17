@@ -59,6 +59,8 @@
 
 <a href="#5.4">5.4数据层的分解</a><br>
 
+<a href="#5.5">5.5模块的关键类图</a><br>
+
 <a href="#6">6.信息视角</a><br>
 
 
@@ -241,10 +243,85 @@
 
 
 
-### <a name="5.3"></a>5.4数据层的分解
+### <a name="5.4"></a>5.4数据层的分解
+
+
+
+### <a name="5.5"></a>5.5模块的关键类图
+
+图5.5-1 stocksellerbl关键类图
+
+![stocksellerbl关键类图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/stocksellerbl%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
+
+
 
 
 
 ## <a name="6"></a> 6 信息视角
+
+### <a name="6.1"></a> 6.1 数据的持久化对象
+
+系统的 PO 类就是对应的相关的实体类，在此只做简单的的介绍。
+
+| 类名   | 属性   |
+| ---- | ---- |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+
+### <a name="6.2"></a> 6.2  持久化格式
+
+
+
+### <a name="6.3"></a> 6.3 数据库表
+
+数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表。
+
+
+
+名词解释：
+
+DAE: Default Account Executive默认业务员
+
+in 应收
+
+out 应付
+
+InValue 应收额度
+
+
+
+数据库表结构（属性-数据类型）:
+
+CustomerPO
+
+| ID     | category | level | name   | telephone | address | postcode | email  | Invalue | in     | out    | manager |
+| ------ | -------- | ----- | ------ | --------- | ------- | -------- | ------ | ------- | ------ | ------ | ------- |
+| String | String   | int   | String | String    | String  | String   | String | double  | double | double | String  |
+
+PurchasePO
+
+| ID     | supplier | store  | worker | commodity   | sum    | remark |
+| ------ | -------- | ------ | ------ | ----------- | ------ | ------ |
+| String | String   | String | String | CommodityPO | double | String |
+
+SalesPO
+
+| ID     | customer | DAE    | worker | store  | commodity   | befSum | discount | vocher | aftSum | remark |
+| ------ | -------- | ------ | ------ | ------ | ----------- | ------ | -------- | ------ | ------ | ------ |
+| String | String   | String | String | String | CommodityPO | double | double   | double | double | String |
+
+CommodityPO
+
+| ID     | name   | type   | quantity | price  | sum    | remark |
+| ------ | ------ | ------ | -------- | ------ | ------ | ------ |
+| String | String | String | int      | double | double | String |
+
 
 
