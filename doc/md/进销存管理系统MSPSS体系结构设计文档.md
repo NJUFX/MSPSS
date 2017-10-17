@@ -247,7 +247,52 @@
 
 DAE: Default Account Executive, 默认业务员
 
+表1 stockmanagerbl模块的接口规范
 
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| StockManangerBLService.addCommodity      | 语法   | public boolean addCommodity(String ID,String name, String type |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManangerBLService.ModifyCommodity   | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.DeleteCommodity    | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.SearchCommodity    | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.ShowCommodityInfo  | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.AddClassification  | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.DeleteClassification | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.ModifyClassification | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.ShowClassification | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.ViewStock          | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLservice.InventoryCheck     | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.LossAndOverflowReport | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.PresentationReport | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
+| StockManagerBLService.AlarmReport        | 语法   |                                          |
+|                                          | 前置条件 |                                          |
+|                                          | 后置条件 |                                          |
 
 表2 stocksellerbl模块的接口规范
 
