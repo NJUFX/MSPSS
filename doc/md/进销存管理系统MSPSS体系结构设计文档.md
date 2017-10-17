@@ -223,7 +223,7 @@
 | 接口                                       | 服务调用方    | 服务提供方    |
 | ---------------------------------------- | -------- | -------- |
 | StockManagerBLService<br>StockSellerBLService<br>FinancerBLService<br>ChiefManagerBLService<br>MainBLService<br>AdminBLService | 客户端展示层   | 客户端业务逻辑层 |
-|                                          | 客户端业务逻辑层 | 服务器端数据层  |
+| CustomerDataService<br>StockDataService<br>SystemDataService<br>BillDataService<br>CommodityDataService | 客户端业务逻辑层 | 服务器端数据层  |
 
 ### <a name="5.2"></a>5.2用户界面层的分解
 
