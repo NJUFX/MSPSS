@@ -241,6 +241,52 @@
 
 ### <a name="5.3"></a> 5.3业务逻辑层的分解
 
+#### 5.3.2-2 stocksellerbl模块的接口规范
+
+名词解释：
+
+DAE: Default Account Executive, 默认业务员
+
+
+
+表2 stocksellerbl模块的接口规范
+
+| 服务名                                 | 服务   | 服务                                       |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| StockSellerBLService.searchCustomer | 语法   | public boolean searchCustomer(String keyword); |
+|                                     | 前置条件 | 输入的关键词合法                                 |
+|                                     | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+| StockSellerBLService.showCustomer   | 语法   | public ArrayList< Customer > showCustomer(String keyType, String keyword); |
+|                                     | 前置条件 | 输入的关键词合法                                 |
+|                                     | 后置条件 | 返回符合关键词的所有客户，如果没有符合关键词的客户，则返回空列表         |
+| StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
+|                                     | 前置条件 | 输入的信息符合规范                                |
+|                                     | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| StockSellerBLService.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
+|                                     | 前置条件 | 需要删除的用户存在于系统中                            |
+|                                     | 后置条件 | 删除用户，返回true                              |
+| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
+|                                     | 前置条件 | 输入的信息符合规范                                |
+|                                     | 后置条件 | 系统修改该客户的属性，并返回true                       |
+|                                     |      |                                          |
+
+
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (String supplier, String store, String worker, ArrayList< CommodityPO > prolist, double sum, String remark); |
+|                                          | 前置条件 | 输入的信息符合规范                                |
+|                                          | 后置条件 | 生成进货单，返回true，提示生成成功                      |
+| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (String supplier, String store, String worker, CommodityPO commodity, double sum, String remark); |
+|                                          | 前置条件 | 输入的信息符合规范                                |
+|                                          | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
+| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(String customer, String DAE, String worker, String store, ArrayList< CommodityPO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+|                                          | 前置条件 | 输入的信息符合规范                                |
+|                                          | 后置条件 | 生成销售单，返回true，提示生成成功                      |
+| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (String customer, String DAE, String worker, String store, ArrayList< CommodityPO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+|                                          | 前置条件 | 输入的信息符合规范                                |
+|                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
+
 
 
 ### <a name="5.4"></a>5.4数据层的分解
@@ -263,17 +309,17 @@
 
 系统的 PO 类就是对应的相关的实体类，在此只做简单的的介绍。
 
-| 类名   | 属性   |
-| ---- | ---- |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
+| 类名          | 属性                                       |
+| ----------- | ---------------------------------------- |
+| CustomerPO  | 客户编号、分类、级别、姓名、电话、地址、邮编、电子邮箱、应收额度、应收、应付、默认业务员 |
+| PurchasePO  | 单据编号、供应商、仓库、操作员、入库商品列表、总额合计、备注           |
+| SalesPO     | 单据编号、客户、默认业务员、操作员、仓库、出货商品清单、折让前总额、折让、代金券、折让后总额、备注 |
+| CommodityPO | 商品编号、名称、型号、单价、备注                         |
+|             |                                          |
+|             |                                          |
+|             |                                          |
+|             |                                          |
+|             |                                          |
 
 ### <a name="6.2"></a> 6.2  持久化格式
 
@@ -301,27 +347,27 @@ InValue 应收额度
 
 **CustomerPO**
 
-| ID     | category | level | name   | telephone | address | postcode | email  | Invalue | in     | out    | manager |
-| ------ | -------- | ----- | ------ | --------- | ------- | -------- | ------ | ------- | ------ | ------ | ------- |
-| String | String   | int   | String | String    | String  | String   | String | double  | double | double | String  |
+| ID     | category | level | name   | telephone | address | postcode | email  | Invalue | in     | out    | DAE    |
+| ------ | -------- | ----- | ------ | --------- | ------- | -------- | ------ | ------- | ------ | ------ | ------ |
+| String | String   | int   | String | String    | String  | String   | String | double  | double | double | String |
 
 **PurchasePO**
 
-| ID     | supplier | store  | worker | commodity   | sum    | remark |
-| ------ | -------- | ------ | ------ | ----------- | ------ | ------ |
-| String | String   | String | String | CommodityPO | double | String |
+| ID     | supplier | store  | worker | prolist                  | sum    | remark |
+| ------ | -------- | ------ | ------ | ------------------------ | ------ | ------ |
+| String | String   | String | String | ArrayList< CommodityPO > | double | String |
 
 **SalesPO**
 
-| ID     | customer | DAE    | worker | store  | commodity   | befSum | discount | vocher | aftSum | remark |
-| ------ | -------- | ------ | ------ | ------ | ----------- | ------ | -------- | ------ | ------ | ------ |
-| String | String   | String | String | String | CommodityPO | double | double   | double | double | String |
+| ID     | customer | DAE    | worker | store  | prolist                  | befSum | discount | vocher | aftSum | remark |
+| ------ | -------- | ------ | ------ | ------ | ------------------------ | ------ | -------- | ------ | ------ | ------ |
+| String | String   | String | String | String | ArrayList< CommodityPO > | double | double   | double | double | String |
 
 **CommodityPO**
 
-| ID     | name   | type   | quantity | price  | sum    | remark |
-| ------ | ------ | ------ | -------- | ------ | ------ | ------ |
-| String | String | String | int      | double | double | String |
+| ID     | name   | type   | price  | remark |
+| ------ | ------ | ------ | ------ | ------ |
+| String | String | String | double | String |
 
 
 
