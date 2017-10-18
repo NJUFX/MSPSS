@@ -361,6 +361,8 @@ DAE: Default Account Executive, 默认业务员
 
 表2 stocksellerbl模块的接口规范
 
+****提供的服务（供接口）****
+
 | 服务名                                 | 服务   | 服务                                       |
 | ----------------------------------- | ---- | ---------------------------------------- |
 | StockSellerBLService.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
@@ -380,8 +382,6 @@ DAE: Default Account Executive, 默认业务员
 |                                     | 后置条件 | 系统修改该客户的属性，并返回true                       |
 |                                     |      |                                          |
 
-
-
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
 | StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (CustomerVO supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
@@ -396,6 +396,20 @@ DAE: Default Account Executive, 默认业务员
 | StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
+
+**需要的服务（供接口）**
+
+| 服务名                                      | 服务      |
+| ---------------------------------------- | ------- |
+| CustomerDataService.addCustomer          | 增加客户    |
+| CustomerDataService.delCustomer          | 删除客户    |
+| CustomerDataService.modifyCustomer       | 修改客户属性  |
+| CustomerDataService.getCustomer          | 得到客户属性  |
+| CommodityDataService.getCommodity        | 得到商品属性  |
+| BillDataService.createPurchaseList       | 创建进货单   |
+| BillDataService.createPurchaseReturnList | 创建进货退货单 |
+| BillDataService.createSalesList          | 创建销售单   |
+| BillDataService.createSalesReturnList    | 创建销售退货单 |
 
 表3 ChiefManagerbl模块的接口规范
 
