@@ -399,9 +399,6 @@ DAE: Default Account Executive, 默认业务员
 | StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
-| StockSellerBLService.showList            | 语法   | public boolean showList(BillVO bill);    |
-|                                          | 前置条件 | 系统刚完成制定单据的操作                             |
-|                                          | 后置条件 | 展示已制定的单据                                 |
 
 
 
