@@ -397,6 +397,71 @@ DAE: Default Account Executive, 默认业务员
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
 
+表3 ChiefManagerbl模块的接口规范
+
+| 提供的服务（供接口）                               |                         |                                          |
+| ---------------------------------------- | ----------------------- | ---------------------------------------- |
+| ChiefManagerBLService.checkLimit         | 语法                      | public boolean checkLimit(int id,String serviceType); |
+| 前置条件                                     | 用户已经成功登陆                |                                          |
+| 后置条件                                     | 返回一个布尔值表示用户是否有使用申请功能的权限 |                                          |
+| ChiefManagerBLService.exportList         | 语法                      | public void exportList(ListVo listVo);   |
+| 前置条件                                     | 有符合条件的表单                |                                          |
+| 后置条件                                     | 导出excel格式的表单            |                                          |
+| ChiefManagerBLService.emptyCondition     | 语法                      | public void emptyCondition();            |
+| 前置条件                                     | 用户有搜索销售明细表的权限           |                                          |
+| 后置条件                                     | 清空用户输入的搜索条件             |                                          |
+| ChiefManagerBLService.exit               | 语法                      | public void exit();                      |
+| 前置条件                                     | 用户位于具体功能界面              |                                          |
+| 后置条件                                     | 系统返回总经理登陆后的起始界面         |                                          |
+| ChiefManagerBLService.makeSalesList      | 语法                      | public salesListVo makeSalesList(String time,String commodityName, String customName, String salesmanName,String warehouseName ); |
+| 前置条件                                     | 用户有查看销售明细表的权限           |                                          |
+| 后置条件                                     | 返回用户要求的销售明细表            |                                          |
+| ChiefManagerBLService.makeManageList     | 语法                      | public manageListVo makeManageList(String time); |
+| 前置条件                                     | 用户有查看经营情况表的权限           |                                          |
+| 后置条件                                     | 返回用户要求的经营情况表            |                                          |
+| ChiefManagerBLService.showLogList        | 语法                      | public LogListVo showLogList();          |
+| 前置条件                                     | 用户有查询日志的权限              |                                          |
+| 后置条件                                     | 返回系统日志列表                |                                          |
+| ChiefManagerBLService.showLogDetail      | 语法                      | public LogVo showLogDetail(int id);      |
+| 前置条件                                     | 用户有查询日志的权限              |                                          |
+| 后置条件                                     | 返回该条日志的详细信息             |                                          |
+| ChiefManagerBLService.showBillList       | 语法                      | public BillListVo showBillList(String unexamined)； |
+| 前置条件                                     | 用户有审批单据的权限              |                                          |
+| 后置条件                                     | 返回待审批单据列表               |                                          |
+| ChiefManagerBLService.changeBillState    | 语法                      | public void changeBillState(ArrayList<BillVo>),boolean pass); |
+| 前置条件                                     | 待审批单据列表不为空              |                                          |
+| 后置条件                                     | 改变单据的审批状态为批准或不批准        |                                          |
+| ChiefManagerBLService.updateBillData     | 语法                      | public void updateBillData(ArrayList<BillVo>); |
+| 前置条件                                     | 有单据被审批                  |                                          |
+| 后置条件                                     | 将审批后的单据信息更新到数据库中        |                                          |
+| ChiefManagerBLService.sendMessage        |                         |                                          |
+| ChiefManagerBLService.showBillDetail     | 语法                      | public BillVo showBillDetail(int id);    |
+| 前置条件                                     | 待审批单据列表不为空              |                                          |
+| 后置条件                                     | 返回一张单据的详细内容             |                                          |
+| ChiefManagerBLService.choosePromotionType | 语法                      | public PromotionVo choosePromotionType(String type); |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 返回类型对应的VO               |                                          |
+| ChiefManagerBLService.setPromotionTime   | 语法                      | public PromotionVo setPromotionTime(PromotionVo promotionVo); |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 返回修改了起始时间的PromotionVo   |                                          |
+| ChiefManagerBLService.checkPromotionInfo | 语法                      | public PromotionVo checkPromotionInfo(PromotionVo promotionvo) |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 检查用户传入促销策略信息的正确性        |                                          |
+| ChiefManagerBLService.ShowPromotionList  | 语法                      | public PromotionListVo ShowPromotionList(); |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 显示当前存在的促销策略列表           |                                          |
+| ChiefManagerBLService.updatePromotionInfo | 语法                      | public void updatePromotionInfo(PromotionVo promotionVo); |
+| 前置条件                                     | 用户制定促销策略成功              |                                          |
+| 后置条件                                     | 更新数据库中的促销策略信息           |                                          |
+| 需要的服务（需接口）                               |                         |                                          |
+| 服务名                                      | 服务                      |                                          |
+| SystemData.userData.findUserPo           | 根据id查找对应的userPo         |                                          |
+| BillDataService.findSaleBill             | 根据搜索条件查找对应的saleBillPo   |                                          |
+| BillDataService.findBillPo               | 查找符合条件的所有类型的单据PO        |                                          |
+| SystemDataService.LogDataService.findLogPo | 根据ID查找对应的LogPo          |                                          |
+| BillDataService.updateBillPo             | 改变BillPo中的数据            |                                          |
+| SystemDataService.promotionDataService.find | 查找参数类型对应的所有PromotionPo  |                                          |
+
 
 
 ### <a name="5.4"></a>5.4数据层的分解
