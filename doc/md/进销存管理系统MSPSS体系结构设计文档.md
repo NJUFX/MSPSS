@@ -363,15 +363,12 @@ DAE: Default Account Executive, 默认业务员
 
 | 服务名                                 | 服务   | 服务                                       |
 | ----------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.searchCustomer | 语法   | public boolean searchCustomer(String keyword); |
+| StockSellerBLService.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
 |                                     | 前置条件 | 输入的关键词合法                                 |
 |                                     | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
 | StockSellerBLService.getCustomer    | 语法   | public CustomerVO getCustomer(String ID); |
 |                                     | 前置条件 | 输入的客户编号符合规范                              |
 |                                     | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
-| StockSellerBLService.showCustomer   | 语法   | public ArrayList< CustomerVO > showCustomer(int keyType, String keyword); |
-|                                     | 前置条件 | 输入的关键词合法                                 |
-|                                     | 后置条件 | 返回符合关键词的所有客户，如果没有符合关键词的客户，则返回空列表         |
 | StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统新建一个客户，并提示新建成功                         |
