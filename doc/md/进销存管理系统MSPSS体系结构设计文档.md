@@ -294,21 +294,24 @@ DAE: Default Account Executive, 默认业务员
 |                                          | 后置条件 | 返回是否产生库存赠送单，若输入信息非法，则抛出非法信息              |
 | StockManagerBLService.AlarmReport        | 语法   | public ResultMessage dealAlarmReport(AlarmReportVO report) |
 |                                          | 前置条件 | 选择正确的库存报警单                               |
-|                                          | 后置条件 | 返回是否正确处理库存                               |
+|                                          | 后置条件 | 返回是否正确处理库存报警单，若非法则抛出非法信息                 |
 
 <center>**需要的服务（需接口）**</center>
 
-| 服务名  | 服务   |
-| ---- | ---- |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
+| 服务名                                      | 服务               |
+| ---------------------------------------- | ---------------- |
+| CommodityService.AddCommodity            | 新增商品存入数据库        |
+| CommodityService.DeleteCommodity         | 删除数据库中的已有商品      |
+| CommodityService.ModifyCommodity         | 修改商品的信息          |
+| CommodityService.SearchCommodity         | 搜索商品             |
+| StockDataService.getStockInfo            | 得到某商品的库存信息       |
+| StockDataService.getAllStockInfo         | 得到所有商品的库存信息      |
+| BillDataService.MakeLossAndOverflowReport | 将新增的库存报损报溢单存入数据库 |
+| BillDataService.MakePresentationReport   | 将新增的库存赠送单存入数据库   |
+| BillDataService.DealAlarmReport          | 处理已存的库存报警单       |
+| CommodityService.AddClassification       | 新增商品分类           |
+| CommodityService.ModifyClassification    | 修改商品分类           |
+| CommodityService.DeleteClassification    | 删除商品分类           |
 
 
 
