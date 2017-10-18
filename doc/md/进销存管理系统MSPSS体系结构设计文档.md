@@ -247,52 +247,70 @@
 
 DAE: Default Account Executive, 默认业务员
 
-表1 stockmanagerbl模块的接口规范
+<center>**表1 stockmanagerbl模块的接口规范**
+
+**提供的服务（供接口）**</center>
 
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| StockManangerBLService.addCommodity      | 语法   | public boolean addCommodity(String ID,String name, String type |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManangerBLService.ModifyCommodity   | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.DeleteCommodity    | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.SearchCommodity    | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.ShowCommodityInfo  | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.AddClassification  | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.DeleteClassification | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.ModifyClassification | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.ShowClassification | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.ViewStock          | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLservice.InventoryCheck     | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.LossAndOverflowReport | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.PresentationReport | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
-| StockManagerBLService.AlarmReport        | 语法   |                                          |
-|                                          | 前置条件 |                                          |
-|                                          | 后置条件 |                                          |
+| StockManangerBLService.addCommodity      | 语法   | public ResultMessage addCommodity(String ID,String name, String type) |
+|                                          | 前置条件 | 用户输入正确的商品信息                              |
+|                                          | 后置条件 | 返回添加成功与否，如果用户输入了非法信息，则抛出异常信息             |
+| StockManangerBLService.ModifyCommodity   | 语法   | public ReusultMessage modifyCommodity(String ID,String name,String type) |
+|                                          | 前置条件 | 用户输入正确的商品信息                              |
+|                                          | 后置条件 | 返回修改成功与否，如果用户输入了非法信息，则抛出异常信息             |
+| StockManagerBLService.DeleteCommodity    | 语法   | public ResultMessage deleteCommodity(CommodityVO comdity_vo) |
+|                                          | 前置条件 | 用户选择了合适的商品                               |
+|                                          | 后置条件 | 返回删除成功与否，如果非法则抛出异常信息                     |
+| StockManagerBLService.SearchCommodity    | 语法   | public ArrayList< CommodityVO >  searchCommodity(Filter flags) |
+|                                          | 前置条件 | 客户选择合适的筛选条件                              |
+|                                          | 后置条件 | 返回符合条件的商品信息列表，如果没有符合条件的商品，返回空列表          |
+| StockManagerBLService.getCommodity       | 语法   | public CommodityVO getCommodity(String ID) |
+|                                          | 前置条件 | 用户输入了正确的信息                               |
+|                                          | 后置条件 | 返回用户指定的商品信息                              |
+| StockManagerBLService.AddClassification  | 语法   | public ResultMessage addClassification(String parentID, String name) |
+|                                          | 前置条件 | 用户输入正确的信息                                |
+|                                          | 后置条件 | 返回添加成功与否，如果用户输入的信息非法，则抛出异常信息             |
+| StockManagerBLService.DeleteClassification | 语法   | public ResultMessage deleteClassification(String ID) |
+|                                          | 前置条件 | 用户输入了正确的信息                               |
+|                                          | 后置条件 | 返回删除成功与否，如果用户输入的信息非法，则抛出异常信息             |
+| StockManagerBLService.ModifyClassification | 语法   | public ResultMessage modifyClassification(String ID,String newParentID,String newName) |
+|                                          | 前置条件 | 用户输入了正确的信息                               |
+|                                          | 后置条件 | 返回修改成功与否，如果输入的信息非法，则抛出异常信息               |
+| StockManagerBLService.GetClassifications | 语法   | public Tree< ClassificationVO > getClassifications() |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回已有的商品分类树，如果暂未有商品分类，则返回空树               |
+| StockManagerBLService.ViewStock          | 语法   | public ArrayList< StockVO > viewStock(String startName, String endName) |
+|                                          | 前置条件 | 用户输入了正确的时间点                              |
+|                                          | 后置条件 | 返回时间段内的库存信息，若无库存信息则返回空列表，若输入信息异常则抛出非法信息  |
+| StockManagerBLservice.InventoryCheck     | 语法   | public ArrayList< InventoryVO> inventoryCheck() |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回当天的库存快照，若无则返回空列表                       |
+| StockManagerBLService.LossAndOverflowReport | 语法   | public ResultMessage makeLossAndOverflowReport(ArrayList < CommodityVO> commodityVO, ArrayList< Integer> numbers) |
+|                                          | 前置条件 | 用户输入了正确的信息                               |
+|                                          | 后置条件 | 返回是否产生库存报损报溢单，若输入信息 非法，则抛出异常信息           |
+| StockManagerBLService.PresentationReport | 语法   | public ResultMessage makePresentationReport(ArrayList< CommodityVO> commodity,ArrayList< Integer> numbers) |
+|                                          | 前置条件 | 用户输入了正确的信息                               |
+|                                          | 后置条件 | 返回是否产生库存赠送单，若输入信息非法，则抛出非法信息              |
+| StockManagerBLService.AlarmReport        | 语法   | public ResultMessage dealAlarmReport(AlarmReportVO report) |
+|                                          | 前置条件 | 选择正确的库存报警单                               |
+|                                          | 后置条件 | 返回是否正确处理库存                               |
+
+<center>**需要的服务（需接口）**</center>
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+
+
 
 表2 stocksellerbl模块的接口规范
 
