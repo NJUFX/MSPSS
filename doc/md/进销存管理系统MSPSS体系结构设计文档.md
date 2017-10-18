@@ -312,7 +312,7 @@ DAE: Default Account Executive, 默认业务员
 | StockSellerBLService.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
 |                                     | 前置条件 | 需要删除的用户存在于系统中                            |
 |                                     | 后置条件 | 删除用户，返回true                              |
-| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
+| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统修改该客户的属性，并返回true                       |
 |                                     |      |                                          |
@@ -321,16 +321,16 @@ DAE: Default Account Executive, 默认业务员
 
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (String supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
+| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (CustomerVO supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货单，返回true，提示生成成功                      |
-| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (String supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
+| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (CustomerVO supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
-| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(String customer, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售单，返回true，提示生成成功                      |
-| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (String customer, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
 | StockSellerBLService.showList            | 语法   | public boolean showList(BillVO bill);    |
