@@ -592,6 +592,8 @@ DAE: Default Account Executive, 默认业务员
 ![stocksellerbl关键类图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/stocksellerbl%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
 图5.5-2 financebl关键类图<br>
 ![financebl](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/FinanceBl%E7%9A%84%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
+图5.5-3 ChiefManagerbl关键类图
+![ChiefManagerbl关键类图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/ChiefManagerBL关键类图.png)
 
 
 
