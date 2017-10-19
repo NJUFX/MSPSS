@@ -552,13 +552,16 @@ DAE: Default Account Executive, 默认业务员
 
 ### <a name="5.4"></a>5.4数据层的分解
 
+数据层主要给业务逻辑层提供数据访问服务，包括对数据库的增、删、改、 查。由于持久化数据的保存存在
+多种形式:txt 文件、序列化文件、数据库，所以抽象了数据服务。
+
 #### 5.4.1 数据层模块的职责
 
-| 模块                    | 职责                                      |
-| --------------------- | --------------------------------------- |
-| SystemDataService     | 系统持久化数据库的接口，提供集体载入，集体保存，增，删，改，查服务       |
-| SystemDataTxtFileImpl | 基于txt文件的持久化数据库的接口，提供集体载入，集体保存，增，删，改，查服务 |
-|                       |                                         |
+| 模块           | 职责                              |
+| ------------ | ------------------------------- |
+| DataService  | 持久化数据库的接口，提供集体载入，集体保存，增，删，改，查服务 |
+| DataFileImpl | 对 DataService 模块的实现             |
+|              |                                 |
 
 
 
@@ -589,6 +592,8 @@ DAE: Default Account Executive, 默认业务员
 | SystemDataService.checkInitInfo() | 语法   | public InitAccountPO checkInitInfo(long index) throws RemoteException throws NullIndexException |
 |                                   | 前置条件 | id必须存在于初始化信息列表中                          |
 |                                   | 后置条件 | 返回对应InitAccountPO或者抛出异常:RemoteException ，或者NullIndexException(无效索引，空索引异常) |
+
+
 
 
 
@@ -637,8 +642,6 @@ in 应收
 out 应付
 
 InValue 应收额度
-
-
 
 <br>**数据库表结构（属性-数据类型）**
 
