@@ -619,9 +619,7 @@ DAE: Default Account Executive, 默认业务员
 
 ### <a name="6.3"></a> 6.3 数据库表
 
-数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表。
-
-
+数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表
 
 <br>**名词解释**
 
@@ -661,17 +659,13 @@ InValue 应收额度
 | ------ | ------ | ------ | ------ | ------ |
 | String | String | String | double | String |
 
-
-
-##### LogPO
+**LogPO**
 
 | Operator | Time   | Kind   | money     | stock     | commodity |
 | -------- | ------ | ------ | --------- | --------- | --------- |
 | String   | String | String | long long | long long | string    |
 
-
-
-##### UserPO
+##### **UserPO**
 
 | ID   | Password | name   | Job    | Power |
 | ---- | -------- | ------ | ------ | ----- |
