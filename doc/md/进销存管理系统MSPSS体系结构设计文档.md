@@ -552,9 +552,9 @@ InValue 应收额度
 
 **CommodityPO**
 
-| ID     | name   | type   | price  | remark |
-| ------ | ------ | ------ | ------ | ------ |
-| String | String | String | double | String |
+| ID     | name   | type   | price  | remark |      |
+| ------ | ------ | ------ | ------ | ------ | ---- |
+| String | String | String | double | String |      |
 
 
 
