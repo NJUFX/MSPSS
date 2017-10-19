@@ -404,8 +404,8 @@ DAE: Default Account Executive, 默认业务员
 | CustomerDataService.addCustomer          | 增加客户    |
 | CustomerDataService.delCustomer          | 删除客户    |
 | CustomerDataService.modifyCustomer       | 修改客户属性  |
-| CustomerDataService.getCustomer          | 得到客户属性  |
-| CommodityDataService.getCommodity        | 得到商品属性  |
+| CustomerDataService.getCustomerInfo      | 得到客户属性  |
+| CommodityDataService.getCommodityInfo    | 得到商品属性  |
 | BillDataService.createPurchaseList       | 创建进货单   |
 | BillDataService.createPurchaseReturnList | 创建进货退货单 |
 | BillDataService.createSalesList          | 创建销售单   |
