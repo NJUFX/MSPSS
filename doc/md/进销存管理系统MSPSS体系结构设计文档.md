@@ -361,49 +361,120 @@ DAE: Default Account Executive, 默认业务员
 
 表2 stocksellerbl模块的接口规范
 
+****提供的服务（供接口）****
+
 | 服务名                                 | 服务   | 服务                                       |
 | ----------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.searchCustomer | 语法   | public boolean searchCustomer(String keyword); |
+| StockSellerBLService.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
 |                                     | 前置条件 | 输入的关键词合法                                 |
 |                                     | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
 | StockSellerBLService.getCustomer    | 语法   | public CustomerVO getCustomer(String ID); |
 |                                     | 前置条件 | 输入的客户编号符合规范                              |
 |                                     | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
-| StockSellerBLService.showCustomer   | 语法   | public ArrayList< CustomerVO > showCustomer(int keyType, String keyword); |
-|                                     | 前置条件 | 输入的关键词合法                                 |
-|                                     | 后置条件 | 返回符合关键词的所有客户，如果没有符合关键词的客户，则返回空列表         |
 | StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统新建一个客户，并提示新建成功                         |
 | StockSellerBLService.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
 |                                     | 前置条件 | 需要删除的用户存在于系统中                            |
 |                                     | 后置条件 | 删除用户，返回true                              |
-| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
+| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统修改该客户的属性，并返回true                       |
 |                                     |      |                                          |
 
-
-
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (String supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
+| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (CustomerVO supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货单，返回true，提示生成成功                      |
-| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (String supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
+| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (CustomerVO supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
-| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(String customer, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售单，返回true，提示生成成功                      |
-| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (String customer, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
-| StockSellerBLService.showList            | 语法   | public boolean showList(BillVO bill);    |
-|                                          | 前置条件 | 系统刚完成制定单据的操作                             |
-|                                          | 后置条件 | 展示已制定的单据                                 |
 
+**需要的服务（供接口）**
 
+| 服务名                                      | 服务      |
+| ---------------------------------------- | ------- |
+| CustomerDataService.addCustomer          | 增加客户    |
+| CustomerDataService.delCustomer          | 删除客户    |
+| CustomerDataService.modifyCustomer       | 修改客户属性  |
+| CustomerDataService.getCustomer          | 得到客户属性  |
+| CommodityDataService.getCommodity        | 得到商品属性  |
+| BillDataService.createPurchaseList       | 创建进货单   |
+| BillDataService.createPurchaseReturnList | 创建进货退货单 |
+| BillDataService.createSalesList          | 创建销售单   |
+| BillDataService.createSalesReturnList    | 创建销售退货单 |
+
+表3 ChiefManagerbl模块的接口规范
+
+| 提供的服务（供接口）                               |                         |                                          |
+| ---------------------------------------- | ----------------------- | ---------------------------------------- |
+| ChiefManagerBLService.checkLimit         | 语法                      | public boolean checkLimit(int id,String serviceType); |
+| 前置条件                                     | 用户已经成功登陆                |                                          |
+| 后置条件                                     | 返回一个布尔值表示用户是否有使用申请功能的权限 |                                          |
+| ChiefManagerBLService.exportList         | 语法                      | public void exportList(ListVO listVO);   |
+| 前置条件                                     | 有符合条件的表单                |                                          |
+| 后置条件                                     | 导出excel格式的表单            |                                          |
+| ChiefManagerBLService.emptyCondition     | 语法                      | public void emptyCondition();            |
+| 前置条件                                     | 用户有搜索销售明细表的权限           |                                          |
+| 后置条件                                     | 清空用户输入的搜索条件             |                                          |
+| ChiefManagerBLService.exit               | 语法                      | public void exit();                      |
+| 前置条件                                     | 用户位于具体功能界面              |                                          |
+| 后置条件                                     | 系统返回总经理登陆后的起始界面         |                                          |
+| ChiefManagerBLService.makeSalesList      | 语法                      | public SalesListVO makeSalesList(String time,String commodityName, String customerName, String salesmanName,String warehouseName ); |
+| 前置条件                                     | 用户有查看销售明细表的权限           |                                          |
+| 后置条件                                     | 返回用户要求的销售明细表            |                                          |
+| ChiefManagerBLService.makeManageList     | 语法                      | public ManageListVO makeManageList(String time); |
+| 前置条件                                     | 用户有查看经营情况表的权限           |                                          |
+| 后置条件                                     | 返回用户要求的经营情况表            |                                          |
+| ChiefManagerBLService.showLogList        | 语法                      | public LogListVO showLogList();          |
+| 前置条件                                     | 用户有查询日志的权限              |                                          |
+| 后置条件                                     | 返回系统日志列表                |                                          |
+| ChiefManagerBLService.showLogDetail      | 语法                      | public LogVO showLogDetail(int id);      |
+| 前置条件                                     | 用户有查询日志的权限              |                                          |
+| 后置条件                                     | 返回该条日志的详细信息             |                                          |
+| ChiefManagerBLService.showBillList       | 语法                      | public BillListVO showBillList(String isExamined)； |
+| 前置条件                                     | 用户有审批单据的权限              |                                          |
+| 后置条件                                     | 返回待审批单据列表               |                                          |
+| ChiefManagerBLService.changeBillState    | 语法                      | public void changeBillState(ArrayList<BillVO> billVOArray),boolean pass); |
+| 前置条件                                     | 待审批单据列表不为空              |                                          |
+| 后置条件                                     | 改变单据的审批状态为批准或不批准        |                                          |
+| ChiefManagerBLService.updateBillData     | 语法                      | public void updateBillData(ArrayList<BillVO billVOArray>); |
+| 前置条件                                     | 有单据被审批                  |                                          |
+| 后置条件                                     | 将审批后的单据信息更新到数据库中        |                                          |
+| ChiefManagerBLService.sendMessage        |                         |                                          |
+| ChiefManagerBLService.showBillDetail     | 语法                      | public BillVO showBillDetail(int id);    |
+| 前置条件                                     | 待审批单据列表不为空              |                                          |
+| 后置条件                                     | 返回一张单据的详细内容             |                                          |
+| ChiefManagerBLService.choosePromotionType | 语法                      | public PromotionVO choosePromotionType(String type); |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 返回类型对应的VO               |                                          |
+| ChiefManagerBLService.setPromotionTime   | 语法                      | public PromotionVO setPromotionTime(PromotionVO promotionVO); |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 返回修改了起始时间的PromotionVo   |                                          |
+| ChiefManagerBLService.checkPromotionInfo | 语法                      | public PromotionVO checkPromotionInfo(PromotionVO promotionVO) |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 检查用户传入促销策略信息的正确性        |                                          |
+| ChiefManagerBLService.ShowPromotionList  | 语法                      | public PromotionListVO ShowPromotionList(); |
+| 前置条件                                     | 用户有权限制定促销策略             |                                          |
+| 后置条件                                     | 显示当前存在的促销策略列表           |                                          |
+| ChiefManagerBLService.updatePromotionInfo | 语法                      | public void updatePromotionInfo(PromotionVO promotionVO); |
+| 前置条件                                     | 用户制定促销策略成功              |                                          |
+| 后置条件                                     | 更新数据库中的促销策略信息           |                                          |
+| 需要的服务（需接口）                               |                         |                                          |
+| 服务名                                      | 服务                      |                                          |
+| SystemData.userData.findUser             | 根据id查找对应的userPO         |                                          |
+| BillDataService.findSaleBill             | 根据搜索条件查找对应的saleBillPP   |                                          |
+| BillDataService.findBill                 | 查找符合条件的所有类型的单据PO        |                                          |
+| SystemDataService.LogDataService.findLog | 根据ID查找对应的LogPO          |                                          |
+| BillDataService.updateBill               | 改变BillPO中的数据            |                                          |
+| SystemDataService.promotionDataService.find | 查找参数类型对应的所有PromotionPO  |                                          |
 
 ### <a name="5.4"></a>5.4数据层的分解
 
