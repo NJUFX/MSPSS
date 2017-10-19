@@ -283,7 +283,22 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 
 
-### <a name="5.3"></a> 5.3业务逻辑层的分解
+### <a name="5.3"></a> 5.3业务逻辑层的分解<br>
+
+业务逻辑层包括多个针对界面的业务逻辑处理对象
+
+#### 5.3.1 业务逻辑层模块的职责<br>
+
+业务逻辑层模块的职责如表5.3.1-1所示
+
+##### 表 5.3.1-1 业务逻辑层模块的职责<br>
+
+| fiancebl | 负责实现财务人员界面所需要的服务   |
+| -------- | ------------------ |
+| mainbl   | 负责实现登陆界面所需要的服务     |
+| adminbl  | 负责实现系统管理人员界面所需要的服务 |
+
+
 
 #### 5.3.2-2 stocksellerbl模块的接口规范
 
@@ -476,7 +491,97 @@ DAE: Default Account Executive, 默认业务员
 | BillDataService.updateBill               | 改变BillPO中的数据            |                                          |
 | SystemDataService.promotionDataService.find | 查找参数类型对应的所有PromotionPO  |                                          |
 
+##### 表4 fiancebl模块的接口规范
+
+| 提供的服务（接口）                    |      |                                          |
+| ---------------------------- | ---- | ---------------------------------------- |
+| AccountManger.addAccount     | 语法   | public  AccountStatus addAccount(Account account) |
+|                              | 前置条件 | account已经被初始化且不存在同名账户                    |
+|                              | 后置条件 | 返回账户管理操作的状态Enum类：AccountStatus           |
+| AccountManager.deleteAccount | 语法   | public  AccountStatus deleteAccount(Account account) |
+|                              | 前置条件 | account存在于账户列表，且必须已经初始化                  |
+|                              | 后置条件 | 返回账户管理操作的状态Enum类：AccountStatus           |
+| AccountManager.checkAccount  | 语法   | public  Account checkAccount(AccountPos position) |
+|                              | 前置条件 | position必须被初始化                           |
+|                              | 后置条件 | 返回账户目标账户或者抛出异常                           |
+| AccountManager.modifyAccount | 语法   | public  AccountStatus modifyAccount(Account account) |
+|                              | 前置条件 | account必须存在于账户列表，并且修改已经写入account         |
+|                              | 后置条件 | 返回账户管理操作的状态Enum类：AccountStatus           |
+| BillManager.checkIncomeBill  | 语法   | public IncomeBill checkIncomeBill(BillPos position) |
+|                              | 前置条件 | position必须被初始化                           |
+|                              | 后置条件 | 返回目标IncomeBill的对象或者抛出异常                  |
+| BillManager.addIncomeBill    | 语法   | public BillStatus addIncomeBill(IncomeBill bill) |
+|                              | 前置条件 | bill必须已经被初始化                             |
+|                              | 后置条件 | 返回提交状态Enum类：BillStatus，提交表单              |
+| ReceiptManager.addReceipt    | 语法   | public BillStatus addReceipt(Receipt receipt) |
+|                              | 前置条件 | receipt必须被初始化                            |
+|                              | 后置条件 | 返回提交状态Enum类：BillStatus，提交表单              |
+| AccountInitializer.init      | 语法   | Public InitStatus Initialize(InitAccount initaccount) |
+|                              | 前置条件 | initaccount必须格式正确并且被初始化                  |
+|                              | 后置条件 | 返回初始化状态Enum类：InitStatus，保存账户             |
+| AccountInitializer.check     | 语法   | Public InitAccount Initialize(InitAccountPos positon) |
+|                              | 前置条件 | position必须已经被初始化                         |
+|                              | 后置条件 | 返回期初建账的账户信息                              |
+| BPTManager.check             | 语法   | Public BussinessProcessTable check(BPTPos position) |
+|                              | 前置条件 | position必须已经被初始化                         |
+|                              | 后置条件 | 返回对应经营历程表                                |
+| BPTManger.export             | 语法   | Public boolean export(BussinuessProcessTable table) |
+|                              | 前置条件 | table必须在表单列表中                            |
+|                              | 后置条件 | 导出表单并且返回boolean表示是否导出成功                  |
+| BPTManager.hotfrog           | 语法   | public BillStatus hotfrog(Bill bill)     |
+|                              | 前置条件 | bill必须已经被初始化                             |
+|                              | 后置条件 | 返回单据状态的Enum类：BillStatus                  |
+
+| 需要的服务（需接口）                               |                         |
+| ---------------------------------------- | ----------------------- |
+| 服务名                                      | 服务                      |
+| BillDataService.add(BillPO)              | 在数据库中插入BillPO对象         |
+| BillDataService.serch(BillIndex index)   | 在数据库中搜索以index为索引的BillPO |
+| BillDataService.change(BillIndex,Bill)   | 修改数据库中以index为索引的BillPO  |
+| BillDataService.delete(BillIndex)        | 删除数据库中以index为索引的BillPO  |
+| SystemDataService.addInitInfo(InitAccountPO) | 在数据库中插入InitAccountPO    |
+| SystemDataService.checkInitInfo()        | 在数据库中搜索相关初始化信息          |
+| SystemDataService.addLog()               | 在数据库中插入日志               |
+
 ### <a name="5.4"></a>5.4数据层的分解
+
+#### 5.4.1 数据层模块的职责
+
+| 模块                    | 职责                                      |
+| --------------------- | --------------------------------------- |
+| SystemDataService     | 系统持久化数据库的接口，提供集体载入，集体保存，增，删，改，查服务       |
+| SystemDataTxtFileImpl | 基于txt文件的持久化数据库的接口，提供集体载入，集体保存，增，删，改，查服务 |
+|                       |                                         |
+
+
+
+#### 5.4.2 数据层模块的接口规范<br>
+
+表1 SystemDataService模块的接口规范
+
+| 提供的服务（供接口）                        |      |                                          |
+| --------------------------------- | ---- | ---------------------------------------- |
+| SystemDataService.findUser        | 语法   | public UserPO findUser(long id) throws RemoteException |
+|                                   | 前置条件 | id存在于用户数据中                               |
+|                                   | 后置条件 | 返回该id对应的UserPo，或者抛出异常：RemoteException    |
+| SystemDataService.deleteUser      | 语法   | public POStatus deleteUser(long id) throws RemoteException |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，删除数据 |
+| SystemDataService.addUser         | 语法   | public POStatus addUser(UserPO newuser) throws RemoteException |
+|                                   | 前置条件 | newuser必须被初始化                            |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存新用户 |
+| SystemDataService.updateUser      | 语法   | public POStatus updateUser(UserPO user) throws RemoteException |
+|                                   | 前置条件 | user必须以及被初始化                             |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，更新系统数据 |
+| SystemDataSerive.addInitInfo()    | 语法   | public POStatus addInitInfo(InitAccountPO initaccount) throws RemoteException |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存初始化账户 |
+| SystemDataService.addLog()        | 语法   | public POStatus addLog(LogPO log) throws RemoteException |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存日志 |
+| SystemDataService.checkInitInfo() | 语法   | public InitAccountPO checkInitInfo(long index) throws RemoteException throws NullIndexException |
+|                                   | 前置条件 | id必须存在于初始化信息列表中                          |
+|                                   | 后置条件 | 返回对应InitAccountPO或者抛出异常:RemoteException ，或者NullIndexException(无效索引，空索引异常) |
 
 
 
@@ -502,8 +607,8 @@ DAE: Default Account Executive, 默认业务员
 | PurchasePO  | 单据编号、供应商、仓库、操作员、入库商品列表、总额合计、备注           |
 | SalesPO     | 单据编号、客户、默认业务员、操作员、仓库、出货商品清单、折让前总额、折让、代金券、折让后总额、备注 |
 | CommodityPO | 商品编号、名称、型号、单价、备注                         |
-|             |                                          |
-|             |                                          |
+| LogPO       | 操作人员、操作时间、操作类型、金额、库存、商品                  |
+| UserPO      | 用户ID、密码、姓名、职位、权限                         |
 |             |                                          |
 |             |                                          |
 |             |                                          |
@@ -555,6 +660,22 @@ InValue 应收额度
 | ID     | name   | type   | price  | remark |
 | ------ | ------ | ------ | ------ | ------ |
 | String | String | String | double | String |
+
+
+
+##### LogPO
+
+| Operator | Time   | Kind   | money     | stock     | commodity |
+| -------- | ------ | ------ | --------- | --------- | --------- |
+| String   | String | String | long long | long long | string    |
+
+
+
+##### UserPO
+
+| ID   | Password | name   | Job    | Power |
+| ---- | -------- | ------ | ------ | ----- |
+| long | string   | string | string | int   |
 
 
 
