@@ -433,10 +433,10 @@ DAE: Default Account Executive, 默认业务员
 | ChiefManagerBLService.checkLimit         | 语法                      | public boolean checkLimit(int id,String serviceType); |
 | 前置条件                                     | 用户已经成功登陆                |                                          |
 | 后置条件                                     | 返回一个布尔值表示用户是否有使用申请功能的权限 |                                          |
-| ChiefManagerBLService.exportList         | 语法                      | public void exportList(ListVO listVO);   |
+| ChiefManagerBLService.exportList         | 语法                      | public boolean exportList(ListVO listVO); |
 | 前置条件                                     | 有符合条件的表单                |                                          |
 | 后置条件                                     | 导出excel格式的表单            |                                          |
-| ChiefManagerBLService.emptyCondition     | 语法                      | public void emptyCondition();            |
+| ChiefManagerBLService.emptyCondition     | 语法                      | public  boolean emptyCondition();        |
 | 前置条件                                     | 用户有搜索销售明细表的权限           |                                          |
 | 后置条件                                     | 清空用户输入的搜索条件             |                                          |
 | ChiefManagerBLService.exit               | 语法                      | public void exit();                      |
@@ -457,7 +457,7 @@ DAE: Default Account Executive, 默认业务员
 | ChiefManagerBLService.showBillList       | 语法                      | public BillListVO showBillList(String isExamined)； |
 | 前置条件                                     | 用户有审批单据的权限              |                                          |
 | 后置条件                                     | 返回待审批单据列表               |                                          |
-| ChiefManagerBLService.changeBillState    | 语法                      | public void changeBillState(ArrayList<BillVO> billVOArray),boolean pass); |
+| ChiefManagerBLService.changeBillState    | 语法                      | public ArrayList<BillVO> changeBillState(ArrayList<BillVO> billVOArray),boolean pass); |
 | 前置条件                                     | 待审批单据列表不为空              |                                          |
 | 后置条件                                     | 改变单据的审批状态为批准或不批准        |                                          |
 | ChiefManagerBLService.updateBillData     | 语法                      | public void updateBillData(ArrayList<BillVO billVOArray>); |
