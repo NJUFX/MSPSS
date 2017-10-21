@@ -77,15 +77,18 @@
 
 ## <a name="geng"></a> 更新历史
 
-| **修改人员** | **日期**     | **变更原因**            | **版本号**  |
-| -------- | ---------- | ------------------- | -------- |
-| FX全组人员   | 2017-10-10 | 最初草稿                | V1.0  草稿 |
-| 伏家兴      | 2017-10-13 | 添加目录                | V1.1草稿   |
-| 伏家兴      | 2017-10-16 | 添加stocksellerbl接口规范 | V1.2.1   |
-| 韩新虎      | 2017-10-17 | 添加stockmanager接口规范  | V1.2.2   |
-| 徐光耀      | 2017-10-19 | 添加financebl接口规范     | V1.2.3   |
-| 刘雅歆      | 2017-10-19 | 添加chiefmanager接口规范  | V1.2.4   |
-| 伏家兴      | 2017-10-19 | 整合文档格式              | V1.3     |
+| **修改人员** | **日期**     | **变更原因**                        | **版本号**  |
+| -------- | ---------- | ------------------------------- | -------- |
+| FX全组人员   | 2017-10-10 | 最初草稿                            | V1.0  草稿 |
+| 伏家兴      | 2017-10-13 | 添加目录                            | V1.1     |
+| 伏家兴      | 2017-10-16 | 添加stocksellerbl接口规范             | V1.2.1   |
+| 韩新虎      | 2017-10-17 | 添加stockmanagerbl接口规范            | V1.2.2   |
+| 徐光耀      | 2017-10-19 | 添加financebl接口规范和systemdata的接口规范 | V1.2.3   |
+| 刘雅歆      | 2017-10-19 | 添加chiefmanagerbl接口规范            | V1.2.4   |
+| 伏家兴      | 2017-10-19 | 整合文档格式                          | V1.3     |
+| 刘雅歆      | 2017-10-20 | 修改了chiefmanagerbl接口规范           | V1.3.1   |
+| 伏家兴      | 2017-10-21 | 添加了customerdata的接口规范            | V1.3.2   |
+|          |            |                                 |          |
 
 
 
@@ -314,13 +317,13 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | mainbl         | 负责实现登陆界面所需要的服务     |
 | adminbl        | 负责实现系统管理人员界面所需要的服务 |
 
-#### 5.3.2-2 stocksellerbl模块的接口规范<a name="5.3.2"></a><br>
+#### 5.3.2 业务逻辑模块的接口规范<a name="5.3.2"></a><br>
 
 名词解释：
 
 DAE: Default Account Executive, 默认业务员
 
-<center>**表1 stockmanagerbl模块的接口规范**
+**表1 stockmanagerbl模块的接口规范**
 
 **提供的服务（供接口）**</center>
 
@@ -505,7 +508,7 @@ DAE: Default Account Executive, 默认业务员
 | BillDataService.updateBill               | 改变BillPO中的数据            |                                          |
 | SystemDataService.promotionDataService.find | 查找参数类型对应的所有PromotionPO  |                                          |
 
-##### 表4 fiancebl模块的接口规范
+**表4 fiancebl模块的接口规范**
 
 | 提供的服务（接口）                    |      |                                          |
 | ---------------------------- | ---- | ---------------------------------------- |
@@ -600,7 +603,23 @@ DAE: Default Account Executive, 默认业务员
 |                                   | 前置条件 | id必须存在于初始化信息列表中                          |
 |                                   | 后置条件 | 返回对应InitAccountPO或者抛出异常:RemoteException ，或者NullIndexException(无效索引，空索引异常) |
 
+表2 CustomerDataServic模块的接口规范
 
+| 服务名                                 | 服务   | 服务                                       |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| CustomerDataService.addCustomer     | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 系统增加新的客户信息，更新数据                          |
+| CustomerDataService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 系统删除该ID对应的客户，更新数据                        |
+| CustomerDataService.getCustomerInfo | 语法   | public CustomerPO getCustomerInfo(String ID); |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 返回该ID对应的客户PO                             |
+| CustomerDataService.modifyCustomer  | 语法   | public boolean ModifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 修改客户信息，更新数据                              |
+|                                     |      |                                          |
 
 
 
@@ -634,9 +653,7 @@ DAE: Default Account Executive, 默认业务员
 | StockPO          | 出/入库数量/金额，销售/进货的数量/金额                    |
 ### <a name="6.2"></a> 6.2  持久化格式
 
-
-
-### <a name="6.3"></a> 6.3 数据库表
+### 6.3 数据库表<a name="6.3"></a>
 
 数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表
 
@@ -682,7 +699,7 @@ InValue 应收额度
 | -------- | ------ | ------ | --------- | --------- | --------- |
 | String   | String | String | long long | long long | string    |
 
-##### **UserPO**
+**UserPO**
 
 | ID   | Password | name   | Job    | Power |
 | ---- | -------- | ------ | ------ | ----- |
