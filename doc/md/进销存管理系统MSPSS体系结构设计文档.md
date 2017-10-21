@@ -698,9 +698,9 @@ InValue 应收额度
 
 **CommodityPO**
 
-| ID     | name   | type   | saleprice | number | purchaseprice | latestSalePrice | latestPurchasePrice |
-| ------ | ------ | ------ | --------- | ------ | ------------- | --------------- | ------------------- |
-| String | String | String | double    | int    | double        | double          | double              |
+| ID     | name   | type   | impostcost | number | expostcost | latesrimpostcost | latestexpostcost |
+| ------ | ------ | ------ | ---------- | ------ | ---------- | ---------------- | ---------------- |
+| String | String | String | double     | int    | double     | double           | double           |
 
 **LogPO**
 
