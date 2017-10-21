@@ -468,7 +468,7 @@ DAE: Default Account Executive, 默认业务员
 | ChiefManagerBLService.showLogDetail      | 语法                      | public LogVO showLogDetail(int id);      |
 | 前置条件                                     | 用户有查询日志的权限              |                                          |
 | 后置条件                                     | 返回该条日志的详细信息             |                                          |
-| ChiefManagerBLService.showBillList       | 语法                      | public BillListVO showBillList(String isExamined)； |
+| ChiefManagerBLService.showBillList       | 语法                      | public BillListVO showBillList(boolean isExamined)； |
 | 前置条件                                     | 用户有审批单据的权限              |                                          |
 | 后置条件                                     | 返回待审批单据列表               |                                          |
 | ChiefManagerBLService.changeBillState    | 语法                      | public ArrayList<BillVO> changeBillState(ArrayList<BillVO> billVOArray),boolean pass); |
@@ -478,7 +478,7 @@ DAE: Default Account Executive, 默认业务员
 | 前置条件                                     | 有单据被审批                  |                                          |
 | 后置条件                                     | 将审批后的单据信息更新到数据库中        |                                          |
 | ChiefManagerBLService.sendMessage        |                         |                                          |
-| ChiefManagerBLService.showBillDetail     | 语法                      | public BillVO showBillDetail(int id);    |
+| ChiefManagerBLService.showBillDetail     | 语法                      | public BillVO showBillDetail(String id); |
 | 前置条件                                     | 待审批单据列表不为空              |                                          |
 | 后置条件                                     | 返回一张单据的详细内容             |                                          |
 | ChiefManagerBLService.choosePromotionType | 语法                      | public PromotionVO choosePromotionType(String type); |
@@ -487,7 +487,7 @@ DAE: Default Account Executive, 默认业务员
 | ChiefManagerBLService.setPromotionTime   | 语法                      | public PromotionVO setPromotionTime(PromotionVO promotionVO); |
 | 前置条件                                     | 用户有权限制定促销策略             |                                          |
 | 后置条件                                     | 返回修改了起始时间的PromotionVo   |                                          |
-| ChiefManagerBLService.checkPromotionInfo | 语法                      | public PromotionVO checkPromotionInfo(PromotionVO promotionVO) |
+| ChiefManagerBLService.checkPromotionInfo | 语法                      | public boolean checkPromotionInfo(PromotionVO promotionVO) |
 | 前置条件                                     | 用户有权限制定促销策略             |                                          |
 | 后置条件                                     | 检查用户传入促销策略信息的正确性        |                                          |
 | ChiefManagerBLService.ShowPromotionList  | 语法                      | public PromotionListVO ShowPromotionList(); |
