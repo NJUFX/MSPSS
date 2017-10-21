@@ -18,7 +18,7 @@
 | BankAccountPO  | 银行账户信息 | systemdataservice    | String name//String id(银行账号)//long money//UserPO creator(建账人员) |
 | PayBIll        | 付款单    | billdataservice      | String  id(单据编号)//UserPO operator(操作员即当前登录用户)//BanAccountPO account(银行账户)//ArrayList<TermsPO> terms(条目清单)//long total(总额) |
 | TermsPO        | 条目清单   | billdataservice      | String cases(条目名)//long money//String remarks |
-| FinalAccountPO | 期初建账信息 | systemdataservice    | ArrayList<CommodityPO> commodity(商品信息)//ArrayList<CostomerPO> costomer(客户信息)//BankAccount bankaccount(银行账户信息) |
+| FinalAccountPO | 期初建账信息 | systemdataservice    | String name//ArrayList<CommodityPO> commodity(商品信息)//ArrayList<CostomerPO> costomer(客户信息)//BankAccount bankaccount(银行账户信息) |
 | CommodityPO    | 商品信息   | commoditydataservice | Kind_Of_Commodity kind(商品类别，enum)//String model(型号)//int averageimportcost(上半年进价)//int averageexportcost(上半年平均售价)//int recentimportcost(最近一次进价)//int recentexportcost(最近一次售价) |
 |                |        |                      |                                          |
 
