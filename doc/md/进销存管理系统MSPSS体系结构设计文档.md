@@ -630,7 +630,22 @@ DAE: Default Account Executive, 默认业务员
 |                                     | 后置条件 | 修改客户信息，更新数据                              |
 |                                     |      |                                          |
 
+表3 BillDataService模块的接口规范
 
+| 提供的服务（供接口）             |                         |                                          |
+| ---------------------- | ----------------------- | ---------------------------------------- |
+| BillDataService.search | 语法                      | public ArrayList<BillPO> search(ConditionPO Condition); |
+| 前置条件                   | 无                       |                                          |
+| 后置条件                   | 返回符合条件的所有单据PO           |                                          |
+| BillDataService.update | 语法                      | public void update(ArrayList<BillPO>);   |
+| 前置条件                   | 数据库中中存在参数传入的BillPO      |                                          |
+| 后置条件                   | BillPO的信息改为参数中BillPO的信息 |                                          |
+| BillDataService.delete | 语法                      | public void delete(ArrayList<BillPO>);   |
+| 前置条件                   | 数据库中存在参数传入的BillPO       |                                          |
+| 后置条件                   | 数据库中移除相应的BillPO         |                                          |
+| BillDataService.add    | 语法                      | public void add(ArrayList<BillPO>);      |
+| 前置条件                   | 数据库中没有参数传入的PO           |                                          |
+| 后置条件                   | 将参数传入的PO加入到数据库          |                                          |
 
 ### <a name="5.5"></a>5.5模块的关键类图
 
