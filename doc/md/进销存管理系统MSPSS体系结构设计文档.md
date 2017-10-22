@@ -362,10 +362,10 @@ DAE: Default Account Executive, 默认业务员
 | StockManagerBLService.ModifyClassification | 语法   | public ResultMessage modifyClassification(String ID,String newParentID,String newName) |
 |                                          | 前置条件 | 用户输入了正确的信息                               |
 |                                          | 后置条件 | 返回修改成功与否，如果输入的信息非法，则抛出异常信息               |
-| StockManagerBLService.GetClassifications | 语法   | public Tree< ClassificationVO > getClassifications() |
+| StockManagerBLService.GetClassifications | 语法   | public Treeset< ClassificationVO > getClassifications() |
 |                                          | 前置条件 | 无                                        |
 |                                          | 后置条件 | 返回已有的商品分类树，如果暂未有商品分类，则返回空树               |
-| StockManagerBLService.ViewStock          | 语法   | public ArrayList< StockVO > viewStock(String startName, String endName) |
+| StockManagerBLService.ViewStock          | 语法   | public ArrayList< StockVO > viewStock(String startTime, String endTime) |
 |                                          | 前置条件 | 用户输入了正确的时间点                              |
 |                                          | 后置条件 | 返回时间段内的库存信息，若无库存信息则返回空列表，若输入信息异常则抛出非法信息  |
 | StockManagerBLservice.InventoryCheck     | 语法   | public ArrayList< InventoryVO> inventoryCheck() |
