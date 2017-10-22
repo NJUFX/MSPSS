@@ -1,4 +1,4 @@
-package VO;
+package vo;
 
 public class CommodityVO {
     public CommodityVO(String name,String type,String ID,double importcost,double exportcost){
