@@ -77,6 +77,10 @@
 
 <a href="#6">6.信息视角</a><br>
 
+<a href="#6,1">6.1数据的持久化对象</a><br>
+
+<a href="#6.2">6.2数据库表</a><br>
+
 
 
 ## <a name="geng"></a> 更新历史
@@ -412,13 +416,13 @@ DAE: Default Account Executive, 默认业务员
 | StockSellerBLService.getCustomer    | 语法   | public CustomerVO getCustomer(String ID); |
 |                                     | 前置条件 | 输入的客户编号符合规范                              |
 |                                     | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
-| StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
+| StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统新建一个客户，并提示新建成功                         |
 | StockSellerBLService.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
 |                                     | 前置条件 | 需要删除的用户存在于系统中                            |
 |                                     | 后置条件 | 删除用户，返回true                              |
-| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
+| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统修改该客户的属性，并返回true                       |
 |                                     |      |                                          |
@@ -630,7 +634,22 @@ DAE: Default Account Executive, 默认业务员
 |                                     | 后置条件 | 修改客户信息，更新数据                              |
 |                                     |      |                                          |
 
+表3 BillDataService模块的接口规范
 
+| 提供的服务（供接口）             |                         |                                          |
+| ---------------------- | ----------------------- | ---------------------------------------- |
+| BillDataService.search | 语法                      | public ArrayList<BillPO> search(ConditionPO Condition); |
+| 前置条件                   | 无                       |                                          |
+| 后置条件                   | 返回符合条件的所有单据PO           |                                          |
+| BillDataService.update | 语法                      | public void update(ArrayList<BillPO>);   |
+| 前置条件                   | 数据库中中存在参数传入的BillPO      |                                          |
+| 后置条件                   | BillPO的信息改为参数中BillPO的信息 |                                          |
+| BillDataService.delete | 语法                      | public void delete(ArrayList<BillPO>);   |
+| 前置条件                   | 数据库中存在参数传入的BillPO       |                                          |
+| 后置条件                   | 数据库中移除相应的BillPO         |                                          |
+| BillDataService.add    | 语法                      | public void add(ArrayList<BillPO>);      |
+| 前置条件                   | 数据库中没有参数传入的PO           |                                          |
+| 后置条件                   | 将参数传入的PO加入到数据库          |                                          |
 
 ### <a name="5.5"></a>5.5模块的关键类图
 
@@ -660,9 +679,7 @@ DAE: Default Account Executive, 默认业务员
 | ClassificationPO | 商品分类编号、名称、父分类                            |
 | InventoryPO      | 各种商品的名称、型号，库存数量，库存均价，批次，批号，出厂日期          |
 | StockPO          | 出/入库数量/金额，销售/进货的数量/金额                    |
-### <a name="6.2"></a> 6.2  持久化格式
-
-### 6.3 数据库表<a name="6.3"></a>
+### 6.2 数据库表<a name="6.3"></a>
 
 数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表
 
@@ -670,31 +687,27 @@ DAE: Default Account Executive, 默认业务员
 
 DAE: Default Account Executive默认业务员
 
-in 应收
-
-out 应付
-
 InValue 应收额度
 
 <br>**数据库表结构（属性-数据类型）**
 
 **CustomerPO**
 
-| ID     | category | level | name   | telephone | address | postcode | email  | Invalue | in     | out    | DAE    |
-| ------ | -------- | ----- | ------ | --------- | ------- | -------- | ------ | ------- | ------ | ------ | ------ |
-| String | String   | int   | String | String    | String  | String   | String | double  | double | double | String |
+| ID     | kind             | level | name   | phonenumber | address | postcode | email  | Invalue | incomemoney | paymoney | bankaccount   | DAE    |
+| ------ | ---------------- | ----- | ------ | ----------- | ------- | -------- | ------ | ------- | ----------- | -------- | ------------- | ------ |
+| String | Kind_Of_Customer | int   | String | String      | String  | String   | String | double  | double      | double   | BankAccountPO | String |
 
 **PurchasePO**
 
-| ID     | supplier | store  | worker | prolist                  | sum    | remark |
-| ------ | -------- | ------ | ------ | ------------------------ | ------ | ------ |
-| String | String   | String | String | ArrayList< CommodityPO > | double | String |
+| ID     | supplier   | store  | worker | prolist                  | sum    | remark |
+| ------ | ---------- | ------ | ------ | ------------------------ | ------ | ------ |
+| String | CustomerPO | String | String | ArrayList< CommodityPO > | double | String |
 
 **SalesPO**
 
-| ID     | customer | DAE    | worker | store  | prolist                  | befSum | discount | vocher | aftSum | remark |
-| ------ | -------- | ------ | ------ | ------ | ------------------------ | ------ | -------- | ------ | ------ | ------ |
-| String | String   | String | String | String | ArrayList< CommodityPO > | double | double   | double | double | String |
+| ID     | saler      | DAE    | worker | store  | prolist                  | befSum | discount | vocher | aftSum | remark |
+| ------ | ---------- | ------ | ------ | ------ | ------------------------ | ------ | -------- | ------ | ------ | ------ |
+| String | CustomerPO | String | String | String | ArrayList< CommodityPO > | double | double   | double | double | String |
 
 **CommodityPO**
 
