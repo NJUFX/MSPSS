@@ -10,7 +10,7 @@
 | BillPO                                   | 所有单据的父类，用于制定经营情况表和经营历程表的时候返回所有单据         | String billId//单据编号                      | BillData                 |
 | LogPO                                    | 系统日志的详细内容                                | int id;//编号String logText;//日志内容         | SystemData.LogData       |
 | PromotionPO                              | 促销策略的父类，对应六个子类PO                         | String type;//促销策略类型String time;// 有效时间区间 | SystemData.PromotionData |
-|                                          |                                          |                                          |                          |
+| BillConditionPO                          | 搜索单据时的条件                         |String type;//单据类型 String time//创建时间 String BillId//单据编号 String[] detail  //详细搜索条件,如客户名称等                                        |billData                          |
 
 | **PO****名称**（请以驼峰命名法书写，e.g. SalesBillPO） | **PO****中存储的内容**（e.g.SalesBillPO中存储的是数据层中的销售单据） | PO需要的属性（e.g. SalesBillPO中需要单据编号，请加上数据类型，如String id） | 所属的Data类型            |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | -------------------- |
