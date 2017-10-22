@@ -1,4 +1,4 @@
-package dataservice.custmoerdataservice;
+package dataservice;
 
 import po.*;
 import util.*;

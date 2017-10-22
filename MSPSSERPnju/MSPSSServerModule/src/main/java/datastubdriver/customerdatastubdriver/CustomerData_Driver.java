@@ -1,7 +1,6 @@
 package datastubdriver.customerdatastubdriver;
 
 import org.junit.*;
-import dataservice.custmoerdataservice.CustomerDataService;
 import po.*;
 import util.Kind_Of_Customers;
 

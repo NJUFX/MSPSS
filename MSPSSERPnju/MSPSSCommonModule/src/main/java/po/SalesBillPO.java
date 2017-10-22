@@ -1,4 +1,4 @@
 package po;
 
-public class SalesPO {
+public class SalesBillPO {
 }
