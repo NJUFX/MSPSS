@@ -77,6 +77,10 @@
 
 <a href="#6">6.信息视角</a><br>
 
+<a href="#6,1">6.1数据的持久化对象</a><br>
+
+<a href="#6.2">6.2数据库表</a><br>
+
 
 
 ## <a name="geng"></a> 更新历史
@@ -675,19 +679,13 @@ DAE: Default Account Executive, 默认业务员
 | ClassificationPO | 商品分类编号、名称、父分类                            |
 | InventoryPO      | 各种商品的名称、型号，库存数量，库存均价，批次，批号，出厂日期          |
 | StockPO          | 出/入库数量/金额，销售/进货的数量/金额                    |
-### <a name="6.2"></a> 6.2  持久化格式
-
-### 6.3 数据库表<a name="6.3"></a>
+### 6.2 数据库表<a name="6.3"></a>
 
 数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表
 
 <br>**名词解释**
 
 DAE: Default Account Executive默认业务员
-
-in 应收
-
-out 应付
 
 InValue 应收额度
 
