@@ -412,13 +412,13 @@ DAE: Default Account Executive, 默认业务员
 | StockSellerBLService.getCustomer    | 语法   | public CustomerVO getCustomer(String ID); |
 |                                     | 前置条件 | 输入的客户编号符合规范                              |
 |                                     | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
-| StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
+| StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统新建一个客户，并提示新建成功                         |
 | StockSellerBLService.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
 |                                     | 前置条件 | 需要删除的用户存在于系统中                            |
 |                                     | 后置条件 | 删除用户，返回true                              |
-| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
+| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue); |
 |                                     | 前置条件 | 输入的信息符合规范                                |
 |                                     | 后置条件 | 系统修改该客户的属性，并返回true                       |
 |                                     |      |                                          |
@@ -680,21 +680,21 @@ InValue 应收额度
 
 **CustomerPO**
 
-| ID     | category | level | name   | telephone | address | postcode | email  | Invalue | in     | out    | DAE    |
-| ------ | -------- | ----- | ------ | --------- | ------- | -------- | ------ | ------- | ------ | ------ | ------ |
-| String | String   | int   | String | String    | String  | String   | String | double  | double | double | String |
+| ID     | kind             | level | name   | phonenumber | address | postcode | email  | Invalue | incomemoney | paymoney | bankaccount   | DAE    |
+| ------ | ---------------- | ----- | ------ | ----------- | ------- | -------- | ------ | ------- | ----------- | -------- | ------------- | ------ |
+| String | Kind_Of_Customer | int   | String | String      | String  | String   | String | double  | double      | double   | BankAccountPO | String |
 
 **PurchasePO**
 
-| ID     | supplier | store  | worker | prolist                  | sum    | remark |
-| ------ | -------- | ------ | ------ | ------------------------ | ------ | ------ |
-| String | String   | String | String | ArrayList< CommodityPO > | double | String |
+| ID     | supplier   | store  | worker | prolist                  | sum    | remark |
+| ------ | ---------- | ------ | ------ | ------------------------ | ------ | ------ |
+| String | CustomerPO | String | String | ArrayList< CommodityPO > | double | String |
 
 **SalesPO**
 
-| ID     | customer | DAE    | worker | store  | prolist                  | befSum | discount | vocher | aftSum | remark |
-| ------ | -------- | ------ | ------ | ------ | ------------------------ | ------ | -------- | ------ | ------ | ------ |
-| String | String   | String | String | String | ArrayList< CommodityPO > | double | double   | double | double | String |
+| ID     | saler      | DAE    | worker | store  | prolist                  | befSum | discount | vocher | aftSum | remark |
+| ------ | ---------- | ------ | ------ | ------ | ------------------------ | ------ | -------- | ------ | ------ | ------ |
+| String | CustomerPO | String | String | String | ArrayList< CommodityPO > | double | double   | double | double | String |
 
 **CommodityPO**
 
