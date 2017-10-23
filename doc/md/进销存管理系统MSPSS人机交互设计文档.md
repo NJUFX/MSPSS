@@ -22,6 +22,10 @@
 
 1.3.1 客户管理
 
+
+
+![客户](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86%E5%AF%B9%E8%AF%9D%E7%BB%93%E6%9E%84.png)
+
 1.3.2 制定进货单
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%88%B6%E5%AE%9A%E8%BF%9B%E8%B4%A7%E5%8D%95%E5%AF%B9%E8%AF%9D%E7%BB%93%E6%9E%84.png)
