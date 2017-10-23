@@ -1,9 +1,9 @@
-package java.dataservicestubdrive;
+package datastubdriver;
 
-import util.CommodityPO;
+import po.CommodityPO;
 import util.ResultMessage;
 
-import java.dataservice.CommodityDataService;
+import dataservice.CommodityDataService;
 
 public class CommodityServiceStub implements CommodityDataService {
     @Override

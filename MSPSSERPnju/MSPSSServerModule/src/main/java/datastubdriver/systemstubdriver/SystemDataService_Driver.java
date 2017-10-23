@@ -6,7 +6,7 @@ import status.*;
 
 public class SystemDataService_Driver {
 
-
+UserPO user1 = new UserPO("161250164","s",true,true,true,true);
     public void driver(){
 
         SystemDataService_Stub systemdataservice = new SystemDataService_Stub();
@@ -47,7 +47,7 @@ public class SystemDataService_Driver {
         }
 
         User_Oper_Status uos;
-        uos = systemdataservice.addUser(new UserPO());
+        uos = systemdataservice.addUser(user1);
         if(uos==User_Oper_Status.SUCCESS){
             System.out.println("Add user Successfully!");
         }
@@ -56,7 +56,7 @@ public class SystemDataService_Driver {
         }
 
 
-        uos = systemdataservice.deleteUser(new UserPO());
+        uos = systemdataservice.deleteUser(user1);
         if(uos==User_Oper_Status.SUCCESS){
             System.out.println("delete user Successfully!");
         }
@@ -64,7 +64,7 @@ public class SystemDataService_Driver {
             System.out.println("Fail to delete user");
         }
 
-        uos = systemdataservice.adjustPower(new PowerPO(),new UserPO());
+        uos = systemdataservice.adjustPower(new PowerPO(),user1);
         if(uos==User_Oper_Status.SUCCESS){
             System.out.println("Adjust power Successfully!");
         }

@@ -1,7 +1,7 @@
 package blservice.stockmanagerblservice;
 
 
-import VO.*;
+import vo.*;
 
 import util.ResultMessage;
 
@@ -17,7 +17,7 @@ public interface StockmanagerBLService {
      * @return 是否成功添加，如果否，返回异常信息
      */
 
-    public ResultMessage addCommodity(String ID, String name, String type);
+     ResultMessage addCommodity(String ID, String name, String type);
 
     /**
      * @param ID       要修改的商品编号
@@ -25,27 +25,27 @@ public interface StockmanagerBLService {
      * @param new_type
      * @return 是否成功修改，如果否，返回异常信息
      */
-    public ResultMessage modifyCommodity(String ID, String new_name, String new_type);
+    ResultMessage modifyCommodity(String ID, String new_name, String new_type);
 
     /**
      * @param commodity_vo 选中的商品
      * @return 是否成功删除，如果否返回异常信息
      */
-    public ResultMessage deleteCommodity(CommodityVO commodity_vo);
+     ResultMessage deleteCommodity(CommodityVO commodity_vo);
 
     /***
      *
      * @param flagvo 筛选标志
      * @return 搜索到的商品列表
      */
-    public Iterator<CommodityVO> searchCommodity(FilterFlagVO flagvo);
+     Iterator<CommodityVO> searchCommodity(FilterFlagVO flagvo);
 
     /**
      *
      * @param ID 商品的ID
      * @return
      */
-    public CommodityVO getCommodity(String ID);
+     CommodityVO getCommodity(String ID);
 
     /**
      *
@@ -53,14 +53,14 @@ public interface StockmanagerBLService {
      * @param name 分类名称
      * @return
      */
-    public ResultMessage addClassification(String parentID, String name);
+     ResultMessage addClassification(String parentID, String name);
 
     /**
      *
      * @param ID 分类节点ID
      * @return
      */
-    public ResultMessage deleteClassification(String ID);
+     ResultMessage deleteClassification(String ID);
 
     /**
      *
@@ -69,13 +69,13 @@ public interface StockmanagerBLService {
      * @param newName 新的分类名称
      * @return
      */
-    public ResultMessage modifyClassification(String ID, String newParentID, String newName);
+    ResultMessage modifyClassification(String ID, String newParentID, String newName);
 
     /**
      *
      * @return 得到分类集合的树集
      */
-    public Iterator<ClassificationVO> getClassifications();
+     Iterator<ClassificationVO> getClassifications();
 
     /**
      *
@@ -83,7 +83,7 @@ public interface StockmanagerBLService {
      * @param endTime 结束时间
      * @return
      */
-    public Iterator<StockVO> viewStock(String startTime, String endTime);
+     Iterator<StockVO> viewStock(String startTime, String endTime);
 
     /**
      *

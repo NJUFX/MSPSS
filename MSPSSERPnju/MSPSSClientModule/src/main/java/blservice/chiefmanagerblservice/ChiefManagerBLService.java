@@ -1,4 +1,4 @@
-package chiefmanagerblservice;
+package blservice.chiefmanagerblservice;
 
 import java.util.ArrayList;
 import vo.*;

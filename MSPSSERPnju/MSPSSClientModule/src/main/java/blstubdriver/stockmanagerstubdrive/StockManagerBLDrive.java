@@ -1,6 +1,6 @@
 package blstubdriver.stockmanagerstubdrive;
 
-import VO.*;
+import vo.*;
 import blservice.stockmanagerblservice.StockmanagerBLService;
 
 import java.util.ArrayList;

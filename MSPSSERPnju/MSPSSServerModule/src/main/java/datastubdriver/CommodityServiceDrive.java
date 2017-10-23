@@ -1,13 +1,15 @@
-package java.dataservicestubdrive;
+package datastubdriver;
 
-import util.CommodityPO;
+import po.CommodityPO;
 import util.ResultMessage;
-
-import java.dataservice.CommodityDataService;
-
+import datastubdriver.*;
+import dataservice.CommodityDataService;
+import datastubdriver.*;
 public class CommodityServiceDrive  {
     public static void main(String[] args) {
         CommodityDataService c = new CommodityServiceStub();
+
+
         System.out.println(c.AddClassification());
         System.out.println(c.addCommodity(null));
         System.out.println(c.deleteCommodity(null));

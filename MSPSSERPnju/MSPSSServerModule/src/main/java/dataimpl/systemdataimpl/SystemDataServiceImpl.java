@@ -1,16 +1,15 @@
 package dataimpl.systemdataimpl;
 
 import dataservice.SystemDataService;
-import po.FinalAccountPO;
-import po.PowerPO;
-import po.UserPO;
-import status.Log_Status;
-import status.User_Oper_Status;
+import po.*;
+import status.*;
 
 /**
  * Created by thinkpad on 2017/10/22.
  */
 public class SystemDataServiceImpl implements SystemDataService{
+
+    @Override
     public Log_Status login(String id, String password){
         //具体实现.........
         return Log_Status.SUCCESS;

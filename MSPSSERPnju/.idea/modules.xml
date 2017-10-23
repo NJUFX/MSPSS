@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MSPSSClientModule/MSPSSClientModule.iml" filepath="$PROJECT_DIR$/MSPSSClientModule/MSPSSClientModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MSPSSCommonModule/MSPSSCommonModule.iml" filepath="$PROJECT_DIR$/MSPSSCommonModule/MSPSSCommonModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MSPSSERPnju.iml" filepath="$PROJECT_DIR$/MSPSSERPnju.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml" />
+    </modules>
+  </component>
+</project>

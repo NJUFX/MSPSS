@@ -1,8 +1,8 @@
-package java.dataservicestubdrive;
+package datastubdriver;
 
 import util.ResultMessage;
 
-import java.dataservice.StockDataService;
+import dataservice.StockDataService;
 
 public class StockDataServiceStub implements StockDataService {
     @Override

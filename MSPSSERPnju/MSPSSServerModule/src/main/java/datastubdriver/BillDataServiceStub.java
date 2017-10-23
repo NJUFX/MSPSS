@@ -1,8 +1,8 @@
-package java.dataservicestubdrive;
+package datastubdriver;
 
 import util.ResultMessage;
 
-import java.dataservice.BillDataService;
+import dataservice.BillDataService;
 
 public class BillDataServiceStub implements BillDataService {
     @Override

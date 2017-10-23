@@ -1,4 +1,4 @@
-package java.dataservice;
+package dataservice;
 
 import com.sun.org.apache.regexp.internal.RE;
 import util.ResultMessage;

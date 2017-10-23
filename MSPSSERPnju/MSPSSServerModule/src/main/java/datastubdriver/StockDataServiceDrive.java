@@ -1,7 +1,7 @@
-package java.dataservicestubdrive;
+package datastubdriver;
 
-import java.dataservice.BillDataService;
-import java.dataservice.StockDataService;
+import dataservice.BillDataService;
+import dataservice.StockDataService;
 
 public class StockDataServiceDrive   {
     public static void main(String[] args) {

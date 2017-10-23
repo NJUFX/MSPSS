@@ -1,4 +1,4 @@
-package chiefmanagerstubdriver;
+package blstubdriver.chiefmanagerstubdriver;
 import java.util.ArrayList;
 
 import org.junit.*;
@@ -14,8 +14,6 @@ import vo.PromotionVO;
 import vo.SalesListVO;
 
 public class ChiefManager_Driver {
-	//Test Constant
-	
 	ChiefManager_Stub chiefManagerBLService = new ChiefManager_Stub();
 	ListVO Test_ListVO = new ListVO("17/10/19");
 	ArrayList<BillVO> billVOArr = new ArrayList<BillVO>();

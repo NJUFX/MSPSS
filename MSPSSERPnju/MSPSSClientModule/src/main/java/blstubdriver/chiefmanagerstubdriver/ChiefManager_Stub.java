@@ -1,8 +1,8 @@
-package chiefmanagerstubdriver;
+package blstubdriver.chiefmanagerstubdriver;
 
 import java.util.ArrayList;
 
-import chiefmanagerblservice.ChiefManagerBLService;
+import blservice.chiefmanagerblservice.ChiefManagerBLService;
 import po.SalesBillPO;
 import po.UserPO;
 import vo.BillListVO;

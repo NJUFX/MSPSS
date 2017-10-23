@@ -1,8 +1,10 @@
-package java.dataservice;
+package dataservice;
 
 import com.sun.org.apache.regexp.internal.RE;
 import util.ResultMessage;
-import  util.CommodityPO;
+
+import po.*;
+
 public interface CommodityDataService {
     public ResultMessage addCommodity(CommodityPO commodityPO);
 

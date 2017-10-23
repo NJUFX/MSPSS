@@ -1,4 +1,4 @@
-package java.dataservice;
+package dataservice;
 
 import util.ResultMessage;
 
