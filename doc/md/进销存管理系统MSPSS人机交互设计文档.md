@@ -1,6 +1,5 @@
 
 
-
 ## 目录
 
 
@@ -174,6 +173,11 @@
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/制定促销策略导航.png)
 
+![账户管理](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86.png)
+![制定单据](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%8D%95%E6%8D%AE%E5%88%B6%E5%AE%9A.png)
+![查看报表](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%9F%A5%E7%9C%8B%E6%8A%A5%E8%A1%A8.png)
+![期初建账](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%9C%9F%E5%88%9D%E5%BB%BA%E8%B4%A6.png)
+
 ## 2 界面设计
 
 ### 2.1 用户登陆界面
@@ -201,7 +205,9 @@
 图2.3.3 制定进货单界面
 
 ### 2.4 财务人员
-
+![账户管理](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86UI.png)
+![单据制定](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%88%B6%E5%AE%9A%E5%8D%95%E6%8D%AE(%E4%BB%98%E6%AC%BE%EF%BC%8C%E6%94%B6%E6%AC%BE)UI.png)
+![查看报表](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%9F%A5%E7%9C%8B%E6%8A%A5%E8%A1%A8UI.png)
 ### 2.5 总经理
 
 ### 2.6 系统管理员
