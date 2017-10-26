@@ -534,7 +534,14 @@
 图3.4.9 制定进货单
 
 ### 3.5 财务人员
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A2%E5%8A%A1%E4%BA%BA%E5%91%98%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86.png)
+<br>图3.5.1 账户管理
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A2%E5%8A%A1%E4%BA%BA%E5%91%98%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/%E5%88%B6%E5%AE%9A%E5%8D%95%E6%8D%AE.png)
+<br>图3.5.2 制定单据
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A2%E5%8A%A1%E4%BA%BA%E5%91%98%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/%E6%9F%A5%E7%9C%8B%E6%8A%A5%E8%A1%A8.png)
+<br>图3.5.3 查看报表
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%B4%A2%E5%8A%A1%E4%BA%BA%E5%91%98%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/%E6%9C%9F%E5%88%9D%E5%BB%BA%E8%B4%A6.png)
+<br>图3.5.4 期初建账<br>
 ### 3.6 系统管理员
 
 
