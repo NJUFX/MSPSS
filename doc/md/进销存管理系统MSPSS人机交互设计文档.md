@@ -431,6 +431,10 @@
 
 ## 3 界面原型化
 
+### 3.1 登陆界面
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/1-0_%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2.png)
+
 ### 3.2 库存管理人员
 
 ![制定处理单据](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BA%93%E5%AD%98%E7%AE%A1%E7%90%86%E4%BA%BA%E5%91%98%E5%8E%9F%E5%9E%8B%E5%9B%BE/3-0_%E5%88%B6%E5%AE%9A%E5%A4%84%E7%90%86%E5%8D%95%E6%8D%AE.png)
@@ -479,12 +483,18 @@
 ![库存查看显示界面](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BA%93%E5%AD%98%E7%AE%A1%E7%90%86%E4%BA%BA%E5%91%98%E5%8E%9F%E5%9E%8B%E5%9B%BE/9-1_%E5%BA%93%E5%AD%98%E6%9F%A5%E7%9C%8B%E7%95%8C%E9%9D%A2%E6%98%BE%E7%A4%BA.png)
 图3.2.15库存查看显示界面
 
-3.3 总经理
+
+
+### 3.3 总经理
+
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/1-0_主页—查看报表.png)
 图3.3.1 查看报表
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/1-1_查看销售明细表.png)
 图3.3.2 查看销售明细表
-![](http://101.37.19.32:10080/FX/MSPSS/blob/master/doc/img/1-2_查看经营情况表.png)
+
+
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/1-2_查看经营情况表.png)
 图3.3.3 查看经营情况表
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/2-0_主页—审批单据.png)
 图3.3.4 审批单据
@@ -493,6 +503,39 @@
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/4-0_主页—促销策略.png)
 图3.3.6 促销策略
 
+### 3.4 进货销售人员
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/2-0_%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86.png)
+
+图3.4.1 客户管理界面
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/3-0_%E6%9F%A5%E6%89%BE%E5%AE%A2%E6%88%B7.png)
+
+图3.4-2 查找客户界面
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/4-0_%E5%AE%A2%E6%88%B7%E4%BF%A1%E6%81%AF%E6%98%BE%E7%A4%BA%E7%95%8C%E9%9D%A2.png)
+
+图3.4.3 客户信息展示
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/5-0_%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7.png)
+
+图3.4.4 增加客户
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/6-0_%E5%88%A0%E9%99%A4%E5%AE%A2%E6%88%B7.png)
+
+图3.4.5 删除客户
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/7-0_%E4%BF%AE%E6%94%B9%E5%AE%A2%E6%88%B7%E5%B1%9E%E6%80%A7.png)
+
+图3.4.6 修改客户属性
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/8-0_%E5%88%B6%E5%AE%9A%E5%8D%95%E6%8D%AE.png)
+
+图3.4.7 制定单据
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/9-0_%E5%88%B6%E5%AE%9A%E8%BF%9B%E8%B4%A7%E5%8D%95.png)
+
+图3.4.8 制定进货单
 
 
 
