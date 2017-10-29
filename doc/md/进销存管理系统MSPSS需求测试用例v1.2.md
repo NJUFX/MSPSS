@@ -439,33 +439,35 @@
 
 ###测试用例套件<a name="34"></a>
 
-| ID     | 输入--操作     | 输入--单据信息  | 预期输出               |
-| ------ | ---------- | --------- | ------------------ |
-| TUS7-1 | 选择要制定的单据类型 |           | 显示该种单据的界面          |
-| TUS7-2 |            | 单据信息符合规范  | 系统等待下一步输入          |
-| TUS7-3 |            | 单据信息不符合规范 | 系统报错，提示重新输入        |
-| TUS7-4 | 确认制定       | 单据信息符合规范  | 系统制定单据，提示制定成功      |
-| TUS7-5 | 确认制定       | 单据信息有遗漏   | 系统报错、提示核对信息重新输入    |
-| TUS7-6 | 取消制定单据     | 单据信息未填写   | 系统关闭制定单据的任务，返回上一状态 |
-| TUS7-7 | 取消制定单据     | 已输入部分单据信息 | 系统询问是否关闭制定单据任务     |
-| TUS7-8 | 确认取消       |           | 系统关闭制定单据的任务，返回上一状态 |
-|        |            |           |                    |
-|        |            |           |                    |
+| ID     | 输入--操作     | 输入--单据信息      | 预期输出               |
+| ------ | ---------- | ------------- | ------------------ |
+| TUS9-1 | 选择要制定的单据类型 |               | 显示该种单据的界面          |
+| TUS9-2 |            | 单据信息符合规范      | 系统等待下一步输入          |
+| TUS9-3 |            | 单据信息不符合规范     | 系统报错，提示重新输入        |
+| TUS9-4 | 确认制定       | 单据信息符合规范      | 系统制定单据，提示制定成功      |
+| TUS9-5 | 确认制定       | 单据信息有遗漏       | 系统报错、提示核对信息重新输入    |
+| TUS9-6 | 取消制定单据     | 单据信息未填写       | 系统关闭制定单据的任务，返回上一状态 |
+| TUS9-7 | 取消制定单据     | 已输入部分单据信息     | 系统询问是否关闭制定单据任务     |
+| TUS9-8 | 确认取消       |               | 系统关闭制定单据的任务，返回上一状态 |
+| TUS9-9 | 确认制定       | 单据数量已达到当天最大数量 | 系统提示已达到当天最大数量      |
+|        |            |               |                    |
 
 ###测试用例套件覆盖情况<a name="35"></a>
 
-| 编号                          | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
-| --------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| PurchaseList.Select         |   1    |        |        |        |        |        |        |        |      |
-| PurchaseList.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| PurchaseList.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| PurchaseList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| PurchaseList.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| PurchaseList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| PurchaseList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| PurchaseList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| PurchaseList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| PurchaseList.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| 编号                                 | TUS9-1 | TUS9-2 | TUS9-3 | TUS9-4 | TUS9-5 | TUS9-6 | TUS9-7 | TUS9-8 | TUS9-9 |
+| ---------------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| PurchaseList.Select                |   1    |        |        |        |        |        |        |        |        |
+| PurchaseList.Input                 |        |   2    |   3    |        |   5    |        |        |        |        |
+| PurchaseList.Input.Invalid.Illegal |        |   2    |        |        |        |        |        |        |        |
+| PurchaseList.Input.Invalid.Miss    |        |        |        |        |   5    |        |        |        |        |
+| PurchaseList.Input.Valid           |        |        |   3    |        |        |        |        |        |        |
+| PurchaseList.Create                |        |        |        |   4    |   5    |        |        |        |   9    |
+| PurchaseList.Create.Invalid        |        |        |   3    |        |   5    |        |        |        |   9    |
+| PurchaseList.Create.Invalid.Excess |        |        |        |        |        |        |        |        |   9    |
+| PurchaseList.Create.Valid          |        |        |        |   4    |        |        |        |        |        |
+| PurchaseList.End                   |        |        |        |   4    |        |   6    |   7    |   8    |        |
+| PurchaseList.End.Close             |        |        |        |        |        |   6    |   7    |        |        |
+| PurchaseList.End.Update            |        |        |        |   4    |        |        |        |        |        |
 
 
 
@@ -473,33 +475,35 @@
 
 ###测试用例套件<a name="37"></a>
 
-| ID     | 输入--操作     | 输入--单据信息  | 预期输出               |
-| ------ | ---------- | --------- | ------------------ |
-| TUS7-1 | 选择要制定的单据类型 |           | 显示该种单据的界面          |
-| TUS7-2 |            | 单据信息符合规范  | 系统等待下一步输入          |
-| TUS7-3 |            | 单据信息不符合规范 | 系统报错，提示重新输入        |
-| TUS7-4 | 确认制定       | 单据信息符合规范  | 系统制定单据，提示制定成功      |
-| TUS7-5 | 确认制定       | 单据信息有遗漏   | 系统报错、提示核对信息重新输入    |
-| TUS7-6 | 取消制定单据     | 单据信息未填写   | 系统关闭制定单据的任务，返回上一状态 |
-| TUS7-7 | 取消制定单据     | 已输入部分单据信息 | 系统询问是否关闭制定单据任务     |
-| TUS7-8 | 确认取消       |           | 系统关闭制定单据的任务，返回上一状态 |
-|        |            |           |                    |
-|        |            |           |                    |
+| ID      | 输入--操作     | 输入--单据信息      | 预期输出               |
+| ------- | ---------- | ------------- | ------------------ |
+| TUS10-1 | 选择要制定的单据类型 |               | 显示该种单据的界面          |
+| TUS10-2 |            | 单据信息符合规范      | 系统等待下一步输入          |
+| TUS10-3 |            | 单据信息不符合规范     | 系统报错，提示重新输入        |
+| TUS10-4 | 确认制定       | 单据信息符合规范      | 系统制定单据，提示制定成功      |
+| TUS10-5 | 确认制定       | 单据信息有遗漏       | 系统报错、提示核对信息重新输入    |
+| TUS10-6 | 取消制定单据     | 单据信息未填写       | 系统关闭制定单据的任务，返回上一状态 |
+| TUS10-7 | 取消制定单据     | 已输入部分单据信息     | 系统询问是否关闭制定单据任务     |
+| TUS10-8 | 确认取消       |               | 系统关闭制定单据的任务，返回上一状态 |
+| TUS10-9 | 确认制定       | 单据数量已达到当天最大数量 | 系统提示已达到当天最大数量      |
+|         |            |               |                    |
 
 ###测试用例套件覆盖情况<a name="38"></a>
 
-| 编号                                | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
-| --------------------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| PurchaseReturnList.Select         |   1    |        |        |        |        |        |        |        |      |
-| PurchaseReturnList.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| PurchaseReturnListt.Input.Invalid |        |   2    |        |        |        |        |        |        |      |
-| PurchaseReturnList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| PurchaseReturnList.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| PurchaseReturnList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| PurchaseReturnList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| PurchaseReturnList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| PurchaseReturnList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| PurchaseReturnList.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| 编号                                       | TUS10-1 | TUS10-2 | TUS10-3 | TUS10-4 | TUS10-5 | TUS10-6 | TUS10-7 | TUS10-8 | TUS10-9 |
+| ---------------------------------------- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| PurchaseReturnList.Select                |    1    |         |         |         |         |         |         |         |         |
+| PurchaseReturnList.Input                 |         |    2    |    3    |         |    5    |         |         |         |         |
+| PurchaseReturnList.Input.Invalid.Illegal |         |    2    |         |         |         |         |         |         |         |
+| PurchaseReturnList.Input.Invalid.Miss    |         |         |         |         |    5    |         |         |         |         |
+| PurchaseReturnList.Input.Valid           |         |         |    3    |         |         |         |         |         |         |
+| PurchaseReturnList.Create                |         |         |         |    4    |    5    |         |         |         |    9    |
+| PurchaseReturnList.Create.Invalid        |         |         |         |         |    5    |         |         |         |    9    |
+| PurchaseReturnList.Create.Invalid.Excess |         |         |         |         |         |         |         |         |    9    |
+| PurchaseReturnList.Create.Valid          |         |         |         |    4    |         |         |         |         |         |
+| PurchaseReturnList.End                   |         |         |         |    4    |         |    6    |    7    |    8    |         |
+| PurchaseReturnList.End.Close             |         |         |         |         |         |    6    |    7    |         |         |
+| PurchaseReturnList.End.Update            |         |         |         |    4    |         |         |         |         |         |
 
 
 
@@ -507,33 +511,35 @@
 
 ###测试用例套件<a name="40"></a>
 
-| ID     | 输入--操作     | 输入--单据信息  | 预期输出               |
-| ------ | ---------- | --------- | ------------------ |
-| TUS8-1 | 选择要制定的单据类型 |           | 显示该种单据的界面          |
-| TUS8-2 |            | 单据信息符合规范  | 系统等待下一步输入          |
-| TUS8-3 |            | 单据信息不符合规范 | 系统报错，提示重新输入        |
-| TUS8-4 | 确认制定       | 单据信息符合规范  | 系统制定单据，提示制定成功      |
-| TUS8-5 | 确认制定       | 单据信息有遗漏   | 系统报错、提示核对信息重新输入    |
-| TUS8-6 | 取消制定单据     | 单据信息未填写   | 系统关闭制定单据的任务，返回上一状态 |
-| TUS8-7 | 取消制定单据     | 已输入部分单据信息 | 系统询问是否关闭制定单据任务     |
-| TUS8-8 | 确认取消       |           | 系统关闭制定单据的任务，返回上一状态 |
-|        |            |           |                    |
-|        |            |           |                    |
+| ID      | 输入--操作     | 输入--单据信息      | 预期输出               |
+| ------- | ---------- | ------------- | ------------------ |
+| TUS11-1 | 选择要制定的单据类型 |               | 显示该种单据的界面          |
+| TUS11-2 |            | 单据信息符合规范      | 系统等待下一步输入          |
+| TUS11-3 |            | 单据信息不符合规范     | 系统报错，提示重新输入        |
+| TUS11-4 | 确认制定       | 单据信息符合规范      | 系统制定单据，提示制定成功      |
+| TUS11-5 | 确认制定       | 单据信息有遗漏       | 系统报错、提示核对信息重新输入    |
+| TUS11-6 | 取消制定单据     | 单据信息未填写       | 系统关闭制定单据的任务，返回上一状态 |
+| TUS11-7 | 取消制定单据     | 已输入部分单据信息     | 系统询问是否关闭制定单据任务     |
+| TUS11-8 | 确认取消       |               | 系统关闭制定单据的任务，返回上一状态 |
+| TUS11-9 | 确认制定       | 单据数量已达到当天最大数量 | 系统提示已达到当天最大数量      |
+|         |            |               |                    |
 
 ###测试用例套件覆盖情况<a name="41"></a>
 
-| 编号                       | TUS8-1 | TUS8-2 | TUS8-3 | TUS8-4 | TUS8-5 | TUS8-6 | TUS8-7 | TUS8-8 |      |
-| ------------------------ | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| SalesList.Select         |   1    |        |        |        |        |        |        |        |      |
-| SalesList.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| SalesList.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| SalesList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| SalesList.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| SalesList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| SalesList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| SalesList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| SalesList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| SalesList.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| 编号                              | TUS11-1 | TUS11-2 | TUS11-3 | TUS11-4 | TUS11-5 | TUS11-6 | TUS11-7 | TUS11-8 | TUS11-9 |
+| ------------------------------- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| SalesList.Select                |    1    |         |         |         |         |         |         |         |         |
+| SalesList.Input                 |         |    2    |    3    |         |    5    |         |         |         |         |
+| SalesList.Input.Invalid.Illegal |         |    2    |         |         |         |         |         |         |         |
+| SalesList.Input.Invalid.Miss    |         |         |         |         |    5    |         |         |         |         |
+| SalesList.Input.Valid           |         |         |    3    |         |         |         |         |         |         |
+| SalesList.Create                |         |         |         |    4    |    5    |         |         |         |    9    |
+| SalesList.Create.Invalid        |         |         |         |         |    5    |         |         |         |    9    |
+| SalesList.Create.Invalid.Excess |         |         |         |         |         |         |         |         |    9    |
+| SalesList.Create.Valid          |         |         |         |    4    |         |         |         |         |         |
+| SalesList.End                   |         |         |         |    4    |         |    6    |    7    |    8    |         |
+| SalesList.End.Close             |         |         |         |         |         |    6    |    7    |         |         |
+| SalesList.End.Update            |         |         |         |    4    |         |         |         |         |         |
 
 
 
@@ -541,33 +547,35 @@
 
 ###测试用例套件<a name="43"></a>
 
-| ID     | 输入--操作     | 输入--单据信息  | 预期输出               |
-| ------ | ---------- | --------- | ------------------ |
-| TUS7-1 | 选择要制定的单据类型 |           | 显示该种单据的界面          |
-| TUS7-2 |            | 单据信息符合规范  | 系统等待下一步输入          |
-| TUS7-3 |            | 单据信息不符合规范 | 系统报错，提示重新输入        |
-| TUS7-4 | 确认制定       | 单据信息符合规范  | 系统制定单据，提示制定成功      |
-| TUS7-5 | 确认制定       | 单据信息有遗漏   | 系统报错、提示核对信息重新输入    |
-| TUS7-6 | 取消制定单据     | 单据信息未填写   | 系统关闭制定单据的任务，返回上一状态 |
-| TUS7-7 | 取消制定单据     | 已输入部分单据信息 | 系统询问是否关闭制定单据任务     |
-| TUS7-8 | 确认取消       |           | 系统关闭制定单据的任务，返回上一状态 |
-|        |            |           |                    |
-|        |            |           |                    |
+| ID      | 输入--操作     | 输入--单据信息      | 预期输出               |
+| ------- | ---------- | ------------- | ------------------ |
+| TUS12-1 | 选择要制定的单据类型 |               | 显示该种单据的界面          |
+| TUS12-2 |            | 单据信息符合规范      | 系统等待下一步输入          |
+| TUS12-3 |            | 单据信息不符合规范     | 系统报错，提示重新输入        |
+| TUS12-4 | 确认制定       | 单据信息符合规范      | 系统制定单据，提示制定成功      |
+| TUS12-5 | 确认制定       | 单据信息有遗漏       | 系统报错、提示核对信息重新输入    |
+| TUS12-6 | 取消制定单据     | 单据信息未填写       | 系统关闭制定单据的任务，返回上一状态 |
+| TUS12-7 | 取消制定单据     | 已输入部分单据信息     | 系统询问是否关闭制定单据任务     |
+| TUS12-8 | 确认取消       |               | 系统关闭制定单据的任务，返回上一状态 |
+| TUS12-9 | 确认制定       | 单据数量已达到当天最大数量 | 系统提示已达到当天最大数量      |
+|         |            |               |                    |
 
 ###测试用例套件覆盖情况<a name="44"></a>
 
-| 编号                             | TUS7-1 | TUS7-2 | TUS7-3 | TUS7-4 | TUS7-5 | TUS7-6 | TUS7-7 | TUS7-8 |      |
-| ------------------------------ | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | ---- |
-| SalesReturnList.Select         |   1    |        |        |        |        |        |        |        |      |
-| SalesReturnList.Input          |        |   2    |   3    |        |        |        |        |        |      |
-| SalesReturnList.Input.Invalid  |        |   2    |        |        |        |        |        |        |      |
-| SalesReturnList.Input.Valid    |        |        |   3    |        |        |        |        |        |      |
-| SalesReturnList.Create         |        |        |        |   4    |   5    |        |        |        |      |
-| SalesReturnList.Create.Invalid |        |        |        |        |   5    |        |        |        |      |
-| SalesReturnList.Create.Valid   |        |        |        |   4    |        |        |        |        |      |
-| SalesReturnList.End            |        |        |        |   4    |        |   6    |   7    |   8    |      |
-| SalesReturnList.End.Close      |        |        |        |        |        |   6    |   7    |        |      |
-| SalesReturnList.End.Update     |        |        |        |   4    |        |        |        |        |      |
+| 编号                                    | TUS12-1 | TUS12-2 | TUS12-3 | TUS12-4 | TUS12-5 | TUS12-6 | TUS12-7 | TUS12-8 | TUS12-9 |
+| ------------------------------------- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| SalesReturnList.Select                |    1    |         |         |         |         |         |         |         |         |
+| SalesReturnList.Input                 |         |    2    |    3    |         |    5    |         |         |         |         |
+| SalesReturnList.Input.Invalid.Illegal |         |    2    |         |         |         |         |         |         |         |
+| SalesReturnList.Input.Invalid.Miss    |         |         |         |         |    5    |         |         |         |         |
+| SalesReturnList.Input.Valid           |         |         |    3    |         |         |         |         |         |         |
+| SalesReturnList.Create                |         |         |         |    4    |    5    |         |         |         |    9    |
+| SalesReturnList.Create.Invalid        |         |         |         |         |    5    |         |         |         |    9    |
+| SalesReturnList.Create.Invalid.Excess |         |         |         |         |         |         |         |         |    9    |
+| SalesReturnList.Create.Valid          |         |         |         |    4    |         |         |         |         |         |
+| SalesReturnList.End                   |         |         |         |    4    |         |    6    |    7    |    8    |         |
+| SalesReturnList.End.Close             |         |         |         |         |         |    6    |    7    |         |         |
+| SalesReturnList.End.Update            |         |         |         |    4    |         |         |         |         |         |
 
 ##用例13 账户管理<a name="45"></a>
 

@@ -342,113 +342,121 @@
 
 ### 2.9 制定进货单
 
-| 编号                          | 需求描述                                     |
-| --------------------------- | ---------------------------------------- |
-| PurchaseList.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
-| PurchaseList.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
-| PurchaseList.Input.Invalid  | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
-| PurchaseList.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
-| PurchaseList.Create         | 系统生成相应的单据                                |
-| PurchaseList.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
-| PurchaseList.Create.Valid   | 系统成功生成相应单据（输出）                           |
-| PurchaseList.End            | 系统允许进货销售人员结束制定单据的请求。                     |
-| PurchaseList.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
-| PurchaseList.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
+| 编号                                 | 需求描述                                     |
+| ---------------------------------- | ---------------------------------------- |
+| PurchaseList.Select                | 进货销售人员选择要制定的单据的类型（查询）                    |
+| PurchaseList.Input                 | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
+| PurchaseList.Input.Invalid.Illegal | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
+| PurchaseList.Input.Invalid.Miss    | 进货销售人员输入的进货单内容存在缺失(输入)                   |
+| PurchaseList.Input.Valid           | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
+| PurchaseList.Create                | 系统生成相应的单据                                |
+| PurchaseList.Create.Invalid        | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
+| PurchaseList.Create.Invalid.Excess | 进货销售人员当天制定的进货单数量已达到最大制定数量，系统提示已达到最大制定数量（输出），并不做制定单据处理 |
+| PurchaseList.Create.Valid          | 系统成功生成相应单据（输出）                           |
+| PurchaseList.End                   | 系统允许进货销售人员结束制定单据的请求。                     |
+| PurchaseList.End.Close             | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
+| PurchaseList.End.Update            | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
 
 
 
-| 输入      | 3                                        |
+| 输入      | 4                                        |
 | ------- | ---------------------------------------- |
-| 输出      | 3                                        |
+| 输出      | 4                                        |
 | 查询      | 3                                        |
 | 内部逻辑文件  | 1                                        |
 | 对外接口文件  | 0                                        |
-| 功能点测度总数 | 3 * 4 + 3 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 49 |
-| FP      | 49.49                                    |
+| 功能点测度总数 | 4 * 4 + 4 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 58 |
+| FP      | 58.58                                    |
 
 
 
 ### 2.10 制定进货退货单
 
-| 编号                                | 需求描述                                     |
-| --------------------------------- | ---------------------------------------- |
-| PurchaseReturnList.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
-| PurchaseReturnList.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
-| PurchaseReturnList.Input.Invalid  | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
-| PurchaseReturnList.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
-| PurchaseReturnList.Create         | 系统生成相应的单据                                |
-| PurchaseReturnList.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
-| PurchaseReturnList.Create.Valid   | 系统成功生成相应单据（输出）                           |
-| PurchaseReturnList.End            | 系统允许进货销售人员结束制定单据的请求。                     |
-| PurchaseReturnList.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
-| PurchaseReturnList.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
+| 编号                                       | 需求描述                                     |
+| ---------------------------------------- | ---------------------------------------- |
+| PurchaseReturnList.Select                | 进货销售人员选择要制定的单据的类型（查询）                    |
+| PurchaseReturnList.Input                 | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
+| PurchaseReturnList.Input.Invalid.Illegal | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
+| PurchaseReturnList.Input.Invalid.Miss    | 进货销售人员输入的进货退货单内容存在缺失(输入)                 |
+| PurchaseReturnList.Input.Valid           | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
+| PurchaseReturnList.Create                | 系统生成相应的单据                                |
+| PurchaseReturnList.Create.Invalid        | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
+| PurchaseReturnList.Create.Invalid.Excess | 进货销售人员当天制定的进货退货单已经达到最大制定数量，系统提示已达到最大制定数量（输出），并不做制定单据操作 |
+| PurchaseReturnList.Create.Valid          | 系统成功生成相应单据（输出）                           |
+| PurchaseReturnList.End                   | 系统允许进货销售人员结束制定单据的请求。                     |
+| PurchaseReturnList.End.Close             | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
+| PurchaseReturnList.End.Update            | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
 
 
 
-| 输入      | 3                                        |
+| 输入      | 4                                        |
 | ------- | ---------------------------------------- |
-| 输出      | 3                                        |
+| 输出      | 4                                        |
 | 查询      | 3                                        |
 | 内部逻辑文件  | 1                                        |
 | 对外接口文件  | 0                                        |
-| 功能点测度总数 | 3 * 4 + 3 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 49 |
-| FP      | 49.49                                    |
+| 功能点测度总数 | 4 * 4 + 4 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 58.58 |
+| FP      | 58.58                                    |
 
 
 
 ### 2.11 制定销售单
 
-| 编号                       | 需求描述                                     |
-| ------------------------ | ---------------------------------------- |
-| SalesList.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
-| SalesList.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
-| SalesList.Input.Invalid  | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
-| SalesList.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
-| SalesList.Create         | 系统生成相应的单据                                |
-| SalesList.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
-| SalesList.Create.Valid   | 系统成功生成相应单据（输出）                           |
-| SalesList.End            | 系统允许进货销售人员结束制定单据的请求。                     |
-| SalesList.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
-| SalesList.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
+| 编号                              | 需求描述                                     |
+| ------------------------------- | ---------------------------------------- |
+| SalesList.Select                | 进货销售人员选择要制定的单据的类型（查询）                    |
+| SalesList.Input                 | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
+| SalesList.Input.Invalid.Illegal | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
+| SalesList.Input.Invalid.Miss    | 进货销售人员输入的销售单内容存在缺失（输入）                   |
+| SalesList.Input.Valid           | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
+| SalesList.Create                | 系统生成相应的单据                                |
+| SalesList.Create.Invalid        | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
+| SalesList.Create.Invalid.Excess | 进货销售人员当天制定的销售单已经达到最大制定数量，系统提示已达到最大制定数量（输出），并不做制定单据操作 |
+| SalesList.Create.Valid          | 系统成功生成相应单据（输出）                           |
+| SalesList.End                   | 系统允许进货销售人员结束制定单据的请求。                     |
+| SalesList.End.Close             | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
+| SalesList.End.Update            | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
 
 
 
-| 输入      | 3                                        |
+| 输入      | 4                                        |
 | ------- | ---------------------------------------- |
-| 输出      | 3                                        |
+| 输出      | 4                                        |
 | 查询      | 3                                        |
 | 内部逻辑文件  | 1                                        |
 | 对外接口文件  | 0                                        |
-| 功能点测度总数 | 3 * 4 + 3 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 49 |
-| FP      | 49.49                                    |
+| 功能点测度总数 | 4 * 4 + 4 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 58.58 |
+| FP      | 58.58                                    |
 
 
 
 ### 2.12  制定销售退货单
 
-| 编号                             | 需求描述                                     |
-| ------------------------------ | ---------------------------------------- |
-| SalesReturnList.Select         | 进货销售人员选择要制定的单据的类型（查询）                    |
-| SalesReturnList.Input          | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
-| SalesReturnList.Input.Invalid  | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
-| SalesReturnList.Input.Valid    | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
-| SalesReturnList.Create         | 系统生成相应的单据                                |
-| SalesReturnList.Create.Invalid | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
-| SalesReturnList.Create.Valid   | 系统成功生成相应单据（输出）                           |
-| SalesReturnList.End            | 系统允许进货销售人员结束制定单据的请求。                     |
-| SalesReturnList.End.Close      | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
-| SalesReturnList.End.Update     | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
+| 编号                                    | 需求描述                                     |
+| ------------------------------------- | ---------------------------------------- |
+| SalesReturnList.Select                | 进货销售人员选择要制定的单据的类型（查询）                    |
+| SalesReturnList.Input                 | 系统应该允许进货销售人员在制定单据的任务中进行键盘输入              |
+| SalesReturnList.Input.Invalid.Illegal | 进货销售人员输入的单据内容不符合数据规范（输入）                 |
+| SalesReturnList.Input.Invalid.Miss    | 进货销售人员输入的销售退货单内容存在缺失(输出)                 |
+| SalesReturnList.Input.Valid           | 进货销售人员输入的单据内容符合数据规范（输入）。                 |
+| SalesReturnList.Create                | 系统生成相应的单据                                |
+| SalesReturnList.Create.Invalid        | 进货销售人员输入的单据内容有缺失或者错误（输入），系统不作生成处理，并提示核对信息重新输入（输出） |
+| SalesReturnList.Create.Invalid.Excess | 进货销售人员当天制定的销售退货单已经达到最大制定数量，系统提示已达到最大制定数量（输出），并不做制定单据操作 |
+| SalesReturnList.Create.Valid          | 系统成功生成相应单据（输出）                           |
+| SalesReturnList.End                   | 系统允许进货销售人员结束制定单据的请求。                     |
+| SalesReturnList.End.Close             | 当进货销售人员选择结束制定单据的操作时（查询），系统返回选择制定单据类型的界面（输出）。 |
+| SalesReturnList.End.Update            | 当创建单据成功后，进货销售人员选择结束制定单据的操作时（查询），系统更新数据库（逻辑文件）。 |
 
 
 
-| 输入      | 3                                        |
+| 输入      | 4                                        |
 | ------- | ---------------------------------------- |
-| 输出      | 3                                        |
+| 输出      | 4                                        |
 | 查询      | 3                                        |
 | 内部逻辑文件  | 1                                        |
 | 对外接口文件  | 0                                        |
-| 功能点测度总数 | 3 * 4 + 3 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 49 |
-| FP      | 49.49                                    |
+| 功能点测度总数 | 4 * 4 + 4 * 5 + 3 * 4 + 1 * 10 + 7 * 0 = 58 |
+| FP      | 58.58                                    |
 
 
 
