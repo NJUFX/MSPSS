@@ -67,16 +67,16 @@
 
 #### 4.2.3 financebl模块
 
-（1）模块概述
+######（1）模块概述
 
 financebl模块承担的需求参见需求规格说明文档功能需求及相关功能功能需求。
 
 financebl模块的职责及接口参见软件系统结构描述文档
 
-（2）整体结构
+#####（2）整体结构
 
 AccountController控制账户管理，他拥有AccountList的所有权，负责调试Account，PayBillController负责管理制定付款单界面，ReceiptBillController负责管理制定收款单界面，BusinessTableController负责控制经营历程表的生产，调用BillData查找数据
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE%E7%89%87%E6%A0%B9%E7%9B%AE%E5%BD%95/FinanceBl%E7%9A%84%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
 
 
 表xx financebl模块各个类的职责
@@ -98,7 +98,7 @@ AccountController控制账户管理，他拥有AccountList的所有权，负责�
 
 
 
-（3）模块内部类的接口规范
+#####（3）模块内部类的接口规范
 
 AccountController的接口规范
 
@@ -167,6 +167,9 @@ BusinessTableController的接口规范
 | 服务名                   | 服务                    |
 | BillDataService.check | 返回符合条件的Bill的ArrayList |
 
+#####（4）业务逻辑层内部动态模型
+图4.2.3(4)-1中表面了添加账户的操作中，各个类之间的协作关系
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE%E7%89%87%E6%A0%B9%E7%9B%AE%E5%BD%95/%E6%B7%BB%E5%8A%A0%E8%B4%A6%E6%88%B7%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
 
 
 #### 4.2.4 chiefmanger模块
