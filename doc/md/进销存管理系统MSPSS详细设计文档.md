@@ -77,7 +77,7 @@ stocksellerbl模块的职责及接口参见软件体系结构设计文档
 
 stocksellerbl模块的设计图
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/stocksellerbl%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
 
 stocksellerbl模块的各个类职责如表所示
 
