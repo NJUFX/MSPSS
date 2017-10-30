@@ -408,37 +408,37 @@ DAE: Default Account Executive, 默认业务员
 
 ****提供的服务（供接口）****
 
-| 服务名                                 | 服务   | 服务                                       |
-| ----------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
-|                                     | 前置条件 | 输入的关键词合法                                 |
-|                                     | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
-| StockSellerBLService.getCustomer    | 语法   | public CustomerVO getCustomer(String ID); |
-|                                     | 前置条件 | 输入的客户编号符合规范                              |
-|                                     | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
-| StockSellerBLService.addCustomer    | 语法   | public boolean addCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
-|                                     | 前置条件 | 输入的信息符合规范                                |
-|                                     | 后置条件 | 系统新建一个客户，并提示新建成功                         |
-| StockSellerBLService.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
-|                                     | 前置条件 | 需要删除的用户存在于系统中                            |
-|                                     | 后置条件 | 删除用户，返回true                              |
-| StockSellerBLService.ModifyCustomer | 语法   | public boolean ModifyCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue); |
-|                                     | 前置条件 | 输入的信息符合规范                                |
-|                                     | 后置条件 | 系统修改该客户的属性，并返回true                       |
-|                                     |      |                                          |
+| 服务名                                  | 服务   | 服务                                       |
+| ------------------------------------ | ---- | ---------------------------------------- |
+| StockSellerBLService.searchCustomer  | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
+|                                      | 前置条件 | 输入的关键词合法                                 |
+|                                      | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+| StockSellerBLService.getCustomerInfo | 语法   | public CustomerVO getCustomer(String ID); |
+|                                      | 前置条件 | 输入的客户编号符合规范                              |
+|                                      | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| StockSellerBLService.addCustomer     | 语法   | public boolean addCustomer(CustomerVO newCustomer); |
+|                                      | 前置条件 | 输入的信息符合规范                                |
+|                                      | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| StockSellerBLService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                                      | 前置条件 | 需要删除的用户存在于系统中                            |
+|                                      | 后置条件 | 删除用户，返回true                              |
+| StockSellerBLService.ModifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
+|                                      | 前置条件 | 输入的信息符合规范                                |
+|                                      | 后置条件 | 系统修改该客户的属性，并返回true                       |
+|                                      |      |                                          |
 
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (CustomerVO supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
+| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (PurchaseVO pur); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货单，返回true，提示生成成功                      |
-| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (CustomerVO supplier, String store, String worker, ArrayList< CommodityVO > prolist, double sum, String remark); |
+| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (PurchaseVO puret); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
-| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(SalesPO sales); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售单，返回true，提示生成成功                      |
-| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (CustomerVO saler, String DAE, String worker, String store, ArrayList< CommodityVO > prolist, double befSum, double discount, double vocher, double aftSum, String remark); |
+| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (SalesPO saleret); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
 
