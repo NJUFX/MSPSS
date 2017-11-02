@@ -363,6 +363,7 @@ chiefmanagerbl模块的职责及接口参加软件系统结构描述文档
 (2)整体结构
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.chiefmanegerblservice.chiefmanagerBLService接口。业务逻辑层和数据层之间添加dataservice.systemDataService接口和dataservice.billDataservice接口。为了隔离业务逻辑职责和逻辑控制职责，我们增加了List和Promotion对象，这样chiefmanagerblServiceImpl会将查看报表和制定促销策略的业务逻辑分别委托给List对象和Promotion对象。BillPO、ConditionPO、LogPO、SalesBillPO、PromotionPO是作为持久化对象被添加到设计模型中去的。
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/chiefmanagerbl模块各个类的设计.png)
 
 chiefmanagernbl模块的职责如下表所示
 
@@ -459,3 +460,6 @@ List的接口规范
 | BillDataService.updateBill   | 改变BillPO中的数据          |                                          |
 
 （4）业务逻辑层内部动态模型
+!()[http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看经营情况表顺序图.png]
+!()[http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看销售明细表顺序图.png]
+!()[http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/制定促销策略顺序图.png]
