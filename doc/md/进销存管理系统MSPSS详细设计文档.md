@@ -5,8 +5,8 @@
 | FX全组 | 2017-10-28 | 最初草稿               | V1.0   |
 | 徐光耀  | 2017-10-30 | 添加逻辑层分解            | v1.1.1 |
 | 伏家兴  | 2017-10-30 | 添加stockseller逻辑层分解 | V1.1.2 |
-| 刘雅歆  | 2017-11-02| 添加总经理模块的逻辑层分解 |v1.1.3        |
-|      |            |                    |        |
+| 刘雅歆  | 2017-11-02 | 添加总经理模块的逻辑层分解      | v1.1.3 |
+| 韩新虎  | 2017-11-02 | 添加库存管理人员的逻辑层分解     | V1.1.4 |
 |      |            |                    |        |
 |      |            |                    |        |
 |      |            |                    |        |
@@ -61,17 +61,15 @@
 
 ### 4.2 业务逻辑层的分解
 
-#### 4.2.1 stockmanger模块
+#### 4.2.1 stockmanager模块
 
-### 4.2.1 stockmangager模块
-
-##### (1)模块描述 
+##### （1）模块描述 
 
 stockmanagerbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
 
 stockmanagerbl模块的职责及接口参见软件体系结构设计文档
 
-##### (2) 整体结构
+##### （2） 整体结构
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.stockmanagrerblservice.StockManagerBLService接口。业务逻辑层和数据层之间添加dataservice.StackDataService、dataservice.CommodityDataService、dataservice.BillDataService为了隔离业务逻辑职责和逻辑控制职责，我们增加了StockManagerBLServiceImpl，这样StockManagerBLServiceImpl会将客户管理和制定单据的业务逻辑委托给Stock对象、Bill对象和Commodity对象。ClassificationPO是作为商品分类属性的持久化对象被添加到设计模型中去的。PresentBillPO是作为库存赠送单的持久化对象被添加到设计模型中去的。OverOrLowBillPO是作为库存报损报溢单属性的持久化对象被添加到设计模型中去的。AlertBillPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。StackPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。
 
@@ -131,8 +129,6 @@ StockManagerBLServiceImpl的接口规范
 | StockManagerBLServiceImpl.ModifyClassification | 语法   | public boolean ModifyClassification(String keytype, String keyword); |
 |                                          | 前置条件 | 输入的关键词合法                                 |
 |                                          | 后置条件 | 修改分类成功，返回true，否则返回false                  |
-
-
 
 
 
@@ -354,13 +350,13 @@ BusinessTableController的接口规范
 
 #### 4.2.4 chiefmanger模块
 
-(1)模块概述
+##### （1）模块概述
 
 chiefmanagerbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求
 
 chiefmanagerbl模块的职责及接口参加软件系统结构描述文档
 
-(2)整体结构
+##### （2）整体结构
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.chiefmanegerblservice.chiefmanagerBLService接口。业务逻辑层和数据层之间添加dataservice.systemDataService接口和dataservice.billDataservice接口。为了隔离业务逻辑职责和逻辑控制职责，我们增加了List和Promotion对象，这样chiefmanagerblServiceImpl会将查看报表和制定促销策略的业务逻辑分别委托给List对象和Promotion对象。BillPO、ConditionPO、LogPO、SalesBillPO、PromotionPO是作为持久化对象被添加到设计模型中去的。
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/chiefmanagerbl模块各个类的设计.png)
@@ -373,7 +369,7 @@ chiefmanagernbl模块的职责如下表所示
 | List                       | 实现处理查看报表的服务                              |
 | Promotion                  | 实现制定促销策略的服务                              |
 
-（3）模块内部类的接口规范
+##### （3）模块内部类的接口规范
 
 ChiefmanagerBLServiceImpl的接口规范
 
@@ -459,7 +455,9 @@ List的接口规范
 | BillDataService.findBill     | 查找符合条件的所有类型的单据PO      |                                          |
 | BillDataService.updateBill   | 改变BillPO中的数据          |                                          |
 
-（4）业务逻辑层内部动态模型
-!()[http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看经营情况表顺序图.png]
-!()[http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看销售明细表顺序图.png]
-!()[http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/制定促销策略顺序图.png]
+##### （4）业务逻辑层内部动态模型
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看经营情况表顺序图.png)
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看销售明细表顺序图.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/制定促销策略顺序图.png)
