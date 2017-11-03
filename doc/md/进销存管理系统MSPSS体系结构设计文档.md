@@ -515,10 +515,10 @@ DAE: Default Account Executive, 默认业务员
 | 需要的服务（需接口）                               |                         |                                          |
 | 服务名                                      | 服务                      |                                          |
 | SystemData.userData.findUser             | 根据id查找对应的userPO         |                                          |
-| BillDataService.findSaleBill             | 根据搜索条件查找对应的saleBillPP   |                                          |
-| BillDataService.findBill                 | 查找符合条件的所有类型的单据PO        |                                          |
+|                                          |                         |                                          |
+| BillDataService.search                   | 查找符合条件的所有类型的单据PO        |                                          |
 | SystemDataService.LogDataService.findLog | 根据ID查找对应的LogPO          |                                          |
-| BillDataService.updateBill               | 改变BillPO中的数据            |                                          |
+| BillDataService.update                   | 改变BillPO中的数据            |                                          |
 | SystemDataService.promotionDataService.find | 查找参数类型对应的所有PromotionPO  |                                          |
 
 **表4 fiancebl模块的接口规范**

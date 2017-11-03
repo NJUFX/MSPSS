@@ -442,18 +442,17 @@ ChiefmanagerBLServiceImpl的接口规范
 
 List的接口规范
 
-| 提供的服务（供接口）                   |                       |                                          |
-| ---------------------------- | --------------------- | ---------------------------------------- |
-| List.makeSalesList           | 语法                    | public SalesListVO makeSalesList(String time,String commodityName, String customerName, String salesmanName,String warehouseName ); |
-| 前置条件                         | 用户有查看销售明细表的权限         |                                          |
-| 后置条件                         | 返回用户要求的销售明细表          |                                          |
-| List.makeManageList          | 语法                    | public ManageListVO makeManageList(String time); |
-| 前置条件                         | 用户有查看经营情况表的权限         |                                          |
-| 后置条件                         | 返回用户要求的经营情况表          |                                          |
-| 需要的服务（需接口）                   |                       |                                          |
-| BillDataService.findSaleBill | 根据搜索条件查找对应的saleBillPP |                                          |
-| BillDataService.findBill     | 查找符合条件的所有类型的单据PO      |                                          |
-| BillDataService.updateBill   | 改变BillPO中的数据          |                                          |
+| 提供的服务（供接口）             |                  |                                          |
+| ---------------------- | ---------------- | ---------------------------------------- |
+| List.makeSalesList     | 语法               | public SalesListVO makeSalesList(String time,String commodityName, String customerName, String salesmanName,String warehouseName ); |
+| 前置条件                   | 用户有查看销售明细表的权限    |                                          |
+| 后置条件                   | 返回用户要求的销售明细表     |                                          |
+| List.makeManageList    | 语法               | public ManageListVO makeManageList(String time); |
+| 前置条件                   | 用户有查看经营情况表的权限    |                                          |
+| 后置条件                   | 返回用户要求的经营情况表     |                                          |
+| 需要的服务（需接口）             |                  |                                          |
+| BillDataService.find   | 查找符合条件的所有类型的单据PO |                                          |
+| BillDataService.update | 改变BillPO中的数据     |                                          |
 
 ##### （4）业务逻辑层内部动态模型
 
