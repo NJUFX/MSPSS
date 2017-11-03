@@ -343,7 +343,26 @@ BusinessTableController的接口规范
 | 服务名                   | 服务                    |
 | BillDataService.check | 返回符合条件的Bill的ArrayList |
 
+GeneralAccoutController的接口规范
+
+| 提供的服务                          |      |                                          |
+| ------------------------------ | ---- | ---------------------------------------- |
+| GeneralAccountController.new   | 语法   | public ResultMessage new(GeneralAccoutVO accout) |
+|                                | 前置条件 | accout已经被初始化                             |
+|                                | 后置条件 | 无                                        |
+| GeneralAccountController.check | 语法   | public GeneralAccoutVO check(string id)  |
+|                                | 前置条件 | id存在于账户列表中                               |
+|                                | 后置条件 | 无                                        |
+
+| 需要的服务                                |            |
+| ------------------------------------ | ---------- |
+| SystemDataService.newGeneralAccount  | 创建一个账户在数据层 |
+| SystemDataService.checkGeneralAccout | 查询账户       |
+
+
+
 #####（4）业务逻辑层内部动态模型
+
 图4.2.3(4)-1中表现了添加账户的操作中，各个类之间的协作关系
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE%E7%89%87%E6%A0%B9%E7%9B%AE%E5%BD%95/%E6%B7%BB%E5%8A%A0%E8%B4%A6%E6%88%B7%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
 
