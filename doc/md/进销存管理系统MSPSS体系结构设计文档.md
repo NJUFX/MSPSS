@@ -422,39 +422,39 @@ DAE: Default Account Executive, 默认业务员
 | StockSellerBLService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
 |                                      | 前置条件 | 需要删除的用户存在于系统中                            |
 |                                      | 后置条件 | 删除用户，返回true                              |
-| StockSellerBLService.ModifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
+| StockSellerBLService.modifyCustomer  | 语法   | public boolean modifyCustomer(CustomerVO modCustomer); |
 |                                      | 前置条件 | 输入的信息符合规范                                |
 |                                      | 后置条件 | 系统修改该客户的属性，并返回true                       |
 |                                      |      |                                          |
 
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchaseList (PurchaseVO pur); |
+| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchase(PurchaseVO purchase); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货单，返回true，提示生成成功                      |
-| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseReturnList (PurchaseVO puret); |
+| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseRet (PurchaseVO puret); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
-| StockSellerBLService.createSalesList     | 语法   | public boolean createSalesList(SalesPO sales); |
+| StockSellerBLService.createSalesList     | 语法   | public boolean createSales(SalesPO sales); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售单，返回true，提示生成成功                      |
-| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesReturnList (SalesPO saleret); |
+| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesRet(SalesPO saleret); |
 |                                          | 前置条件 | 输入的信息符合规范                                |
 |                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
 
 **需要的服务（供接口）**
 
-| 服务名                                      | 服务      |
-| ---------------------------------------- | ------- |
-| CustomerDataService.addCustomer          | 增加客户    |
-| CustomerDataService.delCustomer          | 删除客户    |
-| CustomerDataService.modifyCustomer       | 修改客户属性  |
-| CustomerDataService.getCustomerInfo      | 得到客户属性  |
-| CommodityDataService.getCommodityInfo    | 得到商品属性  |
-| BillDataService.createPurchaseList       | 创建进货单   |
-| BillDataService.createPurchaseReturnList | 创建进货退货单 |
-| BillDataService.createSalesList          | 创建销售单   |
-| BillDataService.createSalesReturnList    | 创建销售退货单 |
+| 服务名                                   | 服务      |
+| ------------------------------------- | ------- |
+| CustomerDataService.addCustomer       | 增加客户    |
+| CustomerDataService.delCustomer       | 删除客户    |
+| CustomerDataService.modifyCustomer    | 修改客户属性  |
+| CustomerDataService.getCustomerInfo   | 得到客户属性  |
+| CommodityDataService.getCommodityInfo | 得到商品属性  |
+| BillDataService.createPurchase        | 创建进货单   |
+| BillDataService.createPurchaseRet     | 创建进货退货单 |
+| BillDataService.createSales           | 创建销售单   |
+| BillDataService.createSalesRet        | 创建销售退货单 |
 
 表3 ChiefManagerbl模块的接口规范
 
@@ -620,7 +620,7 @@ DAE: Default Account Executive, 默认业务员
 
 | 服务名                                 | 服务   | 服务                                       |
 | ----------------------------------- | ---- | ---------------------------------------- |
-| CustomerDataService.addCustomer     | 语法   | public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE); |
+| CustomerDataService.addCustomer     | 语法   | public boolean addCustomer(CustomerPO customer); |
 |                                     | 前置条件 | 无                                        |
 |                                     | 后置条件 | 系统增加新的客户信息，更新数据                          |
 | CustomerDataService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
@@ -629,7 +629,7 @@ DAE: Default Account Executive, 默认业务员
 | CustomerDataService.getCustomerInfo | 语法   | public CustomerPO getCustomerInfo(String ID); |
 |                                     | 前置条件 | 无                                        |
 |                                     | 后置条件 | 返回该ID对应的客户PO                             |
-| CustomerDataService.modifyCustomer  | 语法   | public boolean ModifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue); |
+| CustomerDataService.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerPO customer); |
 |                                     | 前置条件 | 无                                        |
 |                                     | 后置条件 | 修改客户信息，更新数据                              |
 |                                     |      |                                          |
