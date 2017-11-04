@@ -814,3 +814,18 @@ List的接口规范
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看销售明细表顺序图.png)
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/制定促销策略顺序图.png)
+
+### 5 依赖视角
+
+进销存管理系统MSPSS客户端开发包图如图5-1所示，服务器端开发包图如图5-2所示。
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9FMSPSS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE.png)
+
+图5-1进销存管理系统MSPSS客户端开发包图
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E9%94%80%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FMSPSS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%80%BB%E8%BE%91%E5%8C%85%E5%9B%BE.png)
+
+图5-2进销存管理系统MSPSS服务器端开发包图
+
+### 6 内聚和耦合的度量
+
