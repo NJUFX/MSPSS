@@ -6,23 +6,23 @@ public class CustomerVO {
     /**
      * 判断客户是否存在
      */
-    public boolean isExist;
+    private boolean isExist;
     /**
      * 客户编号
      */
-    public String ID;
+    private String ID;
     /**
      * 等级
      */
-    public int level;
+    private int level;
     /**
      * 姓名
      */
-    public String name;
+    private String name;
     /**
      * 电话号码
      */
-    public String phonenumber;
+    private String phonenumber;
     /**
      * 地址
      */
@@ -34,23 +34,23 @@ public class CustomerVO {
     /**
      * 电子邮箱
      */
-    public String email;
+    private String email;
     /**
      * 应收额度
      */
-    public double Invalue;
+    private double Invalue;
     /**
      * 应收
      */
-    public double incomemoney;
+    private double incomemoney;
     /**
      * 应付
      */
-    public double paymoney;
+    private double paymoney;
     /**
      * 默认业务员
      */
-    public String DAE;
+    private String DAE;
     /**
      * 银行账户
      */
@@ -58,7 +58,7 @@ public class CustomerVO {
     /**
      * 客户分类
      */
-    public Kind_Of_Customers kind;
+    private Kind_Of_Customers kind;
 
 
     public String getID() {

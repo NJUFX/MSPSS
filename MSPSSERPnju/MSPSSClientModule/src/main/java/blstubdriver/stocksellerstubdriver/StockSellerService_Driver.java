@@ -24,17 +24,10 @@ public class StockSellerService_Driver {
             System.out.println("Fail to add customer.");
         }
 
-        boolean isAdded2 = stockSellerServiceStub.addCustomer("00000003", Kind_Of_Customers.SUPPLIER, 5, "Sansung", "36363636", "Korea", "123456", "sansung@sansung.com", 50000, 30000, 0, "004");
-        if (isAdded2 == true) {
-            System.out.println("Add customer successfully.");
-        } else {
-            System.out.println("Fail to add customer.");
-        }
-
         //test getCustomer
-        CustomerVO customerget = stockSellerServiceStub.getCustomer("00000003");
+        CustomerVO customerget = stockSellerServiceStub.getCustomerInfo("00000003");
         if (customerget != null) {
-            System.out.println(customerget.name);
+            System.out.println(customerget.getName());
             System.out.println("Get customer successfully.");
         } else {
             System.out.println("Fail to get customer.");
@@ -45,7 +38,7 @@ public class StockSellerService_Driver {
         ArrayList<CustomerVO> list = stockSellerServiceStub.searchCustomer("level", "5");
         if (list.size() != 0) {
             for (int i = 0; i < list.size(); i++) {
-                System.out.print(list.get(i).name + " ");
+                System.out.print(list.get(i).getName() + " ");
             }
             System.out.println();
             System.out.println("Search customers successfully.");
@@ -63,7 +56,7 @@ public class StockSellerService_Driver {
         }
 
         //test ModifyCustomer
-        boolean isMod = stockSellerServiceStub.ModifyCustomer("00000001", Kind_Of_Customers.SALER, 3, "Intel", "1529860", "nanjing", "222243", "intel@intel.com", 36000);
+        boolean isMod = stockSellerServiceStub.modifyCustomer(Intel);
         if (isMod) {
             System.out.println("Modify customer successfully.");
         } else {
@@ -72,7 +65,8 @@ public class StockSellerService_Driver {
 
         //test createPurchaseList
         ArrayList<CommodityVO> purlist = new ArrayList<>();
-        boolean iscreateP = stockSellerServiceStub.createPurchaseList(Intel, "024", "004", purlist, 43200, "购入电脑芯片");
+       // PurchaseVO purchaseVO = new PurchaseVO(String.valueOf(++StockSellerService_Stub.purchaseIdNumber),Intel,"004");
+        boolean iscreateP = stockSellerServiceStub.createPurchase();
         if (iscreateP == true) {
             System.out.println("Create purchase list successfully.");
         } else {
@@ -81,7 +75,7 @@ public class StockSellerService_Driver {
 
         //test createSalesList
         ArrayList<CommodityVO> saleslist = new ArrayList<>();
-        boolean iscreateS = stockSellerServiceStub.createSalesList(Xiaomi, "001", "004", "024", saleslist, 12000, 0.8, 0, 9600, "出库手机芯片");
+        boolean iscreateS = stockSellerServiceStub.createSales(Xiaomi, "001", "004", "024", saleslist, 12000, 0.8, 0, 9600, "出库手机芯片");
         if (iscreateS == true) {
             System.out.println("Create sales list successfully.");
         } else {
@@ -90,7 +84,7 @@ public class StockSellerService_Driver {
 
         //test createPurchaseReturnList
         ArrayList<CommodityVO> purchrtlist = new ArrayList<>();
-        boolean iscreatePR = stockSellerServiceStub.createPurchaseReturnList(Intel, "024", "002", purchrtlist, 35000, "太贵了进不起");
+        boolean iscreatePR = stockSellerServiceStub.createPurchaseRet(Intel, "024", "002", purchrtlist, 35000, "太贵了进不起");
         if (iscreatePR == true) {
             System.out.println("Create purchase-return list successfully.");
         } else {
@@ -99,7 +93,7 @@ public class StockSellerService_Driver {
 
         //test createSalesReturnList
         ArrayList<CommodityVO> salesrtlist = new ArrayList<>();
-        boolean iscreateSR = stockSellerServiceStub.createSalesReturnList(Xiaomi, "001", "002", "024", salesrtlist, 9600, 1, 0, 9600, "小米自研芯片了");
+        boolean iscreateSR = stockSellerServiceStub.createSalesRet(Xiaomi, "001", "002", "024", salesrtlist, 9600, 1, 0, 9600, "小米自研芯片了");
         if (iscreateSR == true) {
             System.out.println("Create sales-return list successfully.");
         } else {

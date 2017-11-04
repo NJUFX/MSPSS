@@ -2,23 +2,23 @@ package vo;
 
 import java.util.*;
 
-public class SalesBillVO {
+public class SalesVO {
     /**
      * ID
      */
-    public String ID;
+    private String ID;
     /**
      * 销售商
      */
-    public CustomerVO saler;
+    private CustomerVO saler;
     /**
      * 默认业务员
      */
-    public String DAE;
+    private String DAE;
     /**
      * 操作员
      */
-    public String worker;
+    private String worker;
     /**
      * 仓库
      */
@@ -26,11 +26,11 @@ public class SalesBillVO {
     /**
      * 出货商品清单
      */
-    public ArrayList<CommodityVO> prolist;
+    private ArrayList<CommodityVO> prolist;
     /**
      * 折让前总额
      */
-    public double befSum;
+    private double befSum;
     /**
      * 折让
      */
@@ -38,15 +38,15 @@ public class SalesBillVO {
     /**
      * 代金券
      */
-    public double vocher;
+    private double vocher;
     /**
      * 折让后总额
      */
-    public double aftSum;
+    private double aftSum;
     /**
      * 备注
      */
-    public String remark;
+    private String remark;
 
     /**
      * @param saler
@@ -60,7 +60,7 @@ public class SalesBillVO {
      * @param aftSum
      * @param remark
      */
-    public SalesBillVO(String ID, CustomerVO saler, String DAE, String worker, String store, ArrayList<CommodityVO> prolist, double befSum, double discount, double vocher, double aftSum, String remark) {
+    public SalesVO(String ID, CustomerVO saler, String DAE, String worker, String store, ArrayList<CommodityVO> prolist, double befSum, double discount, double vocher, double aftSum, String remark) {
         this.ID = ID;
         this.saler = saler;
         this.DAE = DAE;

@@ -13,7 +13,7 @@ public class StockSellerService_Stub implements StockSellerBLService {
     public static int salesReturnIdNumber = 0;//销售退货单编号的序号
     public static ArrayList<CustomerVO> customerList = new ArrayList<>();
     public static CustomerVO customer = new CustomerVO("0000000", Kind_Of_Customers.SALER, 5, "songtuan", "88488888", "南京市栖霞区仙林街道168号", "222243", "songtuan@163.com", 5000, 3400, 0, "001");
-    public static PurchaseBillVO purchaesList;
+    public static PurchaseVO purchaesList;
 
     @Override
     public ArrayList<CustomerVO> searchCustomer(String keytype, String keyword) {
@@ -30,21 +30,13 @@ public class StockSellerService_Stub implements StockSellerBLService {
     }
 
     @Override
-    public CustomerVO getCustomer(String ID) {
+    public CustomerVO getCustomerInfo(String ID) {
         for (int i = 0; i < customerList.size(); i++) {
             if (String.valueOf(customerList.get(i).getID()).equals(ID) && customerList.get(i).getExist() == true) {
                 return customerList.get(i);
             }
         }
         return null;
-    }
-
-    @Override
-    public boolean addCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE) {
-        CustomerVO newcustomer = new CustomerVO(ID, kind, level, name, tele,
-                address, postcode, email, InValue, in, out, DAE);
-        customerList.add(newcustomer);
-        return true;
     }
 
     @Override
@@ -65,17 +57,11 @@ public class StockSellerService_Stub implements StockSellerBLService {
     }
 
     @Override
-    public boolean ModifyCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue) {
+    public boolean modifyCustomer(CustomerVO customer) {
         for (int i = 0; i < customerList.size(); i++) {
-            if (customerList.get(i).getID().equals(ID)) {
-                customerList.get(i).setKind(kind);
-                customerList.get(i).setLevel(level);
-                customerList.get(i).setName(name);
-                customerList.get(i).setPhonenumber(tele);
-                customerList.get(i).setAddress(address);
-                customerList.get(i).setPostcode(postcode);
-                customerList.get(i).setEmail(email);
-                customerList.get(i).setInvalue(InValue);
+            if (customerList.get(i).getID().equals(customer.getID())) {
+                customerList.remove(i);
+                customerList.add(customer);
                 return true;
             }
         }
@@ -83,34 +69,22 @@ public class StockSellerService_Stub implements StockSellerBLService {
     }
 
     @Override
-    public boolean createPurchaseList(CustomerVO supplier, String store, String worker, ArrayList<CommodityVO> prolist, double sum, String remark) {
-        String ID = createID(++purchaseIdNumber, 1);
-        PurchaseBillVO purchaseList = new PurchaseBillVO(ID, supplier, store, worker, prolist, sum, remark);
-        supplier.paymoney = sum;//修改进货商的应收（向进货商支付货款）
+    public boolean createPurchase(PurchaseVO purchaes) {
         return true;
     }
 
     @Override
-    public boolean createSalesList(CustomerVO saler, String DAE, String worker, String store, ArrayList<CommodityVO> prolist, double befSum, double discount, double vocher, double aftSum, String remark) {
-        String ID = createID(++salesIdNumber, 3);
-        SalesBillVO salesList = new SalesBillVO(ID, saler, DAE, worker, store, prolist, befSum, discount, vocher, aftSum, remark);
-        saler.paymoney = aftSum;//修改销售商的应付（销售商收购货物，付款）
+    public boolean createSales(SalesVO sales) {
         return true;
     }
 
     @Override
-    public boolean createPurchaseReturnList(CustomerVO supplier, String store, String worker, ArrayList<CommodityVO> prolist, double sum, String remark) {
-        String ID = createID(++purchaseReturnIdNumber, 2);
-        PurchaseBillVO purchaseReturnList = new PurchaseBillVO(ID, supplier, store, worker, prolist, sum, remark);
-        supplier.incomemoney = sum;//修改进货商的应付（退货给进货商，进货商归还货款）
+    public boolean createPurchaseRet(PurchaseVO purRet) {
         return true;
     }
 
     @Override
-    public boolean createSalesReturnList(CustomerVO saler, String DAE, String worker, String store, ArrayList<CommodityVO> prolist, double befSum, double discount, double vocher, double aftSum, String remark) {
-        String ID = createID(++salesReturnIdNumber, 4);
-        SalesBillVO salesReturnList = new SalesBillVO(ID, saler, DAE, worker, store, prolist, befSum, discount, vocher, aftSum, remark);
-        saler.incomemoney = aftSum;//修改销售商的应收（销售商退货，向销售商归还货款）
+    public boolean createSalesRet(SalesVO saleRet) {
         return true;
     }
 
