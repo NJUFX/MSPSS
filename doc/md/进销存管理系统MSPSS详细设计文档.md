@@ -8,7 +8,7 @@
 | 刘雅歆  | 2017-11-02 | 添加总经理模块的逻辑层分解      | v1.1.3 |
 | 韩新虎  | 2017-11-02 | 添加库存管理人员的逻辑层分解     | V1.1.4 |
 | 伏家兴  | 2017-11-04 | 添加进货销售人员展示层分解      | V1.2.1 |
-|      |            |                    |        |
+| 刘雅歆  | 2017-11-05 | 添加总经理展示层分解         | V1.2.2 |
 |      |            |                    |        |
 |      |            |                    |        |
 
@@ -393,6 +393,216 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 #### 4.1.3 financer模块
 
 #### 4.1.4 chiefmanger模块
+
+（1）整体结构
+
+展示层的控制器为树状委托式结构，ChiefManagerViewController负责总经理界面的整体跳转，ChiefManagerNavBarController负责实现导航栏界面，ChiefManagerSearchListController负责实现查看报表界面，ChiefManagerSalesListController负责实现查看销售明细表界面，ChiefManagerManageListController负责实现查看经营情况表界面，ChiefManagerExamineBillController负责实现审批单据界面,ChiefManagerShowBillDetailController负责实现显示单据详情界面，ChiefManagerReadLogController负责实现查询日志界面，ChiefManagerShowLogDetail负责实现显示日志详情界面，ChiefManagerSetPromotionController负责实现制定销售策略界面。
+
+chiefManager界面各个类的职责如下表所示
+
+| 模块                                   | 职责             |
+| ------------------------------------ | -------------- |
+| ChiefManagerViewController           | 负责实现总经理界面的整体跳转 |
+| ChiefManagerNavBarController         | 负责实现导航栏界面      |
+| ChiefManagerSearchListController     | 负责实现查看报表界面     |
+| ChiefManagerSalesListController      | 负责实现查看销售明细表界面  |
+| ChiefManagerManageListController     | 负责实现查看经营情况表界面  |
+| ChiefManagerExamineBillController    | 负责实现审批单据界面     |
+| ChiefManagerShowBillDetailController | 负责实现显示单据详情界面   |
+| ChiefManagerReadLogController        | 负责实现查询日志界面     |
+| ChiefManagerShowLogDetail            | 负责实现显示日志详情界面   |
+| ChiefManagerSetPromotionController   | 负责实现制定销售策略界面   |
+
+（2）模块内部类的接口规范
+
+ChiefManagerViewController的接口规范
+
+| 提供的服务（供接口）                               |           |                                 |
+| ---------------------------------------- | --------- | ------------------------------- |
+| 服务名                                      | 服务        |                                 |
+| ChiefManagerViewController.showSearchList | 语法        | public void showSearchList();   |
+| 前置条件                                     | 点击导航栏查看报表 |                                 |
+| 后置条件                                     | 显示查看报表界面  |                                 |
+| ChiefManagerViewController.showExamineBill | 语法        | public void showExamineBill();  |
+| 前置条件                                     | 点击导航栏审批单据 |                                 |
+| 后置条件                                     | 显示审批单据界面  |                                 |
+| ChiefManagerViewController.showReadLog   | 语法        | public void showReadLog();      |
+| 前置条件                                     | 点击导航栏查询日志 |                                 |
+| 后置条件                                     | 显示查询日志界面  |                                 |
+| ChiefManagerViewController.showSetPromotion | 语法        | public void showSetPromotion(); |
+| 前置条件                                     | 点击导航栏促销策略 |                                 |
+| 后置条件                                     | 显示促销策略界面  |                                 |
+| 需要的服务（需接口）                               |           |                                 |
+| 无                                        |           |                                 |
+
+ChiefManagerNavBarController的接口规范
+
+| 提供的服务（供接口）                               |            |
+| ---------------------------------------- | ---------- |
+| 服务名                                      | 服务         |
+| 无                                        |            |
+| 需要的服务（需接口）                               |            |
+| 服务名                                      | 服务         |
+| ChiefManagerViewController.showSearchList | 显示查看报表界面   |
+| ChiefManagerViewController.showExamineBill | 显示审批单据界面   |
+| ChiefManagerViewController.showReadLog   | 显示查询日志界面   |
+| ChiefManagerViewController.showSetPromotion | 显示制定促销策略界面 |
+
+ChiefManagerSearchListController的接口规范
+
+| 提供的服务（供接口）                               |                |                         |
+| ---------------------------------------- | -------------- | ----------------------- |
+| 服务名                                      | 服务             |                         |
+| ChiefManagerSearchListController.showList | 语法             | public void showList(); |
+| 前置条件                                     | 点击查看报表界面的确认按钮  |                         |
+| 后置条件                                     | 输出符合用户条件的报表    |                         |
+| ChiefManagerSearchListController.empty   | 语法             | public void empty();    |
+| 前置条件                                     | 点击查看报表界面的清空按钮  |                         |
+| 后置条件                                     | 清空查询条件         |                         |
+| ChiefManagerSearchListController.exit    | 语法             | public void exit();     |
+| 前置条件                                     | 点击查看报表界面的退出按钮  |                         |
+| 后置条件                                     | 退出查询功能返回总经理主界面 |                         |
+| 需要的服务（需接口）                               |                |                         |
+| 服务名                                      | 服务             |                         |
+| ChiefManagerBLServiceImpl.makeSalesList  | 制作符合条件的销售明细表   |                         |
+| ChiefManagerBLServiceImpl.makeManageList | 制作符合条件的经营情况表   |                         |
+
+ChiefManagerSalesListController的接口规范
+
+| 提供的服务（供接口）                             |                |                       |
+| -------------------------------------- | -------------- | --------------------- |
+| 服务名                                    | 服务             |                       |
+| ChiefManagerSalesListController.back   | 语法             | public void back();   |
+| 前置条件                                   | 无              |                       |
+| 后置条件                                   | 返回上一界面         |                       |
+| ChiefManagerSalesListController.export | 语法             | public void export(); |
+| 前置条件                                   | 点击销售明细表界面的导出按钮 |                       |
+| 后置条件                                   | 导出当前的报表        |                       |
+| 需要的服务（需接口）                             |                |                       |
+| 服务名                                    | 服务             |                       |
+| ChiefManagerBLServiceImpl.export       | 导出当前的报表        |                       |
+
+ChiefManagerManageListController的接口规范
+
+| 提供的服务（供接口）                              |                |                       |
+| --------------------------------------- | -------------- | --------------------- |
+| 服务名                                     | 服务             |                       |
+| ChiefManagerManageListController.back   | 语法             | public void back();   |
+| 前置条件                                    | 无              |                       |
+| 后置条件                                    | 返回上一界面         |                       |
+| ChiefManagerManageListController.export | 语法             | public void export(); |
+| 前置条件                                    | 点击经营情况表界面的导出按钮 |                       |
+| 后置条件                                    | 导出当前的报表        |                       |
+| 需要的服务（需接口）                              |                |                       |
+| 服务名                                     | 服务             |                       |
+| ChiefManagerBLServiceImpl.export        | 导出当前的报表        |                       |
+
+ChiefManagerExamineBillController的接口规范
+
+| 提供的服务（供接口）                               |                |                               |
+| ---------------------------------------- | -------------- | ----------------------------- |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerExamineBillController.showBillList | 语法             | public void showBillList();   |
+| 前置条件                                     | 点击导航栏审批单据按钮    |                               |
+| 后置条件                                     | 显示当前待审批单据列表    |                               |
+| ChiefManagerExamineBillController.confirm | 语法             | public void confirm();        |
+| 前置条件                                     | 点击审批单据界面的确认按钮  |                               |
+| 后置条件                                     | 选定单据           |                               |
+| ChiefManagerExamineBillController.pass   | 语法             | public void pass();           |
+| 前置条件                                     | 有选定的单据         |                               |
+| 后置条件                                     | 单据被审批通过        |                               |
+| ChiefManagerExamineBillController.fail   | 语法             | public void fail();           |
+| 前置条件                                     | 有选定的单据         |                               |
+| 后置条件                                     | 单据被审批不通过       |                               |
+| ChiefManagerExamineBillControlle.exit    | 语法             | public void exit();           |
+| 前置条件                                     | 点击审批界面的退出按钮    |                               |
+| 后置条件                                     | 退出审批功能返回总经理主界面 |                               |
+| ChiefManagerExamineBillControlle.showBillDetail | 语法             | public void showBillDetail(); |
+| 前置条件                                     | 点击一条单据         |                               |
+| 后置条件                                     | 显示单据的详细信息      |                               |
+| 需要的服务（需接口）                               |                |                               |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerBLServiceImpl.showBillList   | 显示当前提交单据列表     |                               |
+| ChiefManagerBLServiceImpl.changeBillState | 改变选定单据的状态      |                               |
+| ChiefManagerBLServiceImpl.exit           | 退出当前功能返回总经理界面  |                               |
+| ChiefManagerShowBillDetailController.showBillDetail | 显示单据的详细信息      |                               |
+
+ChiefManagerShowBillDetailController的接口规范
+
+| 提供的服务（供接口）                               |           |                               |
+| ---------------------------------------- | --------- | ----------------------------- |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerShowBillDetailController.back | 语法        | public void back();           |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 返回上一界面    |                               |
+| ChiefManagerShowBillDetailController.showBillDetail | 语法        | public void showBillDetail(); |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 显示单据的详细信息 |                               |
+| 需要的服务（需接口）                               |           |                               |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerBLServiceImpl.showBillDetail | 显示单据的详细信息 |                               |
+
+ChiefManagerReadLogController的接口规范
+
+| 提供的服务（供接口）                               |                |                               |
+| ---------------------------------------- | -------------- | ----------------------------- |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerReadLogController.showLogList | 语法             | public void showLogList();    |
+| 前置条件                                     | 点击导航栏查询日志按钮    |                               |
+| 后置条件                                     | 显示当前日志列表       |                               |
+| ChiefManagerReadLogController.exit       | 语法             | public void exit();           |
+| 前置条件                                     | 点击查询日志界面的退出按钮  |                               |
+| 后置条件                                     | 退出查询功能返回总经理主界面 |                               |
+| ChiefManagerReadLogController.showLogDetail | 语法             | public void showBillDetail(); |
+| 前置条件                                     | 点击一条日志         |                               |
+| 后置条件                                     | 显示日志的详细信息      |                               |
+| 需要的服务（需接口）                               |                |                               |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerBLServiceImpl.showLogList    | 显示当前日志列表       |                               |
+| ChiefManagerBLServiceImpl.exit           | 退出当前功能返回总经理界面  |                               |
+| ChiefManagerShowLogDetailController.showLogDetail | 显示日志的详细信息      |                               |
+
+ChiefManagerShowLogDetailController的接口规范
+
+| 提供的服务（供接口）                               |           |                               |
+| ---------------------------------------- | --------- | ----------------------------- |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerShowLogDetailController.back | 语法        | public void back();           |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 返回上一界面    |                               |
+| ChiefManagerShowLogDetailController.showLogDetail | 语法        | public void showBillDetail(); |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 显示日志的详细信息 |                               |
+| 需要的服务（需接口）                               |           |                               |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerBLServiceImpl.showLogDetail  | 显示日志的详细信息 |                               |
+
+ChiefManagerSetPromotionController的接口规范
+
+| 提供的服务（供接口）                               |              |                                  |
+| ---------------------------------------- | ------------ | -------------------------------- |
+| 服务名                                      | 服务           |                                  |
+| ChiefManagerSetPromotionController.submit | 语法           | public void confirm();           |
+| 前置条件                                     | 点击促销策略界面确认按钮 |                                  |
+| 后置条件                                     | 返回促销策略是否制定成功 |                                  |
+| ChiefManagerSetPromotionController.exit  | 语法           | public void exit();              |
+| 前置条件                                     | 无            |                                  |
+| 后置条件                                     | 返回上一个界面      |                                  |
+| ChiefManagerSetPromotionController.showPromotionList | 语法           | public void showPromotionList(); |
+| 前置条件                                     | 无            |                                  |
+| 后置条件                                     | 显示当前促销策略列表   |                                  |
+| 需要的服务（需接口）                               |              |                                  |
+| 服务名                                      | 服务           |                                  |
+| ChiefManagerBLService.choosePromotionTyp | 选择促销策略类型     |                                  |
+| ChiefManagerBLService.setPromotionTime   | 选择促销策略时间区间   |                                  |
+| ChiefManagerBLService.checkPromotionInfo | 检查促销策略信息     |                                  |
+| ChiefManagerBLService.ShowPromotionList  | 显示当前策略列表     |                                  |
+
+
+
+
+
+
 
 ### 4.2 业务逻辑层的分解
 
