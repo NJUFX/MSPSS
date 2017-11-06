@@ -1,7 +1,6 @@
 package blimpl.stocksellerblimpl;
 
 import vo.CustomerVO;
-
 import java.util.*;
 
 public class MockCustomer extends Customer {
@@ -28,7 +27,7 @@ public class MockCustomer extends Customer {
                 }
             }
         }
-        return CustomerList;
+        return CustomerSearch;
     }
 
     /**
