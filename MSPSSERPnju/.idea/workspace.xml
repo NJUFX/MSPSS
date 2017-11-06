@@ -6,11 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31c86d06-0cb8-4809-a707-e5ef3a737c1a" name="Default" comment="补充完善之前的锅">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ClassificationPO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StackPO.java" />
+    <list default="true" id="31c86d06-0cb8-4809-a707-e5ef3a737c1a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/InventoryPO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/util/StackInfo.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/BillDataServiceDrive.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/BillDataServiceStub.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/CommodityServiceDrive.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/CommodityServiceStub.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/StockDataServiceDrive.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/StockDataServiceStub.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StackPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StackPO.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/MSPSSClientModule/target/" />
@@ -36,11 +42,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StackPO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StackPO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StackPO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+            <state relative-caret-position="308">
+              <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InventoryPO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/InventoryPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StackInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/util/StackInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -51,56 +87,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
               <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FinalAccountPO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/FinalAccountPO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogPO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/LogPO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PowerPO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PowerPO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PromotionPO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PromotionPO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PurchaseBillPO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PurchaseBillPO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -120,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/UserPO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+              <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -132,6 +118,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -185,8 +172,10 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/stocksellerblservice/StockSellerBLService.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/stocksellerstubdriver/StockSellerService_Driver.java" />
         <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java" />
-        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StackPO.java" />
         <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ClassificationPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/util/StackInfo.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StackPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/InventoryPO.java" />
       </list>
     </option>
   </component>
@@ -297,6 +286,15 @@
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
               <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
               <item name="MSPSSCommonModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSCommonModule" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -331,6 +329,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSServerModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="datastubdriver" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -763,13 +770,22 @@
       <workItem from="1508811130512" duration="74000" />
       <workItem from="1509368819894" duration="1079000" />
     </task>
+    <task id="LOCAL-00001" summary="补充完善之前的锅">
+      <created>1509966578255</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1509966578255</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16739000" />
+    <option name="totallyTimeSpent" value="17524000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -779,7 +795,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -825,14 +841,40 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="补充完善之前的锅" />
     <option name="LAST_COMMIT_MESSAGE" value="补充完善之前的锅" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -843,20 +885,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/mainblservice/MainBLService.java" />
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/mainblservicestubdrive/mainblservicedrive.java" />
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/mainblservicestubdrive/mainblservicestub.java" />
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/mainstubdriver/MainBLService_Driver.java" />
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/mainstubdriver/MainBLService_Stub.java" />
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/StockDataService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -879,38 +911,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/CommodityServiceDrive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/CommodityServiceStub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/StockDataServiceStub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/StockDataServiceDrive.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/BillDataServiceDrive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1013,7 +1017,7 @@
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/UserPO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1145,10 +1149,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/util/StackInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/CommodityServiceDrive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/CommodityServiceStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/StockDataServiceStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/BillDataServiceDrive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StackPO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state relative-caret-position="308">
+          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/InventoryPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding />
         </state>
       </provider>
