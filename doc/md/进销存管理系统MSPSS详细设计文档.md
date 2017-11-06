@@ -8,8 +8,8 @@
 | 刘雅歆  | 2017-11-02 | 添加总经理模块的逻辑层分解      | v1.1.3 |
 | 韩新虎  | 2017-11-02 | 添加库存管理人员的逻辑层分解     | V1.1.4 |
 | 伏家兴  | 2017-11-04 | 添加进货销售人员展示层分解      | V1.2.1 |
-|      |            |                    |        |
-|      |            |                    |        |
+| 刘雅歆  | 2017-11-05 | 添加总经理展示层分解         | V1.2.2 |
+| 徐光耀  | 2017-1106  | 添加财务人员展示层分解        | v1.2.3 |
 |      |            |                    |        |
 
 ## 1. 引言
@@ -392,7 +392,532 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 
 #### 4.1.3 financer模块
 
+#### （1）整体结构
+
+展示层的控制器为树状委托式结构，
+
+financebl模块FinanceViewController负责对财务人员功能界面的整体跳转，FinanceNaveBarController负责实现导航栏部分，AccountViewController,BillKindViewController,TableViewController,GeneralAccountController，分别是实现 导航栏的账户管理、单据类型、查看报表、期初建账的界面的跳转。<br>
+
+finance各个类的职责如表4.1.3(1)-1所示<br>
+
+表4.1.1.3(1)-1各个类的职责
+
+| 模块                             | 职责                    |
+| ------------------------------ | --------------------- |
+| FinanceViewController          | 负责实现对财务人员界面的整体跳转      |
+| FinanceNaveBarController       | 负责实现导航栏               |
+| AccountViewController          | 负责实现账户搜索及显示账户列表的账户主界面 |
+| AddAccoutViewController        | 负责实现增加账户界面            |
+| ModifyAccoutViewController     | 负责实现修改账户界面            |
+| BillKindViewController         | 负责实现单据类型选择界面          |
+| CashBillViewController         | 负责实现制定现金费用单界面         |
+| PayBillViewController          | 负责实现制定付款界面            |
+| ReceiptBillViewController      | 负责实现制度收款单界面           |
+| TableViewController            | 负责实现查看报表界面            |
+| CheckGeneralAccountController  | 负责实现查找总账户界面           |
+| CreateGeneralAccountController | 负责实现期初建账界面            |
+| FinanceInfoController          | 负责实现信息的传递             |
+
+
+
+#### （2）模块内部类的接口规范
+
+表4.1.3(2)-1 FinanceViewController的接口规范
+
+| 提供的服务(供接口)                         |      |                                   |
+| ---------------------------------- | ---- | --------------------------------- |
+| 服务名                                |      | 服务                                |
+| FinanceViewController.ShowUserInfo | 语法   | public void ShowUserInfo()        |
+|                                    | 前置条件 | 启动财务人员界面                          |
+|                                    | 后置条件 | 显示用户信息                            |
+| FinanceViewController.ModifyInfo   | 语法   | public ResultMessage ModifyInfo() |
+|                                    | 前置条件 | 点击修改用户信息                          |
+|                                    | 后置条件 | 返回修改信息状态                          |
+
+| 需要的服务(需接口)                           |                                          |
+| ------------------------------------ | ---------------------------------------- |
+| 模块                                   | 服务                                       |
+| FinanceInfoController.modifyUserInfo | public ResultMessage modifyUserInfo(UserVO user) |
+| FinanceInfoController.getUserInfo    | public void getUserInfo(String id)       |
+
+表4.1.3(2)-2 FinanceNaveBarController的接口规范
+
+| 提供的服务(供接口)                               |      |                                      |
+| ---------------------------------------- | ---- | ------------------------------------ |
+| 服务名                                      |      | 服务                                   |
+| FinanceNaveBarController.showAccoutManageView | 语法   | public void showAccoutManageView()   |
+|                                          | 前置条件 | 点击账户管理button                         |
+|                                          | 后置条件 | 跳转到账户管理界面，并且对应button颜色加深             |
+| FinanceNaveBarController.showBillView    | 语法   | public void showBillView()           |
+|                                          | 前置条件 | 点击制定单据button                         |
+|                                          | 后置条件 | 跳转到制定单据界面，并且对应button颜色加深             |
+| FinanceNaveBarController.showTableView   | 语法   | public void showTableView()          |
+|                                          | 前置条件 | 点击查看报表button                         |
+|                                          | 后置条件 | 跳转到查看报表界面，并且对应button颜色加深             |
+| FinanceNaveBarController.showGeneralAccoutView | 语法   | public void showGeneralAccountView() |
+|                                          | 前置条件 | 点击期初建账button                         |
+|                                          | 后置条件 | 跳转到期初建账界面，并且对应button颜色加深             |
+
+| 需要的服务(需接口)                               |            |
+| ---------------------------------------- | ---------- |
+| 服务名                                      | 服务         |
+| AccountViewController.showSearchView()   | 展示搜索账户界面   |
+| BillKindViewController.show()            | 展示单据类型界面   |
+| TableViewController.showSearchView()     | 展示搜索报表界面   |
+| CheckGeneralAccountController.showSearchView() | 展示搜索期初账户界面 |
+
+表4.1.3(2)-3 AccountViewController的接口规范
+
+| 提供的服务(供接口)                               |      |                                        |
+| ---------------------------------------- | ---- | -------------------------------------- |
+| 服务名                                      |      | 服务                                     |
+| AccountViewController.showSearchView     | 语法   | public void showSearchView()           |
+|                                          | 前置条件 | 用户进入账户管理界面                             |
+|                                          | 后置条件 | 显示搜索账户界面                               |
+| AccountViewController.showDeleteAccoutView | 语法   | public void showDeleteAccoutView()     |
+|                                          | 前置条件 | 用户已经填入搜索信息，并且显示出符合条件的账户，用户点击删除账户button |
+|                                          | 后置条件 | 询问是否删除，若是，则显示更新过的账户列表                  |
+| AccountViewController.showModifyAccoutView | 语法   | public void showModifyAccountView()    |
+|                                          | 前置条件 | 用户已经填入搜索信息，并且显示出符合条件的账户，用户点击修改账户button |
+|                                          | 后置条件 | 进入修改账户界面                               |
+| AccountViewController.showAddAccountView | 语法   | public void showAddAccountView()       |
+|                                          | 前置条件 | 用户点击增加账户button                         |
+|                                          | 后置条件 | 进入增加账户界面                               |
+
+| 需要的服务(需接口)                          |             |
+| ----------------------------------- | ----------- |
+| 服务名                                 | 服务          |
+| AddAccoutViewController.show        | 显示增加账户界面    |
+| ModifyAccoutViewController.show     | 显示修改账户界面    |
+| FinanceInfoController.deleteAccount | 删除账户        |
+| FinanceInfoController.getAccount    | 获得符合搜索条件的账户 |
+
+表4.1.3(2)-4 AddAccoutViewController的接口规范
+
+| 提供的服务(供接口)                        |      |                                          |
+| --------------------------------- | ---- | ---------------------------------------- |
+| 服务名                               |      | 服务                                       |
+| AddAccoutViewController.show      | 语法   | public void show()                       |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 显示增加账户界面                                 |
+| AddAccoutViewController.updateAdd | 语法   | public ResultMessage updateAdd(Account account) |
+|                                   | 前置条件 | 点击提交按钮                                   |
+|                                   | 后置条件 | 返回修改状态                                   |
+
+| 需要的服务(需接口)                       |      |
+| -------------------------------- | ---- |
+| 服务名                              | 服务   |
+| FinanceInfoController.addAccount | 增加账户 |
+
+表4.1.3(2)-5 ModifyAccoutViewController的接口规范
+
+| 提供的服务(供接口)                              |      |                                          |
+| --------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                     |      | 服务                                       |
+| ModifyAccoutViewController.show         | 语法   | public void show()                       |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 显示修改账户界面                                 |
+| ModifyAccoutViewController.updateModify | 语法   | public ResultMessage updateModify(Account account) |
+|                                         | 前置条件 | 点击提交按钮                                   |
+|                                         | 后置条件 | 返回修改状态                                   |
+
+| 需要的服务(需接口)                          |      |
+| ----------------------------------- | ---- |
+| 服务名                                 | 服务   |
+| FinanceInfoController.modifyAccount | 修改账户 |
+
+表4.1.3(2)-6 BillKindViewController的接口规范
+
+| 提供的服务(供接口)                               |      |                                 |
+| ---------------------------------------- | ---- | ------------------------------- |
+| 服务名                                      |      | 服务                              |
+| BillKindViewController.show()            | 语法   | public void show()              |
+|                                          | 前置条件 | 无                               |
+|                                          | 后置条件 | 显示账户类型界面                        |
+| BillKindViewController.createPayBill()   | 语法   | public void createPayBill()     |
+|                                          | 前置条件 | 点击付款单button                     |
+|                                          | 后置条件 | 显示制定付款单界面                       |
+| BillKindViewController.createCashBill    | 语法   | public void createCashBill()    |
+|                                          | 前置条件 | 点击制定现金费用单button                 |
+|                                          | 后置条件 | 显示制定现金费用单界面                     |
+| BillKindViewController.createReceiptBill | 语法   | public void createReceiptBill() |
+|                                          | 前置条件 | 点击制定收款单界面                       |
+|                                          | 后置条件 | 显示制定收款                          |
+
+| 需要的服务(需接口)                       |               |
+| -------------------------------- | ------------- |
+| 服务名                              | 服务            |
+| CashBillViewController.show()    | 负责实现制定现金费用单界面 |
+| PayBillViewController.show()     | 负责实现制定付款界面    |
+| ReceiptBillViewController.show() | 负责实现制度收款单界面   |
+
+表4.1.3(2)-7 CashBillViewController的接口规范
+
+| 提供的服务(供接口)                    |      |                                       |
+| ----------------------------- | ---- | ------------------------------------- |
+| 服务名                           |      | 服务                                    |
+| CashBillViewController.show   | 语法   | public void show()                    |
+|                               | 前置条件 | 无                                     |
+|                               | 后置条件 | 显示制定现金费用单界面                           |
+| CashBillViewController.commit | 语法   | public void commit(CashBill cashbill) |
+|                               | 前置条件 | 点击提交按钮                                |
+|                               | 后置条件 | 无                                     |
+
+| 需要的服务(需接口)                           |         |
+| ------------------------------------ | ------- |
+| 服务名                                  | 服务      |
+| FinanceInfoController.commitCashBill | 提交现金费用单 |
+
+表4.1.3(2)-8 PayBillViewController的接口规范
+
+| 提供的服务(供接口)                   |      |                                     |
+| ---------------------------- | ---- | ----------------------------------- |
+| 服务名                          |      | 服务                                  |
+| PayBillViewController.show   | 语法   | public void show()                  |
+|                              | 前置条件 | 无                                   |
+|                              | 后置条件 | 显示制定付款单                             |
+| PayBillViewController.commit | 语法   | public void commit(PayBill paybill) |
+|                              | 前置条件 | 点击提交按钮                              |
+|                              | 后置条件 | 返回提交状态                              |
+
+| 需要的服务(需接口)                          |       |
+| ----------------------------------- | ----- |
+| 服务名                                 | 服务    |
+| FinanceInfoController.commitPayBill | 提交付款单 |
+
+表4.1.3(2)-9 ReceiptBillViewController的接口规范
+
+| 提供的服务(供接口)                       |      |                                         |
+| -------------------------------- | ---- | --------------------------------------- |
+| 服务名                              |      | 服务                                      |
+| ReceiptBillViewController.show   | 语法   | public void show()                      |
+|                                  | 前置条件 | 无                                       |
+|                                  | 后置条件 | 显示制定收款单                                 |
+| ReceiptBillViewController.commit | 语法   | public void commit(ReceiptBill receipt) |
+|                                  | 前置条件 | 点击提交按钮                                  |
+|                                  | 后置条件 | 返回提交状态                                  |
+
+| 需要的服务(需接口)                              |       |
+| --------------------------------------- | ----- |
+| 服务名                                     | 服务    |
+| FinanceInfoController.commitReceiptBill | 提交收款单 |
+
+表4.1.3(2)-10 TableViewController的接口规范
+
+| 提供的接口(供接口)                 |      |                                          |
+| -------------------------- | ---- | ---------------------------------------- |
+| 服务名                        |      | 服务                                       |
+| TableViewController.search | 语法   | public ArrayList<Bill> search(BillFilter filter) |
+|                            | 前置条件 | 点击搜索button                               |
+|                            | 后置条件 | 返回匹配的单据                                  |
+| TableViewController.show   | 语法   | public void show()                       |
+|                            | 前置条件 | 无                                        |
+|                            | 后置条件 | 显示界面                                     |
+
+| 需要的接口(需接口)                       |         |
+| -------------------------------- | ------- |
+| 服务名                              | 服务      |
+| FinanceInfoController.searchBill | 返回匹配的单据 |
+
+表4.1.3(2)-11CheckGeneralAccountController的接口规范
+
+| 提供的接口(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| CheckGeneralAccountController.showSearchView | 语法   | public void showSearchView()             |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示期初建账的搜索界面                              |
+| CheckGeneralAccountController.search     | 语法   | public void search()                     |
+|                                          | 前置条件 | 用户点击搜索button                             |
+|                                          | 后置条件 | 显示符合条件的总账列表                              |
+| CheckGeneralAccountController.add        | 语法   | public ResultMessage add(GeneralAccount account) |
+|                                          | 前置条件 | 用户点击增加button                             |
+|                                          | 后置条件 | 返回增加账户状态                                 |
+
+| 需要的服务(需接口)                               |           |
+| ---------------------------------------- | --------- |
+| 服务名                                      | 服务        |
+| FinanceInfoController.searchGeneralAccount | 搜索符合条件的单据 |
+| CreateGeneralAccountController.show      | 显示增加账户界面  |
+
+表4.1.3(2)-12 CreateGeneralAccountController的接口规范
+
+| 提供的服务(供接口)                            |      |                                          |
+| ------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                   |      | 服务                                       |
+| CreateGeneralAccountController.show   | 语法   | public void show()                       |
+|                                       | 前置条件 | 无                                        |
+|                                       | 后置条件 | 显示期初建账界面                                 |
+| CreateGeneralAccountController.commit | 语法   | public void commit(GeneralAccount account) |
+|                                       | 前置条件 | 点击提交按钮                                   |
+|                                       | 后置条件 | 返回提交状态                                   |
+
+| 需要的服务(需接口)                               |      |
+| ---------------------------------------- | ---- |
+| 服务名                                      | 服务   |
+| FinanceInfoController.commitGeneralAccount | 提交账户 |
+
+表4.1.3(2)-13 FinanceInfoController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceInfoController.commitGeneralAccount | 语法   | public void commitGeneralAccount(GeneralAccount account) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 无                                        |
+| FinanceInfoController.searchGeneralAccount | 语法   | public ArrayList<GeneralAccount> searchGeneralAccount(GeneralAccountFilter filter) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回符合条件的总账                                |
+| FinanceInfoController.commitPayBill      | 语法   | public void commitPayBill()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 无                                        |
+| FinanceInfoController.commitReceiptBill  | 语法   | public void commitReceiptBill()          |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 无                                        |
+| FinanceInfoController.commitCashBill     | 语法   | public void commitCashBill()             |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 无                                        |
+| FinanceInfoController.addAccount         | 语法   | public ResultMessage addAccount(Account account) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回添加状态                                   |
+| FinanceInfoController.deleteAccount      | 语法   | public ResultMessage deleteAccount(String id) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回删除状态                                   |
+| FinanceInfoController.modifyAccount      | 语法   | public ResultMessage modifyAccount(Account account ,String id) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回修改状态                                   |
+| FinanceInfoController.searchAccount      | 语法   | public ArrayList<Account> searchAccount(AccountFilter filter) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回符合条件的账户列表                              |
+| FinanceInfoController.searchBill         | 语法   | public ArrayList<Bill> searchBill(BillFilter filter) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回符合条件的单据列表                              |
+
+| 需要的服务(需接口)                            |           |
+| ------------------------------------- | --------- |
+| 服务名                                   | 服务        |
+| FinanceBLService.commitGeneralAccount | 提交单据      |
+| FinanceBLService.searchGeneralAccount | 搜索匹配的期初账户 |
+| FinanceBLServicer.commitPayBill       | 提交付款单     |
+| FinanceBLService.commitReceiptBill    | 提交收款单     |
+| FinanceBLService.commitCashBill       | 提交现金费用单   |
+| FinanceBLService.addAccount           | 增加账户      |
+| FinanceBLService.deleteAccount        | 删除账户      |
+| FinanceBLService.modifyAccount        | 修改账户      |
+| FinanceBLService.searchAccount        | 查找账户      |
+| FinanceBLService.searchBill           | 查找单据      |
+
 #### 4.1.4 chiefmanger模块
+
+（1）整体结构
+
+展示层的控制器为树状委托式结构，ChiefManagerViewController负责总经理界面的整体跳转，ChiefManagerNavBarController负责实现导航栏界面，ChiefManagerSearchListController负责实现查看报表界面，ChiefManagerSalesListController负责实现查看销售明细表界面，ChiefManagerManageListController负责实现查看经营情况表界面，ChiefManagerExamineBillController负责实现审批单据界面,ChiefManagerShowBillDetailController负责实现显示单据详情界面，ChiefManagerReadLogController负责实现查询日志界面，ChiefManagerShowLogDetail负责实现显示日志详情界面，ChiefManagerSetPromotionController负责实现制定销售策略界面。
+
+chiefManager界面各个类的职责如下表所示
+
+| 模块                                   | 职责             |
+| ------------------------------------ | -------------- |
+| ChiefManagerViewController           | 负责实现总经理界面的整体跳转 |
+| ChiefManagerNavBarController         | 负责实现导航栏界面      |
+| ChiefManagerSearchListController     | 负责实现查看报表界面     |
+| ChiefManagerSalesListController      | 负责实现查看销售明细表界面  |
+| ChiefManagerManageListController     | 负责实现查看经营情况表界面  |
+| ChiefManagerExamineBillController    | 负责实现审批单据界面     |
+| ChiefManagerShowBillDetailController | 负责实现显示单据详情界面   |
+| ChiefManagerReadLogController        | 负责实现查询日志界面     |
+| ChiefManagerShowLogDetail            | 负责实现显示日志详情界面   |
+| ChiefManagerSetPromotionController   | 负责实现制定销售策略界面   |
+
+（2）模块内部类的接口规范
+
+ChiefManagerViewController的接口规范
+
+| 提供的服务（供接口）                               |           |                                 |
+| ---------------------------------------- | --------- | ------------------------------- |
+| 服务名                                      | 服务        |                                 |
+| ChiefManagerViewController.showSearchList | 语法        | public void showSearchList();   |
+| 前置条件                                     | 点击导航栏查看报表 |                                 |
+| 后置条件                                     | 显示查看报表界面  |                                 |
+| ChiefManagerViewController.showExamineBill | 语法        | public void showExamineBill();  |
+| 前置条件                                     | 点击导航栏审批单据 |                                 |
+| 后置条件                                     | 显示审批单据界面  |                                 |
+| ChiefManagerViewController.showReadLog   | 语法        | public void showReadLog();      |
+| 前置条件                                     | 点击导航栏查询日志 |                                 |
+| 后置条件                                     | 显示查询日志界面  |                                 |
+| ChiefManagerViewController.showSetPromotion | 语法        | public void showSetPromotion(); |
+| 前置条件                                     | 点击导航栏促销策略 |                                 |
+| 后置条件                                     | 显示促销策略界面  |                                 |
+| 需要的服务（需接口）                               |           |                                 |
+| 无                                        |           |                                 |
+
+ChiefManagerNavBarController的接口规范
+
+| 提供的服务（供接口）                               |            |
+| ---------------------------------------- | ---------- |
+| 服务名                                      | 服务         |
+| 无                                        |            |
+| 需要的服务（需接口）                               |            |
+| 服务名                                      | 服务         |
+| ChiefManagerViewController.showSearchList | 显示查看报表界面   |
+| ChiefManagerViewController.showExamineBill | 显示审批单据界面   |
+| ChiefManagerViewController.showReadLog   | 显示查询日志界面   |
+| ChiefManagerViewController.showSetPromotion | 显示制定促销策略界面 |
+
+ChiefManagerSearchListController的接口规范
+
+| 提供的服务（供接口）                               |                |                         |
+| ---------------------------------------- | -------------- | ----------------------- |
+| 服务名                                      | 服务             |                         |
+| ChiefManagerSearchListController.showList | 语法             | public void showList(); |
+| 前置条件                                     | 点击查看报表界面的确认按钮  |                         |
+| 后置条件                                     | 输出符合用户条件的报表    |                         |
+| ChiefManagerSearchListController.empty   | 语法             | public void empty();    |
+| 前置条件                                     | 点击查看报表界面的清空按钮  |                         |
+| 后置条件                                     | 清空查询条件         |                         |
+| ChiefManagerSearchListController.exit    | 语法             | public void exit();     |
+| 前置条件                                     | 点击查看报表界面的退出按钮  |                         |
+| 后置条件                                     | 退出查询功能返回总经理主界面 |                         |
+| 需要的服务（需接口）                               |                |                         |
+| 服务名                                      | 服务             |                         |
+| ChiefManagerBLServiceImpl.makeSalesList  | 制作符合条件的销售明细表   |                         |
+| ChiefManagerBLServiceImpl.makeManageList | 制作符合条件的经营情况表   |                         |
+
+ChiefManagerSalesListController的接口规范
+
+| 提供的服务（供接口）                             |                |                       |
+| -------------------------------------- | -------------- | --------------------- |
+| 服务名                                    | 服务             |                       |
+| ChiefManagerSalesListController.back   | 语法             | public void back();   |
+| 前置条件                                   | 无              |                       |
+| 后置条件                                   | 返回上一界面         |                       |
+| ChiefManagerSalesListController.export | 语法             | public void export(); |
+| 前置条件                                   | 点击销售明细表界面的导出按钮 |                       |
+| 后置条件                                   | 导出当前的报表        |                       |
+| 需要的服务（需接口）                             |                |                       |
+| 服务名                                    | 服务             |                       |
+| ChiefManagerBLServiceImpl.export       | 导出当前的报表        |                       |
+
+ChiefManagerManageListController的接口规范
+
+| 提供的服务（供接口）                              |                |                       |
+| --------------------------------------- | -------------- | --------------------- |
+| 服务名                                     | 服务             |                       |
+| ChiefManagerManageListController.back   | 语法             | public void back();   |
+| 前置条件                                    | 无              |                       |
+| 后置条件                                    | 返回上一界面         |                       |
+| ChiefManagerManageListController.export | 语法             | public void export(); |
+| 前置条件                                    | 点击经营情况表界面的导出按钮 |                       |
+| 后置条件                                    | 导出当前的报表        |                       |
+| 需要的服务（需接口）                              |                |                       |
+| 服务名                                     | 服务             |                       |
+| ChiefManagerBLServiceImpl.export        | 导出当前的报表        |                       |
+
+ChiefManagerExamineBillController的接口规范
+
+| 提供的服务（供接口）                               |                |                               |
+| ---------------------------------------- | -------------- | ----------------------------- |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerExamineBillController.showBillList | 语法             | public void showBillList();   |
+| 前置条件                                     | 点击导航栏审批单据按钮    |                               |
+| 后置条件                                     | 显示当前待审批单据列表    |                               |
+| ChiefManagerExamineBillController.confirm | 语法             | public void confirm();        |
+| 前置条件                                     | 点击审批单据界面的确认按钮  |                               |
+| 后置条件                                     | 选定单据           |                               |
+| ChiefManagerExamineBillController.pass   | 语法             | public void pass();           |
+| 前置条件                                     | 有选定的单据         |                               |
+| 后置条件                                     | 单据被审批通过        |                               |
+| ChiefManagerExamineBillController.fail   | 语法             | public void fail();           |
+| 前置条件                                     | 有选定的单据         |                               |
+| 后置条件                                     | 单据被审批不通过       |                               |
+| ChiefManagerExamineBillControlle.exit    | 语法             | public void exit();           |
+| 前置条件                                     | 点击审批界面的退出按钮    |                               |
+| 后置条件                                     | 退出审批功能返回总经理主界面 |                               |
+| ChiefManagerExamineBillControlle.showBillDetail | 语法             | public void showBillDetail(); |
+| 前置条件                                     | 点击一条单据         |                               |
+| 后置条件                                     | 显示单据的详细信息      |                               |
+| 需要的服务（需接口）                               |                |                               |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerBLServiceImpl.showBillList   | 显示当前提交单据列表     |                               |
+| ChiefManagerBLServiceImpl.changeBillState | 改变选定单据的状态      |                               |
+| ChiefManagerBLServiceImpl.exit           | 退出当前功能返回总经理界面  |                               |
+| ChiefManagerShowBillDetailController.showBillDetail | 显示单据的详细信息      |                               |
+
+ChiefManagerShowBillDetailController的接口规范
+
+| 提供的服务（供接口）                               |           |                               |
+| ---------------------------------------- | --------- | ----------------------------- |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerShowBillDetailController.back | 语法        | public void back();           |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 返回上一界面    |                               |
+| ChiefManagerShowBillDetailController.showBillDetail | 语法        | public void showBillDetail(); |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 显示单据的详细信息 |                               |
+| 需要的服务（需接口）                               |           |                               |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerBLServiceImpl.showBillDetail | 显示单据的详细信息 |                               |
+
+ChiefManagerReadLogController的接口规范
+
+| 提供的服务（供接口）                               |                |                               |
+| ---------------------------------------- | -------------- | ----------------------------- |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerReadLogController.showLogList | 语法             | public void showLogList();    |
+| 前置条件                                     | 点击导航栏查询日志按钮    |                               |
+| 后置条件                                     | 显示当前日志列表       |                               |
+| ChiefManagerReadLogController.exit       | 语法             | public void exit();           |
+| 前置条件                                     | 点击查询日志界面的退出按钮  |                               |
+| 后置条件                                     | 退出查询功能返回总经理主界面 |                               |
+| ChiefManagerReadLogController.showLogDetail | 语法             | public void showBillDetail(); |
+| 前置条件                                     | 点击一条日志         |                               |
+| 后置条件                                     | 显示日志的详细信息      |                               |
+| 需要的服务（需接口）                               |                |                               |
+| 服务名                                      | 服务             |                               |
+| ChiefManagerBLServiceImpl.showLogList    | 显示当前日志列表       |                               |
+| ChiefManagerBLServiceImpl.exit           | 退出当前功能返回总经理界面  |                               |
+| ChiefManagerShowLogDetailController.showLogDetail | 显示日志的详细信息      |                               |
+
+ChiefManagerShowLogDetailController的接口规范
+
+| 提供的服务（供接口）                               |           |                               |
+| ---------------------------------------- | --------- | ----------------------------- |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerShowLogDetailController.back | 语法        | public void back();           |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 返回上一界面    |                               |
+| ChiefManagerShowLogDetailController.showLogDetail | 语法        | public void showBillDetail(); |
+| 前置条件                                     | 无         |                               |
+| 后置条件                                     | 显示日志的详细信息 |                               |
+| 需要的服务（需接口）                               |           |                               |
+| 服务名                                      | 服务        |                               |
+| ChiefManagerBLServiceImpl.showLogDetail  | 显示日志的详细信息 |                               |
+
+ChiefManagerSetPromotionController的接口规范
+
+| 提供的服务（供接口）                               |              |                                  |
+| ---------------------------------------- | ------------ | -------------------------------- |
+| 服务名                                      | 服务           |                                  |
+| ChiefManagerSetPromotionController.submit | 语法           | public void confirm();           |
+| 前置条件                                     | 点击促销策略界面确认按钮 |                                  |
+| 后置条件                                     | 返回促销策略是否制定成功 |                                  |
+| ChiefManagerSetPromotionController.exit  | 语法           | public void exit();              |
+| 前置条件                                     | 无            |                                  |
+| 后置条件                                     | 返回上一个界面      |                                  |
+| ChiefManagerSetPromotionController.showPromotionList | 语法           | public void showPromotionList(); |
+| 前置条件                                     | 无            |                                  |
+| 后置条件                                     | 显示当前促销策略列表   |                                  |
+| 需要的服务（需接口）                               |              |                                  |
+| 服务名                                      | 服务           |                                  |
+| ChiefManagerBLService.choosePromotionTyp | 选择促销策略类型     |                                  |
+| ChiefManagerBLService.setPromotionTime   | 选择促销策略时间区间   |                                  |
+| ChiefManagerBLService.checkPromotionInfo | 检查促销策略信息     |                                  |
+| ChiefManagerBLService.ShowPromotionList  | 显示当前策略列表     |                                  |
+
+
+
+
+
+
 
 ### 4.2 业务逻辑层的分解
 
