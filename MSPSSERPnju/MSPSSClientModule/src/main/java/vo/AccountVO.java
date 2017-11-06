@@ -1,10 +1,10 @@
 package vo;
 
 public class AccountVO {
-    String name;
-    long money;
-    String creator;
-    String creattime;
+   public String name;
+    public long money;
+    public String creator;
+    public String creattime;
 
     public AccountVO(String name,long money,String creator,String creattime){
         this.name = name;
