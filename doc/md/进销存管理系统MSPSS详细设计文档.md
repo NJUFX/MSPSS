@@ -921,7 +921,146 @@ ChiefManagerSetPromotionController的接口规范
 
 ### 4.2 业务逻辑层的分解
 
+
+
+#### 4.2.1 MainBL模块
+
+
+
+#### 4.2.2 StockBL模块
+
+
+
+#### 4.2.3 CommodityBL模块
+
+
+
+#### 4.2.4 BillBL模块
+
+PayBillController的接口规范
+
+| 提供的服务                    |      |                                          |
+| ------------------------ | ---- | ---------------------------------------- |
+| PayBillController.create | 语法   | public ResultMessage create(PayBill)     |
+|                          | 前置条件 | PayBill被初始化                              |
+|                          | 后置条件 | 无                                        |
+| PayBillController.check  | 语法   | public ArrayList<PayBill> check(string time1，stringtime2) |
+|                          | 前置条件 | time1时间先于time2                           |
+|                          | 后置条件 | 无                                        |
+|                          |      |                                          |
+
+
+
+ReceiptBillController的接口规范
+
+| 提供的服务                        |      |                                          |
+| ---------------------------- | ---- | ---------------------------------------- |
+| ReceiptBillController.create | 语法   | public ResultMessage create(ReceiptBill bill) |
+|                              | 前置条件 | bill被初始化                                 |
+|                              | 后置条件 | 无                                        |
+| ReceiptController.check      | 语法   | public ArrayList<ReceiptBill> check(string time1，stringtime2) |
+|                              | 前置条件 | time1时间先于time2                           |
+|                              | 后置条件 | 无                                        |
+|                              |      |                                          |
+
+
+
+#### 4.2.5 AccountBL模块
+
+AccountController的接口规范
+
+| 提供的服务（供接口）                      |      |                                          |
+| ------------------------------- | ---- | ---------------------------------------- |
+| AccountController.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
+|                                 | 前置条件 | name不能与之前的重复                             |
+|                                 | 后置条件 | 无                                        |
+| AccountController.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
+|                                 | 前置条件 | name必须已经存在的账户列表中                         |
+|                                 | 后置条件 | 无                                        |
+| AccountController.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname,int money) |
+|                                 | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                                 | 后置条件 | 无                                        |
+| AccountController.get           | 语法   | public Account check(string name)        |
+|                                 | 前置条件 | name已经存在于账户列表中                           |
+|                                 | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+|                                 |      |                                          |
+|                                 |      |                                          |
+
+| 需要的服务 |      |      |
+| ----- | ---- | ---- |
+| 无     |      |      |
+
+
+
+#### 4.2.6 PromotionBL模块
+
+
+
+#### 4.2.7 TableBL模块
+
+
+
+#### 4.2.8 CustomerBL模块
+
+
+
+#### 4.2.9 UserBL模块
+
+
+
+#### 4.2.10 LogBL模块
+
+
+
+#### 4.2.11 GeneralAccountBL模块
+
+GeneralAccoutController的接口规范
+
+| 提供的服务                          |      |                                          |
+| ------------------------------ | ---- | ---------------------------------------- |
+| GeneralAccountController.new   | 语法   | public ResultMessage new(GeneralAccoutVO accout) |
+|                                | 前置条件 | accout已经被初始化                             |
+|                                | 后置条件 | 无                                        |
+| GeneralAccountController.check | 语法   | public GeneralAccoutVO check(string id)  |
+|                                | 前置条件 | id存在于账户列表中                               |
+|                                | 后置条件 | 无                                        |
+
+| 需要的服务                                |            |
+| ------------------------------------ | ---------- |
+| SystemDataService.newGeneralAccount  | 创建一个账户在数据层 |
+| SystemDataService.checkGeneralAccout | 查询账户       |
+
+
+
+##### （4）业务逻辑层内部动态模型
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### 4.2.1 stockmanager模块
+
+
 
 ##### （1）模块描述 
 
