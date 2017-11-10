@@ -967,28 +967,32 @@ ReceiptBillController的接口规范
 
 #### 4.2.5 AccountBL模块
 
-AccountController的接口规范
+Account的接口规范
 
-| 提供的服务（供接口）                      |      |                                          |
-| ------------------------------- | ---- | ---------------------------------------- |
-| AccountController.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
-|                                 | 前置条件 | name不能与之前的重复                             |
-|                                 | 后置条件 | 无                                        |
-| AccountController.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
-|                                 | 前置条件 | name必须已经存在的账户列表中                         |
-|                                 | 后置条件 | 无                                        |
-| AccountController.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname,int money) |
-|                                 | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
-|                                 | 后置条件 | 无                                        |
-| AccountController.get           | 语法   | public Account check(string name)        |
-|                                 | 前置条件 | name已经存在于账户列表中                           |
-|                                 | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
-|                                 |      |                                          |
-|                                 |      |                                          |
+| 提供的服务（供接口）            |      |                                          |
+| --------------------- | ---- | ---------------------------------------- |
+| Account.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
+|                       | 前置条件 | name不能与之前的重复                             |
+|                       | 后置条件 | 无                                        |
+| Account.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
+|                       | 前置条件 | name必须已经存在的账户列表中                         |
+|                       | 后置条件 | 无                                        |
+| Account.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname,int money) |
+|                       | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                       | 后置条件 | 无                                        |
+| Account.checkAccount  | 语法   | public Account checkAccount(String name) |
+|                       | 前置条件 | name已经存在于账户列表中                           |
+|                       | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+|                       |      |                                          |
+|                       |      |                                          |
 
-| 需要的服务 |      |      |
-| ----- | ---- | ---- |
-| 无     |      |      |
+| 需要的服务(需接口)                       |           |
+| -------------------------------- | --------- |
+| 服务名                              | 服务        |
+| AccountDataService.addAccount    | 增加账户至数据库  |
+| AccountDataService.deleteAccount | 删除数据库中的账户 |
+| AccountDataService.modifyAccount | 修改数据库中的账户 |
+| AccountDataService.checkAccount  | 搜索数据库中的账户 |
 
 
 
@@ -1014,21 +1018,49 @@ AccountController的接口规范
 
 #### 4.2.11 GeneralAccountBL模块
 
-GeneralAccoutController的接口规范
+GeneralAccount的接口规范
 
-| 提供的服务                          |      |                                          |
-| ------------------------------ | ---- | ---------------------------------------- |
-| GeneralAccountController.new   | 语法   | public ResultMessage new(GeneralAccoutVO accout) |
-|                                | 前置条件 | accout已经被初始化                             |
-|                                | 后置条件 | 无                                        |
-| GeneralAccountController.check | 语法   | public GeneralAccoutVO check(string id)  |
-|                                | 前置条件 | id存在于账户列表中                               |
-|                                | 后置条件 | 无                                        |
+| 服务名                                | 服务   | 服务                                       |
+| ---------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccount.newGeneralAccount   | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccount.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+| GeneralAccount.ETLSort             | 语法   | public ArrayList<GeneralAccountVO> ETLSort(ArrayList<GeneralAccountVO> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从早到晚排序的list                          |
+| GeneralAccount.LTESort             | 语法   | public ArrayList<GeneralAccountVO> LTESort(ArrayList<GeneralAccountVO> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从晚到早排序的list                          |
 
-| 需要的服务                                |            |
-| ------------------------------------ | ---------- |
-| SystemDataService.newGeneralAccount  | 创建一个账户在数据层 |
-| SystemDataService.checkGeneralAccout | 查询账户       |
+需要的服务(需接口)
+
+| 服务名                                      | 服务        |
+| ---------------------------------------- | --------- |
+| GeneralAccountDataService.newGeneralAccount | 添加期初建账的信息 |
+| GeneralAccountDataService.checkGeneralAccount | 检查期初建账的信息 |
+| GeneralAccountSorter.Early_To_Late       | 从早到晚排序    |
+| GeneralAccountSorter.Late_To_Early       | 从晚到早排序    |
+
+提供的接口(供接口)
+
+| 提供的接口(供接口)                         |      |                                          |
+| ---------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                |      | 服务                                       |
+| GeneralAccountSorter.Early_To_Late | 语法   | public ArrayList<GeneralAccountVO> Early_To_Late(ArrayList<GeneralAccount> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从早到晚的总账                              |
+| GeneralAccountSorter.Late_To_Early | 语法   | public ArrayList<GeneralAccountVO> Late_To_Early(ArrayList<GeneralAccount> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从晚到早的总账                              |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    |      |
 
 
 
