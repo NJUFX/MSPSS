@@ -392,7 +392,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 
 #### 4.1.3 financer模块
 
-#### （1）整体结构
+##### （1）整体结构
 
 展示层的控制器为树状委托式结构，
 
@@ -418,9 +418,7 @@ finance各个类的职责如表4.1.3(1)-1所示<br>
 | CreateGeneralAccountController | 负责实现期初建账界面            |
 | FinanceInfoController          | 负责实现信息的传递             |
 
-
-
-#### （2）模块内部类的接口规范
+##### （2）模块内部类的接口规范
 
 表4.1.3(2)-1 FinanceViewController的接口规范
 
@@ -709,7 +707,7 @@ finance各个类的职责如表4.1.3(1)-1所示<br>
 
 #### 4.1.4 chiefmanger模块
 
-（1）整体结构
+##### （1）整体结构
 
 展示层的控制器为树状委托式结构，ChiefManagerViewController负责总经理界面的整体跳转，ChiefManagerNavBarController负责实现导航栏界面，ChiefManagerSearchListController负责实现查看报表界面，ChiefManagerSalesListController负责实现查看销售明细表界面，ChiefManagerManageListController负责实现查看经营情况表界面，ChiefManagerExamineBillController负责实现审批单据界面,ChiefManagerShowBillDetailController负责实现显示单据详情界面，ChiefManagerReadLogController负责实现查询日志界面，ChiefManagerShowLogDetail负责实现显示日志详情界面，ChiefManagerSetPromotionController负责实现制定销售策略界面。
 
@@ -728,7 +726,7 @@ chiefManager界面各个类的职责如下表所示
 | ChiefManagerShowLogDetail            | 负责实现显示日志详情界面   |
 | ChiefManagerSetPromotionController   | 负责实现制定销售策略界面   |
 
-（2）模块内部类的接口规范
+##### （2）模块内部类的接口规范
 
 ChiefManagerViewController的接口规范
 
@@ -923,9 +921,34 @@ ChiefManagerSetPromotionController的接口规范
 
 
 
-#### 4.2.1 MainBL模块
+#### 4.2.1 UserBL模块
 
+提供的服务（供接口）
 
+| 服务名               | 服务   | 服务                                       |
+| ----------------- | ---- | ---------------------------------------- |
+| UserBL.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                   | 前置条件 | 用户处于未登录状态                                |
+|                   | 后置条件 | 用户登陆                                     |
+| UserBL.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
+|                   | 前置条件 | 用户已登录                                    |
+|                   | 后置条件 | 用户登出                                     |
+| UserBL.addUser    | 语法   | public ResultMessage addUser(UserVO);    |
+|                   | 前置条件 | 输入的信息符合规范                                |
+|                   | 后置条件 | 增加用户                                     |
+| UserBL.delUser    | 语法   | public ResultMessage delUser(String ID); |
+|                   | 前置条件 | 输入的ID已存在                                 |
+|                   | 后置条件 | 删除该用户                                    |
+| UserBL.modifyUser | 语法   | public ResultMessage modifyUser(UserVO); |
+|                   | 前置条件 | 输入的信息符合规范                                |
+| 输入的信息符合规范         | 后置条件 | 修改用户属性                                   |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
 
 #### 4.2.2 StockBL模块
 
@@ -1077,13 +1100,38 @@ Account的接口规范
 
 #### 4.2.8 CustomerBL模块
 
+提供的服务（供接口）
+
+| 服务名                       | 服务   | 服务                                       |
+| ------------------------- | ---- | ---------------------------------------- |
+| CustomerBL.addCustomer    | 语法   | public boolean addCustomer(CustomerVO customer) |
+|                           | 前置条件 | 输入的信息符合规范                                |
+|                           | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| CustomerBL.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
+|                           | 前置条件 | 需要删除的用户存在于系统中                            |
+|                           | 后置条件 | 删除用户，返回true                              |
+| CustomerBL.modifyCustomer | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
+|                           | 前置条件 | 输入的信息符合规范                                |
+|                           | 后置条件 | 系统修改该客户的属性，并返回true                       |
+| CustomerBLgetCustomerInfo | 语法   | public CustomerVO getCustomerInfo(String ID); |
+|                           | 前置条件 | 输入的客户编号符合规范                              |
+|                           | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| CustomerBL.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
+|                           | 前置条件 | 输入的关键词合法                                 |
+|                           | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+|                           |      |                                          |
+|                           |      |                                          |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
 
 
-#### 4.2.9 UserBL模块
 
-
-
-#### 4.2.10 LogBL模块
+#### 4.2.9 LogBL模块
 
 
 
