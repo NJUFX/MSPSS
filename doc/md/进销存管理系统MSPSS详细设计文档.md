@@ -939,29 +939,7 @@ ChiefManagerSetPromotionController的接口规范
 
 PayBillController的接口规范
 
-| 提供的服务                    |      |                                          |
-| ------------------------ | ---- | ---------------------------------------- |
-| PayBillController.create | 语法   | public ResultMessage create(PayBill)     |
-|                          | 前置条件 | PayBill被初始化                              |
-|                          | 后置条件 | 无                                        |
-| PayBillController.check  | 语法   | public ArrayList<PayBill> check(string time1，stringtime2) |
-|                          | 前置条件 | time1时间先于time2                           |
-|                          | 后置条件 | 无                                        |
-|                          |      |                                          |
 
-
-
-ReceiptBillController的接口规范
-
-| 提供的服务                        |      |                                          |
-| ---------------------------- | ---- | ---------------------------------------- |
-| ReceiptBillController.create | 语法   | public ResultMessage create(ReceiptBill bill) |
-|                              | 前置条件 | bill被初始化                                 |
-|                              | 后置条件 | 无                                        |
-| ReceiptController.check      | 语法   | public ArrayList<ReceiptBill> check(string time1，stringtime2) |
-|                              | 前置条件 | time1时间先于time2                           |
-|                              | 后置条件 | 无                                        |
-|                              |      |                                          |
 
 
 
@@ -977,30 +955,123 @@ Account的接口规范
 | Account.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
 |                       | 前置条件 | name必须已经存在的账户列表中                         |
 |                       | 后置条件 | 无                                        |
-| Account.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname,int money) |
+| Account.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
 |                       | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
 |                       | 后置条件 | 无                                        |
 | Account.checkAccount  | 语法   | public Account checkAccount(String name) |
 |                       | 前置条件 | name已经存在于账户列表中                           |
 |                       | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
-|                       |      |                                          |
-|                       |      |                                          |
+| Account.income        | 语法   | public void income(String name, int income) |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 无                                        |
+| Account.pay           | 语法   | public void pay(String name,int pay)     |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 无                                        |
 
-| 需要的服务(需接口)                       |           |
-| -------------------------------- | --------- |
+需要的服务(需接口)
+
+| 服务名                       | 服务        |
+| ------------------------- | --------- |
+| AccountInfo.pay           | 账户付款，调整金额 |
+| AccountInfo.income        | 账户收款，调整金额 |
+| AccountInfo.addAccount    | 增加账户至数据库  |
+| AccountInfo.deleteAccount | 删除数据库中的账户 |
+| AccountInfo.modifyAccount | 修改数据库中的账户 |
+| AccountInfo.checkAccount  | 搜索数据库中的账户 |
+
+提供的服务(供接口)
+
+| 提供的服务（供接口）                |      |                                          |
+| ------------------------- | ---- | ---------------------------------------- |
+| AccountInfo.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
+|                           | 前置条件 | name不能与之前的重复                             |
+|                           | 后置条件 | 无                                        |
+| AccountInfodeleteAccount  | 语法   | public ResultMessage deleteAccount（string name) |
+|                           | 前置条件 | name必须已经存在的账户列表中                         |
+|                           | 后置条件 | 无                                        |
+| AccountInfo.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
+|                           | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                           | 后置条件 | 无                                        |
+| AccountInfo.checkAccount  | 语法   | public Account checkAccount(String name) |
+|                           | 前置条件 | name已经存在于账户列表中                           |
+|                           | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+| AccountInfo.income        | 语法   | public void income(String name, int income) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+| Account.pay               | 语法   | public void pay(String name,int pay)     |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+
+需要的服务(需接口)
+
 | 服务名                              | 服务        |
+| -------------------------------- | --------- |
+| AccountDataService.income        | 调整账户金额，收款 |
+| AccountDataService.pay           | 调整账户金额，付款 |
 | AccountDataService.addAccount    | 增加账户至数据库  |
 | AccountDataService.deleteAccount | 删除数据库中的账户 |
 | AccountDataService.modifyAccount | 修改数据库中的账户 |
 | AccountDataService.checkAccount  | 搜索数据库中的账户 |
-
-
 
 #### 4.2.6 PromotionBL模块
 
 
 
 #### 4.2.7 TableBL模块
+
+| 服务名                       | 服务   | 服务                                       |
+| ------------------------- | ---- | ---------------------------------------- |
+| Table.checkSaleTable      | 语法   | public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回对应的SaleTableVO                         |
+| Table.checkProcessTable   | 语法   | public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回对应的ProcessTableVO                      |
+| Table.checkBusinessTable  | 语法   | public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回对应的BusinessTableVO                     |
+| Table.exportSaleTable     | 语法   | public void exportSaleTable(SaleTableVO saletable) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+| Table.exportProcessTable  | 语法   | public void exportProcessTable(ProcessTableVO  processtable) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+| Table.exportBusinessTable | 语法   | public void exportBusinessTable(BusinessTableVO businesstable) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+
+需要的服务(需接口)
+
+| 服务名                             | 服务   |
+| ------------------------------- | ---- |
+| ExportHelper.exportBusinesTable |      |
+| ExportHelper.exportSaleTable    |      |
+| ExportHelper.exportProcessTable |      |
+| Bill.                           |      |
+|                                 |      |
+|                                 |      |
+|                                 |      |
+|                                 |      |
+
+提供的服务(供接口)
+
+| 服务名                              |      | 服务                                       |
+| -------------------------------- | ---- | ---------------------------------------- |
+| ExportHelper.exportBusinessTable | 语法   | public ResultMessage exportBusinessTable(BusinessTableVO table) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 返回导出结果                                   |
+| ExportHelper.exportSaleTable     | 语法   | public ResultMessage exportSaleTable(SaleTable table) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 返回导出结果                                   |
+| ExportHelper.exportProcessTable  | 语法   | public ResultMessage exportProcessTable(ProcessTable table) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 返回导出结果                                   |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
 
 
 
