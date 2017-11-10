@@ -923,6 +923,18 @@ ChiefManagerSetPromotionController的接口规范
 
 #### 4.2.1 UserBL模块
 
+##### （1）模块描述
+
+userbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
+
+userbl模块的职责及接口参见软件体系结构设计文档
+
+##### （2）整体结构
+
+根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.userblservice.UserBLService接口。业务逻辑层和数据层之间添加dataservice.UserDataService。为了隔离业务逻辑职责和逻辑控制职责，我们增加了UserBLServiceImpl，这样UserBLServiceImpl会将用户管理和登陆登出的业务逻辑委托给User对象。UserPO是作为用户的持久化对象被添加到设计模型中去的。UserVO是作为值对象被添加到设计模型中去的。
+
+##### （3）模块内部类的接口规范
+
 提供的服务（供接口）
 
 | 服务名               | 服务   | 服务                                       |
@@ -1100,6 +1112,18 @@ Account的接口规范
 
 #### 4.2.8 CustomerBL模块
 
+##### （1）模块描述
+
+customerbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
+
+customerbl模块的职责及接口参见软件体系结构设计文档
+
+##### （2）整体结构
+
+根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.customerblservice.CustomerBLService接口。业务逻辑层和数据层之间添加dataservice.CustomerDataService、dataservice.CommodityDataService接口。为了隔离业务逻辑职责和逻辑控制职责，我们增加了CustomerBLServiceImpl，这样CustomerBLServiceImpl会将客户管理和制定单据的业务逻辑委托给Customer对象。CustomerPO是作为客户属性的持久化对象被添加到设计模型中去的，CommodityPO是作为商品属性的持久化对象被添加到设计模型中去的。CustomerVO、CommodityVO是作为值对象被添加到设计模型中去的。
+
+##### （3）模块内部类的接口规范
+
 提供的服务（供接口）
 
 | 服务名                       | 服务   | 服务                                       |
@@ -1199,16 +1223,6 @@ GeneralAccount的接口规范
 
 
 
-
-
-
-
-
-
-
-
-
-
 #### 4.2.1 stockmanager模块
 
 
@@ -1221,7 +1235,7 @@ stockmanagerbl模块的职责及接口参见软件体系结构设计文档
 
 ##### （2） 整体结构
 
-根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.stockmanagrerblservice.StockManagerBLService接口。业务逻辑层和数据层之间添加dataservice.StackDataService、dataservice.CommodityDataService、dataservice.BillDataService为了隔离业务逻辑职责和逻辑控制职责，我们增加了StockManagerBLServiceImpl，这样StockManagerBLServiceImpl会将客户管理和制定单据的业务逻辑委托给Stock对象、Bill对象和Commodity对象。ClassificationPO是作为商品分类属性的持久化对象被添加到设计模型中去的。PresentBillPO是作为库存赠送单的持久化对象被添加到设计模型中去的。OverOrLowBillPO是作为库存报损报溢单属性的持久化对象被添加到设计模型中去的。AlertBillPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。StackPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。
+ ClassificationPO是作为商品分类属性的持久化对象被添加到设计模型中去的。PresentBillPO是作为库存赠送单的持久化对象被添加到设计模型中去的。OverOrLowBillPO是作为库存报损报溢单属性的持久化对象被添加到设计模型中去的。AlertBillPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。StackPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。
 
 CommodityVO、StackVO、SalesBillVO、StackPO是作为值对象被添加到设计模型中去的。
 
