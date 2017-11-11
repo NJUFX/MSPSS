@@ -1,16 +1,17 @@
 package vo;
 
-public class GeneralAccountVO {
-    String name;
-    String operator;
-    String creattime;
-    long initmoney;
+import java.util.ArrayList;
 
-    public GeneralAccountVO(String name,String operator,String creattime,long initmoney){
-        this.name =name;
-        this.operator = operator;
-        this.creattime = creattime;
-        this.initmoney = initmoney;
+public class GeneralAccountVO {
+    ArrayList<CommodityVO> commoditylist = new ArrayList<CommodityVO>();
+    ArrayList<CustomerVO> Customerlist = new ArrayList<CustomerVO>();
+    ArrayList<AccountVO> accountlist = new ArrayList<AccountVO>();
+
+    public void addAccount(AccountVO account){
+        accountlist.add(account);
     }
 
+    public ArrayList<AccountVO> getaccountlist(){
+        return accountlist;
+    }
 }

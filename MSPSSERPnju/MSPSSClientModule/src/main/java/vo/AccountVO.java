@@ -1,16 +1,35 @@
 package vo;
 
-public class AccountVO {
-   public String name;
-    public long money;
-    public String creator;
-    public String creattime;
+import util.Time;
 
-    public AccountVO(String name,long money,String creator,String creattime){
+public class AccountVO {
+   private String name;
+    private int money;
+    private Time createtime;
+
+    public AccountVO(String name,int money,Time createtime){
         this.name = name;
         this.money = money;
-        this.creator = creator;
-        this.creattime = creattime;
+
+        this.createtime = createtime;
     }
+
+    public void setname(String name){
+        this.name = name;
+    }
+
+    public String getname(){
+        return name;
+    }
+
+    public int getmoney(){
+        return money;
+    }
+
+    public Time getcreattime(){
+        return createtime;
+    }
+
+
 
 }
