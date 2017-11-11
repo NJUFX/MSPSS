@@ -1971,7 +1971,36 @@ List的接口规范
 
 ### 4.3 数据层的分解
 
-#### 4.3.1 UserBL模块
+#### 4.3.1 User模块
+
+提供的服务（供接口）
+
+| 服务名                            | 服务   | 服务                                       |
+| ------------------------------ | ---- | ---------------------------------------- |
+| UserDataServiceImpl.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                                | 前置条件 | 用户处于未登录状态                                |
+|                                | 后置条件 | 用户登陆                                     |
+| UserDataServiceImpl.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
+|                                | 前置条件 | 用户已登录                                    |
+|                                | 后置条件 | 用户登出                                     |
+| UserDataServiceImpl.addUser    | 语法   | public ResultMessage addUser(UserPO);    |
+|                                | 前置条件 | 输入的信息符合规范                                |
+|                                | 后置条件 | 增加用户                                     |
+| UserDataServiceImpl.delUser    | 语法   | public ResultMessage delUser(String ID); |
+|                                | 前置条件 | 输入的ID已存在                                 |
+|                                | 后置条件 | 删除该用户                                    |
+| UserDataServiceImpl.modifyUser | 语法   | public ResultMessage modifyUser(UserPO); |
+|                                | 前置条件 | 输入的信息符合规范                                |
+| 输入的信息符合规范                      | 后置条件 | 修改用户属性                                   |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+#### 
 
 #### 4.3.2 Stock模块
 
@@ -2005,6 +2034,37 @@ List的接口规范
 |                                      | 后置条件 | 无                                        |
 
 #### 4.3.6 Customer模块
+
+提供的服务（供接口）
+
+| 服务名                                     | 服务   | 服务                                       |
+| --------------------------------------- | ---- | ---------------------------------------- |
+| CustomerDataServiceImpl.addCustomer     | 语法   | public boolean addCustomer(CustomerPO customer) |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| CustomerDataServiceImpl.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                                         | 前置条件 | 需要删除的用户存在于系统中                            |
+|                                         | 后置条件 | 删除用户，返回true                              |
+| CustomerDataServiceImpl.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerPO modCustomer); |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 系统修改该客户的属性，并返回true                       |
+| CustomerDataServiceImpl.getCustomerInfo | 语法   | public CustomerPO getCustomerInfo(String ID); |
+|                                         | 前置条件 | 输入的客户编号符合规范                              |
+|                                         | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| CustomerDataServiceImpl.searchCustomer  | 语法   | public ArrayList< CustomerPO > searchCustomer(String keytype, String keyword); |
+|                                         | 前置条件 | 输入的关键词合法                                 |
+|                                         | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+|                                         |      |                                          |
+|                                         |      |                                          |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+### 
 
 #### 4.3.7 Log模块
 
