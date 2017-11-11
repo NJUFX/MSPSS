@@ -96,7 +96,7 @@
 | 伏家兴      | 2017-10-19 | 整合文档格式                          | V1.3     |
 | 刘雅歆      | 2017-10-20 | 修改了chiefmanagerbl接口规范           | V1.3.1   |
 | 伏家兴      | 2017-10-21 | 添加了customerdata的接口规范            | V1.3.2   |
-|          |            |                                 |          |
+| FX全组人员   | 2017-11-10 | 重构                              | v1.4     |
 
 
 
@@ -120,7 +120,7 @@
 ### <a name="1.2"></a>1.2词汇表
 
 1. IEEE std 1471-2000
-2. 《库存管理系统MSPSS需求规格说明书 v1.0》
+2. 《进销存管理系统MSPSS需求规格说明书 v1.0》
 3. 丁二玉，刘钦.计算与软件工程（卷二）[M]机械工业出版社，2012：134—182
 4. Frank Buschmann, Regine Meunier, Hans Rohnert, Peter Sommerlad,Micheael Stal.Pattern-Oriented Software Architecture Volume 1: A system of Patterns [M]机械工业出版社,2003 
 
@@ -136,7 +136,7 @@
 
 <center> 图3-1 分层体系结构的逻辑视角</center>
 
-![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88.png)
+![]()
 
 ​	<center> 图3-2 分层体系结构的逻辑设计方案</center>
 
@@ -148,56 +148,79 @@
 
 <center> 表4.1-1 进销存管理系统MSPSS的最终开发包设计</center>
 
-| 开发包图（物理）              | 依赖的其他开发包                                 |
-| --------------------- | ---------------------------------------- |
-| mainui                | stockmanagerui，cheifmanagerui， financeui， adminui， searchservice，vo |
-| stockmanagerui        | stockmanagerblservice，stockmanagerbl，stockmanagerblservice，vo |
-| cheifmanagerui        | cheifmanagerservice，cheifmanagerbl，cheifmanagerblservice，vo |
-| financeui             | financeblservice，financebl，financeblservice，vo |
-| adminui               | searchservice，systemdata，vo              |
-| stocksellerblservice  | stocksellerbl,java.RMI，po                |
-| stockmanagerblservice | stockjmanagerbl,java.RMI，po              |
-| financeblservice      | financebl,java.RMI，po                    |
-| mainblservice         | mainbl,java.RMI，po                       |
-| adminblservice        | adminbl,java.RMI，po                      |
-| cheifmanagerblservice | cheifmanagerbl,java.RMI，po               |
-| stocksellerbl         | systemdataservice，customerdataservice，billdataservice，commoditydataservice，systemdata，customerdata，billdata，commoditydata |
-| stockmanagerbl        | commoditydataservice，billdataservice，stockdataservice，systemdataservice， commoditydata，billdata，stockdata，systemdata |
-| financebl             | systemservice，billservice，accountservice，commodityservice,systemservice，billservice，accountservice，commodityservice |
-| mainbl                | searchservice，systemdata                 |
-| adminbl               | searchservice，systemdata                 |
-| cheifmanagerbl        | customerdataservice，systemdataservice，billdataservice，accountdataservice，customerdata，systemdata，billdata，accountdata |
-| customerdataservice   | java.RMI，po                              |
-| stockdataservice      | java.RMI，po                              |
-| systemdataservice     | java.RMI，po                              |
-| billdataservice       | java.RMI，po                              |
-| commoditydataservice  | java.RMI,   po                           |
-| customerdata          | derby                                    |
-| stockdata             | derby                                    |
-| systemdata            | derby                                    |
-| billdata              | derby                                    |
-| accountdata           | derby                                    |
-| commoditydata         | derby                                    |
-| vo                    |                                          |
-| po                    |                                          |
-| 界面类库包                 | java.awt，javx.swing，java.2D，java.3D      |
-| JDBC                  | JDBC                                     |
-| RMI                   | java.rmi                                 |
-| derby                 | derby.jar                                |
-
-
+| 开发包图                      | 依赖的其他开发包       |
+| ------------------------- | -------------- |
+| main                      |                |
+| userui                    |                |
+| userblservice             |                |
+| userbl                    |                |
+| userdataservice           |                |
+| userdata                  |                |
+| logui                     |                |
+| logblservice              |                |
+| logbl                     |                |
+| logdataservice            |                |
+| logdata                   |                |
+| stockui                   |                |
+| stockblservice            |                |
+| stockbl                   |                |
+| stockdataservice          |                |
+| stockdata                 |                |
+| promotionui               |                |
+| promotionblservice        |                |
+| promotionbl               |                |
+| promotiondataservice      |                |
+| promotionservice          |                |
+| tableui                   |                |
+| tableblservice            |                |
+| tablebl                   |                |
+| billui                    |                |
+| billblservice             |                |
+| billbl                    |                |
+| billdataservice           |                |
+| billdata                  |                |
+| commodityui               |                |
+| commodityblservice        |                |
+| commoditybl               |                |
+| commoditydataservice      |                |
+| commoditydata             |                |
+| accountui                 |                |
+| accountblservice          |                |
+| accountbl                 |                |
+| accountdataservice        |                |
+| accountdata               |                |
+| generalaccountui          |                |
+| generalaccountblservice   |                |
+| generalaccountbl          |                |
+| generalaccountdataservice |                |
+| generalaccountdata        |                |
+| customerui                |                |
+| customerblservice         |                |
+| customerbl                |                |
+| customerdataservice       |                |
+| customerdata              |                |
+| vo                        |                |
+| po                        |                |
+| utilitybl                 |                |
+| 界面类库包                     | javafx         |
+| Java RMI                  |                |
+| databaseutility           | JDBC,hibernate |
+|                           |                |
+|                           |                |
+|                           |                |
+|                           |                |
 
 进销存管理系统MSPSS客户端开发包如图4.1-1 所示，服务器端开发包图如图4.1-2所示
 
 <center>图4.1-1 进销存管理系统MSPSS客户端开发包图</center>
 
-![Image text](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9FMSPSS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE.png)
+![客户端开发包图]()
 
 
 
 <center> 表4.1-2 进销存管理系统MSPSS服务器端逻辑包图</center>
 
-![客户端图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E9%94%80%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FMSPSS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%80%BB%E8%BE%91%E5%8C%85%E5%9B%BE.png)
+![客户端图]()
 
 ### <a name="4.2"></a>4.2 运行时进程
 
@@ -254,10 +277,8 @@
 
 | 接口                                       | 服务调用方    | 服务提供方    |
 | ---------------------------------------- | -------- | -------- |
-| StockManagerBLService<br>StockSellerBLService<br>FinancerBLService<br>ChiefManagerBLService<br>MainBLService<br>AdminBLService | 客户端展示层   | 客户端业务逻辑层 |
-| CustomerDataService<br>StockDataService<br>SystemDataService<br>BillDataService<br>CommodityDataService | 客户端业务逻辑层 | 服务器端数据层  |
-
-
+| CommodityBLService<br>StockBLService<br>BillBLService<br>CustomerBLService<br>AccountBLService<br>UserBLService<br>LogBLService<br>GeneralAccountBLService<br>PromotionBLService<br>TableBLService<br> | 客户端展示层   | 客户端业务逻辑层 |
+| CommodityDataService<br>StockDataService<br>BillDataService<br>CustomerDataService<br>AccountDataService<br>UserDataService<br>LogDataService<br>GeneralAccountDataService<br>PromotionDataService<br> | 客户端业务逻辑层 | 服务器端数据层  |
 
 ### <a name="5.2"></a>5.2用户界面层的分解
 
@@ -311,7 +332,7 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 
 
-![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E5%B1%82%E7%9A%84%E8%AE%BE%E8%AE%A1.png)
+![业务逻辑层]()
 
 图5.3-1 业务逻辑层的设计
 
@@ -332,261 +353,220 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 #### 5.3.2 业务逻辑模块的接口规范<a name="5.3.2"></a><br>
 
-名词解释：
+### commoditybl的接口规范
 
-DAE: Default Account Executive, 默认业务员
+**提供的服务供接口**
 
-**表1 stockmanagerbl模块的接口规范**
-
-**提供的服务（供接口）**</center>
-
-| 服务名                                      | 服务   | 服务                                       |
-| ---------------------------------------- | ---- | ---------------------------------------- |
-| StockManangerBLService.addCommodity      | 语法   | public ResultMessage addCommodity(String ID,String name, String type) |
-|                                          | 前置条件 | 用户输入正确的商品信息                              |
-|                                          | 后置条件 | 返回添加成功与否，如果用户输入了非法信息，则抛出异常信息             |
-| StockManangerBLService.ModifyCommodity   | 语法   | public ReusultMessage modifyCommodity(String ID,String name,String type) |
-|                                          | 前置条件 | 用户输入正确的商品信息                              |
-|                                          | 后置条件 | 返回修改成功与否，如果用户输入了非法信息，则抛出异常信息             |
-| StockManagerBLService.DeleteCommodity    | 语法   | public ResultMessage deleteCommodity(CommodityVO comdity_vo) |
-|                                          | 前置条件 | 用户选择了合适的商品                               |
-|                                          | 后置条件 | 返回删除成功与否，如果非法则抛出异常信息                     |
-| StockManagerBLService.SearchCommodity    | 语法   | public ArrayList< CommodityVO >  searchCommodity(Filter flags) |
-|                                          | 前置条件 | 客户选择合适的筛选条件                              |
-|                                          | 后置条件 | 返回符合条件的商品信息列表，如果没有符合条件的商品，返回空列表          |
-| StockManagerBLService.getCommodity       | 语法   | public CommodityVO getCommodity(String ID) |
-|                                          | 前置条件 | 用户输入了正确的信息                               |
-|                                          | 后置条件 | 返回用户指定的商品信息                              |
-| StockManagerBLService.AddClassification  | 语法   | public ResultMessage addClassification(String parentID, String name) |
-|                                          | 前置条件 | 用户输入正确的信息                                |
-|                                          | 后置条件 | 返回添加成功与否，如果用户输入的信息非法，则抛出异常信息             |
-| StockManagerBLService.DeleteClassification | 语法   | public ResultMessage deleteClassification(String ID) |
-|                                          | 前置条件 | 用户输入了正确的信息                               |
-|                                          | 后置条件 | 返回删除成功与否，如果用户输入的信息非法，则抛出异常信息             |
-| StockManagerBLService.ModifyClassification | 语法   | public ResultMessage modifyClassification(String ID,String newParentID,String newName) |
-|                                          | 前置条件 | 用户输入了正确的信息                               |
-|                                          | 后置条件 | 返回修改成功与否，如果输入的信息非法，则抛出异常信息               |
-| StockManagerBLService.GetClassifications | 语法   | public Treeset< ClassificationVO > getClassifications() |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回已有的商品分类树，如果暂未有商品分类，则返回空树               |
-| StockManagerBLService.ViewStock          | 语法   | public ArrayList< StockVO > viewStock(String startTime, String endTime) |
-|                                          | 前置条件 | 用户输入了正确的时间点                              |
-|                                          | 后置条件 | 返回时间段内的库存信息，若无库存信息则返回空列表，若输入信息异常则抛出非法信息  |
-| StockManagerBLservice.InventoryCheck     | 语法   | public ArrayList< InventoryVO> inventoryCheck() |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回当天的库存快照，若无则返回空列表                       |
-| StockManagerBLService.LossAndOverflowReport | 语法   | public ResultMessage makeLossAndOverflowReport(ArrayList < CommodityVO> commodityVO, ArrayList< Integer> numbers) |
-|                                          | 前置条件 | 用户输入了正确的信息                               |
-|                                          | 后置条件 | 返回是否产生库存报损报溢单，若输入信息 非法，则抛出异常信息           |
-| StockManagerBLService.PresentationReport | 语法   | public ResultMessage makePresentationReport(ArrayList< CommodityVO> commodity,ArrayList< Integer> numbers) |
-|                                          | 前置条件 | 用户输入了正确的信息                               |
-|                                          | 后置条件 | 返回是否产生库存赠送单，若输入信息非法，则抛出非法信息              |
-| StockManagerBLService.AlarmReport        | 语法   | public ResultMessage dealAlarmReport(AlarmReportVO report) |
-|                                          | 前置条件 | 选择正确的库存报警单                               |
-|                                          | 后置条件 | 返回是否正确处理库存报警单，若非法则抛出非法信息                 |
+| 服务名                                     | 服务   | 服务                                       |
+| --------------------------------------- | ---- | ---------------------------------------- |
+| CommodityBLService.addCommodity         | 语法   | public ResultMessage addCommodity(CommodityVO  cmvo) |
+|                                         | 前置条件 | 库存管理人员输入有效的新的商品                          |
+|                                         | 后置条件 | 返回添加成功与否                                 |
+| CommodityBLService.updateCommodity      | 语法   | public ReusultMessage updateCommodity(Commodity newCmvo) |
+|                                         | 前置条件 | 库存管理人员要求更新商品信息                           |
+|                                         | 后置条件 | 系统修改制定的商品信息，并返回结果                        |
+| CommodityBLService.deleteCommodity      | 语法   | public ResultMessage deleteCommodity(String ID) |
+|                                         | 前置条件 | 用户选择了合适的商品                               |
+|                                         | 后置条件 | 返回删除成功与否，如果非法则抛出异常信息                     |
+| CommodityBLService.searchCommodity      | 语法   | public Iterator< CommodityVO >  searchCommodity(Filter flags) |
+|                                         | 前置条件 | 客户选择合适的筛选条件                              |
+|                                         | 后置条件 | 返回符合条件的商品信息列表，如果没有符合条件的商品，返回空列表          |
+| CommodityBLService.getCommodity         | 语法   | public CommodityVO getCommodity(String ID) |
+|                                         | 前置条件 | 用户输入了正确的信息                               |
+|                                         | 后置条件 | 返回用户指定的商品信息                              |
+| CommodityBLInfo.getCommodity            | 语法   | public CommodityVO getCommodity(String ID) |
+|                                         | 前置条件 | 用户输入了正确的信息                               |
+|                                         | 后置添加 | 返回商品信息                                   |
+| CommodityBLService.AddClassification    | 语法   | public ResultMessage addClassification(ClassifictaionVO clvo) |
+|                                         | 前置条件 | 用户输入正确的信息                                |
+|                                         | 后置条件 | 返回添加成功与否，如果用户输入的信息非法，则抛出异常信息             |
+| CommodityBLService.DeleteClassification | 语法   | public ResultMessage deleteClassification(String ID) |
+|                                         | 前置条件 | 用户输入了正确的商品分类信息                           |
+|                                         | 后置条件 | 返回删除成功与否，如果用户输入的信息非法，则抛出异常信息             |
+| CommodityBLService.updateClassification | 语法   | public ResultMessage updateClassification(ClassifictionVO clvo) |
+|                                         | 前置条件 | 用户输入了正确的信息                               |
+|                                         | 后置条件 | 返回修改成功与否，如果输入的信息非法，则抛出异常信息               |
+| CommodityBLService.GetClassifications   | 语法   | public Iterator< ClassificationVO > getClassifications() |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 返回已有的商品分类树，如果暂未有商品分类，则返回空树               |
+| CommodityBLService.getClassifictaion    | 语法   | public ClassificationVO getClassifiction(String ID) |
+|                                         | 前置条件 | 用户输入正确的商品分类编号                            |
+|                                         | 后置条件 | 返回已有的商品分类，否则抛出异常                         |
 
 <center>**需要的服务（需接口）**</center>
 
+| 服务名                                      | 服务              |
+| ---------------------------------------- | --------------- |
+| CommodityDataService.AddCommodity        | 新增商品            |
+| CommodityDataService.DeleteCommodity     | 删除商品            |
+| CommodityDataService.updateCommodity     | 更新商品信息          |
+| CommodityDataService.getCommodity        | 通过商品ID得到商品      |
+| CommodityDataService.exactlySearchCommodity | 精确搜索商品          |
+| CommodityDataService.prefixSearchCommodity | 前缀搜索商品          |
+| CommodityDataService.fullSearchCommodity | 完全匹配商品          |
+| CommodityDataService.fuzzySearchCommodity | 模糊搜索商品          |
+| CommodityDataService.rangeSearchCommodity | 范围搜索商品          |
+| CommodityDataService.AddClassification   | 新增商品分类          |
+| CommodityDataService.updateClassification | 修改商品分类          |
+| CommodityDataService.DeleteClassification | 删除商品分类          |
+| CommodityDataService.getClassification   | 通过商品分类ID来获得商品分类 |
+
+### stockbl的接口规范
+
+**提供的服务供接口**
+
+| 服务名                                 | 服务   | 服务                                       |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| StockBLService.ViewStock            | 语法   | public ArrayList< StockVO > viewStock(String startTime, String endTime) |
+|                                     | 前置条件 | 用户输入了正确的时间点                              |
+|                                     | 后置条件 | 返回时间段内的库存信息，若无库存信息则返回空列表，若输入信息异常则抛出非法信息  |
+| StockBLservice.InventoryCheck       | 语法   | public ArrayList< InventoryVO> inventoryCheck() |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 返回当天的库存快照，若无则返回空列表                       |
+| StockBLInfo.updateStockAndInventory | 语法   | public ResultMessage updateStockAndInventory(BillVO bvo) |
+|                                     | 前置条件 | 单据得到审批                                   |
+|                                     | 后置条件 | 更新库存信息                                   |
+
+<center>**需要的服务（需接口）**</center>
+
+| 服务名                             | 服务         |
+| ------------------------------- | ---------- |
+| CommodityBLInfo.updateCommodity | 更新商品的库存数量  |
+| StockDataService.addInventory   | 更新商品的库存信息  |
+| StockDataService.addStock       | 更新商品的进出库记录 |
+|                                 |            |
+
+
+
+### billbl的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                                     | 服务   | 服务                                       |
+| --------------------------------------- | ---- | ---------------------------------------- |
+| BillBLService.makeLessOrMoreBill        | 语法   | public ResultMessage makeLessOrMoreBill(LessOrMoreBillVO lombvo ) |
+|                                         | 前置条件 | 用户输入了正确的信息                               |
+|                                         | 后置条件 | 返回是否产生库存报损报溢单，若输入信息 非法，则抛出异常信息           |
+| BillBLService.makePresentationBill      | 语法   | public ResultMessage makePresentationBill(PresentBillVO  pbvo) |
+|                                         | 前置条件 | 用户输入了正确的信息                               |
+|                                         | 后置条件 | 返回是否产生库存赠送单，若输入信息非法，则抛出非法信息              |
+| BillBLService.getAlarmBills             | 语法   | public ArrayList< AlarmBillVO > getAlarmBills() |
+|                                         | 前置条件 | 库存管理人员要查看库存报警单                           |
+|                                         | 后置条件 | 返回库存报警单列表，若非法则抛出非法信息                     |
+| BillBLInfo.makeAlarmBills               | 语法   | public ResultMessage makeAlarmBills(AlarmBillVO abvo) |
+|                                         | 前置条件 | 库存发生变化到达警戒线                              |
+|                                         | 后置条件 | 返回是否创建成功                                 |
+| BillBLService.makePurchaseBill          | 语法   | public ResultMessage makePurchase(PurchaseVO purchase); |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 生成进货单，返回true，提示生成成功                      |
+| BillBLService.makePurchaseReturnBill    | 语法   | public ResultMessage makePurchaseReturnBill (PurchaseVO puret); |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
+| BillBLService.makeSalesBill             | 语法   | public ResultMessage makeSales(SalesVO salesvo); |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 生成销售单，返回true，提示生成成功                      |
+| BillBLService.makeSalesReturnBill       | 语法   | public ResultMessage makesSalesReturnBill(SalesPO saleret); |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
+| BillBLService.makePaymentAndReceiptBill | 语法   | public ResultMessage makePaymentAndReceiptBill(PaymentAndReceiptBill  parvo) |
+|                                         | 前置条件 | 财务人员想要制定付款单或付款单                          |
+|                                         | 后置条件 | 返回是否制定成功，更新数据库                           |
+| BillBLService.makeCashBill              | 语法   | public ResultMessage makeCashBill(CashBillVO cbvo) |
+|                                         | 前置条件 | 财务人员想要制定现金费用单                            |
+|                                         | 后置条件 | 返回是否制定成功                                 |
+| BillBLService.getBills                  | 语法   | public ArrayList<BillVO> getBills()      |
+|                                         | 前置条件 | 总经理想要查看所有的单据                             |
+|                                         | 后置条件 | 返回已有的单据列表                                |
+
+需接口
+
 | 服务名                                      | 服务               |
 | ---------------------------------------- | ---------------- |
-| CommodityService.AddCommodity            | 新增商品存入数据库        |
-| CommodityService.DeleteCommodity         | 删除数据库中的已有商品      |
-| CommodityService.ModifyCommodity         | 修改商品的信息          |
-| CommodityService.SearchCommodity         | 搜索商品             |
-| StockDataService.getStockInfo            | 得到某商品的库存信息       |
-| StockDataService.getAllStockInfo         | 得到所有商品的库存信息      |
-| BillDataService.MakeLossAndOverflowReport | 将新增的库存报损报溢单存入数据库 |
-| BillDataService.MakePresentationReport   | 将新增的库存赠送单存入数据库   |
-| BillDataService.DealAlarmReport          | 处理已存的库存报警单       |
-| CommodityService.AddClassification       | 新增商品分类           |
-| CommodityService.ModifyClassification    | 修改商品分类           |
-| CommodityService.DeleteClassification    | 删除商品分类           |
+| BillDataService.addLessOrMoreBill        | 添加库存报损报溢单        |
+| BillDataService.updateLessOrMoreBill     | 更新库存报损报溢单        |
+| BillDataService.getAllLessOrMoreBills    | 得到所有的库存报损报溢单     |
+| BillDataService.getLessOrMoreBill        | 得到特定的库存报损报溢单     |
+| BillDataService.getUndealtLessOrMoreBill | 得到所有的未处理的库存报损报溢单 |
+| BillDataService.addPresentationBill      | 添加库存赠送单          |
+| BillDataService.updatePresentationBill   | 更新库存赠送单          |
+| BillDataService.getPresentationBill      | 得到特定的库存赠送单       |
+| BillDataService.getAllPresentationBills  | 得到所有的库存赠送单       |
+| BillDataService.getUndealtPresentationBill | 得到所有的未处理的库存报损报溢单 |
+| BillDataService.addAlarmBill             | 添加库存报警单          |
+| BillDataService.updateAlarmBill          | 更新库存报警单          |
+| BillDataService.getAlarmBills            | 得到所有的库存报警单       |
+| BillDataService.addPurchaseBill          | 添加进货单            |
+| BillDataService.updatePurchaseBill       | 更新进货单            |
+| BillDataService.getPurchaseBill          | 得到进货单            |
+| BillDataService.addPurchaseReturnBill    | 添加进货退货单          |
+| BillDataService.updatePurchaseReturnBill | 更新进货退货单          |
+| BillDataService.getPurchaseReturnBill    | 得到退货单            |
+| BillDataService.addSalesBill             | 添加销售单            |
+| BillDataService.updateSalesBill          | 更新销售单            |
+| BillDataService.getSalesBill             | 得到销售单            |
+| BillDataService.addSalesReturnBill       | 添加销售退货单          |
+| BillDataService.updateSalesReturnBill    | 更新销售退货单          |
+| BillDataService.getSalesReturnBill       | 得到销售退货单          |
+| BillDataService.addPaymentAndReceiptBill | 添加收款付款单          |
+| BillDataService.updatePaymentAndReceiptBill | 更新收款付款单          |
+| BillDataService.getPaymentAndReceiptBill | 得到收款付款单          |
+| BillDataService.addCashBill              | 添加现金费用单          |
+| BillDataService.updateCashBill           | 更新库存报警单          |
+| BillDataService.getCashBill              | 得到现金费用单          |
+| CommodityBLInfo.getCommodity             | 得到商品             |
 
 
 
-表2 stocksellerbl模块的接口规范
+### logbl的接口规范
 
-****提供的服务（供接口）****
+| 服务名                        | 服务   | 服务                                       |
+| -------------------------- | ---- | ---------------------------------------- |
+| LogBLInfo.add              | 语法   | public ResultMessage add(LogPO logPO);   |
+|                            | 前置条件 | 无                                        |
+|                            | 后置条件 | Log Data里增添一条记录                          |
+| LogBLService.search        | 语法   | public ArrayList<LogPO> search(Time date); |
+|                            | 前置条件 | 无                                        |
+|                            | 后置条件 | 返回存储LogPO的数组                             |
+| LogBLService.showLogList   | 语法   | public LogListVO showLogList(ArrayList<LogPO> logList); |
+|                            | 前置条件 | 无                                        |
+|                            | 后置条件 | 返回日志列表VO                                 |
+| LogBLService.showLogDetail | 语法   | public LogVO showLogDetail(LogPO logPO); |
+|                            | 前置条件 | 无                                        |
+|                            | 后置条件 | 返回日志VO                                   |
 
-| 服务名                                  | 服务   | 服务                                       |
-| ------------------------------------ | ---- | ---------------------------------------- |
-| StockSellerBLService.searchCustomer  | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
-|                                      | 前置条件 | 输入的关键词合法                                 |
-|                                      | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
-| StockSellerBLService.getCustomerInfo | 语法   | public CustomerVO getCustomer(String ID); |
-|                                      | 前置条件 | 输入的客户编号符合规范                              |
-|                                      | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
-| StockSellerBLService.addCustomer     | 语法   | public boolean addCustomer(CustomerVO newCustomer); |
-|                                      | 前置条件 | 输入的信息符合规范                                |
-|                                      | 后置条件 | 系统新建一个客户，并提示新建成功                         |
-| StockSellerBLService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
-|                                      | 前置条件 | 需要删除的用户存在于系统中                            |
-|                                      | 后置条件 | 删除用户，返回true                              |
-| StockSellerBLService.modifyCustomer  | 语法   | public boolean modifyCustomer(CustomerVO modCustomer); |
-|                                      | 前置条件 | 输入的信息符合规范                                |
-|                                      | 后置条件 | 系统修改该客户的属性，并返回true                       |
-|                                      |      |                                          |
+| 服务名            | 服务             |
+| -------------- | -------------- |
+| LogData.add    | 在日志数据中加入一个日志PO |
+| LogData.search | 搜索符合条件的日志PO    |
+|                |                |
+|                |                |
 
-| 服务名                                      | 服务   | 服务                                       |
-| ---------------------------------------- | ---- | ---------------------------------------- |
-| StockSellerBLService.createPurchaseList  | 语法   | public boolean createPurchase(PurchaseVO purchase); |
-|                                          | 前置条件 | 输入的信息符合规范                                |
-|                                          | 后置条件 | 生成进货单，返回true，提示生成成功                      |
-| StockSellerBLService.createPurchaseReturnList | 语法   | public boolean createPurchaseRet (PurchaseVO puret); |
-|                                          | 前置条件 | 输入的信息符合规范                                |
-|                                          | 后置条件 | 生成进货退货单，返回true，提示生成成功                    |
-| StockSellerBLService.createSalesList     | 语法   | public boolean createSales(SalesPO sales); |
-|                                          | 前置条件 | 输入的信息符合规范                                |
-|                                          | 后置条件 | 生成销售单，返回true，提示生成成功                      |
-| StockSellerBLService.createSalesReturnList | 语法   | public boolean createSalesRet(SalesPO saleret); |
-|                                          | 前置条件 | 输入的信息符合规范                                |
-|                                          | 后置条件 | 生成销售退货单，返回true，提示生成成功                    |
+### promotionbl的接口规范
 
-**需要的服务（供接口）**
+| 服务名                       | 服务   | 服务                                       |
+| ------------------------- | ---- | ---------------------------------------- |
+| PromotionBLService.add    | 语法   | public ResultMessage add(Promotion PO promotionPO); |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 促销策略数据中增加一条促销策略                          |
+| PromotionBLService.delete | 语法   | public ResultMessage delete(String id);  |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 删除一条促销策略                                 |
+| PromotionBLService.update | 语法   | public ResultMessage update(String id,PromotionPO promotionPO); |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 更新一条促销策略                                 |
+| PromotionBLService.search | 语法   | public ArrayList<PromotionPO> search(Time date); |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回所有有效的促销策略                              |
+| PromotionInfo.search      | 语法   | public ArrayList<PromotionPO> search(Time date); |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回所有有效的促销策略                              |
 
-| 服务名                                   | 服务      |
-| ------------------------------------- | ------- |
-| CustomerDataService.addCustomer       | 增加客户    |
-| CustomerDataService.delCustomer       | 删除客户    |
-| CustomerDataService.modifyCustomer    | 修改客户属性  |
-| CustomerDataService.getCustomerInfo   | 得到客户属性  |
-| CommodityDataService.getCommodityInfo | 得到商品属性  |
-| BillDataService.createPurchase        | 创建进货单   |
-| BillDataService.createPurchaseRet     | 创建进货退货单 |
-| BillDataService.createSales           | 创建销售单   |
-| BillDataService.createSalesRet        | 创建销售退货单 |
-
-表3 ChiefManagerbl模块的接口规范
-
-| 提供的服务（供接口）                               |                         |                                          |
-| ---------------------------------------- | ----------------------- | ---------------------------------------- |
-| ChiefManagerBLService.checkLimit         | 语法                      | public boolean checkLimit(int id,String serviceType); |
-| 前置条件                                     | 用户已经成功登陆                |                                          |
-| 后置条件                                     | 返回一个布尔值表示用户是否有使用申请功能的权限 |                                          |
-| ChiefManagerBLService.exportList         | 语法                      | public boolean exportList(ListVO listVO); |
-| 前置条件                                     | 有符合条件的表单                |                                          |
-| 后置条件                                     | 导出excel格式的表单            |                                          |
-| ChiefManagerBLService.emptyCondition     | 语法                      | public  boolean emptyCondition();        |
-| 前置条件                                     | 用户有搜索销售明细表的权限           |                                          |
-| 后置条件                                     | 清空用户输入的搜索条件             |                                          |
-| ChiefManagerBLService.exit               | 语法                      | public void exit();                      |
-| 前置条件                                     | 用户位于具体功能界面              |                                          |
-| 后置条件                                     | 系统返回总经理登陆后的起始界面         |                                          |
-| ChiefManagerBLService.makeSalesList      | 语法                      | public SalesListVO makeSalesList(String time,String commodityName, String customerName, String salesmanName,String warehouseName ); |
-| 前置条件                                     | 用户有查看销售明细表的权限           |                                          |
-| 后置条件                                     | 返回用户要求的销售明细表            |                                          |
-| ChiefManagerBLService.makeManageList     | 语法                      | public ManageListVO makeManageList(String time); |
-| 前置条件                                     | 用户有查看经营情况表的权限           |                                          |
-| 后置条件                                     | 返回用户要求的经营情况表            |                                          |
-| ChiefManagerBLService.showLogList        | 语法                      | public LogListVO showLogList();          |
-| 前置条件                                     | 用户有查询日志的权限              |                                          |
-| 后置条件                                     | 返回系统日志列表                |                                          |
-| ChiefManagerBLService.showLogDetail      | 语法                      | public LogVO showLogDetail(int id);      |
-| 前置条件                                     | 用户有查询日志的权限              |                                          |
-| 后置条件                                     | 返回该条日志的详细信息             |                                          |
-| ChiefManagerBLService.showBillList       | 语法                      | public BillListVO showBillList(boolean isExamined)； |
-| 前置条件                                     | 用户有审批单据的权限              |                                          |
-| 后置条件                                     | 返回待审批单据列表               |                                          |
-| ChiefManagerBLService.changeBillState    | 语法                      | public ArrayList<BillVO> changeBillState(ArrayList<BillVO> billVOArray),boolean pass); |
-| 前置条件                                     | 待审批单据列表不为空              |                                          |
-| 后置条件                                     | 改变单据的审批状态为批准或不批准        |                                          |
-| ChiefManagerBLService.updateBillData     | 语法                      | public void updateBillData(ArrayList<BillVO billVOArray>); |
-| 前置条件                                     | 有单据被审批                  |                                          |
-| 后置条件                                     | 将审批后的单据信息更新到数据库中        |                                          |
-| ChiefManagerBLService.sendMessage        |                         |                                          |
-| ChiefManagerBLService.showBillDetail     | 语法                      | public BillVO showBillDetail(String id); |
-| 前置条件                                     | 待审批单据列表不为空              |                                          |
-| 后置条件                                     | 返回一张单据的详细内容             |                                          |
-| ChiefManagerBLService.choosePromotionType | 语法                      | public PromotionVO choosePromotionType(String type); |
-| 前置条件                                     | 用户有权限制定促销策略             |                                          |
-| 后置条件                                     | 返回类型对应的VO               |                                          |
-| ChiefManagerBLService.setPromotionTime   | 语法                      | public PromotionVO setPromotionTime(PromotionVO promotionVO); |
-| 前置条件                                     | 用户有权限制定促销策略             |                                          |
-| 后置条件                                     | 返回修改了起始时间的PromotionVo   |                                          |
-| ChiefManagerBLService.checkPromotionInfo | 语法                      | public boolean checkPromotionInfo(PromotionVO promotionVO) |
-| 前置条件                                     | 用户有权限制定促销策略             |                                          |
-| 后置条件                                     | 检查用户传入促销策略信息的正确性        |                                          |
-| ChiefManagerBLService.ShowPromotionList  | 语法                      | public PromotionListVO ShowPromotionList(); |
-| 前置条件                                     | 用户有权限制定促销策略             |                                          |
-| 后置条件                                     | 显示当前存在的促销策略列表           |                                          |
-| ChiefManagerBLService.updatePromotionInfo | 语法                      | public void updatePromotionInfo(PromotionVO promotionVO); |
-| 前置条件                                     | 用户制定促销策略成功              |                                          |
-| 后置条件                                     | 更新数据库中的促销策略信息           |                                          |
-| 需要的服务（需接口）                               |                         |                                          |
-| 服务名                                      | 服务                      |                                          |
-| SystemData.userData.findUser             | 根据id查找对应的userPO         |                                          |
-|                                          |                         |                                          |
-| BillDataService.search                   | 查找符合条件的所有类型的单据PO        |                                          |
-| SystemDataService.LogDataService.findLog | 根据ID查找对应的LogPO          |                                          |
-| BillDataService.update                   | 改变BillPO中的数据            |                                          |
-| SystemDataService.promotionDataService.find | 查找参数类型对应的所有PromotionPO  |                                          |
-
-**表4 fiancebl模块的接口规范**
-
-| 提供的服务（接口）                    |      |                                          |
-| ---------------------------- | ---- | ---------------------------------------- |
-| AccountManger.addAccount     | 语法   | public  AccountStatus addAccount(Account account) |
-|                              | 前置条件 | account已经被初始化且不存在同名账户                    |
-|                              | 后置条件 | 返回账户管理操作的状态Enum类：AccountStatus           |
-| AccountManager.deleteAccount | 语法   | public  AccountStatus deleteAccount(Account account) |
-|                              | 前置条件 | account存在于账户列表，且必须已经初始化                  |
-|                              | 后置条件 | 返回账户管理操作的状态Enum类：AccountStatus           |
-| AccountManager.checkAccount  | 语法   | public  Account checkAccount(AccountPos position) |
-|                              | 前置条件 | position必须被初始化                           |
-|                              | 后置条件 | 返回账户目标账户或者抛出异常                           |
-| AccountManager.modifyAccount | 语法   | public  AccountStatus modifyAccount(Account account) |
-|                              | 前置条件 | account必须存在于账户列表，并且修改已经写入account         |
-|                              | 后置条件 | 返回账户管理操作的状态Enum类：AccountStatus           |
-| BillManager.checkIncomeBill  | 语法   | public IncomeBill checkIncomeBill(BillPos position) |
-|                              | 前置条件 | position必须被初始化                           |
-|                              | 后置条件 | 返回目标IncomeBill的对象或者抛出异常                  |
-| BillManager.addIncomeBill    | 语法   | public BillStatus addIncomeBill(IncomeBill bill) |
-|                              | 前置条件 | bill必须已经被初始化                             |
-|                              | 后置条件 | 返回提交状态Enum类：BillStatus，提交表单              |
-| ReceiptManager.addReceipt    | 语法   | public BillStatus addReceipt(Receipt receipt) |
-|                              | 前置条件 | receipt必须被初始化                            |
-|                              | 后置条件 | 返回提交状态Enum类：BillStatus，提交表单              |
-| AccountInitializer.init      | 语法   | Public InitStatus Initialize(InitAccount initaccount) |
-|                              | 前置条件 | initaccount必须格式正确并且被初始化                  |
-|                              | 后置条件 | 返回初始化状态Enum类：InitStatus，保存账户             |
-| AccountInitializer.check     | 语法   | Public InitAccount Initialize(InitAccountPos positon) |
-|                              | 前置条件 | position必须已经被初始化                         |
-|                              | 后置条件 | 返回期初建账的账户信息                              |
-| BPTManager.check             | 语法   | Public BussinessProcessTable check(BPTPos position) |
-|                              | 前置条件 | position必须已经被初始化                         |
-|                              | 后置条件 | 返回对应经营历程表                                |
-| BPTManger.export             | 语法   | Public boolean export(BussinuessProcessTable table) |
-|                              | 前置条件 | table必须在表单列表中                            |
-|                              | 后置条件 | 导出表单并且返回boolean表示是否导出成功                  |
-| BPTManager.hotfrog           | 语法   | public BillStatus hotfrog(Bill bill)     |
-|                              | 前置条件 | bill必须已经被初始化                             |
-|                              | 后置条件 | 返回单据状态的Enum类：BillStatus                  |
-
-| 需要的服务（需接口）                               |                         |
-| ---------------------------------------- | ----------------------- |
-| 服务名                                      | 服务                      |
-| BillDataService.add(BillPO)              | 在数据库中插入BillPO对象         |
-| BillDataService.serch(BillIndex index)   | 在数据库中搜索以index为索引的BillPO |
-| BillDataService.change(BillIndex,Bill)   | 修改数据库中以index为索引的BillPO  |
-| BillDataService.delete(BillIndex)        | 删除数据库中以index为索引的BillPO  |
-| SystemDataService.addInitInfo(InitAccountPO) | 在数据库中插入InitAccountPO    |
-| SystemDataService.checkInitInfo()        | 在数据库中搜索相关初始化信息          |
-| SystemDataService.addLog()               | 在数据库中插入日志               |
-
-### <a name="5.4"></a>5.4数据层的分解
-
-数据层主要给业务逻辑层提供数据访问服务，包括对数据库的增、删、改、 查。由于持久化数据的保存存在
-多种形式:txt 文件、序列化文件、数据库，所以抽象了数据服务。
-
-#### 5.4.1 数据层模块的职责<a name="5.4.1"></a>
-
-| 模块           | 职责                              |
-| ------------ | ------------------------------- |
-| DataService  | 持久化数据库的接口，提供集体载入，集体保存，增，删，改，查服务 |
-| DataFileImpl | 对 DataService 模块的实现             |
-|              |                                 |
-
-
+| 服务名                  | 服务               |
+| -------------------- | ---------------- |
+| PromotionData.add    | 给促销策略数据中增加一个促销策略 |
+| PromotionData.delete | 从促销策略数据中删除一个促销策略 |
+| PromotionData.update | 更新一个促销策略         |
+| PromotionData.search | 搜索所有有效的促销策略      |
 
 #### 5.4.2 数据层模块的接口规范<a name="5.4.2"></a><br>
 
@@ -650,15 +630,81 @@ DAE: Default Account Executive, 默认业务员
 | BillDataService.add    | 语法                      | public void add(ArrayList<BillPO>);      |
 | 前置条件                   | 数据库中没有参数传入的PO           |                                          |
 | 后置条件                   | 将参数传入的PO加入到数据库          |                                          |
+|                        |                         |                                          |
+
+### accountbl的接口规范
+
+| 服务名                            | 服务   | 服务                                       |
+| ------------------------------ | ---- | ---------------------------------------- |
+| AccountBLService.addAccount    | 语法   | public ResultMessage addAccount(AccountVO account) |
+|                                | 前置条件 | 无                                        |
+|                                | 后置条件 | 返回增加账户的结果ResultMessage                   |
+| AccountBLService.deleteAccount | 语法   | public ResultMessage deleteAccount(String name) |
+|                                | 前置条件 | 无                                        |
+|                                | 后置条件 | 返回删除账户的结果ResultMessage                   |
+| AccountBLService.modifyAccount | 语法   | public ResultMesage modifyAccount(String old_account_name,String new_account_name) |
+|                                | 前置条件 | 无                                        |
+|                                | 后置条件 | 返回修改账户的结果ResultMessage                   |
+| AccountBLService.checkAccount  | 语法   | public ArrayList<AccountVO> checkAccount(AccountFilterFlags flags) |
+|                                | 前置条件 | 无                                        |
+|                                | 后置条件 | 返回符合条件的AccountVO的ArrayList，不存在则返回空列表     |
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+### generalaccountbl 的接口规范
+
+
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccountBLService.newGeneralAccount | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccountBLService.check            | 语法   | public GeneralAccountVO check(Time begin,Time end) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+|      |      |
+
+### tablebl的接口规范
+
+| 服务名                                | 服务   | 服务                                       |
+| ---------------------------------- | ---- | ---------------------------------------- |
+| TableBLService.checkSaleTable      | 语法   | public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回对应的SaleTableVO                         |
+| TableBLService.checkProcessTable   | 语法   | public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回对应的ProcessTableVO                      |
+| TableBLService.checkBusinessTable  | 语法   | public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回对应的BusinessTableVO                     |
+| TableBLService.exportSaleTable     | 语法   | public void exportSaleTable(SaleTableVO saletable) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 无                                        |
+| TableBLService.exportProcessTable  | 语法   | public void exportProcessTable(ProcessTableVO  processtable) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 无                                        |
+| TableBLService.exportBusinessTable | 语法   | public void exportBusinessTable(BusinessTableVO businesstable) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 |                                          |
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
 
 ### <a name="5.5"></a>5.5模块的关键类图
 
-图5.5-1 stocksellerbl关键类图
-![stcokmanagerl关键类图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/stockmanagerlb%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
-![stocksellerbl关键类图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/stocksellerbl%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
-图5.5-2 financebl关键类图<br>
-![financebl](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/FinanceBl%E7%9A%84%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
-![ChiefManagerbl关键类图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/ChiefManagerBL关键类图.png)
+
 
 
 
