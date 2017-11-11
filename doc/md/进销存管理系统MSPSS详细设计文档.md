@@ -1960,27 +1960,59 @@ List的接口规范
 
 ### 4.3 数据层的分解
 
-#### 4.2.1 UserBL模块
+#### 4.3.1 UserBL模块
 
-#### 4.2.2 Stock模块
+#### 4.3.2 Stock模块
 
-#### 4.2.3 Commodity模块
+#### 4.3.3 Commodity模块
 
-#### 4.2.4 Bill模块
+#### 4.3.4 Bill模块
 
-#### 4.2.5 Account模块
+#### 4.3.5 Account模块
 
-#### 4.2.6 Customer模块
+模块内部的接口规范
 
-#### 4.2.7 Table模块
+| 提供的服务（供接口）                           |      |                                          |
+| ------------------------------------ | ---- | ---------------------------------------- |
+| AccountDataServiceImpl.addAccount    | 语法   | public ResultMessage addAccount（AccountVO account) |
+|                                      | 前置条件 | account.name不能与之前的重复                     |
+|                                      | 后置条件 | 无                                        |
+| AccountDataServiceImpl.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
+|                                      | 前置条件 | name必须已经存在的账户列表中                         |
+|                                      | 后置条件 | 无                                        |
+| AccountDataServiceImpl.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
+|                                      | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                                      | 后置条件 | 无                                        |
+| AccountDataServiceImpl.checkAccount  | 语法   | public AccountVO checkAccount(String name) |
+|                                      | 前置条件 | name已经存在于账户列表中                           |
+|                                      | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+| AccountDataServiceImpl.income        | 语法   | public void income(String name, int income) |
+|                                      | 前置条件 | 无                                        |
+|                                      | 后置条件 | 无                                        |
+| AccountDataServiceImpl.pay           | 语法   | public void pay(String name,int pay)     |
+|                                      | 前置条件 | 无                                        |
+|                                      | 后置条件 | 无                                        |
 
-#### 4.2.8 Log模块
+#### 4.3.6 Customer模块
 
-#### 4.2.9 GeneralAccount模块
+#### 4.3.7 Log模块
 
-#### 4.2.10 Promotion模块
+#### 4.3.8 GeneralAccount模块
 
-4
+模块内部的接口规范
+
+| 服务名                                | 服务   | 服务                                       |
+| ---------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccount.newGeneralAccount   | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccount.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+
+#### 4.3.9 Promotion模块
+
+
 
 ### 5 依赖视角
 
