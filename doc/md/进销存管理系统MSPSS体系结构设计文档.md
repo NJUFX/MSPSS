@@ -572,8 +572,6 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | -------------- | -------------- |
 | LogData.add    | 在日志数据中加入一个日志PO |
 | LogData.search | 搜索符合条件的日志PO    |
-|                |                |
-|                |                |
 
 ### promotionbl的接口规范
 
@@ -591,7 +589,7 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | PromotionBLService.search | 语法   | public ArrayList<PromotionPO> search(Time date); |
 |                           | 前置条件 | 无                                        |
 |                           | 后置条件 | 返回所有有效的促销策略                              |
-| PromotionInfo.search      | 语法   | public ArrayList<PromotionPO> search(Time date); |
+| PromotionBLInfo.search    | 语法   | public ArrayList<PromotionPO> search(Time date); |
 |                           | 前置条件 | 无                                        |
 |                           | 后置条件 | 返回所有有效的促销策略                              |
 
@@ -769,7 +767,35 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | 后置条件                   | 将参数传入的PO加入到数据库          |                                          |
 |                        |                         |                                          |
 
+表4 LogDataService模块的接口规范
 
+| 提供的服务（供接口）            |      |                                          |
+| --------------------- | ---- | ---------------------------------------- |
+| 服务名                   | 服务   | 服务                                       |
+| LogDataService.add    | 语法   | public  ResultMessage add(LogPO logPO)   |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 日志数据里增加一条日志记录                            |
+| LogDataService.search | 语法   | public ArrayList<LogPO> search (Time date); |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 返回符合要求的日志PO数组                            |
+
+表5 PromotionDataService模块的接口规范
+
+| 提供的服务（供接口）                  |      |                                          |
+| --------------------------- | ---- | ---------------------------------------- |
+| 服务名                         | 服务   | 服务                                       |
+| PromotionDataService.add    | 语法   | public ResultMessage add(PromotionPO promotionPO); |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 促销策略数据中增加一条促销记录                          |
+| PromotionDataService.delete | 语法   | public ResultMessage delete(String id);  |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 删除促销策略ID对应的策略                            |
+| PromotionDataService.update | 语法   | public ResultMessage update(PromotionPO promotionPO,String id); |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 更新促销策略ID对应的策略                            |
+| PromotionDataService.search | 语法   | public ArrayList<PromotionPO> search(Time date); |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 返回日期范围内的所有促销策略                           |
 
 ### <a name="5.5"></a>5.5模块的关键类图
 
@@ -794,9 +820,10 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | ClassificationPO | 商品分类编号、名称、父分类                            |
 | InventoryPO      | 各种商品的名称、型号，库存数量，库存均价，批次，批号，出厂日期          |
 | StockPO          | 出/入库数量/金额，销售/进货的数量/金额                    |
+| PromotionPO      | 促销策略id，促销策略类型，促销策略信息列表（根据类型不同而变化，在构造函数中选择初始化），促销策略有效时间 |
 ### 6.2 数据库表<a name="6.3"></a>
 
-数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表
+数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表、PromotionPO表
 
 <br>**名词解释**
 
@@ -841,6 +868,12 @@ InValue 应收额度
 | ID   | Password | name   | Job    | Power |
 | ---- | -------- | ------ | ------ | ----- |
 | long | string   | string | string | int   |
+
+**PromotionPO**
+
+| ID     | Type   | InfoList | Time |      |
+| ------ | ------ | -------- | ---- | ---- |
+| String | String | String[] | Time |      |
 
 
 
