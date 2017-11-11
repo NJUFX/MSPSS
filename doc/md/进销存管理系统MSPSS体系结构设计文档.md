@@ -815,6 +815,13 @@ customerbl关键类图
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/CustomerBL%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
 
+logbl关键类图
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/Logbl的关键类图.png)
+
+promotionbl关键类图
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/promotionbl的关键类图.png)
+
+
 ## <a name="6"></a> 6 信息视角
 
 ### <a name="6.1"></a> 6.1 数据的持久化对象
