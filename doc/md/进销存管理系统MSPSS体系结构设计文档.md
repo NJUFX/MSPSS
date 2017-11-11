@@ -802,9 +802,13 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 ### <a name="5.5"></a>5.5模块的关键类图
 
+userbl关键类图
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/UserBL%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
 
+customerbl关键类图
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/CustomerBL%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
 
 ## <a name="6"></a> 6 信息视角
 
