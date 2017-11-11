@@ -392,7 +392,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 
 #### 4.1.3 financer模块
 
-#### （1）整体结构
+##### （1）整体结构
 
 展示层的控制器为树状委托式结构，
 
@@ -418,9 +418,7 @@ finance各个类的职责如表4.1.3(1)-1所示<br>
 | CreateGeneralAccountController | 负责实现期初建账界面            |
 | FinanceInfoController          | 负责实现信息的传递             |
 
-
-
-#### （2）模块内部类的接口规范
+##### （2）模块内部类的接口规范
 
 表4.1.3(2)-1 FinanceViewController的接口规范
 
@@ -709,7 +707,7 @@ finance各个类的职责如表4.1.3(1)-1所示<br>
 
 #### 4.1.4 chiefmanger模块
 
-（1）整体结构
+##### （1）整体结构
 
 展示层的控制器为树状委托式结构，ChiefManagerViewController负责总经理界面的整体跳转，ChiefManagerNavBarController负责实现导航栏界面，ChiefManagerSearchListController负责实现查看报表界面，ChiefManagerSalesListController负责实现查看销售明细表界面，ChiefManagerManageListController负责实现查看经营情况表界面，ChiefManagerExamineBillController负责实现审批单据界面,ChiefManagerShowBillDetailController负责实现显示单据详情界面，ChiefManagerReadLogController负责实现查询日志界面，ChiefManagerShowLogDetail负责实现显示日志详情界面，ChiefManagerSetPromotionController负责实现制定销售策略界面。
 
@@ -728,7 +726,7 @@ chiefManager界面各个类的职责如下表所示
 | ChiefManagerShowLogDetail            | 负责实现显示日志详情界面   |
 | ChiefManagerSetPromotionController   | 负责实现制定销售策略界面   |
 
-（2）模块内部类的接口规范
+##### （2）模块内部类的接口规范
 
 ChiefManagerViewController的接口规范
 
@@ -921,7 +919,333 @@ ChiefManagerSetPromotionController的接口规范
 
 ### 4.2 业务逻辑层的分解
 
+
+
+#### 4.2.1 UserBL模块
+
+##### （1）模块描述
+
+userbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
+
+userbl模块的职责及接口参见软件体系结构设计文档
+
+##### （2）整体结构
+
+根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.userblservice.UserBLService接口。业务逻辑层和数据层之间添加dataservice.UserDataService。为了隔离业务逻辑职责和逻辑控制职责，我们增加了UserBLServiceImpl，这样UserBLServiceImpl会将用户管理和登陆登出的业务逻辑委托给User对象。UserPO是作为用户的持久化对象被添加到设计模型中去的。UserVO是作为值对象被添加到设计模型中去的。
+
+##### （3）模块内部类的接口规范
+
+提供的服务（供接口）
+
+| 服务名               | 服务   | 服务                                       |
+| ----------------- | ---- | ---------------------------------------- |
+| UserBL.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                   | 前置条件 | 用户处于未登录状态                                |
+|                   | 后置条件 | 用户登陆                                     |
+| UserBL.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
+|                   | 前置条件 | 用户已登录                                    |
+|                   | 后置条件 | 用户登出                                     |
+| UserBL.addUser    | 语法   | public ResultMessage addUser(UserVO);    |
+|                   | 前置条件 | 输入的信息符合规范                                |
+|                   | 后置条件 | 增加用户                                     |
+| UserBL.delUser    | 语法   | public ResultMessage delUser(String ID); |
+|                   | 前置条件 | 输入的ID已存在                                 |
+|                   | 后置条件 | 删除该用户                                    |
+| UserBL.modifyUser | 语法   | public ResultMessage modifyUser(UserVO); |
+|                   | 前置条件 | 输入的信息符合规范                                |
+| 输入的信息符合规范         | 后置条件 | 修改用户属性                                   |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+#### 4.2.2 StockBL模块
+
+
+
+#### 4.2.3 CommodityBL模块
+
+
+
+#### 4.2.4 BillBL模块
+
+PayBillController的接口规范
+
+
+
+
+
+#### 4.2.5 AccountBL模块
+
+Account的接口规范
+
+| 提供的服务（供接口）            |      |                                          |
+| --------------------- | ---- | ---------------------------------------- |
+| Account.addAccount    | 语法   | public ResultMessage addAccount（AccountVO account) |
+|                       | 前置条件 | account.name不能与之前的重复                     |
+|                       | 后置条件 | 无                                        |
+| Account.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
+|                       | 前置条件 | name必须已经存在的账户列表中                         |
+|                       | 后置条件 | 无                                        |
+| Account.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
+|                       | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                       | 后置条件 | 无                                        |
+| Account.checkAccount  | 语法   | public AccountVO checkAccount(String name) |
+|                       | 前置条件 | name已经存在于账户列表中                           |
+|                       | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+| Account.income        | 语法   | public void income(String name, int income) |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 无                                        |
+| Account.pay           | 语法   | public void pay(String name,int pay)     |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 无                                        |
+
+需要的服务(需接口)
+
+| 服务名                       | 服务        |
+| ------------------------- | --------- |
+| AccountInfo.pay           | 账户付款，调整金额 |
+| AccountInfo.income        | 账户收款，调整金额 |
+| AccountInfo.addAccount    | 增加账户至数据库  |
+| AccountInfo.deleteAccount | 删除数据库中的账户 |
+| AccountInfo.modifyAccount | 修改数据库中的账户 |
+| AccountInfo.checkAccount  | 搜索数据库中的账户 |
+
+提供的服务(供接口)
+
+| 服务名                               |      | 服务                                       |
+| --------------------------------- | ---- | ---------------------------------------- |
+| AccountSorter.NameAlphabetOrder   | 语法   | public ArrayList<AccountVO>  NameAlphabetOrder(ArrayList<AccountVO> list) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+| AccountSorter.MoneyFromBigToSmall | 语法   | public ArrayList<AccountVO>  MoneyFromBigToSmall(ArrayList<AccountVO> account) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+| AccountSorter.MoneyFromSmallToBig | 语法   | public ArrayList<AccountVO>  MoneyFromSmallToBig(ArrayList<AccountVO> account) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+提供的服务(供接口)
+
+| 提供的服务（供接口）                       |      |                                          |
+| -------------------------------- | ---- | ---------------------------------------- |
+| AccountInfoFactory.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
+|                                  | 前置条件 | name不能与之前的重复                             |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
+|                                  | 前置条件 | name必须已经存在的账户列表中                         |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
+|                                  | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.checkAccount  | 语法   | public Account checkAccount(String name) |
+|                                  | 前置条件 | name已经存在于账户列表中                           |
+|                                  | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+| AccountInfoFactory.income        | 语法   | public void income(String name, int income) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.pay           | 语法   | public void pay(String name,int pay)     |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 无                                        |
+
+需要的服务(需接口)
+
+| 服务名                              | 服务        |
+| -------------------------------- | --------- |
+| AccountDataService.income        | 调整账户金额，收款 |
+| AccountDataService.pay           | 调整账户金额，付款 |
+| AccountDataService.addAccount    | 增加账户至数据库  |
+| AccountDataService.deleteAccount | 删除数据库中的账户 |
+| AccountDataService.modifyAccount | 修改数据库中的账户 |
+| AccountDataService.checkAccount  | 搜索数据库中的账户 |
+
+#### 4.2.6 PromotionBL模块
+
+
+
+#### 4.2.7 TableBL模块
+
+| 服务名                       | 服务   | 服务                                       |
+| ------------------------- | ---- | ---------------------------------------- |
+| Table.checkSaleTable      | 语法   | public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回对应的SaleTableVO                         |
+| Table.checkProcessTable   | 语法   | public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回对应的ProcessTableVO                      |
+| Table.checkBusinessTable  | 语法   | public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 返回对应的BusinessTableVO                     |
+| Table.exportSaleTable     | 语法   | public void exportSaleTable(SaleTableVO saletable) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+| Table.exportProcessTable  | 语法   | public void exportProcessTable(ProcessTableVO  processtable) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+| Table.exportBusinessTable | 语法   | public void exportBusinessTable(BusinessTableVO businesstable) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 无                                        |
+
+需要的服务(需接口)
+
+| 服务名                             | 服务   |
+| ------------------------------- | ---- |
+| ExportHelper.exportBusinesTable |      |
+| ExportHelper.exportSaleTable    |      |
+| ExportHelper.exportProcessTable |      |
+| Bill.                           |      |
+|                                 |      |
+|                                 |      |
+|                                 |      |
+|                                 |      |
+
+提供的服务(供接口)
+
+| 服务名                              |      | 服务                                       |
+| -------------------------------- | ---- | ---------------------------------------- |
+| ExportHelper.exportBusinessTable | 语法   | public ResultMessage exportBusinessTable(BusinessTableVO table) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 返回导出结果                                   |
+| ExportHelper.exportSaleTable     | 语法   | public ResultMessage exportSaleTable(SaleTable table) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 返回导出结果                                   |
+| ExportHelper.exportProcessTable  | 语法   | public ResultMessage exportProcessTable(ProcessTable table) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 返回导出结果                                   |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+
+
+#### 4.2.8 CustomerBL模块
+
+##### （1）模块描述
+
+customerbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
+
+customerbl模块的职责及接口参见软件体系结构设计文档
+
+##### （2）整体结构
+
+根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.customerblservice.CustomerBLService接口。业务逻辑层和数据层之间添加dataservice.CustomerDataService、dataservice.CommodityDataService接口。为了隔离业务逻辑职责和逻辑控制职责，我们增加了CustomerBLServiceImpl，这样CustomerBLServiceImpl会将客户管理和制定单据的业务逻辑委托给Customer对象。CustomerPO是作为客户属性的持久化对象被添加到设计模型中去的，CommodityPO是作为商品属性的持久化对象被添加到设计模型中去的。CustomerVO、CommodityVO是作为值对象被添加到设计模型中去的。
+
+##### （3）模块内部类的接口规范
+
+提供的服务（供接口）
+
+| 服务名                       | 服务   | 服务                                       |
+| ------------------------- | ---- | ---------------------------------------- |
+| CustomerBL.addCustomer    | 语法   | public boolean addCustomer(CustomerVO customer) |
+|                           | 前置条件 | 输入的信息符合规范                                |
+|                           | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| CustomerBL.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
+|                           | 前置条件 | 需要删除的用户存在于系统中                            |
+|                           | 后置条件 | 删除用户，返回true                              |
+| CustomerBL.modifyCustomer | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
+|                           | 前置条件 | 输入的信息符合规范                                |
+|                           | 后置条件 | 系统修改该客户的属性，并返回true                       |
+| CustomerBLgetCustomerInfo | 语法   | public CustomerVO getCustomerInfo(String ID); |
+|                           | 前置条件 | 输入的客户编号符合规范                              |
+|                           | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| CustomerBL.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
+|                           | 前置条件 | 输入的关键词合法                                 |
+|                           | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+|                           |      |                                          |
+|                           |      |                                          |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+
+
+#### 4.2.9 LogBL模块
+
+
+
+#### 4.2.11 GeneralAccountBL模块
+
+GeneralAccount的接口规范
+
+| 服务名                                | 服务   | 服务                                       |
+| ---------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccount.newGeneralAccount   | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccount.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+| GeneralAccount.ETLSort             | 语法   | public ArrayList<GeneralAccountVO> ETLSort(ArrayList<GeneralAccountVO> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从早到晚排序的list                          |
+| GeneralAccount.LTESort             | 语法   | public ArrayList<GeneralAccountVO> LTESort(ArrayList<GeneralAccountVO> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从晚到早排序的list                          |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务        |
+| ---------------------------------------- | --------- |
+| GeneralAccountDataService.newGeneralAccount | 添加期初建账的信息 |
+| GeneralAccountDataService.checkGeneralAccount | 检查期初建账的信息 |
+| GeneralAccountSorter.Early_To_Late       | 从早到晚排序    |
+| GeneralAccountSorter.Late_To_Early       | 从晚到早排序    |
+
+提供的接口(供接口)
+
+| 提供的接口(供接口)                         |      |                                          |
+| ---------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                |      | 服务                                       |
+| GeneralAccountSorter.Early_To_Late | 语法   | public ArrayList<GeneralAccountVO> Early_To_Late(ArrayList<GeneralAccount> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从早到晚的总账                              |
+| GeneralAccountSorter.Late_To_Early | 语法   | public ArrayList<GeneralAccountVO> Late_To_Early(ArrayList<GeneralAccount> list) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回时间从晚到早的总账                              |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    |      |
+
+
+
+##### （4）业务逻辑层内部动态模型
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### 4.2.1 stockmanager模块
+
+
 
 ##### （1）模块描述 
 
@@ -931,7 +1255,7 @@ stockmanagerbl模块的职责及接口参见软件体系结构设计文档
 
 ##### （2） 整体结构
 
-根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.stockmanagrerblservice.StockManagerBLService接口。业务逻辑层和数据层之间添加dataservice.StackDataService、dataservice.CommodityDataService、dataservice.BillDataService为了隔离业务逻辑职责和逻辑控制职责，我们增加了StockManagerBLServiceImpl，这样StockManagerBLServiceImpl会将客户管理和制定单据的业务逻辑委托给Stock对象、Bill对象和Commodity对象。ClassificationPO是作为商品分类属性的持久化对象被添加到设计模型中去的。PresentBillPO是作为库存赠送单的持久化对象被添加到设计模型中去的。OverOrLowBillPO是作为库存报损报溢单属性的持久化对象被添加到设计模型中去的。AlertBillPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。StackPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。
+ ClassificationPO是作为商品分类属性的持久化对象被添加到设计模型中去的。PresentBillPO是作为库存赠送单的持久化对象被添加到设计模型中去的。OverOrLowBillPO是作为库存报损报溢单属性的持久化对象被添加到设计模型中去的。AlertBillPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。StackPO是作为库存报警单属性的持久化对象被添加到设计模型中去的。
 
 CommodityVO、StackVO、SalesBillVO、StackPO是作为值对象被添加到设计模型中去的。
 
@@ -1339,6 +1663,12 @@ List的接口规范
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/查看销售明细表顺序图.png)
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/制定促销策略顺序图.png)
+
+### 4.3 数据层的分解
+
+
+
+
 
 ### 5 依赖视角
 

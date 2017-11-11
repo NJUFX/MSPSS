@@ -25,7 +25,7 @@ public class StockSellerService_Driver {
         }
 
         //test getCustomer
-        CustomerVO customerget = stockSellerServiceStub.getCustomerInfo("00000003");
+        CustomerVO customerget = stockSellerServiceStub.getCustomerInfo("00000001");
         if (customerget != null) {
             System.out.println(customerget.getName());
             System.out.println("Get customer successfully.");
@@ -65,8 +65,8 @@ public class StockSellerService_Driver {
 
         //test createPurchaseList
         ArrayList<CommodityVO> purlist = new ArrayList<>();
-       // PurchaseVO purchaseVO = new PurchaseVO(String.valueOf(++StockSellerService_Stub.purchaseIdNumber),Intel,"004");
-        boolean iscreateP = stockSellerServiceStub.createPurchase();
+        PurchaseVO purchaseVO = new PurchaseVO("", Intel, "024", "001", purlist, 12000, "null");
+        boolean iscreateP = stockSellerServiceStub.createPurchase(purchaseVO);
         if (iscreateP == true) {
             System.out.println("Create purchase list successfully.");
         } else {
@@ -75,7 +75,8 @@ public class StockSellerService_Driver {
 
         //test createSalesList
         ArrayList<CommodityVO> saleslist = new ArrayList<>();
-        boolean iscreateS = stockSellerServiceStub.createSales(Xiaomi, "001", "004", "024", saleslist, 12000, 0.8, 0, 9600, "出库手机芯片");
+        SalesVO sales = new SalesVO("", Xiaomi, "001", "004", "024", saleslist, 12000, 0.8, 0, 9600, "出库手机芯片");
+        boolean iscreateS = stockSellerServiceStub.createSales(sales);
         if (iscreateS == true) {
             System.out.println("Create sales list successfully.");
         } else {
@@ -84,7 +85,8 @@ public class StockSellerService_Driver {
 
         //test createPurchaseReturnList
         ArrayList<CommodityVO> purchrtlist = new ArrayList<>();
-        boolean iscreatePR = stockSellerServiceStub.createPurchaseRet(Intel, "024", "002", purchrtlist, 35000, "太贵了进不起");
+        PurchaseVO purRet = new PurchaseVO("", Intel, "024", "001", purlist, 12000, "null");
+        boolean iscreatePR = stockSellerServiceStub.createPurchaseRet(purRet);
         if (iscreatePR == true) {
             System.out.println("Create purchase-return list successfully.");
         } else {
@@ -93,11 +95,13 @@ public class StockSellerService_Driver {
 
         //test createSalesReturnList
         ArrayList<CommodityVO> salesrtlist = new ArrayList<>();
-        boolean iscreateSR = stockSellerServiceStub.createSalesRet(Xiaomi, "001", "002", "024", salesrtlist, 9600, 1, 0, 9600, "小米自研芯片了");
+        SalesVO saleRet = new SalesVO("", Xiaomi, "001", "004", "024", saleslist, 12000, 0.8, 0, 9600, "出库手机芯片");
+        boolean iscreateSR = stockSellerServiceStub.createSalesRet(saleRet);
         if (iscreateSR == true) {
             System.out.println("Create sales-return list successfully.");
         } else {
             System.out.println("Fail to create sales-return list.");
         }
     }
+
 }

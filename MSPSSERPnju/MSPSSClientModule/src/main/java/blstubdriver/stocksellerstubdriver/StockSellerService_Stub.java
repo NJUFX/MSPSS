@@ -70,16 +70,19 @@ public class StockSellerService_Stub implements StockSellerBLService {
 
     @Override
     public boolean createPurchase(PurchaseVO purchaes) {
+        purchaes.setID(String.valueOf(purchaseIdNumber++));
         return true;
     }
 
     @Override
     public boolean createSales(SalesVO sales) {
+        sales.setID(String.valueOf(salesIdNumber++));
         return true;
     }
 
     @Override
     public boolean createPurchaseRet(PurchaseVO purRet) {
+
         return true;
     }
 

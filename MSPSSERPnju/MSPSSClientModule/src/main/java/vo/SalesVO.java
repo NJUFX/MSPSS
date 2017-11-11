@@ -48,6 +48,10 @@ public class SalesVO {
      */
     private String remark;
 
+    public void setID(String id) {
+        this.ID = id;
+    }
+
     /**
      * @param saler
      * @param DAE
