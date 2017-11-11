@@ -984,8 +984,8 @@ Account的接口规范
 
 | 提供的服务（供接口）            |      |                                          |
 | --------------------- | ---- | ---------------------------------------- |
-| Account.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
-|                       | 前置条件 | name不能与之前的重复                             |
+| Account.addAccount    | 语法   | public ResultMessage addAccount（AccountVO account) |
+|                       | 前置条件 | account.name不能与之前的重复                     |
 |                       | 后置条件 | 无                                        |
 | Account.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
 |                       | 前置条件 | name必须已经存在的账户列表中                         |
@@ -993,7 +993,7 @@ Account的接口规范
 | Account.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
 |                       | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
 |                       | 后置条件 | 无                                        |
-| Account.checkAccount  | 语法   | public Account checkAccount(String name) |
+| Account.checkAccount  | 语法   | public AccountVO checkAccount(String name) |
 |                       | 前置条件 | name已经存在于账户列表中                           |
 |                       | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
 | Account.income        | 语法   | public void income(String name, int income) |
@@ -1016,26 +1016,46 @@ Account的接口规范
 
 提供的服务(供接口)
 
-| 提供的服务（供接口）                |      |                                          |
-| ------------------------- | ---- | ---------------------------------------- |
-| AccountInfo.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
-|                           | 前置条件 | name不能与之前的重复                             |
-|                           | 后置条件 | 无                                        |
-| AccountInfodeleteAccount  | 语法   | public ResultMessage deleteAccount（string name) |
-|                           | 前置条件 | name必须已经存在的账户列表中                         |
-|                           | 后置条件 | 无                                        |
-| AccountInfo.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
-|                           | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
-|                           | 后置条件 | 无                                        |
-| AccountInfo.checkAccount  | 语法   | public Account checkAccount(String name) |
-|                           | 前置条件 | name已经存在于账户列表中                           |
-|                           | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
-| AccountInfo.income        | 语法   | public void income(String name, int income) |
-|                           | 前置条件 | 无                                        |
-|                           | 后置条件 | 无                                        |
-| Account.pay               | 语法   | public void pay(String name,int pay)     |
-|                           | 前置条件 | 无                                        |
-|                           | 后置条件 | 无                                        |
+| 服务名                               |      | 服务                                       |
+| --------------------------------- | ---- | ---------------------------------------- |
+| AccountSorter.NameAlphabetOrder   | 语法   | public ArrayList<AccountVO>  NameAlphabetOrder(ArrayList<AccountVO> list) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+| AccountSorter.MoneyFromBigToSmall | 语法   | public ArrayList<AccountVO>  MoneyFromBigToSmall(ArrayList<AccountVO> account) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+| AccountSorter.MoneyFromSmallToBig | 语法   | public ArrayList<AccountVO>  MoneyFromSmallToBig(ArrayList<AccountVO> account) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+提供的服务(供接口)
+
+| 提供的服务（供接口）                       |      |                                          |
+| -------------------------------- | ---- | ---------------------------------------- |
+| AccountInfoFactory.addAccount    | 语法   | public ResultMessage addAccount（string name,int money) |
+|                                  | 前置条件 | name不能与之前的重复                             |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
+|                                  | 前置条件 | name必须已经存在的账户列表中                         |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
+|                                  | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.checkAccount  | 语法   | public Account checkAccount(String name) |
+|                                  | 前置条件 | name已经存在于账户列表中                           |
+|                                  | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+| AccountInfoFactory.income        | 语法   | public void income(String name, int income) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 无                                        |
+| AccountInfoFactory.pay           | 语法   | public void pay(String name,int pay)     |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 无                                        |
 
 需要的服务(需接口)
 
