@@ -571,10 +571,10 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 |                            | 前置条件 | 无                                        |
 |                            | 后置条件 | 返回日志VO                                   |
 
-| 服务名            | 服务             |
-| -------------- | -------------- |
-| LogData.add    | 在日志数据中加入一个日志PO |
-| LogData.search | 搜索符合条件的日志PO    |
+| 服务名                   | 服务             |
+| --------------------- | -------------- |
+| LogDataService.add    | 在日志数据中加入一个日志PO |
+| LogDataService.search | 搜索符合条件的日志PO    |
 
 ### promotionbl的接口规范
 
@@ -596,12 +596,12 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 |                           | 前置条件 | 无                                        |
 |                           | 后置条件 | 返回所有有效的促销策略                              |
 
-| 服务名                  | 服务               |
-| -------------------- | ---------------- |
-| PromotionData.add    | 给促销策略数据中增加一个促销策略 |
-| PromotionData.delete | 从促销策略数据中删除一个促销策略 |
-| PromotionData.update | 更新一个促销策略         |
-| PromotionData.search | 搜索所有有效的促销策略      |
+| 服务名                         | 服务               |
+| --------------------------- | ---------------- |
+| PromotionDataService.add    | 给促销策略数据中增加一个促销策略 |
+| PromotionDataService.delete | 从促销策略数据中删除一个促销策略 |
+| PromotionDataService.update | 更新一个促销策略         |
+| PromotionDataService.search | 搜索所有有效的促销策略      |
 
 ### accountbl的接口规范
 
