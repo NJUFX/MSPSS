@@ -990,6 +990,7 @@ accountbl模块的职责及接口参见软件体系结构设计文档
 
 AccountBL模块主要负责账户管理功能需求的逻辑实现，其中Account为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Account不与DataService模块交互，而是AccountInfoFactory与DataService交互，来生成具体的VO并且向数据层传输数据，此外，还拥有AccountSorter类来负责AccountBL类的数据的排序
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/Account%E6%A8%A1%E5%9D%97.png)
 
 
 AccountBL模块的类的功能如下表所示
@@ -1135,6 +1136,10 @@ Account的接口规范
 | AccountDataService.modifyAccount | 修改数据库中的账户 |
 | AccountDataService.checkAccount  | 搜索数据库中的账户 |
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E5%88%A0%E9%99%A4%E8%B4%A6%E6%88%B7%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E6%B7%BB%E5%8A%A0%E8%B4%A6%E6%88%B7%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E8%B4%A6%E6%88%B7%E6%8E%92%E5%BA%8F%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
+
 #### 4.2.6 PromotionBL模块
 
 
@@ -1150,6 +1155,7 @@ tablebl模块的职责及接口参见软件体系结构设计文档
  **（2）整体结构**
 
 TableBL模块主要负责制定报表功能需求的逻辑实现，其中Table为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Table不与DataService模块交互，而是TableInfoFactory与BillDataService交互，来生成ArrayList<Bill>以及具体的VO，此外，还拥有TableSorter类来负责TableBL类的数据的排序<br>
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/Table%E6%A8%A1%E5%9D%97.png)
 
 TableBL模块各个类的职责如表所示
 
@@ -1351,7 +1357,9 @@ TableBL模块各个类的职责如表所示
 | 无    |      |
 
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E6%8A%A5%E8%A1%A8%E4%B8%AD%E5%8D%95%E6%8D%AE%E6%8E%92%E5%BA%8F%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E6%9F%A5%E7%9C%8B%E6%8A%A5%E8%A1%A8%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
+![](
 #### 4.2.8 CustomerBL模块
 
 ##### （1）模块描述
@@ -1412,6 +1420,7 @@ generalaccountbl模块的职责及接口参见软件体系结构设计文档
  **（2）整体结构**
 
 TableBL模块主要负责制定报表功能需求的逻辑实现，其中Table为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Table不与DataService模块交互，而是TableInfoFactory与BillDataService交互，来生成ArrayList<Bill>以及具体的VO，此外，还拥有TableSorter类来负责TableBL类的数据的排序
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/GeneralAccount%E6%A8%A1%E5%9D%97.png)
 
 
 
@@ -1520,6 +1529,8 @@ GeneralAccount的接口规范
 | 无    |      |
 
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E6%9C%9F%E5%88%9D%E5%BB%BA%E8%B4%A6%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E6%9F%A5%E7%9C%8B%E6%9C%9F%E5%88%9D%E8%B4%A6%E6%88%B7%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
 
 ##### （4）业务逻辑层内部动态模型
 
