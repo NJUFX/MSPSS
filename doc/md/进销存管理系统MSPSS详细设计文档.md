@@ -980,6 +980,73 @@ PayBillController的接口规范
 
 #### 4.2.5 AccountBL模块
 
+##### （1）模块描述
+
+accountbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
+
+accountbl模块的职责及接口参见软件体系结构设计文档
+
+ **（2）整体结构**
+
+AccountBL模块主要负责账户管理功能需求的逻辑实现，其中Account为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Account不与DataService模块交互，而是AccountInfoFactory与DataService交互，来生成具体的VO并且向数据层传输数据，此外，还拥有AccountSorter类来负责AccountBL类的数据的排序
+
+
+
+AccountBL模块的类的功能如下表所示
+
+| 模块                   | 职责                         |
+| -------------------- | -------------------------- |
+| AccountBLServiceImpl | 账户管理接口的具体实现                |
+| Account              | AccountBL主要逻辑类，实现增删改查等主要功能 |
+| AccountComparator    | 功能类，用来排序Account            |
+| AccountInfoFactory   | 信息辅助类，完成PO与VO转换并且获得数据      |
+
+**（3）模块内部类的接口规范**
+
+Account的接口规范
+
+| 提供的服务（供接口）                          |      |                                          |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| AccountBLServiceImpl.addAccount     | 语法   | public ResultMessage addAccount（AccountVO account) |
+|                                     | 前置条件 | account.name不能与之前的重复                     |
+|                                     | 后置条件 | 无                                        |
+| AccountBLServiceImpl.deleteAccount  | 语法   | public ResultMessage deleteAccount（string name) |
+|                                     | 前置条件 | name必须已经存在的账户列表中                         |
+|                                     | 后置条件 | 无                                        |
+| AccountBLServiceImpl.modifyAccount  | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
+|                                     | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                                     | 后置条件 | 无                                        |
+| AccountBLServiceImpl.checkAccount   | 语法   | public AccountVO checkAccount(String name) |
+|                                     | 前置条件 | name已经存在于账户列表中                           |
+|                                     | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+| AccountBLServiceImpl.income         | 语法   | public void income(String name, int income) |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 无                                        |
+| AccountBLServiceImpl.pay            | 语法   | public void pay(String name,int pay)     |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 无                                        |
+| AccountBLServiceImpl.compareByName  | 语法   | public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> account) |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 返回按姓名字典序排序的账户列表                          |
+| AccountBLServiceImpl.compareByMoney | 语法   | public ArrayList<AccountVO> compareByMoney(ArrayList<AccountVO> account) |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 返回按金额从小到大的排序的账户列表                        |
+
+需要的服务(需接口)
+
+| 服务名                                   | 服务                |
+| ------------------------------------- | ----------------- |
+| Account.pay                           | 账户付款，调整金额         |
+| Account.income                        | 账户收款，调整金额         |
+| Account.addAccount                    | 增加账户至数据库          |
+| Account.deleteAccount                 | 删除数据库中的账户         |
+| Account.modifyAccount                 | 修改数据库中的账户         |
+| Account.checkAccount                  | 搜索数据库中的账户         |
+| AccountComparator.NameAlphabetOrder   | 返回按姓名字典序排序的账户列表   |
+| AccountComparator.MoneyFromBigToSmall | 返回按金额从小到大的排序的账户列表 |
+
+提供的服务(供接口)
+
 Account的接口规范
 
 | 提供的服务（供接口）            |      |                                          |
@@ -1005,28 +1072,28 @@ Account的接口规范
 
 需要的服务(需接口)
 
-| 服务名                       | 服务        |
-| ------------------------- | --------- |
-| AccountInfo.pay           | 账户付款，调整金额 |
-| AccountInfo.income        | 账户收款，调整金额 |
-| AccountInfo.addAccount    | 增加账户至数据库  |
-| AccountInfo.deleteAccount | 删除数据库中的账户 |
-| AccountInfo.modifyAccount | 修改数据库中的账户 |
-| AccountInfo.checkAccount  | 搜索数据库中的账户 |
+| 服务名                              | 服务        |
+| -------------------------------- | --------- |
+| AccountInfoFactory.pay           | 账户付款，调整金额 |
+| AccountInfoFactory.income        | 账户收款，调整金额 |
+| AccountInfoFactory.addAccount    | 增加账户至数据库  |
+| AccountInfoFactory.deleteAccount | 删除数据库中的账户 |
+| AccountInfoFactory.modifyAccount | 修改数据库中的账户 |
+| AccountInfoFactory.checkAccount  | 搜索数据库中的账户 |
 
 提供的服务(供接口)
 
-| 服务名                               |      | 服务                                       |
-| --------------------------------- | ---- | ---------------------------------------- |
-| AccountSorter.NameAlphabetOrder   | 语法   | public ArrayList<AccountVO>  NameAlphabetOrder(ArrayList<AccountVO> list) |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
-| AccountSorter.MoneyFromBigToSmall | 语法   | public ArrayList<AccountVO>  MoneyFromBigToSmall(ArrayList<AccountVO> account) |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
-| AccountSorter.MoneyFromSmallToBig | 语法   | public ArrayList<AccountVO>  MoneyFromSmallToBig(ArrayList<AccountVO> account) |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+| 服务名                                   |      | 服务                                       |
+| ------------------------------------- | ---- | ---------------------------------------- |
+| AccountComparator.NameAlphabetOrder   | 语法   | public ArrayList<AccountVO>  NameAlphabetOrder(ArrayList<AccountVO> list) |
+|                                       | 前置条件 | 无                                        |
+|                                       | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+| AccountComparator.MoneyFromBigToSmall | 语法   | public ArrayList<AccountVO>  MoneyFromBigToSmall(ArrayList<AccountVO> account) |
+|                                       | 前置条件 | 无                                        |
+|                                       | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
+| AccountComparator.MoneyFromSmallToBig | 语法   | public ArrayList<AccountVO>  MoneyFromSmallToBig(ArrayList<AccountVO> account) |
+|                                       | 前置条件 | 无                                        |
+|                                       | 后置条件 | 返回排列好的列表，若参数列表为空，则返回空                    |
 
 需要的服务(需接口)
 
@@ -1074,6 +1141,88 @@ Account的接口规范
 
 #### 4.2.7 TableBL模块
 
+##### （1）模块描述
+
+tablebl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
+
+tablebl模块的职责及接口参见软件体系结构设计文档
+
+ **（2）整体结构**
+
+TableBL模块主要负责制定报表功能需求的逻辑实现，其中Table为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Table不与DataService模块交互，而是TableInfoFactory与BillDataService交互，来生成ArrayList<Bill>以及具体的VO，此外，还拥有TableSorter类来负责TableBL类的数据的排序<br>
+
+TableBL模块各个类的职责如表所示
+
+| 模块                      | 职责                           |
+| ----------------------- | ---------------------------- |
+| TableBLServiceImpl      | 查看报表接口的具体实现                  |
+| Table                   | TableBL模块的主要功能类，负责实现大部分的功能   |
+| TableInfoFactory        | 信息的接口，负责与DataService交互的信息功能类 |
+| BusinessTableComparator | 负责与经营情况报表有关的单据的排序功能类         |
+| SaleTableComparator     | 负责与销售明细报表有关的单据的排序功能类         |
+| ProcessTableComparator  | 负责与经营历程报表有关的单据的排序功能类         |
+| ExportHelper            | 导出的实现的辅助类                    |
+
+**（3）模块内部类的接口规范**
+
+提供的服务(供接口)
+
+| 服务名                                    | 服务   | 服务                                       |
+| -------------------------------------- | ---- | ---------------------------------------- |
+| TableBLServiceImpl.checkSaleTable      | 语法   | public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回对应的SaleTableVO                         |
+| TableBLServiceImpl.checkProcessTable   | 语法   | public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回对应的ProcessTableVO                      |
+| TableBLServiceImpl.checkBusinessTable  | 语法   | public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回对应的BusinessTableVO                     |
+| TableBLServiceImpl.exportSaleTable     | 语法   | public void exportSaleTable(SaleTableVO saletable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 无                                        |
+| TableBLServiceImpl.exportProcessTable  | 语法   | public void exportProcessTable(ProcessTableVO  processtable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 无                                        |
+| TableBLServiceImpl.exportBusinessTable | 语法   | public void exportBusinessTable(BusinessTableVO businesstable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 无                                        |
+| TableBLServiceImpl.compareBTByTime     | 语法   | public BusinessTableVO compareBTByTime(BusinessTableVO businesstable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回时间从早到晚排序的报表                            |
+| TableBLServiceImpl.compareSTByMoney    | 语法   | public SaleTableVO compareSTByMoney(SaleTableVO saletable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 按金额从小到大排序                                |
+| TableBLServiceImpl.comparePTByMoney    | 语法   | public ProcessTableVO comparePTByMoney(ProcessTableVO processtable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 按金额从少到大排序                                |
+| TableBLServiceImpl.compareSTByTime     | 语法   | public SaleTable compareSTByTime(SaleTableVO saletable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 按时间从早到晚排序                                |
+| TableBLServiceImpl.comparePTByTime     | 语法   | public ProcessTableVO comparePTByTime(ProcessTableVO processtable) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 按时间从早到晚排序                                |
+
+需要的服务(需接口)
+
+| 服务名                                   | 服务               |
+| ------------------------------------- | ---------------- |
+| Table.exportBusinesTable              | 导出Business报表     |
+| Table.exportSaleTable                 | 导出sale报表         |
+| Table.exportProcessTable              | 导出Process报表      |
+| Table.checkBusinessBill               | 查看Busine报表       |
+| TableInfo.ProcessBill                 | 查看Proce报表        |
+| TableInfo.checkSaleBill               | 查看Sale报表         |
+| BusinessTablecomparator.compareByTime | 把Business报表按时间排序 |
+| SaleTablecomparator.compareByTime     | 把Sale报表按时间排序     |
+| ProcessTablecomparator.compareByTime  | 把Process报表按时间排序  |
+| SaleTablecomparator.compareByMoney    | 把Sale报表按金额排序     |
+| ProcessTablecomparator.compareByMoney | 把Process报表按金额排序  |
+
+
+
+提供的服务(供接口)
+
 | 服务名                       | 服务   | 服务                                       |
 | ------------------------- | ---- | ---------------------------------------- |
 | Table.checkSaleTable      | 语法   | public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) |
@@ -1097,16 +1246,39 @@ Account的接口规范
 
 需要的服务(需接口)
 
-| 服务名                             | 服务   |
-| ------------------------------- | ---- |
-| ExportHelper.exportBusinesTable |      |
-| ExportHelper.exportSaleTable    |      |
-| ExportHelper.exportProcessTable |      |
-| Bill.                           |      |
-|                                 |      |
-|                                 |      |
-|                                 |      |
-|                                 |      |
+| 服务名                              | 服务   |
+| -------------------------------- | ---- |
+| ExportHelper.exportBusinesTable  |      |
+| ExportHelper.exportSaleTable     |      |
+| ExportHelper.exportProcessTable  |      |
+| TableInfoFactory.getBusinessBill |      |
+| TableInfoFactory.getProcessBill  |      |
+| TableInfoFactory.getSaleBill     |      |
+
+提供的服务(供接口)
+
+| 服务名                               | 服务   | 服务                                       |
+| --------------------------------- | ---- | ---------------------------------------- |
+| TableInfoFactory.getSaleTable     | 语法   | public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回对应的SaleTableVO                         |
+| TableInfoFactory.getProcessTable  | 语法   | public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回对应的ProcessTableVO                      |
+| TableInfoFactory.getBusinessTable | 语法   | public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags) |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回对应的BusinessTableVO                     |
+
+需要的服务(需接口)
+
+| 服务   | 服务名  |
+| ---- | ---- |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
 
 提供的服务(供接口)
 
@@ -1127,6 +1299,56 @@ Account的接口规范
 | 服务名  | 服务   |
 | ---- | ---- |
 | 无    | 无    |
+
+
+
+提供的服务(供接口)
+
+| 服务名                                   |      | 服务                                       |
+| ------------------------------------- | ---- | ---------------------------------------- |
+| BusinessTableComparator.compareByTime | 语法   | public BusinessTableVO compareByTime(BusinessTableVO businesstable) |
+|                                       | 前置条件 | 无                                        |
+|                                       | 后置条件 | 返回按时间先后排序的VO                             |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    |      |
+
+提供的服务(供接口)
+
+| 服务名                                |      | 服务                                       |
+| ---------------------------------- | ---- | ---------------------------------------- |
+| SaleTableComparator.compareByTime  | 语法   | public SaleTableVO compareByTime(SaleTableVO saletable) |
+|                                    | 前置条件 | 无                                        |
+|                                    | 后置条件 | 返回按时间先后排序的VO                             |
+| SaleTableComparator.compareByMoney | 语法   | public SaleTableVO compareByMoney(SaleTableVO saletable) |
+|                                    |      | 无                                        |
+|                                    |      | 返回按金额大小排序的VO                             |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    |      |
+
+提供的服务(供接口)
+
+| 服务名                                   |      | 服务                                       |
+| ------------------------------------- | ---- | ---------------------------------------- |
+| ProcessTableComparator.compareByTime  | 语法   | public ProcessTableVO compareByTime(ProcessTableVO processtable) |
+|                                       | 前置条件 | 无                                        |
+|                                       | 后置条件 | 返回按时间先后排序的VO                             |
+| ProcessTableComparator.compareByMoney | 语法   | public ProcessTableVO compareByMoney(ProcessTableVO processtable) |
+|                                       |      | 无                                        |
+|                                       |      | 返回按金额大小排序的VO                             |
+
+需要的服务(需接口)
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    |      |
 
 
 
@@ -1179,9 +1401,60 @@ customerbl模块的职责及接口参见软件体系结构设计文档
 
 
 
-#### 4.2.11 GeneralAccountBL模块
+#### 4.2.10 GeneralAccountBL模块
+
+##### （1）模块描述
+
+generalaccountbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求。
+
+generalaccountbl模块的职责及接口参见软件体系结构设计文档
+
+ **（2）整体结构**
+
+TableBL模块主要负责制定报表功能需求的逻辑实现，其中Table为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Table不与DataService模块交互，而是TableInfoFactory与BillDataService交互，来生成ArrayList<Bill>以及具体的VO，此外，还拥有TableSorter类来负责TableBL类的数据的排序
+
+
+
+GeneralAccount模块的各个类的职责如表所示
+
+| 模块                          | 职责                                  |
+| --------------------------- | ----------------------------------- |
+| GeneralAccountBLServiceImpl | 负责实现与期初建账有关的添加，查询，排序操作              |
+| GeneralAccount              | 期初建账模块的主要功能类，负责实现功能及辅助类功能类之间的调度     |
+| GeneralAccountInfoFactory   | GeneralAccountVO及PO的工厂模式，负责信息的转化和生成 |
+| GeneralAccountComparator    | 排序功能类，负责实现各种排序方法                    |
+
+**（3）模块内部类的接口规范**
+
+GeneralAccountBLServiceImpl的接口规范
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccountBLServiceImpl.newGeneralAccount | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccountBLServiceImpl.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+| GeneralAccountBLServiceImpl.ETLSort      | 语法   | public ArrayList<GeneralAccountVO> ETLSort(ArrayList<GeneralAccountVO> list) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回时间从早到晚排序的list                          |
+| GeneralAccountBLServiceImpl.LTESort      | 语法   | public ArrayList<GeneralAccountVO> LTESort(ArrayList<GeneralAccountVO> list) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回时间从晚到早排序的list                          |
+
+需要的接口(需接口)
+
+| 服务名                                | 服务        |
+| ---------------------------------- | --------- |
+| GeneralAccount.newGeneralAccount   | 添加期初建账的信息 |
+| GeneralAccount.checkGeneralAccount | 检查期初建账的信息 |
+| GeneralAccount.Early_To_Late       | 从早到晚排序    |
+| GeneralAccount.Late_To_Early       | 从晚到早排序    |
 
 GeneralAccount的接口规范
+
+提供的接口(供接口)
 
 | 服务名                                | 服务   | 服务                                       |
 | ---------------------------------- | ---- | ---------------------------------------- |
@@ -1202,22 +1475,43 @@ GeneralAccount的接口规范
 
 | 服务名                                      | 服务        |
 | ---------------------------------------- | --------- |
-| GeneralAccountDataService.newGeneralAccount | 添加期初建账的信息 |
-| GeneralAccountDataService.checkGeneralAccount | 检查期初建账的信息 |
+| GeneralAccountInfoFactory.newGeneralAccount | 添加期初建账的信息 |
+| GeneralAccountInfoFactory.checkGeneralAccount | 检查期初建账的信息 |
 | GeneralAccountSorter.Early_To_Late       | 从早到晚排序    |
 | GeneralAccountSorter.Late_To_Early       | 从晚到早排序    |
 
+提供的服务(供接口)
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccountInfoFactory.newGeneralAccount | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccountInfoFacto.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务        |
+| ---------------------------------------- | --------- |
+| GeneralAccountDataService.newGeneralAccount | 添加期初建账的信息 |
+| GeneralAccountDataService.checkGeneralAccount | 检查期初建账的信息 |
+| AccountDataService.addAccount            | 从早到晚排序    |
+| CommodityDataService.addCommodity        | 从晚到早排序    |
+| CustomerDataService.addCustomer          |           |
+
 提供的接口(供接口)
 
-| 提供的接口(供接口)                         |      |                                          |
-| ---------------------------------- | ---- | ---------------------------------------- |
-| 服务名                                |      | 服务                                       |
-| GeneralAccountSorter.Early_To_Late | 语法   | public ArrayList<GeneralAccountVO> Early_To_Late(ArrayList<GeneralAccount> list) |
-|                                    | 前置条件 | 无                                        |
-|                                    | 后置条件 | 返回时间从早到晚的总账                              |
-| GeneralAccountSorter.Late_To_Early | 语法   | public ArrayList<GeneralAccountVO> Late_To_Early(ArrayList<GeneralAccount> list) |
-|                                    | 前置条件 | 无                                        |
-|                                    | 后置条件 | 返回时间从晚到早的总账                              |
+| 提供的接口(供接口)                             |      |                                          |
+| -------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                    |      | 服务                                       |
+| GeneralAccountComparator.Early_To_Late | 语法   | public ArrayList<GeneralAccountVO> Early_To_Late(ArrayList<GeneralAccount> list) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回时间从早到晚的总账                              |
+| GeneralAccountComparator.Late_To_Early | 语法   | public ArrayList<GeneralAccountVO> Late_To_Early(ArrayList<GeneralAccount> list) |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回时间从晚到早的总账                              |
 
 需要的服务(需接口)
 
@@ -1666,9 +1960,27 @@ List的接口规范
 
 ### 4.3 数据层的分解
 
+#### 4.2.1 UserBL模块
 
+#### 4.2.2 Stock模块
 
+#### 4.2.3 Commodity模块
 
+#### 4.2.4 Bill模块
+
+#### 4.2.5 Account模块
+
+#### 4.2.6 Customer模块
+
+#### 4.2.7 Table模块
+
+#### 4.2.8 Log模块
+
+#### 4.2.9 GeneralAccount模块
+
+#### 4.2.10 Promotion模块
+
+4
 
 ### 5 依赖视角
 
