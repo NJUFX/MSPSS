@@ -32,7 +32,9 @@ public class Log_Stub implements LogBLService {
      * @param logList
      * @return LogListVO
      */
-    public LogListVO showLogList(ArrayList<LogPO> logList);
+    public LogListVO showLogList(ArrayList<LogPO> logList){
+        return null;
+    }
 
     /**
      * 显示日志详情
@@ -40,5 +42,7 @@ public class Log_Stub implements LogBLService {
      * @param id
      * @return LogVO
      */
-    public LogVO showLogDetail(String id);
+    public LogVO showLogDetail(String id){
+        return null;
+    };
 }
