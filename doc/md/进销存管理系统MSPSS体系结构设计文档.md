@@ -592,7 +592,7 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | PromotionBLService.search              | 语法   | public ArrayList<PromotionPO> search(Time date); |
 |                                        | 前置条件 | 无                                        |
 |                                        | 后置条件 | 返回所有有效的促销策略                              |
-| PromotionBLService.showPromotionList   | 语法   | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+| PromotionBLService.showPromotionList   | 语法   | public PromotionListVO showPromotionList(ArrayList<PromotionPO> promotionList); |
 |                                        | 前置条件 | 无                                        |
 |                                        | 后置条件 | 返回促销策略列表VO                               |
 | PromotionBLService.showPromotionDetail | 语法   | public PromotionVO showPromotionDetail(String id); |
