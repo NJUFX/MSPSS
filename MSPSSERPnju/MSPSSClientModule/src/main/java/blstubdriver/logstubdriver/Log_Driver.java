@@ -8,11 +8,11 @@ import org.junit.Test;
 
 public class Log_Driver {
     //Constant
-    Log_Stub log_stub = new Log_Stub;
+    Log_Stub log_stub = new Log_Stub();
 
     @Test
     public void drive() {
-        //1
+        // 1
 
     }
 }
