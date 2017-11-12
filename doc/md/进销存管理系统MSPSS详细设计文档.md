@@ -1166,49 +1166,63 @@ PromotionBL模块各个类的职责如表所示
 
 PromotionBLServiceImpl的接口规范
 
-| 提供的服务（供接口）                    |                  |                                          |
-| ----------------------------- | ---------------- | ---------------------------------------- |
-| PromotionBLServiceImpl.add    | 语法               | public ResultMessage add(Promotion PO promotionPO); |
-| 前置条件                          | 无                |                                          |
-| 后置条件                          | 促销策略数据中增加一条促销策略  |                                          |
-| PromotionBLServiceImpl.delete | 语法               | public ResultMessage delete(String id);  |
-| 前置条件                          | 无                |                                          |
-| 后置条件                          | 删除一条促销策略         |                                          |
-| PromotionBLServiceImpl.update | 语法               | public ResultMessage update(String id,PromotionPO promotionPO); |
-| 前置条件                          | 无                |                                          |
-| 后置条件                          | 更新一条促销策略         |                                          |
-| PromotionBLServiceImpl.search | 语法               | public ArrayList<PromotionPO> search(Time date); |
-| 前置条件                          | 无                |                                          |
-| 后置条件                          | 返回所有有效的促销策略      |                                          |
-| 需要的服务（需接口）                    |                  |                                          |
-| 服务名                           | 服务               |                                          |
-| Promotion.add                 | 给促销策略数据中增加一个促销策略 |                                          |
-| Promotion.delete              | 从促销策略数据中删除一个促销策略 |                                          |
-| Promotion.update              | 更新一个促销策略         |                                          |
-| Promotion.search              | 搜索所有有效的促销策略      |                                          |
+| 提供的服务（供接口）                               |                  |                                          |
+| ---------------------------------------- | ---------------- | ---------------------------------------- |
+| PromotionBLServiceImpl.add               | 语法               | public ResultMessage add(Promotion VO promotionVO); |
+| 前置条件                                     | 无                |                                          |
+| 后置条件                                     | 促销策略数据中增加一条促销策略  |                                          |
+| PromotionBLServiceImpl.delete            | 语法               | public ResultMessage delete(String id);  |
+| 前置条件                                     | 无                |                                          |
+| 后置条件                                     | 删除一条促销策略         |                                          |
+| PromotionBLServiceImpl.update            | 语法               | public ResultMessage update(String id,PromotionVO promotionVO); |
+| 前置条件                                     | 无                |                                          |
+| 后置条件                                     | 更新一条促销策略         |                                          |
+| PromotionBLServiceImpl.search            | 语法               | public ArrayList<PromotionPO> search(Time date); |
+| 前置条件                                     | 无                |                                          |
+| 后置条件                                     | 返回所有有效的促销策略      |                                          |
+| PromotionBLServiceImpl.showPromotionList | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+|                                          | 前置条件             | 无                                        |
+|                                          | 后置条件             | 返回促销策略列表VO                               |
+| PromotionBLServiceImpl.showPromotionDetail | 语法               | public PromotionVO showPromotionDetail(String id); |
+|                                          | 前置条件             | 无                                        |
+|                                          | 后置条件             | 返回促销策略VO                                 |
+| 需要的服务（需接口）                               |                  |                                          |
+| 服务名                                      | 服务               |                                          |
+| Promotion.add                            | 给促销策略数据中增加一个促销策略 |                                          |
+| Promotion.delete                         | 从促销策略数据中删除一个促销策略 |                                          |
+| Promotion.update                         | 更新一个促销策略         |                                          |
+| Promotion.search                         | 搜索所有有效的促销策略      |                                          |
+| Promotion.showPromotionList              | 返回一个促销策略列表VO     |                                          |
+| Promotion.showPromotionDetail            | 返回一个促销策略VO       |                                          |
 
 Promotion的接口规范
 
-| 提供的服务（供接口）                  |                  |                                          |
-| --------------------------- | ---------------- | ---------------------------------------- |
-| Promotion.add               | 语法               | public ResultMessage add(Promotion PO promotionPO); |
-| 前置条件                        | 无                |                                          |
-| 后置条件                        | 促销策略数据中增加一条促销策略  |                                          |
-| Promotion.delete            | 语法               | public ResultMessage delete(String id);  |
-| 前置条件                        | 无                |                                          |
-| 后置条件                        | 删除一条促销策略         |                                          |
-| Promotion.update            | 语法               | public ResultMessage update(String id,PromotionPO promotionPO); |
-| 前置条件                        | 无                |                                          |
-| 后置条件                        | 更新一条促销策略         |                                          |
-| Promotion.search            | 语法               | public ArrayList<PromotionPO> search(Time date); |
-| 前置条件                        | 无                |                                          |
-| 后置条件                        | 返回所有有效的促销策略      |                                          |
-| 需要的服务（需接口）                  |                  |                                          |
-| 服务名                         | 服务               |                                          |
-| PromotionDataService.add    | 给促销策略数据中增加一个促销策略 |                                          |
-| PromotionDataService.delete | 从促销策略数据中删除一个促销策略 |                                          |
-| PromotionDataService.update | 更新一个促销策略         |                                          |
-| PromotionDataService.search | 搜索所有有效的促销策略      |                                          |
+| 提供的服务（供接口）                    |                  |                                          |
+| ----------------------------- | ---------------- | ---------------------------------------- |
+| Promotion.add                 | 语法               | public ResultMessage add(Promotion VO promotionVO); |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 促销策略数据中增加一条促销策略  |                                          |
+| Promotion.delete              | 语法               | public ResultMessage delete(String id);  |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 删除一条促销策略         |                                          |
+| Promotion.update              | 语法               | public ResultMessage update(String id,PromotionVO promotionVO); |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 更新一条促销策略         |                                          |
+| Promotion.search              | 语法               | public ArrayList<PromotionPO> search(Time date); |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 返回所有有效的促销策略      |                                          |
+| Promotion.showPromotionList   | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+|                               | 前置条件             | 无                                        |
+|                               | 后置条件             | 返回促销策略列表VO                               |
+| Promotion.showPromotionDetail | 语法               | public PromotionVO showPromotionDetail(String id); |
+|                               | 前置条件             | 无                                        |
+|                               | 后置条件             | 返回促销策略VO                                 |
+| 需要的服务（需接口）                    |                  |                                          |
+| 服务名                           | 服务               |                                          |
+| PromotionDataService.add      | 给促销策略数据中增加一个促销策略 |                                          |
+| PromotionDataService.delete   | 从促销策略数据中删除一个促销策略 |                                          |
+| PromotionDataService.update   | 更新一个促销策略         |                                          |
+| PromotionDataService.search   | 搜索所有有效的促销策略      |                                          |
 
 PromotionBLInfo的接口规范
 
@@ -1514,7 +1528,7 @@ LogBLServiceImpl的接口规范
 | LogBLServiceImpl.showLogList   | 语法           | public LogListVO showLogList(ArrayList<LogPO> logList); |
 | 前置条件                           | 无            |                                          |
 | 后置条件                           | 返回日志列表VO     |                                          |
-| LogBLServiceImpl.showLogDetail | 语法           | public LogVO showLogDetail(LogPO logPO); |
+| LogBLServiceImpl.showLogDetail | 语法           | public LogVO showLogDetail(String Id);   |
 | 前置条件                           | 无            |                                          |
 | 后置条件                           | 返回日志VO       |                                          |
 | 需要的服务（需接口）                     |              |                                          |
@@ -1536,7 +1550,7 @@ Log的接口规范
 | Log.showLogList       | 语法              | public LogListVO showLogList(ArrayList<LogPO> logList); |
 | 前置条件                  | 无               |                                          |
 | 后置条件                  | 返回日志列表VO        |                                          |
-| Log.showLogDetail     | 语法              | public LogVO showLogDetail(LogPO logPO); |
+| Log.showLogDetail     | 语法              | public LogVO showLogDetail(String id);   |
 | 前置条件                  | 无               |                                          |
 | 后置条件                  | 返回日志VO          |                                          |
 | 需要的服务（需接口）            |                 |                                          |
@@ -2218,14 +2232,14 @@ List的接口规范
 
 模块内部的接口规范
 
-| 服务名                                | 服务   | 服务                                       |
-| ---------------------------------- | ---- | ---------------------------------------- |
-| GeneralAccount.newGeneralAccount   | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
-|                                    | 前置条件 | 无                                        |
-|                                    | 后置条件 | 返回期初建账的结果ResultMessa                     |
-| GeneralAccount.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
-|                                    | 前置条件 | 无                                        |
-|                                    | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccountDataServiceImpl.newGeneralAccount | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccountDataServiceImpl.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
 
 #### 4.3.9 Promotion模块
 
