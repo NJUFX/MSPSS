@@ -2012,14 +2012,14 @@ List的接口规范
 
 模块内部的接口规范
 
-| 服务名                                | 服务   | 服务                                       |
-| ---------------------------------- | ---- | ---------------------------------------- |
-| GeneralAccount.newGeneralAccount   | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
-|                                    | 前置条件 | 无                                        |
-|                                    | 后置条件 | 返回期初建账的结果ResultMessa                     |
-| GeneralAccount.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
-|                                    | 前置条件 | 无                                        |
-|                                    | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccountDataServiceImpl.newGeneralAccount | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccountDataServiceImpl.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
 
 #### 4.3.9 Promotion模块
 
