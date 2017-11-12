@@ -5,6 +5,7 @@ import filterflags.BusinessTableFilterFlags;
 import filterflags.ProcessTableFilterFlags;
 import filterflags.SaleTableFilterFlags;
 import org.junit.Test;
+import util.Time;
 import vo.BusinessTableVO;
 import vo.ProcessTableVO;
 import vo.SaleTableVO;
@@ -16,7 +17,7 @@ public class Table_Driver {
     BusinessTableVO businessTableVO = new BusinessTableVO();
     SaleTableVO slaetable = new SaleTableVO();
     ProcessTableVO processtable = new ProcessTableVO();
-    BusinessTableFilterFlags bflags = new BusinessTableFilterFlags();
+    BusinessTableFilterFlags bflags = new BusinessTableFilterFlags(new Time(2017,11,11,12,12,34),new Time(2017,11,11,13,12,34));
     SaleTableFilterFlags sflags = new SaleTableFilterFlags();
     ProcessTableFilterFlags pflags = new ProcessTableFilterFlags();
     TableBLService service = new Table_Stub();

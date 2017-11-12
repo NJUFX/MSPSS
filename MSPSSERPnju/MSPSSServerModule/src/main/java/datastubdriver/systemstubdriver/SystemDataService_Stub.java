@@ -3,7 +3,6 @@ package datastubdriver.systemstubdriver;
 /**
  * Created by thinkpad on 2017/10/21.
  */
-import dataservice.SystemDataService;
 import status.*;
 import po.*;
 public class SystemDataService_Stub implements SystemDataService {

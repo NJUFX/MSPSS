@@ -1,6 +1,5 @@
 package dataimpl.systemdataimpl;
 
-import dataservice.SystemDataService;
 import po.*;
 import status.*;
 
