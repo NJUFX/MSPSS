@@ -931,38 +931,97 @@ userbl模块的职责及接口参见软件体系结构设计文档
 
 ##### （2）整体结构
 
-根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.userblservice.UserBLService接口。业务逻辑层和数据层之间添加dataservice.UserDataService。为了隔离业务逻辑职责和逻辑控制职责，我们增加了UserBLServiceImpl，这样UserBLServiceImpl会将用户管理和登陆登出的业务逻辑委托给User对象。UserPO是作为用户的持久化对象被添加到设计模型中去的。UserVO是作为值对象被添加到设计模型中去的。
+根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.userblservice.UserBLService接口。业务逻辑层和数据层之间添加dataservice.UserDataService。为了隔离业务逻辑职责和逻辑控制职责，我们增加了UserBLServiceImpl，这样UserBLServiceImpl会将用户管理和登陆登出的业务逻辑委托给UserManage对象和UserLog对象。UserPO是作为用户的持久化对象被添加到设计模型中去的。UserVO是作为值对象被添加到设计模型中去的。
+
+UserBL模块各个类的职责
+
+| 模块                | 职责                             |
+| ----------------- | ------------------------------ |
+| UserBLServiceImpl | 管理 userbl 各个类的任务，负责与其他 bl 模块交互 |
+| UserManage        | 负责对用户的增加、删除和修改操作               |
+| UserLog           | 负责用户的登陆登出操作                    |
 
 ##### （3）模块内部类的接口规范
 
+UserBLServiceImpl的接口规范如表4.2.1(3)-1所示
+
+UserManage的接口规范如表4.2.1(3)-2所示
+
+UserLog的接口规范如表4.2.1(3)-3所示
+
+表4.2.1(3)-1 UserBLServiceImpl的接口规范
+
 提供的服务（供接口）
 
-| 服务名               | 服务   | 服务                                       |
-| ----------------- | ---- | ---------------------------------------- |
-| UserBL.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
-|                   | 前置条件 | 用户处于未登录状态                                |
-|                   | 后置条件 | 用户登陆                                     |
-| UserBL.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
-|                   | 前置条件 | 用户已登录                                    |
-|                   | 后置条件 | 用户登出                                     |
-| UserBL.addUser    | 语法   | public ResultMessage addUser(UserVO);    |
-|                   | 前置条件 | 输入的信息符合规范                                |
-|                   | 后置条件 | 增加用户                                     |
-| UserBL.delUser    | 语法   | public ResultMessage delUser(String ID); |
-|                   | 前置条件 | 输入的ID已存在                                 |
-|                   | 后置条件 | 删除该用户                                    |
-| UserBL.modifyUser | 语法   | public ResultMessage modifyUser(UserVO); |
-|                   | 前置条件 | 输入的信息符合规范                                |
-| 输入的信息符合规范         | 后置条件 | 修改用户属性                                   |
+| 服务名                          | 服务   | 服务                                       |
+| ---------------------------- | ---- | ---------------------------------------- |
+| UserBLServiceImpl.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                              | 前置条件 | 用户处于未登录状态                                |
+|                              | 后置条件 | 用户登陆                                     |
+| UserBLServiceImpl.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
+|                              | 前置条件 | 用户已登录                                    |
+|                              | 后置条件 | 用户登出                                     |
+| UserBLServiceImpl.addUser    | 语法   | public ResultMessage addUser(UserVO);    |
+|                              | 前置条件 | 输入的信息符合规范                                |
+|                              | 后置条件 | 增加用户                                     |
+| UserBLServiceImpl.delUser    | 语法   | public ResultMessage delUser(String ID); |
+|                              | 前置条件 | 输入的ID已存在                                 |
+|                              | 后置条件 | 删除该用户                                    |
+| UserBLServiceImpl.modifyUser | 语法   | public ResultMessage modifyUser(UserVO); |
+|                              | 前置条件 | 输入的信息符合规范                                |
+|                              | 后置条件 | 修改用户属性                                   |
 
 需要的服务（需接口）
 
-| 服务名  | 服务   |
-| ---- | ---- |
-|      |      |
-|      |      |
+无
+
+表4.2.1(3)-2 UserManage的接口规范
+
+| 服务名                   | 服务   | 服务                                       |
+| --------------------- | ---- | ---------------------------------------- |
+| UserManage.addUser    | 语法   | public ResultMessage addUser(UserVO);    |
+|                       | 前置条件 | 输入的信息符合规范                                |
+|                       | 后置条件 | 增加用户                                     |
+| UserManage.delUser    | 语法   | public ResultMessage delUser(String ID); |
+|                       | 前置条件 | 输入的ID已存在                                 |
+|                       | 后置条件 | 删除该用户                                    |
+| UserManage.modifyUser | 语法   | public ResultMessage modifyUser(UserVO); |
+|                       | 前置条件 | 输入的信息符合规范                                |
+|                       | 后置条件 | 修改用户属性                                   |
+
+需要的服务（需接口）
+
+| 服务名                          | 服务   |
+| ---------------------------- | ---- |
+| UserBLServiceImpl.addUser    | 增加用户 |
+| UserBLServiceImpl.delUser    | 删除用户 |
+| UserBLServiceImpl.modifyUser | 修改用户 |
+|                              |      |
+
+表4.2.1(3)-3 UserLog的接口规范
+
+提供的服务（供接口）
+
+| 服务名                      | 服务   | 服务                                       |
+| ------------------------ | ---- | ---------------------------------------- |
+| UserBLServiceImpl.login  | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                          | 前置条件 | 用户处于未登录状态                                |
+|                          | 后置条件 | 用户登陆                                     |
+| UserBLServiceImpl.logout | 语法   | public Log_In_Out_Status logout(String ID) |
+|                          | 前置条件 | 用户已登录                                    |
+|                          | 后置条件 | 用户登出                                     |
+
+需要的服务（需接口）
+
+| 服务名                      | 服务   |
+| ------------------------ | ---- |
+| UserBLServiceImpl.login  | 登陆   |
+| UserBLServiceImpl.logout | 登出   |
+|                          |      |
 
 ##### （4）业务逻辑层内部动态模型
+
+
 
 #### 4.2.2 StockBL模块
 
@@ -988,7 +1047,7 @@ accountbl模块承担的需求参见需求规格说明文档功能需求及其�
 
 accountbl模块的职责及接口参见软件体系结构设计文档
 
- **（2）整体结构**
+ ##### （2）整体结构
 
 AccountBL模块主要负责账户管理功能需求的逻辑实现，其中Account为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Account不与DataService模块交互，而是AccountInfoFactory与DataService交互，来生成具体的VO并且向数据层传输数据，此外，还拥有AccountSorter类来负责AccountBL类的数据的排序
 
@@ -1004,7 +1063,7 @@ AccountBL模块的类的功能如下表所示
 | AccountComparator    | 功能类，用来排序Account            |
 | AccountInfoFactory   | 信息辅助类，完成PO与VO转换并且获得数据      |
 
-**（3）模块内部类的接口规范**
+##### （3）模块内部类的接口规范
 
 Account的接口规范
 
@@ -1144,13 +1203,13 @@ Account的接口规范
 
 #### 4.2.6 PromotionBL模块
 
-(1)模块概述
+##### （1）模块概述
 
 Promotionbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求
 
 Promotionbl模块的职责及接口参加软件系统结构描述文档
 
-(2)整体结构
+##### （2）整体结构
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加promotionblservice接口。业务逻辑层和数据层之间添加promotiondataservice接口和。为了隔离业务逻辑职责和逻辑控制职责，我们增加了promotion对象，这样promotionblserviceimpl会将促销策略模块的操作委托给promotion对象。PromotionPO是作为持久化对象被添加到设计模型中去的。
 
@@ -1162,7 +1221,7 @@ PromotionBL模块各个类的职责如表所示
 | Promotion              | 促销策略模块的主要功能类，负责实现所有的功能    |
 | PromotionBLInfo        | 负责PromotionBL模块与其他BL模块的交互 |
 
-（3）模块内部类的接口规范
+##### （3）模块内部类的接口规范
 
 PromotionBLServiceImpl的接口规范
 
@@ -1180,7 +1239,7 @@ PromotionBLServiceImpl的接口规范
 | PromotionBLServiceImpl.search            | 语法               | public ArrayList<PromotionPO> search(Time date); |
 | 前置条件                                     | 无                |                                          |
 | 后置条件                                     | 返回所有有效的促销策略      |                                          |
-| PromotionBLServiceImpl.showPromotionList | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+| PromotionBLServiceImpl.showPromotionList | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO> promotionList); |
 |                                          | 前置条件             | 无                                        |
 |                                          | 后置条件             | 返回促销策略列表VO                               |
 | PromotionBLServiceImpl.showPromotionDetail | 语法               | public PromotionVO showPromotionDetail(String id); |
@@ -1211,7 +1270,7 @@ Promotion的接口规范
 | Promotion.search              | 语法               | public ArrayList<PromotionPO> search(Time date); |
 | 前置条件                          | 无                |                                          |
 | 后置条件                          | 返回所有有效的促销策略      |                                          |
-| Promotion.showPromotionList   | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+| Promotion.showPromotionList   | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO> promotionList); |
 |                               | 前置条件             | 无                                        |
 |                               | 后置条件             | 返回促销策略列表VO                               |
 | Promotion.showPromotionDetail | 语法               | public PromotionVO showPromotionDetail(String id); |
@@ -1235,6 +1294,8 @@ PromotionBLInfo的接口规范
 | 服务名                 | 服务               |                                          |
 | Promotion.add       | 给促销策略数据中增加一个促销策略 |                                          |
 
+
+
 #### 4.2.7 TableBL模块
 
 ##### （1）模块描述
@@ -1243,7 +1304,7 @@ tablebl模块承担的需求参见需求规格说明文档功能需求及其他�
 
 tablebl模块的职责及接口参见软件体系结构设计文档
 
- **（2）整体结构**
+ ##### （2）整体结构
 
 TableBL模块主要负责制定报表功能需求的逻辑实现，其中Table为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Table不与DataService模块交互，而是TableInfoFactory与BillDataService交互，来生成ArrayList<Bill>以及具体的VO，此外，还拥有TableSorter类来负责TableBL类的数据的排序<br>
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/Table%E6%A8%A1%E5%9D%97.png)
@@ -1260,7 +1321,7 @@ TableBL模块各个类的职责如表所示
 | ProcessTableComparator  | 负责与经营历程报表有关的单据的排序功能类         |
 | ExportHelper            | 导出的实现的辅助类                    |
 
-**（3）模块内部类的接口规范**
+##### （3）模块内部类的接口
 
 提供的服务(供接口)
 
@@ -1447,10 +1508,12 @@ TableBL模块各个类的职责如表所示
 | ---- | ---- |
 | 无    |      |
 
+##### （4）业务逻辑层内部动态模型
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E6%8A%A5%E8%A1%A8%E4%B8%AD%E5%8D%95%E6%8D%AE%E6%8E%92%E5%BA%8F%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/%E6%9F%A5%E7%9C%8B%E6%8A%A5%E8%A1%A8%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
-![](
+
+
 #### 4.2.8 CustomerBL模块
 
 ##### （1）模块描述
@@ -1463,29 +1526,36 @@ customerbl模块的职责及接口参见软件体系结构设计文档
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加businesslogicservice.customerblservice.CustomerBLService接口。业务逻辑层和数据层之间添加dataservice.CustomerDataService、dataservice.CommodityDataService接口。为了隔离业务逻辑职责和逻辑控制职责，我们增加了CustomerBLServiceImpl，这样CustomerBLServiceImpl会将客户管理和制定单据的业务逻辑委托给Customer对象。CustomerPO是作为客户属性的持久化对象被添加到设计模型中去的，CommodityPO是作为商品属性的持久化对象被添加到设计模型中去的。CustomerVO、CommodityVO是作为值对象被添加到设计模型中去的。
 
+| 模块                    | 职责                                 |
+| --------------------- | ---------------------------------- |
+| CustomerBLServiceImpl | 管理 customerbl 各个类的任务，负责与其他 bl 模块交互 |
+| Customer              | 负责对客户的增删改查的操作                      |
+
 ##### （3）模块内部类的接口规范
+
+表4.2.8（3）-1 CustomerBLServiceImpl类的接口规范
 
 提供的服务（供接口）
 
-| 服务名                       | 服务   | 服务                                       |
-| ------------------------- | ---- | ---------------------------------------- |
-| CustomerBL.addCustomer    | 语法   | public boolean addCustomer(CustomerVO customer) |
-|                           | 前置条件 | 输入的信息符合规范                                |
-|                           | 后置条件 | 系统新建一个客户，并提示新建成功                         |
-| CustomerBL.delCustomer    | 语法   | public boolean delCustomer(String ID);   |
-|                           | 前置条件 | 需要删除的用户存在于系统中                            |
-|                           | 后置条件 | 删除用户，返回true                              |
-| CustomerBL.modifyCustomer | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
-|                           | 前置条件 | 输入的信息符合规范                                |
-|                           | 后置条件 | 系统修改该客户的属性，并返回true                       |
-| CustomerBLgetCustomerInfo | 语法   | public CustomerVO getCustomerInfo(String ID); |
-|                           | 前置条件 | 输入的客户编号符合规范                              |
-|                           | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
-| CustomerBL.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
-|                           | 前置条件 | 输入的关键词合法                                 |
-|                           | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
-|                           |      |                                          |
-|                           |      |                                          |
+| 服务名                                   | 服务   | 服务                                       |
+| ------------------------------------- | ---- | ---------------------------------------- |
+| CustomerBLServiceImpl.addCustomer     | 语法   | public boolean addCustomer(CustomerVO customer) |
+|                                       | 前置条件 | 输入的信息符合规范                                |
+|                                       | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| CustomerBLServiceImpl.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                                       | 前置条件 | 需要删除的用户存在于系统中                            |
+|                                       | 后置条件 | 删除用户，返回true                              |
+| CustomerBLServiceImpl.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
+|                                       | 前置条件 | 输入的信息符合规范                                |
+|                                       | 后置条件 | 系统修改该客户的属性，并返回true                       |
+| CustomerBLServiceImpl.getCustomerInfo | 语法   | public CustomerVO getCustomerInfo(String ID); |
+|                                       | 前置条件 | 输入的客户编号符合规范                              |
+|                                       | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| CustomerBLServiceImpl.searchCustomer  | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
+|                                       | 前置条件 | 输入的关键词合法                                 |
+|                                       | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+|                                       |      |                                          |
+|                                       |      |                                          |
 
 需要的服务（需接口）
 
@@ -1494,17 +1564,48 @@ customerbl模块的职责及接口参见软件体系结构设计文档
 |      |      |
 |      |      |
 
+表5.2.8（3）-2 Customer类的接口规范
+
+| 服务名                      | 服务   | 服务                                       |
+| ------------------------ | ---- | ---------------------------------------- |
+| Customer.addCustomer     | 语法   | public boolean addCustomer(CustomerVO customer) |
+|                          | 前置条件 | 输入的信息符合规范                                |
+|                          | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| Customer.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                          | 前置条件 | 需要删除的用户存在于系统中                            |
+|                          | 后置条件 | 删除用户，返回true                              |
+| Customer.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
+|                          | 前置条件 | 输入的信息符合规范                                |
+|                          | 后置条件 | 系统修改该客户的属性，并返回true                       |
+| Customer.getCustomerInfo | 语法   | public CustomerVO getCustomerInfo(String ID); |
+|                          | 前置条件 | 输入的客户编号符合规范                              |
+|                          | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| Customer.searchCustomer  | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
+|                          | 前置条件 | 输入的关键词合法                                 |
+|                          | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+|                          |      |                                          |
+|                          |      |                                          |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+##### （4）业务逻辑层内部动态模型
+
 
 
 #### 4.2.9 LogBL模块
 
-(1)模块概述
+##### （1）模块概述
 
 logbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求
 
 logbl模块的职责及接口参加软件系统结构描述文档
 
-(2)整体结构
+##### （2）整体结构
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加logblservice接口。业务逻辑层和数据层之间添加logdataservice接口和。为了隔离业务逻辑职责和逻辑控制职责，我们增加了log对象，这样logblserviceimpl会将日志模块的操作委托给log对象。LogPO是作为持久化对象被添加到设计模型中去的。
 
@@ -1516,7 +1617,7 @@ LogBL模块各个类的职责如表所示
 | Log              | 日志模块的主要功能类，负责实现所有的功能 |
 | LogBLInfo        | 负责LogBL模块与其他BL模块的交互  |
 
-（3）模块内部类的接口规范
+##### （3）模块内部类的接口规范
 
 LogBLServiceImpl的接口规范
 
@@ -1577,7 +1678,7 @@ generalaccountbl模块承担的需求参见需求规格说明文档功能需求�
 
 generalaccountbl模块的职责及接口参见软件体系结构设计文档
 
- **（2）整体结构**
+ ##### （2）整体结构
 
 TableBL模块主要负责制定报表功能需求的逻辑实现，其中Table为主模块，负责主要逻辑的生成以及对辅助类和功能类的调度，但为了降低耦合，Table不与DataService模块交互，而是TableInfoFactory与BillDataService交互，来生成ArrayList<Bill>以及具体的VO，此外，还拥有TableSorter类来负责TableBL类的数据的排序
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E5%BE%90%E5%85%89%E8%80%80%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E5%9B%BE/GeneralAccount%E6%A8%A1%E5%9D%97.png)
@@ -1593,7 +1694,7 @@ GeneralAccount模块的各个类的职责如表所示
 | GeneralAccountInfoFactory   | GeneralAccountVO及PO的工厂模式，负责信息的转化和生成 |
 | GeneralAccountComparator    | 排序功能类，负责实现各种排序方法                    |
 
-**（3）模块内部类的接口规范**
+##### （3）模块内部类的接口规范
 
 GeneralAccountBLServiceImpl的接口规范
 
@@ -2160,7 +2261,7 @@ List的接口规范
 |      |      |
 |      |      |
 
-####
+
 
 #### 4.3.2 Stock模块
 
