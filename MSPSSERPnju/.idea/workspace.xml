@@ -574,6 +574,10 @@
       <created>1510422640972</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1509979646338</updated>
+      <workItem from="1510397078274" duration="10072000" />
+=======
       <updated>1510422640972</updated>
     </task>
     <task id="LOCAL-00001" summary="add customer and user parts">
@@ -582,10 +586,49 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1510469950517</updated>
+>>>>>>> 12a4008d90a6379585966d43b510bdf09f462c60
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+<<<<<<< HEAD
+  <component name="TestHistory">
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 00m 41s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 00m 53s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 01m 04s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 01m 17s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 01m 32s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 02m 09s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 05m 17s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 05m 50s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 06m 25s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerMockTest - 2017.11.06 at 23h 06m 48s.xml">
+      <configuration name="CustomerMockTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10072000" />
+  </component>
+=======
+>>>>>>> 12a4008d90a6379585966d43b510bdf09f462c60
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
