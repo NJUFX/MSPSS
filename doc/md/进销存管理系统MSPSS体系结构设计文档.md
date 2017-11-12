@@ -153,67 +153,67 @@
 
 <center> 表4.1-1 进销存管理系统MSPSS的最终开发包设计</center>
 
-| 开发包图                      | 依赖的其他开发包       |
-| ------------------------- | -------------- |
-| main                      |                |
-| userui                    |                |
-| userblservice             |                |
-| userbl                    |                |
-| userdataservice           |                |
-| userdata                  |                |
-| logui                     |                |
-| logblservice              |                |
-| logbl                     |                |
-| logdataservice            |                |
-| logdata                   |                |
-| stockui                   |                |
-| stockblservice            |                |
-| stockbl                   |                |
-| stockdataservice          |                |
-| stockdata                 |                |
-| promotionui               |                |
-| promotionblservice        |                |
-| promotionbl               |                |
-| promotiondataservice      |                |
-| promotionservice          |                |
-| tableui                   |                |
-| tableblservice            |                |
-| tablebl                   |                |
-| billui                    |                |
-| billblservice             |                |
-| billbl                    |                |
-| billdataservice           |                |
-| billdata                  |                |
-| commodityui               |                |
-| commodityblservice        |                |
-| commoditybl               |                |
-| commoditydataservice      |                |
-| commoditydata             |                |
-| accountui                 |                |
-| accountblservice          |                |
-| accountbl                 |                |
-| accountdataservice        |                |
-| accountdata               |                |
-| generalaccountui          |                |
-| generalaccountblservice   |                |
-| generalaccountbl          |                |
-| generalaccountdataservice |                |
-| generalaccountdata        |                |
-| customerui                |                |
-| customerblservice         |                |
-| customerbl                |                |
-| customerdataservice       |                |
-| customerdata              |                |
-| vo                        |                |
-| po                        |                |
-| utilitybl                 |                |
-| 界面类库包                     | javafx         |
-| Java RMI                  |                |
-| databaseutility           | JDBC,hibernate |
-|                           |                |
-|                           |                |
-|                           |                |
-|                           |                |
+| 开发包图                      | 依赖的其他开发包                  |
+| ------------------------- | ------------------------- |
+| main                      |                           |
+| userui                    | userblservice             |
+| userblservice             | userbl                    |
+| userbl                    | userdataservice           |
+| userdataservice           | userdata                  |
+| userdata                  |                           |
+| logui                     | logblservice              |
+| logblservice              | logbl                     |
+| logbl                     | logdataservice            |
+| logdataservice            | logdata                   |
+| logdata                   |                           |
+| stockui                   | stockblservice            |
+| stockblservice            | stockbl                   |
+| stockbl                   | stockdataservice          |
+| stockdataservice          | stockdata                 |
+| stockdata                 |                           |
+| promotionui               | promotionblservice        |
+| promotionblservice        | promotionbl               |
+| promotionbl               | promotiondataservice      |
+| promotiondataservice      | promotiondata             |
+| promotiondata             |                           |
+| tableui                   | tableblservice            |
+| tableblservice            | tablebl                   |
+| tablebl                   |                           |
+| billui                    | billblservice             |
+| billblservice             | billbl                    |
+| billbl                    | billdataservice           |
+| billdataservice           | billdata                  |
+| billdata                  |                           |
+| commodityui               | commodityblservice        |
+| commodityblservice        | commoditybl               |
+| commoditybl               | commoditydataservice      |
+| commoditydataservice      | commoditydata             |
+| commoditydata             |                           |
+| accountui                 | accountblservice          |
+| accountblservice          | accountbl                 |
+| accountbl                 | accountdataservice        |
+| accountdataservice        | accoutservice             |
+| accountdata               |                           |
+| generalaccountui          | generalaccountblservice   |
+| generalaccountblservice   | generalaccountbl          |
+| generalaccountbl          | generalaccountdataservice |
+| generalaccountdataservice | generalaccountdata        |
+| generalaccountdata        |                           |
+| customerui                | customerblservice         |
+| customerblservice         | customerbl                |
+| customerbl                | customerdataservice       |
+| customerdataservice       | customerdata              |
+| customerdata              |                           |
+| vo                        |                           |
+| po                        |                           |
+| utilitybl                 |                           |
+| 界面类库包                     | javafx                    |
+| Java RMI                  |                           |
+| databaseutility           | JDBC,hibernate            |
+|                           |                           |
+|                           |                           |
+|                           |                           |
+|                           |                           |
 
 进销存管理系统MSPSS客户端开发包如图4.1-1 所示，服务器端开发包图如图4.1-2所示
 

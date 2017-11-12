@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../doc/img/进货销售人员/Admin-增加用户.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../doc/img/进货销售人员/Admin_login.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../doc/img/进货销售人员/修改客户顺序图.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../doc/img/进货销售人员/增加客户顺序图.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_122.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/billdatastubdriver/BillDataService_Driver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/billdatastubdriver/BillDataService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/commoditydatastubdriver/CommdityDataService_Driver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/commoditydatastubdriver/CommodityDataService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/stockdatastubdriver/StockDataService_Driver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/stockdatastubdriver/StockDataService_Stub.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/financeblimpl/Account.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/financeblimpl/MockAccount.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/stocksellerblimpl/Customer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/stocksellerblimpl/MockCustomer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/stocksellerblimpl/MockPurchase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/stocksellerblimpl/Purchase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/status/Account_Operation_Status.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/status/Bill_Submit_Status.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/status/Init_General_Account_Status.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/dataservice/SystemDataService.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/generalaccountstubdriver/GeneralAccount_Driver.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/generalaccountstubdriver/GeneralAccount_Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/logstubdriver/Log_Driver.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/logstubdriver/Log_Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/logstubdriver/Log_Stub.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/logstubdriver/Log_Stub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/tablestubdriver/Table_Driver.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/tablestubdriver/Table_Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/LogListVO.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/LogListVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/LogVO.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/LogVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/LogPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/LogPO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../doc/md/进销存管理系统MSPSS体系结构设计文档.md" afterPath="$PROJECT_DIR$/../doc/md/进销存管理系统MSPSS体系结构设计文档.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../doc/md/进销存管理系统MSPSS详细设计文档.md" afterPath="$PROJECT_DIR$/../doc/md/进销存管理系统MSPSS详细设计文档.md" />
-    </list>
+    <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -197,7 +164,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="568" />
     <option name="y" value="76" />
     <option name="width" value="805" />
@@ -275,6 +242,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSServerModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="datastubdriver" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -391,15 +367,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1510496867711</updated>
-      <workItem from="1510496872537" duration="546000" />
+      <workItem from="1510496872537" duration="840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="546000" />
+    <option name="totallyTimeSpent" value="840000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
