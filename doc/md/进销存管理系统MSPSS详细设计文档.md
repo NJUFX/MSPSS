@@ -1180,7 +1180,7 @@ PromotionBLServiceImpl的接口规范
 | PromotionBLServiceImpl.search            | 语法               | public ArrayList<PromotionPO> search(Time date); |
 | 前置条件                                     | 无                |                                          |
 | 后置条件                                     | 返回所有有效的促销策略      |                                          |
-| PromotionBLServiceImpl.showPromotionList | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+| PromotionBLServiceImpl.showPromotionList | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO> promotionList); |
 |                                          | 前置条件             | 无                                        |
 |                                          | 后置条件             | 返回促销策略列表VO                               |
 | PromotionBLServiceImpl.showPromotionDetail | 语法               | public PromotionVO showPromotionDetail(String id); |
@@ -1211,7 +1211,7 @@ Promotion的接口规范
 | Promotion.search              | 语法               | public ArrayList<PromotionPO> search(Time date); |
 | 前置条件                          | 无                |                                          |
 | 后置条件                          | 返回所有有效的促销策略      |                                          |
-| Promotion.showPromotionList   | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+| Promotion.showPromotionList   | 语法               | public PromotionListVO showPromotionList(ArrayList<PromotionPO> promotionList); |
 |                               | 前置条件             | 无                                        |
 |                               | 后置条件             | 返回促销策略列表VO                               |
 | Promotion.showPromotionDetail | 语法               | public PromotionVO showPromotionDetail(String id); |
