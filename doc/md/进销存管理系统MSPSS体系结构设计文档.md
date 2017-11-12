@@ -141,7 +141,7 @@
 
 <center> 图3-1 分层体系结构的逻辑视角</center>
 
-![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88.png)
+![]()
 
 ​	<center> 图3-2 分层体系结构的逻辑设计方案</center>
 
@@ -219,13 +219,13 @@
 
 <center>图4.1-1 进销存管理系统MSPSS客户端开发包图</center>
 
-![客户端开发包图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9FMSPSS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE.png)
+![客户端开发包图]()
 
 
 
 <center> 表4.1-2 进销存管理系统MSPSS服务器端逻辑包图</center>
 
-![客户端图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3/%E8%BF%9B%E9%94%80%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FMSPSS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%80%BB%E8%BE%91%E5%8C%85%E5%9B%BE.png)
+![客户端图]()
 
 ### <a name="4.2"></a>4.2 运行时进程
 
@@ -345,18 +345,17 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 表 5.3.1-1 业务逻辑层模块的职责
 
-| 模块               | 职责           |
-| ---------------- | ------------ |
-| userbl           | 负责实现用户所需要的业务 |
-| customerbl       | 负责实现客户所需要的业务 |
-| commoditybl      |              |
-| stockbl          |              |
-| billbl           |              |
-| logbl            |              |
-| promotionbl      |              |
-| accountbl        |              |
-| generalaccountbl |              |
-|                  |              |
+| 模块         | 职责           |
+| ---------- | ------------ |
+| userbl     | 负责实现用户所需要的业务 |
+| customerbl | 负责实现客户所需要的业务 |
+|            |              |
+|            |              |
+|            |              |
+|            |              |
+|            |              |
+|            |              |
+|            |              |
 
 #### 5.3.2 业务逻辑模块的接口规范<a name="5.3.2"></a><br>
 
@@ -885,9 +884,9 @@ InValue 应收额度
 
 **UserPO**
 
-| ID   | Password | name   | Job    | Power |
-| ---- | -------- | ------ | ------ | ----- |
-| long | string   | string | string | int   |
+| ID   | password | name   | identity | power |
+| ---- | -------- | ------ | -------- | ----- |
+| long | string   | string | string   | int   |
 
 **PromotionPO**
 
