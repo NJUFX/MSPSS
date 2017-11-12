@@ -438,7 +438,6 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | CommodityDataService.AddCommodity        | 新增商品            |
 | CommodityDataService.DeleteCommodity     | 删除商品            |
 | CommodityDataService.updateCommodity     | 更新商品信息          |
-| CommodityDataService.getCommodity        | 通过商品ID得到商品      |
 | CommodityDataService.exactlySearchCommodity | 精确搜索商品          |
 | CommodityDataService.prefixSearchCommodity | 前缀搜索商品          |
 | CommodityDataService.fullSearchCommodity | 完全匹配商品          |
@@ -472,7 +471,8 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | CommodityBLInfo.updateCommodity | 更新商品的库存数量  |
 | StockDataService.addInventory   | 更新商品的库存信息  |
 | StockDataService.addStock       | 更新商品的进出库记录 |
-|                                 |            |
+| StockDataService.getStock       | 得到进出库信息    |
+| StockDataService.getInventory   | 得到商品的库存信息  |
 
 
 
@@ -714,31 +714,71 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 #### 5.4.2 数据层模块的接口规范<a name="5.4.2"></a><br>
 
-表1 SystemDataService模块的接口规范
+| 服务名                                      |  服务  | 服务                                       |
+| :--------------------------------------- | :--: | ---------------------------------------- |
+| CommodityDataService.AddCommodity        |  语法  | public ResultMessage addCommodity(CommodityPO cmpo) |
+|                                          | 前置条件 | 输入正确的信息                                  |
+|                                          | 后置条件 | 返回是否添加成功                                 |
+| CommodityDataService.DeleteCommodity     |  语法  | public ResultMessage deleteCommodity(String id) |
+|                                          | 前置条件 | 输入正确的商品信息                                |
+|                                          | 后置条件 | 返回是否删除成功                                 |
+| CommodityDataService.updateCommodity     |  语法  | public ResultMessage updateCommodity(Commodity cmpo) |
+|                                          | 前置条件 | 输入正确的商品信息                                |
+|                                          | 后置条件 | 返回是否删除成功                                 |
+| CommodityDataService.exactlySearchCommodity |  语法  | public CommodityPO(String id)            |
+|                                          | 前置条件 | 输入正确的商品编号                                |
+|                                          | 后置条件 | 返回商品                                     |
+| CommodityDataService.AddClassification   |  语法  | public ResultMessage AddClassification(ClassificationPO clpo) |
+|                                          | 前置条件 | 输入正确的商品分类                                |
+|                                          | 后置条件 | 返回是否添加成功                                 |
+| CommodityDataService.updateClassification |  语法  | public ResultMessage updateClassification (ClassificationPO clpo) |
+|                                          | 前置条件 | 输入正确的商品分类                                |
+|                                          | 后置条件 | 返回是否更新成功                                 |
+| CommodityDataService.getClassification   |  语法  | publicClassifictionPO getClassification(String id) |
+|                                          | 前置条件 | 正确的分类编号                                  |
+|                                          | 后置条件 | 返回商品分类                                   |
+| CommodityDataService.deleteClassification |  语法  | public ResultMessage deleteClassifictaion(String id) |
+|                                          | 前置条件 | 输入正确的商品分类编号                              |
+|                                          | 后置条件 | 返回是否删除成功                                 |
 
-| 提供的服务（供接口）                        |      |                                          |
-| --------------------------------- | ---- | ---------------------------------------- |
-| SystemDataService.findUser        | 语法   | public UserPO findUser(long id) throws RemoteException |
-|                                   | 前置条件 | id存在于用户数据中                               |
-|                                   | 后置条件 | 返回该id对应的UserPo，或者抛出异常：RemoteException    |
-| SystemDataService.deleteUser      | 语法   | public POStatus deleteUser(long id) throws RemoteException |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，删除数据 |
-| SystemDataService.addUser         | 语法   | public POStatus addUser(UserPO newuser) throws RemoteException |
-|                                   | 前置条件 | newuser必须被初始化                            |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存新用户 |
-| SystemDataService.updateUser      | 语法   | public POStatus updateUser(UserPO user) throws RemoteException |
-|                                   | 前置条件 | user必须以及被初始化                             |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，更新系统数据 |
-| SystemDataSerive.addInitInfo()    | 语法   | public POStatus addInitInfo(InitAccountPO initaccount) throws RemoteException |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存初始化账户 |
-| SystemDataService.addLog()        | 语法   | public POStatus addLog(LogPO log) throws RemoteException |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存日志 |
-| SystemDataService.checkInitInfo() | 语法   | public InitAccountPO checkInitInfo(long index) throws RemoteException throws NullIndexException |
-|                                   | 前置条件 | id必须存在于初始化信息列表中                          |
-|                                   | 后置条件 | 返回对应InitAccountPO或者抛出异常:RemoteException ，或者NullIndexException(无效索引，空索引异常) |
+| 服务名                           | 服务   | 服务                                       |
+| ----------------------------- | ---- | ---------------------------------------- |
+| StockDataService.addInventory | 语法   | public ResultMessage addInventory(InventoryPO ipo) |
+|                               | 前置条件 | 输入正确的商品库存信息                              |
+|                               | 后置条件 | 返回是否添加成功                                 |
+| StockDataService.addStock     | 语法   | public ResultMessage addStock(StockPO po) |
+|                               | 前置条件 | 输入正确的进出库信息                               |
+|                               | 后置条件 | 返回是否添加成功                                 |
+| StockDataService.getStock     | 语法   | public IteratorStockPO getStock(Time startTime,Time endTime) |
+|                               | 前置条件 | 正确的时间信息                                  |
+|                               | 后置条件 | 返回进出库信息                                  |
+| StockDataService.getInventory | 语法   | public Iterator< InventoryPO >getInventory() |
+|                               | 前置条件 | 无                                        |
+|                               | 后置条件 | 返回商品库存信息                                 |
+
+表1 UserDataService模块的接口规范
+
+| 提供的服务（供接口）                 |      |                                          |
+| -------------------------- | ---- | ---------------------------------------- |
+| UserDataService.findUser   | 语法   | public UserPO findUser(long id) throws RemoteException |
+|                            | 前置条件 | id存在于用户数据中                               |
+|                            | 后置条件 | 返回该id对应的UserPo，或者抛出异常：RemoteException    |
+| UserDataService.deleteUser | 语法   | public POStatus deleteUser(long id) throws RemoteException |
+|                            | 前置条件 | 无                                        |
+|                            | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，删除数据 |
+| UserDataService.addUser    | 语法   | public POStatus addUser(UserPO newuser) throws RemoteException |
+|                            | 前置条件 | newuser必须被初始化                            |
+|                            | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存新用户 |
+| UserDataService.updateUser | 语法   | public POStatus updateUser(UserPO user) throws RemoteException |
+|                            | 前置条件 | user必须以及被初始化                             |
+|                            | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，更新系统数据 |
+|                            |      |                                          |
+
+
+
+
+
+
 
 表2 CustomerDataServic模块的接口规范
 
@@ -758,23 +798,29 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 |                                     | 后置条件 | 修改客户信息，更新数据                              |
 |                                     |      |                                          |
 
+
+
+
+
+
+
 表3 BillDataService模块的接口规范
 
-| 提供的服务（供接口）             |                         |                                          |
-| ---------------------- | ----------------------- | ---------------------------------------- |
-| BillDataService.search | 语法                      | public ArrayList<BillPO> search(ConditionPO Condition); |
-| 前置条件                   | 无                       |                                          |
-| 后置条件                   | 返回符合条件的所有单据PO           |                                          |
-| BillDataService.update | 语法                      | public void update(ArrayList<BillPO>);   |
-| 前置条件                   | 数据库中中存在参数传入的BillPO      |                                          |
-| 后置条件                   | BillPO的信息改为参数中BillPO的信息 |                                          |
-| BillDataService.delete | 语法                      | public void delete(ArrayList<BillPO>);   |
-| 前置条件                   | 数据库中存在参数传入的BillPO       |                                          |
-| 后置条件                   | 数据库中移除相应的BillPO         |                                          |
-| BillDataService.add    | 语法                      | public void add(ArrayList<BillPO>);      |
-| 前置条件                   | 数据库中没有参数传入的PO           |                                          |
-| 后置条件                   | 将参数传入的PO加入到数据库          |                                          |
-|                        |                         |                                          |
+| 提供的服务（供接口）             |      |                                          |
+| ---------------------- | ---- | ---------------------------------------- |
+| BillDataService.search | 语法   | public ArrayList<BillPO> search(ConditionPO Condition); |
+|                        | 前置条件 | 无                                        |
+|                        | 后置条件 | 返回符合条件的所有单据PO                            |
+| BillDataService.update | 语法   | public void update(ArrayList<BillPO>);   |
+|                        | 前置条件 | 数据库中中存在参数传入的BillPO                       |
+|                        | 后置条件 | BillPO的信息改为参数中BillPO的信息                  |
+| BillDataService.delete | 语法   | public void delete(ArrayList<BillPO>);   |
+|                        | 前置条件 | 数据库中存在参数传入的BillPO                        |
+|                        | 后置条件 | 数据库中移除相应的BillPO                          |
+| BillDataService.add    | 语法   | public void add(ArrayList<BillPO>);      |
+|                        | 前置条件 | 数据库中没有参数传入的PO                            |
+|                        | 后置条件 | 将参数传入的PO加入到数据库                           |
+|                        |      |                                          |
 
 表4 LogDataService模块的接口规范
 
@@ -805,6 +851,46 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | PromotionDataService.search | 语法   | public ArrayList<PromotionPO> search(Time date); |
 |                             | 前置条件 | 无                                        |
 |                             | 后置条件 | 返回日期范围内的所有促销策略                           |
+
+ Account模块
+
+模块内部的接口规范
+
+| 提供的服务（供接口）                       |      |                                          |
+| -------------------------------- | ---- | ---------------------------------------- |
+| AccountDataService.addAccount    | 语法   | public ResultMessage addAccount（AccountVO account) |
+|                                  | 前置条件 | account.name不能与之前的重复                     |
+|                                  | 后置条件 | 无                                        |
+| AccountDataService.deleteAccount | 语法   | public ResultMessage deleteAccount（string name) |
+|                                  | 前置条件 | name必须已经存在的账户列表中                         |
+|                                  | 后置条件 | 无                                        |
+| AccountDataService.modifyAccount | 语法   | public ResultMessage modifyAccount（string oldname,string newname) |
+|                                  | 前置条件 | oldname已经存在于账号列表中而newname不存在于账户列表中       |
+|                                  | 后置条件 | 无                                        |
+| AccountDataService.checkAccount  | 语法   | public AccountVO checkAccount(String name) |
+|                                  | 前置条件 | name已经存在于账户列表中                           |
+|                                  | 后置条件 | 返回已经写入账户信息（具体参见Account类说明表）的Account      |
+| AccountDataService.income        | 语法   | public void income(String name, int income) |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 无                                        |
+| AccountDataService.pay           | 语法   | public void pay(String name,int pay)     |
+|                                  | 前置条件 | 无                                        |
+|                                  | 后置条件 | 无                                        |
+
+####  
+
+####  GeneralAccount模块
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| GeneralAccountDataService.newGeneralAccount | 语法   | public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的结果ResultMessa                     |
+| GeneralAccountDataService.checkGeneralAccount | 语法   | public ArrayList<GeneralAccountVO checkGenerlalAccount(Time begin,Time end) |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回期初建账的信息，如果不存在，则返回空VO                   |
+
+####  
 
 ### <a name="5.5"></a>5.5模块的关键类图
 
