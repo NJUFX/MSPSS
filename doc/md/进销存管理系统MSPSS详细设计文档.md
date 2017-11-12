@@ -57,9 +57,9 @@
 
 展示层的控制器为树状委托式结构，StockSellerViewController负责对进货销售人员界面的整体跳转，StockSellerNavBarController负责实现导航栏界面，CustomerManagerViewController、BillCreateViewController分别实现进货销售人员导航栏的客户管理和制定单据的跳转
 
-StockSeller界面各类的职责如表4.2.1(1)-1所示
+StockSeller界面各类的职责如表4.1.2(1)-1所示
 
-表4.2.1(1)-1 StockSeller界面各类的职责
+表4.1.2(1)-1 StockSeller界面各类的职责
 
 | 模块                              | 职责                 |
 | ------------------------------- | ------------------ |
@@ -79,7 +79,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 
 ##### （2）模块内部类的接口规范
 
-表4.2.1(2)-1 StockSellerViewController的接口规范
+表4.1.2(2)-1 StockSellerViewController的接口规范
 
 提供的服务（供接口）
 
@@ -101,7 +101,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | BillCreateViewController.show     | 显示制定单据界面 |
 |                                   |          |
 
-表4.2.1(2)-2 StockSellerNavBarController的接口规范
+表4.1.2(2)-2 StockSellerNavBarController的接口规范
 
 提供的服务（供接口）
 
@@ -115,7 +115,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | BillCreateViewController.show     | 显示制定单据界面 |
 |                                   |          |
 
-表4.2.1(2)-3 CustomerManageViewController的接口规范
+表4.1.2(2)-3 CustomerManageViewController的接口规范
 
 提供的服务（供接口）
 
@@ -147,7 +147,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | CustomerSearchViewController.show | 显示查找客户界面   |
 |                                   |            |
 
-表4.2.1(2)-4 BillCreateViewController的接口规范
+表4.1.2(2)-4 BillCreateViewController的接口规范
 
 提供的服务（供接口）
 
@@ -178,7 +178,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | SalesCreateViewController.show       | 显示制定销售单界面   |
 | SalesRetCreateViewController.show    | 显示制定销售退货单界面 |
 
-表4.2.1(2)-5 CustomerAddViewController的接口规范
+表4.1.2(2)-5 CustomerAddViewController的接口规范
 
 提供的服务（供接口）
 
@@ -201,7 +201,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | CustomerManageViewController.show | 显示客户管理界面 |
 | StockSellerBLService.addCustomer  | 增加客户     |
 
-表4.2.1(2)-6 CustomerDelViewController的接口规范
+表4.1.2(2)-6 CustomerDelViewController的接口规范
 
 提供的服务（供接口）
 
@@ -224,7 +224,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | CustomerManageViewController.show | 显示客户管理界面 |
 | StockSellerBLService.delCustomer  | 删除客户     |
 
-表4.2.1(2)-7 CustomerModifyViewController的接口规范
+表4.1.2(2)-7 CustomerModifyViewController的接口规范
 
 提供的服务（供接口）
 
@@ -247,7 +247,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | CustomerManageViewController.show   | 显示客户管理界面 |
 | StockSellerBLService.modifyCustomer | 修改客户属性   |
 
-表4.2.1(2)-8 CustomerSearchViewController的接口规范
+表4.1.2(2)-8 CustomerSearchViewController的接口规范
 
 提供的服务（供接口）
 
@@ -275,7 +275,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | StockSellerBLService.searchCustomer | 查找客户     |
 |                                     |          |
 
-表4.2.1(2)-9 CustomerShowViewController的接口规范
+表4.1.2(2)-9 CustomerShowViewController的接口规范
 
 提供的服务（供接口）
 
@@ -296,7 +296,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | StockSellerBLService.getCustomerInfo | 查找客户     |
 |                                      |          |
 
-表4.2.1(2)-10 PurchaseCreateViewController的接口规范
+表4.1.2(2)-10 PurchaseCreateViewController的接口规范
 
 提供的服务（供接口）
 
@@ -319,7 +319,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | BillCreateViewController.show       | 显示制定单据界面 |
 | StockSellerBLService.createPurchase | 创建进货单    |
 
-表4.2.1(2)-11 PurchaseRetCreateViewController的接口规范
+表4.1.2(2)-11 PurchaseRetCreateViewController的接口规范
 
 提供的服务（供接口）
 
@@ -342,7 +342,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | BillCreateViewController.show          | 显示制定单据界面 |
 | StockSellerBLService.createPurchaseRet | 创建进货退货单  |
 
-表4.2.1(2)-12 SalesCreateViewController的接口规范
+表4.1.2(2)-12 SalesCreateViewController的接口规范
 
 提供的服务（供接口）
 
@@ -365,7 +365,7 @@ StockSeller界面各类的职责如表4.2.1(1)-1所示
 | BillCreateViewController.show    | 显示制定单据界面 |
 | StockSellerBLService.createSales | 创建销售单    |
 
-表4.2.1(2)-13 SalesRetCreateViewController的接口规范
+表4.1.2(2)-13 SalesRetCreateViewController的接口规范
 
 提供的服务（供接口）
 
@@ -913,13 +913,139 @@ ChiefManagerSetPromotionController的接口规范
 
 
 
+#### 4.1.4 admin模块
+
+##### （1）整体结构
+
+展示层的控制器为树状委托式结构，AdminViewController负责对系统管理员界面的整体跳转，AdminNavBarController负责实现导航栏界面。
+
+Admin界面各类的职责如表4.2.1(1)-1所示
+
+表4.2.1(1)-1 Admin界面各类的职责
+
+| 模块                       | 职责              |
+| ------------------------ | --------------- |
+| AdminViewController      | 负责对系统管理员界面的整体跳转 |
+| AdminNavBarController    | 负责实现导航栏界面       |
+| UserAddViewController    | 负责实现增加用户界面的跳转   |
+| UserDelViewController    | 负责实现删除用户界面的跳转   |
+| UserModifyViewController | 负责实现修改用户界面的跳转   |
+
+##### （2）模块内部类的接口规范
+
+表4.1.4(2)-1 AdminViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                | 服务   | 服务                            |
+| ---------------------------------- | ---- | ----------------------------- |
+| AdminViewController.showUserAdd    | 语法   | public boolean showUserAdd(); |
+|                                    | 前置条件 | 点击导航栏增加用户                     |
+|                                    | 后置条件 | 显示增加用户界面                      |
+| AdminViewController.showUserDel    | 语法   | public boolean showUserDel(); |
+|                                    | 前置条件 | 点击导航栏删除用户                     |
+|                                    | 后置条件 | 显示删除用户界面                      |
+| AdminViewController.showUserModify | 语法   | public boolean showUserAdd(); |
+|                                    | 前置条件 | 点击导航栏修改用户                     |
+|                                    | 后置条件 | 显示修改用户界面                      |
+
+需要的服务（需接口）
+
+| 服务名                           | 服务       |
+| ----------------------------- | -------- |
+| UserAddViewController.show    | 显示增加用户界面 |
+| UserDelViewController.show    | 显示删除用户界面 |
+| UserModifyViewController.show | 显示修改用户界面 |
+
+表4.1.4(2)-2 AdminNavBarController的接口规范
+
+提供的服务（供接口）
+
+无
+
+需要的服务（需接口）
+
+| 服务名                           | 服务       |
+| ----------------------------- | -------- |
+| UserAddViewController.show    | 显示增加用户界面 |
+| UserDelViewController.show    | 显示删除用户界面 |
+| UserModifyViewController.show | 显示修改用户界面 |
+|                               |          |
 
 
 
+表4.1.4(2)-3 UserAddViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                           | 服务   | 服务                                  |
+| ----------------------------- | ---- | ----------------------------------- |
+| UserAddViewController.back    | 语法   | public boolean back()               |
+|                               | 前置条件 | 点击返回按钮                              |
+|                               | 后置条件 | 返回上一界面                              |
+| UserAddViewController.addUser | 语法   | public boolean addUser(UserVO user) |
+|                               | 前置条件 | 点击确定按钮                              |
+|                               | 后置条件 | 系统更新数据                              |
+| UserAddViewController.show    | 语法   | public boolean show()               |
+|                               | 前置条件 | 无                                   |
+|                               | 后置条件 | 显示增加用户界面                            |
+
+需要的服务（需接口）
+
+| 服务名                      | 服务       |
+| ------------------------ | -------- |
+| AdminViewController.show | 显示用户管理界面 |
+|                          |          |
+
+表4.1.4(2)-4 UserDelViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                           | 服务   | 服务                                |
+| ----------------------------- | ---- | --------------------------------- |
+| UserDelViewController.back    | 语法   | public boolean back()             |
+|                               | 前置条件 | 点击返回按钮                            |
+|                               | 后置条件 | 返回上一界面                            |
+| UserDelViewController.delUser | 语法   | public boolean delUser(String id) |
+|                               | 前置条件 | 点击确定按钮                            |
+|                               | 后置条件 | 系统更新数据                            |
+| UserDelViewController.show    | 语法   | public boolean show()             |
+|                               | 前置条件 | 无                                 |
+|                               | 后置条件 | 显示删除用户界面                          |
+
+需要的服务（需接口）
+
+| 服务名                      | 服务       |
+| ------------------------ | -------- |
+| AdminViewController.show | 显示用户管理界面 |
+|                          |          |
+
+表4.1.4(2)-5 UserModifyViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                  | 服务   | 服务                                     |
+| ------------------------------------ | ---- | -------------------------------------- |
+| UserModifyViewController.back        | 语法   | public boolean back()                  |
+|                                      | 前置条件 | 点击返回按钮                                 |
+|                                      | 后置条件 | 返回上一界面                                 |
+| UserModifyViewController.addCustomer | 语法   | public boolean modifyUser(UserVO user) |
+|                                      | 前置条件 | 点击确定按钮                                 |
+|                                      | 后置条件 | 系统更新数据                                 |
+| UserModifyViewController.show        | 语法   | public boolean show()                  |
+|                                      | 前置条件 | 无                                      |
+|                                      | 后置条件 | 显示修改用户界面                               |
+
+需要的服务（需接口）
+
+| 服务名                      | 服务       |
+| ------------------------ | -------- |
+| AdminViewController.show | 显示用户管理界面 |
+|                          |          |
+
+### 
 
 ### 4.2 业务逻辑层的分解
-
-
 
 #### 4.2.1 UserBL模块
 
@@ -1021,7 +1147,13 @@ UserLog的接口规范如表4.2.1(3)-3所示
 
 ##### （4）业务逻辑层内部动态模型
 
+增加用户顺序图
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/Admin-%E5%A2%9E%E5%8A%A0%E7%94%A8%E6%88%B7.png)
+
+登陆顺序图
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/Admin_login.png)
 
 #### 4.2.2 StockBL模块
 
@@ -1595,7 +1727,13 @@ customerbl模块的职责及接口参见软件体系结构设计文档
 
 ##### （4）业务逻辑层内部动态模型
 
+图1 增加客户顺序图
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
+
+修改客户属性顺序图
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/%E4%BF%AE%E6%94%B9%E5%AE%A2%E6%88%B7%E9%A1%BA%E5%BA%8F%E5%9B%BE.png)
 
 #### 4.2.9 LogBL模块
 
