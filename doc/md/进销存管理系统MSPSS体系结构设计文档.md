@@ -567,7 +567,7 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | LogBLService.showLogList   | 语法   | public LogListVO showLogList(ArrayList<LogPO> logList); |
 |                            | 前置条件 | 无                                        |
 |                            | 后置条件 | 返回日志列表VO                                 |
-| LogBLService.showLogDetail | 语法   | public LogVO showLogDetail(LogPO logPO); |
+| LogBLService.showLogDetail | 语法   | public LogVO showLogDetail(String id);   |
 |                            | 前置条件 | 无                                        |
 |                            | 后置条件 | 返回日志VO                                   |
 
@@ -578,23 +578,29 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 ### promotionbl的接口规范
 
-| 服务名                       | 服务   | 服务                                       |
-| ------------------------- | ---- | ---------------------------------------- |
-| PromotionBLService.add    | 语法   | public ResultMessage add(Promotion PO promotionPO); |
-|                           | 前置条件 | 无                                        |
-|                           | 后置条件 | 促销策略数据中增加一条促销策略                          |
-| PromotionBLService.delete | 语法   | public ResultMessage delete(String id);  |
-|                           | 前置条件 | 无                                        |
-|                           | 后置条件 | 删除一条促销策略                                 |
-| PromotionBLService.update | 语法   | public ResultMessage update(String id,PromotionPO promotionPO); |
-|                           | 前置条件 | 无                                        |
-|                           | 后置条件 | 更新一条促销策略                                 |
-| PromotionBLService.search | 语法   | public ArrayList<PromotionPO> search(Time date); |
-|                           | 前置条件 | 无                                        |
-|                           | 后置条件 | 返回所有有效的促销策略                              |
-| PromotionBLInfo.search    | 语法   | public ArrayList<PromotionPO> search(Time date); |
-|                           | 前置条件 | 无                                        |
-|                           | 后置条件 | 返回所有有效的促销策略                              |
+| 服务名                                    | 服务   | 服务                                       |
+| -------------------------------------- | ---- | ---------------------------------------- |
+| PromotionBLService.add                 | 语法   | public ResultMessage add(PromotionVO promotionVO); |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 促销策略数据中增加一条促销策略                          |
+| PromotionBLService.delete              | 语法   | public ResultMessage delete(String id);  |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 删除一条促销策略                                 |
+| PromotionBLService.update              | 语法   | public ResultMessage update(String id,PromotionVO promotionVO); |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 更新一条促销策略                                 |
+| PromotionBLService.search              | 语法   | public ArrayList<PromotionPO> search(Time date); |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回所有有效的促销策略                              |
+| PromotionBLService.showPromotionList   | 语法   | public PromotionListVO showPromotionList(ArrayList<PromotionPO>); |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回促销策略列表VO                               |
+| PromotionBLService.showPromotionDetail | 语法   | public PromotionVO showPromotionDetail(String id); |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回促销策略VO                                 |
+| PromotionBLInfo.search                 | 语法   | public ArrayList<PromotionPO> search(Time date); |
+|                                        | 前置条件 | 无                                        |
+|                                        | 后置条件 | 返回所有有效的促销策略                              |
 
 | 服务名                         | 服务               |
 | --------------------------- | ---------------- |
@@ -878,9 +884,9 @@ InValue 应收额度
 
 **LogPO**
 
-| Operator | Time   | Kind   | money     | stock     | commodity |
-| -------- | ------ | ------ | --------- | --------- | --------- |
-| String   | String | String | long long | long long | string    |
+| Operator | Time   | Kind   | money     | stock     | commodity | ID     |
+| -------- | ------ | ------ | --------- | --------- | --------- | ------ |
+| String   | String | String | long long | long long | string    | String |
 
 **UserPO**
 
