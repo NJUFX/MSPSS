@@ -97,6 +97,11 @@
 | 刘雅歆      | 2017-10-20 | 修改了chiefmanagerbl接口规范           | V1.3.1   |
 | 伏家兴      | 2017-10-21 | 添加了customerdata的接口规范            | V1.3.2   |
 | FX全组人员   | 2017-11-10 | 重构                              | v1.4     |
+| 伏家兴      | 2017-11-11 | 添加customerbl和userbl的接口规范和关键类图   | v1.,4.1  |
+|          |            |                                 |          |
+|          |            |                                 |          |
+|          |            |                                 |          |
+|          |            |                                 |          |
 
 
 
@@ -136,7 +141,7 @@
 
 <center> 图3-1 分层体系结构的逻辑视角</center>
 
-![]()
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88.png)
 
 ​	<center> 图3-2 分层体系结构的逻辑设计方案</center>
 
@@ -214,13 +219,13 @@
 
 <center>图4.1-1 进销存管理系统MSPSS客户端开发包图</center>
 
-![客户端开发包图]()
+![客户端开发包图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9FMSPSS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE.png)
 
 
 
 <center> 表4.1-2 进销存管理系统MSPSS服务器端逻辑包图</center>
 
-![客户端图]()
+![客户端图](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3/%E8%BF%9B%E9%94%80%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FMSPSS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E9%80%BB%E8%BE%91%E5%8C%85%E5%9B%BE.png)
 
 ### <a name="4.2"></a>4.2 运行时进程
 
@@ -332,8 +337,6 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 
 
-![业务逻辑层]()
-
 图5.3-1 业务逻辑层的设计
 
 #### 5.3.1 业务逻辑层模块的职责<a name="5.3.1"></a><br>
@@ -342,16 +345,51 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 表 5.3.1-1 业务逻辑层模块的职责
 
-| 模块             | 职责                 |
-| -------------- | ------------------ |
-| fiancebl       | 负责实现财务人员界面所需要的服务   |
-| stocksellerbl  | 负责实现进货销售人员所需要的服务   |
-| stockmanagerbl | 负责实现库存管理人员所需要的服务   |
-| chiefmanagerbl | 负责实现总经理所需要的服务      |
-| mainbl         | 负责实现登陆界面所需要的服务     |
-| adminbl        | 负责实现系统管理人员界面所需要的服务 |
+| 模块               | 职责           |
+| ---------------- | ------------ |
+| userbl           | 负责实现用户所需要的业务 |
+| customerbl       | 负责实现客户所需要的业务 |
+| commoditybl      |              |
+| stockbl          |              |
+| billbl           |              |
+| logbl            |              |
+| promotionbl      |              |
+| accountbl        |              |
+| generalaccountbl |              |
+|                  |              |
 
 #### 5.3.2 业务逻辑模块的接口规范<a name="5.3.2"></a><br>
+
+表5.3.2-1 userbl模块的接口规范
+
+提供的服务（供接口）
+
+| 服务名                      | 服务   | 服务                                       |
+| ------------------------ | ---- | ---------------------------------------- |
+| UserBLService.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                          | 前置条件 | 用户处于未登录状态                                |
+|                          | 后置条件 | 用户登陆                                     |
+| UserBLService.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
+|                          | 前置条件 | 用户已登录                                    |
+|                          | 后置条件 | 用户登出                                     |
+| UserBLService.addUser    | 语法   | public ResultMessage addUser(UserVO);    |
+|                          | 前置条件 | 输入的信息符合规范                                |
+|                          | 后置条件 | 增加用户                                     |
+| UserBLService.delUser    | 语法   | public ResultMessage delUser(String ID); |
+|                          | 前置条件 | 输入的ID已存在                                 |
+|                          | 后置条件 | 删除该用户                                    |
+| UserBLService.modifyUser | 语法   | public ResultMessage modifyUser(UserVO); |
+|                          | 前置条件 | 输入的信息符合规范                                |
+| 输入的信息符合规范                | 后置条件 | 修改用户属性                                   |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+
 
 ### commoditybl的接口规范
 
@@ -534,12 +572,10 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 |                            | 前置条件 | 无                                        |
 |                            | 后置条件 | 返回日志VO                                   |
 
-| 服务名            | 服务             |
-| -------------- | -------------- |
-| LogData.add    | 在日志数据中加入一个日志PO |
-| LogData.search | 搜索符合条件的日志PO    |
-|                |                |
-|                |                |
+| 服务名                   | 服务             |
+| --------------------- | -------------- |
+| LogDataService.add    | 在日志数据中加入一个日志PO |
+| LogDataService.search | 搜索符合条件的日志PO    |
 
 ### promotionbl的接口规范
 
@@ -557,80 +593,16 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | PromotionBLService.search | 语法   | public ArrayList<PromotionPO> search(Time date); |
 |                           | 前置条件 | 无                                        |
 |                           | 后置条件 | 返回所有有效的促销策略                              |
-| PromotionInfo.search      | 语法   | public ArrayList<PromotionPO> search(Time date); |
+| PromotionBLInfo.search    | 语法   | public ArrayList<PromotionPO> search(Time date); |
 |                           | 前置条件 | 无                                        |
 |                           | 后置条件 | 返回所有有效的促销策略                              |
 
-| 服务名                  | 服务               |
-| -------------------- | ---------------- |
-| PromotionData.add    | 给促销策略数据中增加一个促销策略 |
-| PromotionData.delete | 从促销策略数据中删除一个促销策略 |
-| PromotionData.update | 更新一个促销策略         |
-| PromotionData.search | 搜索所有有效的促销策略      |
-
-#### 5.4.2 数据层模块的接口规范<a name="5.4.2"></a><br>
-
-表1 SystemDataService模块的接口规范
-
-| 提供的服务（供接口）                        |      |                                          |
-| --------------------------------- | ---- | ---------------------------------------- |
-| SystemDataService.findUser        | 语法   | public UserPO findUser(long id) throws RemoteException |
-|                                   | 前置条件 | id存在于用户数据中                               |
-|                                   | 后置条件 | 返回该id对应的UserPo，或者抛出异常：RemoteException    |
-| SystemDataService.deleteUser      | 语法   | public POStatus deleteUser(long id) throws RemoteException |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，删除数据 |
-| SystemDataService.addUser         | 语法   | public POStatus addUser(UserPO newuser) throws RemoteException |
-|                                   | 前置条件 | newuser必须被初始化                            |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存新用户 |
-| SystemDataService.updateUser      | 语法   | public POStatus updateUser(UserPO user) throws RemoteException |
-|                                   | 前置条件 | user必须以及被初始化                             |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，更新系统数据 |
-| SystemDataSerive.addInitInfo()    | 语法   | public POStatus addInitInfo(InitAccountPO initaccount) throws RemoteException |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存初始化账户 |
-| SystemDataService.addLog()        | 语法   | public POStatus addLog(LogPO log) throws RemoteException |
-|                                   | 前置条件 | 无                                        |
-|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存日志 |
-| SystemDataService.checkInitInfo() | 语法   | public InitAccountPO checkInitInfo(long index) throws RemoteException throws NullIndexException |
-|                                   | 前置条件 | id必须存在于初始化信息列表中                          |
-|                                   | 后置条件 | 返回对应InitAccountPO或者抛出异常:RemoteException ，或者NullIndexException(无效索引，空索引异常) |
-
-表2 CustomerDataServic模块的接口规范
-
-| 服务名                                 | 服务   | 服务                                       |
-| ----------------------------------- | ---- | ---------------------------------------- |
-| CustomerDataService.addCustomer     | 语法   | public boolean addCustomer(CustomerPO customer); |
-|                                     | 前置条件 | 无                                        |
-|                                     | 后置条件 | 系统增加新的客户信息，更新数据                          |
-| CustomerDataService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
-|                                     | 前置条件 | 无                                        |
-|                                     | 后置条件 | 系统删除该ID对应的客户，更新数据                        |
-| CustomerDataService.getCustomerInfo | 语法   | public CustomerPO getCustomerInfo(String ID); |
-|                                     | 前置条件 | 无                                        |
-|                                     | 后置条件 | 返回该ID对应的客户PO                             |
-| CustomerDataService.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerPO customer); |
-|                                     | 前置条件 | 无                                        |
-|                                     | 后置条件 | 修改客户信息，更新数据                              |
-|                                     |      |                                          |
-
-表3 BillDataService模块的接口规范
-
-| 提供的服务（供接口）             |                         |                                          |
-| ---------------------- | ----------------------- | ---------------------------------------- |
-| BillDataService.search | 语法                      | public ArrayList<BillPO> search(ConditionPO Condition); |
-| 前置条件                   | 无                       |                                          |
-| 后置条件                   | 返回符合条件的所有单据PO           |                                          |
-| BillDataService.update | 语法                      | public void update(ArrayList<BillPO>);   |
-| 前置条件                   | 数据库中中存在参数传入的BillPO      |                                          |
-| 后置条件                   | BillPO的信息改为参数中BillPO的信息 |                                          |
-| BillDataService.delete | 语法                      | public void delete(ArrayList<BillPO>);   |
-| 前置条件                   | 数据库中存在参数传入的BillPO       |                                          |
-| 后置条件                   | 数据库中移除相应的BillPO         |                                          |
-| BillDataService.add    | 语法                      | public void add(ArrayList<BillPO>);      |
-| 前置条件                   | 数据库中没有参数传入的PO           |                                          |
-| 后置条件                   | 将参数传入的PO加入到数据库          |                                          |
-|                        |                         |                                          |
+| 服务名                         | 服务               |
+| --------------------------- | ---------------- |
+| PromotionDataService.add    | 给促销策略数据中增加一个促销策略 |
+| PromotionDataService.delete | 从促销策略数据中删除一个促销策略 |
+| PromotionDataService.update | 更新一个促销策略         |
+| PromotionDataService.search | 搜索所有有效的促销策略      |
 
 ### accountbl的接口规范
 
@@ -702,10 +674,153 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 |      |      |
 |      |      |
 
+表5.3.2- customerbl模块的接口规范
+
+提供的服务（供接口）
+
+| 服务名                               | 服务   | 服务                                       |
+| --------------------------------- | ---- | ---------------------------------------- |
+| CustomerBLService.addCustomer     | 语法   | public boolean addCustomer(CustomerVO customer) |
+|                                   | 前置条件 | 输入的信息符合规范                                |
+|                                   | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| CustomerBLService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                                   | 前置条件 | 需要删除的用户存在于系统中                            |
+|                                   | 后置条件 | 删除用户，返回true                              |
+| CustomerBLService.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerVO modCustomer); |
+|                                   | 前置条件 | 输入的信息符合规范                                |
+|                                   | 后置条件 | 系统修改该客户的属性，并返回true                       |
+| CustomerBLService.getCustomerInfo | 语法   | public CustomerVO getCustomerInfo(String ID); |
+|                                   | 前置条件 | 输入的客户编号符合规范                              |
+|                                   | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| CustomerBLService.searchCustomer  | 语法   | public ArrayList< CustomerVO > searchCustomer(String keytype, String keyword); |
+|                                   | 前置条件 | 输入的关键词合法                                 |
+|                                   | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+|                                   |      |                                          |
+|                                   |      |                                          |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+### 5.4 数据层的分解
+
+#### 5.4.1 数据层模块的职责
+
+数据层主要给业务逻辑层提供数据访问服务，包括对数据库的增、删、改、 查。由于持久化数据的保存存在
+多种形式:txt 文件、序列化文件、数据库，所以抽象了数据服务
+
+#### 5.4.2 数据层模块的接口规范<a name="5.4.2"></a><br>
+
+表1 SystemDataService模块的接口规范
+
+| 提供的服务（供接口）                        |      |                                          |
+| --------------------------------- | ---- | ---------------------------------------- |
+| SystemDataService.findUser        | 语法   | public UserPO findUser(long id) throws RemoteException |
+|                                   | 前置条件 | id存在于用户数据中                               |
+|                                   | 后置条件 | 返回该id对应的UserPo，或者抛出异常：RemoteException    |
+| SystemDataService.deleteUser      | 语法   | public POStatus deleteUser(long id) throws RemoteException |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，删除数据 |
+| SystemDataService.addUser         | 语法   | public POStatus addUser(UserPO newuser) throws RemoteException |
+|                                   | 前置条件 | newuser必须被初始化                            |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存新用户 |
+| SystemDataService.updateUser      | 语法   | public POStatus updateUser(UserPO user) throws RemoteException |
+|                                   | 前置条件 | user必须以及被初始化                             |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，更新系统数据 |
+| SystemDataSerive.addInitInfo()    | 语法   | public POStatus addInitInfo(InitAccountPO initaccount) throws RemoteException |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存初始化账户 |
+| SystemDataService.addLog()        | 语法   | public POStatus addLog(LogPO log) throws RemoteException |
+|                                   | 前置条件 | 无                                        |
+|                                   | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存日志 |
+| SystemDataService.checkInitInfo() | 语法   | public InitAccountPO checkInitInfo(long index) throws RemoteException throws NullIndexException |
+|                                   | 前置条件 | id必须存在于初始化信息列表中                          |
+|                                   | 后置条件 | 返回对应InitAccountPO或者抛出异常:RemoteException ，或者NullIndexException(无效索引，空索引异常) |
+
+表2 CustomerDataServic模块的接口规范
+
+| 服务名                                 | 服务   | 服务                                       |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| CustomerDataService.addCustomer     | 语法   | public boolean addCustomer(CustomerPO customer); |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 系统增加新的客户信息，更新数据                          |
+| CustomerDataService.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 系统删除该ID对应的客户，更新数据                        |
+| CustomerDataService.getCustomerInfo | 语法   | public CustomerPO getCustomerInfo(String ID); |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 返回该ID对应的客户PO                             |
+| CustomerDataService.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerPO customer); |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 修改客户信息，更新数据                              |
+|                                     |      |                                          |
+
+表3 BillDataService模块的接口规范
+
+| 提供的服务（供接口）             |                         |                                          |
+| ---------------------- | ----------------------- | ---------------------------------------- |
+| BillDataService.search | 语法                      | public ArrayList<BillPO> search(ConditionPO Condition); |
+| 前置条件                   | 无                       |                                          |
+| 后置条件                   | 返回符合条件的所有单据PO           |                                          |
+| BillDataService.update | 语法                      | public void update(ArrayList<BillPO>);   |
+| 前置条件                   | 数据库中中存在参数传入的BillPO      |                                          |
+| 后置条件                   | BillPO的信息改为参数中BillPO的信息 |                                          |
+| BillDataService.delete | 语法                      | public void delete(ArrayList<BillPO>);   |
+| 前置条件                   | 数据库中存在参数传入的BillPO       |                                          |
+| 后置条件                   | 数据库中移除相应的BillPO         |                                          |
+| BillDataService.add    | 语法                      | public void add(ArrayList<BillPO>);      |
+| 前置条件                   | 数据库中没有参数传入的PO           |                                          |
+| 后置条件                   | 将参数传入的PO加入到数据库          |                                          |
+|                        |                         |                                          |
+
+表4 LogDataService模块的接口规范
+
+| 提供的服务（供接口）            |      |                                          |
+| --------------------- | ---- | ---------------------------------------- |
+| 服务名                   | 服务   | 服务                                       |
+| LogDataService.add    | 语法   | public  ResultMessage add(LogPO logPO)   |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 日志数据里增加一条日志记录                            |
+| LogDataService.search | 语法   | public ArrayList<LogPO> search (Time date); |
+|                       | 前置条件 | 无                                        |
+|                       | 后置条件 | 返回符合要求的日志PO数组                            |
+
+表5 PromotionDataService模块的接口规范
+
+| 提供的服务（供接口）                  |      |                                          |
+| --------------------------- | ---- | ---------------------------------------- |
+| 服务名                         | 服务   | 服务                                       |
+| PromotionDataService.add    | 语法   | public ResultMessage add(PromotionPO promotionPO); |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 促销策略数据中增加一条促销记录                          |
+| PromotionDataService.delete | 语法   | public ResultMessage delete(String id);  |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 删除促销策略ID对应的策略                            |
+| PromotionDataService.update | 语法   | public ResultMessage update(PromotionPO promotionPO,String id); |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 更新促销策略ID对应的策略                            |
+| PromotionDataService.search | 语法   | public ArrayList<PromotionPO> search(Time date); |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 返回日期范围内的所有促销策略                           |
+
 ### <a name="5.5"></a>5.5模块的关键类图
 
+userbl关键类图
 
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/UserBL%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
 
+customerbl关键类图
+
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/CustomerBL%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9B%BE.png)
+
+logbl关键类图
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/Logbl的关键类图.png)
+
+promotionbl关键类图
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/promotionbl的关键类图.png)
 
 
 ## <a name="6"></a> 6 信息视角
@@ -725,9 +840,10 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | ClassificationPO | 商品分类编号、名称、父分类                            |
 | InventoryPO      | 各种商品的名称、型号，库存数量，库存均价，批次，批号，出厂日期          |
 | StockPO          | 出/入库数量/金额，销售/进货的数量/金额                    |
+| PromotionPO      | 促销策略id，促销策略类型，促销策略信息列表（根据类型不同而变化，在构造函数中选择初始化），促销策略有效时间 |
 ### 6.2 数据库表<a name="6.3"></a>
 
-数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表
+数据库中包含CustomerPO表、PurchasePO表、SalesPO表、CommodityPO表、LogPO表、UserPO表、PromotionPO表
 
 <br>**名词解释**
 
@@ -772,6 +888,12 @@ InValue 应收额度
 | ID   | Password | name   | Job    | Power |
 | ---- | -------- | ------ | ------ | ----- |
 | long | string   | string | string | int   |
+
+**PromotionPO**
+
+| ID     | Type   | InfoList | Time |      |
+| ------ | ------ | -------- | ---- | ---- |
+| String | String | String[] | Time |      |
 
 
 

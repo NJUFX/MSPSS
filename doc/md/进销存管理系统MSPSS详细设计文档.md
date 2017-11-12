@@ -962,6 +962,8 @@ userbl模块的职责及接口参见软件体系结构设计文档
 |      |      |
 |      |      |
 
+##### （4）业务逻辑层内部动态模型
+
 #### 4.2.2 StockBL模块
 
 
@@ -1142,7 +1144,82 @@ Account的接口规范
 
 #### 4.2.6 PromotionBL模块
 
+(1)模块概述
 
+Promotionbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求
+
+Promotionbl模块的职责及接口参加软件系统结构描述文档
+
+(2)整体结构
+
+根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加promotionblservice接口。业务逻辑层和数据层之间添加promotiondataservice接口和。为了隔离业务逻辑职责和逻辑控制职责，我们增加了promotion对象，这样promotionblserviceimpl会将促销策略模块的操作委托给promotion对象。PromotionPO是作为持久化对象被添加到设计模型中去的。
+
+PromotionBL模块各个类的职责如表所示
+
+| 模块                     | 职责                        |
+| ---------------------- | ------------------------- |
+| PromotionBLServiceImpl | 促销策略模块接口的具体实现             |
+| Promotion              | 促销策略模块的主要功能类，负责实现所有的功能    |
+| PromotionBLInfo        | 负责PromotionBL模块与其他BL模块的交互 |
+
+（3）模块内部类的接口规范
+
+PromotionBLServiceImpl的接口规范
+
+| 提供的服务（供接口）                    |                  |                                          |
+| ----------------------------- | ---------------- | ---------------------------------------- |
+| PromotionBLServiceImpl.add    | 语法               | public ResultMessage add(Promotion PO promotionPO); |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 促销策略数据中增加一条促销策略  |                                          |
+| PromotionBLServiceImpl.delete | 语法               | public ResultMessage delete(String id);  |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 删除一条促销策略         |                                          |
+| PromotionBLServiceImpl.update | 语法               | public ResultMessage update(String id,PromotionPO promotionPO); |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 更新一条促销策略         |                                          |
+| PromotionBLServiceImpl.search | 语法               | public ArrayList<PromotionPO> search(Time date); |
+| 前置条件                          | 无                |                                          |
+| 后置条件                          | 返回所有有效的促销策略      |                                          |
+| 需要的服务（需接口）                    |                  |                                          |
+| 服务名                           | 服务               |                                          |
+| Promotion.add                 | 给促销策略数据中增加一个促销策略 |                                          |
+| Promotion.delete              | 从促销策略数据中删除一个促销策略 |                                          |
+| Promotion.update              | 更新一个促销策略         |                                          |
+| Promotion.search              | 搜索所有有效的促销策略      |                                          |
+
+Promotion的接口规范
+
+| 提供的服务（供接口）                  |                  |                                          |
+| --------------------------- | ---------------- | ---------------------------------------- |
+| Promotion.add               | 语法               | public ResultMessage add(Promotion PO promotionPO); |
+| 前置条件                        | 无                |                                          |
+| 后置条件                        | 促销策略数据中增加一条促销策略  |                                          |
+| Promotion.delete            | 语法               | public ResultMessage delete(String id);  |
+| 前置条件                        | 无                |                                          |
+| 后置条件                        | 删除一条促销策略         |                                          |
+| Promotion.update            | 语法               | public ResultMessage update(String id,PromotionPO promotionPO); |
+| 前置条件                        | 无                |                                          |
+| 后置条件                        | 更新一条促销策略         |                                          |
+| Promotion.search            | 语法               | public ArrayList<PromotionPO> search(Time date); |
+| 前置条件                        | 无                |                                          |
+| 后置条件                        | 返回所有有效的促销策略      |                                          |
+| 需要的服务（需接口）                  |                  |                                          |
+| 服务名                         | 服务               |                                          |
+| PromotionDataService.add    | 给促销策略数据中增加一个促销策略 |                                          |
+| PromotionDataService.delete | 从促销策略数据中删除一个促销策略 |                                          |
+| PromotionDataService.update | 更新一个促销策略         |                                          |
+| PromotionDataService.search | 搜索所有有效的促销策略      |                                          |
+
+PromotionBLInfo的接口规范
+
+| 提供的服务（供接口）          |                  |                                          |
+| ------------------- | ---------------- | ---------------------------------------- |
+| PromotionBLInfo.add | 语法               | public ResultMessage add(Promotion PO promotionPO); |
+| 前置条件                | 无                |                                          |
+| 后置条件                | 促销策略数据中增加一条促销策略  |                                          |
+| 需要的服务（需接口）          |                  |                                          |
+| 服务名                 | 服务               |                                          |
+| Promotion.add       | 给促销策略数据中增加一个促销策略 |                                          |
 
 #### 4.2.7 TableBL模块
 
@@ -1407,7 +1484,76 @@ customerbl模块的职责及接口参见软件体系结构设计文档
 
 #### 4.2.9 LogBL模块
 
+(1)模块概述
 
+logbl模块承担的需求参见需求规格说明文档功能需求及其他相关非功能需求
+
+logbl模块的职责及接口参加软件系统结构描述文档
+
+(2)整体结构
+
+根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加logblservice接口。业务逻辑层和数据层之间添加logdataservice接口和。为了隔离业务逻辑职责和逻辑控制职责，我们增加了log对象，这样logblserviceimpl会将日志模块的操作委托给log对象。LogPO是作为持久化对象被添加到设计模型中去的。
+
+LogBL模块各个类的职责如表所示
+
+| 模块               | 职责                   |
+| ---------------- | -------------------- |
+| LogBLServiceImpl | 日志模块接口的具体实现          |
+| Log              | 日志模块的主要功能类，负责实现所有的功能 |
+| LogBLInfo        | 负责LogBL模块与其他BL模块的交互  |
+
+（3）模块内部类的接口规范
+
+LogBLServiceImpl的接口规范
+
+| 提供的服务（供接口）                     |              |                                          |
+| ------------------------------ | ------------ | ---------------------------------------- |
+| LogBLServiceImpl.search        | 语法           | public ArrayList<LogPO> search(Time date); |
+| 前置条件                           | 无            |                                          |
+| 后置条件                           | 返回存储LogPO的数组 |                                          |
+| LogBLServiceImpl.showLogList   | 语法           | public LogListVO showLogList(ArrayList<LogPO> logList); |
+| 前置条件                           | 无            |                                          |
+| 后置条件                           | 返回日志列表VO     |                                          |
+| LogBLServiceImpl.showLogDetail | 语法           | public LogVO showLogDetail(LogPO logPO); |
+| 前置条件                           | 无            |                                          |
+| 后置条件                           | 返回日志VO       |                                          |
+| 需要的服务（需接口）                     |              |                                          |
+| 服务名                            | 服务           |                                          |
+| Log.search                     | 搜索符合条件的日志    |                                          |
+| Log.showLogList                | 显示日志列表       |                                          |
+| Log.showLogDetail              | 显示日志详情       |                                          |
+
+Log的接口规范
+
+| 提供的服务（供接口）            |                 |                                          |
+| --------------------- | --------------- | ---------------------------------------- |
+| Log.add               | 语法              | public ResultMessage add(LogPO logPO);   |
+| 前置条件                  | 无               |                                          |
+| 后置条件                  | Log Data里增添一条记录 |                                          |
+| Log.search            | 语法              | public ArrayList<LogPO> search(Time date); |
+| 前置条件                  | 无               |                                          |
+| 后置条件                  | 返回存储LogPO的数组    |                                          |
+| Log.showLogList       | 语法              | public LogListVO showLogList(ArrayList<LogPO> logList); |
+| 前置条件                  | 无               |                                          |
+| 后置条件                  | 返回日志列表VO        |                                          |
+| Log.showLogDetail     | 语法              | public LogVO showLogDetail(LogPO logPO); |
+| 前置条件                  | 无               |                                          |
+| 后置条件                  | 返回日志VO          |                                          |
+| 需要的服务（需接口）            |                 |                                          |
+| 服务名                   | 服务              |                                          |
+| LogDataService.add    | 在日志数据中加入一个日志PO  |                                          |
+| LogDataService.search | 搜索符合条件的日志PO     |                                          |
+
+LogBLInfo的接口规范
+
+| 提供的服务（供接口）         |                 |                                        |
+| ------------------ | --------------- | -------------------------------------- |
+| LogBLInfo.add      | 语法              | public ResultMessage add(LogPO logPO); |
+| 前置条件               | 无               |                                        |
+| 后置条件               | Log Data里增添一条记录 |                                        |
+| 需要的服务（需接口）         |                 |                                        |
+| 服务名                | 服务              |                                        |
+| LogDataService.add | 在日志数据中加入一个日志PO  |                                        |
 
 #### 4.2.10 GeneralAccountBL模块
 
@@ -1971,7 +2117,36 @@ List的接口规范
 
 ### 4.3 数据层的分解
 
-#### 4.3.1 UserBL模块
+#### 4.3.1 User模块
+
+提供的服务（供接口）
+
+| 服务名                            | 服务   | 服务                                       |
+| ------------------------------ | ---- | ---------------------------------------- |
+| UserDataServiceImpl.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                                | 前置条件 | 用户处于未登录状态                                |
+|                                | 后置条件 | 用户登陆                                     |
+| UserDataServiceImpl.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
+|                                | 前置条件 | 用户已登录                                    |
+|                                | 后置条件 | 用户登出                                     |
+| UserDataServiceImpl.addUser    | 语法   | public ResultMessage addUser(UserPO);    |
+|                                | 前置条件 | 输入的信息符合规范                                |
+|                                | 后置条件 | 增加用户                                     |
+| UserDataServiceImpl.delUser    | 语法   | public ResultMessage delUser(String ID); |
+|                                | 前置条件 | 输入的ID已存在                                 |
+|                                | 后置条件 | 删除该用户                                    |
+| UserDataServiceImpl.modifyUser | 语法   | public ResultMessage modifyUser(UserPO); |
+|                                | 前置条件 | 输入的信息符合规范                                |
+| 输入的信息符合规范                      | 后置条件 | 修改用户属性                                   |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+####
 
 #### 4.3.2 Stock模块
 
@@ -2005,6 +2180,37 @@ List的接口规范
 |                                      | 后置条件 | 无                                        |
 
 #### 4.3.6 Customer模块
+
+提供的服务（供接口）
+
+| 服务名                                     | 服务   | 服务                                       |
+| --------------------------------------- | ---- | ---------------------------------------- |
+| CustomerDataServiceImpl.addCustomer     | 语法   | public boolean addCustomer(CustomerPO customer) |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 系统新建一个客户，并提示新建成功                         |
+| CustomerDataServiceImpl.delCustomer     | 语法   | public boolean delCustomer(String ID);   |
+|                                         | 前置条件 | 需要删除的用户存在于系统中                            |
+|                                         | 后置条件 | 删除用户，返回true                              |
+| CustomerDataServiceImpl.modifyCustomer  | 语法   | public boolean ModifyCustomer(CustomerPO modCustomer); |
+|                                         | 前置条件 | 输入的信息符合规范                                |
+|                                         | 后置条件 | 系统修改该客户的属性，并返回true                       |
+| CustomerDataServiceImpl.getCustomerInfo | 语法   | public CustomerPO getCustomerInfo(String ID); |
+|                                         | 前置条件 | 输入的客户编号符合规范                              |
+|                                         | 后置条件 | 如果系统中有该客户，返回该客户的属性。否则返回null              |
+| CustomerDataServiceImpl.searchCustomer  | 语法   | public ArrayList< CustomerPO > searchCustomer(String keytype, String keyword); |
+|                                         | 前置条件 | 输入的关键词合法                                 |
+|                                         | 后置条件 | 如果系统里有符合条件的客户，返回true，否则返回false           |
+|                                         |      |                                          |
+|                                         |      |                                          |
+
+需要的服务（需接口）
+
+| 服务名  | 服务   |
+| ---- | ---- |
+|      |      |
+|      |      |
+
+### 
 
 #### 4.3.7 Log模块
 
