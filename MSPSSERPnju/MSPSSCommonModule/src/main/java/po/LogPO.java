@@ -6,11 +6,11 @@ public class LogPO {
     String time;
     String kind;
     String commodity;
-    Long money;
+    int money;
     Long stock;
 
 
-    public LogPO(String i, String o, String t, String k, String c, Long m, long s) {
+    public LogPO(String i, String o, String t, String k, String c, int m, long s) {
         id = i;
         operator = o;
         time = t;
