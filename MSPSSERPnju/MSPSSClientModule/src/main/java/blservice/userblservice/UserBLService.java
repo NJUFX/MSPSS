@@ -1,6 +1,7 @@
 package blservice.userblservice;
 
 import status.*;
+import util.Kind_Of_Power;
 import vo.*;
 import util.ResultMessage;
 
@@ -14,7 +15,7 @@ public interface UserBLService {
      * @param power
      * @return
      */
-    public ResultMessage givePower(PowerVO power);
+    public ResultMessage givePower(UserVO user, Kind_Of_Power power);
 
     /**
      * @param user
