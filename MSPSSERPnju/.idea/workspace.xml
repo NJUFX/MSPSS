@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f9d927e-0e99-41ff-8da1-340f664ba88f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/customerstubdriver/CustomerBLService_Driver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/customerstubdriver/CustomerBLService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Driver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/util/Kind_Of_Power.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/util/Kind_Of_Users.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/userblservice/UserBLService.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/userblservice/UserBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/status/Log_In_Out_Status.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/status/Log_In_Out_Status.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/UserVO.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/UserVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,14 +15,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserBLService_Stub.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserBLService_Stub.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2553">
-              <caret line="111" column="31" lean-forward="false" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+            <state relative-caret-position="-713">
+              <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#438#446#0" expanded="true" />
+                <element signature="e#338#346#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,8 +31,8 @@
       <file leaf-file-name="UserBLService_Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="46">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -56,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockSellerService_Driver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockSellerService_Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/stocksellerstubdriver/StockSellerService_Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+            <state relative-caret-position="184">
+              <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,8 +177,8 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/userblservice/UserBLService.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/UserVO.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/status/Log_In_Out_Status.java" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Driver.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java" />
       </list>
     </option>
   </component>
@@ -538,6 +530,14 @@
       <option name="presentableId" value="Default" />
       <updated>1510422640972</updated>
     </task>
+    <task id="LOCAL-00001" summary="add customer and user parts">
+      <created>1510469950517</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1510469950517</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -557,7 +557,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2965204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2193646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -984,25 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2553">
-          <caret line="111" column="31" lean-forward="false" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#438#446#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/stocksellerstubdriver/StockSellerService_Stub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1013,10 +994,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/stocksellerstubdriver/StockSellerService_Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        <state relative-caret-position="184">
+          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-713">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#338#346#0" expanded="true" />
           </folding>
         </state>
       </provider>
