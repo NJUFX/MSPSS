@@ -1,5 +1,9 @@
 package blstubdriver.logstubdriver;
 
+/**
+ * Created by Harper on 17/11/12
+ */
+
 import blservice.logblservice.LogBLService;
 import po.LogPO;
 import util.Time;
@@ -13,6 +17,8 @@ public class Log_Stub implements LogBLService {
     //constant
     ArrayList<LogPO> Test_LogPOList = new ArrayList<LogPO>();
     LogPO Test_LogPO = new LogPO("000001","jiangchen","17/11/20","sell","Bulb",100,10000);
+    LogListVO Test_LogListVO = new LogListVO(1,Test_LogPOList );
+    LogVO Test_LogVO = new LogVO("000001","jiangchen","17/11/20","sell","Bulb",100,10000);
 
 
     /**
@@ -33,7 +39,11 @@ public class Log_Stub implements LogBLService {
      * @return LogListVO
      */
     public LogListVO showLogList(ArrayList<LogPO> logList){
+<<<<<<< HEAD
         return null;
+=======
+        return Test_LogListVO;
+>>>>>>> 9c80da424553c51f7597566a5c9419f7da4fc9d3
     }
 
     /**
@@ -43,6 +53,11 @@ public class Log_Stub implements LogBLService {
      * @return LogVO
      */
     public LogVO showLogDetail(String id){
+<<<<<<< HEAD
         return null;
     };
+=======
+        return Test_LogVO;
+    }
+>>>>>>> 9c80da424553c51f7597566a5c9419f7da4fc9d3
 }
