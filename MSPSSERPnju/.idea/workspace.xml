@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/promotionstubdriver/Promotion_Stub.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/promotionstubdriver/Promotion_Stub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/PromotionListVO.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/PromotionListVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/PromotionVO.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/PromotionVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PromotionPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PromotionPO.java" />
-    </list>
+    <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +15,8 @@
       <file leaf-file-name="Promotion_Stub.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/promotionstubdriver/Promotion_Stub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="80" column="32" lean-forward="false" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+            <state relative-caret-position="150">
+              <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#527#540#0" expanded="true" />
@@ -441,7 +436,7 @@
     <option name="totallyTimeSpent" value="840000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="730" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="730" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -750,8 +745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/promotionstubdriver/Promotion_Stub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="32" lean-forward="false" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+        <state relative-caret-position="150">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#527#540#0" expanded="true" />
