@@ -1,19 +1,33 @@
 package po;
 
-public class PromotionPO {
-	String type;
-	String time;// 有效时间区间
+import util.Time;
 
-	public PromotionPO(String t, String s) {
+public class PromotionPO {
+	String id;
+	String type;
+	String[] infoList;
+	Time time;
+
+	public PromotionPO(String i, String t,String[] info,Time ti) {
+		id = i;
 		type = t;
-		time = s;
+		infoList = info;
+		time = ti;
+	}
+
+	public String getId(){
+		return id;
 	}
 
 	public String getType() {
 		return type;
 	}
 
-	public String getTime() {
+	public Time getTime() {
 		return time;
+	}
+
+	public String[] getInfoList(){
+		return infoList;
 	}
 }
