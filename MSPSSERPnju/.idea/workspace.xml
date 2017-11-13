@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="" />
+=======
+<<<<<<< HEAD
+    <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="" />
+=======
+    <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/promotionstubdriver/PromotionData_Driver.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/promotionstubdriver/Promotion_Driver.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/promotionstubdriver/Promotion_Stub.java" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/promotionstubdriver/PromotionData_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/promotionstubdriver/Promotion_Stub.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/promotionstubdriver/Promotion_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/customerdatastubdriver/CustomerData_Stub.java" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/customerdatastubdriver/CustomerData_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/logdatastubdriver/LogData_Stub.java" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/logdatastubdriver/LogData_Stub.java" />
+    </list>
+>>>>>>> 17bb5d615f3d40e5a415b111d27b4ef82238a217
+>>>>>>> 74e9fb84f0077cf21e5a893939ee15d46e0dc2b5
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -11,18 +27,84 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="BillDataService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/BillDataService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+=======
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Promotion_Stub.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/promotionstubdriver/Promotion_Stub.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="23">
+              <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <folding />
+=======
+            <state relative-caret-position="547">
+              <caret line="51" column="3" lean-forward="false" selection-start-line="51" selection-start-column="3" selection-end-line="51" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#388#389#0" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
+                <element signature="e#562#563#0" expanded="true" />
+                <element signature="e#742#743#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#1170#1183#0" expanded="true" />
+              </folding>
+>>>>>>> 17bb5d615f3d40e5a415b111d27b4ef82238a217
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Promotion_Stub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/promotionstubdriver/Promotion_Stub.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="276">
+              <caret line="18" column="90" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="90" />
+              <folding />
+=======
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#567#580#0" expanded="true" />
+                <element signature="e#1397#1410#0" expanded="true" />
+              </folding>
+>>>>>>> 17bb5d615f3d40e5a415b111d27b4ef82238a217
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Promotion_Driver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/promotionstubdriver/Promotion_Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="92">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+=======
+            <state relative-caret-position="30">
+              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+>>>>>>> 17bb5d615f3d40e5a415b111d27b4ef82238a217
+>>>>>>> 74e9fb84f0077cf21e5a893939ee15d46e0dc2b5
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+<<<<<<< HEAD
+=======
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+>>>>>>> bed7180e2b70e1e75e1352945f234f9221db3365
+>>>>>>> 74e9fb84f0077cf21e5a893939ee15d46e0dc2b5
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,8 +154,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="111" />
+    <option name="y" value="90" />
     <option name="width" value="1280" />
     <option name="height" value="728" />
   </component>
@@ -95,8 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,6 +188,7 @@
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
               <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -224,6 +306,8 @@
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
               <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> 74e9fb84f0077cf21e5a893939ee15d46e0dc2b5
               <item name="MSPSSServerModule" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -265,6 +349,8 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="datastubdriver" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
               <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
@@ -285,18 +371,21 @@
               <item name="datastubdriver" type="462c0819:PsiDirectoryNode" />
               <item name="promotionstubdriver" type="462c0819:PsiDirectoryNode" />
             </path>
+>>>>>>> 17bb5d615f3d40e5a415b111d27b4ef82238a217
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/Documents/重要！/大二/大二上/软工二大作业(Infinity小组）/MSH/MSH" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -419,7 +508,11 @@
     <option name="totallyTimeSpent" value="546000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="111" y="90" width="1280" height="728" extended-state="1" />
+=======
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
+>>>>>>> bed7180e2b70e1e75e1352945f234f9221db3365
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -433,7 +526,11 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34836066" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20840065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> bed7180e2b70e1e75e1352945f234f9221db3365
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -460,6 +557,38 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/logstubdriver/Log_Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/logdatastubdriver/LogData_Stub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="32" column="94" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#569#576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 17bb5d615f3d40e5a415b111d27b4ef82238a217
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/BillDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 74e9fb84f0077cf21e5a893939ee15d46e0dc2b5
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/dataservice/BillDataService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -685,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -693,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -701,7 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,7 +885,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/LogListVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="92">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
@@ -767,6 +893,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/logstubdriver/Log_Driver.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="276">
+          <caret line="18" column="90" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="90" />
+=======
         <state relative-caret-position="211">
           <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
           <folding>
@@ -789,18 +919,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+>>>>>>> bed7180e2b70e1e75e1352945f234f9221db3365
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/logdatastubdriver/LogData_Stub.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="23">
+          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding />
+=======
         <state relative-caret-position="180">
           <caret line="13" column="51" lean-forward="false" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#629#636#0" expanded="true" />
           </folding>
+>>>>>>> bed7180e2b70e1e75e1352945f234f9221db3365
         </state>
       </provider>
     </entry>
