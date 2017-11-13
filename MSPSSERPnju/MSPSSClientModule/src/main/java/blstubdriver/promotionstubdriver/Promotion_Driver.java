@@ -1,4 +1,7 @@
 package blstubdriver.promotionstubdriver;
+/**
+ * Created by Harper on 17/11/13
+ */
 
 import org.junit.Test;
 import po.PromotionPO;
