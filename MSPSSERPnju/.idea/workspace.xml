@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eaed85a-e115-40f6-a92f-32060872fbf8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/LogDataService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/PromotionDataService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -15,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LogDataService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/LogDataService.java">
+      <file leaf-file-name="PromotionDataService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/PromotionDataService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            <state relative-caret-position="660">
+              <caret line="44" column="52" lean-forward="true" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,6 +54,7 @@
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/customerdatastubdriver/CustomerData_Stub.java" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/CustomerDataService.java" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/LogDataService.java" />
+        <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/PromotionDataService.java" />
       </list>
     </option>
   </component>
@@ -635,8 +636,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/LogDataService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        <state relative-caret-position="135">
+          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/PromotionDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="52" lean-forward="true" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
