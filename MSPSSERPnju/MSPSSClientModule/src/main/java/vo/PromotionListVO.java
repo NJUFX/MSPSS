@@ -1,13 +1,17 @@
 package vo;
 
+import java.util.ArrayList;
+
 public class PromotionListVO {
-	PromotionVO[] currentPromotion;
+    ArrayList<PromotionVO> currentPromotion = new ArrayList<PromotionVO>();
 
-	public PromotionListVO(PromotionVO[] p) {
-		currentPromotion = p;
-	}
+    public PromotionListVO(ArrayList<PromotionVO> p) {
 
-	public PromotionVO[] getCurrentPromotion() {
-		return currentPromotion;
-	}
+        currentPromotion = p;
+    }
+
+    public ArrayList<PromotionVO> getCurrentPromotion() {
+
+        return currentPromotion;
+    }
 }
