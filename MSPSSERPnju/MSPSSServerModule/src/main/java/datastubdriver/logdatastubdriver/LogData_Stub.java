@@ -4,13 +4,14 @@ package datastubdriver.logdatastubdriver;
  * Created by Harper on 17/11/13
  */
 
+import dataservice.LogDataService;
 import po.LogPO;
 import util.ResultMessage;
 import util.Time;
 
 import java.util.ArrayList;
 
-public class LogData_Stub {
+public class LogData_Stub implements LogDataService{
 
     /**
      * 增加一条日志

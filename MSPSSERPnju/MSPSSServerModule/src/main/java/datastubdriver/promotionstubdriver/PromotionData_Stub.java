@@ -1,5 +1,6 @@
 package datastubdriver.promotionstubdriver;
 
+import dataservice.PromotionDataService;
 import po.PromotionPO;
 import util.ResultMessage;
 import util.Time;
@@ -7,7 +8,7 @@ import vo.PromotionVO;
 
 import java.util.ArrayList;
 
-public class Promotion_Stub {
+public class PromotionData_Stub implements PromotionDataService{
 
     /**
      * 增加一条促销策略
