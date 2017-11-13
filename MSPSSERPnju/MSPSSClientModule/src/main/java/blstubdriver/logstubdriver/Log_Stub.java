@@ -39,11 +39,8 @@ public class Log_Stub implements LogBLService {
      * @return LogListVO
      */
     public LogListVO showLogList(ArrayList<LogPO> logList){
-<<<<<<< HEAD
-        return null;
-=======
         return Test_LogListVO;
->>>>>>> 9c80da424553c51f7597566a5c9419f7da4fc9d3
+
     }
 
     /**
@@ -53,11 +50,8 @@ public class Log_Stub implements LogBLService {
      * @return LogVO
      */
     public LogVO showLogDetail(String id){
-<<<<<<< HEAD
-        return null;
-    };
-=======
+
         return Test_LogVO;
     }
->>>>>>> 9c80da424553c51f7597566a5c9419f7da4fc9d3
+
 }
