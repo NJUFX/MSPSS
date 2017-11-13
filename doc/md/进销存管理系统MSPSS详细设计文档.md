@@ -1344,7 +1344,7 @@ Promotionbl模块的职责及接口参加软件系统结构描述文档
 ##### （2）整体结构
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加promotionblservice接口。业务逻辑层和数据层之间添加promotiondataservice接口和。为了隔离业务逻辑职责和逻辑控制职责，我们增加了promotion对象，这样promotionblserviceimpl会将促销策略模块的操作委托给promotion对象。PromotionPO是作为持久化对象被添加到设计模型中去的。
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/Promotion模块类图.png)
 PromotionBL模块各个类的职责如表所示
 
 | 模块                     | 职责                        |
@@ -1426,7 +1426,8 @@ PromotionBLInfo的接口规范
 | 服务名                 | 服务               |                                          |
 | Promotion.add       | 给促销策略数据中增加一个促销策略 |                                          |
 
-
+（4）业务逻辑层内部动态模型
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/Promotion顺序图.png)
 
 #### 4.2.7 TableBL模块
 
@@ -1746,7 +1747,7 @@ logbl模块的职责及接口参加软件系统结构描述文档
 ##### （2）整体结构
 
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，我们会添加接口。比如展示层和业务逻辑层之间我们添加logblservice接口。业务逻辑层和数据层之间添加logdataservice接口和。为了隔离业务逻辑职责和逻辑控制职责，我们增加了log对象，这样logblserviceimpl会将日志模块的操作委托给log对象。LogPO是作为持久化对象被添加到设计模型中去的。
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/Log模块类图.png)
 LogBL模块各个类的职责如表所示
 
 | 模块               | 职责                   |
@@ -1807,6 +1808,8 @@ LogBLInfo的接口规范
 | 需要的服务（需接口）         |                 |                                        |
 | 服务名                | 服务              |                                        |
 | LogDataService.add | 在日志数据中加入一个日志PO  |                                        |
+（4）业务逻辑层内部动态模型业务逻辑
+![](http://101.37.19.32:10080/FX/MSPSS/blob/master/doc/img/Log顺序图.png)
 
 #### 4.2.10 GeneralAccountBL模块
 
