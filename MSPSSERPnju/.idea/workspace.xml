@@ -16,8 +16,13 @@
       <file leaf-file-name="AccountDataService_Stub.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/accountdatastubdriver/AccountDataService_Stub.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="825">
               <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+=======
+            <state relative-caret-position="150">
+              <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+>>>>>>> 04813803d257e4e3e03f498c59fc7d74068386bb
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -669,7 +674,12 @@
     <option name="totallyTimeSpent" value="2741000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-11" y="-11" width="1942" height="1102" extended-state="6" />
+=======
+    <frame x="0" y="23" width="1280" height="730" extended-state="0" />
+    <editor active="true" />
+>>>>>>> 04813803d257e4e3e03f498c59fc7d74068386bb
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -962,6 +972,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/generalaccountstubdriver/GeneralAccount_Driver.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="575">
           <caret line="29" column="40" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="29" selection-end-column="40" />
           <folding />
@@ -972,6 +983,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+=======
+        <state relative-caret-position="150">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+>>>>>>> 04813803d257e4e3e03f498c59fc7d74068386bb
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
