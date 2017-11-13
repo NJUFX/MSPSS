@@ -1,5 +1,6 @@
 package blstubdriver.promotionstubdriver;
 
+import blservice.promotionblservice.PromotionBLService;
 import po.PromotionPO;
 import util.ResultMessage;
 import util.Time;
@@ -8,7 +9,7 @@ import vo.PromotionVO;
 
 import java.util.ArrayList;
 
-public class Promotion_Stub {
+public class Promotion_Stub implements PromotionBLService{
 
     //constants
     String[] Test_String = new String[1];
