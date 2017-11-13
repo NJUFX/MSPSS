@@ -2,7 +2,6 @@ package datastubdriver.customerdatastubdriver;
 
 import java.util.*;
 
-import dataservice.CustomerDataService;
 import po.CustomerPO;
 import util.*;
 
