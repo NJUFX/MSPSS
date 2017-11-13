@@ -11,9 +11,14 @@ import java.util.ArrayList;
 public class Promotion_Stub {
 
     //constants
+<<<<<<< HEAD
     String[] Test_String = new String[1];
     PromotionVO Test_PromotionVO = new PromotionVO("000001","分级赠送赠品",Test_String,new Time(2017,11,13,9,12,12));
     PromotionPO Test_PromotionPO = new PromotionPO("000001","分级赠送赠品",Test_String,new Time(2017,11,13,9,12,12));
+=======
+    PromotionVO Test_PromotionVO = new PromotionVO("000001","分级赠送赠品",new String[]{},new Time(2017,11,13,9,12,12));
+    PromotionPO Test_PromotionPO = new PromotionPO("000001","分级赠送赠品",new String[]{},new Time(2017,11,13,9,12,12));
+>>>>>>> b7ace3d459442209df8db2df67063a8b72b99b21
     ArrayList<PromotionVO> Test_PromotionVOList = new ArrayList<PromotionVO>();
 
 
