@@ -6,11 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/MSPSSCommonModule/MSPSSCommonModule.iml" filepath="$PROJECT_DIR$/MSPSSCommonModule/MSPSSCommonModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/MSPSSERPnju.iml" filepath="$PROJECT_DIR$/.idea/MSPSSERPnju.iml" />
       <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/datastubdriver.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/datastubdriver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/src/main/main.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/src/main/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MSPSSClientModule/src/main/main1.iml" filepath="$PROJECT_DIR$/MSPSSClientModule/src/main/main1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/main2.iml" filepath="$PROJECT_DIR$/MSPSSCommonModule/src/main/main2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/main3.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/main3.iml" />
+      <module fileurl="file://E:\MSPSS\MSPSSERPnju\MSPSSServerModule\src\main\java\datastubdriver\datastubdriver.iml" filepath="E:\MSPSS\MSPSSERPnju\MSPSSServerModule\src\main\java\datastubdriver\datastubdriver.iml" />
+      <module fileurl="file://E:\MSPSS\MSPSSERPnju\MSPSSServerModule\src\main\main.iml" filepath="E:\MSPSS\MSPSSERPnju\MSPSSServerModule\src\main\main.iml" />
+      <module fileurl="file://E:\MSPSS\MSPSSERPnju\MSPSSClientModule\src\main\main1.iml" filepath="E:\MSPSS\MSPSSERPnju\MSPSSClientModule\src\main\main1.iml" />
+      <module fileurl="file://E:\MSPSS\MSPSSERPnju\MSPSSCommonModule\src\main\main2.iml" filepath="E:\MSPSS\MSPSSERPnju\MSPSSCommonModule\src\main\main2.iml" />
+      <module fileurl="file://E:\MSPSS\MSPSSERPnju\MSPSSServerModule\src\main\java\main3.iml" filepath="E:\MSPSS\MSPSSERPnju\MSPSSServerModule\src\main\java\main3.iml" />
     </modules>
   </component>
 </project>

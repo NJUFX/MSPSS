@@ -1,11 +1,12 @@
 package datastubdriver.generalaccountdatastubservice;
 
-import blservice.generalaccountblservice.GeneralAccountBLService;
-import blstubdriver.generalaccountstubdriver.GeneralAccount_Stub;
+
+import dataservice.GeneralAccountDataService;
 import org.junit.Test;
+import po.GeneralAccountPO;
 import util.ResultMessage;
 import util.Time;
-import vo.GeneralAccountVO;
+
 
 import java.util.ArrayList;
 
@@ -13,9 +14,9 @@ import java.util.ArrayList;
  * Created by thinkpad on 2017/11/13.
  */
 public class GeneralAccountDataService_Driver {
-    GeneralAccountVO generalaccount = new GeneralAccountVO();
+    GeneralAccountPO generalaccount = new GeneralAccountPO();
 
-    GeneralAccountBLService service = new GeneralAccount_Stub();
+    GeneralAccountDataService service = new GeneralAccountDataService_Stub();
 
     @Test
     public void drive() {
@@ -25,7 +26,7 @@ public class GeneralAccountDataService_Driver {
         if (result == ResultMessage.SUCCESS) System.out.println("Sucess to new account");
         else System.out.println("Fail");
         //2
-        ArrayList<GeneralAccountVO> list = new ArrayList<GeneralAccountVO>();
+        ArrayList<GeneralAccountPO> list = new ArrayList<GeneralAccountPO>();
         list = service.checkGeneralAccount(new Time(2017, 11, 11, 11, 11, 11), new Time(2017, 12, 11, 11, 11, 11));
         if (list == null) System.out.println("check sucessfully");
         else System.out.println("fail");

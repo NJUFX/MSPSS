@@ -1,10 +1,11 @@
 package datastubdriver.generalaccountdatastubservice;
 
-import blservice.generalaccountblservice.GeneralAccountBLService;
+
 import dataservice.GeneralAccountDataService;
+import po.GeneralAccountPO;
 import util.ResultMessage;
 import util.Time;
-import vo.GeneralAccountVO;
+
 
 import java.util.ArrayList;
 
@@ -14,13 +15,13 @@ import java.util.ArrayList;
 public class GeneralAccountDataService_Stub implements GeneralAccountDataService {
 
     @Override
-    public ArrayList<GeneralAccountVO> checkGeneralAccount(Time begin, Time end) {
+    public ArrayList<GeneralAccountPO> checkGeneralAccount(Time begin, Time end) {
 
         return null;
     }
 
     @Override
-    public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) {
+    public ResultMessage newGeneralAccount(GeneralAccountPO generalaccount) {
 
 
         return ResultMessage.SUCCESS;

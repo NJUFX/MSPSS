@@ -1,7 +1,8 @@
 package dataservice;
 
+import po.AccountPO;
 import util.ResultMessage;
-import vo.AccountVO;
+
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * Created by thinkpad on 2017/11/13.
  */
 public interface AccountDataService {
-    public ResultMessage addAccount(AccountVO account);
+    public ResultMessage addAccount(AccountPO account);
     /**
      * 删除账户
      *
@@ -30,7 +31,7 @@ public interface AccountDataService {
      * @param name
      * @return 符合条件的List
      */
-    public ArrayList<AccountVO> checkAccount(String name);
+    public ArrayList<AccountPO> checkAccount(String name);
     /**
      * 账户收款
      *

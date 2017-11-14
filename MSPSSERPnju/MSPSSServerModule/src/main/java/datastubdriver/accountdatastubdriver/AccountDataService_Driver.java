@@ -1,11 +1,11 @@
 package datastubdriver.accountdatastubdriver;
 
-import blservice.accountblservice.AccountBLService;
-import blstubdriver.accountstubdriver.Account_Stub;
+import dataservice.AccountDataService;
+
 import org.junit.Test;
 import util.ResultMessage;
 import util.Time;
-import vo.AccountVO;
+import po.AccountPO;
 
 import java.util.ArrayList;
 
@@ -13,9 +13,9 @@ import java.util.ArrayList;
  * Created by thinkpad on 2017/11/13.
  */
 public class AccountDataService_Driver {
-    AccountVO account = new AccountVO("苏果超市", 1000, new Time(2017, 11, 11, 11, 11, 11));
+    AccountPO account = new AccountPO("苏果超市", 1000, new Time(2017, 11, 11, 11, 11, 11));
 
-    private AccountBLService service = new Account_Stub();
+    private AccountDataService service = new AccountDataService_Stub();
 
     @Test
     public void drive() {
@@ -36,7 +36,7 @@ public class AccountDataService_Driver {
         else System.out.println("fail");
 
         //4
-        ArrayList<AccountVO> list = new ArrayList<AccountVO>();
+        ArrayList<AccountPO> list = new ArrayList<AccountPO>();
         list = service.checkAccount("江苏");
         if (list.isEmpty()) System.out.println("no account match your flags");
         else System.out.println("fail");

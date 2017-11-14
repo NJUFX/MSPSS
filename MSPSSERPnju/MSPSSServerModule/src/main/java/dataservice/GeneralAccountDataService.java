@@ -1,8 +1,9 @@
 package dataservice;
 
+import po.GeneralAccountPO;
 import util.ResultMessage;
 import util.Time;
-import vo.GeneralAccountVO;
+
 
 import java.util.ArrayList;
 
@@ -17,12 +18,12 @@ public interface GeneralAccountDataService {
      * @param generalaccount
      * @return 新建成功与否
      */
-    public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount);
+    public ResultMessage newGeneralAccount(GeneralAccountPO generalaccount);
     /**
      * 查询建账信息
      *
      * @param begin,end
      * @return 建账信息列表
      */
-    public ArrayList<GeneralAccountVO> checkGeneralAccount(Time begin, Time end);
+    public ArrayList<GeneralAccountPO> checkGeneralAccount(Time begin, Time end);
 }
