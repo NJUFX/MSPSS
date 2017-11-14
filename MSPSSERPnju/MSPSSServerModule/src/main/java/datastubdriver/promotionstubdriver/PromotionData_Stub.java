@@ -4,7 +4,7 @@ import dataservice.PromotionDataService;
 import po.PromotionPO;
 import util.ResultMessage;
 import util.Time;
-import vo.PromotionVO;
+import po.PromotionPO;
 
 import java.util.ArrayList;
 

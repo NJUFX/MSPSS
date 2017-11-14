@@ -1,6 +1,5 @@
 package datastubdriver.promotionstubdriver;
 
-import blstubdriver.promotionstubdriver.Promotion_Stub;
 import org.junit.Test;
 import po.PromotionPO;
 import util.ResultMessage;

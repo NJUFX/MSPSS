@@ -10,12 +10,12 @@ import util.ResultMessage;
  */
 public interface UserBLService {
     /**
-     * 增加权限
-     *
+     * @param user
      * @param power
+     * @param i:表示对权限的操作是增加还是减少，i为1是增加，i为0是减小
      * @return
      */
-    public ResultMessage givePower(UserVO user, Kind_Of_Power power);
+    public ResultMessage modifyPower(UserVO user, Kind_Of_Power power, int i);
 
     /**
      * @param user

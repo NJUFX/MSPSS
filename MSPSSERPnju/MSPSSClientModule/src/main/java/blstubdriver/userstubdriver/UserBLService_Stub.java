@@ -3,6 +3,7 @@ package blstubdriver.userstubdriver;
 import blservice.userblservice.UserBLService;
 import status.Log_In_Out_Status;
 import util.Kind_Of_Power;
+import util.Kind_Of_Users;
 import util.ResultMessage;
 import vo.UserVO;
 
@@ -12,15 +13,24 @@ public class UserBLService_Stub implements UserBLService {
     public static ArrayList<UserVO> UserList = new ArrayList<UserVO>();
 
     /**
-     * 增加权限
-     *
-     * @param power
+     * 修改权限
+     * @param user
+     * @param po
+     * @param i:表示对权限的操作是增加还是减少，i为1是增加，i为0是减小
      * @return
      */
     @Override
-    public ResultMessage givePower(UserVO user, Kind_Of_Power power) {
+    public ResultMessage modifyPower(UserVO user, Kind_Of_Power po, int i) {
+        String power = modPower(user.getPower(), po, i);
         user.setPower(power);
         return ResultMessage.SUCCESS;
+    }
+
+    private String modPower(String power, Kind_Of_Power po, int i) {
+        if (po == Kind_Of_Power.CheckListLimit) {
+            power = String.valueOf(i) + power.substring(i);
+        }
+        return power;
     }
 
     /**

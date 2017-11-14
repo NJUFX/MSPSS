@@ -1,47 +1,81 @@
 package po;
 
+import util.Kind_Of_Power;
+import util.Kind_Of_Users;
+
 /**
  * Created by thinkpad on 2017/10/21.
  */
 public class UserPO {
-    String id;
-    String name;
-    boolean checkListLimit;
-    boolean examineBillLimit;
-    boolean readLogLimit;
-    boolean makePromotionLimit;
+    private String ID;
+    private String name;
+    private Kind_Of_Users category;
+    private String password;
+    private String power;
+    private boolean isValid = true;
 
-    public UserPO(String i, String s, boolean c, boolean e, boolean r, boolean m) {
-        id = i;
-        name = s;
-        checkListLimit = c;
-        examineBillLimit = e;
-        readLogLimit = r;
-        makePromotionLimit = m;
+    public UserPO(String i, String s, Kind_Of_Users category, String password, String power) {
+        this.ID = i;
+        this.name = s;
+        this.category = category;
+        this.password = password;
+        this.power = power;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String pa) {
+        this.password = pa;
     }
 
     public String getId() {
-        return id;
+        return ID;
     }
 
     public String getName() {
         return name;
     }
 
+    public boolean getIsValid() {
+        return isValid;
+    }
+
+    public void setIsValid(boolean b) {
+        this.isValid = b;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
+
     public boolean getCheckListLimit() {
-        return checkListLimit;
+        if (power.charAt(0) == '0') {
+            return false;
+        }
+        return true;
     }
 
     public boolean getExamineLimit() {
-        return examineBillLimit;
+        if (power.charAt(1) == '0') {
+            return false;
+        }
+        return true;
     }
 
     public boolean getReadLogLimit() {
-        return readLogLimit;
+        if (power.charAt(2) == '0') {
+            return false;
+        }
+        return true;
     }
 
     public boolean getMakePromotionLimit() {
-        return makePromotionLimit;
+        if (power.charAt(3) == '0') {
+            return false;
+        }
+        return true;
     }
 }
 

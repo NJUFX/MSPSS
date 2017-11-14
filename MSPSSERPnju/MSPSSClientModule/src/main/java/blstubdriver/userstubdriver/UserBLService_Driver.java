@@ -14,8 +14,8 @@ public class UserBLService_Driver {
     public void dirve() {
 
         //test addUser
-        UserVO user = new UserVO("SS001", "Chen", Kind_Of_Users.StockSeller, "000000", Kind_Of_Power.Normal);
-        UserVO user2 = new UserVO("CM001", "July", Kind_Of_Users.ChiefManager, "000000", Kind_Of_Power.Normal);
+        UserVO user = new UserVO("SS001", "Chen", Kind_Of_Users.StockSeller, "000000", "0000");
+        UserVO user2 = new UserVO("CM001", "July", Kind_Of_Users.ChiefManager, "000000", "0000");
 
         ResultMessage isAdd = userBLService_stub.addUser(user);
         userBLService_stub.addUser(user2);
@@ -23,6 +23,13 @@ public class UserBLService_Driver {
             System.out.println("Add user successfully.");
         } else {
             System.out.println("Fail to add user.");
+        }
+
+        ResultMessage isSucess = userBLService_stub.modifyPower(user, Kind_Of_Power.CheckListLimit, 1);
+        if (isSucess == ResultMessage.SUCCESS) {
+            System.out.println("Modify power successfully.");
+        } else {
+            System.out.println("Fail to modify power.");
         }
 
         //test modifyUser

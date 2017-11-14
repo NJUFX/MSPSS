@@ -7,7 +7,7 @@ public class UserVO {
     private String name;
     private Kind_Of_Users category;
     private String password;
-    private Kind_Of_Power power;
+    private String power;
     private boolean isValid;
     private boolean isLogin;
 
@@ -18,6 +18,7 @@ public class UserVO {
     public void setIsLogin(boolean b) {
         this.isValid = b;
     }
+
     public boolean getIsValid() {
         return isValid;
     }
@@ -46,11 +47,11 @@ public class UserVO {
         this.password = pa;
     }
 
-    public Kind_Of_Power getPower() {
+    public String getPower() {
         return power;
     }
 
-    public void setPower(Kind_Of_Power po) {
+    public void setPower(String po) {
         this.power = po;
     }
 
@@ -61,7 +62,7 @@ public class UserVO {
      * @param Password
      * @param Power
      */
-    public UserVO(String Id, String Name, Kind_Of_Users Category, String Password, Kind_Of_Power Power) {
+    public UserVO(String Id, String Name, Kind_Of_Users Category, String Password, String Power) {
         this.ID = Id;
         this.name = Name;
         this.category = Category;
