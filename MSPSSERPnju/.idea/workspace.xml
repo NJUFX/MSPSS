@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91782384-f1fe-475f-a640-f92803619f87" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/userblimpl/MockUserManage.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/userblimpl/MockUserManage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/userblimpl/UserManage.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/userblimpl/UserManage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserLogMockTest.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserLogMockTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserManageMockTest.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserManageMockTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/test/java/customer/CustomerMockTest.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/test/java/customer/CustomerMockTest.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +45,8 @@
       <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/customerblimpl/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+            <state relative-caret-position="-542">
+              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,35 +54,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountMockTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/account/AccountMockTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="27" column="51" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserBLService_Stub.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Stub.java">
+      <file leaf-file-name="MockCustomer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/customerblimpl/MockCustomer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
-              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserBLService_Driver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/userstubdriver/UserBLService_Driver.java">
+      <file leaf-file-name="CustomerBLService_Stub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/customerstubdriver/CustomerBLService_Stub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="16" column="64" lean-forward="false" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+            <state relative-caret-position="92">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerBLService_Driver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/customerstubdriver/CustomerBLService_Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -108,9 +101,12 @@
       <file leaf-file-name="CustomerMockTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/customer/CustomerMockTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="161">
+              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <folding>
+                <element signature="e#1191#1192#0" expanded="true" />
+                <element signature="e#1259#1260#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,7 +114,7 @@
       <file leaf-file-name="UserLogMockTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserLogMockTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state relative-caret-position="157">
               <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -152,8 +148,15 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/userblimpl/UserManage.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/userblimpl/MockUserManage.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserManageMockTest.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/test/java/customer/CustomerMockTest.java" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="y" value="7" />
+    <option name="width" value="1280" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -224,6 +227,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="blimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="customerblimpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blimpl" type="462c0819:PsiDirectoryNode" />
               <item name="userblimpl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -243,7 +256,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="blstubdriver" type="462c0819:PsiDirectoryNode" />
-              <item name="userstubdriver" type="462c0819:PsiDirectoryNode" />
+              <item name="customerstubdriver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
@@ -853,30 +866,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/customerblimpl/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/account/AccountMockTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
           <caret line="27" column="51" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserLogMockTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -937,11 +930,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/customerblimpl/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-542">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/customerblimpl/MockCustomer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/customerstubdriver/CustomerBLService_Stub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/customerstubdriver/CustomerBLService_Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/user/UserLogMockTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/customer/CustomerMockTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="161">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1259#1260#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
