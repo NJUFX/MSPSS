@@ -15,7 +15,7 @@ public class UserManage {
      * @param power
      * @return
      */
-    public ResultMessage givePower(UserVO user, Kind_Of_Power power) {
+    public ResultMessage modifyPower(UserVO user, String power) {
         return ResultMessage.SUCCESS;
     }
 

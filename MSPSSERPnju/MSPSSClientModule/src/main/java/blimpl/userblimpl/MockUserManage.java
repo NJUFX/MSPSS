@@ -13,7 +13,7 @@ public class MockUserManage extends UserManage {
      * @return
      */
     @Override
-    public ResultMessage givePower(UserVO user, Kind_Of_Power power) {
+    public ResultMessage modifyPower(UserVO user, String power) {
         user.setPower(power);
         return ResultMessage.SUCCESS;
     }
