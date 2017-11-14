@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MSPSSClientModule/MSPSSClientModule.iml" filepath="$PROJECT_DIR$/MSPSSClientModule/MSPSSClientModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MSPSSCommonModule/MSPSSCommonModule.iml" filepath="$PROJECT_DIR$/MSPSSCommonModule/MSPSSCommonModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/MSPSSERPnju.iml" filepath="$PROJECT_DIR$/.idea/MSPSSERPnju.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/datastubdriver.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/src/main/java/datastubdriver/datastubdriver.iml" />
       <module fileurl="file://$PROJECT_DIR$/MSPSSServerModule/src/main/main.iml" filepath="$PROJECT_DIR$/MSPSSServerModule/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/MSPSSClientModule/src/main/main1.iml" filepath="$PROJECT_DIR$/MSPSSClientModule/src/main/main1.iml" />
