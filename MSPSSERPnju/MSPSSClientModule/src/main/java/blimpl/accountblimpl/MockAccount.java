@@ -50,7 +50,7 @@ public class MockAccount extends Account{
     }
     @Override
     public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountlist){
-        AccountVO account1 = new AccountVO("苏果超市",1000,new Time(2017,11,11,11,11,11));
+        AccountVO account1 = new AccountVO("乐天玛特",1000,new Time(2017,11,11,11,11,11));
         ArrayList<AccountVO> account = new ArrayList<AccountVO>();
         account.add(account1);
         return account;
