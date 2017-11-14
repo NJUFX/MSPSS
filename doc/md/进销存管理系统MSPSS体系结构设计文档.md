@@ -364,23 +364,26 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 提供的服务（供接口）
 
-| 服务名                      | 服务   | 服务                                       |
-| ------------------------ | ---- | ---------------------------------------- |
-| UserBLService.login      | 语法   | public Log_In_Out_Status login(String ID, String password) |
-|                          | 前置条件 | 用户处于未登录状态                                |
-|                          | 后置条件 | 用户登陆                                     |
-| UserBLService.logout     | 语法   | public Log_In_Out_Status logout(String ID) |
-|                          | 前置条件 | 用户已登录                                    |
-|                          | 后置条件 | 用户登出                                     |
-| UserBLService.addUser    | 语法   | public ResultMessage addUser(UserVO);    |
-|                          | 前置条件 | 输入的信息符合规范                                |
-|                          | 后置条件 | 增加用户                                     |
-| UserBLService.delUser    | 语法   | public ResultMessage delUser(String ID); |
-|                          | 前置条件 | 输入的ID已存在                                 |
-|                          | 后置条件 | 删除该用户                                    |
-| UserBLService.modifyUser | 语法   | public ResultMessage modifyUser(UserVO); |
-|                          | 前置条件 | 输入的信息符合规范                                |
-| 输入的信息符合规范                | 后置条件 | 修改用户属性                                   |
+| 服务名                       | 服务   | 服务                                       |
+| ------------------------- | ---- | ---------------------------------------- |
+| UserBLService.login       | 语法   | public Log_In_Out_Status login(String ID, String password) |
+|                           | 前置条件 | 用户处于未登录状态                                |
+|                           | 后置条件 | 用户登陆                                     |
+| UserBLService.logout      | 语法   | public Log_In_Out_Status logout(String ID) |
+|                           | 前置条件 | 用户已登录                                    |
+|                           | 后置条件 | 用户登出                                     |
+| UserBLService.addUser     | 语法   | public ResultMessage addUser(UserVO);    |
+|                           | 前置条件 | 输入的信息符合规范                                |
+|                           | 后置条件 | 增加用户                                     |
+| UserBLService.delUser     | 语法   | public ResultMessage delUser(String ID); |
+|                           | 前置条件 | 输入的ID已存在                                 |
+|                           | 后置条件 | 删除该用户                                    |
+| UserBLService.modifyUser  | 语法   | public ResultMessage modifyUser(UserVO); |
+|                           | 前置条件 | 输入的信息符合规范                                |
+|                           | 后置条件 | 修改用户属性                                   |
+| UserBLService.modifyPower | 语法   | public ResultMessage modifyPower(UserVO user, Kind_Of_Power power, int i) |
+|                           | 前置条件 | 无                                        |
+|                           | 后置条件 | 修改该用户的权限                                 |
 
 需要的服务（需接口）
 
@@ -760,21 +763,22 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 
 表1 UserDataService模块的接口规范
 
-| 提供的服务（供接口）                 |      |                                          |
-| -------------------------- | ---- | ---------------------------------------- |
-| UserDataService.findUser   | 语法   | public UserPO findUser(long id) throws RemoteException |
-|                            | 前置条件 | id存在于用户数据中                               |
-|                            | 后置条件 | 返回该id对应的UserPo，或者抛出异常：RemoteException    |
-| UserDataService.deleteUser | 语法   | public POStatus deleteUser(long id) throws RemoteException |
-|                            | 前置条件 | 无                                        |
-|                            | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，删除数据 |
-| UserDataService.addUser    | 语法   | public POStatus addUser(UserPO newuser) throws RemoteException |
-|                            | 前置条件 | newuser必须被初始化                            |
-|                            | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存新用户 |
-| UserDataService.updateUser | 语法   | public POStatus updateUser(UserPO user) throws RemoteException |
-|                            | 前置条件 | user必须以及被初始化                             |
-|                            | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，更新系统数据 |
-|                            |      |                                          |
+| 提供的服务（供接口）                  |      |                                          |
+| --------------------------- | ---- | ---------------------------------------- |
+| UserDataService.delUser     | 语法   | public ResultMessage delUser(String id) throws RemoteException |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，删除数据 |
+| UserDataService.addUser     | 语法   | public ResultMessage addUser(UserPO newuser) throws RemoteException |
+|                             | 前置条件 | 用户不存在                                    |
+|                             | 后置条件 | 返回数据状态Enum类：POStatus，或者抛出异常：RemoteException，保存新用户 |
+| UserDataService.modifyUser  | 语法   | public ResultMessage updateUser(UserPO user) throws RemoteException |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 系统更新用户数据                                 |
+| UserDataService.modifyPower | 语法   | public ResultMessage modifyPower(UserPO user, String power) |
+|                             | 前置条件 | 无                                        |
+|                             | 后置条件 | 修改系统内该用户权限                               |
+|                             |      |                                          |
+|                             |      |                                          |
 
 
 
@@ -916,7 +920,7 @@ promotionbl关键类图
 | SalesPO          | 单据编号、客户、默认业务员、操作员、仓库、出货商品清单、折让前总额、折让、代金券、折让后总额、备注 |
 | CommodityPO      | 商品编号、名称、型号、单价、备注                         |
 | LogPO            | 操作人员、操作时间、操作类型、金额、库存、商品                  |
-| UserPO           | 用户ID、密码、姓名、职位、权限                         |
+| UserPO           | 用户ID、姓名、分类、密码、权限                         |
 | ClassificationPO | 商品分类编号、名称、父分类                            |
 | InventoryPO      | 各种商品的名称、型号，库存数量，库存均价，批次，批号，出厂日期          |
 | StockPO          | 出/入库数量/金额，销售/进货的数量/金额                    |
@@ -965,9 +969,9 @@ InValue 应收额度
 
 **UserPO**
 
-| ID   | password | name   | identity | power |
-| ---- | -------- | ------ | -------- | ----- |
-| long | string   | string | string   | int   |
+| ID     | name   | category      | password | power  | isValid |
+| ------ | ------ | ------------- | -------- | ------ | ------- |
+| String | string | Kind_Of_Users | String   | String | boolean |
 
 **PromotionPO**
 
