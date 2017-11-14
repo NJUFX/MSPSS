@@ -6,7 +6,7 @@ package util;
  * @Description:
  * @Date Created in 19:14 2017/11/6/006
  */
-public enum StackInfo {
+public enum StockInfo {
     /**
      * In 入库
      * Out 出库

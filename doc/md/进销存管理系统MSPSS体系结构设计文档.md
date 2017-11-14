@@ -443,7 +443,6 @@ PS: [总]指该界面针对总经理，[财]指该界面针对财务管理人员
 | CommodityDataService.updateCommodity     | 更新商品信息          |
 | CommodityDataService.exactlySearchCommodity | 精确搜索商品          |
 | CommodityDataService.prefixSearchCommodity | 前缀搜索商品          |
-| CommodityDataService.fullSearchCommodity | 完全匹配商品          |
 | CommodityDataService.fuzzySearchCommodity | 模糊搜索商品          |
 | CommodityDataService.rangeSearchCommodity | 范围搜索商品          |
 | CommodityDataService.AddClassification   | 新增商品分类          |

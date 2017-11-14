@@ -1,13 +1,42 @@
 package dataservice;
 
-import com.sun.org.apache.regexp.internal.RE;
+
+import filterflags.BillFilter;
+import po.BillPO;
 import util.ResultMessage;
 
+import java.util.Iterator;
+
 public interface BillDataService {
-    public ResultMessage MakeLossAndOverflowReport();
+    /**
+     * 增加单据
+      * @param billPO
+     * @return
+     */
+ public ResultMessage addBill(BillPO billPO);
 
-    public ResultMessage MakePresentationReport();
+    /**
+     * 删除单据
+     * @param id
+     * @return
+     */
+ public ResultMessage deleteBill(String id);
 
-    public ResultMessage DealAlarmReport();
+    /**
+     * 更新单据
+     * @param billPO
+     * @return
+     */
+ public ResultMessage updateBill(BillPO billPO);
+
+    /**
+     * 搜索单据
+     * @param filter
+     * @return
+     */
+ public Iterator<BillPO> searchBill(BillFilter filter);
+
 
 }
+
+
