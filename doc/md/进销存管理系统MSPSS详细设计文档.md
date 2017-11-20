@@ -58,6 +58,430 @@
 
 #### 4.1.1 stockmanger模块 
 
+(1)整体结构
+
+展示层的控制器为树状委托结构，StockManagerViewController负责对客户界面的整体跳转，StockManagerNavBarController负责实现导航栏界面，StockManagerCommodityViewController,StockManagerBillViewController,StockManagerStockViewController,StockManagerInventoryController分别实现库存管理人员导航栏的商品管理，制定库存报损报溢单，库存查看，库存盘点界面的跳转
+
+stockmanager界面各个类的职责如下
+
+| 模块                                 | 职责               |
+| ---------------------------------- | ---------------- |
+| StockManagerViewController         | 负责实现对库存管理人员界面的调整 |
+| StockManagerNavBarController       | 负责实现客户导航栏        |
+| CommodityInfoViewController        | 负责实现商品信息管理界面     |
+| ClassificationInfoViewController   | 负责实现商品分类信息管理界面   |
+| CommodityAllListViewController     | 负责实现全部商品列表界面     |
+| ClassificationAllViewController    | 负责实现所有商品分类界面     |
+| CommodityAddViewController         | 负责添加商品界面         |
+| ClassificationAddViewController    | 负责实现添加商品分类界面     |
+| CommodityUpdateViewController      | 负责实现更新商品信息界面     |
+| ClassificationUpdateViewController | 负责实现更新商品分类信息界面   |
+| StockViewController                | 负责实现库存查看界面       |
+| InventoryViewController            | 负责实现库存盘点界面       |
+| CreateMoreBillController           | 负责实现制定库存报溢单界面    |
+| CreateLessBillController           | 负责实现制定库存报损单界面    |
+| CreatePrensentationBillController  | 负责实现制定库存赠送单界面    |
+| BillViewController                 | 负责实现查看自己制定的单据界面  |
+| AlertBillViewController            | 负责查看产生的库存报警单界面   |
+
+（2）模块内部的的接口
+
+表一StockManagerViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   |                                        |
+| ---------------------------------------- | ---- | -------------------------------------- |
+| StockManagerViewController.showCommodityInfoView | 语法   | public void showCommodityInfoView      |
+|                                          | 前置条件 | 点击导航栏 商品信息                             |
+|                                          | 后置条件 | 显示商品信息界面                               |
+| StockManagerViewController.showClassificationInfoView | 语法   | public void showClassificationInfoView |
+|                                          | 前置条件 | 点击导航栏商品分类信息                            |
+|                                          | 后置条件 | 显示商品分类信息界面                             |
+| StockManagerViewController.showBillList  | 语法   | public void showBillList               |
+|                                          | 前置条件 | 点击导航栏 单据列表                             |
+|                                          | 后置条件 | 显示单据列表界面                               |
+| StockManagerViewController.showAlertBillList | 语法   | public void showAlertBillList          |
+|                                          | 前置条件 | 点击查看库存报警单                              |
+|                                          | 后置条件 | 显示导航栏库存报警单查看                           |
+| StockManagerViewController.showStockView | 语法   | public void showStockView              |
+|                                          | 前置条件 | 点击库存查看                                 |
+|                                          | 后置条件 | 显示库存查看界面                               |
+| StockManagerViewController.showInventoryCheck | 语法   | public void showInventoryCheck         |
+|                                          | 前置条件 | 点击库存盘点                                 |
+|                                          | 后置条件 | 显示库存盘点界面                               |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务       |
+| ---------------------------------------- | -------- |
+| CommodityInfoViewController.showCommodityInfoView | 商品信息管理界面 |
+| ClassificationInfoViewController.showClassificationInfoView | 商品分类管理界面 |
+| BillViewController.showBillList          | 单据列表     |
+| AlertBillViewController.showAlertBillList | 报警单据列表   |
+| StockViewController.showStockView        | 库存查看界面   |
+| InventoryViewController.showInventoryCheck | 库存盘点界面   |
+
+表二StockManagerNavBarController的接口规范
+
+提供的服务 供接口
+
+| 服务名  | 服务   |      |
+| ---- | ---- | ---- |
+|      |      |      |
+
+需要的服务  需接口
+
+| 服务名                                      | 服务          |
+| ---------------------------------------- | ----------- |
+| StockManagerViewController.showCommodityInfoView | 显示商品信息界面    |
+| StockManagerViewController.showClassificationInfoView | 显示商品分类界面    |
+| StockManagerViewController.showBillList  | 显示单据信息界面    |
+| StockManagerViewController.showAlertBillList | 显示查看库存报警单界面 |
+| StockManagerViewController.showStockView | 显示库存盘点界面    |
+| StockManagerViewController.showInventoryCheck | 显示库存盘点界面    |
+
+表3CommodityInfoViewController的接口规范
+
+| 服务名                                      | 服务   |                                         |
+| ---------------------------------------- | ---- | --------------------------------------- |
+| CommodityInfoViewController.back         | 语法   | public void back()                      |
+|                                          | 前置条件 | 无                                       |
+|                                          | 后置条件 | 返回上一界面                                  |
+| CommodityInfoViewController.showAllCommodityInfoView | 语法   | public void showAllCommodityInfoView()s |
+|                                          | 前置条件 | 无                                       |
+|                                          | 后置条件 | 显示所有商品信息界面                              |
+| CommodityInfoViewController.showAddCommodityView | 语法   | public void showAddCommodityView()      |
+|                                          | 前置条件 | 无                                       |
+|                                          | 后置条件 | 跳转到添加商品信息界面                             |
+| CommodityInfoViewController.showUpdateCommodityView | 语法   | public void showUpdateCommodityView()   |
+|                                          | 前置条件 | 无                                       |
+|                                          | 后置条件 | 跳转到更新商品信息界面                             |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务           |
+| ---------------------------------------- | ------------ |
+| CommodityAllListViewController.showCommodityListView | 展示商品信息界面     |
+| CommodityAddViewController.showAddView   | 展示添加商品信息界面   |
+| CommodityUpdateViewController.showUpdateView | 展示添加更新商品信息界面 |
+
+表4 ClassificationInfoViewController的接口规范 
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| ClassificationInfoViewController.back    | 语法   | public void back()                       |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回上一界面                                   |
+| ClassificationInfoViewController.showAllClassificationInfoView | 语法   | public void showAllClassificationInfoView() |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示所有商品信息界面                               |
+| ClassificationInfoViewController.showAddClassificationView | 语法   | public void showAddClassificationView()  |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 跳转到添加商品信息界面                              |
+| ClassificationInfoViewController.showUpdateClassificationView | 语法   | public void showUpdateClassificationView() |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 跳转到更新商品分类信息界面                            |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务             |
+| ---------------------------------------- | -------------- |
+| ClassificationAllListViewController.showCommodityListView | 展示商品分类信息界面     |
+| ClassificationAddViewController.showAddView | 展示添加商品分类信息界面   |
+| ClassificationUpdateViewController.showUpdateView | 展示添加更新商品分类信息界面 |
+
+表5 CommodityAllListViewController的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                 | 服务   |                                    |
+| ----------------------------------- | ---- | ---------------------------------- |
+| CommodityAllListViewController.back | 语法   | public void back()                 |
+|                                     | 前置条件 | 无                                  |
+|                                     | 后置条件 | 返回上一界面                             |
+| CommodityAllListViewController      | 语法   | public void showAllCommodityView() |
+|                                     | 前置条件 | 无                                  |
+|                                     | 后置条件 | 显示所有商品信息                           |
+
+需要的服务(需接口)
+
+| 服务名                                | 服务   |
+| ---------------------------------- | ---- |
+| CommodityBLService.searchCommodity | 得到商品 |
+|                                    |      |
+|                                    |      |
+
+表6 ClassificationAllViewController  的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                         |
+| ---------------------------------------- | ---- | --------------------------------------- |
+| ClassificationAllListViewController.back | 语法   | public void back()                      |
+|                                          | 前置条件 | 无                                       |
+|                                          | 后置条件 | 返回上一界面                                  |
+| ClassificationAllListViewController      | 语法   | public void showAllClassificationView() |
+|                                          | 前置条件 | 无                                       |
+|                                          | 后置条件 | 显示所有商品信息                                |
+
+需要的服务(需接口)
+
+| 服务名                                     | 服务         |
+| --------------------------------------- | ---------- |
+| CommodityBLService.getAllClassification | 得到所有商品分类信息 |
+| CommodityBLService.searchClassification | 搜索商品分类信息   |
+|                                         |            |
+
+表7 CommodityAddViewController 的接口规范 
+
+
+
+提供的服务 供接口 
+
+| 服务名                                    | 服务   |                           |
+| -------------------------------------- | ---- | ------------------------- |
+| CommodityAddViewController.back        | 语法   | public void back()        |
+|                                        | 前置条件 | 无                         |
+|                                        | 后置条件 | 返回上一界面                    |
+| CommodityAddViewController.showAddView | 语法   | public void showAddView() |
+|                                        | 前置条件 | 无                         |
+|                                        | 后置条件 | 显示更新界面                    |
+|                                        |      |                           |
+
+需要的服务(需接口)
+
+| 服务名                             | 服务   |
+| ------------------------------- | ---- |
+| CommodityBLService.addCommodity | 更新商品 |
+|                                 |      |
+
+表8 ClassificationAddViewController 的接口规范 
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                              |
+| ---------------------------------------- | ---- | ---------------------------- |
+| ClassificationAddViewController.back     | 语法   | public void back()           |
+|                                          | 前置条件 | 无                            |
+|                                          | 后置条件 | 返回上一界面                       |
+| ClassificationAddViewController.showAddView | 语法   | public void showUpdateView() |
+|                                          | 前置条件 | 无                            |
+|                                          | 后置条件 | 显示更新界面                       |
+|                                          |      |                              |
+
+需要的服务(需接口)
+
+| 服务名                                | 服务   |
+| ---------------------------------- | ---- |
+| CommodityBLService.updateCommodity | 更新商品 |
+|                                    |      |
+
+表9  CommodityUpdateViewController  的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                              |
+| ---------------------------------------- | ---- | ---------------------------- |
+| CommodityUpdateViewController.back       | 语法   | public void back()           |
+|                                          | 前置条件 | 无                            |
+|                                          | 后置条件 | 返回上一界面                       |
+| CommodityUpdateViewController.showUpdateView | 语法   | public void showUpdateView() |
+|                                          | 前置条件 | 无                            |
+|                                          | 后置条件 | 显示更新界面                       |
+|                                          |      |                              |
+
+需要的服务(需接口)
+
+| 服务名                                | 服务   |
+| ---------------------------------- | ---- |
+| CommodityBLService.updateCommodity | 更新商品 |
+|                                    |      |
+
+表10  ClassificationUpdateViewController的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                              |
+| ---------------------------------------- | ---- | ---------------------------- |
+| ClassificationUpdateViewController.back  | 语法   | public void back()           |
+|                                          | 前置条件 | 无                            |
+|                                          | 后置条件 | 返回上一界面                       |
+| ClassificationUpdateViewController.showUpdateView | 语法   | public void showUpdateView() |
+|                                          | 前置条件 | 无                            |
+|                                          | 后置条件 | 显示更新界面                       |
+|                                          |      |                              |
+
+需要的服务(需接口)
+
+| 服务名                                     | 服务     |
+| --------------------------------------- | ------ |
+| CommodityBLService.updateClassification | 更新商品分类 |
+|                                         |        |
+
+表11  StockViewController的接口规范
+
+提供的服务 供接口 
+
+| 服务名                               | 服务   |                           |
+| --------------------------------- | ---- | ------------------------- |
+| StockViewController.back          | 语法   | public void back()        |
+|                                   | 前置条件 | 无                         |
+|                                   | 后置条件 | 返回上一界面                    |
+| StockViewController.showInitView  | 语法   | public void showInitView  |
+|                                   | 前置条件 | 无                         |
+|                                   | 后置条件 | 显示库存查看的初始界面               |
+| StockViewController.showStockView | 语法   | public void showStockView |
+|                                   | 前置条件 | 无                         |
+|                                   | 后置条件 | 显示库存查看的具体界面               |
+
+需要的服务(需接口)
+
+| 服务名                      | 服务   |
+| ------------------------ | ---- |
+| StockBLService.viewStock | 库存查看 |
+|                          |      |
+|                          |      |
+
+表12  InventoryViewController  的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                   | 服务   |                             |
+| ------------------------------------- | ---- | --------------------------- |
+| InventoryViewController.back          | 语法   | public void back()          |
+|                                       | 前置条件 | 无                           |
+|                                       | 后置条件 | 返回上一界面                      |
+| InventoryViewController.showInventory | 语法   | public void showInventory() |
+|                                       | 前置条件 | 无                           |
+|                                       | 后置条件 | 展示库存盘点界面                    |
+|                                       |      |                             |
+|                                       |      |                             |
+|                                       |      |                             |
+
+需要的服务(需接口)
+
+| 服务名                             | 服务     |
+| ------------------------------- | ------ |
+| StockBillService.checkInventory | 库存盘点界面 |
+|                                 |        |
+|                                 |        |
+
+表13  CreateMoreBillController  的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CreateMoreBillController.back            | 语法   | public void back()                       |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回上一界面                                   |
+| CreateMoreBillController.showCreateBillView | 语法   | CreateMoreBillController. showCreateBillView |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 展示制定库存报损单的界面                             |
+
+需要的服务(需接口)
+
+| 服务名                          | 服务      |
+| ---------------------------- | ------- |
+| BillBLService.CreateMoreBill | 制定库存报溢单 |
+|                              |         |
+
+表14  CreateLessBillController 的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CreateLessBillController.back            | 语法   | public void back()                       |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回上一界面                                   |
+| CreateLessBillController.showCreateBillView | 语法   | CreateLessBillController. showCreateBillView |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 展示制定库存报损单的界面                             |
+
+需要的服务(需接口)
+
+| 服务名                          | 服务      |
+| ---------------------------- | ------- |
+| BillBLService.CreateLessBill | 制定库存报损单 |
+|                              |         |
+
+表15  CreatePrensentationBillController 的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CreatePrensentationBillController.back   | 语法   | public void back()                       |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 返回上一界面                                   |
+| CreatePrensentationBillController.showCreateBillView | 语法   | CreatePrensentationBillController. showCreateBillView |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 展示制定库存赠送单的界面                             |
+
+需要的服务(需接口)
+
+| 服务名                                   | 服务      |
+| ------------------------------------- | ------- |
+| BillBLService.CreatePrensentationBill | 制定库存赠送单 |
+|                                       |         |
+
+表16  BillViewController的接口规范
+
+提供的服务 供接口 
+
+| 服务名                               | 服务   |                            |
+| --------------------------------- | ---- | -------------------------- |
+| BillViewController.back           | 语法   | public void back()         |
+|                                   | 前置条件 | 无                          |
+|                                   | 后置条件 | 返回上一界面                     |
+| BillViewController.showBillList   | 语法   | public void showBillList   |
+|                                   | 前置条件 | 无                          |
+|                                   | 后置条件 | 展示所有的单据信息                  |
+| BillViewController.showBillDetail | 语法   | public void showBillDetail |
+|                                   | 前置条件 | 无                          |
+|                                   | 后置条件 | 展示单据的具体信息                  |
+
+需要的服务(需接口)
+
+| 服务名                      | 服务        |
+| ------------------------ | --------- |
+| BillBLService.searchBill | 搜索订单      |
+| BillBLService.getBill    | 得到订单的具体信息 |
+|                          |           |
+|                          |           |
+
+表17  AlertBillViewController  的接口规范
+
+提供的服务 供接口 
+
+
+
+| 服务名                                   | 服务   |                             |
+| ------------------------------------- | ---- | --------------------------- |
+| AlertBillViewController.back          | 语法   | public void back()          |
+|                                       | 前置条件 | 无                           |
+|                                       | 后置条件 | 返回上一界面                      |
+| AlertBillViewController.showAlertBill | 语法   | public void showAlertBill() |
+|                                       | 前置条件 | 无                           |
+|                                       | 后置条件 | 显示库存报警单                     |
+
+
+
+需要的服务(需接口)
+
+| 服务名                           | 服务      |
+| ----------------------------- | ------- |
+| BillBLService.searchAlertBill | 得到库存报警单 |
+|                               |         |
+|                               |         |
+|                               |         |
+
+
+
 #### 4.1.2 stockseller模块
 
 ##### （1）整体结构
@@ -1167,17 +1591,629 @@ UserLog的接口规范如表4.2.1(3)-3所示
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E8%BF%9B%E8%B4%A7%E9%94%80%E5%94%AE%E4%BA%BA%E5%91%98/Admin_login.png)
 
-#### 4.2.2 StockBL模块
+# 详细设计模板
+
+## BillBL
+
+(1)模块描述
+
+billbl模块承担的需求参见规格说明文档功能需求以及相关非功能需求
+
+billbl模块的职责及接口参见软件系统结构描述文档
+
+(2)整体结构
+
+根据体系结构的设计，我们将系统分成了展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，比如展示层和逻辑层之间我们添加billblservice接口。业务逻辑层和数据层之间添加billdataservice接口，为了隔离业务逻辑职责和业务控制职责，我们增加了billController，这样billController会将对单据信息的逻辑处理委托给stockbill,salesinbill,salesoutbill,financebill对象，stockbillpo是作为库存类单据的持久化对象被添加到设计模型中，salesInbillpo是作为进货类单据的持久化对象被添加到设计模型中，salesoutbillpo是作为销售类单据的持久化对象被添加到设计模型中，financebillpo是作为财务类单据的持久化对象被添加到设计模型中，
+
+bill模块的设计如图所示
+
+| 模块             | 职责                         |
+| -------------- | -------------------------- |
+| billController | 负责管理bill各个类的任务，负责与其他模块进行交互 |
+| stockbill      | 完成对库存类报表的增改查               |
+| salesinbill    | 完成对进货类报表的增改查               |
+| salesoutbill   | 完成对销售类报表的增改查               |
+| financebill    | 完成对财务类报表的增改查               |
+
+(3) 模块内部类的接口规范
+
+表一billcontroller
+
+提供的服务 供接口
+
+| 服务名                               | 服务   |                                          |
+| --------------------------------- | ---- | ---------------------------------------- |
+| BillController.addstockbill       | 语法   | public ResultMessage addstockbill(StockBillVO stockBillVO) |
+|                                   | 前置条件 | 添加库存单                                    |
+|                                   | 后置条件 | 返回添加是否成功                                 |
+| BillController.updatestockbill    | 语法   | public ResultMessage updatestockbill(StockBillVO stockBillVO) |
+|                                   | 前置条件 | 更新库存单                                    |
+|                                   | 后置条件 | 返回更新是否成功                                 |
+| BillController.searchstockbill    | 语法   | public ArrayList< StockBillVO> searchstockbill(FilterFlag flag) |
+|                                   | 前置条件 | 搜索库存单                                    |
+|                                   | 后置条件 | 返回符合条件的库存单                               |
+| BillController.addsalesinbill     | 语法   | public ResultMessage addsalesinbill(SalesInBillVO salesinbillVO) |
+|                                   | 前置条件 | 添加进货单                                    |
+|                                   | 后置条件 | 返回是否添加成功                                 |
+| BillController.updatesalesinbill  | 语法   | public ResultMessage updatesalesinbill(SalesInBillVO salesinbillVO) |
+|                                   | 前置条件 | 更新进货单                                    |
+|                                   | 后置条件 | 返回是否更新成功                                 |
+| BillController.searchsalesinbill  | 语法   | public ArrayList< SalesInVO> searchsalesinbill(FilterFlag flag) |
+|                                   | 前置条件 | 搜索进货单                                    |
+|                                   | 后置条件 | 返回符合条件的进货单                               |
+| BillController.addsalesoutbill    | 语法   | public ResultMessage addsalesoutbill(SalesOutBillVO salesoutbillVO) |
+|                                   | 前置条件 | 添加售货单                                    |
+|                                   | 后置条件 | 返回添加成功与否                                 |
+| BillController.updatesalesoutbill | 语法   | public ResultMessage updatesalesoutbill(SalesOutBillVO salesoutbillVO) |
+|                                   | 前置条件 | 更新售货单                                    |
+|                                   | 后置条件 | 返回更新成功与否                                 |
+| BillController.searchsalesoutbill | 语法   | public ArrayList< SalesOutBillVO >searchsalesoutbill(FilterFlag flag) |
+|                                   | 前置条件 | 搜索符合条件的售货单                               |
+|                                   | 后置条件 | 返回符合条件的售货单                               |
+| BillController.addfinancebill     | 语法   | public ResultMessage addfinancebill(FinanceBillVO financebillVO) |
+|                                   | 前置条件 | 添加财务单                                    |
+|                                   | 后置条件 | 返回添加成功与否                                 |
+| BillController.updatefinancebill  | 语法   | public ResultMessage updatefinancebill(FinanceBillVO financebillVO) |
+|                                   | 前置条件 | 更新财务单                                    |
+|                                   | 后置条件 | 返回更新成功与否                                 |
+| BillController.searchfinancebill  | 语法   | searchfinancebill(FilterFlag flag)       |
+|                                   | 前置条件 | 搜索符合条件的财务单                               |
+|                                   | 后置条件 | 返回符合条件的财务单                               |
+
+需要的服务 需接口
+
+| 服务名                             | 服务      |
+| ------------------------------- | ------- |
+| stockbill.addstockbill          | 添加库存类单据 |
+| stockbill.updatestockbill       | 更新库存类单据 |
+| stockbill.searchstockbill       | 搜索库存类单据 |
+| salesinbill.addsaleinbill       | 添加进货类单据 |
+| salesinbill.updatesaleinbill    | 更新进货类单据 |
+| salesinbill.searchsaleinbill    | 搜索进货类单据 |
+| salesoutbill.addsalesoutbill    | 添加销售类单据 |
+| salesoutbill.updatesalesoutbill | 更新销售类单据 |
+| salesoutbill.searchsalesoutbill | 搜索销售类单据 |
+| financebill.addfinancebill      | 添加财务类单据 |
+| financebill.updatefinancebill   | 更新财务类单据 |
+| financebill.searchfinancebill   | 搜索财务类单据 |
+
+表二stockbill
+
+| 服务名                       | 服务   |                                          |
+| ------------------------- | ---- | ---------------------------------------- |
+| stockbill.addstockbill    | 语法   | public ResultMessage addstockbill(StockBillVO stockBillVO) |
+|                           | 前置条件 | 添加库存单                                    |
+|                           | 后置条件 | 返回添加成功与否                                 |
+| stockbill.updatestockbill | 语法   | public ResultMessage updatestockbill(StockBillVO stockBillVO) |
+|                           | 前置条件 | 更新库存单                                    |
+|                           | 后置条件 | 返回更新成功与否                                 |
+| stockbill.searchstockbill | 语法   | public ArrayList< StockBillVO> searchstockbill(FilterFlag flag) |
+|                           | 前置条件 | 搜索符合条件的库存单                               |
+|                           | 后置条件 | 返回符合条件的库存单                               |
+|                           |      |                                          |
+|                           |      |                                          |
+
+需要的服务 需接口
+
+| 服务名                              | 服务     |
+| -------------------------------- | ------ |
+| stockdataservice.addstockbill    | 添加库存单据 |
+| stockdataservice.updatestockbill | 更新库存单据 |
+| stockdataservice.searchstockbill | 搜索库存单据 |
+
+表三 salesinbill
+
+提供的服务 供接口
+
+| 服务名                          | 服务   |                                          |
+| ---------------------------- | ---- | ---------------------------------------- |
+| salesinbill.addsaleinbill    | 语法   | public ResultMessage addsaleinbill(SalesInBillVO salesinbillVO) |
+|                              | 前置条件 | 添加进货单                                    |
+|                              | 后置条件 | 返回添加成功与否                                 |
+| salesinbill.updatesaleinbill | 语法   | public ResultMessage updatesaleinbill(SalesInBillVO salesinbillVO) |
+|                              | 前置条件 | 更新进货单                                    |
+|                              | 后置条件 | 返回更新成功与否                                 |
+| salesinbill.searchsaleinbill | 语法   | public ArrayList< SaleInBillVO> searchsalesinbill(FilterFlagers) |
+|                              | 前置条件 | 搜索符合条件的进货单                               |
+|                              | 后置条件 | 返回更新成功与否                                 |
+|                              |      |                                          |
+|                              |      |                                          |
+
+需要的服务 需接口
+
+| 服务名                               | 服务    |
+| --------------------------------- | ----- |
+| billdataservice.addsaleinbill     | 添加进货单 |
+| billdataservice.updatesalesinbill | 更新进货单 |
+| billdataservice.searchsalesinbill | 搜索进货单 |
 
 
 
-#### 4.2.3 CommodityBL模块
+表四 salesoutbill
+
+提供的服务 供接口
+
+| 服务名                            | 服务   |                                          |
+| ------------------------------ | ---- | ---------------------------------------- |
+| salesoutbill.addsaleoutbill    | 语法   | public ResultMessage addsaleoutbill(SaleOutBillVO saleoutbillVO) |
+|                                | 前置条件 | 添加售货单                                    |
+|                                | 后置条件 | 返回添加成功与否                                 |
+| salesoutbill.updatesaleoutbill | 语法   | public ResultMessage updatesaleoutbill(SaleOutBillVO saleoutbillVO) |
+|                                | 前置条件 | 更新售货单                                    |
+|                                | 后置条件 | 返回更新成功与否                                 |
+| salesoutbill.searchsaleoutbill | 语法   | public ArrayList< SaleOutBillVO>searchsaleoutbill |
+|                                | 前置条件 | 搜索售货单                                    |
+|                                | 后置条件 | 返回符合条件的售货单                               |
+|                                |      |                                          |
+|                                |      |                                          |
+
+需要的服务 需接口
+
+| 服务名                                | 服务    |
+| ---------------------------------- | ----- |
+| billdataservice.addsaleoutbill     | 添加售货单 |
+| billdataservice.updatesalesoutbill | 更新售货单 |
+| billdataservice.searchsalesoutbill | 搜素售货单 |
+
+表五 financebill
+
+提供的服务 供接口
+
+| 服务名                           | 服务   |                                          |
+| ----------------------------- | ---- | ---------------------------------------- |
+| financebill.addfinancebill    | 语法   | public ResultMessage addfinancebill(FinanceBillVO financebillVO) |
+|                               | 前置条件 | 添加财务类单据                                  |
+|                               | 后置条件 | 返回更新成功与否                                 |
+| financebill.updatefinancebill | 语法   | public ResultMessage updatefinancebill(FinanceBillVO financebillVO) |
+|                               | 前置条件 | 更新财务类单据                                  |
+|                               | 后置条件 | 返回更新成功与否                                 |
+| financebill.searchfinancebill | 语法   | public ArrayList< FinanceBillVO>searchfinancebill(FilterFlagers) |
+|                               | 前置条件 | 搜索财务类单据                                  |
+|                               | 后置条件 |                                          |
+|                               |      |                                          |
+|                               |      |                                          |
+
+需要的服务 需接口
+
+| 服务名                               | 服务      |
+| --------------------------------- | ------- |
+| billdataservice.addfinancebill    | 添加财务类单据 |
+| billdataservice.updatefinancebill | 更新财务类单据 |
+| billdataservice.searchfinancebill | 搜索财务类单据 |
+
+## StockBL
+
+(1)模块描述
+
+stockbl模块承担的需求参见需求规格说明文档功能需求以及相关非功能需求
+
+stockbl模块的职责及接口参见软件系统结构描述文档
+
+(2) 整体结构
+
+根据体系结构的设计，我们将系统分成展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，比如展示层和逻辑层之间，我们添加stockblservice接口。业务逻辑层和数据层之间添加stockdataservice接口。为了隔离业务逻辑职责和逻辑控制职责，我们增加了StockController，这样StockController会将对库存信息的逻辑处理委托给Stock和Inventory对象，stockPO是作为进出库记录的持久化对象被添加到设计模型中，inventoryPO是作为商品库存记录的持久化对象被添加到设计模型中CommodityInfo是根据依赖到导致原则，为了消除循环依赖而产生的接口。ChangeInfoVO是为了保存因订单变化而要进行的库存信息的更改
+
+stock模块的设计如图所示
+
+| 模块              | 职责                          |
+| --------------- | --------------------------- |
+| stockController | 管理stockbl各个类的任务，负责和其他bl模块交互 |
+| stock           | 完成对商品进出库信息的增查               |
+| inventory       | 完成对商品库存相关信息的增改查             |
+|                 |                             |
+
+(3) 模块内部类的接口规范
+
+表一stockController
+
+提供的接口 供接口
+
+| 服务名                                     | 服务   |                                          |
+| --------------------------------------- | ---- | ---------------------------------------- |
+| StockController.viewStock               | 语法   | public ArrayList< StockVO> viewStock(Date startTime, Date endTime); |
+|                                         | 前置条件 | 想要查看进出库数据                                |
+|                                         | 后置条件 | 返回进出库信息，若无则返回空                           |
+| StockController.checkInventory          | 语法   | public ArrayList< InventoryVO> checkInventory() |
+|                                         | 前置条件 | 要进行库存盘点                                  |
+|                                         | 后置条件 | 返回商品库存信息列表若无则返回空                         |
+| StockController.updateStockAndInventory | 语法   | public ResultMessage updateStock(ChangeInfoVO changeInvo) |
+|                                         | 前置条件 | 更新库存信息                                   |
+|                                         | 后置条件 | 返回更新是否成功                                 |
+|                                         |      |                                          |
+
+需要的接口 需接口
+
+| 服务名                          | 服务       |
+| ---------------------------- | -------- |
+| Stock.addStock               | 增加进出库信息  |
+| Stock.viewStock              | 查看出入库信息  |
+| Inventory.updateInventory    | 更新商品库存信息 |
+| CommodityInfo.updateComodity | 更新商品信息   |
+|                              |          |
+|                              |          |
 
 
 
-#### 4.2.4 BillBL模块
+表二stock的接口规范
+
+提供的接口 供接口
+
+| 服务名             | 服务   |                                          |
+| --------------- | ---- | ---------------------------------------- |
+| Stock.addStock  | 语法   | public ResultMessage addStock(ChangeInfoVO vo) |
+|                 | 前置条件 | 想要添加进出库记录                                |
+|                 | 后置条件 | 返回是否成功添加                                 |
+| Stock.viewStock | 语法   | public ArrayList< StockVO> viewStock(Date start,Date end) |
+|                 | 前置条件 | 想要查看库存                                   |
+|                 | 后置条件 |                                          |
+|                 |      |                                          |
+
+需要的接口 需接口
+
+| 服务名                          | 服务      |
+| ---------------------------- | ------- |
+| stockdataservice.addStock    | 添加出入库信息 |
+| stockdataservice.searchStock | 搜索库存信息  |
+|                              |         |
+|                              |         |
+|                              |         |
+
+表三 inventory
+
+提供的服务 供接口
+
+| 服务名                       | 服务   |                                          |
+| ------------------------- | ---- | ---------------------------------------- |
+| inventory.updateInventory | 语法   | public ResultMessage updateInventory(ChangeInfoVO vo) |
+|                           | 前置条件 |                                          |
+|                           | 后置条件 |                                          |
+| inventory.checkInventory  | 语法   | public ArrayList< InventoryVO> checkInventory() |
+|                           | 前置条件 |                                          |
+|                           | 后置条件 |                                          |
+
+需要的服务 需接口
+
+| 服务名                              | 服务       |
+| -------------------------------- | -------- |
+| stockdataservice.updateInventory | 更新库存信息   |
+| stockdataservice.searchInventory | 搜索商品库存信息 |
+|                                  |          |
+|                                  |          |
+|                                  |          |
 
 
+
+(4) 业务逻辑层内部动态模型
+
+## CommodityBL
+
+(1)模块描述
+
+commoditybl模块承担的需求参见需求规格说明文档功能需求以及相关非功能需求
+
+stockbl模块的职责及接口参见软件系统结构描述文档
+
+(2) 整体结构
+
+根据体系结构的设计，我们将系统分成展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，比如展示层和逻辑层之间，我们添加commodityblservice接口。业务逻辑层和数据层之间添加commoditydatablservice接口。为了隔离业务逻辑职责和逻辑控制职责，我们增加了commodityController，这样commodityController会将对商品信息的逻辑处理委托给commodity和classification对象，commodityPO是作为商品信息的持久化对象被添加到设计模型中，classificationPO是作为商品分类的信息的持久化对象被添加到设计模型中的。ClassificationVO、commodityVO和FilterFlagsVO是作为携带商品信息的有价值对象被添加到设计模型中去的。
+
+commodity模块的设计如图所示
+
+| 模块                            | 职责                              |
+| ----------------------------- | ------------------------------- |
+| CommodityController           | 管理commoditybl各个类的任务，负责和其他bl模块交互 |
+| Commodity                     | 完成对商品信息的增删改查等任务                 |
+| Classification                | 完成对商品分类信息的增删改查等任务               |
+| BuyPriceAscendingComparator   | 进价升序排序器                         |
+| BuyPriceDescendingComparator  | 进价降序排序器                         |
+| StockAscendingComparator      | 库存数量升序排序器                       |
+| StockDescendingComparator     | 库存数量降序排序器                       |
+| SellPriceAscendingComparator  | 售价升序排序器                         |
+| SellPriceDescendingComparator | 售价降序排序器                         |
+| ToolKit                       | 工具类                             |
+
+(3) 模块内部类的接口规范
+
+表1 CommodityComtroller
+
+**提供的服务 （供接口）**
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CommodityController.searchCommodity      | 语法   | public ArrayList< CommodityVO > searchCommodity(FilterFlagsVO flags) |
+|                                          | 前置条件 | 用户选择合法的筛选条件                              |
+|                                          | 后置条件 | 返回符合筛选条件的商品列表，如果没有符合条件的酒店，则返回空列表         |
+| CommodityController.getCommodity         | 语法   | public CommodityVO getCommodity(String id) |
+|                                          | 前置条件 | 用户输入正确的商品编号                              |
+|                                          | 后置条件 | 返回用户指定的商品信息                              |
+| CommodityController.getClassification    | 语法   | public ClassificationVO getClassification(String id) |
+|                                          | 前置条件 | 用户输入正确的商品分类编号                            |
+|                                          | 后置条件 | 返回用户指定的商品分类信息                            |
+| CommodityController.addCommodity         | 语法   | public ResultMessage addCommodity(CommodityVO commodity_vo) |
+|                                          | 前置条件 | 库存管理人员添加商品信息                             |
+|                                          | 后置条件 | 返回添加成功与否                                 |
+| CommodityController.addClassification    | 语法   | public ResultMessage addClassification(ClassificationVO classification_vo) |
+|                                          | 前置条件 | 库存管理人员添加商品分类信息                           |
+|                                          | 后置条件 | 返回添加成功与否                                 |
+| CommodityController.updateCommodity      | 语法   | public ResultMessage updateCommodity(CommodityVO commodity_vo ) |
+|                                          | 前置条件 | 更新商品信息                                   |
+|                                          | 后置条件 | 返回更新成功与否                                 |
+| CommodityController.updateClassification | 语法   | public ResultMessage updateClassification(ClassificationVO classification_vo) |
+|                                          | 前置条件 | 用户要更新商品分类                                |
+|                                          | 后置条件 | 返回更新成功与否                                 |
+| CommodityController.deleteCommodity      | 语法   | public ResultMessage deleteCommodity(String commodity_id) |
+|                                          | 前置条件 | 库存管理人员输入商品编号合法                           |
+|                                          | 后置条件 | 返回删除成功与否                                 |
+| CommodityController.deleteClassification | 语法   | public ResultMessage deleteClassification(String id) |
+|                                          | 前置条件 | 库存管理人员输入商品分类编号合法                         |
+|                                          | 后置条件 | 返回删除成功与否                                 |
+| CommodityController.BuyPriceAscendingSort | 语法   | public Iterator< CommodityVO > buyPriceAscendingSort(ArrayList< CommodityVO> commodityVOs) |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 无                                        |
+| CommodityController.BuyPriceDescendingSort | 语法   | public Iterator < CommodityVO > buyPriceDesendingSort(ArrayList< CommodityVO > commodityVOs) |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 无                                        |
+| CommodityController.StockAscendingSort   | 语法   | public Iterator< CommodityVO> stockAscendingSort(ArrayList< CommodityVO commodityVOs) |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 无                                        |
+| CommodityController.StockDescendingSort  | 语法   | public Iterator< CommodityVO> stockDescending(ArrayList< CommodityVO> commodityVOs) |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 无                                        |
+| CommodityController.SellAscendingSort    | 语法   | public Iterator< CommodityVO> sellAsendingSort(ArrayList< CommodityVO> commodityVOs) |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 无                                        |
+| CommodityController.SellDescendingSort   | 语法   | public Iterator< CommodityVO> sellDescendingSort(ArrayList< CommodityVO> commodityVOs) |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 无                                        |
+| CommodityController.getAllClassifications | 语法   | public ArrayList< ClassificationVO> getAllClassifications |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 返回所有的商品分类信息                              |
+| CommodityController.searchClassification | 语法   | public ArrayList< ClassificationVO> searchClassification(FilterFlags flags) |
+|                                          | 前置条件 | 搜索得到结果                                   |
+|                                          | 后置条件 | 返回符合条件的商品分类                              |
+
+**需要的服务（需接口）**
+
+| 服务名                                  | 服务           |
+| ------------------------------------ | ------------ |
+| Commodity.SearchCommodity            | 搜索符合条件的商品列表  |
+| Commodity.getCommodity               | 通过ID得到商品信息   |
+| Commodity.addCommodity               | 增加商品         |
+| Commodity.updateCommodity            | 更新商品信息       |
+| Commodity.deleteCommodity            | 删除商品         |
+| Commodity.BuyPriceAscendingSort      | 根据商品进价升序排列商品 |
+| Commodity.BuyPriceDescendingSort     | 根据商品进价降序排列商品 |
+| Commodity.SellPriceAscendingSort     | 根据商品售价升序排列商品 |
+| Commodity.SellPriceDescendingSort    | 根据商品售价降序排列商品 |
+| Commodity.StockAscendingSort         | 根据商品库存升序排列商品 |
+| Commodity.StockDescendingSort        | 根据商品库存降序排列商品 |
+| Classification.addClassification     | 添加商品分类       |
+| Classification.updateClassification  | 更新商品分类       |
+| Classification.deleteClassification  | 删除商品分类       |
+| Classification.getClassification     | 得到商品分类信息     |
+| Classification.getAllClassifications | 得到所有的商品分类    |
+| Classifiction.SearchClassificaions   | 搜索商品分类       |
+|                                      |              |
+|                                      |              |
+
+表2classification的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                                 | 服务   |                                          |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| Classification.addClassification    | 语法   | public ResultMessage addClassification(ClassificationVO classification_vo) |
+|                                     | 前置条件 | 添加商品分类                                   |
+|                                     | 后置条件 | 返回添加成功与否                                 |
+| Classification.updateClassification | 语法   | public ResultMessage updateClassification(ClassificationVO classification_vo) |
+|                                     | 前置条件 | 输入正确的商品分类信息                              |
+|                                     | 后置条件 | 返回更新成功与否                                 |
+| Classification.deleteClassification | 语法   | public ResultMessage deleteClassification(String id) |
+|                                     | 前置条件 | 输入正确的商品分类信息                              |
+|                                     | 后置条件 | 返回删除成功与否                                 |
+| Classification.getClassification    | 语法   | public ClassificationVO getClassification(ClassificationVO classification_vo) |
+|                                     | 前置条件 | 输入正确的商品分类编号信息                            |
+|                                     | 后置条件 | 返回得到的商品信息                                |
+| Classification.searchClassification | 语法   | public ArrayList< ClassificationVO> searchClassification(FilterFlags flagers) |
+|                                     | 前置条件 | 输入正确的搜索标志                                |
+|                                     | 后置条件 | 返回符合条件的商品分类信息                            |
+| Classification.getAllClassification | 语法   | public ArrayList< ClassificationVO> getAllClassifications |
+|                                     | 前置条件 | 无                                        |
+|                                     | 后置条件 | 返回所有的商品分类信息                              |
+|                                     |      |                                          |
+
+**需要的服务（需接口）**
+
+| 服务名                                      | 服务         |
+| ---------------------------------------- | ---------- |
+| CommodityDataService.getClassification   | 得到商品分类信息   |
+| CommodityDataService.addClassification   | 添加商品分类信息   |
+| CommodityDataService.updateClassification | 更新商品分类信息   |
+| CommodityDataService.deleteClassification | 删除商品分类信息   |
+| CommodityDataService.exactlySearchClassification | 精确搜索商品分类   |
+| CommodityDataService.prefixSearchClassification | 前缀匹配搜索商品分类 |
+| CommodityDataService.fullSearchClassification | 完全匹配搜索商品分类 |
+| CommodityDataService.getAllClassifications | 得到所有的商品分类  |
+|                                          |            |
+
+表3 commodity的接口规范
+
+| 服务名                               | 服务   | 服务                                       |
+| --------------------------------- | ---- | ---------------------------------------- |
+| Commodity.addCommodity            | 语法   | public ResultMessage addCommodity(CommodityVO commodity_vo) |
+|                                   | 前置条件 | 输入了正确的商品信息                               |
+|                                   | 后置条件 | 返回添加成功与否                                 |
+| Commodity.deleteCommodity         | 语法   | public ResultMessage deleteCommodity(String id) |
+|                                   | 前置条件 | 输入正确的商品编号                                |
+|                                   | 后置条件 | 返回删除成功与否                                 |
+| Commodity.updateCommodity         | 语法   | public ResultMessage updateCommodity(CommodityVO commodity_vo) |
+|                                   | 前置条件 | 输入了正确的商品信息                               |
+|                                   | 后置条件 | 返回更新成功与否                                 |
+| Commodity.getCommodity            | 语法   | public CommodityVO getCommodity(String id) |
+|                                   | 前置条件 | 输入正确的商品编号                                |
+|                                   | 后置条件 | 返回商品信息                                   |
+| Commodity.searchCommodity         | 语法   | public ArrayList< CommodityVO> searchCommodity(FilterFlag flags) |
+|                                   | 前置条件 | 输入正确的搜索标志                                |
+|                                   | 后置条件 | 返回满足条件的商品信息                              |
+| Commodity.BuyPriceAscendingSort   | 语法   | public ArrayList< CommodityVO> BuyPriceAscendingSort(ArrayList< CommodityVO> vos) |
+|                                   | 前置条件 | 搜索商品得到结果                                 |
+|                                   | 后置条件 | 无                                        |
+| Commodity.BuyPriceDescendingSort  | 语法   | public ArrayList< CommodityVO> BuyPriceDescendingSort(ArrayList< CommodityVO> vos) |
+|                                   | 前置条件 | 搜索商品得到结果                                 |
+|                                   | 后置条件 | 无                                        |
+| Commodity.SellPriceAscendingSort  | 语法   | public ArrayList< CommodityVO> sellPriceAsendingSort(ArrayList< CommodityVO> vos) |
+|                                   | 前置条件 | 搜索商品得到结果                                 |
+|                                   | 后置条件 | 无                                        |
+| Commodity.SellPriceDescendingSort | 语法   | public ArrayList< CommodityVO> sellPriceDesendingSort(ArrayList< CommodityVO> vos) |
+|                                   | 前置条件 | 搜索商品得到结果                                 |
+|                                   | 后置条件 | 无                                        |
+| Commodity.StockAscendingSort      | 语法   | public ArrayList< CommodityVO> StockAscendingSort(ArrayList< CommodityVO> vos) |
+|                                   | 前置条件 | 搜索商品得到结果                                 |
+|                                   | 后置条件 | 无                                        |
+| Commodity.StockDescendingSort     | 语法   | public ArrayList< CommodityVO> StockDescendingSort(ArrayList< CommodityVO> vos) |
+|                                   | 前置条件 | 搜索商品得到结果                                 |
+|                                   | 后置条件 | 无                                        |
+
+
+
+**需要的服务（需接口）**
+
+| 服务名                                      | 服务         |
+| ---------------------------------------- | ---------- |
+| CommodityDataService.exactlySearchCommodity | 精确搜索商品     |
+| CommodityDataService.prefixSearchCommodity | 前缀匹配搜索商品   |
+| CommodityDataService.fullSearchCommodity | 完全匹配搜索商品   |
+| CommodityDataService.fuzzySearchCommodity | 模糊搜索匹配商品   |
+| CommodityDataService.rangeSearchCommodity | 范围搜索商品     |
+| CommodityDataService.mulitySearchCommodity | 多条件搜索商品    |
+| CommodityDataService.getCommodity        | 通过商品id得到商品 |
+| CommodityDataService.addCommodity        | 添加商品       |
+| CommodityDataService.updateCommodity     | 更新商品信息     |
+| CommodityDataService.delteCommodity      | 删除商品       |
+
+表4 BuyPriceAscendingComparator的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                                 | 服务   |                                          |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| BuyPriceAscendingComparator.compare | 语法   | public int compare(CommodityVO o1,CommodityVO o2); |
+|                                     | 前置条件 | 通过搜索得到商品列表                               |
+|                                     | 后置条件 | 无                                        |
+
+**需要的服务（需接口）**
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+表5 BuyPriceDescendingComparator的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                                  | 服务   |                                          |
+| ------------------------------------ | ---- | ---------------------------------------- |
+| BuyPriceDescendingComparator.compare | 语法   | public int compare(CommodityVO o1,CommodityVO o2); |
+|                                      | 前置条件 | 通过搜索得到商品列表                               |
+|                                      | 后置条件 | 无                                        |
+
+**需要的服务（需接口）**
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+表6 SellPriceAscendingComparator的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                                  | 服务   |                                          |
+| ------------------------------------ | ---- | ---------------------------------------- |
+| SellPriceAscendingComparator.compare | 语法   | public int compare(CommodityVO o1,CommodityVO o2); |
+|                                      | 前置条件 | 通过搜索得到商品列表                               |
+|                                      | 后置条件 | 无                                        |
+
+**需要的服务（需接口)**
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+表7 SellPriceDescendingComparator的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                                 | 服务   |                                          |
+| ----------------------------------- | ---- | ---------------------------------------- |
+| BuyPriceAscendingComparator.compare | 语法   | public int compare(CommodityVO o1,CommodityVO o2); |
+|                                     | 前置条件 | 通过搜索得到商品列表                               |
+|                                     | 后置条件 | 无                                        |
+
+
+
+**需要的服务（需接口）**
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+表8 StockAscendingComparator的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                              | 服务   |                                          |
+| -------------------------------- | ---- | ---------------------------------------- |
+| StockAscendingComparator.compare | 语法   | public int compare(CommodityVO o1,CommodityVO o2); |
+|                                  | 前置条件 | 通过搜索得到商品列表                               |
+|                                  | 后置条件 | 无                                        |
+
+
+
+**需要的服务（需接口）**
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+表9 StockDescendingComparator的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                               | 服务   |                                          |
+| --------------------------------- | ---- | ---------------------------------------- |
+| StockDescendingComparator.compare | 语法   | public int compare(CommodityVO o1,CommodityVO o2); |
+|                                   | 前置条件 | 通过搜索得到商品列表                               |
+|                                   | 后置条件 | 无                                        |
+
+
+
+**需要的服务（需接口）**
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+
+
+表10 ToolKit的接口规范
+
+**提供的服务（供接口）**
+
+| 服务名                | 服务   |                                          |
+| ------------------ | ---- | ---------------------------------------- |
+| ToolKit.generateID | 语法   | public static String generateID(String id, int number) |
+|                    | 前置条件 | 无                                        |
+|                    | 后置条件 | 无                                        |
+
+
+
+**需要的服务（需接口）**
+
+| 服务名  | 服务   |
+| ---- | ---- |
+| 无    | 无    |
+
+(4) 业务逻辑层内部动态模型
 
 #### 4.2.5 AccountBL模块
 
