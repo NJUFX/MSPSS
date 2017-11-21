@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * Created by Harper on 17/11/21
  */
 public class Log {
+    public static ArrayList<LogPO> loglist = new ArrayList<LogPO>();
 
     /**
      *增加一条日志记录

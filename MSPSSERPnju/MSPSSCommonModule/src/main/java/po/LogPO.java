@@ -33,4 +33,12 @@ public class LogPO {
         return time;
     }
 
+    public String getKind(){return kind;}
+
+    public String getCommodity(){return commodity;}
+
+    public int getMoney(){return money;}
+
+    public Long getStock(){return stock;}
+
 }
