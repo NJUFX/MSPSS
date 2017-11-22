@@ -18,12 +18,9 @@
         <SOURCES />
       </library>
     </orderEntry>
-<<<<<<< HEAD
-    <orderEntry type="library" name="junit:junit:4.10" level="project" />
-=======
+
     <orderEntry type="module" module-name="MSPSSCommonModule" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
->>>>>>> 2fa9e48dc9640b1055e8ae7ec1d9dee3985a14a4
   </component>
 </module>
