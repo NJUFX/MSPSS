@@ -4,7 +4,7 @@ import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
 import util.ResultMessage;
 import vo.BillVO;
-import vo.InventoryVO;
+import vo.CommodityStockVO;
 import vo.StockVO;
 
 import java.util.Iterator;
@@ -20,7 +20,7 @@ public class StockController implements StockBLService,StockBLInfo {
     }
 
     @Override
-    public Iterator<InventoryVO> checkInventory() {
+    public Iterator<CommodityStockVO> checkInventory() {
         return null;
     }
 

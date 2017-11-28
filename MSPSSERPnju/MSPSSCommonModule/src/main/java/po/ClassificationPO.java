@@ -1,5 +1,7 @@
 package po;
 
+import java.util.ArrayList;
+
 /**
  * @Project_Name ERPnju
  * @Author: HanXinHu
@@ -7,8 +9,73 @@ package po;
  * @Date Created in 19:05 2017/11/6/006
  */
 public class ClassificationPO {
+    /**
+     * 商品分类名称
+     */
+    private String  name;
+    /**
+     * 商品分类ID
+     */
+   private String ID;
+    /**
+     * 父分类的ID
+      */
+     private String parentID;
 
-    String ID;
-    String parentID;
-    String name;
+    /**
+     * 子分类的ID
+     */
+    ArrayList<String> childrenID;
+    /**
+     * 位于该分类下的节点
+     */
+    ArrayList<String> commodityIDs;
+
+    public ClassificationPO(String name, String ID, String parentID, ArrayList<String> childrenID,ArrayList<String> commodityIDs){
+        this.name = name;
+        this.childrenID = childrenID;
+        this.parentID = parentID;
+        this.ID = ID;
+        this.commodityIDs = commodityIDs;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public ArrayList<String> getChildrenID() {
+        return childrenID;
+    }
+
+    public void setChildrenID(ArrayList<String> childrenID) {
+        this.childrenID = childrenID;
+    }
+
+    public void setCommodityIDs(ArrayList<String> commodityIDs) {
+        this.commodityIDs = commodityIDs;
+    }
+
+    public ArrayList<String> getCommodityIDs() {
+        return commodityIDs;
+    }
+
+    public void setParentID(String parentID) {
+        this.parentID = parentID;
+    }
+
+    public String getParentID() {
+        return parentID;
+    }
 }

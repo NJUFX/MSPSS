@@ -9,22 +9,115 @@ package po;
 
 public class CommodityPO {
     /**
-     * ID 编号
-     * name 商品名称
-     * type 类型
-     * numberInStock库存数量
-     * in_price 进价
-     * ex_price 零售价
-     * latest_in_price 最近进价
-     * latest_ex_price 最近零售价
+     * 商品名称
      */
-    String ID;
-    String name;
-    String type;
-    int numberInStock;
-    double in_price;
-    double ex_price;
-    double latest_in_price;
-    double latest_ex_price;
+    private String name;
 
+    /**
+     * 位于的商品分类ID
+     */
+    private String classificationID;
+
+    /**
+     * 型号
+     */
+    private String type;
+
+    /**
+     * 商品编号
+     */
+    private String ID;
+
+    /**
+     * 进价
+     */
+    private double importCost;
+
+    /**
+     * 零售价
+     */
+    private double exportCost;
+
+    /**
+     * 库存数量
+     */
+    private int numberInStock;
+
+    public CommodityPO(){
+
+    }
+    public CommodityPO(String name,String classificationID,String type,String ID,double importCost,double exportCost,int numberInStock){
+        this.name = name;
+        this.classificationID = classificationID;
+        this.type = type;
+        this.ID = ID;
+        this.importCost = importCost;
+        this.exportCost = exportCost;
+        this.numberInStock = numberInStock;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getClassificationID() {
+        return classificationID;
+    }
+
+    public double getExportCost() {
+        return exportCost;
+    }
+    public double getImportCost(){
+        return importCost;
+    }
+
+    public int getNumberInStock() {
+        return numberInStock;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setClassificationID(String classificationID) {
+        this.classificationID = classificationID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setImportCost(double importCost) {
+        this.importCost = importCost;
+    }
+
+    public void setExportCost(double exportCost) {
+        this.exportCost = exportCost;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNumberInStock(int numberInStock) {
+        this.numberInStock = numberInStock;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof CommodityPO)
+        {
+            obj = (CommodityPO) obj;
+            return this.ID.equals(((CommodityPO) obj).ID);
+        }
+            return false;
+    }
 }

@@ -2,7 +2,7 @@ package datastubdriver.stockdatastubdriver;
 
 import dataservice.StockDataService;
 import filterflags.StockFilter;
-import po.InventoryPO;
+import po.CommodityStockPO;
 import po.StockPO;
 import util.ResultMessage;
 
@@ -27,9 +27,9 @@ public class StockDataService_Stub implements StockDataService {
     }
 
     @Override
-    public Iterator<InventoryPO> getAllInventory() {
+    public Iterator<CommodityStockPO> getAllInventory() {
         System.out.println("get all Inventory");
-       return new ArrayList<InventoryPO>().iterator();
+       return new ArrayList<CommodityStockPO>().iterator();
 
     }
 
@@ -45,8 +45,8 @@ public class StockDataService_Stub implements StockDataService {
     }
 
     @Override
-    public ResultMessage addInventory(InventoryPO inventoryPO) {
-        if (inventoryPO != null)
+    public ResultMessage addInventory(CommodityStockPO commodityStockPO) {
+        if (commodityStockPO != null)
         {
             System.out.println("add inventory succeed");
             return ResultMessage.SUCCESS;
@@ -56,8 +56,8 @@ public class StockDataService_Stub implements StockDataService {
     }
 
     @Override
-    public ResultMessage updateInventory(InventoryPO inventoryPO) {
-        if (inventoryPO!=null)
+    public ResultMessage updateInventory(CommodityStockPO commodityStockPO) {
+        if (commodityStockPO !=null)
         {
             System.out.println("update inventory succeed");
             return ResultMessage.SUCCESS;
@@ -67,10 +67,10 @@ public class StockDataService_Stub implements StockDataService {
     }
 
     @Override
-    public InventoryPO searchInventory(String id) {
+    public CommodityStockPO searchInventory(String id) {
         if (id.equals("12138")){
             System.out.println("search inventory succeed");
-            return new InventoryPO();
+            return new CommodityStockPO();
         }
         System.out.println("search inventory failed");
         return null;

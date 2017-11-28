@@ -1,6 +1,6 @@
 package vo;
 
-public enum InOrOut {
+public enum StockType {
   IN,
   OUT;
 

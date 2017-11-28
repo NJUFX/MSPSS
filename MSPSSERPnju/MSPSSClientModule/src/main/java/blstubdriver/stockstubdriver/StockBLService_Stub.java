@@ -4,7 +4,7 @@ import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
 import util.ResultMessage;
 import vo.BillVO;
-import vo.InventoryVO;
+import vo.CommodityStockVO;
 import vo.StockVO;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class StockBLService_Stub implements StockBLInfo,StockBLService {
     }
 
     @Override
-    public Iterator<InventoryVO> checkInventory() {
-       return new ArrayList<InventoryVO>().iterator();
+    public Iterator<CommodityStockVO> checkInventory() {
+       return new ArrayList<CommodityStockVO>().iterator();
     }
 }

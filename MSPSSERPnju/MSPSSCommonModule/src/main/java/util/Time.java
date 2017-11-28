@@ -21,23 +21,23 @@ public class Time {
         this.second = second;
     }
 
-    public int getyear(){
+    public int getYear(){
         return year;
     }
 
-    public int getmonth(){
+    public int getMonth(){
         return month;
     }
-    public int getday(){
+    public int getDay(){
         return day;
     }
-    public int gethour(){
+    public int getHour(){
+        return hour;
+    }
+    public int getMinute(){
         return year;
     }
-    public int getminute(){
-        return year;
-    }
-    public int getsecond(){
+    public int getSecond(){
         return year;
     }
 
