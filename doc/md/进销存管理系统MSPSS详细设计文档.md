@@ -2461,14 +2461,14 @@ Promotion的接口规范
 
 PromotionBLInfo的接口规范
 
-| 提供的服务（供接口）          |                  |                                          |
-| ------------------- | ---------------- | ---------------------------------------- |
-| PromotionBLInfo.add | 语法               | public ResultMessage add(Promotion PO promotionPO); |
-| 前置条件                | 无                |                                          |
-| 后置条件                | 促销策略数据中增加一条促销策略  |                                          |
-| 需要的服务（需接口）          |                  |                                          |
-| 服务名                 | 服务               |                                          |
-| Promotion.add       | 给促销策略数据中增加一个促销策略 |                                          |
+| 提供的服务（供接口）             |             |                                          |
+| ---------------------- | ----------- | ---------------------------------------- |
+| PromotionBLInfo.search | 语法          | public ArrayList<PromotionPO> search(Time date); |
+| 前置条件                   | 无           |                                          |
+| 后置条件                   | 返回符合条件的促销策略 |                                          |
+| 需要的服务（需接口）             |             |                                          |
+| 服务名                    | 服务          |                                          |
+| Promotion.search       | 返回符合条件的促销策略 |                                          |
 
 （4）业务逻辑层内部动态模型
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/Promotion顺序图.png)
