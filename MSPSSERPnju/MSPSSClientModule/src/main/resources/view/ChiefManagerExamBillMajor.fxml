@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/ChiefManagerExamBillMajor.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerExamBillMajorController" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
+            <effect>
+                <ColorInput height="560.0" paint="#0f88eb" width="145" />
+            </effect>
+        </Pane>
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0">
+            <effect>
+                <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
+            </effect>
+        </Pane>
+        <Button layoutY="250.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" style="-fx-background-color: #0F88EB;" text="增加用户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+            <effect>
+                <ImageInput />
+            </effect>
+        </Button>
+        <Button layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="删除用户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button layoutY="316.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="修改用户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="30.0" fitWidth="47.0" layoutX="5.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/搜索.png" />
+            </image>
+        </ImageView>
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" />
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/头像.png" />
+            </image>
+      </ImageView>
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" />
+    </children>
+</Pane>
