@@ -9,23 +9,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="560.0" prefWidth="900.0" style="-fx-background-image: C:\Users\Administrator\OneDrive\重要！\大二\软件工程II\大作业\MSPSSERPnju\MSPSSClientModule\src\main\resources\image\admin\background.jpg;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="560.0" prefWidth="900.0" style="-fx-background-image: C:\Users\Administrator\OneDrive\重要！\大二\软件工程II\大作业\MSPSSERPnju\MSPSSClientModule\src\main\resources\image\admin\background.jpg;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="576.0" fitWidth="927.0" layoutX="-4.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/admin/background.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="246.0" layoutY="125.0" prefHeight="308.0" prefWidth="400.0" style="-fx-background-color: white;">
+      <Pane layoutX="277.0" layoutY="93.0" prefHeight="380.0" prefWidth="532.0" style="-fx-background-color: transparent;">
          <children>
-            <PasswordField layoutX="110.0" layoutY="160.0" prefHeight="35.0" prefWidth="180.0" promptText="密码" />
-            <TextField layoutX="110.0" layoutY="120.0" prefHeight="35.0" prefWidth="180.0" promptText="编号" />
-            <Button layoutX="110.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #0F88EB;" text="登录" textFill="#f5f2f2">
+            <PasswordField layoutX="264.0" layoutY="173.0" prefHeight="35.0" prefWidth="180.0" promptText="密码" />
+            <TextField layoutX="264.0" layoutY="116.0" prefHeight="35.0" prefWidth="180.0" promptText="编号" />
+            <Button layoutX="274.0" layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="159.0" style="-fx-background-color: #0F88EB;" text="登录" textFill="#f5f2f2">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label contentDisplay="CENTER" layoutX="155.0" layoutY="55.0" prefHeight="63.0" prefWidth="105.0" text="MSPSS" textAlignment="CENTER" textFill="#0f88eb">
+            <Label contentDisplay="CENTER" layoutX="301.0" layoutY="41.0" prefHeight="63.0" prefWidth="105.0" text="MSPSS" textAlignment="CENTER" textFill="#0f88eb">
                <font>
                   <Font name="Microsoft YaHei" size="27.0" />
                </font>
