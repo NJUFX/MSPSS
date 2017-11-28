@@ -10,6 +10,9 @@ public class GeneralAccountPO {
     ArrayList<CustomerPO> Customerlist = new ArrayList<CustomerPO>();
     ArrayList<AccountPO> accountlist = new ArrayList<AccountPO>();
 
+    public GeneralAccountPO() {
+    }
+
     public void addAccount(AccountPO account){
         accountlist.add(account);
     }
@@ -17,4 +20,29 @@ public class GeneralAccountPO {
     public ArrayList<AccountPO> getaccountlist(){
         return accountlist;
     }
+
+    public ArrayList<CommodityPO> getCommoditylist() {
+        return commoditylist;
+    }
+
+    public void setCommoditylist(ArrayList<CommodityPO> commoditylist) {
+        this.commoditylist = commoditylist;
+    }
+
+    public ArrayList<CustomerPO> getCustomerlist() {
+        return Customerlist;
+    }
+
+    public void setCustomerlist(ArrayList<CustomerPO> customerlist) {
+        Customerlist = customerlist;
+    }
+
+    public ArrayList<AccountPO> getAccountlist() {
+        return accountlist;
+    }
+
+    public void setAccountlist(ArrayList<AccountPO> accountlist) {
+        this.accountlist = accountlist;
+    }
+
 }

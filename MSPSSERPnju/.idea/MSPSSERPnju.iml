@@ -17,5 +17,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Hibernate Validator-5.0.1" level="project" />
   </component>
 </module>
