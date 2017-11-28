@@ -2,41 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a33a6ced-f29d-4106-9465-b245a29cdaf3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/image/背景.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blservice/mainblservice/MainBLService.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blservice/mainblservice/MainBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blstubdriver/mainstubdriver/MainBLService_Driver.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blstubdriver/mainstubdriver/MainBLService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blstubdriver/mainstubdriver/MainBLService_Stub.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blstubdriver/mainstubdriver/MainBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AccountFilterFlagsVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AccountFilterFlagsVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AccountVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AccountVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AlarmReportVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AlarmReportVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BankAccountVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BankAccountVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BillListVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BillListVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BillVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BusinessProcessTableFilterFlagsVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BusinessProcessTableFilterFlagsVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ClassificationVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ClassificationVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/CommodityVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/CommodityVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/CustomerVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/CustomerVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/FilterFlagVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/FilterFlagVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/FormFilterFlagsVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/FormFilterFlagsVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/GeneralAccountVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/GeneralAccountVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/InOrOut.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/InOrOut.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/IncomeBillVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/IncomeBillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/InventoryVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/InventoryVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ListVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ListVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/LogListVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/LogListVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/LogVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/LogVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ManageListVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ManageListVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PayBillVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PayBillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PromotionListVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PromotionListVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PromotionVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PromotionVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PurchaseVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PurchaseVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/SalesListVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/SalesListVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/SalesVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/SalesVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/StockVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/StockVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/TermSetVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/TermSetVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/VirementVO.class" afterPath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/VirementVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/LogPO.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/LogPO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -52,35 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Login.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/test.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="491">
+              <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -115,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="16" />
     <option name="y" value="51" />
     <option name="width" value="1280" />
@@ -136,8 +78,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,15 +117,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
-              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
@@ -260,7 +193,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -407,32 +340,32 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10793651" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10793651" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22474378" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20790629" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
@@ -445,7 +378,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/test.fxml">
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -456,19 +389,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/image/背景.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/test.fxml" />
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/image/背景.jpg" />
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/test.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-713">
@@ -477,18 +400,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/TestSizeApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/TestSizeApp.java" />
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        <state relative-caret-position="491">
+          <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
           <folding />
         </state>
       </provider>
