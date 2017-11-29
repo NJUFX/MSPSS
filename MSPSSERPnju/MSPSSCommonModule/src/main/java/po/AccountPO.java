@@ -7,18 +7,19 @@ import java.util.ArrayList;
 /**
  * Created by thinkpad on 2017/11/14.
  */
+
 public class AccountPO implements Serializable {
     private int id;
     private String name;
     private int money;
-    private Time createtime;
-    private ArrayList<TestPO> list;
+    private String createtime;
+
     public AccountPO(){
 
     }
 
 
-    public AccountPO(String name,int money,Time createtime){
+    public AccountPO(String name,int money,String createtime){
         this.name = name;
         this.money = money;
 
@@ -49,11 +50,11 @@ public class AccountPO implements Serializable {
         this.money = money;
     }
 
-    public Time getCreatetime() {
+    public String getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Time createtime) {
+    public void setCreatetime(String createtime) {
         this.createtime = createtime;
     }
 
