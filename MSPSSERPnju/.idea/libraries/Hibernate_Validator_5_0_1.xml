@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="Hibernate Validator-5.0.1" type="BeanValidation">
-    <properties version="5.0.1" />
+  <library name="Hibernate Validator-5.0.1">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/hibernate-validator-cdi-5.0.1.Final.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/hibernate-validator-annotation-processor-5.0.1.Final.jar!/" />

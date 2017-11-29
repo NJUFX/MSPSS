@@ -8,18 +8,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import ui.common.Dialog;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-public class UserAddViewController implements Initializable {
+public class UserModifyViewController implements Initializable {
     Dialog dialog = new Dialog();
     private MainApp application;
 
     public void setApp(MainApp application) {
         this.application = application;
     }
-
 
     /**
      * 确定按钮
@@ -49,15 +48,21 @@ public class UserAddViewController implements Initializable {
      */
     @FXML
     public void sureButtonAction(ActionEvent e) {
-
-        dialog.confirmDialog("Do you confirm to add this user?");
+        dialog.confirmDialog("Do you confirm to modify this user?");
         System.out.println("Success.");
-        dialog.infoDialog("Add the user successfully.");
+        dialog.infoDialog("Modify the user successfully.");
     }
 
     @FXML
     public void UserCategoryAction(ActionEvent e) {
 
+    }
+    @FXML
+    static Button addUserButton;
+
+    @FXML
+    public void addUserButtonAction(ActionEvent e) {
+        application.toAddUserInfer();
     }
 
     @FXML
@@ -67,15 +72,6 @@ public class UserAddViewController implements Initializable {
     public void delUserButtonAction(ActionEvent e) {
         application.toDelUserInfer();
     }
-
-    @FXML
-    static Button modUserButton;
-
-    @FXML
-    public void modUserButtonAction(ActionEvent e) {
-        application.toModUserInfer();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
