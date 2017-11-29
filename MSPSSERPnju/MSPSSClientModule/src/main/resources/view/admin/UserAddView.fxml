@@ -9,8 +9,10 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
+<?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -22,17 +24,17 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="增加用户" textFill="#f8f4f4">
+        <Button id="addUserButton"  layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="增加用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" onAction="#delUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除用户" textFill="#f8f4f4">
+        <Button id="delUserButton" fx:id = "delUserButton" onAction="#delUserButtonAction" layoutY="317.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-      <Button id="modUserButton" fx:id="modUserButton" layoutY="351.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="修改用户" textFill="#f8f4f4">
+      <Button id="modUserButton" fx:id = "modUserButton" onAction="#modUserButtonAction" layoutY="351.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="修改用户" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -56,7 +58,7 @@
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号: SS001" textFill="WHITE">
+      <Label layoutX="20.0" layoutY="240.0" text="编号: SY001" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -109,8 +111,27 @@
             </Label>
             <TextField id="userName" layoutX="187.0" layoutY="56.0" prefHeight="21.0" prefWidth="114.0" />
             <Label id="userId" layoutX="186.0" layoutY="157.0" prefHeight="22.0" prefWidth="114.0" stylesheets="@../../css/admin/addUser.css" text="Label" />
-            <ComboBox id="userCategory" layoutX="186.0" layoutY="104.0" prefHeight="23.0" prefWidth="114.0" />
-            <ComboBox id="userPower" layoutX="187.0" layoutY="200.0" prefHeight="23.0" prefWidth="114.0" />
+         <ComboBox id="userCategory" fx:id="userCategory" layoutX="186.0" layoutY="104.0" prefHeight="23.0" prefWidth="114.0" >
+             <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="总经理" />
+                     <String fx:value="进货销售人员" />
+                     <String fx:value="库存管理人员" />
+                     <String fx:value="财务人员" />
+                  </FXCollections>
+             </items>
+         </ComboBox>
+
+        <ComboBox id="userPower" layoutX="187.0" layoutY="200.0" prefHeight="23.0" prefWidth="114.0" >
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                </FXCollections>
+            </items>
+        </ComboBox>
          </children>
       </Pane>
       <Button id="cancelButton" layoutX="372.0" layoutY="463.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
@@ -118,7 +139,7 @@
             <Font name="Microsoft YaHei" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="558.0" layoutY="463.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+      <Button id="sureButton" fx:id="sureButton" layoutX="558.0" layoutY="463.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei" size="16.0" />
          </font>

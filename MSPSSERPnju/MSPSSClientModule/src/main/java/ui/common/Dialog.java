@@ -1,5 +1,4 @@
-package ui.adminui;
-
+package ui.common;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -51,3 +50,4 @@ public class Dialog {
         }
     }
 }
+
