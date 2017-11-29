@@ -90,7 +90,7 @@
          </image>
       </ImageView>
       <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="清空" textFill="WHITE" />
+      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="清空" textFill="#0f88eb" />
       <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
       <Pane layoutX="195.0" layoutY="89.0" prefHeight="347.0" prefWidth="659.0" style="-fx-background-color: #f8f8f8;">
          <children>
@@ -105,9 +105,9 @@
                   <Image url="@../../image/选择日期.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="68.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="61.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../image/查看报表.png" />
+                  <Image url="@../../image/报表类型.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="68.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">

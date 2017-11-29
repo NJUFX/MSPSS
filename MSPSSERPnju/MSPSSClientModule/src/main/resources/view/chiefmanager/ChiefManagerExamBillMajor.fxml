@@ -108,20 +108,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextArea layoutX="242.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <TextArea layoutX="388.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <TextArea layoutX="536.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <TextArea layoutX="678.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
+      <TextArea layoutX="242.0" layoutY="210.0" prefHeight="210.0" prefWidth="557.0">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu></TextArea>
       <Button layoutX="242.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="确认" textFill="#fffbfb" />
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="否决" textFill="WHITE" />
+      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="否决" textFill="#0f88eb" />
       <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="通过" textFill="WHITE" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
-      <CheckBox layoutX="806.0" layoutY="211.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="241.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="271.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="301.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="331.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="361.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="391.0" mnemonicParsing="false" />
+      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
     </children>
 </fx:root>
