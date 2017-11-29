@@ -31,7 +31,10 @@ public class ClassificationPO {
      */
     ArrayList<String> commodityIDs;
 
-    public ClassificationPO(String name, String ID, String parentID, ArrayList<String> childrenID,ArrayList<String> commodityIDs){
+    public ClassificationPO() {
+    }
+
+    public ClassificationPO(String name, String ID, String parentID, ArrayList<String> childrenID, ArrayList<String> commodityIDs){
         this.name = name;
         this.childrenID = childrenID;
         this.parentID = parentID;

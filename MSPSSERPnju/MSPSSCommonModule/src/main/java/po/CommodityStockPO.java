@@ -34,6 +34,9 @@ public class CommodityStockPO {
      */
     private Time exportDate;
 
+    public CommodityStockPO() {
+    }
+
     public CommodityStockPO(String commodityID, int number, double price, String pici, String pihao, Time exportDate) {
         this.commodityID = commodityID;
         this.number = number;

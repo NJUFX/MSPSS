@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by thinkpad on 2017/11/13.
  */
 public class AccountDataService_Driver {
-    AccountPO account = new AccountPO("苏果超市", 1000, new Time(2017, 11, 11, 11, 11, 11));
+    AccountPO account = new AccountPO("苏果超市", 1000, "2017-11-11-11-11-11");
 
     private AccountDataService service = new AccountDataService_Stub();
 
@@ -26,12 +26,12 @@ public class AccountDataService_Driver {
         else System.out.println("fail");
 
         //2
-        result = service.deleteAccount(account.getname());
+        result = service.deleteAccount(account.getName());
         if (result == ResultMessage.SUCCESS) System.out.println("Success delete account");
         else System.out.println("fail");
 
         //3
-        result = service.modifyAccount(account.getname(), "苏果江苏总店");
+        result = service.modifyAccount(account.getName(), "苏果江苏总店");
         if (result == ResultMessage.SUCCESS) System.out.println("Success modify account");
         else System.out.println("fail");
 
