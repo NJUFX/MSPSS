@@ -64,7 +64,7 @@ public class MockPromotion extends Promotion{
     public ArrayList<PromotionPO> search(Time date){
         ArrayList<PromotionPO>result = new ArrayList<PromotionPO>();
         for(int i=0;i<promotionlist.size();i++){
-            if(promotionlist.get(i).getTime().getyear()==date.getyear()&&promotionlist.get(i).getTime().getmonth()==date.getmonth()&&promotionlist.get(i).getTime().getday()==date.getday()){
+            if(promotionlist.get(i).getTime().getYear()==date.getYear()&&promotionlist.get(i).getTime().getMonth()==date.getMonth()&&promotionlist.get(i).getTime().getDay()==date.getDay()){
                 result.add(promotionlist.get(i));
             }
         }

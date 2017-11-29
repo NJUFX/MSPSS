@@ -88,22 +88,22 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Label layoutX="242.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 单据生成时间" textFill="WHITE">
+      <Label layoutX="242.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 单据生成时间" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="388.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 操作人员编号" textFill="WHITE">
+      <Label layoutX="388.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 操作人员编号" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="536.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 提交单据时间" textFill="WHITE">
+      <Label layoutX="536.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 提交单据时间" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="678.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 单据当前状态" textFill="WHITE">
+      <Label layoutX="678.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 单据当前状态" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -112,10 +112,10 @@
       <TextArea layoutX="388.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
       <TextArea layoutX="536.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
       <TextArea layoutX="678.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <Button layoutX="242.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="确认" textFill="#fffbfb" />
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="否决" textFill="WHITE" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="通过" textFill="WHITE" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
+      <Button layoutX="242.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="确认" textFill="#fffbfb" />
+      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="否决" textFill="WHITE" />
+      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="通过" textFill="WHITE" />
+      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="退出" textFill="WHITE" />
       <CheckBox layoutX="806.0" layoutY="211.0" mnemonicParsing="false" />
       <CheckBox layoutX="806.0" layoutY="241.0" mnemonicParsing="false" />
       <CheckBox layoutX="806.0" layoutY="271.0" mnemonicParsing="false" />
