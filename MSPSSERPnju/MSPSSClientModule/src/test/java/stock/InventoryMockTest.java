@@ -5,7 +5,7 @@ import blimpl.stockblimpl.MockInventory;
 import org.junit.Assert;
 import org.junit.Test;
 import util.ResultMessage;
-import vo.InventoryVO;
+import vo.CommodityStockVO;
 
 import java.util.Date;
 
@@ -15,7 +15,7 @@ import java.util.Date;
  */
 public class InventoryMockTest {
     private Inventory inventory = new MockInventory();
-    private InventoryVO inventoryVO = new InventoryVO("","",1,1,"","", new Date());
+    private CommodityStockVO commodityStockVO = new CommodityStockVO("","",1,1,"","", new Date());
 
     @Test
     public void a_add(){

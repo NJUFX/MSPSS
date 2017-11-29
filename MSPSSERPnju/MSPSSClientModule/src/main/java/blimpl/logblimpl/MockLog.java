@@ -31,7 +31,7 @@ public class MockLog extends Log{
      * @return ArrayList<LogPO>
      */
     public ArrayList<LogPO> search(Time date){
-        String time = date.getyear()+"/"+date.getmonth()+"/"+date.getday();
+        String time = date.getYear()+"/"+date.getMonth()+"/"+date.getDay();
         ArrayList<LogPO> searchList = new ArrayList<LogPO>();
         for(int i=0;i<loglist.size();i++){
             if(time.equals(loglist.get(i).getTime())){

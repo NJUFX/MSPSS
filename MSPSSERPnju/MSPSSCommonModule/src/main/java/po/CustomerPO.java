@@ -58,7 +58,7 @@ public class CustomerPO {
     /**
      * 银行账户
      */
-    private BankAccountPO bankaccount;
+    private AccountPO account;
     /**
      * 客户分类
      */
@@ -136,12 +136,12 @@ public class CustomerPO {
         this.name = name;
     }
 
-    public BankAccountPO getBankaccount() {
-        return bankaccount;
+    public AccountPO getAccount() {
+        return account;
     }
 
-    public void setBankaccount(BankAccountPO bankaccount) {
-        this.bankaccount = bankaccount;
+    public void setAccount(AccountPO account) {
+        this.account = account;
     }
 
     public String getPhonenumber() {

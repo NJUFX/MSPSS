@@ -1,33 +1,49 @@
 package vo;
 
+import blimpl.commodityblimpl.Classification;
+
+import java.util.ArrayList;
+
 public class ClassificationVO {
     /**
-     * 分类的ID
+     * 分类名称
      */
-    String ID;
+    public String name;
     /**
-     * 分类节点的父ID
+     * 分类编号
      */
-    String parentID;
+    public  String ID;
     /**
-     *  分类的名称
+     * 该分类的父分类
      */
-    String name;
+    public ClassificationVO parent;
+    /**
+     * 该分类的子分类
+     */
+    public ArrayList<ClassificationVO> children;
 
-    public ClassificationVO(String ID,String parentID,String name){
-        this.ID = ID;
-        this.parentID = parentID;
+    /**
+     * 该分类下的商品
+     */
+    public ArrayList<CommodityVO> commodityVOS;
+
+    public ClassificationVO(){
+
+    }
+    public ClassificationVO(String name){
         this.name = name;
     }
-    public ClassificationVO(String ID,String name){
-        this(ID,null,name);
+    public ClassificationVO(String name,ClassificationVO parent){
+        this.name = name;
+        this.parent = parent;
     }
-    @Override
-    public String toString() {
-        if (parentID == null){
-            return "编号为 "+ID+"分类名称为 "+name;
-        }
-        return "编号为 "+ID+"分类名称为 "+name + "父类编号为 "+parentID;
+    public ClassificationVO(String name, ClassificationVO parent,ArrayList<ClassificationVO> children){
+        this(name,parent);
+        this.children = children;
+    }
+    public ClassificationVO(String name, ArrayList<CommodityVO> commodityVOS){
+        this(name);
+        this.commodityVOS = commodityVOS;
+    }
 
-    }
 }

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/ChiefManagerExamBillMajor.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerExamBillMajoController">
+    <children>
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
+            <effect>
+                <ColorInput height="560.0" paint="#0f88eb" width="145" />
+            </effect>
+        </Pane>
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0">
+            <effect>
+                <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
+            </effect>
+        </Pane>
+        <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/查看报表.png" />
+            </image>
+        </ImageView>
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" />
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/头像.png" />
+            </image>
+      </ImageView>
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" />
+      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/审批单据.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/查询日志.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/促销策略.png" />
+         </image>
+      </ImageView>
+      <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <Button layoutX="48.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <Button layoutX="96.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="14.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/设置.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="30.0" layoutX="64.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/退出登录.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="35.0" layoutX="109.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/发送信息.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="242.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 单据生成时间" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="388.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 操作人员编号" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="536.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 提交单据时间" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="678.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: #00AAEE;" text=" 单据当前状态" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="242.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
+      <TextArea layoutX="388.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
+      <TextArea layoutX="536.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
+      <TextArea layoutX="678.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
+      <Button layoutX="242.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="确认" textFill="#fffbfb" />
+      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="否决" textFill="WHITE" />
+      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="通过" textFill="WHITE" />
+      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #00AAEE;" text="退出" textFill="WHITE" />
+      <CheckBox layoutX="806.0" layoutY="211.0" mnemonicParsing="false" />
+      <CheckBox layoutX="806.0" layoutY="241.0" mnemonicParsing="false" />
+      <CheckBox layoutX="806.0" layoutY="271.0" mnemonicParsing="false" />
+      <CheckBox layoutX="806.0" layoutY="301.0" mnemonicParsing="false" />
+      <CheckBox layoutX="806.0" layoutY="331.0" mnemonicParsing="false" />
+      <CheckBox layoutX="806.0" layoutY="361.0" mnemonicParsing="false" />
+      <CheckBox layoutX="806.0" layoutY="391.0" mnemonicParsing="false" />
+    </children>
+</fx:root>

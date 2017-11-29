@@ -1,7 +1,7 @@
 package dataservice;
 
 import filterflags.StockFilter;
-import po.InventoryPO;
+import po.CommodityStockPO;
 import po.StockPO;
 import util.ResultMessage;
 
@@ -19,7 +19,7 @@ public interface StockDataService {
      * 得到所有的商品库存信息
      * @return
      */
-    public Iterator<InventoryPO> getAllInventory();
+    public Iterator<CommodityStockPO> getAllInventory();
 
     /**
      * 添加出入库信息信息
@@ -30,23 +30,23 @@ public interface StockDataService {
 
     /**
      * 添加商品库存信息
-     * @param inventoryPO
+     * @param commodityStockPO
      * @return
      */
-    public ResultMessage addInventory(InventoryPO inventoryPO);
+    public ResultMessage addInventory(CommodityStockPO commodityStockPO);
 
     /**
      * 更新商品库存信息
-     * @param inventoryPO
+     * @param commodityStockPO
      * @return
      */
-    public ResultMessage updateInventory(InventoryPO inventoryPO);
+    public ResultMessage updateInventory(CommodityStockPO commodityStockPO);
 
     /**
      * 搜索特定的商品库存信息
      * @param id
      * @return
      */
-    public InventoryPO searchInventory(String id);
+    public CommodityStockPO searchInventory(String id);
 
 }

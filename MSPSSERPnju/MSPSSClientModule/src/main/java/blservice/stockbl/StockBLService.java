@@ -1,9 +1,8 @@
 package blservice.stockbl;
 
-import vo.InventoryVO;
+import vo.CommodityStockVO;
 import vo.StockVO;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -23,7 +22,7 @@ public interface StockBLService {
      *  库存盘点
      * @return 返回当天的库存快照
      */
-    public Iterator<InventoryVO> checkInventory();
+    public Iterator<CommodityStockVO> checkInventory();
 
 
 }

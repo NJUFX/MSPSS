@@ -5,10 +5,9 @@ import blservice.stockbl.StockBLService;
 import org.junit.Test;
 import util.ResultMessage;
 import vo.BillVO;
-import vo.InventoryVO;
+import vo.CommodityStockVO;
 import vo.StockVO;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -52,7 +51,7 @@ public class StockBLService_Driver {
         else
             System.out.println("view success");
         //5
-        Iterator<InventoryVO> inventoryVOIterator = stockblService.checkInventory();
+        Iterator<CommodityStockVO> inventoryVOIterator = stockblService.checkInventory();
         if (inventoryVOIterator==null)
             System.out.println("check success");
         else
