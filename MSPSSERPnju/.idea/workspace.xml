@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b62f4a98-b8d6-46af-831e-c3fd60748844" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserModifyViewController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserDelView.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserModifyView.fxml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/Dialog.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/Dialog.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/common/Dialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/LoginController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserAddView.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserAddView.fxml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/css/login.css" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/MSPSSServerModule/target/" />
@@ -29,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="191">
@@ -37,6 +26,19 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,32 +107,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserAddView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserAddView.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="270" lean-forward="false" selection-start-line="14" selection-start-column="270" selection-end-line="14" selection-end-column="270" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDelView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserDelView.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="16" column="270" lean-forward="false" selection-start-line="16" selection-start-column="270" selection-end-line="16" selection-end-column="270" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserModifyView.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserModifyView.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
@@ -177,7 +153,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-127" />
     <option name="y" value="140" />
     <option name="width" value="1280" />
@@ -525,7 +501,7 @@
     <option name="totallyTimeSpent" value="51000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -929,25 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="11" column="306" lean-forward="false" selection-start-line="11" selection-start-column="306" selection-end-line="11" selection-end-column="306" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserAddView.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1040,6 +997,25 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
