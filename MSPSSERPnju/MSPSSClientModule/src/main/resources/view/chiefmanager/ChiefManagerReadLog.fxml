@@ -89,50 +89,24 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Label layoutX="243.0" layoutY="199.0" prefHeight="20.0" prefWidth="190.0" text="        日志生成时间" textFill="WHITE">
+      <Button layoutX="617.0" layoutY="474.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Button layoutX="757.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
+      <DatePicker layoutX="446.0" layoutY="98.0" prefHeight="27.0" prefWidth="140.0" />
+      <Button layoutX="466.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0F88EB;" text="查询" textFill="#0f88eb" />
+      <DatePicker layoutX="713.0" layoutY="98.0" prefHeight="27.0" prefWidth="140.0" />
+      <Label layoutX="334.0" layoutY="104.0" prefHeight="17.0" prefWidth="86.0" style="-fx-background-color: white;" text="选择起止日期" textFill="#0f88eb" />
+      <Label layoutX="610.0" layoutY="92.0" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: white;" text="————" textFill="#0f88eb">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="433.0" layoutY="199.0" prefHeight="20.0" prefWidth="190.0" text="        操作人员编号" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="623.0" layoutY="199.0" prefHeight="20.0" prefWidth="190.0" text="        提交日志时间" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="243.0" layoutY="222.0" prefHeight="206.0" prefWidth="570.0" style="-fx-background-radius: 0;">
-         <contextMenu>
-            <ContextMenu>
-              <items>
-                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-              </items>
-            </ContextMenu>
-         </contextMenu></TextArea>
-      <Button layoutX="546.0" layoutY="467.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
-      <DatePicker layoutX="406.0" layoutY="130.0" prefHeight="27.0" prefWidth="140.0" />
-      <Button layoutX="400.0" layoutY="467.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0F88EB;" text="查询" textFill="#0f88eb" />
-      <DatePicker layoutX="673.0" layoutY="130.0" prefHeight="27.0" prefWidth="140.0" />
-      <Label layoutX="243.0" layoutY="130.0" prefHeight="27.0" prefWidth="119.0" style="-fx-background-color: white;" text="选择起止日期" textFill="#0f88eb">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="580.0" layoutY="124.0" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: white;" text="————" textFill="#0f88eb">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TableView layoutX="210.0" layoutY="274.0" prefHeight="257.0" prefWidth="541.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-        </columns>
+      <TableView layoutX="193.0" layoutY="138.0" prefHeight="320.0" prefWidth="660.0">
+         <columns>
+            <TableColumn prefWidth="165.0" text="日志提交时间" />
+            <TableColumn prefWidth="165.0" text="操作人员编号" />
+            <TableColumn prefWidth="165.0" text="执行操作名称" />
+            <TableColumn prefWidth="165.0" />
+         </columns>
       </TableView>
     </children>
 </fx:root>
