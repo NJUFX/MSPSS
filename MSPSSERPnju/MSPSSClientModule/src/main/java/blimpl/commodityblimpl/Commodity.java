@@ -65,6 +65,16 @@ public class Commodity {
     }
 
     /**
+     * 将商品的PO转化为VO
+     * @param po
+     * @return
+     */
+    public CommodityVO po_to_vo(CommodityPO po){
+        CommodityVO vo = new CommodityVO(po.getName(),po.getID(),po.getType(),po.getImportCost(),po.getExportCost(),
+                po.getNumberInStock());
+        return vo;
+    }
+    /**
      * 搜索商品
      * @param flag
      * @return

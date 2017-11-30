@@ -1,30 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" version="4">
-  <component name="FacetManager">
-    <facet type="hibernate" name="Hibernate">
-      <configuration>
-        <datasource-map>
-<<<<<<< HEAD
-          <unit-entry name="hibernate.cfg.xml" />
-        </datasource-map>
-        <naming-strategy-map />
-=======
-          <unit-entry name="hibernate.cfg.xml" value="43f2c1a5-fffe-438a-824f-d2f539ba2183" />
-        </datasource-map>
-        <naming-strategy-map>
-          <unit-entry name="hibernate.cfg.xml" />
-        </naming-strategy-map>
->>>>>>> 92cfe98b26c5799d65540937664b04880fca5bb0
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/Resource/hibernate.cfg.xml" />
-      </configuration>
-    </facet>
-  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/Resource" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

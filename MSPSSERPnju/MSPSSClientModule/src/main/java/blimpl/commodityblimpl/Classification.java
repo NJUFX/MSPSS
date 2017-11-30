@@ -3,6 +3,7 @@ package blimpl.commodityblimpl;
 
 import network.CommodityClientNetworkService;
 import po.ClassificationPO;
+import po.CommodityPO;
 import util.ResultMessage;
 import vo.ClassificationVO;
 import vo.CommodityVO;
@@ -77,7 +78,7 @@ public class Classification {
     public ClassificationVO getClassification(String id){
         ClassificationPO po = netService.getClassification(id);
 
-        return null;
+        return PO_To_VO(po);
     }
 
     public ArrayList<ClassificationVO> searchClassification(FilterFlagVO flag){
@@ -89,7 +90,8 @@ public class Classification {
      * @return
      */
     public ArrayList<ClassificationVO> searchChildren(ClassificationVO vo){
-        return null;
+
+        return vo.children;
     }
 
     /**
@@ -103,7 +105,17 @@ public class Classification {
     private ClassificationVO PO_To_VO(ClassificationPO po){
 
         ClassificationVO classificationVO = new ClassificationVO(po.getName());
-
+        if (po.getChildrenID()!=null&&po.getChildrenID().size()>0);
+        for (String i : po.getChildrenID()){
+            classificationVO.children.add(PO_To_VO(netService.getClassification(i)));
+        }
+        if (po.getCommodityIDs()!=null&&po.getCommodityIDs().size()>0)
+            for (String id : po.getCommodityIDs()){
+                CommodityPO commodityPO = netService.exactlySearchCommodity(id);
+                CommodityVO vo = new CommodityVO(commodityPO.getName(),commodityPO.getID(),commodityPO.getType(),commodityPO.getImportCost(),commodityPO.getExportCost(),
+                        commodityPO.getNumberInStock());
+                classificationVO.commodityVOS.add(vo);
+            }
         return classificationVO;
     }
 }
