@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.paint.*?>
@@ -9,16 +10,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowBillDetailController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/ChiefManagerExamineBill.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerReadLogController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerShowBillDetail.css">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerReadLog.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
@@ -89,19 +89,50 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Button layoutX="589.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
-      <Button layoutX="753.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
-      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
-         <children>
-            <TextArea prefHeight="353.0" prefWidth="666.0" style="-fx-background-radius: 0;" />
-            <TableView prefHeight="353.0" prefWidth="660.0">
-              <columns>
-                <TableColumn prefWidth="165.0" text="日志提交时间" />
-                <TableColumn prefWidth="165.0" text="操作人员编号" />
-                  <TableColumn prefWidth="165.0" text="执行操作名称" />
-                  <TableColumn prefWidth="165.0" text="显示日志详情" />
-              </columns>
-            </TableView>
-         </children></Pane>
+      <Label layoutX="243.0" layoutY="199.0" prefHeight="20.0" prefWidth="190.0" text="        日志生成时间" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="199.0" prefHeight="20.0" prefWidth="190.0" text="        操作人员编号" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="623.0" layoutY="199.0" prefHeight="20.0" prefWidth="190.0" text="        提交日志时间" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="243.0" layoutY="222.0" prefHeight="206.0" prefWidth="570.0" style="-fx-background-radius: 0;">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu></TextArea>
+      <Button layoutX="546.0" layoutY="467.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
+      <DatePicker layoutX="406.0" layoutY="130.0" prefHeight="27.0" prefWidth="140.0" />
+      <Button layoutX="400.0" layoutY="467.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0F88EB;" text="查询" textFill="#0f88eb" />
+      <DatePicker layoutX="673.0" layoutY="130.0" prefHeight="27.0" prefWidth="140.0" />
+      <Label layoutX="243.0" layoutY="130.0" prefHeight="27.0" prefWidth="119.0" style="-fx-background-color: white;" text="选择起止日期" textFill="#0f88eb">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="580.0" layoutY="124.0" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: white;" text="————" textFill="#0f88eb">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView layoutX="210.0" layoutY="274.0" prefHeight="257.0" prefWidth="541.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+        </columns>
+      </TableView>
     </children>
 </fx:root>

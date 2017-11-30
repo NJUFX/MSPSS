@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/ChiefManagerExamineBill.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerExamBillMajoController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/ChiefManagerExamineBill.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerExamineBillController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -88,37 +88,17 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Label layoutX="242.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 单据生成时间" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="388.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 操作人员编号" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="536.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 提交单据时间" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="678.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 单据当前状态" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="242.0" layoutY="210.0" prefHeight="210.0" prefWidth="557.0">
-         <contextMenu>
-            <ContextMenu>
-              <items>
-                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-              </items>
-            </ContextMenu>
-         </contextMenu></TextArea>
-      <Button layoutX="242.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="确认" textFill="#fffbfb" />
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="否决" textFill="#0f88eb" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="通过" textFill="WHITE" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
+      <Button layoutX="193.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="确认" textFill="#fffbfb" />
+      <Button layoutX="374.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="否决" textFill="#0f88eb" />
+      <Button layoutX="559.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="通过" textFill="WHITE" />
+      <Button layoutX="753.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
+      <TableView layoutX="193.0" layoutY="117.0" prefHeight="309.0" prefWidth="660.0">
+        <columns>
+          <TableColumn prefWidth="165.0" text=" 操作人员编号" />
+          <TableColumn prefWidth="165.0" text=" 单据生成时间" />
+            <TableColumn prefWidth="165.0" text=" 提交单据时间" />
+            <TableColumn prefWidth="165.0" text=" 单据当前状态" />
+        </columns>
+      </TableView>
     </children>
 </fx:root>
