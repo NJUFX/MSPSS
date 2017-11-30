@@ -1,48 +1,52 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by thinkpad on 2017/11/14.
  */
-public class GeneralAccountPO {
-    ArrayList<CommodityPO> commoditylist = new ArrayList<CommodityPO>();
-    ArrayList<CustomerPO> Customerlist = new ArrayList<CustomerPO>();
-    ArrayList<AccountPO> accountlist = new ArrayList<AccountPO>();
+public class GeneralAccountPO implements Serializable {
+    private int  id;
+
+    private List<GeneralAccount_CommodityList_PO> commoditylist;
+    private List<GeneralAccount_CustomerList_PO> Customerlist ;
+    private List<GeneralAccount_AccountList_PO> accountlist ;
 
     public GeneralAccountPO() {
     }
 
-    public void addAccount(AccountPO account){
-        accountlist.add(account);
+    public int getId() {
+        return id;
     }
 
-    public ArrayList<AccountPO> getaccountlist(){
-        return accountlist;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public ArrayList<CommodityPO> getCommoditylist() {
+
+    public List<GeneralAccount_CommodityList_PO> getCommoditylist() {
         return commoditylist;
     }
 
-    public void setCommoditylist(ArrayList<CommodityPO> commoditylist) {
+    public void setCommoditylist(List<GeneralAccount_CommodityList_PO> commoditylist) {
         this.commoditylist = commoditylist;
     }
 
-    public ArrayList<CustomerPO> getCustomerlist() {
+    public List<GeneralAccount_CustomerList_PO> getCustomerlist() {
         return Customerlist;
     }
 
-    public void setCustomerlist(ArrayList<CustomerPO> customerlist) {
+    public void setCustomerlist(List<GeneralAccount_CustomerList_PO> customerlist) {
         Customerlist = customerlist;
     }
 
-    public ArrayList<AccountPO> getAccountlist() {
+    public List<GeneralAccount_AccountList_PO> getAccountlist() {
         return accountlist;
     }
 
-    public void setAccountlist(ArrayList<AccountPO> accountlist) {
+    public void setAccountlist(List<GeneralAccount_AccountList_PO> accountlist) {
         this.accountlist = accountlist;
     }
-
 }

@@ -6,11 +6,11 @@ import util.Kind_Of_Customers;
 
 public class CustomerData_Driver {
     CustomerData_Stub customerData_stub = new CustomerData_Stub();
-    CustomerPO customer = new CustomerPO("00000001", Kind_Of_Customers.SUPPLIER, 5, "Intel", "88484399", "Nanjing", "222243", "intel@intel.com", 50000, 43200, 0, "002");
+    CustomerPO customer = new CustomerPO("00000001", "SUPPLIER", 5, "Intel", "88484399", "Nanjing", "222243", "intel@intel.com", 50000, 43200, 0, "002");
 
     @Test
     public void drive() {
-        boolean isAdd1 = customerData_stub.addCustomer("00000003", Kind_Of_Customers.SUPPLIER, 5, "Sansung", "36363636", "Korea", "123456", "sansung@sansung.com", 50000, 30000, 0, "004");
+        boolean isAdd1 = customerData_stub.addCustomer("00000003", "SUPPLYER", 5, "Sansung", "36363636", "Korea", "123456", "sansung@sansung.com", 50000, 30000, 0, "004");
         if (isAdd1 == true) {
             System.out.println("Add customer successfully.");
         } else {
@@ -31,7 +31,7 @@ public class CustomerData_Driver {
             System.out.println("Fail to delete customer.");
         }
 
-        boolean isMod = customerData_stub.modifyCustomer("00000003", Kind_Of_Customers.SUPPLIER, 3, "Intel", "1529860", "nanjing", "222243", "intel@intel.com", 36000);
+        boolean isMod = customerData_stub.modifyCustomer("00000003", "SUPPLYER", 3, "Intel", "1529860", "nanjing", "222243", "intel@intel.com", 36000);
         if (isMod) {
             System.out.println("Modify customer successfully.");
         } else {

@@ -10,8 +10,8 @@ public class CustomerData_Stub implements CustomerDataService {
     public static ArrayList<CustomerPO> customerList = new ArrayList<>();
 
     @Override
-    public boolean addCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE) {
-        CustomerPO newcustomer = new CustomerPO(ID, kind, level, name, tele, address, postcode, email, InValue, in, out, DAE);
+    public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE) {
+        CustomerPO newcustomer = new CustomerPO(ID, "SUPPLYER", level, name, tele, address, postcode, email, InValue, in, out, DAE);
         customerList.add(newcustomer);
         return true;
     }
@@ -55,10 +55,10 @@ public class CustomerData_Stub implements CustomerDataService {
     }
 
     @Override
-    public boolean modifyCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue) {
+    public boolean modifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue) {
         for (CustomerPO lang : customerList) {
             if (lang.getID().equals(ID) && lang.getExist() != false) {
-                lang.setKind(kind);
+                lang.setCategory(category);
                 lang.setLevel(level);
                 lang.setName(name);
                 lang.setPhonenumber(tele);

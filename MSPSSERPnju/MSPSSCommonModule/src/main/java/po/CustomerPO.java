@@ -59,10 +59,11 @@ public class CustomerPO {
      * 银行账户
      */
     private AccountPO account;
-    /**
-     * 客户分类
-     */
-    private Kind_Of_Customers kind;
+    //暂定用String表示客户类型
+  //  /**
+ //    * 客户分类
+  //   */
+  //  private Kind_Of_Customers kind;
 
     public String getID() {
         return ID;
@@ -160,13 +161,6 @@ public class CustomerPO {
         this.postcode = postcode;
     }
 
-    public Kind_Of_Customers getKind() {
-        return kind;
-    }
-
-    public void setKind(Kind_Of_Customers kind) {
-        this.kind = kind;
-    }
 
     public boolean getExist() {
         return isExist;
@@ -176,11 +170,23 @@ public class CustomerPO {
         isExist = exist;
     }
 
+    public boolean isExist() {
+        return isExist;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     /**
      * 客户属性构造方法
      *
      * @param ID
-     * @param kind
+     * @param category
      * @param level
      * @param name
      * @param phonenumber
@@ -192,9 +198,9 @@ public class CustomerPO {
      * @param paymoney    应付
      * @param DAE         默认业务员
      */
-    public CustomerPO(String ID, Kind_Of_Customers kind, int level, String name, String phonenumber, String address, String postcode, String email, double InValue, double incomemoney, double paymoney, String DAE) {
+    public CustomerPO(String ID,String  category, int level, String name, String phonenumber, String address, String postcode, String email, double InValue, double incomemoney, double paymoney, String DAE) {
         this.ID = ID;
-        this.kind = kind;
+        this.category= category;
         this.level = level;
         this.name = name;
         this.phonenumber = phonenumber;
