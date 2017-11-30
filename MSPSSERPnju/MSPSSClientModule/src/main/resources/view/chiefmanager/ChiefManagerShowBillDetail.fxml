@@ -9,15 +9,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/ChiefManagerExamBillMajor.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerExamBillMajoController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowBillDetailController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerShowBillDetail.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
@@ -88,40 +89,11 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Label layoutX="242.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 单据生成时间" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="388.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 操作人员编号" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="536.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 提交单据时间" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="678.0" layoutY="154.0" prefHeight="20.0" prefWidth="120.0" text=" 单据当前状态" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="242.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <TextArea layoutX="388.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <TextArea layoutX="536.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <TextArea layoutX="678.0" layoutY="210.0" prefHeight="200.0" prefWidth="120.0" />
-      <Button layoutX="242.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="确认" textFill="#fffbfb" />
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="否决" textFill="WHITE" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="通过" textFill="WHITE" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
-      <CheckBox layoutX="806.0" layoutY="211.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="241.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="271.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="301.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="331.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="361.0" mnemonicParsing="false" />
-      <CheckBox layoutX="806.0" layoutY="391.0" mnemonicParsing="false" />
+      <Button layoutX="589.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
+      <Button layoutX="753.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
+      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <TextArea prefHeight="353.0" prefWidth="666.0" style="-fx-background-radius: 0;" />
+         </children></Pane>
     </children>
 </fx:root>

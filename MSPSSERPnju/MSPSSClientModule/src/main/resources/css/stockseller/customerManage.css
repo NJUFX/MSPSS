@@ -1,0 +1,17 @@
+#customerManage.button{
+    -fx-background-color: #0d5ae1;
+    -fx-background-radius:0;
+}
+
+.pane{
+    -fx-background-color:#FFFFFF;
+    -fx-border-color:#e1e1e1;
+}
+
+.pane:hover{
+    -fx-background-color: #e1e1e1;
+    -fx-border-color:#bbbbbb;
+}
+
+
+
