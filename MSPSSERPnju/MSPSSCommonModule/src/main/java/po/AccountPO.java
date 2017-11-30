@@ -1,35 +1,75 @@
 package po;
 
 import util.Time;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/11/14.
  */
-public class AccountPO {
+
+public class AccountPO implements Serializable {
+    private int id;
     private String name;
     private int money;
-    private Time createtime;
+    private String createtime;
 
-    public AccountPO(String name,int money,Time createtime){
+    public AccountPO(){
+
+    }
+
+
+    public AccountPO(String name,int money,String createtime){
         this.name = name;
         this.money = money;
 
         this.createtime = createtime;
     }
 
-    public void setname(String name){
-        this.name = name;
+    public int getId() {
+        return id;
     }
 
-    public String getname(){
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public int getmoney(){
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getMoney() {
         return money;
     }
 
-    public Time getcreattime(){
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public String getCreatetime() {
         return createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AccountPO accountPO = (AccountPO) o;
+
+        return name.equals(accountPO.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }

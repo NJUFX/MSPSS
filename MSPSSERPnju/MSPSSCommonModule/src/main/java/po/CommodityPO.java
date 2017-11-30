@@ -39,7 +39,7 @@ public class CommodityPO {
     private double exportCost;
 
     /**
-     * 库存数量
+     * 库存数量(要与stock同步,这可能会出bug!!!!!!）
      */
     private int numberInStock;
 

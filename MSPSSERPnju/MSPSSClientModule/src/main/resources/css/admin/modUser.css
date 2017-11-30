@@ -1,0 +1,26 @@
+#modUserButton.button{
+    -fx-background-color: #0d5ae1;
+    -fx-background-radius:0;
+}
+#cancelButton.button{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius:0;
+    -fx-border-color: #0F88EB;
+    -fx-border-radius:0;
+}
+#cancelButton.button:hover{
+    -fx-background-color:#0F88EB;
+    -fx-text-fill:#FFFFFF;
+}
+.button{
+    -fx-background-color: #0F88EB;
+    -fx-background-radius:0;
+}
+.button:hover{
+    -fx-background-color:#0d5ae1;
+}
+
+#userId.label{
+    -fx-border-color: #bbbbbb;
+    -fx-border-radius:3;
+}
