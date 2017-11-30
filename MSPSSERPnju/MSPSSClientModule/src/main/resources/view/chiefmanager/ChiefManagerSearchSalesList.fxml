@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchListMajor.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchSalesListController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchSalesList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchSalesListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -89,8 +89,8 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="清空" textFill="#0d5ae1" />
+      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
       <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
       <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #f8f8f8;">
          <children>
