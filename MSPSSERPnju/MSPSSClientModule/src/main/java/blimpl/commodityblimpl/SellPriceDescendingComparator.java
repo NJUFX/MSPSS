@@ -11,6 +11,12 @@ import java.util.Comparator;
 public class SellPriceDescendingComparator implements Comparator<CommodityVO> {
     @Override
     public int compare(CommodityVO o1, CommodityVO o2) {
+        if(o1.exportCost<o2.exportCost){
+            return 1;
+        }
+        if(o1.exportCost>o2.exportCost){
+            return -1;
+        }
         return 0;
     }
 }

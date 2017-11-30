@@ -1,10 +1,15 @@
-package dataservice;
+package network;
 
-import util.Kind_Of_Power;
+import po.UserPO;
 import util.ResultMessage;
-import po.*;
 
-public interface UserDataService {
+import java.rmi.Remote;
+
+/**
+ * Description:
+ * Created by Hanxinhu at 10:27 2017/11/30/030
+ */
+public interface UserClientNetworkService extends Remote {
     /**
      * 增加权限
      *
@@ -34,11 +39,10 @@ public interface UserDataService {
     public ResultMessage modifyUser(UserPO user);
 
     /**
-     * 根据ID找user
+     * 通过登录账号返回ID
      * @param ID
      * @return
      */
-    public UserPO findUserByID(String ID);
-
+    public UserPO searchUserByID(String ID);
 
 }

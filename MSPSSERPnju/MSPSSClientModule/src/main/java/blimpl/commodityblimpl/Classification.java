@@ -1,8 +1,11 @@
 package blimpl.commodityblimpl;
 
 
+import network.CommodityClientNetworkService;
+import po.ClassificationPO;
 import util.ResultMessage;
 import vo.ClassificationVO;
+import vo.CommodityVO;
 import vo.FilterFlagVO;
 
 import java.util.ArrayList;
@@ -12,24 +15,95 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 23:14 2017/11/15/015
  */
 public class Classification {
+    /**
+     * 增加一个新的分类
+     * @param classificationVO
+     * @return
+     */
+    CommodityClientNetworkService netService;
 
     public ResultMessage addClassification(ClassificationVO classificationVO){
+        ArrayList<String> children = new ArrayList<>();
+        for (ClassificationVO vo: classificationVO.children) {
+            children.add(vo.ID);
+        }
+        ArrayList<String> commodityIDs = new ArrayList<>();
+        for (CommodityVO vo : classificationVO.commodityVOS){
+            commodityIDs.add(vo.ID);
+        }
+        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs);
+        return netService.addClassification(po);
+    }
+
+    /**
+     * 删除一个分类
+     * @param id
+     * @return
+     */
+    public ResultMessage deleteClassification(String id){
+        ClassificationPO po = netService.getClassification(id);
+        //验证该分类下是否有子节点
+        if (po.getChildrenID()==null||po.getChildrenID().size()==0)
+            return ResultMessage.FAILED;
+        //验证该分类下是否有商品
+        if (po.getCommodityIDs()==null||po.getCommodityIDs().size()==0)
+            return ResultMessage.FAILED;
+        return netService.deleteClassification(id);
+    }
+
+    /**
+     * 更新一个分类
+     * @param classificationVO
+     * @return
+     */
+    public ResultMessage updateClassification(ClassificationVO classificationVO){
+        ArrayList<String> children = new ArrayList<>();
+        for (ClassificationVO vo: classificationVO.children) {
+            children.add(vo.ID);
+        }
+        ArrayList<String> commodityIDs = new ArrayList<>();
+        for (CommodityVO vo : classificationVO.commodityVOS){
+            commodityIDs.add(vo.ID);
+        }
+        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs);
+        return netService.modifyClassification(po);
+    }
+
+    /**
+     * 通过id查询一个分类
+     * @param id
+     * @return
+     */
+    public ClassificationVO getClassification(String id){
+        ClassificationPO po = netService.getClassification(id);
+
         return null;
     }
 
-    public ResultMessage deleteClassification(String id){
-        return null;
-    }
-    public ResultMessage updateClassification(ClassificationVO classificationVO){
-        return null;
-    }
-    public ClassificationVO getClassification(String id){
-        return null;
-    }
     public ArrayList<ClassificationVO> searchClassification(FilterFlagVO flag){
         return null;
     }
+
+    /**
+     * 查询一个分类的子分类
+     * @return
+     */
+    public ArrayList<ClassificationVO> searchChildren(ClassificationVO vo){
+        return null;
+    }
+
+    /**
+     *
+     * @return
+     */
     public ArrayList<ClassificationVO> getAllClassification(){
         return null;
+    }
+
+    private ClassificationVO PO_To_VO(ClassificationPO po){
+
+        ClassificationVO classificationVO = new ClassificationVO(po.getName());
+
+        return classificationVO;
     }
 }

@@ -32,9 +32,9 @@ public class CommodityStockPO {
     /**
      * 出厂日期
      */
-    private Time exportDate;
+    private String exportDate;
 
-    public CommodityStockPO(String commodityID, int number, double price, String pici, String pihao, Time exportDate) {
+    public CommodityStockPO(String commodityID, int number, double price, String pici, String pihao, String exportDate) {
         this.commodityID = commodityID;
         this.number = number;
         this.price = price;
@@ -83,11 +83,11 @@ public class CommodityStockPO {
         this.pihao = pihao;
     }
 
-    public Time getExportDate() {
+    public String getExportDate() {
         return exportDate;
     }
 
-    public void setExportDate(Time exportDate) {
+    public void setExportDate(String exportDate) {
         this.exportDate = exportDate;
     }
 }

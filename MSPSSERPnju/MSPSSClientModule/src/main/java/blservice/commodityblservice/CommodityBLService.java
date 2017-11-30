@@ -41,7 +41,7 @@ public interface CommodityBLService {
      * @param flags
      * @return
      */
-    public Iterator<CommodityVO> searchCommodity(FilterFlagVO flags);
+    public ArrayList<CommodityVO> searchCommodity(FilterFlagVO flags);
 
     /**
      * 添加商品分类信息
@@ -77,5 +77,45 @@ public interface CommodityBLService {
      */
     public ArrayList<ClassificationVO> getAllClassification();
 
+    /**
+     * 根据商品的库存数量升序排列
+     * @param vos
+     * @return
+     */
+    public ArrayList< CommodityVO> StockAscendingSort(ArrayList< CommodityVO> vos);
 
+    /**
+     * 根据商品的库存数量降序排列
+     * @param vos
+     * @return
+     */
+    public ArrayList< CommodityVO> StockDescendingSort(ArrayList< CommodityVO> vos);
+
+    /**
+     * 根据售价降序排列
+     * @param vos
+     * @return
+     */
+    public ArrayList< CommodityVO> sellPriceDescendingSort(ArrayList< CommodityVO> vos);
+
+    /**
+     * 根据售价升序排列
+     * @param vos
+     * @return
+     */
+    public ArrayList< CommodityVO> sellPriceAscendingSort(ArrayList< CommodityVO> vos);
+
+    /**
+     * 根据商品进价升序排列
+     * @param vos
+     * @return
+     */
+    public ArrayList< CommodityVO> BuyPriceDescendingSort(ArrayList< CommodityVO> vos);
+
+    /**
+     * 根据商品进价升序排列
+     * @param vos
+     * @return
+     */
+    public ArrayList< CommodityVO> BuyPriceAscendingSort(ArrayList< CommodityVO> vos);
 }
