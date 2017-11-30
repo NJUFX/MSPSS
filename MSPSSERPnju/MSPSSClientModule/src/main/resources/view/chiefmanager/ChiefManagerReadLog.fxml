@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/ChiefManagerExamineBill.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerReadLogController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/ChiefManagerReadLog.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerReadLogController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -91,11 +91,11 @@
       </ImageView>
       <Button layoutX="617.0" layoutY="474.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
       <Button layoutX="757.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
-      <DatePicker layoutX="446.0" layoutY="98.0" prefHeight="27.0" prefWidth="140.0" />
+      <DatePicker layoutX="446.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" />
       <Button layoutX="466.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0F88EB;" text="查询" textFill="#0f88eb" />
-      <DatePicker layoutX="713.0" layoutY="98.0" prefHeight="27.0" prefWidth="140.0" />
-      <Label layoutX="334.0" layoutY="104.0" prefHeight="17.0" prefWidth="86.0" style="-fx-background-color: white;" text="选择起止日期" textFill="#0f88eb" />
-      <Label layoutX="610.0" layoutY="92.0" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: white;" text="————" textFill="#0f88eb">
+      <DatePicker layoutX="713.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" />
+      <Label layoutX="334.0" layoutY="94.0" prefHeight="17.0" prefWidth="86.0" style="-fx-background-color: white;" text="选择起止日期" textFill="#0f88eb" />
+      <Label layoutX="609.0" layoutY="83.0" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: white;" text="————" textFill="#0f88eb">
          <font>
             <Font size="18.0" />
          </font>
@@ -105,7 +105,7 @@
             <TableColumn prefWidth="165.0" text="日志提交时间" />
             <TableColumn prefWidth="165.0" text="操作人员编号" />
             <TableColumn prefWidth="165.0" text="执行操作名称" />
-            <TableColumn prefWidth="165.0" />
+            <TableColumn prefWidth="165.0" text="显示详细内容" />
          </columns>
       </TableView>
     </children>

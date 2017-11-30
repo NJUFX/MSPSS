@@ -94,14 +94,6 @@
       <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <TextArea prefHeight="353.0" prefWidth="666.0" style="-fx-background-radius: 0;" />
-            <TableView prefHeight="353.0" prefWidth="660.0">
-              <columns>
-                <TableColumn prefWidth="165.0" text="日志提交时间" />
-                <TableColumn prefWidth="165.0" text="操作人员编号" />
-                  <TableColumn prefWidth="165.0" text="执行操作名称" />
-                  <TableColumn prefWidth="165.0" text="显示日志详情" />
-              </columns>
-            </TableView>
          </children></Pane>
     </children>
 </fx:root>
