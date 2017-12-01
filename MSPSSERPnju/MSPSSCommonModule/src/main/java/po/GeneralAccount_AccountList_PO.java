@@ -6,9 +6,12 @@ import java.io.Serializable;
  * Created by thinkpad on 2017/11/30.
  */
 public class GeneralAccount_AccountList_PO  {
+
     private String name;
     private int money;
     private GeneralAccountPO generalaccount;
+
+
 
     public GeneralAccountPO getGeneralaccount() {
         return generalaccount;

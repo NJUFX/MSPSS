@@ -5,25 +5,25 @@
 <hibernate-mapping>
     <class name ="po.GeneralAccount_CustomerList_PO" table ="generalaccount_customerlist">
 
-    <id name = "ID" column = "id" type = "String">
+    <id name = "ID" column = "id" type = "string">
 
         <generator class="uuid"></generator>
     </id>
 
 
-        <property name="category" column ="category" type ="String"></property>
+        <property name="category" column ="category" type ="string"></property>
         <property name="Exist" column ="exist" type ="boolean"></property>
         <property name="level" column ="level" type ="int"></property>
-        <property name="name" column ="name" type ="String"></property>
-        <property name="phonenumber" column ="phonenumber" type ="String"></property>
-        <property name="address" column ="address" type ="String"></property>
-        <property name="postcode" column ="postcard" type ="String"></property>
-        <property name="email" column ="email" type ="String"></property>
+        <property name="name" column ="name" type ="string"></property>
+        <property name="phonenumber" column ="phonenumber" type ="string"></property>
+        <property name="address" column ="address" type ="string"></property>
+        <property name="postcode" column ="postcode" type ="string"></property>
+        <property name="email" column ="email" type ="string"></property>
         <property name="Invalue" column ="in_value" type ="double"></property>
         <property name="incomemoney" column ="incomemoney" type ="double"></property>
         <property name="paymoney" column ="paymoney" type ="double"></property>
 
-        <many-to-one name="generalaccount" column = "id" class="po.GeneralAccountPO">
+        <many-to-one name="generalaccount" column = "generalaccount_id" class="po.GeneralAccountPO">
         </many-to-one>
 
     </class>

@@ -57,6 +57,8 @@ public class GeneralAccount_CustomerList_PO {
      */
     private GeneralAccountPO generalaccount;
 
+
+
     public GeneralAccountPO getGeneralaccount() {
         return generalaccount;
     }

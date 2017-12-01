@@ -44,6 +44,8 @@ public class GeneralAccount_CommodityList_PO {
      */
     private GeneralAccountPO generalaccount;
 
+
+
     public GeneralAccountPO getGeneralaccount() {
         return generalaccount;
     }
