@@ -5,6 +5,10 @@ package po;
  */
 public class GeneralAccount_CustomerList_PO {
     /**
+     * 关键字
+     */
+    private String keycolumn;
+    /**
      * 判断客户是否存在
      */
     private boolean Exist;
@@ -58,6 +62,13 @@ public class GeneralAccount_CustomerList_PO {
     private GeneralAccountPO generalaccount;
 
 
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
 
     public GeneralAccountPO getGeneralaccount() {
         return generalaccount;

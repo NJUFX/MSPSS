@@ -64,6 +64,7 @@ public static void main(String[] args) {
 
      a.setMoney(1000);
      g.getAccountlist().add(a);
+     g.setName("苏果超市");
     tx = session.beginTransaction();
     session.save(g);
     tx.commit();

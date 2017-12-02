@@ -7,11 +7,18 @@ import java.io.Serializable;
  */
 public class GeneralAccount_AccountList_PO  {
 
+    private String keycolumn;
     private String name;
     private int money;
     private GeneralAccountPO generalaccount;
 
+    public String getKeycolumn() {
+        return keycolumn;
+    }
 
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
 
     public GeneralAccountPO getGeneralaccount() {
         return generalaccount;

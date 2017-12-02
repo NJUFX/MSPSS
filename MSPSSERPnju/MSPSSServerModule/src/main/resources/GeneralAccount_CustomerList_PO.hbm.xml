@@ -5,12 +5,13 @@
 <hibernate-mapping>
     <class name ="po.GeneralAccount_CustomerList_PO" table ="generalaccount_customerlist">
 
-    <id name = "ID" column = "id" type = "string">
+    <id name = "keycolumn" column = "keycolumn" type = "string">
 
         <generator class="uuid"></generator>
     </id>
 
 
+        <property name="ID" column="id" type="string"></property>
         <property name="category" column ="category" type ="string"></property>
         <property name="Exist" column ="exist" type ="boolean"></property>
         <property name="level" column ="level" type ="int"></property>
