@@ -5,84 +5,33 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
-import po.AccountPO;
+import po.*;
 import util.ResultMessage;
-
+import java.util.List;
 import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceException;
 import java.util.ArrayList;
 
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 /**
  * Created by thinkpad on 2017/11/28.
  */
 public class DataHelper<T> {
 
-    private SessionFactory sessionFactory;
-    private Session session;
-    private Class<T> type;
+ private static SessionFactory sessionFactory ;
+ static {
+     try{
+         sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public DataHelper() {
-
-    }
-
-    public DataHelper(Class<T> type) {
-        this.type = type;
-        Configuration configuration = new Configuration();
-        sessionFactory = configuration.configure().buildSessionFactory();
-    }
-
-
-    /**
-     * 初始化Session
-     */
-    private void setUpSession() {
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-    }
-
-    /**
-     * 提交事务及关闭session
-     */
-    private void commitAndClose() {
-        session.getTransaction().commit();
-        session.close();
-    }
-
-
-
-    public ResultMessage save(Object o) {
-        try {
-            setUpSession();
-            System.out.println("lll");
-            session.save(type.getName(), o);
-            System.out.println("oooo");
-            commitAndClose();
-        } catch (PersistenceException e) {
-            e.printStackTrace();
-            return ResultMessage.EXIST;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResultMessage.FAILED;
-        }
-        return ResultMessage.SUCCESS;
-    }
-
-
-
-    public ResultMessage update(Object o) {
-        try {
-            setUpSession();
-            session.update(type.getName(), o);
-            commitAndClose();
-        } catch (OptimisticLockException e) {
-            e.printStackTrace();
-            return ResultMessage.NOT_EXIST;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResultMessage.FAILED;
-        }
-        return ResultMessage.SUCCESS;
-    }
+     }catch(Exception e){
+         e.printStackTrace();
+     }
+ }
 
 
 
@@ -91,80 +40,36 @@ public class DataHelper<T> {
 
 
 
+public static void main(String[] args) {
 
-    public ArrayList<T> prefixMatchQuery(String field, String value) {
-        value = value + "%";
-        return likePatternQuery(field, value);
-    }
+    //AccountPO a = new AccountPO("23",2,"2017-11-11-11-11-11-11");
+    // AccountPO b = new AccountPO("21",2000,"2017-11-11-11-11-11-11");
 
+    // helper.save(a);
+    // helper.save(b);
 
-    public ArrayList<T> suffixMatchQuery(String field, String value) {
-        value = "%" + value;
-        return likePatternQuery(field, value);
-    }
-
-
-
-    public ArrayList<T> fuzzyMatchQuery(String field, String value) {
-        value = "%" + value + "%";
-        return likePatternQuery(field, value);
-    }
+    Session session = sessionFactory.openSession();
+    Transaction tx=null;
 
 
 
-    public ArrayList<T> rangeQuery(String field, Object min, Object max) {
-        try {
-            Criteria criteria = SetUpCriteria();
-            criteria.add(Restrictions.between(field, min, max));
-            ArrayList<T> arrayList = (ArrayList<T>) criteria.list();
-            session.close();
-            return arrayList;
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.close();
-            return new ArrayList<T>();
-        }
-    }
+     GeneralAccountPO g = new GeneralAccountPO();
+     /*
+     g.getAccountlist().add(new GeneralAccount_AccountList_PO("2017第一季度账户",1000,g));
+     g.getCommoditylist().add(new GeneralAccount_CommodityList_PO("水晶吊灯","挂灯/吊灯","吊灯","21-34-51",300,400,200,g));
+     g.getCustomerlist().add(new GeneralAccount_CustomerList_PO(true,"161250164","SUPPLIY",1,"王二","17726712121","江苏省南京市总统府","222300","123@163.com",1000,200,30,g));
+    */
 
-    /**
-     * 生成一个新的匹配标准
-     *
-     * @return 新的匹配标准
-     * @throws ClassNotFoundException 如果没有指定type，则抛出该异常
-     */
-    private Criteria SetUpCriteria() throws ClassNotFoundException {
-        setUpSession();
-        return session.createCriteria(type);
-    }
+     GeneralAccount_AccountList_PO a = new GeneralAccount_AccountList_PO();
 
-    /**
-     * 利用模糊查找返回符合条件的PO列表
-     *
-     * @param field 查询域
-     * @param value 域值
-     * @return PO列表
-     */
-    private ArrayList<T> likePatternQuery(String field, String value) {
-        try {
-            Criteria criteria = SetUpCriteria();
-            criteria.add(Restrictions.like(field, value));
-            ArrayList<T> arrayList = (ArrayList<T>) criteria.list();
-            session.close();
-            return arrayList;
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.close();
-            return new ArrayList<T>();
-        }
-    }
+     a.setMoney(1000);
+     g.getAccountlist().add(a);
+     g.setName("苏果超市");
+    tx = session.beginTransaction();
+    session.save(g);
+    tx.commit();
+    session.close();
 
-public static void main(String[] args){
-
-        AccountPO a = new AccountPO("23",2,"2017-11-11-11-11-11-11");
-    AccountPO b = new AccountPO("21",2000,"2017-11-11-11-11-11-11");
-        DataHelper<AccountPO> helper = new DataHelper<AccountPO>(AccountPO.class);
-        helper.save(a);
-        helper.save(b);
 
 }
 

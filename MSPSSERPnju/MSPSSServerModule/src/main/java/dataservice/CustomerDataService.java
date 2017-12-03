@@ -16,7 +16,7 @@ public interface CustomerDataService {
      * 增加客户
      *
      * @param ID       客户编号
-     * @param kind 分类
+     * @param category 分类
      * @param level
      * @param name
      * @param tele
@@ -29,7 +29,7 @@ public interface CustomerDataService {
      * @param DAE      默认业务员
      * @return
      */
-    public boolean addCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE);
+    public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE);
 
     /**
      * 增加客户
@@ -50,7 +50,7 @@ public interface CustomerDataService {
     /**
      * 修改客户属性
      *
-     * @param kind
+     * @param category
      * @param level
      * @param name
      * @param tele
@@ -60,6 +60,6 @@ public interface CustomerDataService {
      * @param InValue
      * @return
      */
-    public boolean modifyCustomer(String ID, Kind_Of_Customers kind, int level, String name, String tele, String address, String postcode, String email, double InValue);
+    public boolean modifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue);
 
 }

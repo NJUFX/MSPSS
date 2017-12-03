@@ -4,12 +4,12 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="97ceccab-e46a-418c-980b-f18314627418" />
+          <unit-entry name="hibernate.cfg.xml" value="43f2c1a5-fffe-438a-824f-d2f539ba2183" />
         </datasource-map>
         <naming-strategy-map>
-          <unit-entry name="hibernate.cfg.xml" />
+          <unit-entry name="src:main:Resource:hibernate.cfg.xml" />
         </naming-strategy-map>
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/Resource/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
@@ -18,7 +18,7 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/Resource" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

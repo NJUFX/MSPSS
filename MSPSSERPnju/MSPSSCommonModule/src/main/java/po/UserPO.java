@@ -14,9 +14,9 @@ public class UserPO {
     private String power;
     private boolean isValid = true;
 
-    public UserPO(String i, String s, Kind_Of_Users category, String password, String power) {
-        this.ID = i;
-        this.name = s;
+    public UserPO(String ID, String name, Kind_Of_Users category, String password, String power) {
+        this.ID = ID;
+        this.name = name;
         this.category = category;
         this.password = password;
         this.power = power;

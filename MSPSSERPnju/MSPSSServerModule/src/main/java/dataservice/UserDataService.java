@@ -32,4 +32,13 @@ public interface UserDataService {
      * @return
      */
     public ResultMessage modifyUser(UserPO user);
+
+    /**
+     * 根据ID找user
+     * @param ID
+     * @return
+     */
+    public UserPO findUserByID(String ID);
+
+
 }

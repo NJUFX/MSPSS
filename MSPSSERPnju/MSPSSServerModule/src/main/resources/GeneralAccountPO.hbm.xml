@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+      <class name ="po.GeneralAccountPO" table ="generalaccount">
+
+          <id name = "id" column="id" type ="int">
+              <generator class="increment"></generator>
+          </id>
+
+          <property name="name" column ="name" type="string">
+
+          </property>
+
+          <list name = "accountlist" table ="generalaccount_accountlist" cascade="all">
+              <key column="generalaccount_id"></key>
+              <index column="account_index" ></index>
+              <one-to-many class ="po.GeneralAccount_AccountList_PO"/>
+
+
+          </list>
+
+          <list name="commoditylist" table = "generalaccount_commoditylist" cascade ="all">
+              <key column="generalaccount_id"></key>
+              <index column ="commodity_index"></index>
+              <one-to-many class="po.GeneralAccount_CommodityList_PO"></one-to-many>
+          </list>
+
+          <list name="customerlist" table="generalaccount_customerlist" cascade="all">
+              <key column="generalaccount_id"></key>
+              <index column="customer_index"></index>
+              <one-to-many class="po.GeneralAccount_CustomerList_PO" ></one-to-many>
+          </list>
+      </class>
+
+</hibernate-mapping>

@@ -46,4 +46,7 @@ public class ClassificationVO {
         this.commodityVOS = commodityVOS;
     }
 
+    public String getID() {
+        return ID;
+    }
 }

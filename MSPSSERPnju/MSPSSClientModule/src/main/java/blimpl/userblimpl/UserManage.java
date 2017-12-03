@@ -24,6 +24,7 @@ public class UserManage {
      * @return
      */
     public ResultMessage addUser(UserVO user) {
+
         return ResultMessage.SUCCESS;
     }
 

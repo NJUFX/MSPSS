@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class Stock {
     public ResultMessage addStock(ChangeInfoVO o){
+
         return null;
     }
     public ArrayList<Stock> viewStock(String startTime,String endTime){

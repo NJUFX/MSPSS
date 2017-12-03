@@ -39,10 +39,14 @@ public class CommodityPO {
     private double exportCost;
 
     /**
-     * 库存数量
+     * 库存数量(要与stock同步,这可能会出bug!!!!!!）
      */
     private int numberInStock;
 
+    /**
+     * 判断该商品是否已经使用过
+     */
+    private boolean isUsed;
     public CommodityPO(){
 
     }
@@ -54,10 +58,21 @@ public class CommodityPO {
         this.importCost = importCost;
         this.exportCost = exportCost;
         this.numberInStock = numberInStock;
+        this.isUsed = false;
     }
-
+    public CommodityPO(String name,String classificationID,String type,String ID,double importCost,double exportCost,int numberInStock,boolean isUsed){
+        this(name,classificationID,type,ID,importCost,exportCost,numberInStock);
+        this.isUsed = false;
+    }
     public String getName() {
         return name;
+    }
+
+    public void setUsed(boolean used) {
+        isUsed = used;
+    }
+    public boolean isUsed(){
+        return isUsed;
     }
 
     public String getClassificationID() {

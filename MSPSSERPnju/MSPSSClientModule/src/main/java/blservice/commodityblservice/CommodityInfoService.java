@@ -2,6 +2,9 @@ package blservice.commodityblservice;
 
 import util.ResultMessage;
 import vo.CommodityVO;
+import vo.FilterFlagVO;
+
+import java.util.ArrayList;
 
 /**
  * Project_Name ERPnju
@@ -30,4 +33,6 @@ public interface CommodityInfoService {
      * @return
      */
     public CommodityVO getCommodity(String id);
+
+    public ArrayList<CommodityVO> search(FilterFlagVO vo);
 }
