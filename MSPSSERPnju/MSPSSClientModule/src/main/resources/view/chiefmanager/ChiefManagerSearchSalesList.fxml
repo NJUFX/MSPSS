@@ -94,13 +94,16 @@
       <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
       <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #f8f8f8;">
          <children>
-            <Label prefHeight="11.0" prefWidth="110.0" text="         时间" textAlignment="CENTER" textFill="WHITE" />
-            <Label layoutX="110.0" prefHeight="11.0" prefWidth="110.0" text="         商品名" textFill="WHITE" />
-            <Label layoutX="220.0" prefHeight="11.0" prefWidth="110.0" text="           型号" textFill="WHITE" />
-            <Label layoutX="330.0" prefHeight="11.0" prefWidth="110.0" stylesheets="@../../css/ChiefManagerSearchSalesList.css" text="           数量" textFill="WHITE" />
-            <Label layoutX="440.0" prefHeight="11.0" prefWidth="110.0" text="           单价" textFill="WHITE" />
-            <Label layoutX="550.0" prefHeight="11.0" prefWidth="110.0" text="           总额" textFill="WHITE" />
-            <TextArea layoutY="17.0" prefHeight="330.0" prefWidth="660.0" style="-fx-border-radius: 0;" />
+            <TableView prefHeight="347.0" prefWidth="660.0">
+              <columns>
+                <TableColumn prefWidth="110.0" text="时间" />
+                <TableColumn prefWidth="110.0" text="商品名" />
+                  <TableColumn prefWidth="110.0" text="型号" />
+                  <TableColumn prefWidth="110.0" text="数量" />
+                  <TableColumn prefWidth="110.0" text="单价" />
+                  <TableColumn prefWidth="109.0" text="总额" />
+              </columns>
+            </TableView>
          </children></Pane>
     </children>
 </fx:root>
