@@ -14,7 +14,7 @@ public class CustomerPO {
     /**
      * 分类
      */
-    private String category;
+    private int category;
     /**
      * 等级
      */
@@ -58,12 +58,21 @@ public class CustomerPO {
     /**
      * 银行账户
      */
-    private AccountPO account;
+    private String accountID;
     //暂定用String表示客户类型
   //  /**
  //    * 客户分类
   //   */
   //  private Kind_Of_Customers kind;
+
+
+    public boolean isExist() {
+        return isExist;
+    }
+
+    public void setExist(boolean exist) {
+        isExist = exist;
+    }
 
     public String getID() {
         return ID;
@@ -73,12 +82,68 @@ public class CustomerPO {
         this.ID = ID;
     }
 
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
     public int getLevel() {
         return level;
     }
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getInvalue() {
+        return Invalue;
+    }
+
+    public void setInvalue(double invalue) {
+        Invalue = invalue;
     }
 
     public double getIncomemoney() {
@@ -97,22 +162,6 @@ public class CustomerPO {
         this.paymoney = paymoney;
     }
 
-    public double getInvalue() {
-        return Invalue;
-    }
-
-    public void setInvalue(double invalue) {
-        Invalue = invalue;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getDAE() {
         return DAE;
     }
@@ -121,97 +170,12 @@ public class CustomerPO {
         this.DAE = DAE;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAccountID() {
+        return accountID;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public AccountPO getAccount() {
-        return account;
-    }
-
-    public void setAccount(AccountPO account) {
-        this.account = account;
-    }
-
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
-
-    public boolean getExist() {
-        return isExist;
-    }
-
-    public void setExist(boolean exist) {
-        isExist = exist;
-    }
-
-    public boolean isExist() {
-        return isExist;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    /**
-     * 客户属性构造方法
-     *
-     * @param ID
-     * @param category
-     * @param level
-     * @param name
-     * @param phonenumber
-     * @param address
-     * @param postcode
-     * @param email
-     * @param InValue     应收额度
-     * @param incomemoney 应收
-     * @param paymoney    应付
-     * @param DAE         默认业务员
-     */
-    public CustomerPO(String ID,String  category, int level, String name, String phonenumber, String address, String postcode, String email, double InValue, double incomemoney, double paymoney, String DAE) {
-        this.ID = ID;
-        this.category= category;
-        this.level = level;
-        this.name = name;
-        this.phonenumber = phonenumber;
-        this.address = address;
-        this.postcode = postcode;
-        this.email = email;
-        this.Invalue = InValue;
-        this.incomemoney = incomemoney;
-        this.paymoney = paymoney;
-        this.DAE = DAE;
-        this.isExist = true;
+    public void setAccountID(String accountID) {
+        this.accountID = accountID;
     }
 }
 

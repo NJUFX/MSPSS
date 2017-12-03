@@ -31,15 +31,32 @@ public class ClassificationPO {
      */
     ArrayList<String> commodityIDs;
 
+    /**
+     * 判断是否为叶节点
+     */
+    Boolean isLeafNode;
+
     public ClassificationPO() {
     }
 
-    public ClassificationPO(String name, String ID, String parentID, ArrayList<String> childrenID, ArrayList<String> commodityIDs){
+    public ClassificationPO(String name, String ID, String parentID, ArrayList<String> childrenID, ArrayList<String> commodityIDs, Boolean isLeafNode) {
         this.name = name;
-        this.childrenID = childrenID;
-        this.parentID = parentID;
         this.ID = ID;
+        this.parentID = parentID;
+        this.childrenID = childrenID;
         this.commodityIDs = commodityIDs;
+        this.isLeafNode = isLeafNode;
+    }
+
+
+    //getter and setter 方法
+
+    public Boolean getLeafNode() {
+        return isLeafNode;
+    }
+
+    public void setLeafNode(Boolean leafNode) {
+        isLeafNode = leafNode;
     }
 
     public void setName(String name) {

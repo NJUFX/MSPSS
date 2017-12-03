@@ -6,15 +6,64 @@ package po;
  */
 public class CashCostItemPO {
     /**
+     * 主键，切勿自己赋值！！！数据库会自动赋值，无需初始化
+     */
+    private int id;
+    /**
      * 条目名
      */
-    public String name;
+    private String name;
     /**
      * 备注
      */
-    public String ps;
+    private String ps;
     /**
      * 金额
      */
-    public double money;
+    private double money;
+
+    /**
+     *所属的cashcostbill
+     */
+    private CashCostBillPO cashcostbill;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPs() {
+        return ps;
+    }
+
+    public void setPs(String ps) {
+        this.ps = ps;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    public CashCostBillPO getCashcostbill() {
+        return cashcostbill;
+    }
+
+    public void setCashcostbill(CashCostBillPO cashcostbill) {
+        this.cashcostbill = cashcostbill;
+    }
 }

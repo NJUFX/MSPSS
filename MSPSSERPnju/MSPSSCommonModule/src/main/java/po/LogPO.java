@@ -1,44 +1,48 @@
 package po;
 
 public class LogPO {
-    String id;
-    String operator;
-    String time;
-    String kind;
-    String commodity;
-    int money;
-    Long stock;
+    private String id;
+    private String operator;
+    private String time;
+    private int kind;
 
 
-    public LogPO(String i, String o, String t, String k, String c, int m, long s) {
-        id = i;
-        operator = o;
-        time = t;
-        kind = k;
-        commodity = c;
-        money = m;
-        stock = s;
+    public LogPO(String id, String operator, String time, int kind) {
+        this.id = id;
+        this.operator = operator;
+        this.time = time;
+        this.kind = kind;
     }
 
-    //get方法可以根据需要补充
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getOperator() {
         return operator;
     }
 
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
     public String getTime() {
         return time;
     }
 
-    public String getKind(){return kind;}
+    public void setTime(String time) {
+        this.time = time;
+    }
 
-    public String getCommodity(){return commodity;}
+    public int getKind() {
+        return kind;
+    }
 
-    public int getMoney(){return money;}
-
-    public Long getStock(){return stock;}
-
+    public void setKind(int kind) {
+        this.kind = kind;
+    }
 }

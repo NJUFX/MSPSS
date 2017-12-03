@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="po.UserPO" table="userpo">
+        <id name="id" column="id" type="string">
+        <generator class="uuid" />
+    </id>
+        <property name="name" column="name" type="string"/>
+        <property name="category" column="category" type ="int"/>
+        <property name="password" column="password" type="string"/>
+        <property name="power" column="power" type="string"/>
+        <property name="isValid" column="is_valid" type="java.lang.Boolean"/>
+
+    </class>
+</hibernate-mapping>
