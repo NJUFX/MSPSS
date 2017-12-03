@@ -14,3 +14,7 @@
 	 -fx-text-fill:#FFFFFF;
 }
 
+.textArea{
+	-fx-border-radius: 0; 
+	-fx-background-radius:0;
+}
