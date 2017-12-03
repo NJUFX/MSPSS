@@ -90,7 +90,7 @@
          </image>
       </ImageView>
       <Button layoutX="778.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="退出" textFill="#0f88eb" />
-      <Button layoutX="632.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="确认" textFill="WHITE" />
+      <Button layoutX="655.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
       <Pane layoutX="170.0" layoutY="57.0" prefHeight="105.0" prefWidth="708.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="88.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -121,7 +121,7 @@
             <DatePicker layoutX="467.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="结束时间" />
          </children>
       </Pane>
-      <Pane layoutX="170.0" layoutY="181.0" prefHeight="309.0" prefWidth="447.0" style="-fx-background-color: white;">
+      <Pane layoutX="170.0" layoutY="178.0" prefHeight="309.0" prefWidth="340.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -171,12 +171,27 @@
             <Label layoutX="75.0" layoutY="230.0" style="-fx-background-color: white;" text="针对总额区间" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="265.0" style="-fx-background-color: white;" text="特价包价格" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="20.0" style="-fx-background-color: white;" text="客户级别" textFill="#0f88eb" />
-            <TextField layoutX="175.0" layoutY="155.0" />
-            <TextField layoutX="175.0" layoutY="50.0" prefHeight="9.0" prefWidth="167.0" />
-            <TextField layoutX="175.0" layoutY="85.0" />
-            <TextField layoutX="175.0" layoutY="120.0" />
+            <TextField layoutX="175.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="50.0" prefHeight="27.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="85.0" prefHeight="27.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" />
             <ComboBox layoutX="175.0" layoutY="15.0" prefWidth="150.0" promptText="1~5" />
+            <TextField layoutX="175.0" layoutY="190.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="225.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="150.0" />
          </children>
       </Pane>
+      <Pane layoutX="531.0" layoutY="178.0" prefHeight="309.0" prefWidth="347.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <TableView prefHeight="309.0" prefWidth="347.0">
+              <columns>
+                <TableColumn prefWidth="244.0" text="促销策略" />
+                <TableColumn prefWidth="102.0" text="起止时间" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Button layoutX="410.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="制定" textFill="WHITE" />
+      <Button layoutX="531.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
     </children>
 </fx:root>

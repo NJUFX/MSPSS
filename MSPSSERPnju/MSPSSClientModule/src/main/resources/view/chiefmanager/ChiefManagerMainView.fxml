@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowBillDetailController">
+    <children>
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
+            <effect>
+                <ColorInput height="560.0" paint="#0f88eb" width="145" />
+            </effect>
+        </Pane>
+        <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/查看报表.png" />
+            </image>
+        </ImageView>
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/头像.png" />
+            </image>
+      </ImageView>
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
+      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/审批单据.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/查询日志.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/促销策略.png" />
+         </image>
+      </ImageView>
+      <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <Button layoutX="48.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <Button layoutX="96.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="14.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/设置.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="30.0" layoutX="64.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/退出登录.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="35.0" layoutX="109.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/发送信息.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="560.0" fitWidth="760.0" layoutX="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/总经理主界面背景.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="363.0" layoutY="408.0" style="-fx-background-color: transparent;" text="你好，想做些什么？" textFill="WHITE">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+    </children>
+</fx:root>
