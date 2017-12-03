@@ -39,7 +39,7 @@ public class MainApp extends Application {
      */
     public void toLoginInfer() {
         try {
-            LoginController login = (LoginController) replaceSceneContent("/fxml/Login.fxml");
+            LoginController login = (LoginController) replaceSceneContent(" /src/main/resources/view/admin/Login.fxml");
             login.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
