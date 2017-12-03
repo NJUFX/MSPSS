@@ -38,14 +38,14 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" />
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" />
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
       <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
@@ -130,7 +130,7 @@
                   <Image url="@../../image/仓库.png" />
                </image>
             </ImageView>
-            <ComboBox layoutX="330.0" layoutY="49.0" prefHeight="25.0" prefWidth="160.0" promptText="表单类型">
+            <ComboBox layoutX="330.0" layoutY="49.0" prefHeight="24.0" prefWidth="195.0" promptText="表单类型">
              <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="经营情况表" />
@@ -138,11 +138,12 @@
                   </FXCollections>
              </items>
              </ComboBox>
-            <DatePicker layoutX="330.0" layoutY="87.0" prefHeight="27.0" prefWidth="160.0" />
-            <TextField layoutX="330.0" layoutY="152.0" prefHeight="27.0" prefWidth="160.0" />
-            <TextField layoutX="330.0" layoutY="202.0" prefHeight="27.0" prefWidth="160.0" />
-            <TextField layoutX="330.0" layoutY="248.0" prefHeight="27.0" prefWidth="160.0" />
-            <TextField layoutX="330.0" layoutY="294.0" prefHeight="27.0" prefWidth="160.0" />
+            <DatePicker layoutX="330.0" layoutY="87.0" prefHeight="25.0" prefWidth="93.0" promptText="开始" />
+            <TextField layoutX="330.0" layoutY="152.0" prefHeight="24.0" prefWidth="195.0" promptText="商品名" />
+            <TextField layoutX="330.0" layoutY="202.0" prefHeight="27.0" prefWidth="195.0" promptText="客户姓名" />
+            <TextField layoutX="330.0" layoutY="248.0" prefHeight="25.0" prefWidth="195.0" promptText="业务员" />
+            <TextField layoutX="330.0" layoutY="294.0" prefHeight="27.0" prefWidth="195.0" promptText="仓库" />
+            <DatePicker layoutX="439.0" layoutY="87.0" prefHeight="27.0" prefWidth="86.0" promptText="结束" />
          </children>
       </Pane>
     </children>

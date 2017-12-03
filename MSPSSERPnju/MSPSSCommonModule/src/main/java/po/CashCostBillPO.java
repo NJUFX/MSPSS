@@ -25,7 +25,7 @@ public class CashCostBillPO {
     /**
      * 单据状态
      */
-    private BillStatus status;
+    private int status;
     /**
      * 条目清单
      */
@@ -47,7 +47,7 @@ public class CashCostBillPO {
      */
     private String approval_time;
 
-    public CashCostBillPO (String ID,String operatorID,String managerID,BillStatus status,double sum,ArrayList<CashCostItemPO> list,String init_time,String commit_time,String approval_time){
+    public CashCostBillPO (String ID,String operatorID,String managerID,int status,double sum,ArrayList<CashCostItemPO> list,String init_time,String commit_time,String approval_time){
       this .ID  =ID;
       this.operatorID =operatorID;
       this.managerID = managerID;
@@ -59,4 +59,75 @@ public class CashCostBillPO {
       this.list = list;
     }
 
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getOperatorID() {
+        return operatorID;
+    }
+
+    public void setOperatorID(String operatorID) {
+        this.operatorID = operatorID;
+    }
+
+    public String getManagerID() {
+        return managerID;
+    }
+
+    public void setManagerID(String managerID) {
+        this.managerID = managerID;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public ArrayList<CashCostItemPO> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<CashCostItemPO> list) {
+        this.list = list;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
+    public String getInit_time() {
+        return init_time;
+    }
+
+    public void setInit_time(String init_time) {
+        this.init_time = init_time;
+    }
+
+    public String getCommit_time() {
+        return commit_time;
+    }
+
+    public void setCommit_time(String commit_time) {
+        this.commit_time = commit_time;
+    }
+
+    public String getApproval_time() {
+        return approval_time;
+    }
+
+    public void setApproval_time(String approval_time) {
+        this.approval_time = approval_time;
+    }
 }

@@ -9,7 +9,9 @@
 	-fx-border-radius: 0; 
 	-fx-background-radius:0;
 }
+
 .label{
 	 -fx-background-color: #0F88eb;
 	 -fx-text-fill:#FFFFFF;
 }
+
