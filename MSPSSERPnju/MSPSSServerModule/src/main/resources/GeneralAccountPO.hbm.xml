@@ -9,12 +9,28 @@
               <generator class="increment"></generator>
           </id>
 
+          <property name="name" column ="name" type="string">
+
+          </property>
+
           <list name = "accountlist" table ="generalaccount_accountlist" cascade="all">
               <key column="generalaccount_id"></key>
               <index column="account_index" ></index>
               <one-to-many class ="po.GeneralAccount_AccountList_PO"/>
 
 
+          </list>
+
+          <list name="commoditylist" table = "generalaccount_commoditylist" cascade ="all">
+              <key column="generalaccount_id"></key>
+              <index column ="commodity_index"></index>
+              <one-to-many class="po.GeneralAccount_CommodityList_PO"></one-to-many>
+          </list>
+
+          <list name="customerlist" table="generalaccount_customerlist" cascade="all">
+              <key column="generalaccount_id"></key>
+              <index column="customer_index"></index>
+              <one-to-many class="po.GeneralAccount_CustomerList_PO" ></one-to-many>
           </list>
       </class>
 

@@ -38,14 +38,14 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" />
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" />
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
       <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
@@ -91,15 +91,9 @@
       </ImageView>
       <Button layoutX="617.0" layoutY="474.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
       <Button layoutX="757.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
-      <DatePicker layoutX="446.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" />
+      <DatePicker layoutX="446.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="开始日期" />
       <Button layoutX="466.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0F88EB;" text="查询" textFill="#0f88eb" />
-      <DatePicker layoutX="713.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" />
-      <Label layoutX="334.0" layoutY="94.0" prefHeight="17.0" prefWidth="86.0" style="-fx-background-color: white;" text="选择起止日期" textFill="#0f88eb" />
-      <Label layoutX="609.0" layoutY="83.0" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: white;" text="————" textFill="#0f88eb">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <DatePicker layoutX="713.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="结束日期" />
       <TableView layoutX="193.0" layoutY="138.0" prefHeight="320.0" prefWidth="660.0">
          <columns>
             <TableColumn prefWidth="165.0" text="日志提交时间" />

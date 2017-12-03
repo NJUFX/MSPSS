@@ -9,12 +9,20 @@ import java.util.List;
  */
 public class GeneralAccountPO implements Serializable {
     private int  id;
-
-    private List<GeneralAccount_CommodityList_PO> commoditylist;
-    private List<GeneralAccount_CustomerList_PO> Customerlist ;
-    private List<GeneralAccount_AccountList_PO> accountlist ;
+    private String name;
+    private List<GeneralAccount_CommodityList_PO> commoditylist= new ArrayList<GeneralAccount_CommodityList_PO>();
+    private List<GeneralAccount_CustomerList_PO> Customerlist = new ArrayList<GeneralAccount_CustomerList_PO>();
+    private List<GeneralAccount_AccountList_PO> accountlist = new ArrayList<GeneralAccount_AccountList_PO>() ;
 
     public GeneralAccountPO() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {

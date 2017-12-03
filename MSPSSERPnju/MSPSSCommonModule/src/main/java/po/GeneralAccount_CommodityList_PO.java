@@ -5,6 +5,10 @@ package po;
  */
 public class GeneralAccount_CommodityList_PO {
     /**
+     * 数据库关键字，数据库会自动赋值！！切勿自己赋值
+     */
+    private String keycolumn;
+    /**
      * 商品名称
      */
     private String name;
@@ -43,6 +47,14 @@ public class GeneralAccount_CommodityList_PO {
      *多对一映射中对应的链表
      */
     private GeneralAccountPO generalaccount;
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
 
     public GeneralAccountPO getGeneralaccount() {
         return generalaccount;

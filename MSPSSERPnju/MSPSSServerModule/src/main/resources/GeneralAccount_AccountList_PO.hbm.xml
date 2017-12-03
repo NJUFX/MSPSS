@@ -5,11 +5,12 @@
 <hibernate-mapping>
    <class name ="po.GeneralAccount_AccountList_PO" table ="generalaccount_accountlist">
 
-       <id name = "name" column = "name" type = "String">
+       <id name = "keycolumn" column = "keycolumn" type = "string">
 
            <generator class="uuid"></generator>
        </id>
 
+       <property name="name" column="name" type="string"></property>
        <property name="money" column ="money" type ="int"></property>
 
        <many-to-one name="generalaccount" column = "generalaccount_id" class="po.GeneralAccountPO">
