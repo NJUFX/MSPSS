@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowBillDetailController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSetPromotionController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerShowBillDetail.css">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerSetPromotion.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
@@ -91,9 +91,38 @@
       </ImageView>
       <Button layoutX="589.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
       <Button layoutX="753.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
-      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="170.0" layoutY="57.0" prefHeight="117.0" prefWidth="708.0" style="-fx-background-color: white;">
          <children>
-            <TextArea prefHeight="353.0" prefWidth="666.0" style="-fx-background-radius: 0;" />
-         </children></Pane>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="33.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/促销策略（黑色）.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="33.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/选择日期.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="95.0" layoutY="27.0" style="-fx-background-color: white;" text="选择策略类型" textFill="#0f88eb" />
+            <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="17.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/促销策略.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="95.0" layoutY="75.0" style="-fx-background-color: white;" text="选择起止时间" textFill="#0f5ae1" />
+            <ComboBox layoutX="244.0" layoutY="22.0" prefHeight="27.0" prefWidth="145.0" promptText="促销策略类型" >
+            <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="分级赠送赠品" />
+                     <String fx:value="分级赠送代金券" />
+                     <String fx:value="分级价格折让" />
+                     <String fx:value="制定特价包" />
+                     <String fx:value="总额赠送赠品" />
+                     <String fx:value="总额赠送代金券" />
+                  </FXCollections>
+             </items>
+            </ComboBox>
+         </children>
+      </Pane>
     </children>
 </fx:root>
