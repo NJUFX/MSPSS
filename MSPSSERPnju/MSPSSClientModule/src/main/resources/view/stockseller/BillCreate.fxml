@@ -72,54 +72,74 @@
                 <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Pane id="addCustomerPane" layoutX="218.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
-            <children>
-                <Button id="addButton" layoutX="31.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="WHITE">
+        <Pane id="modCustomerPane" layoutX="233.0" layoutY="130.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+         <children>
+                <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../image/stockseller/增加用户.png" />
-                    </image>
-                </ImageView>
-            </children></Pane>
-        <Pane id="delCustomerPane" layoutX="431.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
-            <children>
-                <Button id="delButton" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="删除客户" textFill="WHITE">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0" />
-                    </font>
-                </Button>
-                <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="31.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../image/stockseller/删除用户.png" />
-                    </image>
-                </ImageView>
-            </children></Pane>
-        <Pane id="modCustomerPane" layoutX="648.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
-            <children>
-                <Button id="modButton" layoutX="32.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="修改属性" textFill="WHITE">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0" />
-                    </font>
-                </Button>
-                <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="33.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../image/stockseller/编辑用户.png" />
-                    </image>
-                </ImageView>
-            </children></Pane>
-        <Pane id="searchCustomerPane" layoutX="499.0" layoutY="56.0" prefHeight="94.0" prefWidth="352.0">
-            <children>
-                <TextField layoutX="65.0" layoutY="28.0" prefHeight="35.0" prefWidth="161.0" />
-                <Button id="searchButton" layoutX="226.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="查找" textFill="WHITE">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0" />
-                    </font>
-                </Button>
-            </children>
-        </Pane>
+            <Label layoutX="57.0" layoutY="27.0" text="进货单">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="240.0" layoutY="65.0" prefHeight="60.0" prefWidth="243.0">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/stockseller/单据类型.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="58.0" layoutY="23.0" text="单据类型">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="modCustomerPane" layoutX="233.0" layoutY="230.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+         <children>
+            <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="57.0" layoutY="27.0" text="进货退货单">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="modCustomerPane" layoutX="233.0" layoutY="330.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+         <children>
+            <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="57.0" layoutY="27.0" text="销售单">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="modCustomerPane" layoutX="233.0" layoutY="430.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+         <children>
+            <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="57.0" layoutY="27.0" text="销售退货单">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
     </children>
 </Pane>
