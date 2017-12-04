@@ -58,12 +58,12 @@
         </ImageView>
         <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../image/查询日志.png" />
+                <Image url="@../../image/客户.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../image/促销策略.png" />
+                <Image url="@../../image/期初建账.png" />
             </image>
         </ImageView>
         <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
