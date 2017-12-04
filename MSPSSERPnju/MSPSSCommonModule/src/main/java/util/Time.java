@@ -15,7 +15,17 @@ public class Time {
     int minute;
     int second;
     public Time(String time){
+        String[] times = time.split(" ");
+       String[] date = times[0].split("-");
 
+       String[] concrete=  times[1].split(":");
+       year = Integer.parseInt(date[0]);
+       month = Integer.parseInt(date[1]);
+       day = Integer.parseInt(date[2]);
+
+       hour = Integer.parseInt(concrete[0]);
+       minute = Integer.parseInt(concrete[1]);
+       second = Integer.parseInt(concrete[2]);
     }
     public Time(int yaer,int month,int day,int hour,int minute,int second){
         this.year = year;
@@ -63,6 +73,6 @@ public class Time {
 
     @Override
     public String toString() {
-        return super.toString();
+        return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
     }
 }
