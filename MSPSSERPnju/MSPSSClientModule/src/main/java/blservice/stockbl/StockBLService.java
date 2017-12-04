@@ -18,11 +18,5 @@ public interface StockBLService {
      */
     public Iterator<StockVO> viewStock(String startTime,String endTime);
 
-    /**
-     *  库存盘点
-     * @return 返回当天的库存快照
-     */
-    public Iterator<CommodityStockVO> checkInventory();
-
 
 }

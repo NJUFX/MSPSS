@@ -38,14 +38,14 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" />
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" />
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
       <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />

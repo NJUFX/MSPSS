@@ -1,6 +1,10 @@
 package po;
 
 public class ConditionPO {
+
+	/**
+	 * 暂时没发现这个po的具体用处，所以暂时不为它创建数据库
+	 */
 	String type;
 	String time;
 	String billId;

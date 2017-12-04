@@ -4,9 +4,11 @@ import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
 import util.ResultMessage;
 import vo.BillVO;
+import vo.ChangeInfoVO;
 import vo.CommodityStockVO;
 import vo.StockVO;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -14,18 +16,14 @@ import java.util.Iterator;
  * Created by Hanxinhu at 21:01 2017/11/18/018
  */
 public class StockController implements StockBLService,StockBLInfo {
+    private Stock stock;
     @Override
     public Iterator<StockVO> viewStock(String startTime, String endTime) {
-        return null;
+        return stock.viewStock(startTime,endTime).iterator();
     }
 
     @Override
-    public Iterator<CommodityStockVO> checkInventory() {
-        return null;
-    }
-
-    @Override
-    public ResultMessage updateStockAndInventory(BillVO billVO) {
-        return null;
+    public ResultMessage updateStock(ArrayList<ChangeInfoVO> change) {
+        return stock.addStock(change);
     }
 }

@@ -1,33 +1,68 @@
 package po;
 
-import util.Time;
+import util.PromotionType;
+
+
+import java.util.List;
 
 public class PromotionPO {
-	String id;
-	String type;
-	String[] infoList;
-	Time time;
+	/**
+	 * 策略编号
+	 */
+	private String promotionID;
 
-	public PromotionPO(String i, String t,String[] info,Time ti) {
-		id = i;
-		type = t;
-		infoList = info;
-		time = ti;
-	}
+	/**
+	 * 策略名称
+	 */
+	private String promotionName;
 
-	public String getId(){
-		return id;
-	}
+	/**
+	 * 策略类型
+	 */
+	private PromotionType promotionType;
 
-	public String getType() {
-		return type;
-	}
+	/**
+	 * 策略折扣
+	 */
+	private double promotionDiscount;
 
-	public Time getTime() {
-		return time;
-	}
+	/**
+	 * 策略所需最低金额
+	 */
+	private double leastMoney;
 
-	public String[] getInfoList(){
-		return infoList;
-	}
+	/**
+	 * 赠送的代金券金额
+	 */
+	private double voucher;
+
+	/**
+	 *赠品
+	 */
+	private List<String> giftID;
+
+	/**
+	 * 组合商品
+	 */
+	private List<String> commodityID;
+
+	/**
+	 * 组合价
+	 */
+	private double fixedCost;
+
+	/**
+	 * 策略执行开始日期
+	 */
+	private String startDate;
+
+	/**
+	 * 策略执行结束日期
+	 */
+	private String endDate;
+
+	/**
+	 * 执行策略所需的最低用户等级
+	 */
+	private int clientGrade;
 }

@@ -2,6 +2,9 @@ package blservice.stockbl;
 
 import util.ResultMessage;
 import vo.BillVO;
+import vo.ChangeInfoVO;
+
+import java.util.ArrayList;
 
 /**
  * Project_Name ERPnju
@@ -12,9 +15,9 @@ import vo.BillVO;
 public interface StockBLInfo {
     /**
      * 更新库存信息
-     * @param billVO
+     * @param change
      * @return
      */
-    public ResultMessage updateStockAndInventory(BillVO billVO);
+    public ResultMessage updateStock(ArrayList<ChangeInfoVO> change);
 
 }
