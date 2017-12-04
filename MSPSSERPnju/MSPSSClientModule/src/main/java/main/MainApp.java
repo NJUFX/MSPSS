@@ -45,7 +45,6 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-
     /**
      * 跳转addUser界面
      */
@@ -57,7 +56,6 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-
     /**
      * 跳转delUser界面
      */
@@ -69,7 +67,6 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-
     /**
      * 跳转modUser界面
      */
