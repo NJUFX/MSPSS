@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowBillDetailController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/financemanager/FinanceManagerMainView.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerMainViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -23,7 +23,7 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
+        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -33,20 +33,20 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-        <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
-        <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
+        <Label layoutX="20.0" layoutY="200.0" text="姓名：光耀" textFill="WHITE" />
+        <Label layoutX="20.0" layoutY="220.0" text="身份：财务管理人员" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
         </ImageView>
-        <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
-        <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
+        <Label layoutX="20.0" layoutY="240.0" text="编号：000002" textFill="WHITE" />
+        <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="账户管理" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
+        <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="期初建账" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
