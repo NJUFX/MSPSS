@@ -9,6 +9,8 @@ import util.Time;
  * @Date Created in 19:20 2017/11/6/006
  */
 public class CommodityStockPO {
+
+    //因为存在改动，暂时还没写这个类的数据库
     /**
      * 商品编号
      */
@@ -43,6 +45,9 @@ public class CommodityStockPO {
         this.pici = pici;
         this.pihao = pihao;
         this.exportDate = exportDate;
+    }
+
+    public CommodityStockPO() {
     }
 
     public String getCommodityID() {

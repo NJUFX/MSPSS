@@ -24,6 +24,24 @@
       <mapping resource="GeneralAccount_AccountList_PO.hbm.xml"/>
       <mapping resource="GeneralAccount_CustomerList_PO.hbm.xml"/>
       <mapping resource="GeneralAccount_CommodityList_PO.hbm.xml"/>
+      <mapping resource="CashCostBillPO.hbm.xml"></mapping>
+      <mapping resource="CashCostItemPO.hbm.xml"></mapping>
+      <mapping resource="ClassificationPO.hbm.xml"></mapping>
+      <mapping resource="Classification_Children_PO.hbm.xml"></mapping>
+      <mapping resource="Classification_Commodity_PO.hbm.xml"></mapping>
+      <mapping resource="CommodityPO.hbm.xml"></mapping>
+      <mapping resource="CustomerPO.hbm.xml"></mapping>
+      <mapping resource="FinanceBillPO.hbm.xml"></mapping>
+      <mapping resource="FinanceItemPO.hbm.xml"></mapping>
+      <mapping resource="LogPO.hbm.xml"></mapping>
+      <mapping resource="PurchaseBillPO.hbm.xml"></mapping>
+      <mapping resource="PurchaseBill_Commodity_PO.hbm.xml"></mapping>
+      <mapping resource="SalesInBillPO.hbm.xml"></mapping>
+      <mapping resource="SalesItemPO.hbm.xml"></mapping>
+      <mapping resource="SalesOutBillPO.hbm.xml"></mapping>
+      <mapping resource="UserPO.hbm.xml"></mapping>
+
+
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

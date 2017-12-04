@@ -1,6 +1,7 @@
 package po;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Project_Name ERPnju
@@ -25,77 +26,74 @@ public class ClassificationPO {
     /**
      * 子分类的ID
      */
-    ArrayList<String> childrenID;
+    List<Classification_Children_PO> childrenID;
     /**
      * 位于该分类下的节点
      */
-    ArrayList<String> commodityIDs;
+    List<Classification_Commodity_PO> commodityIDs;
 
     /**
      * 判断是否为叶节点
      */
-    Boolean isLeafNode;
+    Boolean LeafNode;
 
     public ClassificationPO() {
     }
 
-    public ClassificationPO(String name, String ID, String parentID, ArrayList<String> childrenID, ArrayList<String> commodityIDs, Boolean isLeafNode) {
+    public ClassificationPO(String name, String ID, String parentID, List<Classification_Children_PO> childrenID, List<Classification_Commodity_PO> commodityIDs, Boolean leafNode) {
         this.name = name;
         this.ID = ID;
         this.parentID = parentID;
         this.childrenID = childrenID;
         this.commodityIDs = commodityIDs;
-        this.isLeafNode = isLeafNode;
-    }
-
-
-    //getter and setter 方法
-
-    public Boolean getLeafNode() {
-        return isLeafNode;
-    }
-
-    public void setLeafNode(Boolean leafNode) {
-        isLeafNode = leafNode;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        LeafNode = leafNode;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getID() {
         return ID;
     }
 
-    public ArrayList<String> getChildrenID() {
-        return childrenID;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
-    public void setChildrenID(ArrayList<String> childrenID) {
-        this.childrenID = childrenID;
-    }
-
-    public void setCommodityIDs(ArrayList<String> commodityIDs) {
-        this.commodityIDs = commodityIDs;
-    }
-
-    public ArrayList<String> getCommodityIDs() {
-        return commodityIDs;
+    public String getParentID() {
+        return parentID;
     }
 
     public void setParentID(String parentID) {
         this.parentID = parentID;
     }
 
-    public String getParentID() {
-        return parentID;
+    public List<Classification_Children_PO> getChildrenID() {
+        return childrenID;
+    }
+
+    public void setChildrenID(List<Classification_Children_PO> childrenID) {
+        this.childrenID = childrenID;
+    }
+
+    public List<Classification_Commodity_PO> getCommodityIDs() {
+        return commodityIDs;
+    }
+
+    public void setCommodityIDs(List<Classification_Commodity_PO> commodityIDs) {
+        this.commodityIDs = commodityIDs;
+    }
+
+    public Boolean getLeafNode() {
+        return LeafNode;
+    }
+
+    public void setLeafNode(Boolean leafNode) {
+        LeafNode = leafNode;
     }
 }

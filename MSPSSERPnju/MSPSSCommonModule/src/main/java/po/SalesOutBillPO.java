@@ -4,6 +4,7 @@ import util.BillStatus;
 import util.SalesOutBillType;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description:
@@ -87,9 +88,9 @@ public class SalesOutBillPO {
     /**
      * 出库商品列表
      */
-    ArrayList<SalesItemPO> salesItemPOS;
+    private List<SalesItemPO> salesItemPOS;
 
-    public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String promotionID, String init_time, String commit_time, String approval_time, String ps, int allowance, int voucher, double sumBeforeDiscount, double sumAfterDiscount, ArrayList<SalesItemPO> salesItemPOS) {
+    public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String promotionID, String init_time, String commit_time, String approval_time, String ps, int allowance, int voucher, double sumBeforeDiscount, double sumAfterDiscount, List<SalesItemPO> salesItemPOS) {
         this.ID = ID;
         this.type = type;
         this.customerID = customerID;
@@ -246,11 +247,11 @@ public class SalesOutBillPO {
         this.sumAfterDiscount = sumAfterDiscount;
     }
 
-    public ArrayList<SalesItemPO> getSalesItemPOS() {
+    public List<SalesItemPO> getSalesItemPOS() {
         return salesItemPOS;
     }
 
-    public void setSalesItemPOS(ArrayList<SalesItemPO> salesItemPOS) {
+    public void setSalesItemPOS(List<SalesItemPO> salesItemPOS) {
         this.salesItemPOS = salesItemPOS;
     }
 }

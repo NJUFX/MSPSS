@@ -6,9 +6,11 @@ public class LogPO {
     private String time;
     private int kind;
 
+    public LogPO() {
+    }
 
-    public LogPO(String id, String operator, String time, int kind) {
-        this.id = id;
+    public LogPO(String operator, String time, int kind) {
+
         this.operator = operator;
         this.time = time;
         this.kind = kind;

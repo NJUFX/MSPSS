@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+   <class name ="po.FinanceItemPO" table ="financeitempo">
+
+       <id name = "id" column = "id" type = "string">
+
+           <generator class="uuid"></generator>
+       </id>
+
+       <property name="accountID" column="account_id" type="string"></property>
+       <property name="ps" column ="ps" type ="string"></property>
+       <property name="money" column ="money" type ="double"></property>
+
+       <many-to-one name="financebill" column = "financebill_id" class="po.FinanceBillPO">
+
+       </many-to-one>
+
+
+
+   </class>
+
+</hibernate-mapping>

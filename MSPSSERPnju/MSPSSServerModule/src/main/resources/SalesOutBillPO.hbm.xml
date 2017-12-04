@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="po.SalesOutBillPO" table="salesoutbillpo">
+        <id name="ID" column="id" type="string">
+
+    </id>
+
+        <property name="storage" column="storage" type="string"/>
+        <property name="type" column="type" type="int"/>
+        <property name="operatorID" column="operator_id" type="string"/>
+        <property name="ps" column="ps" type="string"/>
+        <property name="managerID" column="manager_id" type ="string"/>
+        <property name="status" column="status" type="int"/>
+
+        <property name="init_time" column="init_time" type="string"/>
+        <property name="commit_time" column="commit_time" type="string"/>
+        <property name="approval_time" column="approval_time" type="string"/>
+
+        <property name="promotionID" column="promotion_id" type="string"/>
+        <property name="allowance" column="allowance" type="int"/>
+        <property name="voucher" column="voucher" type="int"/>
+        <property name="sumBeforeDiscount" column="sum_before_discount" type="double"/>
+        <property name="sumAfterDiscount" column="sum_after_discount" type="double"/>
+
+
+        <list name="salesItemPOS" table ="salesitempo" cascade="all">
+            <key column="salesoutbill_id"></key>
+
+            <index column ="salesout_index" type ="int"></index>
+            <one-to-many class="po.SalesItemPO"></one-to-many>
+        </list>
+    </class>
+</hibernate-mapping>

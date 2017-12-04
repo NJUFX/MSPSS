@@ -22,6 +22,9 @@ public class UserPO {
         this.power = power;
     }
 
+    public UserPO() {
+    }
+
     public String getID() {
         return ID;
     }
@@ -62,9 +65,7 @@ public class UserPO {
         this.password = pa;
     }
 
-    public String getId() {
-        return ID;
-    }
+
 
     public String getName() {
         return name;

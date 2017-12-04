@@ -13,8 +13,8 @@ public class UserDataService_Driver {
     public void dirve() {
 
         //test addUser
-        UserPO user = new UserPO("SS001", "Chen", Kind_Of_Users.StockSeller, "000000", "0000");
-        UserPO user2 = new UserPO("CM001", "July", Kind_Of_Users.ChiefManager, "000000", "0000");
+        UserPO user = new UserPO();
+        UserPO user2 = new UserPO();
 
         ResultMessage isAdd = userBLService_stub.addUser(user);
         userBLService_stub.addUser(user2);
