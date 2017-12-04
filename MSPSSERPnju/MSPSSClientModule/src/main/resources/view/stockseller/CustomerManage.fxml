@@ -119,7 +119,7 @@
                   <Font name="Microsoft YaHei" size="16.0" />
                </font>
             </Button>
-            <ComboBox layoutX="-22.0" layoutY="28.0" prefHeight="35.0" prefWidth="109.0" promptText="关键词类型">
+            <ComboBox layoutX="-17.0" layoutY="28.0" prefHeight="35.0" prefWidth="102.0" promptText="关键词类型">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <String fx:value="编号" />

@@ -39,7 +39,7 @@ public class MainApp extends Application {
      */
     public void toLoginInfer() {
         try {
-            LoginController login = (LoginController) replaceSceneContent(" /src/main/resources/view/admin/Login.fxml");
+            LoginController login = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
             login.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class MainApp extends Application {
      */
     public void toAddUserInfer() {
         try {
-            UserAddViewController userAdd = (UserAddViewController) replaceSceneContent("/fxml/UserAddView.fxml");
+            UserAddViewController userAdd = (UserAddViewController) replaceSceneContent("/view/admin/UserAddView.fxml");
             userAdd.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +63,7 @@ public class MainApp extends Application {
      */
     public void toDelUserInfer() {
         try {
-            UserDelViewController userDel = (UserDelViewController) replaceSceneContent("/fxml/UserDelView.fxml");
+            UserDelViewController userDel = (UserDelViewController) replaceSceneContent("/view/admin/UserDelView.fxml");
             userDel.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class MainApp extends Application {
      */
     public void toModUserInfer() {
         try {
-            UserModifyViewController userMod = (UserModifyViewController) replaceSceneContent("/fxml/UserModifyView.fxml");
+            UserModifyViewController userMod = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
             userMod.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,6 +91,7 @@ public class MainApp extends Application {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
+        //InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
