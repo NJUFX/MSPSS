@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowBillDetailController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowBillDetailController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerShowBillDetail.css">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/chiefManager/ChiefManagerShowBillDetail.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
