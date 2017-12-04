@@ -18,11 +18,6 @@
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerShowBillDetail.css">
-            <effect>
-                <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
-            </effect>
-        </Pane>
         <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
@@ -89,11 +84,15 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Button layoutX="589.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
-      <Button layoutX="753.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
-      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
-         <children>
-            <TextArea prefHeight="353.0" prefWidth="666.0" style="-fx-background-radius: 0;" />
-         </children></Pane>
+      <ImageView fitHeight="560.0" fitWidth="760.0" layoutX="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/总经理主界面背景.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="363.0" layoutY="408.0" style="-fx-background-color: transparent;" text="你好，想做些什么？" textFill="WHITE">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
     </children>
 </fx:root>

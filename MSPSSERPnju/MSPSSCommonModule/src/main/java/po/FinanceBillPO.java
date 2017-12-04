@@ -51,14 +51,14 @@ public class FinanceBillPO {
    /**
     * 单据的状态
     */
-   private BillStatus status;
+   private int status;
    /**
     * 条目清单 条目包括 条目名 金额 备注
     */
    private ArrayList<FinanceItemPO> list;
 
    public FinanceBillPO(String ID,String operatorID,String managerID,String init_time,String commit_time,String approval_time
-      ,String customerID,BillStatus status,ArrayList<FinanceItemPO> list,double sum ){
+      ,String customerID,int status,ArrayList<FinanceItemPO> list,double sum ){
       this.operatorID = operatorID;
       this.ID = ID;
       this.managerID = managerID;
@@ -71,6 +71,34 @@ public class FinanceBillPO {
       this.sum = sum;
    }
 
+   public String getID() {
+      return ID;
+   }
+
+   public void setID(String ID) {
+      this.ID = ID;
+   }
+
+   public String getOperatorID() {
+      return operatorID;
+   }
+
+   public void setOperatorID(String operatorID) {
+      this.operatorID = operatorID;
+   }
+
+   public String getCustomerID() {
+      return customerID;
+   }
+
+   public void setCustomerID(String customerID) {
+      this.customerID = customerID;
+   }
+
+   public String getManagerID() {
+      return managerID;
+   }
+
    public void setManagerID(String managerID) {
       this.managerID = managerID;
    }
@@ -79,87 +107,55 @@ public class FinanceBillPO {
       return init_time;
    }
 
-   public void setOperatorID(String operatorID) {
-      this.operatorID = operatorID;
+   public void setInit_time(String init_time) {
+      this.init_time = init_time;
    }
 
    public String getCommit_time() {
       return commit_time;
    }
 
-   public void setApproval_time(String approval_time) {
-      this.approval_time = approval_time;
+   public void setCommit_time(String commit_time) {
+      this.commit_time = commit_time;
    }
 
    public String getApproval_time() {
       return approval_time;
    }
 
-   public void setCustomerID(String customerID) {
-      this.customerID = customerID;
-   }
-
-   public String getCustomerID() {
-      return customerID;
-   }
-
-   public void setCommit_time(String commit_time) {
-      this.commit_time = commit_time;
-   }
-
-   public String getManagerID() {
-      return managerID;
-   }
-
-   public String getOperatorID() {
-      return operatorID;
-   }
-
-   public void setType(FinanceBillType type) {
-      this.type = type;
-   }
-
-   public String getID() {
-      return ID;
-   }
-
-   public void setInit_time(String init_time) {
-      this.init_time = init_time;
-   }
-
-   public BillStatus getStatus() {
-      return status;
-   }
-
-   public void setID(String ID) {
-      this.ID = ID;
-   }
-
-   public ArrayList<FinanceItemPO> getList() {
-      return list;
-   }
-
-
-   public double getSum() {
-      return sum;
+   public void setApproval_time(String approval_time) {
+      this.approval_time = approval_time;
    }
 
    public FinanceBillType getType() {
       return type;
    }
 
+   public void setType(FinanceBillType type) {
+      this.type = type;
+   }
+
+   public double getSum() {
+      return sum;
+   }
+
    public void setSum(double sum) {
       this.sum = sum;
    }
 
-   public void setStatus(BillStatus status) {
+   public int getStatus() {
+      return status;
+   }
+
+   public void setStatus(int status) {
       this.status = status;
    }
 
-
+   public ArrayList<FinanceItemPO> getList() {
+      return list;
+   }
 
    public void setList(ArrayList<FinanceItemPO> list) {
       this.list = list;
    }
-
 }

@@ -8,6 +8,10 @@ import java.util.ArrayList;
  */
 public class FinanceItemPO {
     /**
+     * 数据库主键，切勿自行初始化这个变量！！！
+     */
+    private String id;
+    /**
      * 银行账户号
      */
     private String accountID;

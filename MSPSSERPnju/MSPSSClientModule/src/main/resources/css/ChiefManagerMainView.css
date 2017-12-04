@@ -1,4 +1,4 @@
-
+@
 .button:hover {
     -fx-background-color: #0d5ae1;
 }
@@ -14,3 +14,7 @@
 	 -fx-text-fill:#FFFFFF;
 }
 
+.textArea{
+	-fx-border-radius: 0; 
+	-fx-background-radius:0;
+}

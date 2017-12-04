@@ -28,9 +28,9 @@ public class SalesInBillPO {
     private String storage;
 
     /**
-     * 进货类单据的类型（进货单还是进货退货单）
+     * 进货类单据的类型（进货单还是进货退货单）SalesInBillType
      */
-    private SalesInBillType type;
+    private int type;
     /**
      * 操作员（即产生订单的人）
      */
@@ -50,22 +50,22 @@ public class SalesInBillPO {
      */
     private ArrayList<SalesItemPO> itemPOS;
     /**
-     * 单据状态
+     * 单据状态BillStatus
      */
-    private BillStatus status;
+    private int status;
 
     /**
      * 单据的创建时间
      */
-    private Time init_time;
+    private String init_time;
     /**
      * 单据的提交时间
      */
-    private Time commit_time;
+    private String commit_time;
     /**
      * 单据的审批条件
      */
-    private Time approval_time;
+    private String approval_time;
     /**
      * 经理的审批评论
      */
@@ -77,23 +77,21 @@ public class SalesInBillPO {
     private String managerID;
 
 
-    public SalesInBillPO(String ID,String storage,SalesInBillType type,BillStatus status,
-                    double sumMoney,Time init_time,Time commit_time,Time approval_time,String provider,String operatorID
-    ,String managerID,String commentByManager,String ps,ArrayList<SalesItemPO> itemPOS){
-        this.managerID = managerID;
+    public SalesInBillPO(String ID, String provider, String storage, int type, String operatorID, String ps, double sumMoney, ArrayList<SalesItemPO> itemPOS, int status, String init_time, String commit_time, String approval_time, String commentByManager, String managerID) {
         this.ID = ID;
+        this.provider = provider;
         this.storage = storage;
         this.type = type;
-        this.status = status;
+        this.operatorID = operatorID;
+        this.ps = ps;
         this.sumMoney = sumMoney;
+        this.itemPOS = itemPOS;
+        this.status = status;
         this.init_time = init_time;
         this.commit_time = commit_time;
         this.approval_time = approval_time;
-        this.operatorID = operatorID;
-        this.provider = provider;
-        this.ps = ps;
         this.commentByManager = commentByManager;
-        this.itemPOS = itemPOS;
+        this.managerID = managerID;
     }
 
     public void setSumMoney(double sumMoney) {
@@ -138,49 +136,28 @@ public class SalesInBillPO {
         this.ID = ID;
     }
 
-    public Time getInit_time() {
-        return init_time;
-    }
 
-    public void setInit_time(Time init_time) {
-        this.init_time = init_time;
-    }
-
-    public BillStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(BillStatus status) {
-        this.status = status;
-    }
-
-    public Time getCommit_time() {
-        return commit_time;
-    }
-
-    public SalesInBillType getType() {
+    public int getType() {
         return type;
     }
 
-    public void setCommit_time(Time commit_time) {
-        this.commit_time = commit_time;
-    }
-
-    public Time getApproval_time() {
-        return approval_time;
-    }
-
-    public void setType(SalesInBillType type) {
+    public void setType(int type) {
         this.type = type;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public String getCommentByManager() {
         return commentByManager;
     }
 
-    public void setApproval_time(Time approval_time) {
-        this.approval_time = approval_time;
-    }
+
 
     public ArrayList<SalesItemPO> getItemPOS() {
         return itemPOS;
@@ -208,5 +185,29 @@ public class SalesInBillPO {
 
     public void setOperatorID(String operatorID) {
         this.operatorID = operatorID;
+    }
+
+    public String getInit_time() {
+        return init_time;
+    }
+
+    public void setInit_time(String init_time) {
+        this.init_time = init_time;
+    }
+
+    public String getCommit_time() {
+        return commit_time;
+    }
+
+    public void setCommit_time(String commit_time) {
+        this.commit_time = commit_time;
+    }
+
+    public String getApproval_time() {
+        return approval_time;
+    }
+
+    public void setApproval_time(String approval_time) {
+        this.approval_time = approval_time;
     }
 }

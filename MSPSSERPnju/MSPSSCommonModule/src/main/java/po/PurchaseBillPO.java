@@ -10,7 +10,7 @@ public class PurchaseBillPO {
     /**
      * 供应商
      */
-    private CustomerPO supplier;
+    private String supplier;
     /**
      * 仓库
      */
@@ -32,11 +32,64 @@ public class PurchaseBillPO {
      */
     String remark;
 
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(String supplier) {
+        this.supplier = supplier;
+    }
+
+    public String getStore() {
+        return store;
+    }
+
+    public void setStore(String store) {
+        this.store = store;
+    }
+
+    public String getWorker() {
+        return worker;
+    }
+
+    public void setWorker(String worker) {
+        this.worker = worker;
+    }
+
     public ArrayList<CommodityPO> getProlist() {
         return prolist;
     }
 
-    public PurchaseBillPO(String ID, CustomerPO supplier, String store, String worker, ArrayList<CommodityPO> prolist, double sum, String remark) {
+    public void setProlist(ArrayList<CommodityPO> prolist) {
+        this.prolist = prolist;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public PurchaseBillPO(String ID, String supplier, String store, String worker, ArrayList<CommodityPO> prolist, double sum, String remark) {
         this.ID = ID;
         this.supplier = supplier;
         this.store = store;

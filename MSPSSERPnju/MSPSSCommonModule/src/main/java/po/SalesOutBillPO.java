@@ -16,9 +16,9 @@ public class SalesOutBillPO {
      */
     private String ID;
     /**
-     * 销售单的类型
+     * 销售单的类型SalesOutBillType
      */
-    private SalesOutBillType type;
+    private int type;
     /**
      * 经销商
      */
@@ -37,9 +37,9 @@ public class SalesOutBillPO {
      */
     private String managerID;
     /**
-     * 订单的状态
+     * 订单的状态BillStatus
      */
-    private BillStatus status;
+    private int status;
     /**
      * 仓库
      */
@@ -78,7 +78,7 @@ public class SalesOutBillPO {
     /**
      *折让前总额
      */
-    private double sumBeforeDiscout;
+    private double sumBeforeDiscount;
 
     /**
      * 折让后总额
@@ -89,110 +89,41 @@ public class SalesOutBillPO {
      */
     ArrayList<SalesItemPO> salesItemPOS;
 
-    public SalesOutBillPO(String ID, String DAE, String storage, SalesOutBillType type, int allowance, int voucher, String customerID, String operatorID, String  managerID
-            , ArrayList<SalesItemPO> salesItemPOS,String  init_time, String commit_time, String approval_time, BillStatus status, String promotionID,double sumAfterDiscount,double sumBeforeDiscount,String ps){
+    public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String promotionID, String init_time, String commit_time, String approval_time, String ps, int allowance, int voucher, double sumBeforeDiscount, double sumAfterDiscount, ArrayList<SalesItemPO> salesItemPOS) {
         this.ID = ID;
+        this.type = type;
+        this.customerID = customerID;
         this.DAE = DAE;
+        this.operatorID = operatorID;
+        this.managerID = managerID;
         this.status = status;
         this.storage = storage;
-        this.type = type;
-        this.allowance = allowance;
-        this.voucher =voucher;
-        this.sumAfterDiscount = sumAfterDiscount;
-        this.sumBeforeDiscout = sumBeforeDiscount;
+        this.promotionID = promotionID;
         this.init_time = init_time;
         this.commit_time = commit_time;
         this.approval_time = approval_time;
         this.ps = ps;
-        this.customerID = customerID;
-        this.managerID = managerID;
-        this.operatorID = operatorID;
-        this.salesItemPOS = salesItemPOS;
-        this.promotionID = promotionID;
-    }
-
-    public void setDAE(String DAE) {
-        this.DAE = DAE;
-    }
-
-    public BillStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(BillStatus status) {
-        this.status = status;
-    }
-
-    public SalesOutBillType getType() {
-        return type;
-    }
-
-    public void setVoucher(int voucher) {
-        this.voucher = voucher;
-    }
-
-    public String getStorage() {
-        return storage;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
-    public int getVoucher() {
-        return voucher;
-    }
-
-    public void setSumAfterDiscount(double sumAfterDiscount) {
-        this.sumAfterDiscount = sumAfterDiscount;
-    }
-
-    public int getAllowance() {
-        return allowance;
-    }
-
-    public void setAllowance(int allowance) {
         this.allowance = allowance;
-    }
-
-    public String getDAE() {
-        return DAE;
-    }
-
-    public void setStorage(String storage) {
-        this.storage = storage;
+        this.voucher = voucher;
+        this.sumBeforeDiscount = sumBeforeDiscount;
+        this.sumAfterDiscount = sumAfterDiscount;
+        this.salesItemPOS = salesItemPOS;
     }
 
     public String getID() {
         return ID;
     }
 
-    public void setInit_time(String init_time) {
-        this.init_time = init_time;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
-    public double getSumAfterDiscount() {
-        return sumAfterDiscount;
+    public int getType() {
+        return type;
     }
 
-    public void setType(SalesOutBillType type) {
+    public void setType(int type) {
         this.type = type;
-    }
-
-    public String getOperatorID() {
-        return operatorID;
-    }
-
-    public void setCommit_time(String commit_time) {
-        this.commit_time = commit_time;
-    }
-
-    public String getManagerID() {
-        return managerID;
-    }
-
-    public void setOperatorID(String operatorID) {
-        this.operatorID = operatorID;
     }
 
     public String getCustomerID() {
@@ -203,56 +134,123 @@ public class SalesOutBillPO {
         this.customerID = customerID;
     }
 
-    public String getPs() {
-        return ps;
+    public String getDAE() {
+        return DAE;
     }
 
-    public void setApproval_time(String approval_time) {
-        this.approval_time = approval_time;
+    public void setDAE(String DAE) {
+        this.DAE = DAE;
     }
 
-    public double getSumBeforeDiscout() {
-        return sumBeforeDiscout;
+    public String getOperatorID() {
+        return operatorID;
+    }
+
+    public void setOperatorID(String operatorID) {
+        this.operatorID = operatorID;
+    }
+
+    public String getManagerID() {
+        return managerID;
     }
 
     public void setManagerID(String managerID) {
         this.managerID = managerID;
     }
 
-    public ArrayList<SalesItemPO> getSalesItemPOS() {
-        return salesItemPOS;
+    public int getStatus() {
+        return status;
     }
 
-    public void setPromotionID(String promotionID) {
-        this.promotionID = promotionID;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public String getApproval_time() {
-        return approval_time;
+    public String getStorage() {
+        return storage;
     }
 
-    public void setPs(String ps) {
-        this.ps = ps;
-    }
-
-    public String getCommit_time() {
-        return commit_time;
-    }
-
-    public void setSalesItemPOS(ArrayList<SalesItemPO> salesItemPOS) {
-        this.salesItemPOS = salesItemPOS;
-    }
-
-    public String getInit_time() {
-        return init_time;
-    }
-
-    public void setSumBeforeDiscout(double sumBeforeDiscout) {
-        this.sumBeforeDiscout = sumBeforeDiscout;
+    public void setStorage(String storage) {
+        this.storage = storage;
     }
 
     public String getPromotionID() {
         return promotionID;
     }
 
+    public void setPromotionID(String promotionID) {
+        this.promotionID = promotionID;
+    }
+
+    public String getInit_time() {
+        return init_time;
+    }
+
+    public void setInit_time(String init_time) {
+        this.init_time = init_time;
+    }
+
+    public String getCommit_time() {
+        return commit_time;
+    }
+
+    public void setCommit_time(String commit_time) {
+        this.commit_time = commit_time;
+    }
+
+    public String getApproval_time() {
+        return approval_time;
+    }
+
+    public void setApproval_time(String approval_time) {
+        this.approval_time = approval_time;
+    }
+
+    public String getPs() {
+        return ps;
+    }
+
+    public void setPs(String ps) {
+        this.ps = ps;
+    }
+
+    public int getAllowance() {
+        return allowance;
+    }
+
+    public void setAllowance(int allowance) {
+        this.allowance = allowance;
+    }
+
+    public int getVoucher() {
+        return voucher;
+    }
+
+    public void setVoucher(int voucher) {
+        this.voucher = voucher;
+    }
+
+    public double getSumBeforeDiscount() {
+        return sumBeforeDiscount;
+    }
+
+    public void setSumBeforeDiscount(double sumBeforeDiscount) {
+        this.sumBeforeDiscount = sumBeforeDiscount;
+    }
+
+    public double getSumAfterDiscount() {
+        return sumAfterDiscount;
+    }
+
+    public void setSumAfterDiscount(double sumAfterDiscount) {
+        this.sumAfterDiscount = sumAfterDiscount;
+    }
+
+    public ArrayList<SalesItemPO> getSalesItemPOS() {
+        return salesItemPOS;
+    }
+
+    public void setSalesItemPOS(ArrayList<SalesItemPO> salesItemPOS) {
+        this.salesItemPOS = salesItemPOS;
+    }
 }

@@ -3,13 +3,13 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="po.AccountPO">
-        <id name="id">
+    <class name="po.AccountPO" table="accountpo">
+        <id name="id" column="id" type="int">
         <generator class="increment" />
     </id>
-        <property name="name"/>
-        <property name="money"/>
-        <property name="createtime"/>
+        <property name="name" column="name" type="string"/>
+        <property name="money" column="money" type ="int"/>
+        <property name="createtime" column="createtime" type="string"/>
 
     </class>
 </hibernate-mapping>
