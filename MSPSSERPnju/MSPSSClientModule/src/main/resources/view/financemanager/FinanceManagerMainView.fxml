@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/financemanager/FinanceManagerMainView.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerMainViewController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/financemanager/FinanceManagerCommon.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerMainViewController">
     <children>
-        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0" stylesheets="@../../css/financemanager/FinanceManagerCommon.css">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
@@ -58,12 +58,12 @@
         </ImageView>
         <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../image/查询日志.png" />
+                <Image url="@../../image/客户（白色）.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../image/促销策略.png" />
+                <Image url="@../../image/期初建账.png" />
             </image>
         </ImageView>
         <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />

@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchListController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerSearchListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/financemanager/FinanceManagerCommon.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
@@ -28,7 +28,7 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
+        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -38,20 +38,20 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：光耀" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：财务管理人员" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
-      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000002" textFill="WHITE" />
+      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="账户管理" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
+      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="期初建账" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -63,12 +63,12 @@
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../image/查询日志.png" />
+            <Image url="@../../image/客户（白色）.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../image/促销策略.png" />
+            <Image url="@../../image/期初建账.png" />
          </image>
       </ImageView>
       <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
@@ -96,10 +96,10 @@
          <children>
             <Label layoutX="119.0" layoutY="54.0" style="-fx-background-color: transparent;" text="选择报表类型" textFill="#0f88eb" />
             <Label layoutX="119.0" layoutY="92.0" style="-fx-background-color: transparent;" text="选择时间区间" textFill="#0f88eb" />
-            <Label layoutX="119.0" layoutY="157.0" style="-fx-background-color: transparent;" text="选择商品名称" textFill="#0f88eb" />
-            <Label layoutX="119.0" layoutY="207.0" style="-fx-background-color: transparent;" text="选择客户姓名" textFill="#0f88eb" />
-            <Label layoutX="119.0" layoutY="253.0" style="-fx-background-color: transparent;" text="选择业务员" textFill="#0f88eb" />
-            <Label layoutX="119.0" layoutY="299.0" style="-fx-background-color: transparent;" text="选择仓库名称" textFill="#0f88eb" />
+            <Label layoutX="119.0" layoutY="130.0" style="-fx-background-color: transparent;" text="选择商品名称" textFill="#0f88eb" />
+            <Label layoutX="119.0" layoutY="168.0" style="-fx-background-color: transparent;" text="选择客户姓名" textFill="#0f88eb" />
+            <Label layoutX="119.0" layoutY="206.0" style="-fx-background-color: transparent;" text="选择业务员" textFill="#0f88eb" />
+            <Label layoutX="119.0" layoutY="244.0" style="-fx-background-color: transparent;" text="选择仓库名称" textFill="#0f88eb" />
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="68.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/选择日期.png" />
@@ -110,22 +110,22 @@
                   <Image url="@../../image/报表类型.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="68.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="68.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/商品.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="69.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="70.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/客户（黑色）.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="69.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="70.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/业务员.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="69.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="70.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/仓库.png" />
                </image>
@@ -139,11 +139,27 @@
              </items>
              </ComboBox>
             <DatePicker layoutX="330.0" layoutY="87.0" prefHeight="25.0" prefWidth="93.0" promptText="开始" />
-            <TextField layoutX="330.0" layoutY="152.0" prefHeight="24.0" prefWidth="195.0" promptText="商品名" />
-            <TextField layoutX="330.0" layoutY="202.0" prefHeight="27.0" prefWidth="195.0" promptText="客户姓名" />
-            <TextField layoutX="330.0" layoutY="248.0" prefHeight="25.0" prefWidth="195.0" promptText="业务员" />
-            <TextField layoutX="330.0" layoutY="294.0" prefHeight="27.0" prefWidth="195.0" promptText="仓库" />
+            <TextField layoutX="330.0" layoutY="127.0" prefHeight="24.0" prefWidth="195.0" promptText="商品名" />
+            <TextField layoutX="330.0" layoutY="164.0" prefHeight="27.0" prefWidth="195.0" promptText="客户姓名" />
+            <TextField layoutX="330.0" layoutY="202.0" prefHeight="25.0" prefWidth="195.0" promptText="业务员" />
+            <TextField layoutX="330.0" layoutY="240.0" prefHeight="27.0" prefWidth="195.0" promptText="仓库" />
             <DatePicker layoutX="439.0" layoutY="87.0" prefHeight="27.0" prefWidth="86.0" promptText="结束" />
+            <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="71.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/单据（黑色）.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="119.0" layoutY="282.0" style="-fx-background-color: transparent;" text="选择单据类型" textFill="#0f88eb" />
+            <ComboBox layoutX="330.0" layoutY="278.0" prefHeight="20.0" prefWidth="195.0" promptText="单据类型">
+              <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="销售类单据" />
+                     <String fx:value="进货类单据" />
+                     <String fx:value="财务类单据" />
+                     <String fx:value="库存类单据" />
+                  </FXCollections>
+             </items>
+         </ComboBox>
          </children>
       </Pane>
     </children>
