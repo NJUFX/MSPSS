@@ -42,21 +42,23 @@ public interface CommodityClientNetworkService extends Remote {
      */
     public CommodityPO exactlySearchCommodity(String id);
 
-
-
+    public ArrayList<CommodityPO> fullSearchCommodity(String field, Object value);
     /**
-     * 模糊搜索商品
-     * @param name
+     *
+     * @param filed
+     * @param value
      * @return
      */
-    public ArrayList<CommodityPO> fuzzySearchCommodity(String name);
+    public ArrayList<CommodityPO> fuzzySearchCommodity(String filed,String value);
 
     /**
-     * 范围搜索商品
-     * @param filter
+     *
+     * @param field
+     * @param min
+     * @param max
      * @return
      */
-    public ArrayList<CommodityPO> rangeSearchCommodity(CommodityFilter filter);
+    public ArrayList<CommodityPO> rangeSearchCommodity(String field, Object min, Object max);
 
     /**
      * 添加商品分类
