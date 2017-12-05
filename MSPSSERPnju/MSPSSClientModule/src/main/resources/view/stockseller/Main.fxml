@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
+<?import java.util.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+    <children>
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
+            <effect>
+                <ColorInput height="560.0" paint="#0f88eb" width="145" />
+            </effect>
+        </Pane>
+        <Button id="customerManage" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="客户管理" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button id="billCreateButton" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="制定单据" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="14.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/stockseller/客户管理.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/头像.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="20.0" layoutY="240.0" text="编号: SY001" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="14.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/stockseller/审批单据.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/设置.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button id="existButton" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/退出登录.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/发送信息.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+      <ImageView fitHeight="560.0" fitWidth="760.0" layoutX="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/总经理主界面背景.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="363.0" layoutY="408.0" style="-fx-background-color: transparent;" text="你好，想做些什么？" textFill="WHITE">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>

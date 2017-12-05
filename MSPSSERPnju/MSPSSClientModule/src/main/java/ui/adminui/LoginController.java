@@ -31,7 +31,9 @@ public class LoginController implements Initializable {
 
     @FXML
     public void loginButtonAction(ActionEvent e) {
-        application.userLogin("jiang", "00000");
+        String id = idText.getText();
+        String password = passwordField.getText();
+        application.userLogin(id, password);
         dialog.infoDialog("Login Successfully.");
 
     }

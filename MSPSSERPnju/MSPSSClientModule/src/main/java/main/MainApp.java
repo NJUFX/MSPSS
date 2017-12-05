@@ -31,7 +31,20 @@ public class MainApp extends Application {
      * @param password
      */
     public void userLogin(String id, String password) {
-        toAddUserInfer();
+        //判断id是否在系统里
+        //判断密码是否正确
+
+        switch (id.substring(0, 2)) {
+            case "SY":
+                toAddUserInfer();
+            case "SS":
+                //进货销售人员
+            case "CM":
+                //总经理
+            case "SM":
+                //库存管理人员
+        }
+        //toAddUserInfer();
     }
 
     /**
@@ -39,13 +52,14 @@ public class MainApp extends Application {
      */
     public void toLoginInfer() {
         try {
-            LoginController login = (LoginController) replaceSceneContent("/view/stockmanager/StockCheckShow.fxml");
+            LoginController login = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
             //LoginController login = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
             login.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     /**
      * 跳转addUser界面
      */
@@ -57,6 +71,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
+
     /**
      * 跳转delUser界面
      */
@@ -68,6 +83,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
+
     /**
      * 跳转modUser界面
      */
