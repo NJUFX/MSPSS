@@ -122,6 +122,11 @@
                   <Font name="Microsoft YaHei" size="12.0" />
                </font>
             </Button>
+            <Button id="cancelButton" layoutX="445.0" layoutY="392.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="#0f88eb">
+               <font>
+                  <Font name="Microsoft YaHei" size="12.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
     </children>
