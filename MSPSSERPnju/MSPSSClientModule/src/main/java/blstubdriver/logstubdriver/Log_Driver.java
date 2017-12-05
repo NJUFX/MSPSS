@@ -30,7 +30,7 @@ public class Log_Driver {
 
         //2
         ArrayList<LogPO> Test_LogPOList = new ArrayList<LogPO>();
-        LogPO Test_LogPO = new LogPO("000001","jiangchen","17/11/20","sell","Bulb",100,10000);
+        LogPO Test_LogPO = new LogPO("000001","jiangchen","17/11/20",1);
         Test_LogPOList.add(Test_LogPO);
         LogListVO TesultResult2 = log_stub.showLogList(Test_LogPOList);
         if(TesultResult2.getLogAmount()==1){

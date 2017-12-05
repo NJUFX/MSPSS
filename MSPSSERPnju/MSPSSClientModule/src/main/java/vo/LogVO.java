@@ -4,20 +4,16 @@ public class LogVO {
 	String id;
 	String operator;
 	String time;
-	String kind;
-	String commodity;
-	int money;
-	Long stock;
+	int kind;
+	
 
 
-	public LogVO(String i, String o, String t, String k, String c, int m, long s) {
+	public LogVO(String i, String o, String t, int k) {
 		id = i;
 		operator = o;
 		time = t;
 		kind = k;
-		commodity = c;
-		money = m;
-		stock = s;
+	
 	}
 
 	//get方法可以根据需要补充
@@ -31,5 +27,8 @@ public class LogVO {
 
 	public String getTime() {
 		return time;
+	}
+	public int getKind() {
+		return kind;
 	}
 }
