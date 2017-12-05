@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e3e772f-4bec-429d-b064-ef4f37316eac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSServerModule/.classpath" afterPath="$PROJECT_DIR$/MSPSSServerModule/.classpath" />
-    </list>
+    <list default="true" id="6e3e772f-4bec-429d-b064-ef4f37316eac" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/MSPSSCommonModule/target/" />
@@ -59,7 +57,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1260" />
     <option name="height" value="693" />
@@ -301,15 +299,15 @@
       <option name="presentableId" value="Default" />
       <updated>1512371787533</updated>
       <workItem from="1512371791698" duration="2149000" />
-      <workItem from="1512375222597" duration="636000" />
+      <workItem from="1512375222597" duration="919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2785000" />
+    <option name="totallyTimeSpent" value="3068000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1260" height="693" extended-state="1" />
+    <frame x="0" y="23" width="1260" height="693" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
