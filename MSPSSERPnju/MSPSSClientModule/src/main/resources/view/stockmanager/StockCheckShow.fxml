@@ -131,7 +131,7 @@
                 <Image url="@../../image/stockmanager/库存查看.png" />
             </image>
         </ImageView>
-      <Label layoutX="220.0" layoutY="70.0" text="库存信息" textFill="#0f88eb">
+      <Label layoutX="220.0" layoutY="63.0" text="库存信息" textFill="#0f88eb">
          <font>
             <Font size="20.0" />
          </font>
@@ -150,7 +150,7 @@
             <TableColumn prefWidth="150.0" text="金额" />
          </columns>
       </TableView>
-      <Button id="returnButton" layoutX="149.0" layoutY="44.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="51.0" stylesheets="@../../css/stockseller/returnButton.css">
+      <Button id="returnButton" layoutX="149.0" layoutY="60.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="53.0" stylesheets="@../../css/stockseller/returnButton.css">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
