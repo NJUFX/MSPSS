@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--库存赠送单-->
 
 <?import javafx.scene.text.*?>
@@ -102,22 +103,26 @@
                 </ImageView>
             </graphic>
         </Button>
-        <TableView layoutX="230.0" layoutY="80.0" prefHeight="330.0" prefWidth="566.0">
-            <columns>
-                <TableColumn prefWidth="90.0" text="名称" />
-                <TableColumn prefWidth="90.0" text="编号" />
-                <TableColumn prefWidth="90.0" text="数量" />
-                <TableColumn prefWidth="314.6666564941406" text="备注" />
-            </columns>
-        </TableView>
-      <ComboBox layoutX="230.0" layoutY="415.0" prefHeight="23.0" prefWidth="90.0" />
-      <Label layoutX="325.0" layoutY="415.0" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: #aaaaaa;" text="Label" />
-      <TextField layoutX="418.0" layoutY="415.0" prefHeight="23.0" prefWidth="90.0" promptText="1" />
-      <TextField layoutX="511.0" layoutY="415.0" prefHeight="23.0" prefWidth="285.0" />
-      <Button id="sureButton" fx:id="sureButton1" layoutX="800.0" layoutY="414.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei" size="12.0" />
-         </font>
-      </Button>
+      <Pane layoutX="190.0" layoutY="75.0" prefHeight="450.0" prefWidth="662.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+              <TableView layoutX="50.0" layoutY="30.0" prefHeight="330.0" prefWidth="566.0">
+                  <columns>
+                      <TableColumn prefWidth="90.0" text="名称" />
+                      <TableColumn prefWidth="90.0" text="编号" />
+                      <TableColumn prefWidth="90.0" text="数量" />
+                      <TableColumn prefWidth="314.6666564941406" text="备注" />
+                  </columns>
+              </TableView>
+            <ComboBox layoutX="51.0" layoutY="365.0" prefHeight="23.0" prefWidth="90.0" />
+            <Label layoutX="144.0" layoutY="365.0" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: #aaaaaa;" text="Label" />
+            <TextField layoutX="236.0" layoutY="365.0" prefHeight="23.0" prefWidth="90.0" promptText="1" />
+            <TextField layoutX="329.0" layoutY="365.0" prefHeight="23.0" prefWidth="285.0" />
+            <Button id="sureButton" fx:id="sureButton1" layoutX="542.0" layoutY="392.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
     </children>
 </Pane>
