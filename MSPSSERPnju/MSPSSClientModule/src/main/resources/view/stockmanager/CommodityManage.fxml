@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
+<?import java.util.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+    <children>
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
+            <effect>
+                <ColorInput height="560.0" paint="#0f88eb" width="145" />
+            </effect>
+        </Pane>
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0">
+            <effect>
+                <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
+            </effect>
+        </Pane>
+        <Button id="customerManage" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/customerManage.css" text="商品管理" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="12.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/stockmanager/商品管理.png" />
+            </image>
+        </ImageView>
+        <Button id="billCreateButton" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="商品分类" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Label layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="218.0" text="身份: 库存管理人员" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/头像.png" />
+            </image>
+        </ImageView>
+      <Button id="billCreateButton" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="处理单据" textFill="#f8f4f4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+        <Label layoutX="20.0" layoutY="240.0" text="编号: SY001" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="11.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/stockseller/审批单据.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;商品管理" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="150.0" prefHeight="40.0" prefWidth="76.0" text="MSPSS" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="22.0" />
+            </font>
+        </Label>
+        <Pane id="addCustomerPane" layoutX="218.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+            <children>
+                <Button id="addButton" layoutX="31.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="增加商品" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockmanager/增加商品.png" />
+                    </image>
+                </ImageView>
+            </children></Pane>
+        <Pane id="delCustomerPane" layoutX="431.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+            <children>
+                <Button id="delButton" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="删除商品" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="31.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockmanager/删除商品.png" />
+                    </image>
+                </ImageView>
+            </children></Pane>
+        <Pane id="modCustomerPane" layoutX="648.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+            <children>
+                <Button id="modButton" layoutX="32.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="修改属性" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="33.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockmanager/修改商品.png" />
+                    </image>
+                </ImageView>
+            </children></Pane>
+        <Pane id="searchCustomerPane" layoutX="479.0" layoutY="59.0" prefHeight="94.0" prefWidth="388.0">
+            <children>
+                <TextField layoutX="85.0" layoutY="28.0" prefHeight="35.0" prefWidth="161.0" promptText="关键词/编号" />
+                <Button id="searchButton" layoutX="246.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="查找" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Button>
+                <ComboBox layoutX="-17.0" layoutY="28.0" prefHeight="35.0" prefWidth="102.0" promptText="关键词类型">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="编号" />
+                            <String fx:value="分类" />
+                            <String fx:value="等级" />
+                            <String fx:value="联系方式" />
+                            <String fx:value="业务员" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </children>
+        </Pane>
+        <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/设置.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button id="existButton" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/退出登录.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/发送信息.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+      <Button id="billCreateButton" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button id="billCreateButton" layoutY="424.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/stockmanager/商品分类.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="12.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/stockmanager/库存盘点.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/stockmanager/库存查看.png" />
+         </image>
+      </ImageView>
+    </children>
+</Pane>
