@@ -1,4 +1,4 @@
-package DataHelper;
+package datahelper;
 
 
 import util.CriteriaClause;

@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Hibernate 5.1.1-5.1.1" type="hibernate">
+    <properties version="5.1.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-commons-annotations-5.0.1.Final.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/antlr-2.7.7.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.1.1.Final.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/jboss-logging-3.3.0.Final.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/javassist-3.20.0-GA.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/geronimo-jta_1.1_spec-1.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/classmate-1.3.0.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/dom4j-1.6.1.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/jandex-2.0.0.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

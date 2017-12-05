@@ -1,4 +1,4 @@
-package DataHelper;
+package datahelper;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -12,19 +12,20 @@ import util.ResultMessage;
 import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceException;
 import java.util.ArrayList;
-////
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 
 /**
- * Created by thinkpad on 2017/12/4.
+ * Created by SilverNarcissus on 16/11/12.<br>
+ * datahelper which use hibernate frame<br>
+ * Pass test on 16/11/18<br>
+ * Done on 16/11/18
  */
 public class HibernateHelper<T> implements DataHelper<T> {
+
     private SessionFactory sessionFactory;
     private Session session;
     private Class<T> type;
+
+    //使用默认构造类，则sessionfactory不会被初始化！！！！！报错NUllPointer!
 
     public HibernateHelper() {
 
@@ -172,12 +173,6 @@ public class HibernateHelper<T> implements DataHelper<T> {
      * @throws ClassNotFoundException 如果没有指定type，则抛出该异常
      */
     private Criteria SetUpCriteria() throws ClassNotFoundException {
-
-
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<T> criteria = builder.createQuery(type);
-        Root<T> employeeRoot=criteria.from(type);
-        criteria.select(employeeRoot);
         setUpSession();
         return session.createCriteria(type);
     }
