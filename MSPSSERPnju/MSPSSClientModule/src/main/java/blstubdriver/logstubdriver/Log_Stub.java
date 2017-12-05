@@ -16,9 +16,9 @@ public class Log_Stub implements LogBLService {
 
     //constant
     ArrayList<LogPO> Test_LogPOList = new ArrayList<LogPO>();
-    LogPO Test_LogPO = new LogPO("000001","jiangchen","17/11/20","sell","Bulb",100,10000);
+    LogPO Test_LogPO = new LogPO("000001","jiangchen","17/11/20",1);
     LogListVO Test_LogListVO = new LogListVO(1,Test_LogPOList );
-    LogVO Test_LogVO = new LogVO("000001","jiangchen","17/11/20","sell","Bulb",100,10000);
+    LogVO Test_LogVO = new LogVO("000001","jiangchen","17/11/20",1);
 
 
     /**

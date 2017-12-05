@@ -17,7 +17,7 @@ public class MockPromotion extends Promotion{
      * @return ResultMessage
      */
     public ResultMessage add(PromotionVO promotionVO){
-        PromotionPO promotionPO = new PromotionPO(promotionVO.getId(),promotionVO.getType(),promotionVO.getInfoList(),promotionVO.getTime());
+        PromotionPO promotionPO = new PromotionPO();
         promotionlist.add(promotionPO);
         return ResultMessage.SUCCESS;
     }
@@ -30,7 +30,7 @@ public class MockPromotion extends Promotion{
      */
     public ResultMessage delete(String id){
         for(int i=0;i<promotionlist.size();i++){
-            if(promotionlist.get(i).getId().equals(id)){
+            if(promotionlist.get(i)!=null){
                 promotionlist.remove(i);
             }
         }
@@ -45,9 +45,9 @@ public class MockPromotion extends Promotion{
      * @return ResultMessage
      */
     public ResultMessage update(String id,PromotionVO promotionVO){
-        PromotionPO promotionPO = new PromotionPO(promotionVO.getId(),promotionVO.getType(),promotionVO.getInfoList(),promotionVO.getTime());
+        PromotionPO promotionPO = new PromotionPO();
       for(int i=0;i<promotionlist.size();i++){
-          if(promotionlist.get(i).getId().equals(id)){
+          if(promotionlist.get(i)!=null){
               promotionlist.remove(i);
               promotionlist.add(i,promotionPO);
           }
@@ -64,9 +64,8 @@ public class MockPromotion extends Promotion{
     public ArrayList<PromotionPO> search(Time date){
         ArrayList<PromotionPO>result = new ArrayList<PromotionPO>();
         for(int i=0;i<promotionlist.size();i++){
-            if(promotionlist.get(i).getTime().getYear()==date.getYear()&&promotionlist.get(i).getTime().getMonth()==date.getMonth()&&promotionlist.get(i).getTime().getDay()==date.getDay()){
-                result.add(promotionlist.get(i));
-            }
+             result.add(promotionlist.get(i));
+            
         }
         return result;
     }
@@ -79,8 +78,9 @@ public class MockPromotion extends Promotion{
      */
     public PromotionListVO showPromotionList(ArrayList<PromotionPO> promotionList){
         ArrayList<PromotionVO> transArray  = new ArrayList<PromotionVO>();
+        String[] info = {};
         for(int i=0;i<promotionList.size();i++){
-            PromotionVO temp = new PromotionVO(promotionList.get(i).getId(),promotionList.get(i).getType(),promotionList.get(i).getInfoList(),promotionList.get(i).getTime());
+            PromotionVO temp = new PromotionVO("000001","分级赠送赠品",info,new Time(2017,10,04,11,23,22));
             transArray.add(temp);
         }
         PromotionListVO result = new PromotionListVO(transArray);
@@ -94,9 +94,10 @@ public class MockPromotion extends Promotion{
      * @return PromotionVO
      */
     public PromotionVO showPromotionDetail(String id){
+    	String[] info = {};
         for(int i=0;i<promotionlist.size();i++){
-            if(promotionlist.get(i).getId().equals(id)){
-                PromotionVO result = new PromotionVO(promotionlist.get(i).getId(),promotionlist.get(i).getType(),promotionlist.get(i).getInfoList(),promotionlist.get(i).getTime());
+            if(promotionlist.get(i)!=null){
+                PromotionVO result = new PromotionVO("000001","分级赠送赠品",info,new Time(2017,10,04,11,23,22));
             return result;
             }
         }

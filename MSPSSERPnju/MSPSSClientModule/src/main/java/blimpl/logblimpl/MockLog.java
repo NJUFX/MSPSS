@@ -62,7 +62,7 @@ public class MockLog extends Log{
         for(int i=0;i<loglist.size();i++){
             if(loglist.get(i).getId().equals(id)){
                 LogPO temp =  loglist.get(i);
-                LogVO result = new LogVO(temp.getId(),temp.getOperator(),temp.getTime(),temp.getKind(),temp.getCommodity(),temp.getMoney(),temp.getStock());
+                LogVO result = new LogVO(temp.getId(),temp.getOperator(),temp.getTime(),temp.getKind());
            return result;
             }
 

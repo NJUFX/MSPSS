@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowLogDetailController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerSearchProcessListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/chiefManager/ChiefManagerShowLogDetail.css">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/financemanager/FinanceManagerCommon.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
@@ -28,7 +28,7 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
+        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -38,20 +38,20 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="200.0" text="姓名：光耀" textFill="WHITE" />
+      <Label layoutX="20.0" layoutY="220.0" text="身份：财务管理人员" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
-      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
+      <Label layoutX="20.0" layoutY="240.0" text="编号：000002" textFill="WHITE" />
+      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="账户管理" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
+      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="期初建账" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -63,12 +63,12 @@
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../image/查询日志.png" />
+            <Image url="@../../image/客户（白色）.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="7.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../image/促销策略.png" />
+            <Image url="@../../image/期初建账.png" />
          </image>
       </ImageView>
       <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
@@ -89,16 +89,14 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Button layoutX="589.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
-      <Button layoutX="753.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
+      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
+      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
       <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <TableView prefHeight="347.0" prefWidth="658.0">
+            <TableView prefHeight="347.0" prefWidth="660.0">
               <columns>
-                <TableColumn prefWidth="167.0" text="编号" />
-                <TableColumn prefWidth="167.0" text="操作人员" />
-                  <TableColumn prefWidth="167.0" text="时间" />
-                  <TableColumn prefWidth="157.0" text="操作类型" />
+                <TableColumn prefWidth="659.0" text="单据" />
               </columns>
             </TableView>
          </children></Pane>

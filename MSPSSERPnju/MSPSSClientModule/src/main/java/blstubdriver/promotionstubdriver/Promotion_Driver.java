@@ -46,7 +46,7 @@ public class Promotion_Driver {
 
         //4
         ArrayList<PromotionPO> TestResult4 = promotion_stub.search(new Time(2017,11,13,16,33,33));
-        if(TestResult4.get(0).getId().equals("000001")){
+        if(TestResult4.get(0)!=null){
             System.out.println("Search Promotion Succeed!");
         }
         else{
@@ -55,7 +55,7 @@ public class Promotion_Driver {
 
         //5
         ArrayList<PromotionPO> Test_PromotionPOList = new ArrayList<PromotionPO>();
-        PromotionPO Test_PromotionPO = new PromotionPO("000001","分级赠送赠品",Test_String,new Time(2017,11,13,9,12,12));
+        PromotionPO Test_PromotionPO = new PromotionPO();
         Test_PromotionPOList.add(Test_PromotionPO);
         PromotionListVO TestResult5 = promotion_stub.showPromotionList(Test_PromotionPOList);
         if(TestResult5.getCurrentPromotion().get(0).getId().equals("000001")){
