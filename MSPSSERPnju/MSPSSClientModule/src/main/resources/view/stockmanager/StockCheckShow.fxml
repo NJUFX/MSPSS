@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--库存盘点-->
+<!--库存查看-->
 
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -69,7 +69,7 @@
                 <Image url="@../../image/stockseller/审批单据.png" />
             </image>
         </ImageView>
-        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;库存盘点" textFill="WHITE">
+        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;库存查看" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="18.0" />
             </font>
@@ -106,12 +106,12 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="billCreateButton" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="库存盘点" textFill="#f8f4f4">
+        <Button id="billCreateButton" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="billCreateButton" layoutY="424.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
+        <Button id="billCreateButton" layoutY="424.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="库存查看" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -126,26 +126,38 @@
                 <Image url="@../../image/stockmanager/库存盘点.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="17.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="17.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/库存查看.png" />
             </image>
         </ImageView>
-      <TableView layoutX="225.0" layoutY="74.0" prefHeight="401.0" prefWidth="566.0">
+      <Label layoutX="220.0" layoutY="70.0" text="库存信息" textFill="#0f88eb">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView layoutX="270.0" layoutY="135.0" prefHeight="136.0" prefWidth="450.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="行号" />
-          <TableColumn prefWidth="90.0" text="名称" />
-            <TableColumn prefWidth="75.0" text="库存数量" />
-            <TableColumn prefWidth="75.0" text="库存均价" />
-            <TableColumn prefWidth="75.0" text="批次" />
-            <TableColumn prefWidth="75.0" text="批号" />
-            <TableColumn prefWidth="100.0" text="出厂日期" />
+          <TableColumn prefWidth="150.0" text="入库/出库" />
+          <TableColumn prefWidth="150.0" text="数量" />
+            <TableColumn prefWidth="150.0" text="金额" />
         </columns>
       </TableView>
-      <Button id="billCreateButton" layoutX="657.0" layoutY="494.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="135.0" stylesheets="@../../css/stockseller/common.css" text="导出Excel" textFill="#f8f4f4">
-         <font>
-            <Font size="16.0" />
-         </font>
+      <TableView layoutX="270.0" layoutY="300.0" prefHeight="136.0" prefWidth="450.0">
+         <columns>
+            <TableColumn prefWidth="150.0" text="销售/进货" />
+            <TableColumn prefWidth="150.0" text="数量" />
+            <TableColumn prefWidth="150.0" text="金额" />
+         </columns>
+      </TableView>
+      <Button id="returnButton" layoutX="149.0" layoutY="44.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="51.0" stylesheets="@../../css/stockseller/returnButton.css">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/stockmanager/返回.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
     </children>
 </Pane>

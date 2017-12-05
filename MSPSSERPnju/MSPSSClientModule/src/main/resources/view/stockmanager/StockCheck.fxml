@@ -31,7 +31,7 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="12.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/商品管理.png" />
             </image>
@@ -64,7 +64,7 @@
             <font>
                 <Font size="14.0" />
             </font></Label>
-        <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="11.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="16.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockseller/审批单据.png" />
             </image>
@@ -116,17 +116,17 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/商品分类.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="12.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/库存盘点.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="17.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/库存查看.png" />
             </image>
