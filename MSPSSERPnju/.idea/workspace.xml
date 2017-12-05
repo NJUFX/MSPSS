@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e3e772f-4bec-429d-b064-ef4f37316eac" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/AlertCreate.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BreakageCreate.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/OverflowCreate.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/PresentationCreate.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockCheck.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockInventory.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurcRetCreate.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurcRetCreate.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/SalesCreate.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/SalesCreate.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/SalesRetCreate.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/SalesRetCreate.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,141 +24,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CustomerManage.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/CustomerManage.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3450">
-              <caret line="150" column="16" lean-forward="false" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BillCreate.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/BillCreate.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1840">
-              <caret line="80" column="25" lean-forward="false" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChiefManagerReadLogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerReadLogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PurchaseCreate.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-3972">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="189" selection-end-column="7" />
-              <folding>
-                <marker date="1512434635798" expanded="true" signature="3990:4297" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4018:4269" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4091:4240" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4363:4511" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4390:4486" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4577:4725" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4604:4700" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4859:5318" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4887:5290" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="4960:5261" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="5384:5532" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="5411:5507" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="6072:6220" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="6099:6195" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="6482:7044" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="6512:7015" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="7295:7444" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="7322:7418" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="8119:8267" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="8146:8242" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="8601:8718" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="8620:8700" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="8960:9077" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="8979:9059" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="9324:9418" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="9343:9400" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="9572:9883" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="9594:9865" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="9696:9842" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="9724:9813" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10055:10368" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10077:10350" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10179:10327" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10207:10298" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10523:10836" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10545:10818" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10647:10795" ph="..." />
-                <marker date="1512434635798" expanded="true" signature="10675:10766" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerAdd.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/CustomerAdd.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5060">
-              <caret line="220" column="10" lean-forward="false" selection-start-line="220" selection-start-column="10" selection-end-line="220" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PurcRetCreate.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PurcRetCreate.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurcRetCreate.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="180" column="21" lean-forward="true" selection-start-line="180" selection-start-column="21" selection-end-line="180" selection-end-column="21" />
+            <state relative-caret-position="214">
+              <caret line="181" column="33" lean-forward="true" selection-start-line="181" selection-start-column="33" selection-end-line="181" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SalesCreate.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/SalesCreate.fxml">
+      <file leaf-file-name="StockInventory.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockInventory.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="214" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+            <state relative-caret-position="481">
+              <caret line="143" column="18" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="143" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SalesRetCreate.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/SalesRetCreate.fxml">
+      <file leaf-file-name="AlertCreate.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/AlertCreate.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="343">
+              <caret line="183" column="24" lean-forward="true" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OverflowCreate.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/OverflowCreate.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PresentationCreate.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/PresentationCreate.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BreakageCreate.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BreakageCreate.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockCheck.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockCheck.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3243">
+              <caret line="141" column="12" lean-forward="true" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -168,7 +134,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
+            <state relative-caret-position="-1748">
               <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
               <folding />
             </state>
@@ -181,8 +147,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1495">
-              <caret line="65" column="7" lean-forward="false" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="202" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -220,6 +186,12 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/SalesRetCreate.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurcRetCreate.fxml" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockCheck.fxml" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockInventory.fxml" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/AlertCreate.fxml" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BreakageCreate.fxml" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/OverflowCreate.fxml" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/PresentationCreate.fxml" />
       </list>
     </option>
   </component>
@@ -236,11 +208,14 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-26" />
-    <option name="y" value="99" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="11" />
+    <option name="y" value="4" />
     <option name="width" value="1280" />
     <option name="height" value="731" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -506,8 +481,7 @@
     <option name="totallyTimeSpent" value="2149000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="11" y="4" width="1280" height="731" extended-state="1" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -521,7 +495,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29648608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32041138" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -591,46 +565,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <marker date="1512434635798" expanded="true" signature="3990:4297" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4018:4269" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4091:4240" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4363:4511" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4390:4486" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4577:4725" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4604:4700" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4859:5318" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4887:5290" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4960:5261" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="5384:5532" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="5411:5507" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6072:6220" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6099:6195" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6482:7044" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6512:7015" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="7295:7444" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="7322:7418" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8119:8267" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8146:8242" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8601:8718" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8620:8700" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8960:9077" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8979:9059" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9324:9418" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9343:9400" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9572:9883" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9594:9865" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9696:9842" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9724:9813" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10055:10368" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10077:10350" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10179:10327" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10207:10298" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10523:10836" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10545:10818" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10647:10795" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10675:10766" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -814,17 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/CommodityManage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/BillCreate.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -832,17 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1840">
           <caret line="80" column="25" lean-forward="false" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillCreate.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="65" column="7" lean-forward="false" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -880,63 +793,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="189" selection-end-column="7" />
-          <folding>
-            <marker date="1512434635798" expanded="true" signature="3990:4297" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4018:4269" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4091:4240" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4363:4511" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4390:4486" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4577:4725" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4604:4700" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4859:5318" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4887:5290" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="4960:5261" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="5384:5532" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="5411:5507" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6072:6220" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6099:6195" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6482:7044" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="6512:7015" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="7295:7444" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="7322:7418" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8119:8267" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8146:8242" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8601:8718" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8620:8700" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8960:9077" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="8979:9059" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9324:9418" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9343:9400" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9572:9883" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9594:9865" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9696:9842" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="9724:9813" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10055:10368" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10077:10350" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10179:10327" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10207:10298" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10523:10836" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10545:10818" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10647:10795" ph="..." />
-            <marker date="1512434635798" expanded="true" signature="10675:10766" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurcRetCreate.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="180" column="21" lean-forward="true" selection-start-line="180" selection-start-column="21" selection-end-line="180" selection-end-column="21" />
+        <state relative-caret-position="214">
+          <caret line="181" column="33" lean-forward="true" selection-start-line="181" selection-start-column="33" selection-end-line="181" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/CommodityManage.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1748">
+          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3972">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="189" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/AlertCreate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="183" column="24" lean-forward="true" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillCreate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="202" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockInventory.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="143" column="18" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="143" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BreakageCreate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/OverflowCreate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/PresentationCreate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockCheck.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3243">
+          <caret line="141" column="12" lean-forward="true" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
           <folding />
         </state>
       </provider>
