@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.AdminMainViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -24,12 +24,12 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" onAction="#delUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除用户" textFill="#f8f4f4">
+        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="modUserButton" layoutY="351.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="修改用户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="modUserButton" layoutY="351.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="修改用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -44,7 +44,7 @@
                 <Font name="Microsoft YaHei" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
+        <Label layoutX="20.0" layoutY="218.0" text="身份: 系统管理员" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font></Label>

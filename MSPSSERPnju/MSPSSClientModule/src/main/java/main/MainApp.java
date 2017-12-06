@@ -41,15 +41,21 @@ public class MainApp extends Application {
         switch (id.substring(0, 2)) {
             case "SY":
                 toAdminMain();
-            case "SS":
-                toStockSellerMain();
-            case "CM":
-                toChiefManagerMain();
+                break;
             case "SM":
                 toStockManagerMain();
+                break;
             case "FM":
                 toFinanceManagerMain();
-            default:
+                break;
+            case "SS":
+                toStockSellerMain();
+                break;
+            case "CM":
+                toChiefManagerMain();
+                break;
+            
+           
         }
        
     }
@@ -96,7 +102,7 @@ public class MainApp extends Application {
      */
     public void toStockManagerMain() {
         try {
-            StockManagerMainViewController main = (StockManagerMainViewController) replaceSceneContent("/view/stockmanager/main.fxml");
+            StockManagerMainViewController main = (StockManagerMainViewController) replaceSceneContent("/view/stockmanager/Main.fxml");
             main.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,7 +126,7 @@ public class MainApp extends Application {
      */
     public void toChiefManagerMain() {
         try {
-            ChiefManagerMainViewController main = (ChiefManagerMainViewController) replaceSceneContent("/view/financemanager/ChiefManagerMainView.fxml");
+            ChiefManagerMainViewController main = (ChiefManagerMainViewController) replaceSceneContent("/view/chiefmanager/ChiefManagerMainView.fxml");
             main.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();

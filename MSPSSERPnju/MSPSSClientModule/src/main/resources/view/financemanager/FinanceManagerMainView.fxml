@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/financemanager/FinanceManagerCommon.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerMainViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/financemanager/FinanceManagerCommon.css"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerMainViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0" stylesheets="@../../css/financemanager/FinanceManagerCommon.css">
             <effect>
@@ -95,4 +95,4 @@
             </font>
         </Label>
     </children>
-</fx:root>
+</Pane>
