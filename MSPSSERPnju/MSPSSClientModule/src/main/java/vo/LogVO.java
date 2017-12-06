@@ -9,16 +9,17 @@ public class LogVO {
 	int money;
 	Long stock;
 
-
-	public LogVO(String i, String o, String t, String k, String c, int m, long s) {
-		id = i;
-		operator = o;
-		time = t;
-		kind = k;
-		commodity = c;
-		money = m;
-		stock = s;
+	public LogVO(String id, String operator, String time, String kind, String commodity, int money, Long stock) {
+		this.id = id;
+		this.operator = operator;
+		this.time = time;
+		this.kind = kind;
+		this.commodity = commodity;
+		this.money = money;
+		this.stock = stock;
 	}
+
+
 
 	//get方法可以根据需要补充
 	public String getId() {

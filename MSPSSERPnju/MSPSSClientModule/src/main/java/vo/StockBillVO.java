@@ -43,21 +43,21 @@ public class StockBillVO {
     /**
      * 库存管理人员添加的备注说明
      */
-    String commentByStockManager;
+    public    String commentByStockManager;
 
     /**
      * 经理审批时的备注说明
      */
-    String commentByManager;
+   public String commentByManager;
     /**
      * 产生该单据的库存管理人员
      */
-    UserVO stockManager;
+   public UserVO stockManager;
 
     /**
      * 审批该单据的总经理
      */
-    UserVO manager;
+    public   UserVO manager;
     public StockBillVO(StockBillType type,BillStatus status,ArrayList<StockBillItemVO> itemVOS,Time init_time,String commentByStockManager,UserVO stockManager){
     this.type = type;
     this.status = status;
