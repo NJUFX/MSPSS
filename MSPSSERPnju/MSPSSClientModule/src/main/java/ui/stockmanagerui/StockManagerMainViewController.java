@@ -9,7 +9,7 @@ import ui.common.Dialog;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StockSellerMainViewController implements Initializable {
+public class StockManagerMainViewController implements Initializable {
     @FXML
     public void modUserButtonAction(ActionEvent e) {
         application.toModUserInfer();
