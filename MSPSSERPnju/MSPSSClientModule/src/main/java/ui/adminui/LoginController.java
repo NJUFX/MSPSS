@@ -13,34 +13,33 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    Dialog dialog = new Dialog();
-    private MainApp application;
+	Dialog dialog = new Dialog();
+	private MainApp application;
 
-    public void setApp(MainApp application) {
-        this.application = application;
-    }
+	public void setApp(MainApp application) {
+		this.application = application;
+	}
 
-    @FXML
-    public Button loginButton;
+	@FXML
+	public Button loginButton;
 
-    @FXML
-    public TextField idText;
-    @FXML
-    public PasswordField passwordField;
+	@FXML
+	public TextField idText;
+	@FXML
+	public PasswordField passwordField;
 
+	@FXML
+	public void loginButtonAction(ActionEvent e) {
 
-    @FXML
-    public void loginButtonAction(ActionEvent e) {
+		String id = idText.getText();
+		String password = passwordField.getText();
+		application.userLogin(id, password);
+		dialog.infoDialog("Login Successfully.");
 
-        String id = idText.getText();
-        String password = passwordField.getText();
-        application.userLogin(id, password);
-        dialog.infoDialog("Login Successfully.");
+	}
 
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //TODO
-    }
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		// TODO
+	}
 }
