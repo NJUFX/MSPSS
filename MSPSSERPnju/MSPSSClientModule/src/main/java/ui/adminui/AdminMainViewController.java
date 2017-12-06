@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 public class AdminMainViewController implements Initializable {
     @FXML
     public void modUserButtonAction(ActionEvent e) {
-        application.toModUserInfer();
+        //application.toModUserInfer();
     }
 
     @Override

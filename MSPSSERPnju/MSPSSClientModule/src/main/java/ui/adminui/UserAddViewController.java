@@ -65,7 +65,7 @@ public class UserAddViewController implements Initializable {
 
     @FXML
     public void delUserButtonAction(ActionEvent e) {
-        application.toDelUserInfer();
+        //application.toDelUserInfer();
     }
 
     @FXML
@@ -73,7 +73,7 @@ public class UserAddViewController implements Initializable {
 
     @FXML
     public void modUserButtonAction(ActionEvent e) {
-        application.toModUserInfer();
+        //application.toModUserInfer();
     }
 
     @Override

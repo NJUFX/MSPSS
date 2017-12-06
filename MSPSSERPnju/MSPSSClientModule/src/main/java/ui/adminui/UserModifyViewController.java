@@ -62,7 +62,7 @@ public class UserModifyViewController implements Initializable {
 
     @FXML
     public void addUserButtonAction(ActionEvent e) {
-        application.toAddUserInfer();
+        //application.toAddUserInfer();
     }
 
     @FXML
@@ -70,7 +70,7 @@ public class UserModifyViewController implements Initializable {
 
     @FXML
     public void delUserButtonAction(ActionEvent e) {
-        application.toDelUserInfer();
+        //application.toDelUserInfer();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

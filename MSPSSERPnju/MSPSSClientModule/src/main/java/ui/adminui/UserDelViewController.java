@@ -44,7 +44,7 @@ public class UserDelViewController implements Initializable {
 
     @FXML
     public void addUserButtonAction(ActionEvent e) {
-        application.toAddUserInfer();
+        //application.toAddUserInfer();
     }
 
     @FXML
@@ -52,6 +52,6 @@ public class UserDelViewController implements Initializable {
 
     @FXML
     public void modUserButtonAction(ActionEvent e) {
-        application.toModUserInfer();
+        //application.toModUserInfer();
     }
 }
