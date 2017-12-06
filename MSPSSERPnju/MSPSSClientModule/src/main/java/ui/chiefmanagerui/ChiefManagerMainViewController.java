@@ -19,55 +19,118 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ChiefManagerMainViewController implements Initializable {
-	@FXML 
+	@FXML
 	Button SearchList;
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //TODO
-    }
+	@FXML
+	Button ExamineBill;
+	@FXML
+	Button ReadLog;
+	@FXML
+	Button SetPromotion;
 
-    Dialog dialog = new Dialog();
-    private MainApp application;
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		// TODO
+	}
 
-    public void setApp(MainApp application) {
-        this.application = application;
-    }
-    Stage stage = StageSingleton.getStage();
-    
-    public void handleSearchListButtonAction(ActionEvent e) throws IOException {
-    	try {
-			ChiefManagerSearchListController controller = (ChiefManagerSearchListController)replaceSceneContent("/view/chiefmanager/ChiefManagerSearchList.fxml");
+	Dialog dialog = new Dialog();
+	private MainApp application;
+	Stage stage = StageSingleton.getStage();
+
+	public void setApp(MainApp application) {
+		this.application = application;
+	}
+
+	
+
+	/**
+	 * 监听查看报表按钮
+	 * 
+	 * @param e
+	 * @throws IOException
+	 */
+	public void handleSearchListButtonAction(ActionEvent e) throws IOException {
+		try {
+			ChiefManagerSearchListController controller = (ChiefManagerSearchListController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerSearchList.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-    }
+	}
 
-    /**
-     * 用来打开fxml文件
-     *
-     * @param fxml
-     * @return
-     * @throws Exception
-     */
-    private Initializable replaceSceneContent(String fxml) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        //InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-        InputStream in = MainApp.class.getResourceAsStream(fxml);
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(MainApp.class.getResource(fxml));
-        Pane page;
-        try {
-            page = (Pane) loader.load(in);
-        } finally {
-            in.close();
-        }
-        Scene scene = new Scene(page, 900, 560);
-        stage.setScene(scene);
-        stage.sizeToScene();
-        return (Initializable) loader.getController();
-    }
+	/**
+	 * 监听审批单据按钮
+	 * 
+	 * @param e
+	 * @throws IOException
+	 */
+	public void handleExamineBillButtonAction(ActionEvent e) throws IOException {
+		try {
+			ChiefManagerExamineBillController controller = (ChiefManagerExamineBillController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerExamineBill.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
 
+	/**
+	 * 监听查询日志按钮
+	 * 
+	 * @param e
+	 * @throws IOException
+	 */
+	public void handleReadLogButtonAction(ActionEvent e) throws IOException {
+		try {
+			ChiefManagerReadLogController controller = (ChiefManagerReadLogController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerReadLog.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
 
+	/**
+	 * 监听促销策略按钮
+	 * 
+	 * @param e
+	 * @throws IOException
+	 */
+	public void handleSetPromotionButtonAction(ActionEvent e) throws IOException {
+		try {
+			ChiefManagerSetPromotionController controller = (ChiefManagerSetPromotionController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerSetPromotion.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+
+	/**
+	 * 用来打开fxml文件
+	 *
+	 * @param fxml
+	 * @return
+	 * @throws Exception
+	 */
+	private Initializable replaceSceneContent(String fxml) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		// InputStream in =
+		// Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
+		InputStream in = MainApp.class.getResourceAsStream(fxml);
+		loader.setBuilderFactory(new JavaFXBuilderFactory());
+		loader.setLocation(MainApp.class.getResource(fxml));
+		Pane page;
+		try {
+			page = (Pane) loader.load(in);
+		} finally {
+			in.close();
+		}
+		Scene scene = new Scene(page, 900, 560);
+		stage.setScene(scene);
+		stage.sizeToScene();
+		return (Initializable) loader.getController();
+	}
 
 }
