@@ -23,7 +23,7 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
+        <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" style="-fx-background-color: #0d5ae1;" text="查看报表" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>

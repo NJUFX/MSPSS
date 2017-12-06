@@ -20,7 +20,9 @@ public class MainApp extends Application {
     private Stage stage;
 
     public void start(Stage primaryStage) {
-        stage = primaryStage;
+    	    StageSingleton.setStage(primaryStage);
+    	    stage = StageSingleton.getStage();
+        //stage = primaryStage;
         stage.setTitle("MSPSS");
         stage.setHeight(560);
         stage.setWidth(900);
