@@ -21,12 +21,12 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    static Button loginButton;
+    public Button loginButton;
 
     @FXML
-    static TextField idText;
+    public TextField idText;
     @FXML
-    static PasswordField passwordField;
+    public PasswordField passwordField;
 
 
     @FXML

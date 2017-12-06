@@ -36,15 +36,18 @@ public class MainApp extends Application {
 
         switch (id.substring(0, 2)) {
             case "SY":
-                toAddUserInfer();
+                toAdminMain();
             case "SS":
-                //进货销售人员
+                toStockSellerMain();
             case "CM":
-                //总经理
+                toChiefManagerMain();
             case "SM":
-                //库存管理人员
+                toStockManagerMain();
+            case "FM":
+                toFinanceManagerMain();
+            default:
         }
-        //toAddUserInfer();
+       
     }
 
     /**
@@ -61,36 +64,60 @@ public class MainApp extends Application {
     }
 
     /**
-     * 跳转addUser界面
+     * 跳转SY系统管理员主界面
      */
-    public void toAddUserInfer() {
+    public void toAdminMain() {
         try {
-            UserAddViewController userAdd = (UserAddViewController) replaceSceneContent("/view/admin/UserAddView.fxml");
-            userAdd.setApp(this);
+            AdminMainViewController main = ( AdminMainViewController) replaceSceneContent("/view/admin/Main.fxml");
+            main.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * 跳转delUser界面
+     * 跳转SS进货销售主界面
      */
-    public void toDelUserInfer() {
+    public void toStockSellerMain() {
         try {
-            UserDelViewController userDel = (UserDelViewController) replaceSceneContent("/view/admin/UserDelView.fxml");
-            userDel.setApp(this);
+            StockSellerMainViewController main = (StockSellerMainViewController) replaceSceneContent("/view/stockseller/Main.fxml");
+            main.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * 跳转modUser界面
+     * 跳转SM库存管理人员主界面
      */
-    public void toModUserInfer() {
+    public void toStockManagerMain() {
         try {
-            UserModifyViewController userMod = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
-            userMod.setApp(this);
+            StockManagerMainController main = (StockManagerMainController) replaceSceneContent("/view/stockmanager/main.fxml");
+            main.setApp(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * 跳转FM库存管理人员主界面
+     */
+    public void toFinanceManagerMain() {
+        try {
+            FinanceManagerMainViewController main = (FinanceManagerMainViewController) replaceSceneContent("/view/financemanager/FinanceManagerMainView.fxml");
+            main.setApp(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * 跳转CM总经理主界面
+     */
+    public void toChiefManagerMain() {
+        try {
+            ChiefManagerMainViewController main = (ChiefManagerMainViewController) replaceSceneContent("/view/financemanager/ChiefManagerMainView.fxml");
+            main.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
