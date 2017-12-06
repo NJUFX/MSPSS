@@ -1,5 +1,13 @@
 package ui.chiefmanagerui;
 
-public class ChiefManagerSearchSalesListController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import javafx.fxml.Initializable;
+
+public class ChiefManagerSearchSalesListController implements Initializable{
+	@Override
+    public void initialize(URL url, ResourceBundle rb) {
+        //TODO
+    }
 }

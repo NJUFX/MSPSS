@@ -4,11 +4,10 @@ public class LogVO {
 	String id;
 	String operator;
 	String time;
-	String kind;
-	String commodity;
-	int money;
-	Long stock;
+	int kind;
+	
 
+<<<<<<< HEAD
 	public LogVO(String id, String operator, String time, String kind, String commodity, int money, Long stock) {
 		this.id = id;
 		this.operator = operator;
@@ -17,6 +16,15 @@ public class LogVO {
 		this.commodity = commodity;
 		this.money = money;
 		this.stock = stock;
+=======
+
+	public LogVO(String i, String o, String t, int k) {
+		id = i;
+		operator = o;
+		time = t;
+		kind = k;
+	
+>>>>>>> 52215b8994f21d122f1b54eacc239124ed9f9a53
 	}
 
 
@@ -32,5 +40,8 @@ public class LogVO {
 
 	public String getTime() {
 		return time;
+	}
+	public int getKind() {
+		return kind;
 	}
 }
