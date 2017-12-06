@@ -8,6 +8,9 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import ui.chiefmanagerui.ChiefManagerMainViewController;
+import ui.financemanagerui.FinanceManagerMainViewController;
+import ui.stockmanagerui.StockManagerMainViewController;
 import ui.stocksellerui.StockSellerMainViewController;
 
 import java.io.InputStream;
@@ -93,7 +96,7 @@ public class MainApp extends Application {
      */
     public void toStockManagerMain() {
         try {
-            StockManagerMainController main = (StockManagerMainController) replaceSceneContent("/view/stockmanager/main.fxml");
+            StockManagerMainViewController main = (StockManagerMainViewController) replaceSceneContent("/view/stockmanager/main.fxml");
             main.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();

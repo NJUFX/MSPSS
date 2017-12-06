@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e3e772f-4bec-429d-b064-ef4f37316eac" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockSellerMainViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerMainViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerMainViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/financemanagerui/FinanceManagerMainViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/financemanagerui/FinanceManagerMainViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,12 +23,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+            <state relative-caret-position="230">
+              <caret line="113" column="8" lean-forward="false" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FinanceManagerMainViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/financemanagerui/FinanceManagerMainViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="11" column="72" lean-forward="false" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -33,10 +48,12 @@
       <file leaf-file-name="UserAddViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="81" selection-end-column="5" />
+            <state relative-caret-position="201">
+              <caret line="73" column="0" lean-forward="false" selection-start-line="75" selection-start-column="10" selection-end-line="81" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1512527888499" expanded="false" signature="1477:1483" ph=" }" />
+                <marker date="1512527888499" expanded="true" signature="1554:1576" ph="{}" />
               </folding>
             </state>
           </provider>
@@ -45,8 +62,8 @@
       <file leaf-file-name="StockManagerMainViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="166">
+              <caret line="11" column="70" lean-forward="false" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,8 +74,20 @@
       <file leaf-file-name="StockSellerMainViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            <state relative-caret-position="109">
+              <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChiefManagerMainViewController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerMainViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,10 +108,11 @@
       <file leaf-file-name="AdminMainViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            <state relative-caret-position="109">
+              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1512528053134" expanded="false" signature="483:494" ph=" { " />
               </folding>
             </state>
           </provider>
@@ -103,32 +133,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="23">
               <caret line="85" column="22" lean-forward="false" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/Main.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2806">
-              <caret line="122" column="15" lean-forward="false" selection-start-line="122" selection-start-column="15" selection-end-line="122" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommodityManage.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/CommodityManage.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -189,10 +193,13 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/Main.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/Main.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/LoginController.java" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockSellerMainViewController.java" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/financemanagerui/FinanceManagerMainViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerMainViewController.java" />
       </list>
     </option>
   </component>
@@ -305,6 +312,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="adminui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="chiefmanagerui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
@@ -645,20 +662,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/financemanagerui/FinanceManagerMainViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/css/chiefManager/ChiefManagerMainView.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/css/financemanager/FinanceManagerMainView.css" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1079,40 +1082,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="81" selection-end-column="5" />
+        <state relative-caret-position="201">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="75" selection-start-column="10" selection-end-line="81" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1512527888499" expanded="false" signature="1477:1483" ph=" }" />
+            <marker date="1512527888499" expanded="true" signature="1554:1576" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -1127,9 +1102,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+        <state relative-caret-position="230">
+          <caret line="113" column="8" lean-forward="false" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/financemanagerui/FinanceManagerMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="11" column="72" lean-forward="false" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1512528053134" expanded="false" signature="483:494" ph=" { " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="11" column="70" lean-forward="false" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerMainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

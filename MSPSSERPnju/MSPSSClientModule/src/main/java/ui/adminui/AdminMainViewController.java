@@ -10,11 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminMainViewController implements Initializable {
-    @FXML
-    public void modUserButtonAction(ActionEvent e) {
-        //application.toModUserInfer();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
