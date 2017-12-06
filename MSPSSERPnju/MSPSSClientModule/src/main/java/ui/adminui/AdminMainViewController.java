@@ -69,7 +69,7 @@ public class AdminMainViewController implements Initializable {
     public void modUserButtonAction(ActionEvent e) throws IOException {
         try {
             UserModifyViewController controller = (UserModifyViewController) replaceSceneContent(
-                    "/view/admin/UserModView.fxml");
+                    "/view/admin/UserModifyView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

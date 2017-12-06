@@ -64,15 +64,10 @@ public class UserModifyViewController implements Initializable {
     }
 
     @FXML
-    public void UserCategoryAction(ActionEvent e) {
-
-    }
-
-    @FXML
     Button delUserButton;
 
     @FXML
-    Button modUserButton;
+    Button addUserButton;
 
     @FXML
     public void addUserButtonAction(ActionEvent e) throws IOException {
@@ -93,14 +88,6 @@ public class UserModifyViewController implements Initializable {
         }
     }
 
-    public void modUserButtonAction(ActionEvent e) throws IOException {
-        try {
-            AdminMainViewController controller = (AdminMainViewController) replaceSceneContent("/view/admin/UserModView.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
 
     /**
      * 用来打开fxml文件
