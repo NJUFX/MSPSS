@@ -10,9 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StockSellerMainViewController implements Initializable {
-<<<<<<< HEAD
-
-=======
 
     @FXML
     public void modUserButtonAction(ActionEvent e) {
@@ -20,7 +17,6 @@ public class StockSellerMainViewController implements Initializable {
     }
 
 
->>>>>>> 40b8407d034bde1ae2d21de94afb31474a9558cc
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO

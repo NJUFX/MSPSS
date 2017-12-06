@@ -22,4 +22,5 @@ public class AdminMainViewController implements Initializable {
         this.application = application;
     }
 
+
 }
