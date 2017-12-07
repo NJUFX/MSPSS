@@ -2,7 +2,6 @@ package po;
 
 import util.BillStatus;
 import util.StockBillType;
-import util.Time;
 
 import java.util.ArrayList;
 
@@ -27,18 +26,18 @@ public class StockBillPO {
     /**
      * 单据的产生时间
      */
-    private Time init_time;
+    private String init_time;
 
     /**
      * 单据的提交时间
      */
 
-    private Time commit_time;
+    private String commit_time;
 
     /**
      * 单据的审批时间
      */
-    private Time approval_time;
+    private String approval_time;
 
     /**
      * 库存管理人员添加的备注说明
@@ -59,9 +58,9 @@ public class StockBillPO {
      */
     private String approvalID;
 
-    public StockBillPO(StockBillType type,BillStatus status,ArrayList<StockBillItemPO> itemPOS,Time init_time,
-                       Time commit_time,Time approval_time,String commentByStockManager,String commentByManager,
-                      String initID,String approvalID ){
+    public StockBillPO(StockBillType type, BillStatus status, ArrayList<StockBillItemPO> itemPOS, String init_time,
+                       String commit_time, String approval_time, String commentByStockManager, String commentByManager,
+                       String initID, String approvalID ){
         this.type = type;
         this.status = status;
         this.itemPOS = itemPOS;
@@ -90,11 +89,11 @@ public class StockBillPO {
         this.initID = initID;
     }
 
-    public Time getInit_time() {
+    public String getInit_time() {
         return init_time;
     }
 
-    public void setInit_time(Time init_time) {
+    public void setInit_time(String init_time) {
         this.init_time = init_time;
     }
 
@@ -114,11 +113,11 @@ public class StockBillPO {
         this.status = status;
     }
 
-    public Time getCommit_time() {
+    public String getCommit_time() {
         return commit_time;
     }
 
-    public void setCommit_time(Time commit_time) {
+    public void setCommit_time(String commit_time) {
         this.commit_time = commit_time;
     }
 
@@ -130,11 +129,11 @@ public class StockBillPO {
         return commentByStockManager;
     }
 
-    public void setApproval_time(Time approval_time) {
+    public void setApproval_time(String approval_time) {
         this.approval_time = approval_time;
     }
 
-    public Time getApproval_time() {
+    public String getApproval_time() {
         return approval_time;
     }
 

@@ -13,24 +13,26 @@ import java.util.ArrayList;
  * Created on 16:56 2017/11/11/011
  */
 public interface BillBLService {
+    /**
+     * 添加库存类单据 用于点击保存时
+     * @param stockBillVO
+     * @return
+     */
+    public ResultMessage addStockBill(StockBillVO stockBillVO);
 
-    public ResultMessage makeLessOrMoreBill(LessOrMoreBillVO lessOrMoreBillVO);
+    /**
+     * 更新库存类单据 用于点击提交时
+     * @param stockBillVO
+     * @return
+     */
+    public ResultMessage updateStockBill(StockBillVO stockBillVO);
 
-    public ResultMessage makePresentationBill(PresentationBillVO presentationBillVO);
+    /**
+     * 审批单据 本质上是在界面层更改了bill的状态为 approval 或 rejected
+     *
+     * @param stockBillVO
+     * @return
+     */
+    public ResultMessage checkStockBill(StockBillVO stockBillVO);
 
-    public ArrayList<AlarmBillVO> getAlarmBills();
-
-    public ResultMessage makePurchaseBill(PurchaseVO prvo);
-
-    public ResultMessage makePurchaseReturnBill(PurchaseReturnBillVO purchaseReturnBillVO);
-
-    public ResultMessage makeSalesBill(SalesVO salesVO);
-
-    public ResultMessage makeSalesReturnBill(SalesReturnVO salesReturnVO);
-
-    public ResultMessage makePaymentAndReceiptBill(PaymentAndReceiptBillVO paymentAndReceiptBillVO);
-
-    public ResultMessage makeCashBill(CashBillVO cashBillVO);
-
-    public ArrayList<BillVO> getBills();
 }

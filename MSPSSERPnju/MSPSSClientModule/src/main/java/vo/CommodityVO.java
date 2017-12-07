@@ -67,4 +67,77 @@ public class CommodityVO {
     public String toString() {
         return "商品名为"+name+" 商品类型为 "+classificationVO.name+"商品型号为 " +type+" 商品编号为 "+ID+" 进价为 "+ importCost +" 售价为 "+ exportCost;
     }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setNumberInStock(int numberInStock) {
+        this.numberInStock = numberInStock;
+    }
+
+    public double getExportCost() {
+        return exportCost;
+    }
+
+    public void setExportCost(double exportCost) {
+        this.exportCost = exportCost;
+    }
+
+    public int getNumberInStock() {
+        return numberInStock;
+    }
+
+    public ClassificationVO getClassificationVO() {
+        return classificationVO;
+    }
+
+    public void setImportCost(double importCost) {
+        this.importCost = importCost;
+    }
+
+    public void setClassificationVO(ClassificationVO classificationVO) {
+        this.classificationVO = classificationVO;
+    }
+
+    public double getImportCost() {
+        return importCost;
+    }
+
+    public void setLatestExportCost(double latestExportCost) {
+        this.latestExportCost = latestExportCost;
+    }
+
+    public double getLatestExportCost() {
+        return latestExportCost;
+    }
+
+    public void setLatestImportCost(double latestImportCost) {
+        this.latestImportCost = latestImportCost;
+    }
+
+    public double getLatestImportCost() {
+        return latestImportCost;
+    }
+
 }

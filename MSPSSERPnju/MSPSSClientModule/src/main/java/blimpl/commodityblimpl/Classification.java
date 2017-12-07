@@ -32,7 +32,7 @@ public class Classification {
         for (CommodityVO vo : classificationVO.commodityVOS){
             commodityIDs.add(vo.ID);
         }
-        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs);
+        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs,commodityIDs.isEmpty());
         return netService.addClassification(po);
     }
 
@@ -66,7 +66,7 @@ public class Classification {
         for (CommodityVO vo : classificationVO.commodityVOS){
             commodityIDs.add(vo.ID);
         }
-        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs);
+        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs,commodityIDs==null||commodityIDs.isEmpty());
         return netService.modifyClassification(po);
     }
 

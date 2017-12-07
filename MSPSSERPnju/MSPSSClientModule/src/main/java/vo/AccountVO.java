@@ -5,20 +5,20 @@ import util.Time;
 public class AccountVO {
    private String name;
     private int money;
-    private Time createtime;
+    private Time createTime;
 
-    public AccountVO(String name,int money,Time createtime){
+    public AccountVO(String name,int money,Time createTime){
         this.name = name;
         this.money = money;
 
-        this.createtime = createtime;
+        this.createTime = createTime;
     }
 
-    public void setname(String name){
+    public void setName(String name){
         this.name = name;
     }
 
-    public String getname(){
+    public String getName(){
         return name;
     }
 
@@ -27,7 +27,7 @@ public class AccountVO {
     }
 
     public Time getcreattime(){
-        return createtime;
+        return createTime;
     }
 
 

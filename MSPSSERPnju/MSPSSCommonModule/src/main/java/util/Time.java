@@ -1,7 +1,7 @@
 package util;
 
 import java.util.Calendar;
-import java.util.concurrent.ThreadPoolExecutor;
+
 
 /**
  * Created by xgy on 2017/11/11.
@@ -27,7 +27,7 @@ public class Time {
        minute = Integer.parseInt(concrete[1]);
        second = Integer.parseInt(concrete[2]);
     }
-    public Time(int yaer,int month,int day,int hour,int minute,int second){
+    public Time(int year,int month,int day,int hour,int minute,int second){
         this.year = year;
         this.month = month;
         this.day = day;
@@ -38,14 +38,22 @@ public class Time {
      public static Time getInstance() {
          Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
          int year = c.get(Calendar.YEAR);
-         int month = c.get(Calendar.MONTH);
+         int month = c.get(Calendar.MONTH)+1;
          int date = c.get(Calendar.DATE);
          int hour = c.get(Calendar.HOUR_OF_DAY);
          int minute = c.get(Calendar.MINUTE);
          int second = c.get(Calendar.SECOND);
         return new Time(year,month,date,hour,minute,second) ;
     }
-
+    public Time(){
+        Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
+        year = c.get(Calendar.YEAR);
+         month = c.get(Calendar.MONTH)+1;
+         day = c.get(Calendar.DATE);
+         hour = c.get(Calendar.HOUR_OF_DAY);
+         minute = c.get(Calendar.MINUTE);
+         second = c.get(Calendar.SECOND);
+    }
 
     public int getYear(){
         return year;
@@ -74,5 +82,12 @@ public class Time {
     @Override
     public String toString() {
         return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+    }
+    public String toVOString(){
+        return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+    }
+    public static void main(String[] args) {
+        System.out.println(Time.getInstance().toString());
+        System.out.println(new Time().toString());
     }
 }
