@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import ui.adminui.LoginController;
 import ui.common.Dialog;
 
 import java.io.IOException;
@@ -101,6 +102,17 @@ public class ChiefManagerMainViewController implements Initializable {
 		try {
 			ChiefManagerSetPromotionController controller = (ChiefManagerSetPromotionController) replaceSceneContent(
 					"/view/chiefmanager/ChiefManagerSetPromotion.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	
+	public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+		try {
+			LoginController controller = (LoginController) replaceSceneContent(
+					"/view/admin/Login.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
