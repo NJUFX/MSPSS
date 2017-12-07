@@ -92,7 +92,7 @@ public class CustomerModifyFirstViewController implements Initializable {
     public void customerSearchButtonAction(ActionEvent e) throws IOException {
 
         try {
-            CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
+            CustomerSearchViewController controller = (CustomerSearchViewController) replaceSceneContent(
                     "/view/stockseller/CustomerSearch.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
@@ -124,6 +124,7 @@ public class CustomerModifyFirstViewController implements Initializable {
         Scene scene = new Scene(page, 900, 560);
         stage.setScene(scene);
         stage.sizeToScene();
+        stage.setResizable(false);
         return (Initializable) loader.getController();
     }
 

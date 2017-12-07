@@ -99,9 +99,10 @@ public class SalesCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 560);
+        Scene scene = new Scene(page, 900, 620);
         stage.setScene(scene);
         stage.sizeToScene();
+        stage.setResizable(false);
         return (Initializable) loader.getController();
     }
 

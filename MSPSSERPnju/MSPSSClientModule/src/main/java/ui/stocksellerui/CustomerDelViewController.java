@@ -108,6 +108,7 @@ public class CustomerDelViewController  implements Initializable {
         Scene scene = new Scene(page, 900, 560);
         stage.setScene(scene);
         stage.sizeToScene();
+        stage.setResizable(false);
         return (Initializable) loader.getController();
     }
 

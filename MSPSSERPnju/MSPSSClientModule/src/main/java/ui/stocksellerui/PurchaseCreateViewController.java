@@ -97,9 +97,12 @@ public class PurchaseCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 560);
+        Scene scene = new Scene(page, 900, 620);
+
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.sizeToScene();
+        stage.setResizable(false);
         return (Initializable) loader.getController();
     }
 

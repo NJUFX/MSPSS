@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.PurchaseCreateViewController">
+<Pane maxHeight="620.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.PurchaseCreateViewController">
     <children>
         <Pane id="Navbar" prefHeight="620.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;" />
         <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0f88eb;" />
@@ -127,7 +127,7 @@
                         <TableColumn prefWidth="129.0" text="备注" />
                     </columns>
                 </TableView>
-                <Button id="sureButton" layoutX="625.0" layoutY="263.0" mnemonicParsing="false"  prefHeight="18.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
+                <Button id="sureButton" layoutX="625.0" layoutY="263.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="12.0" />
                     </font>
@@ -188,4 +188,3 @@
         </Button>
     </children>
 </Pane>
-
