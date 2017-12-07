@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e3e772f-4bec-429d-b064-ef4f37316eac" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blservice/mainblservice/MainBLService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blstubdriver/mainstubdriver/MainBLService_Driver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/blstubdriver/mainstubdriver/MainBLService_Stub.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AccountFilterFlagsVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AccountVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/AlarmReportVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BankAccountVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BillListVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BillVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/BusinessProcessTableFilterFlagsVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ClassificationVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/CommodityVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/CustomerVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/FormFilterFlagsVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/GeneralAccountVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/IncomeBillVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ListVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/LogListVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/ManageListVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PayBillVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PromotionListVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PromotionVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/PurchaseVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/SalesListVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/SalesVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/TermSetVO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/target/classes/vo/VirementVO.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserModifyViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserModifyViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserAddView.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserAddView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserDelView.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserDelView.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -73,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminMainViewController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminMainViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="327">
+              <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1512576532045" expanded="true" signature="2921:2922" ph="{...}" />
@@ -106,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserModifyView.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserModifyView.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserModifyView.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="133" column="34" lean-forward="true" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+            <state relative-caret-position="368">
+              <caret line="140" column="19" lean-forward="true" selection-start-line="140" selection-start-column="19" selection-end-line="140" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -122,8 +89,8 @@
       <file leaf-file-name="UserModifyViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserModifyViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+            <state relative-caret-position="897">
+              <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -189,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurcRetCreate.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockCheck.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockInventory.fxml" />
@@ -239,6 +205,7 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserModifyView.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserModifyViewController.java" />
       </list>
     </option>
@@ -256,7 +223,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="509" />
     <option name="y" value="3" />
     <option name="width" value="851" />
@@ -579,7 +546,7 @@
     <option name="totallyTimeSpent" value="2149000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -593,7 +560,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29355782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30893117" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1022,34 +989,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserModifyView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="140" column="19" lean-forward="true" selection-start-line="140" selection-start-column="19" selection-end-line="140" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserModifyViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+        <state relative-caret-position="897">
+          <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/AdminMainViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state relative-caret-position="327">
+          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1512576532045" expanded="true" signature="2921:2922" ph="{...}" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserModifyView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="133" column="34" lean-forward="true" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
   </component>

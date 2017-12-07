@@ -34,7 +34,7 @@ public class UserModifyViewController implements Initializable {
      * 确定按钮
      */
     @FXML
-    static Button sureButton;
+    Button sureButton;
     /**
      * 身份的下拉框
      */

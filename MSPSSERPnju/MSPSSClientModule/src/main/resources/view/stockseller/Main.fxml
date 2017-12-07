@@ -24,7 +24,7 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="billCreateButton" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="制定单据" textFill="#f8f4f4">
+        <Button id="billCreateButton" fx:id="billCreateButton" layoutY="317.0" mnemonicParsing="false" onAction="#billCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="制定单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>

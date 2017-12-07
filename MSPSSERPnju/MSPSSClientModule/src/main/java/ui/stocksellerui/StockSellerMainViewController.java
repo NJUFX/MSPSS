@@ -31,6 +31,25 @@ public class StockSellerMainViewController implements Initializable {
     @FXML
     Button customerManageButton;
 
+    @FXML
+    Button billCreateButton;
+    
+    /**
+     * 制定单据
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void billCreateButtonAction(ActionEvent e) throws IOException {
+        try {
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockseller/BillCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+    
     /**
      * 客户管理
      *
