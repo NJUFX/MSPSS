@@ -82,7 +82,7 @@ public class UserAddViewController implements Initializable {
 
     public void modUserButtonAction(ActionEvent e) throws IOException {
         try {
-            UserDelViewController controller = (UserDelViewController) replaceSceneContent("/view/admin/UserModView.fxml");
+            UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

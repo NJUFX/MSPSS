@@ -110,5 +110,32 @@
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
+        <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="37.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/设置.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button id="existButton" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/退出登录.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/发送信息.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </Pane>
