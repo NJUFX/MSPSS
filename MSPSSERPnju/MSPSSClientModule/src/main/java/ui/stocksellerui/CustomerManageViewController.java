@@ -17,7 +17,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+/**
+ * 
+ * @author 伏家兴
+ *
+ */
 public class CustomerManageViewController implements Initializable {
 
 	Stage stage = StageSingleton.getStage();
