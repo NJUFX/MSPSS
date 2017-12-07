@@ -134,6 +134,7 @@ public class MainApp extends Application {
 			ChiefManagerMainViewController main = (ChiefManagerMainViewController) replaceSceneContent(
 					"/view/chiefmanager/ChiefManagerMainView.fxml");
 			main.setApp(this);
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
