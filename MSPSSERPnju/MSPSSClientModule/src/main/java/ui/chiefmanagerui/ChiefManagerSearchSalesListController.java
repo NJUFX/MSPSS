@@ -35,6 +35,8 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	Label RoleTag;
 	@FXML
 	Label IdTag;
+	@FXML
+	Button BackToLogin;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
