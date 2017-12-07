@@ -20,80 +20,86 @@ import java.util.ResourceBundle;
 
 public class StockSellerMainViewController implements Initializable {
 
-    Stage stage = StageSingleton.getStage();
-    Dialog dialog = new Dialog();
-    private MainApp application;
+	Stage stage = StageSingleton.getStage();
+	Dialog dialog = new Dialog();
+	private MainApp application;
 
-    public void setApp(MainApp application) {
-        this.application = application;
-    }
+	public void setApp(MainApp application) {
+		this.application = application;
+	}
 
-    @FXML
-    Button customerManageButton;
+	@FXML
+	Button customerManageButton;
 
-    @FXML
-    Button billCreateButton;
-    
-    /**
-     * 制定单据
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void billCreateButtonAction(ActionEvent e) throws IOException {
-        try {
-            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockseller/BillCreate.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
-    
-    /**
-     * 客户管理
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void customerManageButtonAction(ActionEvent e) throws IOException {
-        try {
-            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent("/view/stockseller/CustomerManage.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
+	@FXML
+	Button billCreateButton;
 
-    /**
-     * 用来打开fxml文件
-     *
-     * @param fxml
-     * @return
-     * @throws Exception
-     */
-    private Initializable replaceSceneContent(String fxml) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-        InputStream in = MainApp.class.getResourceAsStream(fxml);
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(MainApp.class.getResource(fxml));
-        Pane page;
-        try {
-            page = (Pane) loader.load(in);
-        } finally {
-            in.close();
-        }
-        Scene scene = new Scene(page, 900, 560);
-        stage.setScene(scene);
-        stage.sizeToScene();
-        return (Initializable) loader.getController();
-    }
+	/**
+	 * 制定单据
+	 *
+	 * @param e
+	 * @throws IOException
+	 */
+	@FXML
+	public void billCreateButtonAction(ActionEvent e) throws IOException {
+		try {
+			BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
+					"/view/stockseller/BillCreate.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //TODO
-    }
+	/**
+	 * 客户管理
+	 *
+	 * @param e
+	 * @throws IOException
+	 */
+	@FXML
+	public void customerManageButtonAction(ActionEvent e) throws IOException {
+		System.out.println("Sucess");
+
+		try {
+			CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+					"/view/stockseller/CustomerManage.fxml");
+			// replaceSceneContent("/view/stockseller/CustomerManage.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+
+	/**
+	 * 用来打开fxml文件
+	 *
+	 * @param fxml
+	 * @return
+	 * @throws Exception
+	 */
+	private Initializable replaceSceneContent(String fxml) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		// InputStream in =
+		// Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
+
+		InputStream in = MainApp.class.getResourceAsStream(fxml);
+		loader.setBuilderFactory(new JavaFXBuilderFactory());
+		loader.setLocation(MainApp.class.getResource(fxml));
+		Pane page;
+		try {
+			page = (Pane) loader.load(in);
+		} finally {
+			in.close();
+		}
+		Scene scene = new Scene(page, 900, 560);
+		stage.setScene(scene);
+		stage.sizeToScene();
+		return (Initializable) loader.getController();
+	}
+
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		// TODO
+	}
 }
