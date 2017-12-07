@@ -7,7 +7,7 @@ import main.StageSingleton;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PurcRetCreateViewController  implements Initializable {
+public class CustomerSearchViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
 

@@ -42,6 +42,7 @@ public class StockSellerMainViewController implements Initializable {
 	 */
 	@FXML
 	public void billCreateButtonAction(ActionEvent e) throws IOException {
+		//System.out.println("SUSS");
 		try {
 			BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
 					"/view/stockseller/BillCreate.fxml");
@@ -49,6 +50,7 @@ public class StockSellerMainViewController implements Initializable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
 	}
 
 	/**

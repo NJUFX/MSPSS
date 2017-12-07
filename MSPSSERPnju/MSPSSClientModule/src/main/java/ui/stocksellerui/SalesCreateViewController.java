@@ -1,4 +1,18 @@
 package ui.stocksellerui;
 
-public class SalesCreateViewController {
+import javafx.fxml.Initializable;
+import javafx.stage.Stage;
+import main.StageSingleton;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SalesCreateViewController implements Initializable {
+    Stage stage = StageSingleton.getStage();
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
 }

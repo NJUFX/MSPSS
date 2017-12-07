@@ -17,24 +17,105 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 
-public class BillCreateViewController implements Initializable{
-	
-	Stage stage = StageSingleton.getStage();
-	
-	@FXML
-	Button purchaseCreateButton;
-	
-	
-	@FXML
-	public void purchaseCreateButtonAction(ActionEvent e) throws IOException {
+public class BillCreateViewController implements Initializable {
+
+    Stage stage = StageSingleton.getStage();
+
+    @FXML
+    Button purchaseCreateButton;
+    @FXML
+    Button purcRetCreateButton;
+    @FXML
+    Button salesCreateButton;
+    @FXML
+    Button salesRetCreateButton;
+    @FXML
+    Button customerManageButton;
+
+    /**
+     * 客户管理
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void customerManageButtonAction(ActionEvent e) throws IOException {
+        System.out.println("Sucess");
+
         try {
-            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockseller/PurchaseCreate.fxml");
+            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerManage.fxml");
+            // replaceSceneContent("/view/stockseller/CustomerManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
     }
-    
+
+    /**
+     * 进货单
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void purchaseCreateButtonAction(ActionEvent e) throws IOException {
+        try {
+            PurchaseCreateViewController controller = (PurchaseCreateViewController) replaceSceneContent("/view/stockseller/PurchaseCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 进货退货单
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void purcRetCreateButtonAction(ActionEvent e) throws IOException {
+        try {
+            PurcRetCreateViewController controller = (PurcRetCreateViewController) replaceSceneContent("/view/stockseller/PurcRetCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 销售单
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void salesCreateButtonAction(ActionEvent e) throws IOException {
+        try {
+            SalesCreateViewController controller = (SalesCreateViewController) replaceSceneContent("/view/stockseller/SalesCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 销售退货单
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void salesRetCreateButtonAction(ActionEvent e) throws IOException {
+        try {
+            SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent("/view/stockseller/SalesRetCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
     /**
      * 用来打开fxml文件
      *
@@ -46,7 +127,7 @@ public class BillCreateViewController implements Initializable{
         FXMLLoader loader = new FXMLLoader();
         // InputStream in =
         // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-        
+
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
@@ -62,10 +143,10 @@ public class BillCreateViewController implements Initializable{
         return (Initializable) loader.getController();
     }
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
+
+    }
+
 }
