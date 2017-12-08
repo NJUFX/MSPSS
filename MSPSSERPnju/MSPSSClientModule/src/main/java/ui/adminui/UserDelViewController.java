@@ -49,7 +49,11 @@ public class UserDelViewController implements Initializable {
     }
 
     @FXML
-    static Button addUserButton;
+    Button addUserButton;
+
+    @FXML
+    Button modUserButton;
+
 
     @FXML
     public void addUserButtonAction(ActionEvent e) throws IOException {
@@ -63,7 +67,7 @@ public class UserDelViewController implements Initializable {
 
     public void modUserButtonAction(ActionEvent e) throws IOException {
         try {
-            UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModView.fxml");
+            UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -92,6 +96,7 @@ public class UserDelViewController implements Initializable {
         Scene scene = new Scene(page, 900, 560);
         stage.setScene(scene);
         stage.sizeToScene();
+        stage.setResizable(false);
         return (Initializable) loader.getController();
     }
 }

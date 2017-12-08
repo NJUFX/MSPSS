@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.CommodityManageViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -34,7 +34,7 @@
                 <Image url="@../../image/stockmanager/商品管理.png" />
             </image>
         </ImageView>
-        <Button id="billCreateButton" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="商品分类" textFill="#f8f4f4">
+        <Button id="billCreateButton" fx:id="commodityClassifyButton" onAction="#commodityClassifyButtonAction" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="商品分类" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -53,7 +53,7 @@
                 <Image url="@../../image/头像.png" />
             </image>
         </ImageView>
-      <Button id="billCreateButton" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="处理单据" textFill="#f8f4f4">
+      <Button id="billCreateButton" fx:id="billCreateButton" onAction="#billCreateButtonAction" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="处理单据" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -79,7 +79,7 @@
         </Label>
         <Pane id="addCustomerPane" layoutX="218.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
             <children>
-                <Button id="addButton" layoutX="31.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="增加商品" textFill="WHITE">
+                <Button id="addButton" fx:id="commodityAddButton" onAction="#commodityAddButtonAction" layoutX="31.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="增加商品" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -92,7 +92,7 @@
             </children></Pane>
         <Pane id="delCustomerPane" layoutX="431.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
             <children>
-                <Button id="delButton" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="删除商品" textFill="WHITE">
+                <Button id="delButton" fx:id="commodityDelButton" onAction="#commodityDelButtonAction" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="删除商品" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -105,7 +105,7 @@
             </children></Pane>
         <Pane id="modCustomerPane" layoutX="648.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
             <children>
-                <Button id="modButton" layoutX="32.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="修改属性" textFill="WHITE">
+                <Button id="modButton" fx:id="commodityModButton" onAction="#commodityModButtonAction" layoutX="32.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="修改属性" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -119,7 +119,7 @@
         <Pane id="searchCustomerPane" layoutX="479.0" layoutY="59.0" prefHeight="94.0" prefWidth="388.0">
             <children>
                 <TextField layoutX="85.0" layoutY="28.0" prefHeight="35.0" prefWidth="161.0" promptText="关键词/编号" />
-                <Button id="searchButton" layoutX="246.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="查找" textFill="WHITE">
+                <Button id="searchButton" fx:id="commoditySearchButton" onAction="#commoditySearchButtonAction" layoutX="246.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="查找" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -146,7 +146,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton"  fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -164,12 +164,12 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Button id="billCreateButton" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
+      <Button id="billCreateButton" fx:id="stockInventoryButton" onAction="#stockInventoryButtonAction" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button id="billCreateButton" layoutY="424.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
+      <Button id="billCreateButton" fx:id="stockCheckButton" onAction="#stockCheckButtonAction" layoutY="424.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>

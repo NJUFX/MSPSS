@@ -7,9 +7,8 @@ import main.StageSingleton;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CustomerSearchShowViewController  implements Initializable {
+public class CustomerInfoShowViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
-
 
 
     @Override

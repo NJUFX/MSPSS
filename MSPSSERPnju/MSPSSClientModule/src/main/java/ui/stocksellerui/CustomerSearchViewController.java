@@ -1,4 +1,4 @@
-package ui.stockmanagerui;
+package ui.stocksellerui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,81 +11,75 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
-import ui.adminui.LoginController;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BreakageCreateViewController implements Initializable {
+public class CustomerSearchViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+
     @FXML
-    Button overflowCreateButton;
+    Button CustomerAddButton;
+
     @FXML
-    Button alertCreateButton;
+    Button CustomerDelButton;
+
     @FXML
-    Button presentationCreateButton;
-    @FXML
-    Button BackToLogin;
+    Button CustomerModButton;
+
 
     /**
-     * 库存报溢单
+     * 增加客户
      *
      * @param e
      * @throws IOException
      */
     @FXML
-    public void overflowCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
+    public void customerAddButtonAction(ActionEvent e) throws IOException {
         try {
-            OverflowCreateViewController controller = (OverflowCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/OverflowCreate.fxml");
+            CustomerAddViewController controller = (CustomerAddViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerAdd.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-
     }
 
     /**
-     * 库存报警单
+     * 删除客户
      *
      * @param e
      * @throws IOException
      */
     @FXML
-    public void alertCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
+    public void customerDelButtonAction(ActionEvent e) throws IOException {
         try {
-            AlertCreateViewController controller = (AlertCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/AlertCreate.fxml");
+            CustomerDelViewController controller = (CustomerDelViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerDel.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-
     }
 
     /**
-     * 库存赠送单
+     * 修改客户属性
      *
      * @param e
      * @throws IOException
      */
     @FXML
-    public void presentationCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
+    public void customerModifyButtonAction(ActionEvent e) throws IOException {
         try {
-            PresentationCreateViewController controller = (PresentationCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/PresentationCreate.fxml");
+            CustomerModifyFirstViewController controller = (CustomerModifyFirstViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerModifyFirst.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-
     }
-
     /**
      * 用来打开fxml文件
      *
@@ -97,7 +91,6 @@ public class BreakageCreateViewController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         // InputStream in =
         // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
@@ -110,22 +103,8 @@ public class BreakageCreateViewController implements Initializable {
         Scene scene = new Scene(page, 900, 560);
         stage.setScene(scene);
         stage.sizeToScene();
+        stage.setResizable(false);
         return (Initializable) loader.getController();
-    }
-
-    /**
-     * 返回登录界面
-     *
-     * @param e
-     * @throws IOException
-     */
-    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
-        try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
     }
 
     @Override

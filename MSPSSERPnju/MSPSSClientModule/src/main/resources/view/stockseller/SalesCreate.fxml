@@ -12,21 +12,21 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+<Pane maxHeight="620.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.SalesCreateViewController">
     <children>
         <Pane id="Navbar" prefHeight="620.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;" />
         <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0f88eb;" />
-        <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="进货单" textFill="#f8f4f4">
+        <Button id="purchaseButton" fx:id="purchaseCreateButton" layoutY="282.0" mnemonicParsing="false" onAction="#purchaseCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="进货单" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" onAction="#delUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text=" 进货退货单" textFill="#f8f4f4">
+        <Button id="purcRetButton" fx:id="" layoutY="317.0" mnemonicParsing="false" onAction="#purcRetCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text=" 进货退货单" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="modUserButton" layoutY="351.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="销售单" textFill="#f8f4f4">
+        <Button id="salesButton" layoutY="351.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="销售单" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -133,7 +133,7 @@
                         <TableColumn prefWidth="129.0" text="备注" />
                     </columns>
                 </TableView>
-                <Button id="sureButton" fx:id="sureButton1" layoutX="625.0" layoutY="263.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="18.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
+                <Button id="sureButton" layoutX="625.0" layoutY="263.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="12.0" />
                     </font>
@@ -160,12 +160,12 @@
                 <Label layoutX="530.0" layoutY="304.0" prefHeight="23.0" prefWidth="114.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0" />
                 <Label layoutX="134.0" layoutY="345.0" prefHeight="23.0" prefWidth="114.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0" />
                 <TextField id="userName" layoutX="495.0" layoutY="264.0" prefHeight="21.0" prefWidth="127.0" />
-            <Label layoutX="42.0" layoutY="385.0" text="备注">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <TextArea layoutX="93.0" layoutY="384.0" prefHeight="73.0" prefWidth="534.0" />
+                <Label layoutX="42.0" layoutY="385.0" text="备注">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <TextArea layoutX="93.0" layoutY="384.0" prefHeight="73.0" prefWidth="534.0" />
             </children>
         </Pane>
         <Button id="cancelButton" layoutX="611.0" layoutY="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
@@ -173,12 +173,12 @@
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="sureButton" fx:id="sureButton" layoutX="752.0" layoutY="557.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+        <Button id="sureButton" layoutX="752.0" layoutY="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="modUserButton1" layoutY="385.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="销售退货单" textFill="#f8f4f4">
+        <Button id="salesRetButton" fx:id="salesRetCreateButton" layoutY="385.0" mnemonicParsing="false" onAction="#salesRetCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="销售退货单" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>

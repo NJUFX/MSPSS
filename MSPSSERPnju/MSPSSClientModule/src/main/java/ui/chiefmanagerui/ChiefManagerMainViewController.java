@@ -7,10 +7,12 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import ui.adminui.LoginController;
 import ui.common.Dialog;
 
 import java.io.IOException;
@@ -19,6 +21,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ChiefManagerMainViewController implements Initializable {
+	
 	@FXML
 	Button SearchList;
 	@FXML
@@ -27,22 +30,38 @@ public class ChiefManagerMainViewController implements Initializable {
 	Button ReadLog;
 	@FXML
 	Button SetPromotion;
-
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
-	}
-
+	@FXML
+	Label NameTag;
+	@FXML
+	Label RoleTag;
+	@FXML
+	Label IdTag;
+	@FXML
+	Button BackToLogin;
+	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
 
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		// TODO
+		
+	}
+
 	public void setApp(MainApp application) {
 		this.application = application;
 	}
+	
+	/*
+	public void SetTags(String name,String Role,String id) {
+		NameTag.setText(name);
+		RoleTag.setText(Role);
+		IdTag.setText(id);
+	}
+	*/
 
 	
-
 	/**
 	 * 监听查看报表按钮
 	 * 
@@ -101,6 +120,21 @@ public class ChiefManagerMainViewController implements Initializable {
 		try {
 			ChiefManagerSetPromotionController controller = (ChiefManagerSetPromotionController) replaceSceneContent(
 					"/view/chiefmanager/ChiefManagerSetPromotion.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 返回登录界面
+	 * @param e
+	 * @throws IOException
+	 */
+	public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+		try {
+			LoginController controller = (LoginController) replaceSceneContent(
+					"/view/admin/Login.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

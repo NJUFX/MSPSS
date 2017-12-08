@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerSearchProcessListController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerSearchProcessListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -23,12 +23,12 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
+        <Button fx:id="SearchList" layoutY="280.0" mnemonicParsing="false" onAction="#handleSearchListButtonAction" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
+        <Button fx:id="MakeBill" layoutY="315.0" mnemonicParsing="false" onAction="#handleMakeBillButtonAction" prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -38,20 +38,20 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：光耀" textFill="WHITE" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：财务管理人员" textFill="WHITE" />
+      <Label fx:id="NameTag" layoutX="20.0" layoutY="200.0" text="姓名：光耀" textFill="WHITE" />
+      <Label fx:id="RoleTag" layoutX="20.0" layoutY="220.0" text="身份：财务管理人员" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000002" textFill="WHITE" />
-      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="账户管理" textFill="#f8f4f4">
+      <Label fx:id="IdTag" layoutX="20.0" layoutY="240.0" text="编号：000002" textFill="WHITE" />
+      <Button fx:id="SuperviseAccount" layoutY="350.0" mnemonicParsing="false" onAction="#handleSuperviseAccountButtonAction" prefHeight="35.0" prefWidth="145.0" text="账户管理" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="期初建账" textFill="#f8f4f4">
+      <Button fx:id="CreateGeneralAccount" layoutY="385.0" mnemonicParsing="false" onAction="#handleCreateGeneralAccountButtonAction" prefHeight="35.0" prefWidth="145.0" text="期初建账" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -72,7 +72,7 @@
          </image>
       </ImageView>
       <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
-      <Button layoutX="48.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <Button fx:id="BackToLogin" layoutX="48.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="17.0" prefWidth="48.0" />
       <Button layoutX="96.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
       <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="14.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -101,4 +101,4 @@
             </TableView>
          </children></Pane>
     </children>
-</fx:root>
+</Pane>
