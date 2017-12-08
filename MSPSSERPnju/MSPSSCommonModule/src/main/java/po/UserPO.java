@@ -3,10 +3,12 @@ package po;
 import util.Kind_Of_Power;
 import util.Kind_Of_Users;
 
+import java.io.Serializable;
+
 /**
  * Created by thinkpad on 2017/10/21.
  */
-public class UserPO {
+public class UserPO implements Serializable {
     private String ID;
     private String name;
     private int category;

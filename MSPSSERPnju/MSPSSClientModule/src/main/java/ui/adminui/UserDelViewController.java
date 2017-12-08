@@ -1,5 +1,11 @@
 package ui.adminui;
 
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import main.StageSingleton;
 import ui.common.Dialog;
 import main.MainApp;
 import javafx.event.ActionEvent;
@@ -8,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,6 +27,7 @@ public class UserDelViewController implements Initializable {
         this.application = application;
     }
 
+    Stage stage = StageSingleton.getStage();
 
     @FXML
     static Button sureDeleteButton;
@@ -40,18 +49,54 @@ public class UserDelViewController implements Initializable {
     }
 
     @FXML
-    static Button addUserButton;
+    Button addUserButton;
 
     @FXML
-    public void addUserButtonAction(ActionEvent e) {
-        application.toAddUserInfer();
+    Button modUserButton;
+
+
+    @FXML
+    public void addUserButtonAction(ActionEvent e) throws IOException {
+        try {
+            UserAddViewController controller = (UserAddViewController) replaceSceneContent("/view/admin/UserAddView.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
 
-    @FXML
-    static Button modUserButton;
+    public void modUserButtonAction(ActionEvent e) throws IOException {
+        try {
+            UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
-    @FXML
-    public void modUserButtonAction(ActionEvent e) {
-        application.toModUserInfer();
+    /**
+     * 用来打开fxml文件
+     *
+     * @param fxml
+     * @return
+     * @throws Exception
+     */
+    private Initializable replaceSceneContent(String fxml) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        //InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, 900, 560);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.setResizable(false);
+        return (Initializable) loader.getController();
     }
 }

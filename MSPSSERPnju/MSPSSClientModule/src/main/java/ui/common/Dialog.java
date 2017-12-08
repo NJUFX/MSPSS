@@ -1,4 +1,5 @@
 package ui.common;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -16,7 +17,7 @@ public class Dialog {
 //        按钮部分可以使用预设的也可以像这样自己 new 一个
         ButtonType sure = new ButtonType("确定", ButtonBar.ButtonData.YES);
         ButtonType cancel = new ButtonType("取消", ButtonBar.ButtonData.NO);
-        Alert _alert = new Alert(Alert.AlertType.CONFIRMATION, p_message, cancel,sure);
+        Alert _alert = new Alert(Alert.AlertType.CONFIRMATION, p_message, cancel, sure);
         _alert.setTitle("Check");
         _alert.setHeaderText("Check operation");
 //        showAndWait() 将在对话框消失以前不会执行之后的代码
@@ -36,18 +37,39 @@ public class Dialog {
      * @return
      */
     public boolean infoDialog(String p_message) {
-//        按钮部分可以使用预设的也可以像这样自己 new 一个
+        // 按钮部分可以使用预设的也可以像这样自己 new 一个
         Alert _alert = new Alert(Alert.AlertType.INFORMATION, p_message);
         _alert.setTitle("Info");
         _alert.setHeaderText("Information");
-//        showAndWait() 将在对话框消失以前不会执行之后的代码
+        // showAndWait() 将在对话框消失以前不会执行之后的代码
         Optional<ButtonType> _buttonType = _alert.showAndWait();
-//        根据点击结果返回
+        // 根据点击结果返回
         if (_buttonType.get().getButtonData().equals(ButtonBar.ButtonData.YES)) {
             return true;
         } else {
             return false;
         }
     }
+
+    /**
+     * 发生错误提示框
+     *
+     * @param p_message
+     * @return
+     */
+    public boolean errorInfoDialog(String p_message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, p_message);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error!");
+        Optional<ButtonType> _buttonType = alert.showAndWait();
+        // 根据点击结果返回
+        if (_buttonType.get().getButtonData().equals(ButtonBar.ButtonData.YES)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }
 

@@ -11,24 +11,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchManageList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSetPromotionController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSetPromotionController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerSetPromotion.css">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/chiefManager/ChiefManagerSetPromotion.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
+        <Button fx:id="SearchList" layoutY="280.0" mnemonicParsing="false" onAction="#handleSearchListButtonAction" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
+        <Button fx:id="ExamineBill" layoutY="315.0" mnemonicParsing="false" onAction="#handleExamineBillButtonAction" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -38,20 +38,20 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
+      <Label fx:id="NameTag" layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
+      <Label fx:id="RoleTag" layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
-      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
+      <Label fx:id="IdTag" layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
+      <Button fx:id="ReadLog" layoutY="350.0" mnemonicParsing="false" onAction="#handleReadLogButtonAction" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
+      <Button fx:id="SetPromotion" layoutY="385.0" mnemonicParsing="false" onAction="#handleSetPromotionButtonAction" prefHeight="35.0" prefWidth="145.0" style="-fx-background-color: #0d5ae1;" text="促销策略" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -72,7 +72,7 @@
          </image>
       </ImageView>
       <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
-      <Button layoutX="48.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <Button fx:id="BackToLogin" layoutX="48.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="17.0" prefWidth="48.0" />
       <Button layoutX="96.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
       <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="14.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -90,7 +90,7 @@
          </image>
       </ImageView>
       <Button layoutX="778.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="退出" textFill="#0f88eb" />
-      <Button layoutX="632.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="确认" textFill="WHITE" />
+      <Button layoutX="655.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
       <Pane layoutX="170.0" layoutY="57.0" prefHeight="105.0" prefWidth="708.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="88.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -121,7 +121,7 @@
             <DatePicker layoutX="467.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="结束时间" />
          </children>
       </Pane>
-      <Pane layoutX="170.0" layoutY="181.0" prefHeight="309.0" prefWidth="447.0" style="-fx-background-color: white;">
+      <Pane layoutX="170.0" layoutY="178.0" prefHeight="309.0" prefWidth="340.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -171,12 +171,27 @@
             <Label layoutX="75.0" layoutY="230.0" style="-fx-background-color: white;" text="针对总额区间" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="265.0" style="-fx-background-color: white;" text="特价包价格" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="20.0" style="-fx-background-color: white;" text="客户级别" textFill="#0f88eb" />
-            <TextField layoutX="175.0" layoutY="155.0" />
-            <TextField layoutX="175.0" layoutY="50.0" prefHeight="9.0" prefWidth="167.0" />
-            <TextField layoutX="175.0" layoutY="85.0" />
-            <TextField layoutX="175.0" layoutY="120.0" />
+            <TextField layoutX="175.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="50.0" prefHeight="27.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="85.0" prefHeight="27.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" />
             <ComboBox layoutX="175.0" layoutY="15.0" prefWidth="150.0" promptText="1~5" />
+            <TextField layoutX="175.0" layoutY="190.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="225.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="150.0" />
          </children>
       </Pane>
+      <Pane layoutX="531.0" layoutY="178.0" prefHeight="309.0" prefWidth="347.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <TableView prefHeight="309.0" prefWidth="347.0">
+              <columns>
+                <TableColumn prefWidth="244.0" text="促销策略" />
+                <TableColumn prefWidth="102.0" text="起止时间" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Button layoutX="410.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="制定" textFill="WHITE" />
+      <Button layoutX="531.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
     </children>
-</fx:root>
+</Pane>

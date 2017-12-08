@@ -3,6 +3,7 @@ package po;
 import util.BillStatus;
 import util.SalesOutBillType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Description:
  * Created by Hanxinhu at 14:41 2017/11/28/028
  */
-public class SalesOutBillPO {
+public class SalesOutBillPO implements Serializable {
     /**
      *销售单单据编号（XSD-yyyyMMdd-xxxxx）
      * 销售退货单 XSTHD-yyyyMMdd-xxxxx

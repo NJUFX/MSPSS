@@ -80,7 +80,28 @@ public class Commodity {
      * @return
      */
     public ArrayList<CommodityVO> searchCommodity(FilterFlagVO flag){
-        return null;}
+            ArrayList<CommodityPO> commodities = new ArrayList<>();
+            if (flag.classificationID!=null){
+                commodities.addAll(netService.fullSearchCommodity("classificationID",flag.classificationID));
+            }
+            if (flag.id!=null){
+                commodities.addAll(netService.fullSearchCommodity("ID",flag.id));
+            }
+            if (flag.name!=null){
+                commodities.addAll(netService.fuzzySearchCommodity("name",flag.name));
+            }
+            if (flag.exportCostMax !=0||flag.exportCostMin !=0){
+                commodities.addAll(netService.rangeSearchCommodity("exportCost",flag.exportCostMin,flag.exportCostMax));
+            }
+            if (flag.importCostMax!=0||flag.importCostMin!=0){
+                commodities.addAll(netService.rangeSearchCommodity("importCost",flag.importCostMin,flag.importCostMax));
+            }
+
+            ArrayList<CommodityVO> vos = new ArrayList<>();
+            for (int i = 0 ; i < commodities.size() ;i++){
+                vos.add(po_to_vo(commodities.get(i)));
+            }
+        return vos;}
 
 
     /**

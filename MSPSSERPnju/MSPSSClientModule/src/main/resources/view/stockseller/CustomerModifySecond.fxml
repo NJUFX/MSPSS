@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
+<?import java.util.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerModifySecondViewController">
+    <children>
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
+            <effect>
+                <ColorInput height="560.0" paint="#0f88eb" width="145" />
+            </effect>
+        </Pane>
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0">
+            <effect>
+                <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
+            </effect>
+        </Pane>
+        <Button id="addUserButton" fx:id="CustomerAddButton" onAction="#customerAddButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button id="delUserButton" fx:id="CustomerDelButton" layoutY="317.0" mnemonicParsing="false" onAction="#customerDelButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除客户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button id="modUserButton"  layoutY="351.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="修改客户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/admin/增加用户.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/头像.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="20.0" layoutY="240.0" text="编号: SS001" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/admin/删除用户.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/admin/编辑用户.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;修改客户" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="150.0" prefHeight="40.0" prefWidth="76.0" text="MSPSS" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="22.0" />
+            </font>
+        </Label>
+        <Pane layoutX="190.0" layoutY="89.0" prefHeight="323.0" prefWidth="675.0" style="-fx-background-color: white;">
+            <children>
+                <Label layoutX="44.0" layoutY="39.0" text="编号">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="29.0" layoutY="145.0" text="联系方式">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="245.0" layoutY="145.0" text="电子邮箱">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="44.0" layoutY="92.0" text="姓名">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label id="userId" layoutX="97.0" layoutY="38.0" prefHeight="22.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;" text="编号" />
+                <ComboBox id="userCategory" fx:id="customerCategory" layoutX="312.0" layoutY="38.0" prefHeight="23.0" prefWidth="114.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="进货商" />
+                            <String fx:value="销售商" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label layoutX="260.0" layoutY="39.0" text="分类">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="480.0" layoutY="39.0" text="级别">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <ComboBox id="userCategory" fx:id="customerLevel" layoutX="530.0" layoutY="38.0" prefHeight="23.0" prefWidth="114.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="1" />
+                            <String fx:value="2" />
+                            <String fx:value="3" />
+                            <String fx:value="4" />
+                            <String fx:value="5" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <TextField id="userName" layoutX="97.0" layoutY="91.0" prefHeight="21.0" prefWidth="114.0" text="姓名" />
+                <Label layoutX="260.0" layoutY="92.0" text="地址">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <TextField id="userName" layoutX="312.0" layoutY="91.0" prefHeight="21.0" prefWidth="114.0" />
+                <Label layoutX="480.0" layoutY="92.0" text="邮编">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <TextField id="userName" layoutX="530.0" layoutY="91.0" prefHeight="21.0" prefWidth="114.0" text="邮编" />
+                <TextField id="userName" layoutX="97.0" layoutY="144.0" prefHeight="21.0" prefWidth="114.0" text="联系方式" />
+                <TextField id="userName" layoutX="312.0" layoutY="144.0" prefHeight="21.0" prefWidth="114.0" text="电子邮箱" />
+                <Label layoutX="463.0" layoutY="145.0" text="应收额度">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <TextField id="userName" layoutX="530.0" layoutY="144.0" prefHeight="21.0" prefWidth="114.0" text="应收额度" />
+                <Label layoutX="44.0" layoutY="197.0" text="应收">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="97.0" layoutY="196.0" prefHeight="22.0" prefWidth="114.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0" />
+                <Label layoutX="260.0" layoutY="197.0" text="应收">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="312.0" layoutY="196.0" prefHeight="22.0" prefWidth="114.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0" />
+                <Label layoutX="470.0" layoutY="197.0" text="业务员">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="530.0" layoutY="196.0" prefHeight="22.0" prefWidth="114.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="SS001" />
+            </children>
+        </Pane>
+        <Button id="cancelButton" layoutX="575.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+            <font>
+                <Font name="Microsoft YaHei" size="16.0" />
+            </font>
+        </Button>
+        <Button id="sureButton" fx:id="sureButton" layoutX="732.0" layoutY="459.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="16.0" />
+            </font>
+        </Button>
+        <Button id="searchButton" fx:id="CustomerSearchButton" layoutY="385.0" mnemonicParsing="false" onAction="#customerSearchButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找客户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/搜索.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/设置.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button id="existButton" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/退出登录.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+            <graphic>
+                <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/发送信息.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</Pane>

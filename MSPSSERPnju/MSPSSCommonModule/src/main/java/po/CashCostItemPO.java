@@ -1,10 +1,12 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * Description:
  * Created by Hanxinhu at 19:31 2017/11/28/028
  */
-public class CashCostItemPO {
+public class CashCostItemPO implements Serializable {
     /**
      * 主键，切勿自己赋值！！！数据库会自动赋值，无需初始化
      */

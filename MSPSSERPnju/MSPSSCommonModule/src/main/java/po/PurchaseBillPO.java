@@ -1,9 +1,10 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PurchaseBillPO {
+public class PurchaseBillPO implements Serializable {
     /**
      * 主键，切勿自己赋值！！！
      */

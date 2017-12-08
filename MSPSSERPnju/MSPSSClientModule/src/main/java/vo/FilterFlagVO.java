@@ -12,11 +12,11 @@ public class FilterFlagVO {
     /**
      * 售价最小值
      */
-    public double expostCostMin;
+    public double exportCostMin;
     /**
      * 售价最大值
      */
-   public double expostCostMax;
+   public double exportCostMax;
     /**
      * 所属的分类
      */

@@ -1,5 +1,6 @@
 package blimpl.billblimpl;
 
+import blimpl.stockblimpl.Stock;
 import blservice.billblservice.BillBLInfo;
 import blservice.billblservice.BillBLService;
 import util.ResultMessage;
@@ -11,59 +12,18 @@ import java.util.ArrayList;
  * Description:
  * Created by Hanxinhu at 13:21 2017/11/21/021
  */
-public class BillBLServiceImpl implements BillBLService,BillBLInfo {
-    @Override
-    public ResultMessage makeAlarmBill(AlarmBillVO alarmBillVO) {
-        return null;
+public class BillBLServiceImpl{
+    private StockBill stockBill;
+    private FinanceBill financeBill;
+    public ResultMessage addStockBill(StockBillVO stockBillVO){
+        return stockBill.addStockBill(stockBillVO);
+    }
+    public ResultMessage updateStockBill(StockBillVO stockBillVO){
+        return stockBill.updateStockBill(stockBillVO);
+    }
+    public ResultMessage checkStockBill(StockBillVO stockBillVO){
+        return  stockBill.check(stockBillVO);
     }
 
-    @Override
-    public ResultMessage makeLessOrMoreBill(LessOrMoreBillVO lessOrMoreBillVO) {
-        return null;
-    }
 
-    @Override
-    public ResultMessage makePresentationBill(PresentationBillVO presentationBillVO) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<AlarmBillVO> getAlarmBills() {
-        return null;
-    }
-
-    @Override
-    public ResultMessage makePurchaseBill(PurchaseVO prvo) {
-        return null;
-    }
-
-    @Override
-    public ResultMessage makePurchaseReturnBill(PurchaseReturnBillVO purchaseReturnBillVO) {
-        return null;
-    }
-
-    @Override
-    public ResultMessage makeSalesBill(SalesVO salesVO) {
-        return null;
-    }
-
-    @Override
-    public ResultMessage makeSalesReturnBill(SalesReturnVO salesReturnVO) {
-        return null;
-    }
-
-    @Override
-    public ResultMessage makePaymentAndReceiptBill(PaymentAndReceiptBillVO paymentAndReceiptBillVO) {
-        return null;
-    }
-
-    @Override
-    public ResultMessage makeCashBill(CashBillVO cashBillVO) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<BillVO> getBills() {
-        return null;
-    }
 }

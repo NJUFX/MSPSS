@@ -1,12 +1,13 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Description:
  * Created by Hanxinhu at 15:46 2017/11/28/028
  */
-public class FinanceItemPO {
+public class FinanceItemPO implements Serializable{
     /**
      * 数据库主键，切勿自行初始化这个变量！！！
      */

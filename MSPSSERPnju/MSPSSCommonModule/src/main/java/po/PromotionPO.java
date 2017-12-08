@@ -3,9 +3,10 @@ package po;
 import util.PromotionType;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PromotionPO {
+public class PromotionPO implements Serializable{
 	/**
 	 * 策略编号
 	 */

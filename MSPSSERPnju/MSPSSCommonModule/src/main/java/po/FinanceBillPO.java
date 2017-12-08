@@ -3,6 +3,7 @@ package po;
 import util.BillStatus;
 import util.FinanceBillType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Description:
  * Created by Hanxinhu at 15:35 2017/11/28/028
  */
-public class FinanceBillPO {
+public class FinanceBillPO implements Serializable {
     /**
      * 单据编号 收款单（SKD-yyyyMMdd-xxxxx）
      * 付款单 （FKD-yyyyMMdd-xxxxx）

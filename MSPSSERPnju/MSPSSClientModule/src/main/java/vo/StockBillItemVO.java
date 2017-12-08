@@ -8,15 +8,31 @@ public class StockBillItemVO {
     /**
      *  商品
      */
-    CommodityVO commodityVO;
+    public     CommodityVO commodityVO;
 
     /**
      * 该商品在库存类单据里的数量
      */
-    int number;
+   public int number;
 
     public StockBillItemVO(CommodityVO commodityVO,int number){
         this.commodityVO = commodityVO;
         this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public CommodityVO getCommodityVO() {
+        return commodityVO;
+    }
+
+    public void setCommodityVO(CommodityVO commodityVO) {
+        this.commodityVO = commodityVO;
     }
 }

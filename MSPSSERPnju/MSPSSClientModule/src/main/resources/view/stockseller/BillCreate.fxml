@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.BillCreateViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -24,7 +24,7 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button id="customerManageButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="客户管理" textFill="#f8f4f4">
+        <Button id="customerManageButton" fx:id="customerManageButton" onAction="#customerManageButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="客户管理" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -62,7 +62,7 @@
                 <Image url="@../../image/stockseller/审批单据.png" />
             </image>
         </ImageView>
-        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;客户管理" textFill="WHITE">
+        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;制定单据" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="18.0" />
             </font>
@@ -72,9 +72,9 @@
                 <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Pane id="modCustomerPane" layoutX="233.0" layoutY="130.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+        <Pane id="modCustomerPane" layoutX="233.0" layoutY="130.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/billCreate.css">
          <children>
-                <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
+                <Button id="modButton" fx:id="purchaseCreateButton" onAction="#purchaseCreateButtonAction" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -99,9 +99,9 @@
             </Label>
          </children>
       </Pane>
-      <Pane id="modCustomerPane" layoutX="233.0" layoutY="230.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+      <Pane id="modCustomerPane" layoutX="233.0" layoutY="230.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/billCreate.css">
          <children>
-            <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
+            <Button id="modButton" fx:id="purcRetCreateButton" onAction="#purcRetCreateButtonAction" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei" size="16.0" />
                </font>
@@ -113,9 +113,9 @@
             </Label>
          </children>
       </Pane>
-      <Pane id="modCustomerPane" layoutX="233.0" layoutY="330.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+      <Pane id="modCustomerPane" layoutX="233.0" layoutY="330.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/billCreate.css">
          <children>
-            <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
+            <Button id="modButton" fx:id="salesCreateButton" onAction="#salesCreateButtonAction" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei" size="16.0" />
                </font>
@@ -127,9 +127,9 @@
             </Label>
          </children>
       </Pane>
-      <Pane id="modCustomerPane" layoutX="233.0" layoutY="430.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
+      <Pane id="modCustomerPane" layoutX="233.0" layoutY="430.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane" stylesheets="@../../css/stockseller/billCreate.css">
          <children>
-            <Button id="modButton" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
+            <Button id="modButton" fx:id="salesRetCreateButton" onAction="#salesRetCreateButtonAction" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei" size="16.0" />
                </font>
@@ -141,5 +141,32 @@
             </Label>
          </children>
       </Pane>
+      <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/设置.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button id="existButton" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/退出登录.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/发送信息.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
     </children>
 </Pane>

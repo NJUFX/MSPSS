@@ -2,7 +2,9 @@ package po;
 
 import util.Kind_Of_Customers;
 
-public class CustomerPO {
+import java.io.Serializable;
+
+public class CustomerPO  implements Serializable{
     /**
      * 判断客户是否存在
      */

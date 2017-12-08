@@ -11,24 +11,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/ChiefManagerSearchSalesList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchSalesListController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchSalesList.css" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchSalesListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/ChiefManagerSearchSalesList.css">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/chiefManager/ChiefManagerSearchSalesList.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button layoutY="280.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查看报表" textFill="#f8f4f4">
+        <Button fx:id="SearchList" layoutY="280.0" mnemonicParsing="false" onAction="#handleSearchListButtonAction" prefHeight="35.0" prefWidth="145.0" style="-fx-background-color: #0d5ae1;" text="查看报表" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
+        <Button fx:id="ExamineBill" layoutY="315.0" mnemonicParsing="false" onAction="#handleExamineBillButtonAction" prefHeight="35.0" prefWidth="145.0" text="审批单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -38,20 +38,20 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
-      <Label layoutX="20.0" layoutY="220.0" text="身份：总经理" />
+      <Label fx:id="NameTag" layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
+      <Label fx:id="RoleTag" layoutX="20.0" layoutY="220.0" text="身份：总经理" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label layoutX="20.0" layoutY="240.0" text="编号：000001" />
-      <Button layoutY="350.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
+      <Label fx:id="IdTag" layoutX="20.0" layoutY="240.0" text="编号：000001" />
+      <Button fx:id="ReadLog" layoutY="350.0" mnemonicParsing="false" onAction="#handleReadLogButtonAction" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
+      <Button fx:id="SetPromotion" layoutY="385.0" mnemonicParsing="false" onAction="#handleSetPromotionButtonAction" prefHeight="35.0" prefWidth="145.0" text="促销策略" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -72,7 +72,7 @@
          </image>
       </ImageView>
       <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
-      <Button layoutX="48.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
+      <Button fx:id="BackToLogin" layoutX="48.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="17.0" prefWidth="48.0" />
       <Button layoutX="96.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
       <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="14.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
          <image>

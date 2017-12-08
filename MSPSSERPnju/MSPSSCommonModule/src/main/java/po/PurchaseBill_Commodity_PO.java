@@ -1,9 +1,11 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * Created by thinkpad on 2017/12/3.
  */
-public class PurchaseBill_Commodity_PO {
+public class PurchaseBill_Commodity_PO implements Serializable{
     /**
      * 数据库关键字，数据库会自动赋值！！切勿自己赋值
      */
