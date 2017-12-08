@@ -16,156 +16,60 @@ import ui.stocksellerui.StockSellerMainViewController;
 import java.io.InputStream;
 
 public class MainApp extends Application {
-	// MainApp application = new MainApp();
-	private Stage stage;
+    // MainApp application = new MainApp();
+    private Stage stage;
 
-	public void start(Stage primaryStage) {
-		StageSingleton.setStage(primaryStage);
-		stage = StageSingleton.getStage();
-		// stage = primaryStage;
-		stage.setTitle("MSPSS");
-		stage.setHeight(560);
-		stage.setWidth(900);
-		toLoginInfer();
-		stage.show();
-	}
+    public void start(Stage primaryStage) {
+        StageSingleton.setStage(primaryStage);
+        stage = StageSingleton.getStage();
+        // stage = primaryStage;
+        stage.setTitle("MSPSS");
+        stage.setHeight(560);
+        stage.setWidth(900);
+        toLoginInfer();
+        stage.show();
+    }
 
-	/**
-	 * 登陆
-	 *
-	 * @param id
-	 * @param password
-	 */
-	public void userLogin(String id, String password) {
-		// 判断id是否在系统里
-		// 判断密码是否正确
+    /**
+     * 跳转登陆界面
+     */
+    public void toLoginInfer() {
+        try {
+            LoginController login = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            //login.setApp(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-		switch (id.substring(0, 2)) {
-		case "SY":
-			toAdminMain();
-			break;
-		case "SM":
-			toStockManagerMain();
-			break;
-		case "FM":
-			toFinanceManagerMain();
-			break;
-		case "SS":
-			toStockSellerMain();
-			break;
-		case "CM":
-			toChiefManagerMain();
-			break;
-
-		}
-
-	}
-
-	/**
-	 * 跳转登陆界面
-	 */
-	public void toLoginInfer() {
-		try {
-			LoginController login = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
-			login.setApp(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 跳转SY系统管理员主界面
-	 */
-	public void toAdminMain() {
-		try {
-			AdminMainViewController main = (AdminMainViewController) replaceSceneContent("/view/admin/Main.fxml");
-			main.setApp(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 跳转SS进货销售主界面
-	 */
-	public void toStockSellerMain() {
-		try {
-			StockSellerMainViewController main = (StockSellerMainViewController) replaceSceneContent(
-					"/view/stockseller/Main.fxml");
-			main.setApp(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 跳转SM库存管理人员主界面
-	 */
-	public void toStockManagerMain() {
-		try {
-			StockManagerMainViewController main = (StockManagerMainViewController) replaceSceneContent(
-					"/view/stockmanager/Main.fxml");
-			main.setApp(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 跳转FM库存管理人员主界面
-	 */
-	public void toFinanceManagerMain() {
-		try {
-			FinanceManagerMainViewController main = (FinanceManagerMainViewController) replaceSceneContent(
-					"/view/financemanager/FinanceManagerMainView.fxml");
-			main.setApp(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 跳转CM总经理主界面
-	 */
-	public void toChiefManagerMain() {
-		try {
-			ChiefManagerMainViewController main = (ChiefManagerMainViewController) replaceSceneContent(
-					"/view/chiefmanager/ChiefManagerMainView.fxml");
-			main.setApp(this);
-	
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 用来打开fxml文件
-	 *
-	 * @param fxml
-	 * @return
-	 * @throws Exception
-	 */
-	private Initializable replaceSceneContent(String fxml) throws Exception {
-		FXMLLoader loader = new FXMLLoader();
-		// InputStream in =
-		// Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-		InputStream in = MainApp.class.getResourceAsStream(fxml);
-		loader.setBuilderFactory(new JavaFXBuilderFactory());
-		loader.setLocation(MainApp.class.getResource(fxml));
-		Pane page;
-		try {
-			page = (Pane) loader.load(in);
-		} finally {
-			in.close();
-		}
-		Scene scene = new Scene(page, 900, 560);
-		stage.setScene(scene);
-		stage.sizeToScene();
+    /**
+     * 用来打开fxml文件
+     *
+     * @param fxml
+     * @return
+     * @throws Exception
+     */
+    private Initializable replaceSceneContent(String fxml) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        // InputStream in =
+        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, 900, 560);
+        stage.setScene(scene);
+        stage.sizeToScene();
         stage.setResizable(false);
-		return (Initializable) loader.getController();
-	}
+        return (Initializable) loader.getController();
+    }
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+    public static void main(String[] args) {
+        launch(args);
+    }
 }

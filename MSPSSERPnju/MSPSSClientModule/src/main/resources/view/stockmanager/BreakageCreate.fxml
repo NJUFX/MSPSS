@@ -12,11 +12,11 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BreakageCreateViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BreakageCreateViewController">
     <children>
-        <Pane id="Navbar" prefHeight="620.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;" />
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;" />
         <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0f88eb;" />
-        <Button id="addUserButton" fx:id="overflowCreateButton" onAction="#overflowCreateButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存报溢单" textFill="#f8f4f4">
+        <Button id="addUserButton" fx:id="overflowCreateButton" layoutY="282.0" mnemonicParsing="false" onAction="#overflowCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存报溢单" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -59,22 +59,22 @@
                 <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Button id="cancelButton" layoutX="611.0" layoutY="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+        <Button id="cancelButton" layoutX="611.0" layoutY="510.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="sureButton" layoutX="752.0" layoutY="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+        <Button id="sureButton" layoutX="752.0" layoutY="510.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="presentationCreateButton" onAction="#presentationCreateButtonAction" layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存赠送单" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="presentationCreateButton" layoutY="385.0" mnemonicParsing="false" onAction="#presentationCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存赠送单" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutX="6.0" layoutY="580.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -83,7 +83,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0" layoutY="580.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -92,7 +92,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="80.0" layoutY="580.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -101,7 +101,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Pane layoutX="190.0" layoutY="75.0" prefHeight="450.0" prefWidth="662.0" style="-fx-background-color: #FFFFFF;">
+        <Pane layoutX="190.0" layoutY="60.0" prefHeight="435.0" prefWidth="662.0" style="-fx-background-color: #FFFFFF;">
             <children>
                 <TableView layoutX="50.0" layoutY="30.0" prefHeight="330.0" prefWidth="566.0">
                     <columns>

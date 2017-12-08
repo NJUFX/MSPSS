@@ -13,8 +13,6 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import ui.stocksellerui.BillCreateViewController;
-import ui.stocksellerui.CustomerManageViewController;
 
 import java.io.IOException;
 import java.io.InputStream;
