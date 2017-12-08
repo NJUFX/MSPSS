@@ -1,5 +1,6 @@
 package blimpl.blfactory;
 
+import blimpl.logblimpl.LogFactory;
 import blservice.accountblservice.AccountBLInfo;
 import blimpl.accountblimpl.AccountFactory;
 import blservice.accountblservice.AccountBLService;
@@ -10,6 +11,7 @@ import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLService;
 import blservice.generalaccountblservice.GeneralAccountBLService;
+import blservice.logblservice.LogBLInfo;
 import blservice.logblservice.LogBLService;
 import blservice.mainblservice.MainBLService;
 import blservice.promotionblservice.PromotionBLService;
@@ -22,7 +24,7 @@ import blservice.userblservice.UserBLService;
  * Description:
  * Created by Hanxinhu at 9:13 2017/11/30/030
  */
-public class BLFactory implements BLFactoryService {
+public class BLFactoryImpl implements BLFactoryService {
     @Override
     public AccountBLService getAccountBLServiceStub() {
         return AccountFactory.getAccountBLService();
@@ -135,7 +137,12 @@ public class BLFactory implements BLFactoryService {
 
     @Override
     public LogBLService getLogBLService() {
-        return null;
+        return LogFactory.getLogBLServiceImpl();
+    }
+
+    @Override
+    public LogBLInfo getLogBLInfo() {
+        return LogFactory.getLogBLServiceImpl();
     }
 
     @Override

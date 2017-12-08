@@ -59,16 +59,16 @@
 //        //5
 //        ArrayList<CommodityVO> commodityVOS = commodityService.searchCommodity(fvo);
 //        if (commodityVOS!=null){
-//            System.out.println("search successfully");
+//            System.out.println("timeSearchLog successfully");
 //        }else {
-//            System.out.println("search failed");
+//            System.out.println("timeSearchLog failed");
 //        }
 //        //5
 //        commodityVOS = commodityService.searchCommodity(null);
 //          if (commodityVOS!=null){
-//          System.out.println("search successfully");
+//          System.out.println("timeSearchLog successfully");
 //         }else {
-//          System.out.println("search failed");
+//          System.out.println("timeSearchLog failed");
 //          }
 //         //6
 //        testMessage = commodityService.addClassification(classificationVO);

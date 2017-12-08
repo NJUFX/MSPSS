@@ -45,11 +45,11 @@
 //    @Override
 //    public Iterator<CommodityVO> searchCommodity(FilterFlagVO flags) {
 //        if (flags!=null){
-//            System.out.println("search commodity successfully!");
+//            System.out.println("timeSearchLog commodity successfully!");
 //            return new ArrayList<CommodityVO>().iterator();
 //        }else
 //        {
-//            System.out.println("search failed");
+//            System.out.println("timeSearchLog failed");
 //            return null;
 //        }
 //
@@ -133,7 +133,7 @@
 //    }
 //
 //    @Override
-//    public ArrayList<CommodityVO> search(FilterFlagVO vo) {
+//    public ArrayList<CommodityVO> timeSearchLog(FilterFlagVO vo) {
 //        return null;
 //    }
 //}

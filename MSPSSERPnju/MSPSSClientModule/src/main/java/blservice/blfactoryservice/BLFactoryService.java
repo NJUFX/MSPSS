@@ -9,6 +9,7 @@ import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLService;
 import blservice.generalaccountblservice.GeneralAccountBLService;
+import blservice.logblservice.LogBLInfo;
 import blservice.logblservice.LogBLService;
 import blservice.mainblservice.MainBLService;
 import blservice.promotionblservice.PromotionBLService;
@@ -38,6 +39,8 @@ public interface BLFactoryService {
     public GeneralAccountBLService getGeneralAccountBLService();
 
     public LogBLService getLogBLService();
+
+    public LogBLInfo getLogBLInfo();
 
     public MainBLService getMainBLService();
 

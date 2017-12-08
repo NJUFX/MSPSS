@@ -62,7 +62,7 @@
 //     * @param date
 //     * @return ArrayList<PromotionPO>
 //     */
-//    public ArrayList<PromotionPO> search(Time date){
+//    public ArrayList<PromotionPO> timeSearchLog(Time date){
 //        ArrayList<PromotionPO>result = new ArrayList<PromotionPO>();
 //        for(int i=0;i<promotionlist.size();i++){
 //            if(promotionlist.get(i).getTime().getYear()==date.getYear()&&promotionlist.get(i).getTime().getMonth()==date.getMonth()&&promotionlist.get(i).getTime().getDay()==date.getDay()){

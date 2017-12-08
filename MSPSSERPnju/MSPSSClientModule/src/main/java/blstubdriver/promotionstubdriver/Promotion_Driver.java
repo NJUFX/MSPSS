@@ -46,7 +46,7 @@
 //        }
 //
 //        //4
-//        ArrayList<PromotionPO> TestResult4 = promotion_stub.search(new Time(2017,11,13,16,33,33));
+//        ArrayList<PromotionPO> TestResult4 = promotion_stub.timeSearchLog(new Time(2017,11,13,16,33,33));
 //        if(TestResult4.get(0).getId().equals("000001")){
 //            System.out.println("Search Promotion Succeed!");
 //        }

@@ -28,7 +28,7 @@
 //     * @param date
 //     * @return ArrayList<LogPO>
 //     */
-//    public ArrayList<LogPO> search(Time date){
+//    public ArrayList<LogPO> timeSearchLog(Time date){
 //        Test_LogPOList.add(Test_LogPO);
 //        return Test_LogPOList;
 //    }

@@ -29,7 +29,7 @@
 //
 //    @Test
 //    public void testSearchLog(){
-//        ArrayList<LogPO> test2 = log.search(new Time(2017,11,20,22,12,34));
+//        ArrayList<LogPO> test2 = log.timeSearchLog(new Time(2017,11,20,22,12,34));
 //        assertNotNull(test2);
 //    }
 //

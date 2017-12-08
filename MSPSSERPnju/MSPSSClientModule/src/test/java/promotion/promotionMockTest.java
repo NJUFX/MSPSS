@@ -39,7 +39,7 @@
 //
 //    @Test
 //    public void testSearchPromotion(){
-//        assertNotNull(promotion.search(new Time(2017,11,23,22,51,22)));
+//        assertNotNull(promotion.timeSearchLog(new Time(2017,11,23,22,51,22)));
 //    }
 //
 //    @Test

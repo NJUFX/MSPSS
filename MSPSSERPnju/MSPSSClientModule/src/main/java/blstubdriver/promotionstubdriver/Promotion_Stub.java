@@ -56,7 +56,7 @@
 //     * @param date
 //     * @return ArrayList<PromotionPO>
 //     */
-//    public ArrayList<PromotionPO> search(Time date){
+//    public ArrayList<PromotionPO> timeSearchLog(Time date){
 //        ArrayList<PromotionPO> Test_PromotionPOList = new ArrayList<PromotionPO>();
 //        Test_PromotionPOList.add(Test_PromotionPO);
 //        return Test_PromotionPOList;

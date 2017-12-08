@@ -43,7 +43,7 @@ public class CustomerBLService_Driver {
             System.out.println();
             System.out.println("Search customers successfully.");
         } else {
-            System.out.println("Fail to search customer.");
+            System.out.println("Fail to timeSearchLog customer.");
         }
 
 

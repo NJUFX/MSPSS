@@ -31,7 +31,7 @@
 ////     * @param date
 ////     * @return ArrayList<LogPO>
 ////     */
-////    public ArrayList<LogPO> search(Time date){
+////    public ArrayList<LogPO> timeSearchLog(Time date){
 ////        String time = date.getYear()+"/"+date.getMonth()+"/"+date.getDay();
 ////        ArrayList<LogPO> searchList = new ArrayList<LogPO>();
 ////        for(int i=0;i<loglist.size();i++){
@@ -105,7 +105,7 @@
 //     * @param date
 //     * @return ArrayList<LogPO>
 //     */
-//    public ArrayList<LogPO> search(Time date){
+//    public ArrayList<LogPO> timeSearchLog(Time date){
 //        String time = date.getYear()+"/"+date.getMonth()+"/"+date.getDay();
 //        ArrayList<LogPO> searchList = new ArrayList<LogPO>();
 //        for(int i=0;i<loglist.size();i++){

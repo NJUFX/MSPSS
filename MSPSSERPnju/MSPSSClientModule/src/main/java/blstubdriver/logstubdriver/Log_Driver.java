@@ -21,7 +21,7 @@
 //    public void drive() {
 //
 //        // 1
-//        ArrayList<LogPO> TestResult1 = log_stub.search(new Time(2017,11,13,21,12,12));
+//        ArrayList<LogPO> TestResult1 = log_stub.timeSearchLog(new Time(2017,11,13,21,12,12));
 //        if(TestResult1.get(0).getId().equals("000001")){
 //            System.out.println("Search Log Succeed!");
 //        }
