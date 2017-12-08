@@ -229,6 +229,4 @@ public class CommodityManageViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
     }
-
-
 }
