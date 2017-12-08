@@ -78,7 +78,7 @@
             <Image url="@../../image/设置.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="BackToLogin" fitHeight="18.0" fitWidth="30.0" layoutX="64.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="18.0" fitWidth="30.0" layoutX="64.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/退出登录.png" />
          </image>
