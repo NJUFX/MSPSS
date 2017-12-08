@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 	Dialog dialog = new Dialog();
-	private MainApp application;
+	public MainApp application;
 
 	public void setApp(MainApp application) {
 		this.application = application;

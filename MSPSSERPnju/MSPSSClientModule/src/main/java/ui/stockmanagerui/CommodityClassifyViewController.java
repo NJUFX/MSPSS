@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
-import ui.common.Dialog;
 import ui.stocksellerui.BillCreateViewController;
 
 import java.io.IOException;
@@ -20,8 +19,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StockInventoryViewController implements Initializable {
-
+public class CommodityClassifyViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
     @FXML
@@ -29,15 +27,18 @@ public class StockInventoryViewController implements Initializable {
 
     @FXML
     Button billCreateButton;
-
     @FXML
     Button commodityManageButton;
-
     @FXML
-    Button commodityClassifyButton;
-
+    Button stockInventoryButton;
     @FXML
     Button stockCheckButton;
+    /**
+     @FXML Button commodityAddButton;
+     @FXML Button commodityDelButton;
+     @FXML Button commodityModButton;
+     @FXML Button commoditySearchButton;
+     */
 
     /**
      * 处理单据
@@ -47,7 +48,7 @@ public class StockInventoryViewController implements Initializable {
      */
     @FXML
     public void billCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
+        //System.out.println("SUSS");
         try {
             ui.stocksellerui.BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BillCreate.fxml");
@@ -75,22 +76,6 @@ public class StockInventoryViewController implements Initializable {
         }
     }
 
-    /**
-     * 商品分类
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void commodityClassifyButtonAction(ActionEvent e) throws IOException {
-        try {
-            CommodityClassifyViewController controller = (CommodityClassifyViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityClassify.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
 
     /**
      * 库存查看
@@ -103,6 +88,104 @@ public class StockInventoryViewController implements Initializable {
         try {
             StockCheckViewController controller = (StockCheckViewController) replaceSceneContent(
                     "/view/stockmanager/StockCheck.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 库存盘点
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void stockInventoryButtonAction(ActionEvent e) throws IOException {
+        try {
+            StockInventoryViewController controller = (StockInventoryViewController) replaceSceneContent(
+                    "/view/stockmanager/StockInventory.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 增加商品
+     *
+     * @param e
+     * @throws IOException
+     *
+     @FXML public void commodityAddButtonAction(ActionEvent e) throws IOException {
+     try {
+     CommodityAddViewController controller = (CommodityAddViewController) replaceSceneContent(
+     "/view/stockmanager/commodityAdd.fxml");
+     } catch (Exception e1) {
+     // TODO Auto-generated catch block
+     e1.printStackTrace();
+     }
+     }
+
+     /**
+      * 删除商品
+      *
+      * @param e
+     * @throws IOException
+
+     @FXML public void commodityDelButtonAction(ActionEvent e) throws IOException {
+     try {
+     CommodityDelViewController controller = (CommodityDelViewController) replaceSceneContent(
+     "/view/stockmanager/commodityDel.fxml");
+     } catch (Exception e1) {
+     // TODO Auto-generated catch block
+     e1.printStackTrace();
+     }
+     }
+
+     /**
+      * 增加商品
+      *
+      * @param e
+     * @throws IOException
+
+     @FXML public void commodityModButtonAction(ActionEvent e) throws IOException {
+     try {
+     CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
+     "/view/stockmanager/commodityModifyFirst.fxml");
+     } catch (Exception e1) {
+     // TODO Auto-generated catch block
+     e1.printStackTrace();
+     }
+     }
+
+     /**
+      * 增加商品
+      *
+      * @param e
+     * @throws IOException
+
+     @FXML public void commoditySearchButtonAction(ActionEvent e) throws IOException {
+     try {
+     CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
+     "/view/stockmanager/commoditySearchShow.fxml");
+     } catch (Exception e1) {
+     // TODO Auto-generated catch block
+     e1.printStackTrace();
+     }
+     }
+     */
+    /**
+     * 返回登录界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+        try {
+            LoginController controller = (LoginController) replaceSceneContent(
+                    "/view/admin/Login.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -136,24 +219,11 @@ public class StockInventoryViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
-    /**
-     * 返回登录界面
-     *
-     * @param e
-     * @throws IOException
-     */
-    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
-        try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //TODO
     }
 
+
 }
+

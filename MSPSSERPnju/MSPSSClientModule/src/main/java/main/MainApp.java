@@ -67,8 +67,6 @@ public class MainApp extends Application {
 	public void toLoginInfer() {
 		try {
 			LoginController login = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
-			// LoginController login = (LoginController)
-			// replaceSceneContent("/view/admin/Login.fxml");
 			login.setApp(this);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -163,6 +161,7 @@ public class MainApp extends Application {
 		Scene scene = new Scene(page, 900, 560);
 		stage.setScene(scene);
 		stage.sizeToScene();
+        stage.setResizable(false);
 		return (Initializable) loader.getController();
 	}
 

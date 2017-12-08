@@ -43,7 +43,7 @@ public class BillCreateViewController implements Initializable {
         System.out.println("Sucess");
 
         try {
-            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent2(
                     "/view/stockseller/CustomerManage.fxml");
             // replaceSceneContent("/view/stockseller/CustomerManage.fxml");
         } catch (Exception e1) {
@@ -137,12 +137,29 @@ public class BillCreateViewController implements Initializable {
         } finally {
             in.close();
         }
+        Scene scene = new Scene(page, 900, 620);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.setResizable(false);
+        return (Initializable) loader.getController();
+    }
+
+    private Initializable replaceSceneContent2(String fxml) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
         Scene scene = new Scene(page, 900, 560);
         stage.setScene(scene);
         stage.sizeToScene();
         return (Initializable) loader.getController();
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub

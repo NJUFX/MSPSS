@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerSearchViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -24,17 +24,17 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
+        <Button id="addUserButton" fx:id="CustomerAddButton" onAction="#customerAddButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" onAction="#delUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除客户" textFill="#f8f4f4">
+        <Button id="delUserButton" fx:id="CustomerDelButton" layoutY="317.0" mnemonicParsing="false" onAction="#customerDelButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="modUserButton" layoutY="351.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="修改客户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="CustomerModButton" layoutY="351.0" mnemonicParsing="false" onAction="#customerModifyButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="修改客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -82,7 +82,7 @@
                 <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Button id="modUserButton" fx:id="modUserButton1" layoutY="385.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="查找客户" textFill="#f8f4f4">
+        <Button id="searchButton"  layoutY="385.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="查找客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -119,25 +119,25 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Pane layoutX="159.0" layoutY="160.0" prefHeight="226.0" prefWidth="695.0">
-         <children>
-              <TextField layoutX="203.0" layoutY="130.0" prefHeight="40.0" prefWidth="293.0" promptText="关键词/编号">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <ComboBox layoutX="100.0" layoutY="130.0" prefHeight="40.0" prefWidth="102.0" promptText="关键词类型" />
-              <Button id="sureButton" fx:id="sureButton" layoutX="496.0" layoutY="130.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="39.0" prefWidth="102.0" stylesheets="@../../css/admin/addUser.css" text="查找" textFill="WHITE">
-                  <font>
-                      <Font name="Microsoft YaHei" size="16.0" />
-                  </font>
-              </Button>
-            <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="250.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/stockseller/search.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
+        <Pane layoutX="159.0" layoutY="160.0" prefHeight="226.0" prefWidth="695.0">
+            <children>
+                <TextField layoutX="203.0" layoutY="130.0" prefHeight="40.0" prefWidth="293.0" promptText="关键词/编号">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <ComboBox layoutX="100.0" layoutY="130.0" prefHeight="40.0" prefWidth="102.0" promptText="关键词类型" />
+                <Button id="sureButton" fx:id="sureButton" layoutX="496.0" layoutY="130.0" mnemonicParsing="false"  prefHeight="39.0" prefWidth="102.0" stylesheets="@../../css/admin/addUser.css" text="查找" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="250.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockseller/search.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
     </children>
 </Pane>
