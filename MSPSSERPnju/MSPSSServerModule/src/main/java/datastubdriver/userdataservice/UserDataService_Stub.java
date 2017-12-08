@@ -40,4 +40,8 @@ public class UserDataService_Stub implements UserDataService {
     public ResultMessage modifyUser(UserPO user) {
         return ResultMessage.SUCCESS;
     }
+
+    public UserPO findUserByID(String ID){
+        return new UserPO();
+    }
 }

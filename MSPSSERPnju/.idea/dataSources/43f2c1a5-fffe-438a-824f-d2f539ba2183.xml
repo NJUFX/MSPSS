@@ -58,35 +58,35 @@
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="8" name="operatorID">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="35" parent="8" name="managerID">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="36" parent="8" name="status">
+    <column id="34" parent="8" name="status">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="37" parent="8" name="sum">
+    <column id="35" parent="8" name="sum">
       <Position>5</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="38" parent="8" name="init_time">
+    <column id="36" parent="8" name="init_time">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="39" parent="8" name="commit_time">
+    <column id="37" parent="8" name="commit_time">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="40" parent="8" name="approval_time">
+    <column id="38" parent="8" name="approval_time">
       <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="8" name="operator_id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="8" name="manager_id">
+      <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
     <index id="41" parent="8" name="cashcostbillpo_id_uindex">
@@ -217,7 +217,7 @@
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="70" parent="12" name="is_leaf_node">
+    <column id="70" parent="12" name="leaf_node">
       <Position>4</Position>
       <DataType>tinyint(1)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
@@ -239,93 +239,93 @@
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="75" parent="13" name="classification_id">
+    <column id="75" parent="13" name="type">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="76" parent="13" name="type">
+    <column id="76" parent="13" name="id">
       <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="77" parent="13" name="id">
-      <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="78" parent="13" name="import_cost">
+    <column id="77" parent="13" name="import_cost">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="78" parent="13" name="export_cost">
       <Position>5</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="79" parent="13" name="export_cost">
+    <column id="79" parent="13" name="number_in_stock">
       <Position>6</Position>
-      <DataType>double|0</DataType>
-    </column>
-    <column id="80" parent="13" name="number_in_stock">
-      <Position>7</Position>
       <DataType>int(11)|0</DataType>
+    </column>
+    <column id="80" parent="13" name="classification_id">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
     </column>
     <key id="81" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="82" parent="14" name="is_exist">
-      <Position>1</Position>
-      <DataType>tinyint(1)|0</DataType>
-      <DefaultExpression>&apos;1&apos;</DefaultExpression>
-    </column>
-    <column id="83" parent="14" name="id">
+    <column id="82" parent="14" name="id">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="84" parent="14" name="category">
+    <column id="83" parent="14" name="category">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="85" parent="14" name="level">
+    <column id="84" parent="14" name="level">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="86" parent="14" name="name">
+    <column id="85" parent="14" name="name">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="87" parent="14" name="phonenumber">
+    <column id="86" parent="14" name="phonenumber">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="88" parent="14" name="address">
+    <column id="87" parent="14" name="address">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="89" parent="14" name="postcode">
+    <column id="88" parent="14" name="postcode">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="90" parent="14" name="email">
+    <column id="89" parent="14" name="email">
       <Position>9</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="91" parent="14" name="in_value">
+    <column id="90" parent="14" name="in_value">
       <Position>10</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="92" parent="14" name="income_money">
+    <column id="91" parent="14" name="income_money">
       <Position>11</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="93" parent="14" name="pay_money">
+    <column id="92" parent="14" name="pay_money">
       <Position>12</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="94" parent="14" name="DAE">
+    <column id="93" parent="14" name="DAE">
       <Position>13</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="95" parent="14" name="account_id">
+    <column id="94" parent="14" name="account_id">
       <Position>14</Position>
       <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="95" parent="14" name="exist">
+      <Position>1</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
     <index id="96" parent="14" name="customerpo_id_uindex">
       <ColNames>id</ColNames>
@@ -395,565 +395,577 @@
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="112" parent="16" name="account_id">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="113" parent="16" name="ps">
+    <column id="112" parent="16" name="ps">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="114" parent="16" name="money">
+    <column id="113" parent="16" name="money">
       <Position>4</Position>
       <DataType>double|0</DataType>
     </column>
-    <index id="115" parent="16" name="financeitempo_id_uindex">
+    <column id="114" parent="16" name="index_">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="115" parent="16" name="account_id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="116" parent="16" name="financebill_id">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="117" parent="16" name="financeitempo_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="116" parent="16" name="PRIMARY">
+    <key id="118" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="117" parent="16" name="financeitempo_id_uindex">
+    <key id="119" parent="16" name="financeitempo_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>financeitempo_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="118" parent="17" name="id">
+    <column id="120" parent="17" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="119" parent="17" name="name">
+    <column id="121" parent="17" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="120" parent="17" name="PRIMARY">
+    <key id="122" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="121" parent="18" name="name">
+    <column id="123" parent="18" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="122" parent="18" name="money">
+    <column id="124" parent="18" name="money">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="123" parent="18" name="account_index">
+    <column id="125" parent="18" name="account_index">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="124" parent="18" name="generalaccount_id">
+    <column id="126" parent="18" name="generalaccount_id">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="125" parent="18" name="keycolumn">
+    <column id="127" parent="18" name="keycolumn">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="126" parent="18" name="generalaccount_accountlist_name_uindex">
+    <index id="128" parent="18" name="generalaccount_accountlist_name_uindex">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="127" parent="18" name="PRIMARY">
+    <key id="129" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>keycolumn</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="128" parent="18" name="generalaccount_accountlist_name_uindex">
+    <key id="130" parent="18" name="generalaccount_accountlist_name_uindex">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>generalaccount_accountlist_name_uindex</UnderlyingIndexName>
     </key>
-    <column id="129" parent="19" name="id">
+    <column id="131" parent="19" name="id">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="130" parent="19" name="classification_id">
+    <column id="132" parent="19" name="classification_id">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="131" parent="19" name="type">
+    <column id="133" parent="19" name="type">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="132" parent="19" name="export_cost">
+    <column id="134" parent="19" name="export_cost">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="133" parent="19" name="number_in_stock">
+    <column id="135" parent="19" name="number_in_stock">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="134" parent="19" name="import_cost">
+    <column id="136" parent="19" name="import_cost">
       <Position>5</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="135" parent="19" name="generalaccount_id">
+    <column id="137" parent="19" name="generalaccount_id">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="136" parent="19" name="commodity_index">
+    <column id="138" parent="19" name="commodity_index">
       <Position>9</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="137" parent="19" name="keycolumn">
+    <column id="139" parent="19" name="keycolumn">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="138" parent="19" name="name">
+    <column id="140" parent="19" name="name">
       <Position>10</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="139" parent="19" name="generalaccount_commoditylist_id_uindex">
+    <index id="141" parent="19" name="generalaccount_commoditylist_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="140" parent="19" name="PRIMARY">
+    <key id="142" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>keycolumn</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="141" parent="19" name="generalaccount_commoditylist_id_uindex">
+    <key id="143" parent="19" name="generalaccount_commoditylist_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>generalaccount_commoditylist_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="142" parent="20" name="id">
+    <column id="144" parent="20" name="id">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="143" parent="20" name="category">
+    <column id="145" parent="20" name="category">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="144" parent="20" name="exist">
+    <column id="146" parent="20" name="exist">
       <Position>4</Position>
       <DataType>tinyint(1)|0</DataType>
     </column>
-    <column id="145" parent="20" name="level">
+    <column id="147" parent="20" name="level">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="146" parent="20" name="name">
+    <column id="148" parent="20" name="name">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="147" parent="20" name="phonenumber">
+    <column id="149" parent="20" name="phonenumber">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="148" parent="20" name="address">
+    <column id="150" parent="20" name="address">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="149" parent="20" name="email">
+    <column id="151" parent="20" name="email">
       <Position>10</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="150" parent="20" name="incomemoney">
+    <column id="152" parent="20" name="incomemoney">
       <Position>12</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="151" parent="20" name="paymoney">
+    <column id="153" parent="20" name="paymoney">
       <Position>13</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="152" parent="20" name="postcode">
+    <column id="154" parent="20" name="postcode">
       <Position>9</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="153" parent="20" name="in_value">
+    <column id="155" parent="20" name="in_value">
       <Position>11</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="154" parent="20" name="generalaccount_id">
+    <column id="156" parent="20" name="generalaccount_id">
       <Position>14</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="155" parent="20" name="customer_index">
+    <column id="157" parent="20" name="customer_index">
       <Position>15</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="156" parent="20" name="keycolumn">
+    <column id="158" parent="20" name="keycolumn">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="157" parent="20" name="generalaccount_customerlist_id_uindex">
+    <index id="159" parent="20" name="generalaccount_customerlist_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="158" parent="20" name="generalaccount_customerlist_keycolumn_uindex">
+    <index id="160" parent="20" name="generalaccount_customerlist_keycolumn_uindex">
       <ColNames>keycolumn</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="159" parent="20" name="PRIMARY">
+    <key id="161" parent="20" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>keycolumn</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="160" parent="20" name="generalaccount_customerlist_keycolumn_uindex">
+    <key id="162" parent="20" name="generalaccount_customerlist_keycolumn_uindex">
       <ColNames>keycolumn</ColNames>
       <UnderlyingIndexName>generalaccount_customerlist_keycolumn_uindex</UnderlyingIndexName>
     </key>
-    <key id="161" parent="20" name="generalaccount_customerlist_id_uindex">
+    <key id="163" parent="20" name="generalaccount_customerlist_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>generalaccount_customerlist_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="162" parent="21" name="id">
+    <column id="164" parent="21" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="163" parent="21" name="operator">
+    <column id="165" parent="21" name="operator">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="164" parent="21" name="time">
+    <column id="166" parent="21" name="time">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="165" parent="21" name="kind">
+    <column id="167" parent="21" name="kind">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="166" parent="21" name="logpo_id_uindex">
+    <index id="168" parent="21" name="logpo_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="167" parent="21" name="logpo_id_uindex">
+    <key id="169" parent="21" name="logpo_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>logpo_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="168" parent="22" name="keycolumn">
+    <column id="170" parent="22" name="keycolumn">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="169" parent="22" name="name">
+    <column id="171" parent="22" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="170" parent="22" name="classification_id">
+    <column id="172" parent="22" name="classification_id">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="171" parent="22" name="type">
+    <column id="173" parent="22" name="type">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="172" parent="22" name="id">
+    <column id="174" parent="22" name="id">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="173" parent="22" name="import_cost">
+    <column id="175" parent="22" name="import_cost">
       <Position>6</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="174" parent="22" name="export_cost">
+    <column id="176" parent="22" name="export_cost">
       <Position>7</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="175" parent="22" name="number_in_stock">
+    <column id="177" parent="22" name="number_in_stock">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="176" parent="22" name="index_">
+    <column id="178" parent="22" name="index_">
       <Position>9</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="177" parent="22" name="bill_id">
+    <column id="179" parent="22" name="purchasebill_id">
       <Position>10</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="178" parent="22" name="purchasebill_commodity_po_keycolumn_uindex">
+    <index id="180" parent="22" name="purchasebill_commodity_po_keycolumn_uindex">
       <ColNames>keycolumn</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="179" parent="22" name="purchasebill_commodity_po_keycolumn_uindex">
+    <key id="181" parent="22" name="purchasebill_commodity_po_keycolumn_uindex">
       <ColNames>keycolumn</ColNames>
       <UnderlyingIndexName>purchasebill_commodity_po_keycolumn_uindex</UnderlyingIndexName>
     </key>
-    <column id="180" parent="23" name="id">
+    <column id="182" parent="23" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="181" parent="23" name="supplier">
+    <column id="183" parent="23" name="supplier">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="182" parent="23" name="store">
+    <column id="184" parent="23" name="store">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="183" parent="23" name="worker">
+    <column id="185" parent="23" name="worker">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="184" parent="23" name="sum">
+    <column id="186" parent="23" name="sum">
       <Position>5</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="185" parent="23" name="remark">
+    <column id="187" parent="23" name="remark">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="186" parent="23" name="purchasebillpo_id_uindex">
+    <index id="188" parent="23" name="purchasebillpo_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="187" parent="23" name="PRIMARY">
+    <key id="189" parent="23" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="188" parent="23" name="purchasebillpo_id_uindex">
+    <key id="190" parent="23" name="purchasebillpo_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>purchasebillpo_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="189" parent="24" name="id">
+    <column id="191" parent="24" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="190" parent="24" name="provider">
+    <column id="192" parent="24" name="provider">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="191" parent="24" name="storage">
+    <column id="193" parent="24" name="storage">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="192" parent="24" name="type">
+    <column id="194" parent="24" name="type">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="193" parent="24" name="operator_id">
+    <column id="195" parent="24" name="operator_id">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="194" parent="24" name="ps">
+    <column id="196" parent="24" name="ps">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="195" parent="24" name="sum_money">
+    <column id="197" parent="24" name="sum_money">
       <Position>7</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="196" parent="24" name="status">
+    <column id="198" parent="24" name="status">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="197" parent="24" name="init_time">
+    <column id="199" parent="24" name="init_time">
       <Position>9</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="198" parent="24" name="commit_time">
+    <column id="200" parent="24" name="commit_time">
       <Position>10</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="199" parent="24" name="approval_time">
+    <column id="201" parent="24" name="approval_time">
       <Position>11</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="200" parent="24" name="comment_by_manager">
+    <column id="202" parent="24" name="comment_by_manager">
       <Position>12</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="201" parent="24" name="manager_id">
+    <column id="203" parent="24" name="manager_id">
       <Position>13</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="202" parent="24" name="salesinbillpo_id_uindex">
+    <index id="204" parent="24" name="salesinbillpo_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="203" parent="24" name="PRIMARY">
+    <key id="205" parent="24" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="204" parent="24" name="salesinbillpo_id_uindex">
+    <key id="206" parent="24" name="salesinbillpo_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>salesinbillpo_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="205" parent="25" name="keycolumn">
+    <column id="207" parent="25" name="keycolumn">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="206" parent="25" name="id">
+    <column id="208" parent="25" name="id">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="207" parent="25" name="number">
+    <column id="209" parent="25" name="number">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="208" parent="25" name="price">
+    <column id="210" parent="25" name="price">
       <Position>4</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="209" parent="25" name="ps">
+    <column id="211" parent="25" name="ps">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="210" parent="25" name="index_">
-      <Position>6</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="211" parent="25" name="salesinbill_id">
+    <column id="212" parent="25" name="salesinbill_id">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="212" parent="25" name="salesoutbill_id">
+    <column id="213" parent="25" name="salesoutbill_id">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="213" parent="25" name="salesitempo_keycolumn_uindex">
+    <column id="214" parent="25" name="salesin_index">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="215" parent="25" name="salesout_index">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="216" parent="25" name="salesitempo_keycolumn_uindex">
       <ColNames>keycolumn</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="214" parent="25" name="PRIMARY">
+    <key id="217" parent="25" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>keycolumn</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="215" parent="25" name="salesitempo_keycolumn_uindex">
+    <key id="218" parent="25" name="salesitempo_keycolumn_uindex">
       <ColNames>keycolumn</ColNames>
       <UnderlyingIndexName>salesitempo_keycolumn_uindex</UnderlyingIndexName>
     </key>
-    <column id="216" parent="26" name="id">
+    <column id="219" parent="26" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="217" parent="26" name="type">
+    <column id="220" parent="26" name="type">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="218" parent="26" name="customer_id">
+    <column id="221" parent="26" name="customer_id">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="219" parent="26" name="operator_id">
+    <column id="222" parent="26" name="operator_id">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="220" parent="26" name="manager_id">
+    <column id="223" parent="26" name="manager_id">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="221" parent="26" name="status">
+    <column id="224" parent="26" name="status">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="222" parent="26" name="storage">
+    <column id="225" parent="26" name="storage">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="223" parent="26" name="promotion_id">
+    <column id="226" parent="26" name="promotion_id">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="224" parent="26" name="init_time">
+    <column id="227" parent="26" name="init_time">
       <Position>9</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="225" parent="26" name="commit_time">
+    <column id="228" parent="26" name="commit_time">
       <Position>10</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="226" parent="26" name="approval_time">
+    <column id="229" parent="26" name="approval_time">
       <Position>11</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="227" parent="26" name="ps">
+    <column id="230" parent="26" name="ps">
       <Position>12</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="228" parent="26" name="allowance">
+    <column id="231" parent="26" name="allowance">
       <Position>13</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="229" parent="26" name="voucher">
+    <column id="232" parent="26" name="voucher">
       <Position>14</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="230" parent="26" name="sum_before_discount">
+    <column id="233" parent="26" name="sum_before_discount">
       <Position>15</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="231" parent="26" name="sum_after_discount">
+    <column id="234" parent="26" name="sum_after_discount">
       <Position>16</Position>
       <DataType>double|0</DataType>
     </column>
-    <index id="232" parent="26" name="salesoutbillpo_id_uindex">
+    <index id="235" parent="26" name="salesoutbillpo_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="233" parent="26" name="PRIMARY">
+    <key id="236" parent="26" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="234" parent="26" name="salesoutbillpo_id_uindex">
+    <key id="237" parent="26" name="salesoutbillpo_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>salesoutbillpo_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="235" parent="27" name="id">
+    <column id="238" parent="27" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="236" parent="27" name="name">
+    <column id="239" parent="27" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="237" parent="27" name="category">
+    <column id="240" parent="27" name="category">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="238" parent="27" name="password">
+    <column id="241" parent="27" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="239" parent="27" name="power">
+    <column id="242" parent="27" name="power">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="240" parent="27" name="is_valid">
+    <column id="243" parent="27" name="is_valid">
       <Position>6</Position>
       <DataType>tinyint(1)|0</DataType>
     </column>
-    <index id="241" parent="27" name="userpo_id_uindex">
+    <index id="244" parent="27" name="userpo_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="242" parent="27" name="PRIMARY">
+    <key id="245" parent="27" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="243" parent="27" name="userpo_id_uindex">
+    <key id="246" parent="27" name="userpo_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>userpo_id_uindex</UnderlyingIndexName>
     </key>

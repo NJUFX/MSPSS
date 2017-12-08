@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+   <class name ="po.CashCostItemPO" table ="cashcostitempo">
+
+       <id name = "id" column = "id" type = "int">
+
+           <generator class="increment"></generator>
+       </id>
+
+       <property name="name" column="name" type="string"></property>
+       <property name="ps" column ="ps" type ="string"></property>
+       <property name="money" column ="money" type ="double"></property>
+
+       <many-to-one name="cashcostbill" column = "cashcostbill_id" class="po.CashCostBillPO">
+
+       </many-to-one>
+
+
+
+   </class>
+
+</hibernate-mapping>

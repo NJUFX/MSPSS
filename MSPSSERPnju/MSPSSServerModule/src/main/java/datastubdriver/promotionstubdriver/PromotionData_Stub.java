@@ -49,7 +49,7 @@ public class PromotionData_Stub implements PromotionDataService{
      */
     public ArrayList<PromotionPO> search(Time date){
         String[] Test_String = new String[1];
-        PromotionPO Test_PromotionPO = new PromotionPO("000001","分级赠送赠品",Test_String,new Time(2017,11,13,9,12,12));
+        PromotionPO Test_PromotionPO = new PromotionPO();
         ArrayList<PromotionPO> Test_PromotionPOList = new ArrayList<PromotionPO>();
         Test_PromotionPOList.add(Test_PromotionPO);
         return Test_PromotionPOList;

@@ -8,7 +8,7 @@ public class CustomerPO  implements Serializable{
     /**
      * 判断客户是否存在
      */
-    private boolean isExist;
+    private boolean Exist;
     /**
      * 客户编号
      */
@@ -68,12 +68,32 @@ public class CustomerPO  implements Serializable{
   //  private Kind_Of_Customers kind;
 
 
+    public CustomerPO() {
+    }
+
+    public CustomerPO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney, String DAE, String accountID) {
+        Exist = exist;
+        this.ID = ID;
+        this.category = category;
+        this.level = level;
+        this.name = name;
+        this.phonenumber = phonenumber;
+        this.address = address;
+        this.postcode = postcode;
+        this.email = email;
+        Invalue = invalue;
+        this.incomemoney = incomemoney;
+        this.paymoney = paymoney;
+        this.DAE = DAE;
+        this.accountID = accountID;
+    }
+
     public boolean isExist() {
-        return isExist;
+        return Exist;
     }
 
     public void setExist(boolean exist) {
-        isExist = exist;
+        Exist = exist;
     }
 
     public String getID() {

@@ -49,4 +49,76 @@ public class PurchaseBill_Commodity_PO implements Serializable{
      *多对一映射中对应的链表
      */
     private PurchaseBillPO purchasebill;
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getClassificationID() {
+        return classificationID;
+    }
+
+    public void setClassificationID(String classificationID) {
+        this.classificationID = classificationID;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public double getImportCost() {
+        return importCost;
+    }
+
+    public void setImportCost(double importCost) {
+        this.importCost = importCost;
+    }
+
+    public double getExportCost() {
+        return exportCost;
+    }
+
+    public void setExportCost(double exportCost) {
+        this.exportCost = exportCost;
+    }
+
+    public int getNumberInStock() {
+        return numberInStock;
+    }
+
+    public void setNumberInStock(int numberInStock) {
+        this.numberInStock = numberInStock;
+    }
+
+    public PurchaseBillPO getPurchasebill() {
+        return purchasebill;
+    }
+
+    public void setPurchasebill(PurchaseBillPO purchasebill) {
+        this.purchasebill = purchasebill;
+    }
 }

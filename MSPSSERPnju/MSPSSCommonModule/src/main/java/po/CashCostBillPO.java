@@ -5,6 +5,7 @@ import util.BillStatus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description: 现金费用单 管理报销等现金操作
@@ -30,7 +31,7 @@ public class CashCostBillPO implements Serializable {
     /**
      * 条目清单
      */
-    ArrayList<CashCostItemPO> list;
+    List<CashCostItemPO> list;
     /**
      * 总金额
      */
@@ -48,16 +49,19 @@ public class CashCostBillPO implements Serializable {
      */
     private String approval_time;
 
-    public CashCostBillPO (String ID,String operatorID,String managerID,int status,double sum,ArrayList<CashCostItemPO> list,String init_time,String commit_time,String approval_time){
-      this .ID  =ID;
-      this.operatorID =operatorID;
-      this.managerID = managerID;
-      this.status =status;
-      this.sum = sum;
-      this.init_time = init_time;
-      this.commit_time = commit_time;
-      this.approval_time = approval_time;
-      this.list = list;
+    public CashCostBillPO() {
+    }
+
+    public CashCostBillPO(String ID, String operatorID, String managerID, int status, List<CashCostItemPO> list, double sum, String init_time, String commit_time, String approval_time) {
+        this.ID = ID;
+        this.operatorID = operatorID;
+        this.managerID = managerID;
+        this.status = status;
+        this.list = list;
+        this.sum = sum;
+        this.init_time = init_time;
+        this.commit_time = commit_time;
+        this.approval_time = approval_time;
     }
 
     public String getID() {
@@ -92,11 +96,11 @@ public class CashCostBillPO implements Serializable {
         this.status = status;
     }
 
-    public ArrayList<CashCostItemPO> getList() {
+    public List<CashCostItemPO> getList() {
         return list;
     }
 
-    public void setList(ArrayList<CashCostItemPO> list) {
+    public void setList(List<CashCostItemPO> list) {
         this.list = list;
     }
 

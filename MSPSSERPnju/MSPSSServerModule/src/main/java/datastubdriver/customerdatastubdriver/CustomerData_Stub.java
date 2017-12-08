@@ -11,7 +11,7 @@ public class CustomerData_Stub implements CustomerDataService {
 
     @Override
     public boolean addCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue, double in, double out, String DAE) {
-        CustomerPO newcustomer = new CustomerPO(ID, "SUPPLYER", level, name, tele, address, postcode, email, InValue, in, out, DAE);
+        CustomerPO newcustomer = new CustomerPO();
         customerList.add(newcustomer);
         return true;
     }
@@ -47,7 +47,7 @@ public class CustomerData_Stub implements CustomerDataService {
     @Override
     public CustomerPO getCustomerInfo(String ID) {
         for (CustomerPO lang : customerList) {
-            if (lang.getID().equals(ID) && lang.getExist() != false) {
+            if (lang.getID().equals(ID) && lang.isExist() != false) {
                 return lang;
             }
         }
@@ -57,8 +57,8 @@ public class CustomerData_Stub implements CustomerDataService {
     @Override
     public boolean modifyCustomer(String ID, String category, int level, String name, String tele, String address, String postcode, String email, double InValue) {
         for (CustomerPO lang : customerList) {
-            if (lang.getID().equals(ID) && lang.getExist() != false) {
-                lang.setCategory(category);
+            if (lang.getID().equals(ID) && lang.isExist() != false) {
+                lang.setCategory(1);
                 lang.setLevel(level);
                 lang.setName(name);
                 lang.setPhonenumber(tele);

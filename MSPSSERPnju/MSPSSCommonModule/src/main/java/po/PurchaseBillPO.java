@@ -2,8 +2,13 @@ package po;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PurchaseBillPO implements Serializable {
+    /**
+     * 主键，切勿自己赋值！！！
+     */
+    private String keycolumn;
     /**
      * 进货单编号
      */
@@ -23,7 +28,7 @@ public class PurchaseBillPO implements Serializable {
     /**
      * 入库商品列表
      */
-    private ArrayList<CommodityPO> prolist;
+    private List<CommodityPO> prolist;
     /**
      * 总额
      */
@@ -33,6 +38,25 @@ public class PurchaseBillPO implements Serializable {
      */
     String remark;
 
+    public PurchaseBillPO(String keycolumn, String ID, String supplier, String store, String worker, List<CommodityPO> prolist, double sum, String remark) {
+        this.keycolumn = keycolumn;
+        this.ID = ID;
+        this.supplier = supplier;
+        this.store = store;
+        this.worker = worker;
+        this.prolist = prolist;
+        this.sum = sum;
+        this.remark = remark;
+    }
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
+
     public String getID() {
         return ID;
     }
@@ -40,7 +64,6 @@ public class PurchaseBillPO implements Serializable {
     public void setID(String ID) {
         this.ID = ID;
     }
-
 
     public String getSupplier() {
         return supplier;
@@ -66,11 +89,11 @@ public class PurchaseBillPO implements Serializable {
         this.worker = worker;
     }
 
-    public ArrayList<CommodityPO> getProlist() {
+    public List<CommodityPO> getProlist() {
         return prolist;
     }
 
-    public void setProlist(ArrayList<CommodityPO> prolist) {
+    public void setProlist(List<CommodityPO> prolist) {
         this.prolist = prolist;
     }
 
@@ -89,15 +112,4 @@ public class PurchaseBillPO implements Serializable {
     public void setRemark(String remark) {
         this.remark = remark;
     }
-
-    public PurchaseBillPO(String ID, String supplier, String store, String worker, ArrayList<CommodityPO> prolist, double sum, String remark) {
-        this.ID = ID;
-        this.supplier = supplier;
-        this.store = store;
-        this.worker = worker;
-        this.prolist = prolist;
-        this.sum = sum;
-        this.remark = remark;
-    }
-
 }

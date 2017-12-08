@@ -31,7 +31,7 @@ public class LogData_Stub implements LogDataService{
      */
     public ArrayList<LogPO> search (Time date){
         ArrayList<LogPO> Test_LogPOList = new ArrayList<LogPO>();
-        LogPO Test_LogPO = new LogPO("000001","jiangchen","17/11/20","sell","Bulb",100,10000);
+        LogPO Test_LogPO = new LogPO();
         Test_LogPOList.add(Test_LogPO);
         return Test_LogPOList;
     }

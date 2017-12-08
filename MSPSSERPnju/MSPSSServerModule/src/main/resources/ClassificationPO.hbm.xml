@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+      <class name ="po.ClassificationPO" table ="classificationpo">
+
+          <id name = "ID" column="id" type ="string">
+
+          </id>
+
+          <property name="name" column ="name" type="string">
+
+          </property>
+          <property name="parentID" column ="parent_id" type="string"></property>
+          <property name="LeafNode" column ="leaf_node" type="boolean"></property>
+
+          <list name="childrenID" table="classification_children_po" cascade="all">
+              <key column="classification_id"></key>
+              <index column="index_" type="int"></index>
+              <one-to-many class="po.Classification_Children_PO"></one-to-many>
+          </list>
+
+          <list name="commodityIDs" table="classification_commodity_po" cascade="all">
+              <key column="classification_id"></key>
+              <index column="index_" type="int"></index>
+              <one-to-many class="po.Classification_Commodity_PO"></one-to-many>
+          </list>
+      </class>
+
+</hibernate-mapping>
