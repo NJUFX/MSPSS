@@ -4,13 +4,14 @@ import util.BillStatus;
 import util.SalesInBillType;
 import util.Time;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Description:
  * Created by Hanxinhu at 22:58 2017/11/27/027
  */
-public class SalesInBillPO {
+public class SalesInBillPO implements Serializable {
     /**
      * 进货类单据的单据编号
      * 进货单格式为（格式为：JHD-yyyyMMdd-xxxxx，后五位每天从1开始编号，所以一天最多可以生成99999条单子）

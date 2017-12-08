@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by thinkpad on 2017/11/30.
  */
-public class GeneralAccount_AccountList_PO  {
+public class GeneralAccount_AccountList_PO implements Serializable  {
 
     private String keycolumn;
     private String name;

@@ -3,13 +3,14 @@ package po;
 import util.BillStatus;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Description: 现金费用单 管理报销等现金操作
  * Created by Hanxinhu at 19:31 2017/11/28/028
  */
-public class CashCostBillPO {
+public class CashCostBillPO implements Serializable {
     /**
      * 单据编号（XJFYD-yyyyMMdd-xxxxx）
      */

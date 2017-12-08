@@ -1,9 +1,11 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * updated by hanxinhu at 2017-12-08
  */
-public class LogPO {
+public class LogPO implements Serializable {
     /**
      * 日志信息的编号
      */

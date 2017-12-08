@@ -3,13 +3,14 @@ package po;
 import util.BillStatus;
 import util.StockBillType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Description:
  * Created by Hanxinhu at 20:39 2017/11/27/027
  */
-public class StockBillPO {
+public class StockBillPO implements Serializable{
     /**
      * 库存单据的具体类型
      */

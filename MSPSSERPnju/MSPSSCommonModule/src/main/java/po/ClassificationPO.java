@@ -1,5 +1,6 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @Description:
  * @Date Created in 19:05 2017/11/6/006
  */
-public class ClassificationPO {
+public class ClassificationPO implements Serializable {
     /**
      * 商品分类名称
      */

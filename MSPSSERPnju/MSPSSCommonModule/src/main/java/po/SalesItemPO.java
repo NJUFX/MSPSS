@@ -1,10 +1,12 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * Description:
  * Created by Hanxinhu at 22:59 2017/11/27/027
  */
-public class SalesItemPO {
+public class SalesItemPO implements Serializable{
   /**
    * 关键字
    */

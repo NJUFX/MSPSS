@@ -2,13 +2,15 @@ package po;
 
 import util.StockInfo;
 
+import java.io.Serializable;
+
 /**
  * @Project_Name ERPnju
  * @Author: HanXinHu
  * @Description:
  * @Date Created in 18:41 2017/11/6/006
  */
-public class StockPO {
+public class StockPO implements Serializable{
     /**
      * inOrOut 出库还是入库
      */

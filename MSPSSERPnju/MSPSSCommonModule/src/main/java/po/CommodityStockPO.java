@@ -2,13 +2,15 @@ package po;
 
 import util.Time;
 
+import java.io.Serializable;
+
 /**
  * @Project_Name ERPnju
  * @Author: HanXinHu
  * @Description:
  * @Date Created in 19:20 2017/11/6/006
  */
-public class CommodityStockPO {
+public class CommodityStockPO implements Serializable {
     /**
      * 商品编号
      */
