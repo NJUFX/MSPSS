@@ -18,6 +18,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen
+ * date:2017/12/8
+ */
 public class CommoditySearchShowViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
