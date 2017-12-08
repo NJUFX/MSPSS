@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+   <class name ="po.SalesItemPO" table ="salesitempo">
+
+       <id name = "keycolumn" column = "keycolumn" type = "string">
+
+           <generator class="uuid"></generator>
+       </id>
+
+       <property name="id" column="id" type="string"></property>
+       <property name="number" column ="number" type ="string"></property>
+       <property name="price" column ="price" type ="double"></property>
+       <property name="ps" column="ps" type="string"></property>
+
+
+       <many-to-one name="salesInBillPO" column = "salesinbill_id" class="po.SalesInBillPO">
+
+       </many-to-one>
+       <many-to-one name="salesOutBillPO" column="salesoutbill_id" class="po.SalesOutBillPO"></many-to-one>
+
+
+   </class>
+
+</hibernate-mapping>

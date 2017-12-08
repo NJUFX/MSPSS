@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+   <class name ="po.Classification_Children_PO" table ="classification_children_po">
+
+       <id name = "keycolumn" column = "keycolumn" type = "string">
+
+           <generator class="uuid"></generator>
+       </id>
+
+       <property name="ID" column="id" type="string"></property>
+
+       <many-to-one name="classification" column = "classification_id" class="po.ClassificationPO">
+
+       </many-to-one>
+
+
+
+   </class>
+
+</hibernate-mapping>

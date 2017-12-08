@@ -2,13 +2,21 @@ package po;
 
 import util.Time;
 
+import java.io.Serializable;
+
 /**
  * @Project_Name ERPnju
  * @Author: HanXinHu
  * @Description:
  * @Date Created in 19:20 2017/11/6/006
  */
+<<<<<<< HEAD
 public class CommodityStockPO {
+
+    //因为存在改动，暂时还没写这个类的数据库
+=======
+public class CommodityStockPO implements Serializable {
+>>>>>>> f4629d107257d0548b122ca949fef85a75dc1d68
     /**
      * 商品编号
      */
@@ -43,6 +51,9 @@ public class CommodityStockPO {
         this.pici = pici;
         this.pihao = pihao;
         this.exportDate = exportDate;
+    }
+
+    public CommodityStockPO() {
     }
 
     public String getCommodityID() {

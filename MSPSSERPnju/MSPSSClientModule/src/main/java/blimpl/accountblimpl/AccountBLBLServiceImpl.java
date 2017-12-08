@@ -1,5 +1,6 @@
 package blimpl.accountblimpl;
 
+import blservice.accountblservice.AccountBLInfo;
 import blservice.accountblservice.AccountBLService;
 import util.ResultMessage;
 import vo.AccountVO;
@@ -9,8 +10,14 @@ import java.util.ArrayList;
 /**
  * Created by thinkpad on 2017/11/11.
  */
-public class AccountBLServiceImpl implements AccountBLService{
-    Account MyAccount = new Account();
+public class AccountBLBLServiceImpl implements AccountBLService,AccountBLInfo {
+    Account MyAccount;
+    public AccountBLBLServiceImpl(){
+     MyAccount = new Account();
+    }
+    public AccountBLBLServiceImpl(Account account){
+        MyAccount = account;
+    }
 
     @Override
     public ResultMessage addAccount(AccountVO account){

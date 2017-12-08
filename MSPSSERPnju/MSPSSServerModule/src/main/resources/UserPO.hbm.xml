@@ -4,7 +4,7 @@
 <!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="po.UserPO" table="userpo">
-        <id name="id" column="id" type="string">
+        <id name="ID" column="id" type="string">
         <generator class="uuid" />
     </id>
         <property name="name" column="name" type="string"/>

@@ -20,4 +20,5 @@ public class FinanceBill {
     public ArrayList<FinanceBillVO> searchFinanceBill(FilterFlagVO flagVO){
         return null;
     }
+
 }

@@ -1,5 +1,6 @@
 package blimpl.billblimpl;
 
+import filterflags.BillFilter;
 import util.ResultMessage;
 import vo.SalesInBillVO;
 
@@ -16,7 +17,7 @@ public class SalesInBill {
     public ResultMessage updateSalesInBill(SalesInBillVO salesInBillVO){
         return ResultMessage.SUCCESS;
     }
-    public ArrayList<SalesInBillVO> searchSalesInBill(SalesInBillVO salesInBillVO){
+    public ArrayList<SalesInBillVO> searchSalesInBill(BillFilter bill){
         return null;
     }
 }

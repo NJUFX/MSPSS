@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="po.CashCostBillPO" table="cashcostbillpo">
+        <id name="ID" column="id" type="string">
+
+    </id>
+        <property name="operatorID" column="operator_id" type="string"/>
+        <property name="managerID" column="manager_id" type ="string"/>
+        <property name="status" column="status" type="int"/>
+        <property name="sum" column="sum" type="double"/>
+        <property name="init_time" column="init_time" type="string"/>
+        <property name="commit_time" column="commit_time" type="string"/>
+        <property name="approval_time" column="approval_time" type="string"/>
+
+
+        <list name="list" table ="cashcostitempo" cascade="all">
+            <key column="cashcostbill_id"></key>
+
+            <index column ="index_" type ="int"></index>
+            <one-to-many class="po.CashCostItemPO"></one-to-many>
+        </list>
+    </class>
+</hibernate-mapping>

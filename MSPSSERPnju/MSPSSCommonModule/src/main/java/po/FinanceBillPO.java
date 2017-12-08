@@ -3,13 +3,15 @@ package po;
 import util.BillStatus;
 import util.FinanceBillType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description:
  * Created by Hanxinhu at 15:35 2017/11/28/028
  */
-public class FinanceBillPO {
+public class FinanceBillPO implements Serializable {
     /**
      * 单据编号 收款单（SKD-yyyyMMdd-xxxxx）
      * 付款单 （FKD-yyyyMMdd-xxxxx）
@@ -55,20 +57,21 @@ public class FinanceBillPO {
    /**
     * 条目清单 条目包括 条目名 金额 备注
     */
-   private ArrayList<FinanceItemPO> list;
+   private List<FinanceItemPO> list;
 
-   public FinanceBillPO(String ID,String operatorID,String managerID,String init_time,String commit_time,String approval_time
-      ,String customerID,int status,ArrayList<FinanceItemPO> list,double sum ){
-      this.operatorID = operatorID;
+
+   public FinanceBillPO(String ID, String operatorID, String customerID, String managerID, String init_time, String commit_time, String approval_time, FinanceBillType type, double sum, int status, List<FinanceItemPO> list) {
       this.ID = ID;
+      this.operatorID = operatorID;
+      this.customerID = customerID;
       this.managerID = managerID;
       this.init_time = init_time;
       this.commit_time = commit_time;
       this.approval_time = approval_time;
-      this.status =status;
-      this.customerID = customerID;
-      this.list = list;
+      this.type = type;
       this.sum = sum;
+      this.status = status;
+      this.list = list;
    }
 
    public String getID() {
@@ -151,11 +154,11 @@ public class FinanceBillPO {
       this.status = status;
    }
 
-   public ArrayList<FinanceItemPO> getList() {
+   public List<FinanceItemPO> getList() {
       return list;
    }
 
-   public void setList(ArrayList<FinanceItemPO> list) {
+   public void setList(List<FinanceItemPO> list) {
       this.list = list;
    }
 }

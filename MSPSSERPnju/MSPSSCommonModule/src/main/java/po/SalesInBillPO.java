@@ -4,13 +4,15 @@ import util.BillStatus;
 import util.SalesInBillType;
 import util.Time;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description:
  * Created by Hanxinhu at 22:58 2017/11/27/027
  */
-public class SalesInBillPO {
+public class SalesInBillPO implements Serializable {
     /**
      * 进货类单据的单据编号
      * 进货单格式为（格式为：JHD-yyyyMMdd-xxxxx，后五位每天从1开始编号，所以一天最多可以生成99999条单子）
@@ -48,7 +50,7 @@ public class SalesInBillPO {
     /**
      * 入库商品列表
      */
-    private ArrayList<SalesItemPO> itemPOS;
+    private List<SalesItemPO> itemPOS;
     /**
      * 单据状态BillStatus
      */
@@ -76,8 +78,7 @@ public class SalesInBillPO {
      */
     private String managerID;
 
-
-    public SalesInBillPO(String ID, String provider, String storage, int type, String operatorID, String ps, double sumMoney, ArrayList<SalesItemPO> itemPOS, int status, String init_time, String commit_time, String approval_time, String commentByManager, String managerID) {
+    public SalesInBillPO(String ID, String provider, String storage, int type, String operatorID, String ps, double sumMoney, List<SalesItemPO> itemPOS, int status, String init_time, String commit_time, String approval_time, String commentByManager, String managerID) {
         this.ID = ID;
         this.provider = provider;
         this.storage = storage;
@@ -94,28 +95,12 @@ public class SalesInBillPO {
         this.managerID = managerID;
     }
 
-    public void setSumMoney(double sumMoney) {
-        this.sumMoney = sumMoney;
+    public String getID() {
+        return ID;
     }
 
-    public double getSumMoney() {
-        return sumMoney;
-    }
-
-    public String getStorage() {
-        return storage;
-    }
-
-    public void setStorage(String storage) {
-        this.storage = storage;
-    }
-
-    public String getPs() {
-        return ps;
-    }
-
-    public void setPs(String ps) {
-        this.ps = ps;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getProvider() {
@@ -126,16 +111,13 @@ public class SalesInBillPO {
         this.provider = provider;
     }
 
-
-
-    public String getID() {
-        return ID;
+    public String getStorage() {
+        return storage;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setStorage(String storage) {
+        this.storage = storage;
     }
-
 
     public int getType() {
         return type;
@@ -145,46 +127,44 @@ public class SalesInBillPO {
         this.type = type;
     }
 
+    public String getOperatorID() {
+        return operatorID;
+    }
+
+    public void setOperatorID(String operatorID) {
+        this.operatorID = operatorID;
+    }
+
+    public String getPs() {
+        return ps;
+    }
+
+    public void setPs(String ps) {
+        this.ps = ps;
+    }
+
+    public double getSumMoney() {
+        return sumMoney;
+    }
+
+    public void setSumMoney(double sumMoney) {
+        this.sumMoney = sumMoney;
+    }
+
+    public List<SalesItemPO> getItemPOS() {
+        return itemPOS;
+    }
+
+    public void setItemPOS(List<SalesItemPO> itemPOS) {
+        this.itemPOS = itemPOS;
+    }
+
     public int getStatus() {
         return status;
     }
 
     public void setStatus(int status) {
         this.status = status;
-    }
-
-    public String getCommentByManager() {
-        return commentByManager;
-    }
-
-
-
-    public ArrayList<SalesItemPO> getItemPOS() {
-        return itemPOS;
-    }
-
-    public void setCommentByManager(String commentByManager) {
-        this.commentByManager = commentByManager;
-    }
-
-    public String getManagerID() {
-        return managerID;
-    }
-
-    public void setItemPOS(ArrayList<SalesItemPO> itemPOS) {
-        this.itemPOS = itemPOS;
-    }
-
-    public String getOperatorID() {
-        return operatorID;
-    }
-
-    public void setManagerID(String managerID) {
-        this.managerID = managerID;
-    }
-
-    public void setOperatorID(String operatorID) {
-        this.operatorID = operatorID;
     }
 
     public String getInit_time() {
@@ -209,5 +189,21 @@ public class SalesInBillPO {
 
     public void setApproval_time(String approval_time) {
         this.approval_time = approval_time;
+    }
+
+    public String getCommentByManager() {
+        return commentByManager;
+    }
+
+    public void setCommentByManager(String commentByManager) {
+        this.commentByManager = commentByManager;
+    }
+
+    public String getManagerID() {
+        return managerID;
+    }
+
+    public void setManagerID(String managerID) {
+        this.managerID = managerID;
     }
 }

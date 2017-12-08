@@ -16,7 +16,7 @@ public class LogData_Driver {
 
   //Constant
     LogData_Stub logData_stub = new LogData_Stub();
-    LogPO Test_LogPO = new LogPO("000001","jiangchen","17/11/20","sell","Bulb",100,10000);
+    LogPO Test_LogPO = new LogPO();
     @Test
     public void drive(){
 

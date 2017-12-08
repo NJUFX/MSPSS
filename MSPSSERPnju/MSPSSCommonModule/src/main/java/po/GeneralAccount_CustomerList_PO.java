@@ -1,9 +1,11 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * Created by thinkpad on 2017/11/30.
  */
-public class GeneralAccount_CustomerList_PO {
+public class GeneralAccount_CustomerList_PO implements Serializable{
     /**
      * 关键字
      */

@@ -1,9 +1,11 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * Created by thinkpad on 2017/12/3.
  */
-public class PurchaseBill_Commodity_PO {
+public class PurchaseBill_Commodity_PO implements Serializable{
     /**
      * 数据库关键字，数据库会自动赋值！！切勿自己赋值
      */
@@ -47,4 +49,76 @@ public class PurchaseBill_Commodity_PO {
      *多对一映射中对应的链表
      */
     private PurchaseBillPO purchasebill;
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getClassificationID() {
+        return classificationID;
+    }
+
+    public void setClassificationID(String classificationID) {
+        this.classificationID = classificationID;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public double getImportCost() {
+        return importCost;
+    }
+
+    public void setImportCost(double importCost) {
+        this.importCost = importCost;
+    }
+
+    public double getExportCost() {
+        return exportCost;
+    }
+
+    public void setExportCost(double exportCost) {
+        this.exportCost = exportCost;
+    }
+
+    public int getNumberInStock() {
+        return numberInStock;
+    }
+
+    public void setNumberInStock(int numberInStock) {
+        this.numberInStock = numberInStock;
+    }
+
+    public PurchaseBillPO getPurchasebill() {
+        return purchasebill;
+    }
+
+    public void setPurchasebill(PurchaseBillPO purchasebill) {
+        this.purchasebill = purchasebill;
+    }
 }

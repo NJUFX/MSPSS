@@ -1,5 +1,7 @@
 package blimpl.blfactory;
 
+import blservice.accountblservice.AccountBLInfo;
+import blimpl.accountblimpl.AccountFactory;
 import blservice.accountblservice.AccountBLService;
 import blservice.billblservice.BillBLInfo;
 import blservice.billblservice.BillBLService;
@@ -22,6 +24,81 @@ import blservice.userblservice.UserBLService;
  */
 public class BLFactory implements BLFactoryService {
     @Override
+    public AccountBLService getAccountBLServiceStub() {
+        return AccountFactory.getAccountBLService();
+    }
+
+    @Override
+    public AccountBLInfo getAccountBLInfo() {
+        return AccountFactory.getAccountInfo();
+    }
+
+    @Override
+    public BillBLInfo getBillInfoStub() {
+        return null;
+    }
+
+    @Override
+    public BillBLService getBillBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public CommodityBLService getCommodityBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public CommodityInfoService getCommodityInfoServiceStub() {
+        return null;
+    }
+
+    @Override
+    public CustomerBLService getCustomerBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public GeneralAccountBLService getGeneralAccountBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public LogBLService getLogBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public MainBLService getMainBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public PromotionBLService getPromotionBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public StockBLInfo getStockBLInfoStub() {
+        return null;
+    }
+
+    @Override
+    public StockBLService getStockBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public UserBLService getUserBLServiceStub() {
+        return null;
+    }
+
+    @Override
+    public TableBLService getTableBLServiceStub() {
+        return null;
+    }
+
+    @Override
     public AccountBLService getAccountBLService() {
         return null;
     }
@@ -37,7 +114,7 @@ public class BLFactory implements BLFactoryService {
     }
 
     @Override
-    public CommodityBLService getComodityBLService() {
+    public CommodityBLService getCommodityBLService() {
         return null;
     }
 
@@ -90,4 +167,9 @@ public class BLFactory implements BLFactoryService {
     public TableBLService getTableBLService() {
         return null;
     }
+
+
+
+
+
 }

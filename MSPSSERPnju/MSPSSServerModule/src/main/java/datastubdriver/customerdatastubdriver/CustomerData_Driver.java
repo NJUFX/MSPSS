@@ -6,7 +6,7 @@ import util.Kind_Of_Customers;
 
 public class CustomerData_Driver {
     CustomerData_Stub customerData_stub = new CustomerData_Stub();
-    CustomerPO customer = new CustomerPO("00000001", "SUPPLIER", 5, "Intel", "88484399", "Nanjing", "222243", "intel@intel.com", 50000, 43200, 0, "002");
+    CustomerPO customer = new CustomerPO();
 
     @Test
     public void drive() {
