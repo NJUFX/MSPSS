@@ -17,25 +17,10 @@ public interface LogBLService {
     /**
      * 搜索日志记录
      *
-     * @param date
-     * @return ArrayList<LogPO>
+     * @param start,end
+     * @return ArrayList<LogVO>
      */
-    public ArrayList<LogPO> search(Time date);
+    public ArrayList<LogVO> search(Time start,Time end);
 
-    /**
-     * 显示日志列表
-     *
-     * @param logList
-     * @return LogListVO
-     */
-    public LogListVO showLogList(ArrayList<LogPO> logList);
-
-    /**
-     * 显示日志详情
-     *
-     * @param id
-     * @return LogVO
-     */
-    public LogVO showLogDetail(String id);
 
 }

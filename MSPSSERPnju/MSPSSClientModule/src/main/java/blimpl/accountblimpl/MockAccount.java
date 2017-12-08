@@ -12,13 +12,13 @@ import java.util.ArrayList;
 public class MockAccount extends Account{
     Account MyAccount = new Account();
 
-    @Override
-    public ResultMessage addAccount(AccountVO account){
-        if(account.getname().equals("苏果超市"))
-        return ResultMessage.SUCCESS;
-        else
-        return ResultMessage.EXIST;
-    }
+//    @Override
+//    public ResultMessage addAccount(AccountVO account){
+//        if(account.getname().equals("苏果超市"))
+//        return ResultMessage.SUCCESS;
+//        else
+//        return ResultMessage.EXIST;
+//    }
     @Override
     public ResultMessage deleteAccount(String name){
         if(name.equals("苏果超市"))

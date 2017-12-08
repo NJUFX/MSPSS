@@ -81,13 +81,11 @@ public class Time {
 
     @Override
     public String toString() {
-        return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+        return String.format("%d-%02d-%02d %02d:%02d:%02d",year,month,day,hour,minute,second);
     }
-    public String toVOString(){
-        return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
-    }
-    public static void main(String[] args) {
-        System.out.println(Time.getInstance().toString());
-        System.out.println(new Time().toString());
-    }
+
+//    public static void main(String[] args) {
+//        System.out.println(Time.getInstance().toString());
+//    }
+
 }

@@ -1,30 +1,31 @@
 package vo;
 
-public class LogVO {
-	String id;
-	String operator;
-	String time;
-	int kind;
-	
+import util.Time;
 
-<<<<<<< HEAD
-	public LogVO(String id, String operator, String time, String kind, String commodity, int money, Long stock) {
+public class LogVO {
+	/**
+	 * 日志信息的ID
+	 */
+	public 	String id;
+	/**
+	 * 产生该日志的操作者
+	 */
+	public 	String operator;
+	/**
+	 * 产生日志信息的时间
+	 */
+	public Time time;
+	/**
+	 * 日志记录的操作
+	 */
+	public String operate;
+
+
+	public LogVO(String id, String operator, Time time,String operate) {
 		this.id = id;
 		this.operator = operator;
 		this.time = time;
-		this.kind = kind;
-		this.commodity = commodity;
-		this.money = money;
-		this.stock = stock;
-=======
-
-	public LogVO(String i, String o, String t, int k) {
-		id = i;
-		operator = o;
-		time = t;
-		kind = k;
-	
->>>>>>> 52215b8994f21d122f1b54eacc239124ed9f9a53
+		this.operate = operate;
 	}
 
 
@@ -38,10 +39,27 @@ public class LogVO {
 		return operator;
 	}
 
-	public String getTime() {
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getOperate() {
+		return operate;
+	}
+
+	public void setOperate(String operate) {
+		this.operate = operate;
+	}
+
+	public Time getTime() {
 		return time;
 	}
-	public int getKind() {
-		return kind;
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
 	}
 }
