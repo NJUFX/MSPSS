@@ -15,6 +15,7 @@ public class AccountBLBLServiceImpl implements AccountBLService,AccountBLInfo {
     public AccountBLBLServiceImpl(){
      MyAccount = new Account();
     }
+
     public AccountBLBLServiceImpl(Account account){
         MyAccount = account;
     }
@@ -28,8 +29,8 @@ public class AccountBLBLServiceImpl implements AccountBLService,AccountBLInfo {
         return MyAccount.deleteAccount(name);
     }
     @Override
-    public ResultMessage modifyAccount(String oldname,String newname){
-        return MyAccount.modifyAccount(oldname,newname);
+    public ResultMessage modifyAccount(String oldName,String newName){
+        return MyAccount.modifyAccount(oldName,newName);
     }
     @Override
     public ArrayList<AccountVO> checkAccount(String name){
@@ -43,14 +44,24 @@ public class AccountBLBLServiceImpl implements AccountBLService,AccountBLInfo {
     public void pay(String name,int money){
         MyAccount.pay(name,money);
     }
-    @Override
-    public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountlist){
-        return MyAccount.compareByName(accountlist);
-    }
-    @Override
-    public ArrayList<AccountVO> compareByMoney(ArrayList<AccountVO> accountlist){
-        return MyAccount.compareByMoney(accountlist);
-    }
 
 
+    @Override
+    public ArrayList<AccountVO> AccountNameAscendingSort(ArrayList<AccountVO> accountList) {
+        return MyAccount.AccountNameAscendingSort(accountList);
+    }
+
+    @Override
+    public ArrayList<AccountVO> AccountNameDescendingSort(ArrayList<AccountVO> accountList) {
+        return MyAccount.AccountNameDescendingSort(accountList);
+    }
+    @Override
+    public ArrayList<AccountVO> AccountMoneyAscendingSort(ArrayList<AccountVO> accountList){
+        return MyAccount.AccountMoneyAscendingSort(accountList);
+    }
+
+    @Override
+    public ArrayList<AccountVO> AccountMoneyDescendingSort(ArrayList<AccountVO> accountList) {
+        return MyAccount.AccountMoneyDescendingSort(accountList);
+    }
 }

@@ -40,7 +40,7 @@ public class Account_Driver {
         else System.out.println("fail");
 
         //5
-        list = service.compareByMoney(list);
+        list = service.AccountMoneyAscendingSort(list);
         if(list.isEmpty()) System.out.println("no account wait for comparing");
         else System.out.println("fail");
 

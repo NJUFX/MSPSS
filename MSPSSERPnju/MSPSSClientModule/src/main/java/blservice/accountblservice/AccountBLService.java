@@ -54,16 +54,30 @@ public interface AccountBLService {
     /**
      * 名称按字典序排序
      *
-     * @param accountlist
+     * @param accountList
      * @return 排序后的账户
      */
-    public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountlist);
+    public ArrayList<AccountVO> AccountNameAscendingSort(ArrayList<AccountVO> accountList);
+
     /**
-     * 金额按从小到大排序
+     * 根据账户名称按字典序倒着排 从Z到A
+     * @param accountList
+     * @return
+     */
+    public ArrayList<AccountVO> AccountNameDescendingSort(ArrayList<AccountVO> accountList);
+    /**
+     * 根据账户余额升序排列
      *
-     * @param accountlist
+     * @param accountList
      * @return 排序后的账户
      */
-    public ArrayList<AccountVO> compareByMoney(ArrayList<AccountVO> accountlist);
+    public ArrayList<AccountVO> AccountMoneyAscendingSort(ArrayList<AccountVO> accountList);
+
+    /***
+     * 根据余额降序排列
+     * @param accountList
+     * @return
+     */
+    public ArrayList<AccountVO> AccountMoneyDescendingSort(ArrayList<AccountVO> accountList);
 
 }

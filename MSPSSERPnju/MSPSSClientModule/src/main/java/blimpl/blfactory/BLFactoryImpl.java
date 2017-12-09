@@ -1,5 +1,6 @@
 package blimpl.blfactory;
 
+import blimpl.commodityblimpl.CommodityBLFactory;
 import blimpl.logblimpl.LogFactory;
 import blservice.accountblservice.AccountBLInfo;
 import blimpl.accountblimpl.AccountFactory;
@@ -47,12 +48,12 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public CommodityBLService getCommodityBLServiceStub() {
-        return null;
+        return CommodityBLFactory.getCommodityBLImpl();
     }
 
     @Override
     public CommodityInfoService getCommodityInfoServiceStub() {
-        return null;
+        return CommodityBLFactory.getCommodityBLImpl();
     }
 
     @Override

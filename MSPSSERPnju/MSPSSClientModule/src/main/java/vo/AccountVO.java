@@ -13,6 +13,11 @@ public class AccountVO {
 
         this.createTime = createTime;
     }
+    public AccountVO(String name,int money){
+        this.name = name;
+        this.money = money;
+        this.createTime = new Time();
+    }
 
     public void setName(String name){
         this.name = name;
@@ -22,11 +27,11 @@ public class AccountVO {
         return name;
     }
 
-    public int getmoney(){
+    public int getMoney(){
         return money;
     }
 
-    public Time getcreattime(){
+    public Time getCreatTime(){
         return createTime;
     }
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Account {
 
 
-    public ResultMessage addAccount(AccountVO account){
+    public ResultMessage addAccount(AccountVO accountVO){
         return ResultMessage.SUCCESS;
     }
 
@@ -19,7 +19,7 @@ public class Account {
         return ResultMessage.SUCCESS;
     }
 
-    public ResultMessage modifyAccount(String oldname,String newname){
+    public ResultMessage modifyAccount(String oldName,String newName){
         return ResultMessage.SUCCESS;
     }
 
@@ -29,19 +29,35 @@ public class Account {
         return list;
     }
 
-    public void income(String name,int money){
+    public void income(String name,double money){
 
     }
 
-    public void pay(String name,int money){
+    public void pay(String name,double money){
 
     }
 
-    public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountlist){
-        return accountlist;
+
+    public ArrayList<AccountVO> AccountMoneyAscendingSort(ArrayList<AccountVO> accountList){
+        accountList.sort(new AccountMoneyAscendingComparator());
+        return accountList;
     }
 
-    public ArrayList<AccountVO> compareByMoney(ArrayList<AccountVO> accountlist){
-        return accountlist;
+
+    public ArrayList<AccountVO> AccountNameAscendingSort(ArrayList<AccountVO> accountList) {
+        accountList.sort(new AccountNameAscendingComparator());
+        return accountList;
+    }
+
+
+    public ArrayList<AccountVO> AccountNameDescendingSort(ArrayList<AccountVO> accountList) {
+        accountList.sort(new AccountNameDescendingComparator());
+        return accountList;
+    }
+
+
+    public ArrayList<AccountVO> AccountMoneyDescendingSort(ArrayList<AccountVO> accountList) {
+        accountList.sort(new AccountNameDescendingComparator());
+        return accountList;
     }
 }

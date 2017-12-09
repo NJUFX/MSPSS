@@ -1,78 +1,13 @@
 <component name="libraryTable">
   <library name="jdk1.8">
-    <CLASSES>
-      <root url="file://C:/Java/jdk1.8.0_111" />
-    </CLASSES>
-    <JAVADOC>
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/api" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jdk/api/attach/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jdk/api/javac/tree" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jdk/api/javadoc/doclet" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jdk/api/jconsole/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jdk/api/jpda/jdi" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jdk/api/nashorn" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/accessibility/jaccess/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/javaws/jnlp" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/management/cmm" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/management/extension" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/management/rm" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/net/httpserver/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/net/socketoptions/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/nio/sctp/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/plugin/dom" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/security/jaas/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/security/jgss/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/jre/api/security/smartcardio/spec" />
-    </JAVADOC>
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://C:/Program Files/Java/jdk1.8.0_151/bin" />
+    </NATIVE>
     <SOURCES>
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/2d/samples" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/beans/examples" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/imf/api-sample" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/io/example" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/javadoc/taglet" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Basic" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Descriptors" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Essential" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Lookup" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/MXBean" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Notification" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/fine_grained/client" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/fine_grained/mbeans" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/fine_grained/server" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/simple/client" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/simple/mbeans" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/simple/server" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/subject_delegation/client" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/subject_delegation/mbeans" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jmx/examples/Security/subject_delegation/server" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jpda" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/jps/spec" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/lang" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/crypto" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jgss/lab/src" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jgss/tutorials" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jsse/samples/rmi" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jsse/samples/sni" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jsse/samples/sockets/client" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jsse/samples/sockets/server" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jsse/samples/sslengine" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/jsse/samples/urls" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/security/xmldsig" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/altimpl" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/custom" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/evolvenewsuper" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/evolveserial" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/externpers" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/externsuper" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/nonexternsuper" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/nonserialsuper" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/sockets" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/serialization/examples/symbol" />
-      <root url="file://C:/Java/jdk1.8.0_111/docs/docs/technotes/guides/swing/1.4" />
-      <root url="file://C:/Java/jdk1.8.0_111/src" />
-      <root url="file://C:/Java/jdk1.8.0_111" />
+      <root url="file://C:/Program Files/Java/jdk1.8.0_151" />
     </SOURCES>
-    <jarDirectory url="file://C:/Java/jdk1.8.0_111" recursive="false" />
-    <jarDirectory url="file://C:/Java/jdk1.8.0_111" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://C:/Program Files/Java/jdk1.8.0_151" recursive="false" type="SOURCES" />
   </library>
 </component>

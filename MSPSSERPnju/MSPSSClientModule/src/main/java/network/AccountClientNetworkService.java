@@ -3,13 +3,19 @@ package network;
 import po.AccountPO;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 /**
  * Description:
  * Created by Hanxinhu at 10:26 2017/11/30/030
  */
-public interface AccountClientNetworkService {
+public interface AccountClientNetworkService extends Remote {
+    /**
+     * 添加账户
+     * @param account
+     * @return
+     */
     public ResultMessage addAccount(AccountPO account);
     /**
      * 删除账户
@@ -24,27 +30,33 @@ public interface AccountClientNetworkService {
      * @param oldname,newname
      * @return 修改成功与否
      */
-    public ResultMessage modifyAccount(String oldname,String newname);
+    public ResultMessage updateAccount(AccountPO po);
+
     /**
-     * 查找账户
-     *
-     * @param name
-     * @return 符合条件的List
+     * 在范围内查找账户
+     * @param field
+     * @param min
+     * @param max
+     * @return
      */
-    public ArrayList<AccountPO> checkAccount(String name);
+    public ArrayList<AccountPO> rangeSearchAccount(String field,Object min,Object max);
+
     /**
-     * 账户收款
-     *
-     * @param name,money
-     * @return void
+     * 完全匹配查找账号
+     * @param field
+     * @param value
+     * @return
      */
-    public void income(String name,int money);
+    public ArrayList<AccountPO> fullSearchAccount(String field,Object value);
+
     /**
-     * 账户付款
-     *
-     * @param name,money
-     * @return void
+     * 模糊查找账号
+     * @param field
+     * @param value
+     * @return
      */
-    public void pay(String name,int money);
+    public ArrayList<AccountPO> fuzzSearchAccount(String field,Object value);
+
+
 
 }

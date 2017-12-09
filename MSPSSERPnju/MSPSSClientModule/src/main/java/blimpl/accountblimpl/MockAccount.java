@@ -27,8 +27,8 @@ public class MockAccount extends Account{
             return ResultMessage.NOT_EXIST;
     }
     @Override
-    public ResultMessage modifyAccount(String oldname,String newname){
-        if(oldname.equals("苏果超市"))
+    public ResultMessage modifyAccount(String oldName, String newName){
+        if(oldName.equals("苏果超市"))
             return ResultMessage.SUCCESS;
         else
             return ResultMessage.NOT_EXIST;
@@ -49,14 +49,14 @@ public class MockAccount extends Account{
         //MyAccount.pay(name,money);
     }
     @Override
-    public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountlist){
+    public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountList){
         AccountVO account1 = new AccountVO("乐天玛特",1000,new Time(2017,11,11,11,11,11));
         ArrayList<AccountVO> account = new ArrayList<AccountVO>();
         account.add(account1);
         return account;
     }
     @Override
-    public ArrayList<AccountVO> compareByMoney(ArrayList<AccountVO> accountlist){
+    public ArrayList<AccountVO> compareByMoney(ArrayList<AccountVO> accountList){
         AccountVO account1 = new AccountVO("苏果超市",1000,new Time(2017,11,11,11,11,11));
         ArrayList<AccountVO> account = new ArrayList<AccountVO>();
         account.add(account1);

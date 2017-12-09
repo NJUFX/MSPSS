@@ -15,8 +15,14 @@ import java.util.Iterator;
  * Created by Hanxinhu at 23:12 2017/11/15/015
  */
 public class CommodityBLImpl implements CommodityBLService,CommodityInfoService {
-   private Commodity commodity = new Commodity();
-   private Classification classification = new Classification();
+   private Commodity commodity;
+   private Classification classification;
+
+    public CommodityBLImpl(Commodity commodity, Classification classification) {
+        this.commodity = commodity;
+        this.classification = classification;
+    }
+
     @Override
     public ResultMessage addCommodity(CommodityVO cvo) {
         return commodity.addCommodity(cvo);

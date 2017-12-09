@@ -37,12 +37,12 @@ public class Account_Stub implements AccountBLService {
 
     }
     @Override
-    public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountlist){
-        return accountlist;
+    public ArrayList<AccountVO> compareByName(ArrayList<AccountVO> accountList){
+        return accountList;
     }
     @Override
-    public ArrayList<AccountVO> compareByMoney(ArrayList<AccountVO> accountlist){
-        return accountlist;
+    public ArrayList<AccountVO> AccountMoneyAscendingSort(ArrayList<AccountVO> accountList){
+        return accountList;
     }
 
 }
