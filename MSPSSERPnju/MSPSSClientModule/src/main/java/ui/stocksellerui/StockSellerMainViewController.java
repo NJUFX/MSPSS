@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import ui.adminui.LoginController;
 import ui.common.Dialog;
 
 import java.io.IOException;
@@ -20,88 +21,105 @@ import java.util.ResourceBundle;
 
 public class StockSellerMainViewController implements Initializable {
 
-	Stage stage = StageSingleton.getStage();
-	Dialog dialog = new Dialog();
-	private MainApp application;
+    Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
+    private MainApp application;
 
-	public void setApp(MainApp application) {
-		this.application = application;
-	}
+    public void setApp(MainApp application) {
+        this.application = application;
+    }
 
-	@FXML
-	Button customerManageButton;
+    @FXML
+    Button customerManageButton;
 
-	@FXML
-	Button billCreateButton;
+    @FXML
+    Button billCreateButton;
+    @FXML
+    Button BackToLogin;
 
-	/**
-	 * 制定单据
-	 *
-	 * @param e
-	 * @throws IOException
-	 */
-	@FXML
-	public void billCreateButtonAction(ActionEvent e) throws IOException {
-		//System.out.println("SUSS");
-		try {
-			BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
-					"/view/stockseller/BillCreate.fxml");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-	}
+    /**
+     * 返回登录界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+        try {
+            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
-	/**
-	 * 客户管理
-	 *
-	 * @param e
-	 * @throws IOException
-	 */
-	@FXML
-	public void customerManageButtonAction(ActionEvent e) throws IOException {
-		System.out.println("Sucess");
+    /**
+     * 制定单据
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void billCreateButtonAction(ActionEvent e) throws IOException {
+        //System.out.println("SUSS");
+        try {
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
+                    "/view/stockseller/BillCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
 
-		try {
-			CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
-					"/view/stockseller/CustomerManage.fxml");
-			// replaceSceneContent("/view/stockseller/CustomerManage.fxml");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
+    }
 
-	/**
-	 * 用来打开fxml文件
-	 *
-	 * @param fxml
-	 * @return
-	 * @throws Exception
-	 */
-	private Initializable replaceSceneContent(String fxml) throws Exception {
-		FXMLLoader loader = new FXMLLoader();
-		// InputStream in =
-		// Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
+    /**
+     * 客户管理
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void customerManageButtonAction(ActionEvent e) throws IOException {
+        System.out.println("Sucess");
 
-		InputStream in = MainApp.class.getResourceAsStream(fxml);
-		loader.setBuilderFactory(new JavaFXBuilderFactory());
-		loader.setLocation(MainApp.class.getResource(fxml));
-		Pane page;
-		try {
-			page = (Pane) loader.load(in);
-		} finally {
-			in.close();
-		}
-		Scene scene = new Scene(page, 900, 560);
-		stage.setScene(scene);
-		stage.sizeToScene();
-		return (Initializable) loader.getController();
-	}
+        try {
+            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerManage.fxml");
+            // replaceSceneContent("/view/stockseller/CustomerManage.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
-	}
+    /**
+     * 用来打开fxml文件
+     *
+     * @param fxml
+     * @return
+     * @throws Exception
+     */
+    private Initializable replaceSceneContent(String fxml) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        // InputStream in =
+        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
+
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, 900, 560);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        return (Initializable) loader.getController();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
 }

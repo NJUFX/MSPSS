@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 public class CustomerInfoShowViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

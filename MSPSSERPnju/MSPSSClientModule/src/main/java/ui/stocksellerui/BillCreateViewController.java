@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import ui.adminui.LoginController;
 
 public class BillCreateViewController implements Initializable {
 
@@ -31,7 +32,22 @@ public class BillCreateViewController implements Initializable {
     Button salesRetCreateButton;
     @FXML
     Button customerManageButton;
-
+    @FXML
+    Button BackToLogin;
+    /**
+     * 返回登录界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+        try {
+            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
     /**
      * 客户管理
      *

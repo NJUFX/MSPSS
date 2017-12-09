@@ -34,6 +34,44 @@ public class CommodityModitySecondViewController implements Initializable {
     @FXML
     Button commoditySearchButton;
 
+    @FXML
+    Button backToBeforeButton;
+    @FXML
+    Button cancelButton;
+
+    /**
+     * 返回上一界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void cancelButtonAction(ActionEvent e) throws IOException {
+        try {
+            CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
+                    "/view/stockmanager/commodityModifyFirst.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 返回用户管理界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void backToBeforeButtonAction(ActionEvent e) throws IOException {
+        try {
+            CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                    "/view/stockmanager/commodityManage.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 删除商品

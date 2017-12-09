@@ -139,5 +139,14 @@
                 </ImageView>
             </children>
         </Pane>
+        <Button fx:id="backButton" onAction="#backButtonAction" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回" textFill="#0f88eb">
+            <graphic>
+                <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockmanager/返回.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </Pane>

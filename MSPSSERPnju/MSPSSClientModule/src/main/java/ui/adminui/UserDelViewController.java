@@ -35,6 +35,22 @@ public class UserDelViewController implements Initializable {
     static Button cancelDelteButton;
     @FXML
     static TextField id_to_del;
+    @FXML
+    Button BackToLogin;
+    /**
+     * 返回登录界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+        try {
+            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     @FXML
     public void sureDeleteButtonAction(ActionEvent e) {

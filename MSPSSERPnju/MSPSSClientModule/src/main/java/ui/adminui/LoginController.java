@@ -75,7 +75,6 @@ public class LoginController implements Initializable {
 			case "CM":
 				toChiefManagerMain();
 				break;
-
 		}
 
 	}

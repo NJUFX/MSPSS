@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import ui.adminui.LoginController;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,6 +28,40 @@ public class PurcRetCreateViewController  implements Initializable {
     @FXML
     Button salesRetCreateButton;
 
+    @FXML
+    Button BackToLogin;
+    @FXML
+    Button cancelButton;
+    /**
+     * 返回上一界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void cancelButtonAction(ActionEvent e) throws IOException {
+        try {
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                    "/view/stockseller/BillCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+    /**
+     * 返回登录界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+        try {
+            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
     /**
      * 进货单
      *
@@ -104,7 +139,28 @@ public class PurcRetCreateViewController  implements Initializable {
         stage.setResizable(false);
         return (Initializable) loader.getController();
     }
+    private Initializable replaceSceneContent2(String fxml) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        // InputStream in =
+        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
 
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, 900, 620);
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.sizeToScene();
+        stage.setResizable(false);
+        return (Initializable) loader.getController();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
