@@ -41,7 +41,7 @@ public class SalesCreateViewController implements Initializable {
     @FXML
     public void cancelButtonAction(ActionEvent e) throws IOException {
         try {
-            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
                     "/view/stockseller/BillCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
@@ -153,7 +153,7 @@ public class SalesCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 620);
+        Scene scene = new Scene(page, 900, 560);
 
         stage.setScene(scene);
         stage.setResizable(false);

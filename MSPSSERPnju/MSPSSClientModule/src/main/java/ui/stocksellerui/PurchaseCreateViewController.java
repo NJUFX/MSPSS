@@ -55,7 +55,7 @@ public class PurchaseCreateViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            LoginController controller = (LoginController) replaceSceneContent2("/view/admin/Login.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -138,6 +138,7 @@ public class PurchaseCreateViewController implements Initializable {
         stage.setResizable(false);
         return (Initializable) loader.getController();
     }
+    
     private Initializable replaceSceneContent2(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         // InputStream in =
@@ -152,7 +153,7 @@ public class PurchaseCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 620);
+        Scene scene = new Scene(page, 900, 560);
 
         stage.setScene(scene);
         stage.setResizable(false);
