@@ -104,10 +104,9 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="617.0" layoutY="474.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Button layoutX="757.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
-      <DatePicker fx:id="StartTime" layoutX="446.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="开始日期" />
-      <Button fx:id="Search" layoutX="466.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0F88EB;" text="查询" textFill="#0f88eb" />
+      <Button fx:id="Clear" layoutX="753.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleClearButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="清空" textFill="#0f88eb" />
+      <DatePicker fx:id="StartTime" layoutX="533.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="开始日期" />
+      <Button fx:id="Search" layoutX="603.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="23.0" prefWidth="100.0" text="查询" textFill="WHITE" />
       <DatePicker fx:id="EndTime" layoutX="713.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="结束日期" />
       <TableView fx:id="LogTable" layoutX="193.0" layoutY="138.0" prefHeight="320.0" prefWidth="660.0">
          <columns>
