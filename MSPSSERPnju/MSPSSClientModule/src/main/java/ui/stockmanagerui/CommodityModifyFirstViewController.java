@@ -18,6 +18,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen
+ * date:2017/12/9
+ */
 public class CommodityModifyFirstViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
@@ -31,6 +35,25 @@ public class CommodityModifyFirstViewController implements Initializable {
     Button commoditySearchButton;
     @FXML
     Button nextOperationButton;
+    @FXML
+    Button cancelButton;
+
+    /**
+     * 返回上一界面（商品管理界面）
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void cancelButtonAction(ActionEvent e) throws IOException {
+        try {
+            CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                    "/view/stockmanager/commodityManage.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 删除商品
@@ -82,6 +105,7 @@ public class CommodityModifyFirstViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 下一步
      *
@@ -98,6 +122,7 @@ public class CommodityModifyFirstViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回登录界面
      *

@@ -28,7 +28,25 @@ public class PresentationCreateViewController implements Initializable {
     Button alertCreateButton;
     @FXML
     Button BackToLogin;
+    @FXML
+    Button cancelButton;
 
+    /**
+     * 返回上一界面（处理单据界面）
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void cancelButtonAction(ActionEvent e) throws IOException {
+        try {
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
+                    "/view/stockmanager/BillCreate.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
     /**
      * 库存报溢单
      *

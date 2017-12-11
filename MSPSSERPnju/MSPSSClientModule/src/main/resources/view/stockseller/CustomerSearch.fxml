@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerSearchViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerSearchViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -24,7 +24,7 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button id="addUserButton" fx:id="CustomerAddButton" onAction="#customerAddButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
+        <Button id="addUserButton" fx:id="CustomerAddButton" layoutY="282.0" mnemonicParsing="false" onAction="#customerAddButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -82,7 +82,7 @@
                 <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Button id="searchButton"  layoutY="385.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="查找客户" textFill="#f8f4f4">
+        <Button id="searchButton" layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="查找客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -101,7 +101,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -127,7 +127,7 @@
                     </font>
                 </TextField>
                 <ComboBox layoutX="100.0" layoutY="130.0" prefHeight="40.0" prefWidth="102.0" promptText="关键词类型" />
-                <Button id="sureButton" fx:id="sureButton" layoutX="496.0" layoutY="130.0" mnemonicParsing="false"  prefHeight="39.0" prefWidth="102.0" stylesheets="@../../css/admin/addUser.css" text="查找" textFill="WHITE">
+                <Button id="sureButton" fx:id="sureButton" layoutX="496.0" layoutY="130.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" stylesheets="@../../css/admin/addUser.css" text="查找" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -139,5 +139,14 @@
                 </ImageView>
             </children>
         </Pane>
+      <Button fx:id="backButtonl"  layoutX="150.0" layoutY="45.0" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回" textFill="#0f88eb">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/stockmanager/返回.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
     </children>
 </Pane>

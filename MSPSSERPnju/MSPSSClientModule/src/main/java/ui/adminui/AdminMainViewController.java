@@ -42,6 +42,22 @@ public class AdminMainViewController implements Initializable {
 
     @FXML
     Button modUserButton;
+    @FXML
+    Button BackToLogin;
+    /**
+     * 返回登录界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+        try {
+            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     @FXML
     public void addUserButtonAction(ActionEvent e) throws IOException {

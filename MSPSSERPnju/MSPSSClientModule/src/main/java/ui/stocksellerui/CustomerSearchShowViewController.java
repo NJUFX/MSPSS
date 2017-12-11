@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import ui.adminui.LoginController;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +29,40 @@ public class CustomerSearchShowViewController implements Initializable {
 
     @FXML
     Button CustomerModButton;
-
+    @FXML
+    Button backButtonl;
+    @FXML
+    Button BackToLogin;
+    /**
+     * 返回登录界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
+        try {
+            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+    /**
+     * 返回上一界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void backButtonAction(ActionEvent e) throws IOException {
+        try {
+            CustomerSearchViewController controller = (CustomerSearchViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerSearch.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 增加客户

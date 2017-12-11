@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
-import ui.stocksellerui.BillCreateViewController;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,7 +49,7 @@ public class CommodityClassifyViewController implements Initializable {
     public void billCreateButtonAction(ActionEvent e) throws IOException {
         //System.out.println("SUSS");
         try {
-            ui.stocksellerui.BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BillCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block

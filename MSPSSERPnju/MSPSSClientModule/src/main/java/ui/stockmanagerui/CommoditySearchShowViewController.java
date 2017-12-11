@@ -33,6 +33,25 @@ public class CommoditySearchShowViewController implements Initializable {
     Button commodityAddButton;
     @FXML
     Button commodityModButton;
+    @FXML
+    Button backButton;
+
+    /**
+     * 返回上一界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void backButtonAction(ActionEvent e) throws IOException {
+        try {
+            CommoditySearchViewController controller = (CommoditySearchViewController) replaceSceneContent(
+                    "/view/stockmanager/commoditySearch.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 删除商品

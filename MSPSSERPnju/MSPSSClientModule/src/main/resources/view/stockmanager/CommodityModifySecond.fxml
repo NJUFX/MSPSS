@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.CommodityModitySecondViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.CommodityModitySecondViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -24,7 +24,7 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button id="addUserButton" fx:id="commodityAddButton" onAction="#commodityAddButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加商品" textFill="#f8f4f4">
+        <Button id="addUserButton" fx:id="commodityAddButton" layoutY="282.0" mnemonicParsing="false" onAction="#commodityAddButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加商品" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -34,7 +34,7 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton"  layoutY="351.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="修改属性" textFill="#f8f4f4">
+        <Button id="modUserButton" layoutY="351.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="修改属性" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -135,17 +135,17 @@
                 <TextField id="userName" layoutX="97.0" layoutY="145.0" prefHeight="21.0" prefWidth="114.0" />
             </children>
         </Pane>
-        <Button id="cancelButton" layoutX="575.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+        <Button id="cancelButton" fx:id="cancelButton" onAction="#cancelButtonAction" layoutX="375.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="sureButton"  layoutX="732.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+        <Button id="sureButton" layoutX="732.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton"  layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找商品" textFill="#f8f4f4">
+        <Button id="modUserButton" layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找商品" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -164,7 +164,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -182,5 +182,10 @@
                 </ImageView>
             </graphic>
         </Button>
+      <Button id="sureButton" layoutX="553.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="上一步" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei" size="16.0" />
+         </font>
+      </Button>
     </children>
 </Pane>
