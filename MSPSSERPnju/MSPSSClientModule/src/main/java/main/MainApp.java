@@ -28,6 +28,7 @@ public class MainApp extends Application {
         stage.setWidth(900);
         toLoginInfer();
         stage.show();
+        System.out.println("test");
     }
 
     /**

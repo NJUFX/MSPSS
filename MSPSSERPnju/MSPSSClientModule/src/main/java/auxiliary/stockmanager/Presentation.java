@@ -1,6 +1,8 @@
 package auxiliary.stockmanager;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.CheckBox;
+
 
 public class Presentation {
     private final SimpleStringProperty Name = new SimpleStringProperty("");
@@ -9,6 +11,7 @@ public class Presentation {
     private final SimpleStringProperty Price = new SimpleStringProperty("");
     private final SimpleStringProperty Total = new SimpleStringProperty("");
     private final SimpleStringProperty Remark = new SimpleStringProperty("");
+    private final CheckBox IsSelected = new CheckBox();
 
     public Presentation() {
         this("", "", "", "", "", "");
@@ -21,6 +24,10 @@ public class Presentation {
         setNumber(Number);
         setTotal(Total);
         setRemark(Remark);
+    }
+
+    public CheckBox getIsSelected() {
+        return IsSelected;
     }
 
     public String getName() {
