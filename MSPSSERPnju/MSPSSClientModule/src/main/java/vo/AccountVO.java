@@ -4,10 +4,10 @@ import util.Time;
 
 public class AccountVO {
    private String name;
-    private int money;
+    private double money;
     private Time createTime;
 
-    public AccountVO(String name,int money,Time createTime){
+    public AccountVO(String name,double money,Time createTime){
         this.name = name;
         this.money = money;
 
@@ -27,11 +27,11 @@ public class AccountVO {
         return name;
     }
 
-    public int getMoney(){
+    public double getMoney(){
         return money;
     }
 
-    public Time getCreatTime(){
+    public Time getCreateTime(){
         return createTime;
     }
 

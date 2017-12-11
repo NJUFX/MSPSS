@@ -35,7 +35,7 @@ public class Account_Driver {
 
         //4
         ArrayList<AccountVO> list = new ArrayList<AccountVO>();
-        list = service.checkAccount("江苏");
+        list = service.exactlySearchAccountByName("江苏");
         if(list.isEmpty()) System.out.println("no account match your flags");
         else System.out.println("fail");
 
