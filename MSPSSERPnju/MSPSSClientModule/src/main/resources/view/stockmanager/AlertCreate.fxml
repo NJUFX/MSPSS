@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.collections.*?>
-<?import java.util.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.AlertCreateViewController">
     <children>
@@ -59,7 +61,7 @@
                 <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Button id="sureButton" layoutX="670.0" layoutY="429.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" stylesheets="@../../css/admin/addUser.css" text="一键处理" textFill="WHITE">
+        <Button id="sureButton" fx:id="dealAllButton" layoutX="580.0" layoutY="485.0" mnemonicParsing="false" onAction="#dealAllButtonAction" prefHeight="30.0" prefWidth="140.0" stylesheets="@../../css/admin/addUser.css" text="一键处理" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
@@ -96,22 +98,30 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Label layoutX="230.0" layoutY="80.0" text="库存报警单列表" textFill="#0f88eb">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TableView layoutX="220.0" layoutY="150.0" prefHeight="250.0" prefWidth="600.0">
-        <columns>
-          <TableColumn prefWidth="100.0" text="序号" />
-          <TableColumn prefWidth="100.0" text="商品编号" />
-            <TableColumn prefWidth="100.0" text="名称" />
-            <TableColumn prefWidth="100.0" text="警戒值" />
-            <TableColumn prefWidth="100.0" text="库存数量" />
-            <TableColumn prefWidth="100.0" text="操作" />
-        </columns>
-      </TableView>
-      <Button id="cancelButton" fx:id="cancelButton" onAction="#cancelButtonAction" layoutX="507.0" layoutY="429.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+      <Pane layoutX="220.0" layoutY="79.0" prefHeight="380.0" prefWidth="599.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="220.0" layoutY="12.0" text="库存报警单列表" textFill="#0f88eb">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TableView layoutX="50.0" layoutY="50.0" prefHeight="281.0" prefWidth="500.0">
+              <columns>
+                <TableColumn fx:id="IdCol" prefWidth="100.0" text="商品编号" />
+                  <TableColumn fx:id="NameCol" prefWidth="100.0" text="名称" />
+                  <TableColumn fx:id="AlertNumberCol" prefWidth="100.0" text="警戒值" />
+                  <TableColumn fx:id="StockNumberCol" prefWidth="100.0" text="库存数量" />
+                  <TableColumn fx:id="SelectCol" prefWidth="99.0" text="操作" />
+              </columns>
+            </TableView>
+            <Button id="sureButton" fx:id="dealSelectedButton" layoutX="478.0" layoutY="335.0" mnemonicParsing="false" onAction="#dealSelectedButtonAction" prefHeight="24.0" prefWidth="67.0" stylesheets="@../../css/admin/addUser.css" text="处理" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Button id="cancelButton" fx:id="cancelButton" layoutX="337.0" layoutY="485.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
          <font>
             <Font name="Microsoft YaHei" size="16.0" />
          </font>
