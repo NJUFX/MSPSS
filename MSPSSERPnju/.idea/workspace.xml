@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9820847f-a571-49da-ba91-48f8991d5d6a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/stockmanager/OverflowTable.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/stockmanager/OverflowTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerReadLogController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerReadLogController.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MSPSSClientModule/.settings/org.eclipse.core.resources.prefs" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/BillPO.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/BillPO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/ConditionPO.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/ConditionPO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/PowerPO.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/PowerPO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/SalesBillPO.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/po/SalesBillPO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/status/Log_Status.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/status/Log_Status.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/status/User_Oper_Status.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/status/User_Oper_Status.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/util/Kind_Of_Customers.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/util/Kind_Of_Customers.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/util/ResultMessage.class" afterPath="$PROJECT_DIR$/MSPSSCommonModule/target/classes/util/ResultMessage.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/MSPSSServerModule/target/" />
@@ -479,7 +486,7 @@
       <option name="presentableId" value="Default" />
       <updated>1512746246201</updated>
       <workItem from="1512746248037" duration="6654000" />
-      <workItem from="1512986049130" duration="38000" />
+      <workItem from="1512986049130" duration="451000" />
     </task>
     <task id="LOCAL-00001" summary="……">
       <created>1512985407950</created>
@@ -492,11 +499,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7148000" />
+    <option name="totallyTimeSpent" value="7561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="731" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20476191" sideWeight="0.51756954" order="10" side_tool="true" content_ui="tabs" />
@@ -519,7 +525,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27890626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27890626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />

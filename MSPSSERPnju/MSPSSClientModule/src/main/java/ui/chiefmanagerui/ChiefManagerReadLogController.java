@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import auxiliary.stockmanager.Log;
 import blimpl.blfactory.BLFactoryImpl;
 import blimpl.logblimpl.LogBLServiceImpl;
 import blservice.logblservice.LogBLService;
@@ -52,13 +53,13 @@ public class ChiefManagerReadLogController implements Initializable {
 	@FXML
 	DatePicker EndTime;
 	@FXML 
-	TableView LogTable;
+	TableView<Log> LogTable;
 	
 
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
-	static ObservableList<Log> data = LogTable.getItems();
+	
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -193,9 +194,11 @@ public class ChiefManagerReadLogController implements Initializable {
 		Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
 		Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
 		ArrayList<LogVO> logList = logblservice.timeSearchLog(start, end);
+		ObservableList<Log> data = LogTable.getItems();
 		for(int i=0;i<logList.size();i++) {
-			Log temp = logList.get(i);
-			data.add(new Log())
+			LogVO temp = logList.get(i);
+			String timeTemp = temp.getTime().toString();
+			data.add(new Log(temp.getId(),temp.getOperator(),timeTemp,temp.getOperate()));
 		}
 		
 	}

@@ -44,9 +44,10 @@ public class Log {
         ArrayList<LogPO> pos =  networkService.rangeSearch("time",start.toString(),end.toString());
         ArrayList<LogVO> vos = new ArrayList<>();
         for (int i = 0 ; i < pos.size() ; i++){
-            LogVO vo = po_to_vo(pos.get(i));
+           LogVO vo = po_to_vo(pos.get(i));
             vos.add(vo);
         }
+        
         return vos;
     }
 
