@@ -104,9 +104,9 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Pane layoutX="160.0" layoutY="55.0" prefHeight="435.0" prefWidth="727.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="158.0" layoutY="55.0" prefHeight="435.0" prefWidth="730.0" style="-fx-background-color: #FFFFFF;">
          <children>
-              <TableView fx:id="presentationTable" layoutX="10.0" layoutY="20.0" prefHeight="330.0" prefWidth="700.0">
+              <TableView fx:id="presentationTable" layoutX="10.0" layoutY="20.0" prefHeight="330.0" prefWidth="703.0">
                   <columns>
                       <TableColumn fx:id="NameCol" prefWidth="120.0" text="名称" />
                       <TableColumn fx:id="IdCol" prefWidth="90.0" text="编号" />
@@ -114,11 +114,11 @@
                       <TableColumn fx:id="NumberCol" prefWidth="90.0" text="数量" />
                   <TableColumn fx:id="TotalCol" prefWidth="90.0" text="总价" />
                       <TableColumn fx:id="RemarkCol" prefWidth="190.0" text="备注" />
-                  <TableColumn fx:id="IsSelectCol" prefWidth="30.0" text="..." />
+                  <TableColumn fx:id="IsSelectCol" prefWidth="32.0" text="..." />
                   </columns>
               </TableView>
             <Label fx:id="idLabel" layoutX="130.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" style="-fx-border-color: #aaaaaa;" />
-            <TextField fx:id="numberField" onAction="#totalLabelAction" layoutX="314.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" />
+            <TextField fx:id="numberField" layoutX="314.0" layoutY="358.0" onAction="#totalLabelAction" prefHeight="23.0" prefWidth="87.0" />
             <TextField fx:id="remarkField" layoutX="495.0" layoutY="358.0" prefHeight="23.0" prefWidth="217.0" />
             <Button id="sureButton" fx:id="addPresentationButton" layoutX="642.0" layoutY="392.0" mnemonicParsing="false" onAction="#addPresentationButtonAction" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
                <font>
@@ -131,7 +131,7 @@
                </font>
             </Button>
             <TextField fx:id="nameField" layoutX="10.0" layoutY="358.0" prefHeight="23.0" prefWidth="90.0" />
-            <Button fx:id="chooseCommodityButton" onAction="#chooseCommodityButton" layoutX="102.0" layoutY="358.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="26.0" text="Button" />
+            <Button fx:id="chooseCommodityButton" layoutX="102.0" layoutY="358.0" mnemonicParsing="false" onAction="#chooseCommodityButton" prefHeight="23.0" prefWidth="26.0" text="Button" />
             <Label fx:id="priceLabel" layoutX="222.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" style="-fx-border-color: #aaaaaa;" />
             <Label fx:id="totalLabel" layoutX="404.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" style="-fx-border-color: #aaaaaa;" />
          </children>

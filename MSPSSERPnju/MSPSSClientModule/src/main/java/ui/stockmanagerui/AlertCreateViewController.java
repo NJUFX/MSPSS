@@ -1,25 +1,34 @@
 package ui.stockmanagerui;
 
+import auxiliary.stockmanager.Alert;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen
+ * date:2017/12/12
+ */
 public class AlertCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
     @FXML
     Button overflowCreateButton;
     @FXML
@@ -30,6 +39,63 @@ public class AlertCreateViewController implements Initializable {
     Button BackToLogin;
     @FXML
     Button cancelButton;
+
+    @FXML
+    TableView<Alert> alertTable;
+    @FXML
+    TableColumn<Alert, String> IdCol, NameCol, AlertNumberCol, StockNumberCol;
+    @FXML
+    TableColumn<Alert, CheckBox> SelectCol;// 删除一行的按钮
+    @FXML
+    Button dealAllButton;//一键处理全部的按钮
+    @FXML
+    Button dealSelectedButton;//处理选中行
+
+    public void showTableView() {
+        IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        AlertNumberCol.setCellValueFactory(new PropertyValueFactory<>("AlertNumber"));
+        StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
+        SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
+    }
+
+    /**
+     * 处理选中行
+     *
+     * @param e
+     */
+    @FXML
+    public void dealSelectedButtonAction(ActionEvent e) {
+        ObservableList<Alert> data = alertTable.getItems();
+        // System.out.println("test");
+        int count = 0;
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getIsSelected().isSelected()) {
+                count++;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < data.size(); j++) {
+                if (data.get(j).getIsSelected().isSelected()) {
+                    data.remove(j);
+                }
+            }
+        }
+        dialog.infoDialog("Delete all selected successfully!");
+    }
+
+    /**
+     * 处理全部报警单
+     *
+     * @param e
+     */
+    @FXML
+    public void dealAllButtonAction(ActionEvent e) {
+        ObservableList<Alert> data = alertTable.getItems();
+        data.clear();
+        dialog.infoDialog("Delete all successfully!");
+    }
+
 
     /**
      * 返回上一界面（处理单据界面）
@@ -149,7 +215,7 @@ public class AlertCreateViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.showTableView();
     }
 
 }

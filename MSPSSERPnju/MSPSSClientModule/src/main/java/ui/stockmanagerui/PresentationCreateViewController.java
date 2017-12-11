@@ -114,7 +114,7 @@ public class PresentationCreateViewController implements Initializable {
 	}
 
 	/**
-	 * 删除一行元素
+	 * 删除选中行元素
 	 *
 	 * @param e
 	 */
