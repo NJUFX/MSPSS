@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import blimpl.blfactory.BLFactoryImpl;
 import blimpl.logblimpl.LogBLServiceImpl;
 import blservice.logblservice.LogBLService;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,6 +58,7 @@ public class ChiefManagerReadLogController implements Initializable {
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	static ObservableList<Log> data = LogTable.getItems();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -191,7 +193,10 @@ public class ChiefManagerReadLogController implements Initializable {
 		Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
 		Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
 		ArrayList<LogVO> logList = logblservice.timeSearchLog(start, end);
-		
+		for(int i=0;i<logList.size();i++) {
+			Log temp = logList.get(i);
+			data.add(new Log())
+		}
 		
 	}
 	

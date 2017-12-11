@@ -1,4 +1,4 @@
-package auxiliary.stockmanager;
+package auxiliary.stockmanager;//
 
 public class OverflowTable {
 }
