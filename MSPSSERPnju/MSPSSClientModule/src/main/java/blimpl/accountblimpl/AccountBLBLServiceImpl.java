@@ -3,6 +3,8 @@ package blimpl.accountblimpl;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.accountblservice.AccountBLService;
 import util.ResultMessage;
+import util.Time;
+import vo.AccountFilterFlagsVO;
 import vo.AccountVO;
 
 import java.util.ArrayList;
@@ -11,57 +13,72 @@ import java.util.ArrayList;
  * Created by thinkpad on 2017/11/11.
  */
 public class AccountBLBLServiceImpl implements AccountBLService,AccountBLInfo {
-    Account MyAccount;
+    Account account;
     public AccountBLBLServiceImpl(){
-     MyAccount = new Account();
+     account = new Account();
     }
 
     public AccountBLBLServiceImpl(Account account){
-        MyAccount = account;
+        this.account = account;
+    }
+
+    @Override
+    public ArrayList<AccountVO> fuzzSearchAccountByName(String name) {
+        return account.fuzzSearchAccountByName(name);
+    }
+
+    @Override
+    public ArrayList<AccountVO> rangeSearchAccountByTime(Time min, Time max) {
+        return account.rangeSearchAccountByTime(min,max);
+    }
+
+    @Override
+    public ArrayList<AccountVO> searchAccount(AccountFilterFlagsVO vo) {
+        return account.searchAccount(vo);
     }
 
     @Override
     public ResultMessage addAccount(AccountVO account){
-        return MyAccount.addAccount(account);
+        return this.account.addAccount(account);
     }
     @Override
     public ResultMessage deleteAccount(String name){
-        return MyAccount.deleteAccount(name);
+        return account.deleteAccount(name);
     }
     @Override
     public ResultMessage modifyAccount(String oldName,String newName){
-        return MyAccount.modifyAccount(oldName,newName);
+        return account.modifyAccount(oldName,newName);
     }
     @Override
-    public ArrayList<AccountVO> checkAccount(String name){
-        return MyAccount.checkAccount(name);
+    public AccountVO exactlySearchAccountByName(String name){
+        return account.searchAccountByName(name);
     }
     @Override
     public void income(String name,int money){
-        MyAccount.income(name,money);
+        account.income(name,money);
     }
     @Override
     public void pay(String name,int money){
-        MyAccount.pay(name,money);
+        account.pay(name,money);
     }
 
 
     @Override
     public ArrayList<AccountVO> AccountNameAscendingSort(ArrayList<AccountVO> accountList) {
-        return MyAccount.AccountNameAscendingSort(accountList);
+        return account.AccountNameAscendingSort(accountList);
     }
 
     @Override
     public ArrayList<AccountVO> AccountNameDescendingSort(ArrayList<AccountVO> accountList) {
-        return MyAccount.AccountNameDescendingSort(accountList);
+        return account.AccountNameDescendingSort(accountList);
     }
     @Override
     public ArrayList<AccountVO> AccountMoneyAscendingSort(ArrayList<AccountVO> accountList){
-        return MyAccount.AccountMoneyAscendingSort(accountList);
+        return account.AccountMoneyAscendingSort(accountList);
     }
 
     @Override
     public ArrayList<AccountVO> AccountMoneyDescendingSort(ArrayList<AccountVO> accountList) {
-        return MyAccount.AccountMoneyDescendingSort(accountList);
+        return account.AccountMoneyDescendingSort(accountList);
     }
 }

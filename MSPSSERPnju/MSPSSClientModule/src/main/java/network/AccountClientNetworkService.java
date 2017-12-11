@@ -1,6 +1,7 @@
 package network;
 
 import po.AccountPO;
+import util.CriteriaClause;
 import util.ResultMessage;
 
 import java.rmi.Remote;
@@ -27,7 +28,7 @@ public interface AccountClientNetworkService extends Remote {
     /**
      * 修改账户
      *
-     * @param oldname,newname
+     * @param po
      * @return 修改成功与否
      */
     public ResultMessage updateAccount(AccountPO po);
@@ -56,6 +57,20 @@ public interface AccountClientNetworkService extends Remote {
      * @return
      */
     public ArrayList<AccountPO> fuzzSearchAccount(String field,Object value);
+
+    /**
+     * 根据账户名精确查找账户
+     * @param name
+     * @return
+     */
+    public AccountPO searchAccountByName(String name);
+
+    /**
+     * 多重条件查找
+     * @param criteriaClauses
+     * @return
+     */
+    public ArrayList<AccountPO>  multiSearchLog(ArrayList<CriteriaClause> criteriaClauses);
 
 
 

@@ -1,6 +1,9 @@
 package blservice.accountblservice;
 
+import blimpl.accountblimpl.Account;
 import util.ResultMessage;
+import util.Time;
+import vo.AccountFilterFlagsVO;
 import vo.AccountVO;
 
 import java.util.ArrayList;
@@ -36,7 +39,22 @@ public interface AccountBLService {
      * @param name
      * @return 符合条件的List
      */
-    public ArrayList<AccountVO> checkAccount(String name);
+    public AccountVO exactlySearchAccountByName(String name);
+
+    /**
+     * 根据账户名模糊查找
+     * @param name
+     * @return
+     */
+    public ArrayList<AccountVO> fuzzSearchAccountByName(String name);
+
+    /**
+     * 根据账户创建时间进行范围查找
+     * @param min
+     * @param max
+     * @return
+     */
+    public ArrayList<AccountVO> rangeSearchAccountByTime(Time min, Time max);
     /**
      * 账户收款
      *
@@ -51,6 +69,13 @@ public interface AccountBLService {
      * @return void
      */
     public void pay(String name,int money);
+
+    /**
+     * 根据搜索条件搜索
+     * @param vo
+     * @return
+     */
+    public ArrayList<AccountVO> searchAccount(AccountFilterFlagsVO vo);
     /**
      * 名称按字典序排序
      *

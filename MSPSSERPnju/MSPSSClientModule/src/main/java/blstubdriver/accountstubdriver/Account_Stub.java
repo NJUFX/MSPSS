@@ -23,7 +23,7 @@ public class Account_Stub implements AccountBLService {
         return ResultMessage.SUCCESS;
     }
     @Override
-    public ArrayList<AccountVO> checkAccount(String name){
+    public AccountVO exactlySearchAccountByName(String name){
         ArrayList<AccountVO> list = new ArrayList<AccountVO>();
 
         return list;
