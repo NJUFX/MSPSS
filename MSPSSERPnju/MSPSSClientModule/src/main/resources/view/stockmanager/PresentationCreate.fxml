@@ -61,12 +61,12 @@
                 <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Button id="cancelButton" fx:id="cancelButton" onAction="#cancelButtonAction" layoutX="611.0" layoutY="510.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+        <Button id="cancelButton" fx:id="cancelButton" layoutX="611.0" layoutY="510.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="sureButton" layoutX="752.0" layoutY="510.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+        <Button id="sureButton" layoutX="752.0" layoutY="510.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="提交" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
@@ -106,30 +106,36 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Pane layoutX="190.0" layoutY="65.0" prefHeight="435.0" prefWidth="662.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="160.0" layoutY="55.0" prefHeight="435.0" prefWidth="727.0" style="-fx-background-color: #FFFFFF;">
          <children>
-              <TableView layoutX="50.0" layoutY="30.0" prefHeight="330.0" prefWidth="566.0">
+              <TableView layoutX="10.0" layoutY="20.0" prefHeight="330.0" prefWidth="700.0">
                   <columns>
-                      <TableColumn prefWidth="90.0" text="名称" />
+                      <TableColumn prefWidth="120.0" text="名称" />
                       <TableColumn prefWidth="90.0" text="编号" />
+                  <TableColumn prefWidth="90.0" text="单价" />
                       <TableColumn prefWidth="90.0" text="数量" />
-                      <TableColumn prefWidth="314.6666564941406" text="备注" />
+                  <TableColumn prefWidth="90.0" text="总价" />
+                      <TableColumn prefWidth="190.0" text="备注" />
+                  <TableColumn prefWidth="30.0" text="..." />
                   </columns>
               </TableView>
-            <ComboBox layoutX="51.0" layoutY="365.0" prefHeight="23.0" prefWidth="90.0" />
-            <Label layoutX="144.0" layoutY="365.0" prefHeight="23.0" prefWidth="90.0" style="-fx-border-color: #aaaaaa;" text="Label" />
-            <TextField layoutX="236.0" layoutY="365.0" prefHeight="23.0" prefWidth="90.0" promptText="1" />
-            <TextField layoutX="329.0" layoutY="365.0" prefHeight="23.0" prefWidth="285.0" />
-            <Button id="sureButton" layoutX="542.0" layoutY="392.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
+            <Label layoutX="130.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" style="-fx-border-color: #aaaaaa;" />
+            <TextField layoutX="314.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" />
+            <TextField layoutX="495.0" layoutY="358.0" prefHeight="23.0" prefWidth="217.0" />
+            <Button id="sureButton" layoutX="642.0" layoutY="392.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei" size="12.0" />
                </font>
             </Button>
-            <Button id="cancelButton" layoutX="445.0" layoutY="392.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="#0f88eb">
+            <Button id="cancelButton" layoutX="545.0" layoutY="392.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="#0f88eb">
                <font>
                   <Font name="Microsoft YaHei" size="12.0" />
                </font>
             </Button>
+            <TextField layoutX="10.0" layoutY="358.0" prefHeight="23.0" prefWidth="90.0" />
+            <Button layoutX="102.0" layoutY="358.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="26.0" text="Button" />
+            <Label layoutX="222.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" style="-fx-border-color: #aaaaaa;" />
+            <Label layoutX="404.0" layoutY="358.0" prefHeight="23.0" prefWidth="87.0" style="-fx-border-color: #aaaaaa;" />
          </children>
       </Pane>
     </children>

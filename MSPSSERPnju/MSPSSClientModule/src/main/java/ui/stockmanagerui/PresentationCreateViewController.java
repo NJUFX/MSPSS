@@ -1,25 +1,34 @@
 package ui.stockmanagerui;
 
+import auxiliary.stockmanager.Presentation;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/11
+ */
 public class PresentationCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
     @FXML
     Button overflowCreateButton;
     @FXML
@@ -30,6 +39,93 @@ public class PresentationCreateViewController implements Initializable {
     Button BackToLogin;
     @FXML
     Button cancelButton;
+
+    @FXML
+    TableView<Presentation> presentationTable;
+    @FXML
+    TableColumn<Presentation, String> NameCol, IdCol, PriceCol, NumberCol, TotalCol, RemarkCol;
+    @FXML
+    TableColumn<Presentation, Boolean> isSelectCol;
+    @FXML
+    TextField nameField;// 商品名称
+    @FXML
+    Button commodityChooseButton;// 选择商品的按钮
+    @FXML
+    Label idLabel;// 商品编号
+    @FXML
+    Label priceLabel;// 单价
+    @FXML
+    TextField numberField;// 数量
+    @FXML
+    Label totalLabel;// 总价
+    @FXML
+    TextField remarkField;// 备注
+
+    public void showTableView() {
+        NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        PriceCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        NumberCol.setCellValueFactory(new PropertyValueFactory<>("Number"));
+        TotalCol.setCellValueFactory(new PropertyValueFactory<>("Total"));
+        RemarkCol.setCellValueFactory(new PropertyValueFactory<>("Remark"));
+
+        isSelectCol.setCellFactory((col) -> {
+            TableCell<Presentation, Boolean> cell = new TableCell<Presentation, Boolean>() {
+                @Override
+                public void updateItem(Boolean item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        CheckBox checkBox = new CheckBox();
+                        this.setGraphic(checkBox);
+                        checkBox.selectedProperty().addListener((obVal, oldVal, newVal) -> {
+                            if (newVal) {
+
+                            }
+
+                        });
+                    }
+                }
+            };
+            return cell;
+        });
+    }
+
+    /**
+     * 向库存赠送单列表添加一条信息
+     *
+     * @param e
+     */
+    @FXML
+    public void addPresentation(ActionEvent e) {
+        ObservableList<Presentation> data = presentationTable.getItems();
+        if (nameField.getText() != null && idLabel.getText() != null && priceLabel.getText() != null
+                && (numberField.getText() != null && !numberField.equals("0")) && totalLabel.getText() != null) {
+            data.add(new Presentation(nameField.getText(), idLabel.getText(), priceLabel.getText(),
+                    numberField.getText(), totalLabel.getText(), remarkField.getText()));
+            nameField.setText("");
+            idLabel.setText("");
+            priceLabel.setText("");
+            numberField.setText("");
+            totalLabel.setText("");
+            remarkField.setText("");
+        } else {
+            dialog.errorInfoDialog("Something null! Please check your input.");
+        }
+    }
+
+    /**
+     * 删除一行元素
+     *
+     * @param e
+     */
+    @FXML
+    public void delPresentation(ActionEvent e) {
+        for (int i = 0; i < presentationTable.getFixedCellSize(); i++) {
+            if ()
+        }
+    }
 
     /**
      * 返回上一界面（处理单据界面）
@@ -47,6 +143,7 @@ public class PresentationCreateViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 库存报溢单
      *
@@ -148,7 +245,7 @@ public class PresentationCreateViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.showTableView();
     }
 
 }
