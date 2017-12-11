@@ -54,6 +54,10 @@ public class ChiefManagerReadLogController implements Initializable {
 	DatePicker EndTime;
 	@FXML 
 	TableView<Log> LogTable;
+	@FXML 
+	Button Search;
+	@FXML 
+	Button Clear;
 	
 
 	Dialog dialog = new Dialog();
@@ -201,6 +205,16 @@ public class ChiefManagerReadLogController implements Initializable {
 			data.add(new Log(temp.getId(),temp.getOperator(),timeTemp,temp.getOperate()));
 		}
 		
+	}
+	
+	/**
+	 * 清空当前日志
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleClearButtonAction(ActionEvent e) throws Exception{
+		ObservableList<Log> data = LogTable.getItems();
+		data.clear();
 	}
 	
 	
