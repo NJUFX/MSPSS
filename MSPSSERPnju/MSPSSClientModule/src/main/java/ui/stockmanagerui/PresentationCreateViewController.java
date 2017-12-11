@@ -122,9 +122,17 @@ public class PresentationCreateViewController implements Initializable {
 	public void delPresentationButtonAction(ActionEvent e) {
 		ObservableList<Presentation> data = presentationTable.getItems();
 		// System.out.println("test");
+		int count = 0;
 		for (int i = 0; i < data.size(); i++) {
 			if (data.get(i).getIsSelected().isSelected()) {
-				data.remove(i);
+				count++;
+			}
+		}
+		for (int i = 0; i < count; i++) {
+			for (int j = 0; j < data.size(); j++) {
+				if (data.get(j).getIsSelected().isSelected()) {
+					data.remove(j);
+				}
 			}
 		}
 		dialog.infoDialog("Delete all selected successfully!");
