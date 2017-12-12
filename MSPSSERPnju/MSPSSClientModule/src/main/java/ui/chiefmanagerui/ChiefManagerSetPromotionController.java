@@ -12,7 +12,10 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -37,6 +40,30 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	ComboBox PromotionType;
+	@FXML
+	DatePicker StartTime;
+	@FXML
+	DatePicker EndTime;
+	@FXML
+	ComboBox CustomerLevel;
+	@FXML
+	TextField GiftAmount;
+	@FXML
+	TextField ProductName;
+	@FXML
+	TextField DiscountAmount;
+	@FXML
+	TextField CouponDeno;
+	@FXML
+	TextField CouponNumber;
+	@FXML
+	TextField AmountSection;
+	@FXML
+	TextField BargainBag;
+	
+	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -164,6 +191,42 @@ public class ChiefManagerSetPromotionController implements Initializable{
 		stage.setScene(scene);
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
+	}
+	
+	/**
+	 * 判断选中的促销策略类型
+	 * @param e
+	 * @throws Exception
+	 */
+	public void ChoosePromotionType(ActionEvent e) throws Exception{
+		String promotionType = PromotionType.getValue().toString();
+		switch(promotionType){
+		
+		case"分级赠送代金券":{
+			CustomerLevel.setEditable(true);
+			CouponDeno.setEditable(true);
+			CouponNumber.setEditable(true);
+		}
+		case"分级价格折让":{
+			CustomerLevel.setEditable(true);
+			DiscountAmount.setEditable(true);
+		}
+		case"分级赠送赠品":{
+			CustomerLevel.setEditable(true);
+			ProductName.setEditable(true);
+			GiftAmount.setEditable(true);
+		}
+		case"总额赠送代金券":{
+			
+		}
+		case"总额赠送赠品":{
+			
+		}
+		case"制定特价包":{
+			
+		}
+		
+		}
 	}
 
 }

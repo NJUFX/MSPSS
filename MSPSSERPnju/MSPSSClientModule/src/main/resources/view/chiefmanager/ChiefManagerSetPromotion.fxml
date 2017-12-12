@@ -111,7 +111,7 @@
             </ImageView>
             <Label layoutX="137.0" layoutY="19.0" style="-fx-background-color: white;" text="选择策略类型" textFill="#0f88eb" />
             <Label layoutX="137.0" layoutY="67.0" style="-fx-background-color: white;" text="选择起止时间" textFill="#0f88eb" />
-            <ComboBox layoutX="282.0" layoutY="14.0" prefHeight="27.0" prefWidth="145.0" promptText="促销策略类型">
+            <ComboBox fx:id="PromotionType" layoutX="282.0" layoutY="14.0" onAction="#ChoosePromotionType" prefHeight="27.0" prefWidth="145.0" promptText="促销策略类型">
             <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="分级赠送赠品" />
@@ -123,15 +123,15 @@
                   </FXCollections>
              </items>
             </ComboBox>
-            <DatePicker layoutX="282.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="开始时间" />
-            <DatePicker layoutX="467.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="结束时间" />
+            <DatePicker fx:id="StartTime" layoutX="282.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="开始时间" />
+            <DatePicker fx:id="EndTime" layoutX="467.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="结束时间" />
          </children>
       </Pane>
       <Pane layoutX="170.0" layoutY="178.0" prefHeight="309.0" prefWidth="340.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../image/客户.png" />
+                  <Image url="@../../image/客户（黑色）.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
@@ -171,20 +171,20 @@
             </ImageView>
             <Label layoutX="75.0" layoutY="55.0" style="-fx-background-color: white;" text="赠送数量" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="125.0" style="-fx-background-color: white;" text="折让金额" textFill="#0f88eb" />
-            <Label layoutX="75.0" layoutY="90.0" style="-fx-background-color: white;" text="商品名称" textFill="#0f88eb" />
+            <Label layoutX="75.0" layoutY="90.0" style="-fx-background-color: white;" text="商品/赠品名称" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="160.0" style="-fx-background-color: white;" text="代金券面额" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="195.0" style="-fx-background-color: white;" text="代金券张数" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="230.0" style="-fx-background-color: white;" text="针对总额区间" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="265.0" style="-fx-background-color: white;" text="特价包价格" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="20.0" style="-fx-background-color: white;" text="客户级别" textFill="#0f88eb" />
-            <TextField layoutX="175.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
-            <TextField layoutX="175.0" layoutY="50.0" prefHeight="27.0" prefWidth="150.0" />
-            <TextField layoutX="175.0" layoutY="85.0" prefHeight="27.0" prefWidth="150.0" />
-            <TextField layoutX="175.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" />
-            <ComboBox layoutX="175.0" layoutY="15.0" prefWidth="150.0" promptText="1~5" />
-            <TextField layoutX="175.0" layoutY="190.0" prefHeight="25.0" prefWidth="150.0" />
-            <TextField layoutX="175.0" layoutY="225.0" prefHeight="25.0" prefWidth="150.0" />
-            <TextField layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="CouponDeno" editable="false" layoutX="175.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="GiftAmount" editable="false" layoutX="175.0" layoutY="50.0" prefHeight="27.0" prefWidth="150.0" />
+            <TextField fx:id="ProductName" editable="false" layoutX="175.0" layoutY="85.0" prefHeight="27.0" prefWidth="150.0" />
+            <TextField fx:id="DiscountAmount" editable="false" layoutX="175.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" />
+            <ComboBox fx:id="CustomerLevel" layoutX="175.0" layoutY="15.0" prefWidth="150.0" promptText="1~5" />
+            <TextField fx:id="CouponNumber" editable="false" layoutX="175.0" layoutY="190.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="AmountSection" editable="false" layoutX="175.0" layoutY="225.0" prefHeight="25.0" prefWidth="150.0" promptText="e.g. 1000-5000" />
+            <TextField fx:id="BargainBag" editable="false" layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="150.0" />
          </children>
       </Pane>
       <Pane layoutX="531.0" layoutY="178.0" prefHeight="309.0" prefWidth="347.0" style="-fx-background-color: #FFFFFF;">

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //package blimpl.promotionblimpl;
 //
 //import po.PromotionPO;
@@ -104,7 +104,7 @@
 //        return null;
 //    }
 //}
-=======
+
 package blimpl.promotionblimpl;
 
 import po.PromotionPO;
@@ -211,4 +211,4 @@ public class MockPromotion extends Promotion{
         return null;
     }
 }
->>>>>>> 52215b8994f21d122f1b54eacc239124ed9f9a53
+
