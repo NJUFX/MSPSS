@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MockClassification  extends Classification{
     @Override
     public ResultMessage addClassification(ClassificationVO classificationVO) {
-        System.out.println("add classification");
+        System.out.println("add classificationName");
         return ResultMessage.SUCCESS;
     }
 
@@ -33,13 +33,7 @@ public class MockClassification  extends Classification{
         return super.getClassification(id);
     }
 
-    @Override
-    public ArrayList<ClassificationVO> searchClassification(FilterFlagVO flag) {
-        return super.searchClassification(flag);
-    }
 
-    @Override
-    public ArrayList<ClassificationVO> getAllClassification() {
-        return super.getAllClassification();
-    }
+
+
 }

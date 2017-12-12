@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class LogPO implements Serializable {
     /**
-     * 日志信息的编号
+     * 日志信息的编号，不需要自己赋值
      */
     private String id;
     /**
@@ -26,13 +26,14 @@ public class LogPO implements Serializable {
     public LogPO() {
     }
 
-    public LogPO(String operator, String time, int kind) {
 
-<<<<<<< HEAD
-=======
+
     public LogPO(String id, String operator, String time,String operate ) {
         this.id = id;
->>>>>>> f4629d107257d0548b122ca949fef85a75dc1d68
+<<<<<<< HEAD
+
+=======
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
         this.operator = operator;
         this.time = time;
         this.operate = operate;

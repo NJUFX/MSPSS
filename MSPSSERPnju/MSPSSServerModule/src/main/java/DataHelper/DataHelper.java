@@ -117,6 +117,12 @@ public interface DataHelper<T> {
     public ArrayList<T> multiCriteriaQuery(ArrayList<CriteriaClause> criteriaClauses);
 
 
+    /**
+     * 清空数据库对应的表格
+     * @param table
+     */
+    public void clear(String table);
+
 
 
 }

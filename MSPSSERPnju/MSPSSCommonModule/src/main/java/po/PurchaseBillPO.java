@@ -38,6 +38,9 @@ public class PurchaseBillPO implements Serializable {
      */
     String remark;
 
+    public PurchaseBillPO() {
+    }
+
     public PurchaseBillPO(String keycolumn, String ID, String supplier, String store, String worker, List<CommodityPO> prolist, double sum, String remark) {
         this.keycolumn = keycolumn;
         this.ID = ID;

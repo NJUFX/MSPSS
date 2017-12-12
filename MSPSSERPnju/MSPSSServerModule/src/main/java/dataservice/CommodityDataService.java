@@ -6,6 +6,7 @@ import util.ResultMessage;
 
 import po.*;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public interface CommodityDataService {
@@ -25,38 +26,38 @@ public interface CommodityDataService {
 
     /**
      * 删除商品
-     * @param commodityPO
+     * @param key,name
      * @return
      */
-    public ResultMessage deleteCommodity(CommodityPO commodityPO);
+    public ResultMessage deleteCommodity(String key,String name);
 
     /**
      * 精确查找商品
-     * @param id
+     * @param field,value
      * @return
      */
-    public CommodityPO exactlySearchCommodity(String id);
+    public CommodityPO exactlySearchCommodity(String field,String value);
 
     /**
      * 前缀搜索商品
-     * @param name
+     * @param field,value
      * @return
      */
-    public Iterator<CommodityPO> prefixSearchCommodity(String name);
+    public ArrayList<CommodityPO> prefixSearchCommodity(String field, String value);
 
     /**
      * 模糊搜索商品
-     * @param name
+     * @param field,value
      * @return
      */
-    public Iterator<CommodityPO> fuzzySearchCommodity(String name);
+    public ArrayList<CommodityPO> fuzzySearchCommodity(String field,String value);
 
     /**
      * 范围搜索商品
-     * @param filter
+     * @param field,min,max
      * @return
      */
-    public Iterator<CommodityPO> rangeSearchCommodity(CommodityFilter filter);
+    public ArrayList<CommodityPO> rangeSearchCommodity(String field,Object min,Object max);
 
     /**
      * 添加商品分类
@@ -83,7 +84,7 @@ public interface CommodityDataService {
      * 得到所有的商品分类
      * @return
      */
-    public Iterator<ClassificationPO> getAllClassification();
+    public ArrayList<ClassificationPO> getAllClassification();
 
     /**
      * 得到特定的商品分类
@@ -91,5 +92,6 @@ public interface CommodityDataService {
      * @return
      */
     public ClassificationPO getClassification(String id);
+
 
 }

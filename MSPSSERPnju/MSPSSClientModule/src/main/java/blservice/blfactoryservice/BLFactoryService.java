@@ -5,6 +5,7 @@ import blservice.accountblservice.AccountBLInfo;
 import blservice.accountblservice.AccountBLService;
 import blservice.billblservice.BillBLInfo;
 import blservice.billblservice.BillBLService;
+import blservice.billblservice.ManagerBillBLService;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLService;
@@ -29,6 +30,8 @@ public interface BLFactoryService {
     public BillBLInfo getBillInfo();
 
     public BillBLService getBillBLService();
+
+    public ManagerBillBLService getManagerBillBLService();
 
     public CommodityBLService getCommodityBLService();
 
@@ -61,6 +64,8 @@ public interface BLFactoryService {
     public BillBLInfo getBillInfoStub();
 
     public BillBLService getBillBLServiceStub();
+
+
 
     public CommodityBLService getCommodityBLServiceStub();
 

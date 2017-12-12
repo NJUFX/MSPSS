@@ -11,9 +11,27 @@ import java.util.ArrayList;
  */
 public interface LogDataService {
 
+    /**
+     * 增加日志
+     * @param logPO
+     * @return 增加日志的结果
+     */
     public ResultMessage addLog(LogPO logPO);
 
+    /**
+     * 范围查找
+     * @param field
+     * @param min
+     * @param max
+     * @return 符合条件的list
+     */
     public ArrayList<LogPO> rangeSearch(String field,Object min,Object max);
 
+    /**
+     * 精确查找
+     * @param field
+     * @param value
+     * @return符合条件的list
+     */
     public ArrayList<LogPO> fullSearch(String field,Object value);
 }

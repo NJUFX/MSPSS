@@ -57,13 +57,13 @@
 //
 //    @Override
 //    public ResultMessage addClassification(ClassificationVO cvo) {
-//        System.out.println("add classification successfully!");
+//        System.out.println("add classificationName successfully!");
 //        return ResultMessage.SUCCESS;
 //    }
 //
 //    @Override
 //    public ResultMessage updateClassification(ClassificationVO cvo) {
-//        System.out.println("update classification successfully");
+//        System.out.println("update classificationName successfully");
 //        return ResultMessage.SUCCESS;
 //    }
 //
@@ -71,12 +71,12 @@
 //    public ResultMessage deleteClassification(String id) {
 //        if (id.equals("12138"))
 //        {
-//            System.out.println("delete classification successfully");
+//            System.out.println("delete classificationName successfully");
 //            return ResultMessage.SUCCESS;
 //        }
 //        else
 //        {
-//            System.out.println("delete classification failed");
+//            System.out.println("delete classificationName failed");
 //            return ResultMessage.FAILED;
 //        }
 //    }
@@ -90,7 +90,7 @@
 //    }
 //
 //    @Override
-//    public ArrayList<ClassificationVO> getAllClassification() {
+//    public ArrayList<ClassificationVO> getRootClassifications() {
 //        return new ArrayList<ClassificationVO>();
 //    }
 //

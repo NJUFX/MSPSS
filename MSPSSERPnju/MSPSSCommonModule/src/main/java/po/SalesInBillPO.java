@@ -78,6 +78,9 @@ public class SalesInBillPO implements Serializable {
      */
     private String managerID;
 
+    public SalesInBillPO() {
+    }
+
     public SalesInBillPO(String ID, String provider, String storage, int type, String operatorID, String ps, double sumMoney, List<SalesItemPO> itemPOS, int status, String init_time, String commit_time, String approval_time, String commentByManager, String managerID) {
         this.ID = ID;
         this.provider = provider;

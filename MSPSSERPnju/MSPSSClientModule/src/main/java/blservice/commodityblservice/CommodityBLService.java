@@ -72,10 +72,23 @@ public interface CommodityBLService {
     public ClassificationVO getClassification(String id);
 
     /**
+     * 获得一个商品分类的所有子分类
+     * @param classificationVO
+     * @return
+     */
+    public ArrayList<ClassificationVO> getChildrenClassification(ClassificationVO classificationVO);
+
+    /**
+     * 获得一个商品下的所有商品
+     * @param classificationVO
+     * @return
+     */
+    public ArrayList<CommodityVO> getChildrenCommodity(ClassificationVO classificationVO);
+    /**
      * 得到所有的商品分类
      * @return
      */
-    public ArrayList<ClassificationVO> getAllClassification();
+    public ArrayList<ClassificationVO> getRootClassifications();
 
     /**
      * 根据商品的库存数量升序排列

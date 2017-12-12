@@ -8,7 +8,6 @@ import vo.CommodityVO;
 import vo.FilterFlagVO;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Description:
@@ -18,7 +17,7 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
    private Commodity commodity;
    private Classification classification;
 
-    public CommodityBLImpl(Commodity commodity, Classification classification) {
+    CommodityBLImpl(Commodity commodity, Classification classification) {
         this.commodity = commodity;
         this.classification = classification;
     }
@@ -65,7 +64,7 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
 
     @Override
     public ResultMessage deleteCommodity(String id) {
-        return deleteCommodity(id);
+        return commodity.deleteCommodity(id);
     }
 
     @Override
@@ -89,22 +88,34 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
     }
 
     @Override
+    public ArrayList<ClassificationVO> getChildrenClassification(ClassificationVO classificationVO) {
+        return classification.searchChildren(classificationVO);
+    }
+
+    @Override
+    public ArrayList<CommodityVO> getChildrenCommodity(ClassificationVO classificationVO) {
+        FilterFlagVO filterFlagVO = new FilterFlagVO();
+        filterFlagVO.setClassificationName(classificationVO.name);
+        return commodity.searchCommodity(filterFlagVO);
+    }
+
+    @Override
     public ClassificationVO getClassification(String id) {
         return classification.getClassification(id);
     }
 
     @Override
-    public ArrayList<ClassificationVO> getAllClassification() {
-        return classification.getAllClassification();
+    public ArrayList<ClassificationVO> getRootClassifications() {
+        return classification.getRootClassifications();
     }
 
     @Override
     public CommodityVO getCommodity(String id) {
-        return null;
+        return commodity.getCommodity(id);
     }
 
     @Override
     public ArrayList<CommodityVO> search(FilterFlagVO vo) {
-        return null;
+        return commodity.searchCommodity(vo);
     }
 }
