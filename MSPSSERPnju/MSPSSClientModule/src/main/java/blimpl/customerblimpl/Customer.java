@@ -1,12 +1,16 @@
 package blimpl.customerblimpl;
 
+import filterflags.CustomerSearchFlag;
+import network.CustomerClientNetworkService;
+import po.CustomerPO;
+import util.Kind_Of_Customers;
 import util.ResultMessage;
 import vo.CustomerVO;
 
 import java.util.ArrayList;
 
 public class Customer {
-    public static ArrayList<CustomerVO> CustomerList = new ArrayList<CustomerVO>();
+    CustomerClientNetworkService networkService;
 
     /**
      * 通过关键词类型和关键词来查找客户
@@ -16,7 +20,37 @@ public class Customer {
      * @return
      */
     public ArrayList<CustomerVO> searchCustomer(String keytype, String keyword) {
-        return null;
+        ArrayList<CustomerVO> vos;
+        ArrayList<CustomerPO> pos;
+
+        switch (keytype){
+            case "ID" :
+                 pos = networkService.fuzzSearchCustomer("ID",keyword);
+                 break;
+            case "name" :
+                    pos = networkService.fuzzSearchCustomer("name",keyword);
+                break;
+            case "level" :
+                pos = networkService.fuzzSearchCustomer("level",keyword);
+                break;
+            case "category" :
+                pos = networkService.fullSearchCustomer("category",keyword);
+                break;
+            case "DAE" :
+                pos = networkService.fuzzSearchCustomer("DAE",keyword);
+                break;
+            case "Invalue":
+                Double invalue = Double.parseDouble(keyword);
+                //在前后
+                double min = invalue * (1 - 0.1);
+                double max = invalue * (1 - 0.1);
+                pos = networkService.rangeSearchCustomer("Invalue",min,max);
+                break;
+                default:
+                    pos = new ArrayList<>();
+        }
+        vos = pos_to_vos(pos);
+        return vos;
     }
 
     /**
@@ -26,7 +60,8 @@ public class Customer {
      * @return
      */
     public CustomerVO getCustomerInfo(String ID) {
-        return null;
+        CustomerPO po = networkService.searchCustomerByID(ID);
+        return po_to_vo(po);
     }
 
     /**
@@ -34,7 +69,8 @@ public class Customer {
      * @return
      */
     public ResultMessage addCustomer(CustomerVO customer) {
-        return ResultMessage.SUCCESS;
+        CustomerPO po = vo_to_po(customer);
+        return networkService.addCustomer(po);
     }
 
     /**
@@ -44,7 +80,8 @@ public class Customer {
      * @return
      */
     public ResultMessage delCustomer(String ID) {
-        return ResultMessage.SUCCESS;
+
+        return networkService.deleteCustomer(ID);
     }
 
     /**
@@ -52,7 +89,34 @@ public class Customer {
      * @return
      */
     public ResultMessage modifyCustomer(CustomerVO customer) {
-        return ResultMessage.SUCCESS;
+        CustomerPO po = vo_to_po(customer);
+        return networkService.updateCustomer(po);
+    }
+
+    private CustomerVO po_to_vo(CustomerPO po){
+        Kind_Of_Customers kind = po.getCategory()==0? Kind_Of_Customers.SALER: Kind_Of_Customers.SUPPLIER;
+        CustomerVO vo = new CustomerVO(po.getID(), kind,po.getLevel(),
+                po.getName(),po.getPhonenumber(),po.getAddress(),po.getPostcode(),
+                po.getEmail(),po.getInvalue(),po.getIncomemoney(),po.getPaymoney(),po.getDAE());
+    return vo;
+    }
+    private CustomerPO vo_to_po(CustomerVO vo){
+        int category = Kind_Of_Customers.SALER==vo.getKind() ? 0:1;
+        CustomerPO po = new CustomerPO(
+                vo.getExist(),vo.getID(),category,vo.getLevel(),
+                vo.getName(),vo.getPhonenumber(),vo.getAddress()
+                ,vo.getPostcode(),vo.getEmail(),vo.getInvalue(),
+                vo.getIncomemoney(),vo.getPaymoney(),
+                vo.getDAE(),vo.getBankaccount().getName());
+    return po;
+    }
+    private ArrayList<CustomerVO> pos_to_vos(ArrayList<CustomerPO> pos){
+        ArrayList<CustomerVO> vos = new ArrayList<>();
+        for (CustomerPO po : pos){
+            CustomerVO vo = po_to_vo(po);
+            vos.add(vo);
+        }
+        return vos;
     }
 
 }

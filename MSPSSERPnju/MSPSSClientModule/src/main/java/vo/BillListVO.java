@@ -7,6 +7,7 @@ public class BillListVO {
 	public BillListVO(int a, BillVO[] b) {
 		amount = a;
 		billList = b;
+
 	}
 
 	public int getAmount() {

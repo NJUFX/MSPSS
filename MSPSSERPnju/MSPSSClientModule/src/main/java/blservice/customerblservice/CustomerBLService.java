@@ -1,5 +1,6 @@
 package blservice.customerblservice;
 
+import filterflags.CustomerSearchFlag;
 import util.ResultMessage;
 import vo.CustomerVO;
 
@@ -9,11 +10,11 @@ public interface CustomerBLService {
     /**
      * 通过关键词类型和关键词来查找客户
      *
-     * @param keytype
+     * @param keyType
      * @param keyword
      * @return
      */
-    public ArrayList<CustomerVO> searchCustomer(String keytype, String keyword);
+    public ArrayList<CustomerVO> searchCustomer(CustomerSearchFlag keyType, String keyword);
 
     /**
      * 通过客户编号获取客户属性

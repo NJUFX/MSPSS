@@ -54,7 +54,7 @@ public class CustomerVO {
     /**
      * 银行账户
      */
-    public BankAccountVO bankaccount;
+    public AccountVO bankaccount;
     /**
      * 客户分类
      */
@@ -133,11 +133,11 @@ public class CustomerVO {
         this.name = name;
     }
 
-    public BankAccountVO getBankaccount() {
+    public AccountVO getBankaccount() {
         return bankaccount;
     }
 
-    public void setBankaccount(BankAccountVO bankaccount) {
+    public void setBankaccount(AccountVO bankaccount) {
         this.bankaccount = bankaccount;
     }
 

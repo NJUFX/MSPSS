@@ -1,23 +1,33 @@
 package blimpl.customerblimpl;
 
+import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
+import filterflags.CustomerSearchFlag;
 import util.ResultMessage;
 import vo.CustomerVO;
 
 import java.util.ArrayList;
 
-public class CustomerBLServiceImpl implements CustomerBLService {
+public class CustomerBLServiceImpl implements CustomerBLService,CustomerBLInfo {
+    private Customer customer;
+
+    public CustomerBLServiceImpl(Customer customer) {
+        this.customer = customer;
+    }
+
     /**
-     * 通过关键词类型和关键词来查找客户
      *
-     * @param keytype
+     * @param keyType
      * @param keyword
      * @return
      */
     @Override
-    public ArrayList<CustomerVO> searchCustomer(String keytype, String keyword) {
-        return null;
+    public ArrayList<CustomerVO> searchCustomer(CustomerSearchFlag keyType, String keyword) {
+        return customer.searchCustomer(keyType.toString(),keyword);
     }
+
+
+
 
     /**
      * 通过客户编号获取客户属性
@@ -27,16 +37,17 @@ public class CustomerBLServiceImpl implements CustomerBLService {
      */
     @Override
     public CustomerVO getCustomerInfo(String ID) {
-        return null;
+        return customer.getCustomerInfo(ID);
     }
 
     /**
-     * @param customer
+     * @param customerVO
+     *
      * @return
      */
     @Override
-    public ResultMessage addCustomer(CustomerVO customer) {
-        return ResultMessage.SUCCESS;
+    public ResultMessage addCustomer(CustomerVO customerVO) {
+        return customer.addCustomer(customerVO) ;
     }
 
     /**
@@ -47,16 +58,20 @@ public class CustomerBLServiceImpl implements CustomerBLService {
      */
     @Override
     public ResultMessage delCustomer(String ID) {
-        return ResultMessage.SUCCESS;
+        return customer.delCustomer(ID);
     }
 
     /**
-     * @param customer
+     * @param customerVO
      * @return
      */
     @Override
-    public ResultMessage modifyCustomer(CustomerVO customer) {
-        return ResultMessage.SUCCESS;
+    public ResultMessage modifyCustomer(CustomerVO customerVO) {
+        return customer.modifyCustomer(customerVO);
     }
 
+    @Override
+    public CustomerVO getCustomerByID(String ID) {
+        return customer.getCustomerInfo(ID);
+    }
 }

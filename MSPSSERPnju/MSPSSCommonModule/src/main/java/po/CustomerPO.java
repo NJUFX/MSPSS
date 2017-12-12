@@ -1,6 +1,6 @@
 package po;
 
-import util.Kind_Of_Customers;
+
 
 import java.io.Serializable;
 
@@ -14,7 +14,8 @@ public class CustomerPO  implements Serializable{
      */
     private String ID;
     /**
-     * 分类
+     * 分类 用1、0来判定，1是供应商，0是销售商
+    *
      */
     private int category;
     /**
@@ -61,11 +62,7 @@ public class CustomerPO  implements Serializable{
      * 银行账户
      */
     private String accountID;
-    //暂定用String表示客户类型
-  //  /**
- //    * 客户分类
-  //   */
-  //  private Kind_Of_Customers kind;
+
 
 
     public CustomerPO() {
