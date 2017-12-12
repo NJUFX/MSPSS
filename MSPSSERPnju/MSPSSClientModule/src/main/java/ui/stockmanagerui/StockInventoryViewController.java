@@ -1,5 +1,8 @@
 package ui.stockmanagerui;
 
+import auxiliary.stockmanager.Breakage;
+import auxiliary.stockmanager.StockInventory;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -22,6 +29,7 @@ import java.util.ResourceBundle;
 public class StockInventoryViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
 
     @FXML
     Button BackToLogin;
@@ -37,6 +45,55 @@ public class StockInventoryViewController implements Initializable {
 
     @FXML
     Button stockCheckButton;
+
+    @FXML
+    Button ExportToExcelButton;
+
+    @FXML
+    public void exportToExcelButtonAction(ActionEvent e) {
+        dialog.infoDialog("Export to excel successfully.");
+    }
+
+    @FXML
+    TableView<StockInventory> stockInventoryTable;
+    @FXML
+    TableColumn<StockInventory, String> LineIdCol, NameCol, StockNumberCol, AveragePriceCol, BatchCol, BatchNumberCol, DateOfProductionCol;
+
+    public void showTableView() {
+        LineIdCol.setCellFactory((col) -> {
+            TableCell<StockInventory, String> cell = new TableCell<StockInventory, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+
+                    if (!empty) {
+                        int rowIndex = this.getIndex() + 1;
+                        this.setText(String.valueOf(rowIndex));
+                    }
+                }
+            };
+            return cell;
+        });
+        NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
+        AveragePriceCol.setCellValueFactory(new PropertyValueFactory<>("AveragePrice"));
+        BatchCol.setCellValueFactory(new PropertyValueFactory<>("Batch"));
+        BatchNumberCol.setCellValueFactory(new PropertyValueFactory<>("BatchNumber"));
+        DateOfProductionCol.setCellValueFactory(new PropertyValueFactory<>("DateOfProduction"));
+        addRow();
+    }
+
+    /**
+     * 添加一条信息
+     */
+    public void addRow() {
+        ObservableList<StockInventory> data = stockInventoryTable.getItems();
+        StockInventory stockInventory = new StockInventory("lamp", "000000", "450", "001", "001-002", "2017/12/12");
+        data.add(stockInventory);
+    }
+
 
     /**
      * 处理单据
@@ -152,7 +209,7 @@ public class StockInventoryViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.showTableView();
     }
 
 }

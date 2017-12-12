@@ -56,6 +56,4 @@ public class Alert {
     public void setAlertNumber(String fName) {
         AlertNumber.set(fName);
     }
-
-
 }
