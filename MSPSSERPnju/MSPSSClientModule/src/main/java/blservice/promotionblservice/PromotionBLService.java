@@ -45,7 +45,7 @@ public interface PromotionBLService {
      * @param date
      * @return ArrayList<PromotionPO>
      */
-    public ArrayList<PromotionPO> search(Time date);
+    public ArrayList<PromotionVO> search(Time date);
 
     /**
      * 显示促销策略列表

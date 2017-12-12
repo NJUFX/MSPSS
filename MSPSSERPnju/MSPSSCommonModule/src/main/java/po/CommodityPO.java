@@ -49,6 +49,11 @@ public class CommodityPO implements Serializable{
      * 判断该商品是否已经使用过
      */
     private boolean isUsed;
+
+    /**
+     * 库存警戒值数量
+     */
+    private int alertNumber;
     public CommodityPO(){
 
     }
@@ -66,8 +71,29 @@ public class CommodityPO implements Serializable{
         this(name,classificationID,type,ID,importCost,exportCost,numberInStock);
         this.isUsed = false;
     }
+
+    public CommodityPO(String name, String classificationID, String type, String ID, double importCost, double exportCost, int numberInStock, boolean isUsed, int alertNumber) {
+        this.name = name;
+        this.classificationID = classificationID;
+        this.type = type;
+        this.ID = ID;
+        this.importCost = importCost;
+        this.exportCost = exportCost;
+        this.numberInStock = numberInStock;
+        this.isUsed = isUsed;
+        this.alertNumber = alertNumber;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setAlertNumber(int alertNumber) {
+        this.alertNumber = alertNumber;
+    }
+
+    public int getAlertNumber() {
+        return alertNumber;
     }
 
     public void setUsed(boolean used) {

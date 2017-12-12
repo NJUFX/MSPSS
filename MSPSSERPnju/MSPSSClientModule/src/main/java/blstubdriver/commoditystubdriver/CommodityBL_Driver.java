@@ -138,7 +138,7 @@
 //          System.out.println("get successfully");
 //
 //      //15
-//      ArrayList<ClassificationVO> classificationVOS = commodityService.getAllClassification();
+//      ArrayList<ClassificationVO> classificationVOS = commodityService.getRootClassifications();
 //      if (classificationVOS==null)
 //          System.out.println("get failed");
 //      else

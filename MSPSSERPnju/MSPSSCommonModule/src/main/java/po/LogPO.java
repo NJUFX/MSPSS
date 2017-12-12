@@ -30,7 +30,10 @@ public class LogPO implements Serializable {
 
     public LogPO(String id, String operator, String time,String operate ) {
         this.id = id;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
         this.operator = operator;
         this.time = time;
         this.operate = operate;

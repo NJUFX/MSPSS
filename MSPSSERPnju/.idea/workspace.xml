@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9820847f-a571-49da-ba91-48f8991d5d6a" name="Default" comment="" />
+=======
+    <list default="true" id="9820847f-a571-49da-ba91-48f8991d5d6a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/MockStockBill.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/MockClassification.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/MockClassification.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ClassificationPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ClassificationPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityStockPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityStockPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CustomerPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CustomerPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/FinanceBillPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/FinanceBillPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/LogPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/LogPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PurchaseBillPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PurchaseBillPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesBillPO.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesInBillPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesInBillPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesOutBillPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesOutBillPO.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StockBillPO.java" afterPath="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StockBillPO.java" />
+    </list>
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/MSPSSServerModule/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -86,36 +104,61 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="CommodityDataService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/CommodityDataService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="395">
               <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+=======
+      <file leaf-file-name="CustomerPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CustomerPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1408">
+              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AccountDataService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/AccountDataService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="607">
               <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+=======
+      <file leaf-file-name="ConditionPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ConditionPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LogDataService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/LogDataService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="500">
               <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+=======
+      <file leaf-file-name="CommodityPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LogDataServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/logdataimpl/LogDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -125,20 +168,37 @@
                 <element signature="e#1169#1170#0" expanded="true" />
                 <element signature="e#1229#1230#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="ClassificationPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ClassificationPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="CustomerDataService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/CustomerDataService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="611">
               <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+=======
+      <file leaf-file-name="Classification_Commodity_PO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/Classification_Commodity_PO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="CommodityDataServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/commoditydataimpl/CommodityDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,10 +209,19 @@
                 <element signature="e#4322#4323#0" expanded="true" />
                 <element signature="e#4387#4388#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="Classification_Children_PO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/Classification_Children_PO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="GeneralAccountDataServiceFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/generalaccountdataimpl/GeneralAccountDataServiceFactory.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -161,20 +230,37 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="CashCostItemPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CashCostItemPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AccountDataServiceFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/accountdataimpl/AccountDataServiceFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="500">
               <caret line="22" column="5" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="22" selection-end-column="5" />
+=======
+      <file leaf-file-name="CashCostBillPO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CashCostBillPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1540">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AccountDataServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/accountdataimpl/AccountDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -183,10 +269,19 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="CommodityStockPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityStockPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-665">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="CommodityDataServiceFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/commoditydataimpl/CommodityDataServiceFactory.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -195,6 +290,14 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="FinanceBillPO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/FinanceBillPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
             </state>
           </provider>
         </entry>
@@ -228,6 +331,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserModifyViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Main.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/UserAddView.fxml" />
@@ -254,6 +362,7 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockInventoryViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/OverflowCreateViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AlertCreateViewController.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/resources/GeneralAccount_AccountList_PO.hbm.xml" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/accountdataimpl/AccountDataServiceFactory.java" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/LogDataService.java" />
@@ -279,6 +388,31 @@
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/CommodityDataService.java" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/commoditydataimpl/CommodityDataServiceImpl.java" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/commoditydataimpl/CommodityDataServiceFactory.java" />
+=======
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/promotionblservice/PromotionBLService.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/CommodityVO.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/commodityblservice/CommodityBLService.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/FilterFlagVO.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/Commodity.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/CommodityBLImpl.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/ClassificationVO.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CommodityClientNetworkService.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/Classification.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/MockClassification.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/promotion.md" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/BillVO.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/MockStockBill.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/FinanceBillPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StockBillPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/LogPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesOutBillPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesInBillPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PurchaseBillPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CustomerPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityStockPO.java" />
+        <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ClassificationPO.java" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
       </list>
     </option>
   </component>
@@ -291,14 +425,22 @@
   <component name="MavenProjectNavigator">
     <treeState />
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="y" value="-11" />
     <option name="width" value="1942" />
     <option name="height" value="1102" />
+=======
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="257" />
+    <option name="y" value="66" />
+    <option name="width" value="972" />
+    <option name="height" value="635" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
   </component>
   <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -315,6 +457,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
@@ -672,6 +815,165 @@
           </PATH>
         </subPane>
       </pane>
+=======
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blimpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="billblimpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blservice" type="462c0819:PsiDirectoryNode" />
+              <item name="billblservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSCommonModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSCommonModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSCommonModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSCommonModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSCommonModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="po" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSServerModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSServerModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSServerModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSServerModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -962,6 +1264,7 @@
       <patterns />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <envs />
@@ -1023,6 +1326,12 @@
       <option name="isAlternativeJrePathEnabled" value="false" />
       <envs />
       <method />
+=======
+    <configuration name="mysql-connector-java-5.1.44-bin.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.44-bin.jar" />
+      <envs />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -1066,6 +1375,7 @@
       <listeners />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <method />
     </configuration>
@@ -1075,6 +1385,13 @@
       <node-interpreter value="project" />
       <envs />
       <method />
+=======
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
       <method />
@@ -1119,12 +1436,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="23513000" />
+=======
+    <option name="totallyTimeSpent" value="17770000" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1102" extended-state="7" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20462428" sideWeight="0.51756954" order="7" side_tool="true" content_ui="tabs" />
@@ -1152,15 +1474,105 @@
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+=======
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="92" y="92" width="604" height="544" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20476191" sideWeight="0.51756954" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37301588" sideWeight="0.48243046" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34158415" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25189108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37301588" sideWeight="0.48243046" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+=======
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37301588" sideWeight="0.48243046" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="604" height="544" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34158415" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25189108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1177,13 +1589,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/accountblimpl/AccountBLBLServiceImpl.java</url>
+<<<<<<< HEAD
           <line>49</line>
+=======
+          <line>31</line>
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <properties class="blimpl.accountblimpl.AccountBLBLServiceImpl">
             <option name="EMULATED" value="true" />
           </properties>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1192,6 +1608,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/stockmanager/Alert.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1270,12 +1687,28 @@
             <marker date="1513058697188" expanded="true" signature="8232:8275" ph="..." />
             <marker date="1513058697188" expanded="true" signature="8232:8291" ph="..." />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/promotion.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="22">
+            <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/PromotionVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/OverflowCreate.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3300">
@@ -1284,12 +1717,25 @@
             <marker date="1513058697203" expanded="true" signature="8061:8073" ph="..." />
             <marker date="1513058697203" expanded="true" signature="8061:8089" ph="..." />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/promotionblimpl/Promotion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/BillFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockInventory.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3775">
@@ -1298,12 +1744,20 @@
             <marker date="1513058697203" expanded="true" signature="8233:8247" ph="..." />
             <marker date="1513058697203" expanded="true" signature="8233:8263" ph="..." />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/BillBLServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/BreakageCreateViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6050">
@@ -1353,10 +1807,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/billblservice/BillBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/BillVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/BillListVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockInventoryViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2950">
@@ -1379,10 +1856,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/BusinessProcessTableFilterFlagsVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/BusinessTableVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/resources/GeneralAccount_AccountList_PO.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -1408,18 +1900,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/GeneralAccountVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/FormFilterFlagsVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/resources/LogPO.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/FinanceItemVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/logdataimpl/LogDataServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1434,42 +1948,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/AccountFilterFlagsVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/BillClientNetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/AccountClientNetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/tableblimpl/TableInfoFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/FinanceBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/tableblimpl/BusinessTableComparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/MockFinanceBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/tableblimpl/MockTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/MockSalesOutBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/tableblimpl/SaleTableComparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/SalesInBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/userdataimpl/UserDataServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -1484,60 +2049,164 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1650">
           <caret line="71" column="31" lean-forward="false" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/SalesOutBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/MockStockBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataservice/UserDataService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/StockBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-118">
+          <caret line="67" column="36" lean-forward="false" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="33" column="42" lean-forward="false" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/GeneralAccount_CustomerList_PO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datahelper/DataHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="695">
           <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/UserPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datahelper/HibernateHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="243" column="0" lean-forward="true" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StockPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StockBillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+          <folding>
+            <element signature="e#1685#1686#0" expanded="true" />
+            <element signature="e#1712#1713#0" expanded="true" />
+            <element signature="e#1749#1750#0" expanded="true" />
+            <element signature="e#1778#1779#0" expanded="true" />
+            <element signature="e#1827#1828#0" expanded="true" />
+            <element signature="e#1857#1858#0" expanded="true" />
+            <element signature="e#1893#1894#0" expanded="true" />
+            <element signature="e#1925#1926#0" expanded="true" />
+            <element signature="e#1963#1964#0" expanded="true" />
+            <element signature="e#1997#1998#0" expanded="true" />
+            <element signature="e#2037#2038#0" expanded="true" />
+            <element signature="e#2073#2074#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2165#2166#0" expanded="true" />
+            <element signature="e#2208#2209#0" expanded="true" />
+            <element signature="e#2247#2248#0" expanded="true" />
+            <element signature="e#2280#2281#0" expanded="true" />
+            <element signature="e#2309#2310#0" expanded="true" />
+            <element signature="e#2346#2347#0" expanded="true" />
+            <element signature="e#2379#2380#0" expanded="true" />
+            <element signature="e#2426#2427#0" expanded="true" />
+            <element signature="e#2458#2459#0" expanded="true" />
+            <element signature="e#2506#2507#0" expanded="true" />
+            <element signature="e#2542#2543#0" expanded="true" />
+            <element signature="e#2603#2604#0" expanded="true" />
+            <element signature="e#2641#2642#0" expanded="true" />
+            <element signature="e#2691#2692#0" expanded="true" />
+            <element signature="e#2733#2734#0" expanded="true" />
+            <element signature="e#2787#2788#0" expanded="true" />
+            <element signature="e#2833#2834#0" expanded="true" />
+            <element signature="e#2891#2892#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+            <element signature="e#3145#3146#0" expanded="true" />
+            <element signature="e#3201#3202#0" expanded="true" />
+            <element signature="e#3245#3246#0" expanded="true" />
+            <element signature="e#3281#3282#0" expanded="true" />
+            <element signature="e#3333#3334#0" expanded="true" />
+            <element signature="e#3377#3378#0" expanded="true" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/customerdataimpl/CustomerDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/StockBillItemPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/userdataimpl/UserDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesOutBillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="93" column="29" lean-forward="false" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/GeneralAccount_AccountList_PO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1562,42 +2231,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesItemPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesInBillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/AccountPO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/SalesBillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/GeneralAccount_CommodityList_PO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PurchaseBillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/resources/GeneralAccount_CustomerList_PO.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PurchaseBill_Commodity_PO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-375">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PromotionPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/GeneralAccount_CustomerList_PO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1632,10 +2344,41 @@
           <caret line="96" column="62" lean-forward="false" selection-start-line="96" selection-start-column="62" selection-end-line="96" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/PowerPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/LogPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+          <folding>
+            <element signature="e#626#627#0" expanded="true" />
+            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#770#771#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1143#1144#0" expanded="true" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/generalaccountdataimpl/GeneralAccountDataServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1650,10 +2393,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
           <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/GeneralAccountPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/GeneralAccount_CommodityList_PO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/accountdataimpl/AccountDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1075">
@@ -1695,18 +2453,88 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
           <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/GeneralAccount_AccountList_PO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/FinanceItemPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/FinanceBillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CustomerPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1408">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ConditionPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityStockPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/ClassificationPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/accountdataimpl/AccountDataServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="22" column="5" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="22" selection-end-column="5" />
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/Classification_Commodity_PO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/dataimpl/commoditydataimpl/CommodityDataServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1726,6 +2554,29 @@
             <element signature="e#4322#4323#0" expanded="true" />
             <element signature="e#4387#4388#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/Classification_Children_PO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CashCostItemPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CashCostBillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1540">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+>>>>>>> ad1035fda3a8d35b585e46571311147db5c89bcc
         </state>
       </provider>
     </entry>

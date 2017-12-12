@@ -59,7 +59,9 @@ public class FinanceBillPO implements Serializable {
     */
    private List<FinanceItemPO> list;
 
+   public FinanceBillPO(){
 
+   }
    public FinanceBillPO(String ID, String operatorID, String customerID, String managerID, String init_time, String commit_time, String approval_time, FinanceBillType type, double sum, int status, List<FinanceItemPO> list) {
       this.ID = ID;
       this.operatorID = operatorID;

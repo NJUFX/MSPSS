@@ -24,16 +24,8 @@ public class Classification {
     CommodityClientNetworkService netService;
 
     public ResultMessage addClassification(ClassificationVO classificationVO){
-        ArrayList<String> children = new ArrayList<>();
-        for (ClassificationVO vo: classificationVO.children) {
-            children.add(vo.ID);
-        }
-        ArrayList<String> commodityIDs = new ArrayList<>();
-        for (CommodityVO vo : classificationVO.commodityVOS){
-            commodityIDs.add(vo.ID);
-        }
-        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs,commodityIDs.isEmpty());
-        return netService.addClassification(po);
+            ClassificationPO po = vo_to_po(classificationVO);
+         return netService.addClassification(po);
     }
 
     /**
@@ -42,14 +34,8 @@ public class Classification {
      * @return
      */
     public ResultMessage deleteClassification(String id){
-        ClassificationPO po = netService.getClassification(id);
-        //验证该分类下是否有子节点
-        if (po.getChildrenID()==null||po.getChildrenID().size()==0)
-            return ResultMessage.FAILED;
-        //验证该分类下是否有商品
-        if (po.getCommodityIDs()==null||po.getCommodityIDs().size()==0)
-            return ResultMessage.FAILED;
-        return netService.deleteClassification(id);
+
+      return netService.deleteClassification(id);
     }
 
     /**
@@ -58,16 +44,8 @@ public class Classification {
      * @return
      */
     public ResultMessage updateClassification(ClassificationVO classificationVO){
-        ArrayList<String> children = new ArrayList<>();
-        for (ClassificationVO vo: classificationVO.children) {
-            children.add(vo.ID);
-        }
-        ArrayList<String> commodityIDs = new ArrayList<>();
-        for (CommodityVO vo : classificationVO.commodityVOS){
-            commodityIDs.add(vo.ID);
-        }
-        ClassificationPO po = new ClassificationPO(classificationVO.name,classificationVO.ID,classificationVO.parent.ID,children,commodityIDs,commodityIDs==null||commodityIDs.isEmpty());
-        return netService.modifyClassification(po);
+        ClassificationPO po = vo_to_po(classificationVO);
+        return netService.updateClassification(po);
     }
 
     /**
@@ -77,45 +55,54 @@ public class Classification {
      */
     public ClassificationVO getClassification(String id){
         ClassificationPO po = netService.getClassification(id);
-
-        return PO_To_VO(po);
+        return po_to_vo(po);
     }
 
-    public ArrayList<ClassificationVO> searchClassification(FilterFlagVO flag){
-        return null;
-    }
 
     /**
      * 查询一个分类的子分类
      * @return
      */
-    public ArrayList<ClassificationVO> searchChildren(ClassificationVO vo){
+    public ArrayList<ClassificationVO> searchChildren(ClassificationVO parentVO) {
+        ArrayList<ClassificationVO> vos = new ArrayList<>();
+        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID",parentVO.getID());
+        for (int i = 0 ; i < pos.size() ;i++){
+            ClassificationVO vo = po_to_vo(pos.get(i),parentVO);
+            vos.add(vo);
+        }
+        return vos;
 
-        return vo.children;
     }
-
     /**
      *
      * @return
      */
-    public ArrayList<ClassificationVO> getAllClassification(){
-        return null;
+    public ArrayList<ClassificationVO> getRootClassifications(){
+        ArrayList<ClassificationVO> vos = new ArrayList<>();
+       ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID","null");
+       for (int i = 0 ; i < pos.size() ;i++){
+           ClassificationVO vo = po_to_vo(pos.get(i));
+           vos.add(vo);
+       }
+       return vos;
     }
 
-    private ClassificationVO PO_To_VO(ClassificationPO po){
-
-        ClassificationVO classificationVO = new ClassificationVO(po.getName());
-        if (po.getChildrenID()!=null&&po.getChildrenID().size()>0);
-        for (String i : po.getChildrenID()){
-            classificationVO.children.add(PO_To_VO(netService.getClassification(i)));
-        }
-        if (po.getCommodityIDs()!=null&&po.getCommodityIDs().size()>0)
-            for (String id : po.getCommodityIDs()){
-                CommodityPO commodityPO = netService.exactlySearchCommodity(id);
-                CommodityVO vo = new CommodityVO(commodityPO.getName(),commodityPO.getID(),commodityPO.getType(),commodityPO.getImportCost(),commodityPO.getExportCost(),
-                        commodityPO.getNumberInStock());
-                classificationVO.commodityVOS.add(vo);
-            }
-        return classificationVO;
+    private ClassificationVO po_to_vo(ClassificationPO po){
+            ClassificationVO vo = new ClassificationVO(po.getName(),po.getID());
+            vo.setLeaf(po.getLeafNode());
+      return vo;
     }
+    private ClassificationVO po_to_vo(ClassificationPO po,ClassificationVO parent){
+        ClassificationVO vo = new ClassificationVO(po.getName(),po.getID(),parent,po.getLeafNode());
+        return vo;
+    }
+    private ClassificationPO vo_to_po(ClassificationVO vo){
+        ClassificationPO po;
+        if (vo.parent!=null)
+        po = new ClassificationPO(vo.getName(),vo.getID(),vo.getParent().getID(),vo.isLeaf());
+        else
+        po = new ClassificationPO(vo.getName(),vo.getID(),"null",vo.isLeaf())   ;
+        return po;
+    }
+
 }

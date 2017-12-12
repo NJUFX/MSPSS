@@ -11,7 +11,7 @@
        </id>
 
        <property name="name" column="name" type="string"></property>
-       <property name="classificationID" column ="classification_id" type ="string"></property>
+       <property name="classificationName" column ="classification_id" type ="string"></property>
        <property name="type" column ="type" type ="string"></property>
        <property name="ID" column ="id" type ="string"></property>
        <property name="importCost" column ="import_cost" type ="double"></property>

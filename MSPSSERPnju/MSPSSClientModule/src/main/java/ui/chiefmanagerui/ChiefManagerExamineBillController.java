@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -37,6 +38,8 @@ public class ChiefManagerExamineBillController implements Initializable{
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	ComboBox BillType;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -164,6 +167,17 @@ public class ChiefManagerExamineBillController implements Initializable{
 		stage.setScene(scene);
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
+	}
+	
+	
+	/**
+	 * 选择审批单据类型
+	 * @param e
+	 * @throws Exception
+	 */
+	public void ChooseBillType(ActionEvent e) throws Exception{
+		String billType = BillType.getValue().toString();
+		
 	}
 
 }
