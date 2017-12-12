@@ -22,8 +22,14 @@ public interface GeneralAccountDataService {
     /**
      * 查询建账信息
      *
-     * @param begin,end
+     * @param field,min,max
      * @return 建账信息列表
      */
-    public ArrayList<GeneralAccountPO> checkGeneralAccount(Time begin, Time end);
+    public ArrayList<GeneralAccountPO> checkGeneralAccount(String field,Object min,Object max);
+
+    /**
+     * 精确查询
+     * @param field,value
+     */
+    public GeneralAccountPO exactlySearchGeneralAccount(String field,Object value);
 }

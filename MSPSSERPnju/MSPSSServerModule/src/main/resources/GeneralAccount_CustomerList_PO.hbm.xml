@@ -12,7 +12,7 @@
 
 
         <property name="ID" column="id" type="string"></property>
-        <property name="category" column ="category" type ="string"></property>
+        <property name="category" column ="category" type ="int"></property>
         <property name="Exist" column ="exist" type ="java.lang.Boolean"></property>
         <property name="level" column ="level" type ="int"></property>
         <property name="name" column ="name" type ="string"></property>

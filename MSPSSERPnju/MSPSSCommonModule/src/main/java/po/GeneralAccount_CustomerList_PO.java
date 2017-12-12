@@ -21,7 +21,7 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
     /**
      * 分类
      */
-    private String category;
+    private int category;
     /**
      * 等级
      */
@@ -96,11 +96,11 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
         this.ID = ID;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 

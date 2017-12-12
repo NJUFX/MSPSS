@@ -1,6 +1,7 @@
 package datahelper;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -228,5 +229,15 @@ public class HibernateHelper<T> implements DataHelper<T> {
         ArrayList<T> arrayList = (ArrayList<T>) criteria.list();
         session.close();
         return arrayList;
+    }
+
+    @Override
+    public void clear(String table){
+        setUpSession();
+        String sql = "truncate table "+table;
+
+        Query query = session.createSQLQuery(sql);
+        query.executeUpdate();
+        commitAndClose();
     }
 }

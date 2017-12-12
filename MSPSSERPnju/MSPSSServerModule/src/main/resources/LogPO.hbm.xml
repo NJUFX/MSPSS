@@ -9,7 +9,7 @@
     </id>
         <property name="operator" column="operator" type="string"/>
         <property name="time" column="time" type ="string"/>
-        <property name="kind" column="kind" type="int"/>
+        <property name="operate" column="operate" type="string"/>
 
     </class>
 </hibernate-mapping>
