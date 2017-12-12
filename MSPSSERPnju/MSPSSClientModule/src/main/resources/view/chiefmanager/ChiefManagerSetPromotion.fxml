@@ -95,8 +95,8 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="778.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="退出" textFill="#0f88eb" />
-      <Button layoutX="655.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
+      <Button layoutX="778.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="退出" textFill="#0f88eb" />
+      <Button layoutX="655.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
       <Pane layoutX="170.0" layoutY="57.0" prefHeight="105.0" prefWidth="708.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="88.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -111,7 +111,7 @@
             </ImageView>
             <Label layoutX="137.0" layoutY="19.0" style="-fx-background-color: white;" text="选择策略类型" textFill="#0f88eb" />
             <Label layoutX="137.0" layoutY="67.0" style="-fx-background-color: white;" text="选择起止时间" textFill="#0f88eb" />
-            <ComboBox fx:id="PromotionType" layoutX="282.0" layoutY="14.0" onAction="#ChoosePromotionType" prefHeight="27.0" prefWidth="145.0" promptText="促销策略类型">
+            <ComboBox fx:id="PromotionType" layoutX="282.0" layoutY="14.0" onAction="#ChoosePromotionType" prefHeight="27.0" prefWidth="145.0" promptText="促销策略类型" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
             <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="分级赠送赠品" />
@@ -123,11 +123,11 @@
                   </FXCollections>
              </items>
             </ComboBox>
-            <DatePicker fx:id="StartTime" layoutX="282.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="开始时间" />
-            <DatePicker fx:id="EndTime" layoutX="467.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="结束时间" />
+            <DatePicker fx:id="StartTime" layoutX="282.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="开始时间" style="-fx-background-color: white; -fx-border-color: #0f88eb;" />
+            <DatePicker fx:id="EndTime" layoutX="467.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="结束时间" style="-fx-background-color: white; -fx-border-color: #0f88eb;" />
          </children>
       </Pane>
-      <Pane layoutX="170.0" layoutY="178.0" prefHeight="309.0" prefWidth="340.0" style="-fx-background-color: white;">
+      <Pane layoutX="170.0" layoutY="166.0" prefHeight="339.0" prefWidth="339.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -181,15 +181,32 @@
             <TextField fx:id="GiftAmount" editable="false" layoutX="175.0" layoutY="50.0" prefHeight="27.0" prefWidth="150.0" />
             <TextField fx:id="ProductName" editable="false" layoutX="175.0" layoutY="85.0" prefHeight="27.0" prefWidth="150.0" />
             <TextField fx:id="DiscountAmount" editable="false" layoutX="175.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" />
-            <ComboBox fx:id="CustomerLevel" layoutX="175.0" layoutY="15.0" prefWidth="150.0" promptText="1~5" />
+            <ComboBox fx:id="CustomerLevel" layoutX="175.0" layoutY="15.0" prefWidth="150.0" promptText="1~5" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
+             <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="1" />
+                     <String fx:value="2" />
+                     <String fx:value="3" />
+                     <String fx:value="4" />
+                     <String fx:value="5" />
+                  </FXCollections>
+             </items>
+            </ComboBox>
             <TextField fx:id="CouponNumber" editable="false" layoutX="175.0" layoutY="190.0" prefHeight="25.0" prefWidth="150.0" />
             <TextField fx:id="AmountSection" editable="false" layoutX="175.0" layoutY="225.0" prefHeight="25.0" prefWidth="150.0" promptText="e.g. 1000-5000" />
-            <TextField fx:id="BargainBag" editable="false" layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="BargainBagPrice" editable="false" layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label layoutX="75.0" layoutY="300.0" style="-fx-background-color: white;" text="特价包商品" textFill="#0f88eb" />
+            <TextField fx:id="BargainBagProduct" editable="false" layoutX="175.0" layoutY="295.0" prefHeight="25.0" prefWidth="150.0" promptText="e.g. 灯泡-4,插座-2" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/商品.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="531.0" layoutY="178.0" prefHeight="309.0" prefWidth="347.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="516.0" layoutY="166.0" prefHeight="339.0" prefWidth="362.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <TableView prefHeight="309.0" prefWidth="347.0">
+            <TableView prefHeight="339.0" prefWidth="362.0">
               <columns>
                 <TableColumn prefWidth="244.0" text="促销策略" />
                 <TableColumn prefWidth="102.0" text="起止时间" />
@@ -197,7 +214,7 @@
             </TableView>
          </children>
       </Pane>
-      <Button layoutX="410.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="制定" textFill="WHITE" />
-      <Button layoutX="531.0" layoutY="501.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
+      <Button layoutX="410.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="制定" textFill="WHITE" />
+      <Button layoutX="531.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
     </children>
 </Pane>
