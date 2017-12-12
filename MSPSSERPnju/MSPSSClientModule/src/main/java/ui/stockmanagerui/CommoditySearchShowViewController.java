@@ -1,7 +1,6 @@
 package ui.stockmanagerui;
 
-import auxiliary.stockmanager.CommodityTable;
-import blimpl.commodityblimpl.Commodity;
+import auxiliary.CommodityTable;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,13 +14,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 
-import javax.naming.Name;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

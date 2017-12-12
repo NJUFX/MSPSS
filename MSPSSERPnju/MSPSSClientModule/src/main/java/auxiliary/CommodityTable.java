@@ -1,4 +1,4 @@
-package auxiliary.stockmanager;
+package auxiliary;
 
 import javafx.beans.property.SimpleStringProperty;
 

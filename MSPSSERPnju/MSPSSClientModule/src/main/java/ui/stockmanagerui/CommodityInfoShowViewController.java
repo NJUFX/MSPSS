@@ -1,7 +1,6 @@
 package ui.stockmanagerui;
 
-import auxiliary.stockmanager.CommodityTable;
-import blimpl.commodityblimpl.MockCommodity;
+import auxiliary.CommodityTable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +15,6 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import vo.CommodityVO;
 
 import java.io.IOException;
 import java.io.InputStream;
