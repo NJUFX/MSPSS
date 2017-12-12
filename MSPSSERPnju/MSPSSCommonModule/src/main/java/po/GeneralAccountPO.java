@@ -10,11 +10,20 @@ import java.util.List;
 public class GeneralAccountPO implements Serializable {
     private int  id;
     private String name;
+    private String time;
     private List<GeneralAccount_CommodityList_PO> commoditylist= new ArrayList<GeneralAccount_CommodityList_PO>();
     private List<GeneralAccount_CustomerList_PO> Customerlist = new ArrayList<GeneralAccount_CustomerList_PO>();
     private List<GeneralAccount_AccountList_PO> accountlist = new ArrayList<GeneralAccount_AccountList_PO>() ;
 
     public GeneralAccountPO() {
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getName() {

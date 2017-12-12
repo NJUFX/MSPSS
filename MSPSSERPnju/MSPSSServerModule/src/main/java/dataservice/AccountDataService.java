@@ -21,31 +21,32 @@ public interface AccountDataService {
     /**
      * 修改账户
      *
-     * @param oldname,newname
+     * @param oldName,newName
      * @return 修改成功与否
      */
-    public ResultMessage modifyAccount(String oldname,String newname);
+    public ResultMessage modifyAccount(String oldName,String newName);
     /**
      * 查找账户
      *
      * @param name
-     * @return 符合条件的List
+     * @return
      */
-    public ArrayList<AccountPO> checkAccount(String name);
+    public AccountPO checkAccount(String name);
     /**
      * 账户收款
      *
      * @param name,money
      * @return void
      */
-    public void income(String name,int money);
+    public void income(String name,double money);
     /**
      * 账户付款
      *
      * @param name,money
      * @return void
      */
-    public void pay(String name,int money);
+    public void pay(String name,double money);
+
 
 
 }

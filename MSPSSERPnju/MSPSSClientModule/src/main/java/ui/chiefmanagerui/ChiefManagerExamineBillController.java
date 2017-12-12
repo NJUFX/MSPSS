@@ -177,7 +177,7 @@ public class ChiefManagerExamineBillController implements Initializable{
 	 */
 	public void ChooseBillType(ActionEvent e) throws Exception{
 		String billType = BillType.getValue().toString();
-		System.out.println(billType);
+		
 	}
 
 }

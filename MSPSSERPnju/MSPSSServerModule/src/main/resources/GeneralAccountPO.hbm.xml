@@ -12,6 +12,7 @@
           <property name="name" column ="name" type="string">
 
           </property>
+          <property name="time" column="time" type="string"></property>
 
           <list name = "accountlist" table ="generalaccount_accountlist" cascade="all">
               <key column="generalaccount_id"></key>
