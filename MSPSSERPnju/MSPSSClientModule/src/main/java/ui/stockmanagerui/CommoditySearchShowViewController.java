@@ -1,5 +1,8 @@
 package ui.stockmanagerui;
 
+import auxiliary.stockmanager.CommodityTable;
+import blimpl.commodityblimpl.Commodity;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +10,18 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 
+import javax.naming.Name;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -23,7 +32,18 @@ import java.util.ResourceBundle;
  * date:2017/12/8
  */
 public class CommoditySearchShowViewController implements Initializable {
+    public CommodityTable OperateCommodity = new CommodityTable();
     Stage stage = StageSingleton.getStage();
+
+    private String keyType, keyword;
+
+    public void setKeyType(String keyType) {
+        this.keyType = keyType;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
 
     @FXML
     Button BackToLogin;
@@ -35,6 +55,52 @@ public class CommoditySearchShowViewController implements Initializable {
     Button commodityModButton;
     @FXML
     Button backButton;
+    @FXML
+    TableView<CommodityTable> commodityTableTable;
+    @FXML
+    TableColumn<CommodityTable, String> IdCol, NameCol, CategoryCol;
+    @FXML
+    TableColumn<CommodityTable, String> OperationCol;
+
+    public void showTableView() {
+        IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        CategoryCol.setCellValueFactory(new PropertyValueFactory<>("Category"));
+        OperationCol.setCellFactory((col) -> {
+            TableCell<CommodityTable, String> cell = new TableCell<CommodityTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        Button delBtn = new Button("选择");
+                        delBtn.setPrefSize(100, 10);
+                        //delBtn.setFont(Font.font(12));
+                        delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+                        this.setGraphic(delBtn);
+                        delBtn.setOnMouseClicked((me) -> {
+                            //OperateCommodity = this.getTableView().getItems().get(this.getIndex());
+                            try {
+                                CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
+                                        "/view/stockmanager/CommodityInfoShow.fxml");
+                                //controller.setCommodityTable(OperateCommodity);
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
+                        });
+                    }
+                }
+            };
+            return cell;
+        });
+        addRow();
+    }
+
+    public void addRow() {
+        ObservableList<CommodityTable> data = commodityTableTable.getItems();
+        data.add(new CommodityTable("00001", "HongKong Lamp", "China"));
+    }
 
     /**
      * 返回上一界面
@@ -103,6 +169,7 @@ public class CommoditySearchShowViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 下一步
      *
@@ -119,6 +186,7 @@ public class CommoditySearchShowViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回登录界面
      *
@@ -134,6 +202,7 @@ public class CommoditySearchShowViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
 
     /**
      * 用来打开fxml文件
@@ -164,7 +233,7 @@ public class CommoditySearchShowViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO
+        this.showTableView();
     }
 }
 

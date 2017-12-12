@@ -111,6 +111,12 @@
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
+                <Label layoutX="228.0" layoutY="145.0" text="库存警戒值">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <TextField id="userName" layoutX="312.0" layoutY="145.0" prefHeight="21.0" prefWidth="114.0" />
                 <TextField id="userName" layoutX="312.0" layoutY="38.0" prefHeight="21.0" prefWidth="114.0" />
                 <Label layoutX="470.0" layoutY="92.0" text="零售价">
                     <font>

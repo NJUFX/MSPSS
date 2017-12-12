@@ -57,7 +57,7 @@ public class StockInventoryViewController implements Initializable {
     @FXML
     TableView<StockInventory> stockInventoryTable;
     @FXML
-    TableColumn<StockInventory, String> LineIdCol, NameCol, StockNumberCol, AveragePriceCol, BatchCol, BatchNumberCol, DateOfProductionCol;
+    TableColumn<StockInventory, String> LineIdCol, NameCol, StockNumberCol, AveragePriceCol, DateOfProductionCol;
 
     public void showTableView() {
         LineIdCol.setCellFactory((col) -> {
@@ -79,8 +79,6 @@ public class StockInventoryViewController implements Initializable {
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         AveragePriceCol.setCellValueFactory(new PropertyValueFactory<>("AveragePrice"));
-        BatchCol.setCellValueFactory(new PropertyValueFactory<>("Batch"));
-        BatchNumberCol.setCellValueFactory(new PropertyValueFactory<>("BatchNumber"));
         DateOfProductionCol.setCellValueFactory(new PropertyValueFactory<>("DateOfProduction"));
         addRow();
     }
@@ -90,7 +88,7 @@ public class StockInventoryViewController implements Initializable {
      */
     public void addRow() {
         ObservableList<StockInventory> data = stockInventoryTable.getItems();
-        StockInventory stockInventory = new StockInventory("lamp", "000000", "450", "001", "001-002", "2017/12/12");
+        StockInventory stockInventory = new StockInventory("lamp", "000000", "450", "2017/12/12");
         data.add(stockInventory);
     }
 

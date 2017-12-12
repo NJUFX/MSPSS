@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -40,8 +42,10 @@ public class CommodityManageViewController implements Initializable {
     Button commodityModButton;
     @FXML
     Button commoditySearchButton;
-
-
+    @FXML
+    ComboBox<String> keyTypeComboBox;
+    @FXML
+    TextField keywordField;
     /**
      * 处理单据
      *
@@ -176,6 +180,8 @@ public class CommodityManageViewController implements Initializable {
         try {
             CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
                     "/view/stockmanager/commoditySearchShow.fxml");
+            controller.setKeyType(keyTypeComboBox.getTypeSelector());
+            controller.setKeyword(keywordField.getText());
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
