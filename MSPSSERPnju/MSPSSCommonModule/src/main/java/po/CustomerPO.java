@@ -15,7 +15,7 @@ public class CustomerPO  implements Serializable{
     private String ID;
     /**
      * 分类 用1、0来判定，1是供应商，0是销售商
-    *
+     *
      */
     private int category;
     /**
