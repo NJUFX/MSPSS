@@ -45,7 +45,7 @@ public class CustomerPO  implements Serializable{
     /**
      * 应收额度
      */
-    private double Invalue;
+    private double invalue;
     /**
      * 应收
      */
@@ -78,7 +78,7 @@ public class CustomerPO  implements Serializable{
         this.address = address;
         this.postcode = postcode;
         this.email = email;
-        Invalue = invalue;
+        this.invalue = invalue;
         this.incomemoney = incomemoney;
         this.paymoney = paymoney;
         this.DAE = DAE;
@@ -158,11 +158,11 @@ public class CustomerPO  implements Serializable{
     }
 
     public double getInvalue() {
-        return Invalue;
+        return invalue;
     }
 
     public void setInvalue(double invalue) {
-        Invalue = invalue;
+        this.invalue = invalue;
     }
 
     public double getIncomemoney() {
