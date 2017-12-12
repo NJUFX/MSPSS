@@ -26,6 +26,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/12
+ */
 public class StockInventoryViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();
@@ -57,7 +60,7 @@ public class StockInventoryViewController implements Initializable {
     @FXML
     TableView<StockInventory> stockInventoryTable;
     @FXML
-    TableColumn<StockInventory, String> LineIdCol, NameCol, StockNumberCol, AveragePriceCol, DateOfProductionCol;
+    TableColumn<StockInventory, String> LineIdCol, NameCol, StockNumberCol, AveragePriceCol;
 
     public void showTableView() {
         LineIdCol.setCellFactory((col) -> {
@@ -79,7 +82,6 @@ public class StockInventoryViewController implements Initializable {
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         AveragePriceCol.setCellValueFactory(new PropertyValueFactory<>("AveragePrice"));
-        DateOfProductionCol.setCellValueFactory(new PropertyValueFactory<>("DateOfProduction"));
         addRow();
     }
 
@@ -88,7 +90,7 @@ public class StockInventoryViewController implements Initializable {
      */
     public void addRow() {
         ObservableList<StockInventory> data = stockInventoryTable.getItems();
-        StockInventory stockInventory = new StockInventory("lamp", "000000", "450", "2017/12/12");
+        StockInventory stockInventory = new StockInventory("lamp", "000000", "450");
         data.add(stockInventory);
     }
 

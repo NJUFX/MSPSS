@@ -7,17 +7,15 @@ public class StockInventory {
     private final SimpleStringProperty Name = new SimpleStringProperty("");
     private final SimpleStringProperty StockNumber = new SimpleStringProperty("");
     private final SimpleStringProperty AveragePrice = new SimpleStringProperty("");
-    private final SimpleStringProperty DateOfProduction = new SimpleStringProperty("");//出厂日期
 
     public StockInventory() {
-        this("", "", "", "");
+        this("", "","");
     }
 
-    public StockInventory(String Name, String StockNumber, String Price,String Date) {
+    public StockInventory(String Name, String StockNumber, String Price) {
         setName(Name);
         setStockNumber(StockNumber);
         setAveragePrice(Price);
-        setDateOfProduction(Date);
     }
 
     public String getName() {
@@ -44,11 +42,4 @@ public class StockInventory {
         StockNumber.set(fName);
     }
 
-    public String getDateOfProduction() {
-        return DateOfProduction.get();
-    }
-
-    public void setDateOfProduction(String fName) {
-        DateOfProduction.set(fName);
-    }
 }

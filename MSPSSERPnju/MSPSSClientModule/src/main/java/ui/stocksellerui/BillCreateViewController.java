@@ -18,6 +18,9 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 
+/**
+ * author:Jiang_Chen date:2017/12/13
+ */
 public class BillCreateViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();

@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.CommodityClassifyViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.CommodityClassifyViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -24,12 +24,12 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button id="customerManage" fx:id="commodityManageButton" onAction="#commodityManageButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="商品管理" textFill="#f8f4f4">
+        <Button id="customerManage" fx:id="commodityManageButton" layoutY="282.0" mnemonicParsing="false" onAction="#commodityManageButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="商品管理" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="12.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/商品管理.png" />
             </image>
@@ -53,7 +53,7 @@
                 <Image url="@../../image/头像.png" />
             </image>
         </ImageView>
-        <Button id="billCreateButton" fx:id="billCreateButton" onAction="#billCreateButtonAction" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="处理单据" textFill="#f8f4f4">
+        <Button id="billCreateButton" fx:id="billCreateButton" layoutY="354.0" mnemonicParsing="false" onAction="#billCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="处理单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -62,7 +62,7 @@
             <font>
                 <Font size="14.0" />
             </font></Label>
-        <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="11.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="16.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockseller/审批单据.png" />
             </image>
@@ -86,7 +86,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -104,27 +104,27 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="billCreateButton" fx:id="stockInventoryButton" onAction="#stockInventoryButtonAction" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
+        <Button id="billCreateButton" fx:id="stockInventoryButton" layoutY="389.0" mnemonicParsing="false" onAction="#stockInventoryButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="billCreateButton" fx:id="stockCheckButton" onAction="#stockCheckButtonAction" layoutY="424.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
+        <Button id="billCreateButton" fx:id="stockCheckButton" layoutY="424.0" mnemonicParsing="false" onAction="#stockCheckButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/商品分类.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="12.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/库存盘点.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="17.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/库存查看.png" />
             </image>

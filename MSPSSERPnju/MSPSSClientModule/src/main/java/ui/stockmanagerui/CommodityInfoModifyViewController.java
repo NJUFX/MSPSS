@@ -15,6 +15,9 @@ import ui.common.Dialog;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/12
+ */
 public class CommodityInfoModifyViewController implements Initializable {
     Dialog dialog = new Dialog();
     @FXML

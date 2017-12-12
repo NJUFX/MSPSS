@@ -188,7 +188,7 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Button id="sureButton" layoutX="553.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="上一步" textFill="WHITE">
+      <Button id="sureButton" fx:id="backToBeforeButton" onAction="#backToBeforeButtonAction" layoutX="553.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="上一步" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei" size="16.0" />
          </font>

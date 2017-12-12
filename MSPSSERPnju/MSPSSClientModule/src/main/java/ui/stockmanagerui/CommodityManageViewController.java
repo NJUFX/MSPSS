@@ -20,6 +20,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/12
+ */
 public class CommodityManageViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
