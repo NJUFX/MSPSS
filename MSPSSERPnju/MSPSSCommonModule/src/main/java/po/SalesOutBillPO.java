@@ -91,6 +91,9 @@ public class SalesOutBillPO implements Serializable {
      */
     private List<SalesItemPO> salesItemPOS;
 
+    public SalesOutBillPO() {
+    }
+
     public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String promotionID, String init_time, String commit_time, String approval_time, String ps, int allowance, int voucher, double sumBeforeDiscount, double sumAfterDiscount, List<SalesItemPO> salesItemPOS) {
         this.ID = ID;
         this.type = type;
