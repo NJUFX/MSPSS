@@ -24,30 +24,22 @@ public class ClassificationPO implements Serializable {
       */
      private String parentID;
 
-    /**
-     * 子分类的ID
-     */
-    List<Classification_Children_PO> childrenID;
-    /**
-     * 位于该分类下的节点
-     */
-    List<Classification_Commodity_PO> commodityIDs;
+
 
     /**
      * 判断是否为叶节点
      */
     Boolean LeafNode;
 
-    public ClassificationPO() {
-    }
 
-    public ClassificationPO(String name, String ID, String parentID, List<Classification_Children_PO> childrenID, List<Classification_Commodity_PO> commodityIDs, Boolean leafNode) {
+
+    public ClassificationPO(String name, String ID, String parentID, Boolean leafNode) {
         this.name = name;
         this.ID = ID;
         this.parentID = parentID;
-        this.childrenID = childrenID;
-        this.commodityIDs = commodityIDs;
         LeafNode = leafNode;
+    }
+    public ClassificationPO() {
     }
 
     public String getName() {
@@ -74,21 +66,7 @@ public class ClassificationPO implements Serializable {
         this.parentID = parentID;
     }
 
-    public List<Classification_Children_PO> getChildrenID() {
-        return childrenID;
-    }
 
-    public void setChildrenID(List<Classification_Children_PO> childrenID) {
-        this.childrenID = childrenID;
-    }
-
-    public List<Classification_Commodity_PO> getCommodityIDs() {
-        return commodityIDs;
-    }
-
-    public void setCommodityIDs(List<Classification_Commodity_PO> commodityIDs) {
-        this.commodityIDs = commodityIDs;
-    }
 
     public Boolean getLeafNode() {
         return LeafNode;

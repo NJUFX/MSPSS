@@ -21,7 +21,7 @@ public class Commodity {
      * @return
      */
     public ResultMessage addCommodity(CommodityVO commodityVO){
-        CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationVO.getID(),commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
+        CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationName,commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
         //此时的ID为空
         return netService.addCommodity(po);
     }
@@ -32,7 +32,7 @@ public class Commodity {
      * @return
      */
     public ResultMessage updateCommodity(CommodityVO commodityVO){
-        CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationVO.getID(),commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
+        CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationName,commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
 
         return netService.modifyCommodity(po);
     }
@@ -81,8 +81,8 @@ public class Commodity {
      */
     public ArrayList<CommodityVO> searchCommodity(FilterFlagVO flag){
             ArrayList<CommodityPO> commodities = new ArrayList<>();
-            if (flag.classificationID!=null){
-                commodities.addAll(netService.fullSearchCommodity("classificationID",flag.classificationID));
+            if (flag.classificationName !=null){
+                commodities.addAll(netService.fullSearchCommodity("classificationName",flag.classificationName));
             }
             if (flag.id!=null){
                 commodities.addAll(netService.fullSearchCommodity("ID",flag.id));

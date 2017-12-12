@@ -1,5 +1,6 @@
 package network;
 
+import blimpl.commodityblimpl.Classification;
 import filterflags.CommodityFilter;
 import po.ClassificationPO;
 import po.CommodityPO;
@@ -72,7 +73,7 @@ public interface CommodityClientNetworkService extends Remote {
      * @param classificationPO
      * @return
      */
-    public ResultMessage modifyClassification(ClassificationPO classificationPO);
+    public ResultMessage updateClassification(ClassificationPO classificationPO);
 
     /**
      * 删除商品分类
@@ -85,7 +86,7 @@ public interface CommodityClientNetworkService extends Remote {
      * 得到所有的商品分类
      * @return
      */
-    public Iterator<ClassificationPO> getAllClassification();
+    public ArrayList<ClassificationPO> getAllClassification();
 
     /**
      * 根据当前的id查找到该节点下的子分类
@@ -97,5 +98,13 @@ public interface CommodityClientNetworkService extends Remote {
      * @return
      */
     public ClassificationPO getClassification(String id);
+
+    /**
+     * 完全比配查找
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<ClassificationPO> fullSearchClassificationPO(String field,String val);
 
 }

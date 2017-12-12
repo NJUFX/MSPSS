@@ -18,14 +18,9 @@ public class ClassificationVO {
      */
     public ClassificationVO parent;
     /**
-     * 该分类的子分类
+     * 是否是叶节点
      */
-    public ArrayList<ClassificationVO> children;
-
-    /**
-     * 该分类下的商品
-     */
-    public ArrayList<CommodityVO> commodityVOS;
+    boolean isLeaf;
 
     public ClassificationVO(){
 
@@ -37,16 +32,54 @@ public class ClassificationVO {
         this.name = name;
         this.parent = parent;
     }
-    public ClassificationVO(String name, ClassificationVO parent,ArrayList<ClassificationVO> children){
-        this(name,parent);
-        this.children = children;
+
+    public ClassificationVO(String name, String ID, ClassificationVO parent) {
+        this.name = name;
+        this.ID = ID;
+        this.parent = parent;
     }
-    public ClassificationVO(String name, ArrayList<CommodityVO> commodityVOS){
-        this(name);
-        this.commodityVOS = commodityVOS;
+
+    public ClassificationVO(String name, String ID) {
+        this.name = name;
+        this.ID = ID;
+    }
+
+    public ClassificationVO(String name, String ID, ClassificationVO parent, boolean isLeaf) {
+        this.name = name;
+        this.ID = ID;
+        this.parent = parent;
+        this.isLeaf = isLeaf;
+    }
+
+    public boolean isLeaf() {
+        return isLeaf;
+    }
+
+    public void setLeaf(boolean leaf) {
+        isLeaf = leaf;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setParent(ClassificationVO parent) {
+        this.parent = parent;
     }
 
     public String getID() {
         return ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ClassificationVO getParent() {
+        return parent;
     }
 }
