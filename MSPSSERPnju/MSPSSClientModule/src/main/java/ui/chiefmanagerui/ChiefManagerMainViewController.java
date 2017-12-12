@@ -76,6 +76,7 @@ public class ChiefManagerMainViewController implements Initializable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
 	}
 
 	/**
@@ -92,6 +93,7 @@ public class ChiefManagerMainViewController implements Initializable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
 	}
 
 	/**

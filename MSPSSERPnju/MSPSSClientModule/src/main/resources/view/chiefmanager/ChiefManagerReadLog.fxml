@@ -10,6 +10,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import auxiliary.stockmanager.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/chiefManager/ChiefManagerReadLog.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerReadLogController">
     <children>
@@ -71,36 +80,57 @@
             <Image url="@../../image/促销策略.png" />
          </image>
       </ImageView>
-      <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
-      <Button fx:id="BackToLogin" layoutX="48.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="17.0" prefWidth="48.0" />
-      <Button layoutX="96.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" />
-      <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="14.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/设置.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="30.0" layoutX="64.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/退出登录.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="23.0" fitWidth="35.0" layoutX="109.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/发送信息.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="617.0" layoutY="474.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Button layoutX="757.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="退出" textFill="#0f88eb" />
-      <DatePicker layoutX="446.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="开始日期" />
-      <Button layoutX="466.0" layoutY="473.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0F88EB;" text="查询" textFill="#0f88eb" />
-      <DatePicker layoutX="713.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="结束日期" />
-      <TableView layoutX="193.0" layoutY="138.0" prefHeight="320.0" prefWidth="660.0">
+      <Button layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/设置.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="BackToLogin" layoutX="48.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="17.0" prefWidth="48.0">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/退出登录.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="96.0" layoutY="532.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/发送信息.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="Clear" layoutX="753.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleClearButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="清空" textFill="#0f88eb" />
+      <DatePicker fx:id="StartTime" layoutX="533.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="开始日期" />
+      <Button fx:id="Search" layoutX="603.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="23.0" prefWidth="100.0" text="查询" textFill="WHITE" />
+      <DatePicker fx:id="EndTime" layoutX="713.0" layoutY="89.0" prefHeight="27.0" prefWidth="140.0" promptText="结束日期" />
+      <TableView fx:id="LogTable" layoutX="193.0" layoutY="138.0" prefHeight="320.0" prefWidth="660.0">
          <columns>
-            <TableColumn prefWidth="165.0" text="日志提交时间" />
-            <TableColumn prefWidth="165.0" text="操作人员编号" />
-            <TableColumn prefWidth="165.0" text="执行操作名称" />
-            <TableColumn prefWidth="165.0" text="显示详细内容" />
+            <TableColumn prefWidth="165.0" text="日志提交时间">
+             <cellValueFactory><PropertyValueFactory property="time" />  
+              </cellValueFactory> 
+            </TableColumn>
+            <TableColumn prefWidth="165.0" text="操作人员编号">
+              <cellValueFactory><PropertyValueFactory property="operator" />  
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="165.0" text="执行操作名称">
+              <cellValueFactory><PropertyValueFactory property="kind" />  
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="165.0" text="日志编号">
+             <cellValueFactory><PropertyValueFactory property="id" />  
+              </cellValueFactory>
+            </TableColumn>
          </columns>
+         <items>  
+            <FXCollections fx:factory="observableArrayList">  
+                    </FXCollections>  
+         </items>  
       </TableView>
     </children>
 </Pane>

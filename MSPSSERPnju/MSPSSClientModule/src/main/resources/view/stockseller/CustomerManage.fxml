@@ -122,10 +122,10 @@
             <ComboBox layoutX="-17.0" layoutY="28.0" prefHeight="35.0" prefWidth="102.0" promptText="关键词类型">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="姓名" />
                         <String fx:value="编号" />
                         <String fx:value="分类" />
                         <String fx:value="等级" />
-                        <String fx:value="联系方式" />
                         <String fx:value="业务员" />
                     </FXCollections>
                  </items>

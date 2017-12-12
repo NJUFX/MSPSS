@@ -1,25 +1,35 @@
 package ui.stockmanagerui;
 
+import auxiliary.stockmanager.Breakage;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * 库存报损单
+ * author:Jiang_Chen
+ * date:2017/12/12
+ */
 public class BreakageCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
     @FXML
     Button overflowCreateButton;
     @FXML
@@ -30,6 +40,98 @@ public class BreakageCreateViewController implements Initializable {
     Button BackToLogin;
     @FXML
     Button cancelButton;
+    @FXML
+    Button sureButton;
+
+    @FXML
+    public void sureButtonAction(ActionEvent e) {
+        dialog.infoDialog("Create breakage-bill successfully.");
+    }
+
+    @FXML
+    TableView<Breakage> breakageTableView;
+    @FXML
+    TableColumn<Breakage, String> IdCol, NameCol, SystemNumberCol, RealNumberCol, RemarkCol;
+    @FXML
+    TableColumn<Breakage, CheckBox> SelectCol;// 删除一行的按钮
+    @FXML
+    Button addRowButton;//添加一行
+    @FXML
+    Button delSelectedButton;//删除选中行
+    @FXML
+    Button chooseCommodityButton;//选择商品
+    @FXML
+    TextField nameField;
+    @FXML
+    Label idLabel;
+    @FXML
+    Label systemStockLabel;
+    @FXML
+    TextField realStockField;
+    @FXML
+    TextField remarkField;
+
+    public void showTableView() {
+        IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        SystemNumberCol.setCellValueFactory(new PropertyValueFactory<>("SystemNumber"));
+        RealNumberCol.setCellValueFactory(new PropertyValueFactory<>("RealNumber"));
+        SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
+        RemarkCol.setCellValueFactory(new PropertyValueFactory<>("Remark"));
+    }
+
+    /**
+     * 删除选中行
+     *
+     * @param e
+     */
+    @FXML
+    public void dealSelectedButtonAction(ActionEvent e) {
+        ObservableList<Breakage> data = breakageTableView.getItems();
+        // System.out.println("test");
+        int count = 0;
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getIsSelected().isSelected()) {
+                count++;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < data.size(); j++) {
+                if (data.get(j).getIsSelected().isSelected()) {
+                    data.remove(j);
+                }
+            }
+        }
+        dialog.infoDialog("Delete all selected successfully!");
+    }
+
+    /**
+     * 添加一条信息
+     *
+     * @param e
+     */
+    @FXML
+    public void addRowButtonAction(ActionEvent e) {
+        ObservableList<Breakage> data = breakageTableView.getItems();
+        if (nameField.getText() != null && idLabel.getText() != null && systemStockLabel.getText() != null) {
+            data.add(new Breakage(nameField.getText(), idLabel.getText(), systemStockLabel.getText(), realStockField.getText(),
+                    remarkField.getText()));
+            nameField.setText("");
+            idLabel.setText("");
+            systemStockLabel.setText("");
+            realStockField.setText("");
+            remarkField.setText("");
+        } else {
+            dialog.errorInfoDialog("Something null! Please check your input.");
+        }
+    }
+
+    @FXML
+    public void chooseCommodityButtonAction(ActionEvent e) {
+        nameField.setText("table lamp");
+        idLabel.setText("0000001");
+        systemStockLabel.setText("40");
+    }
 
     /**
      * 返回上一界面（处理单据界面）
@@ -47,6 +149,7 @@ public class BreakageCreateViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 库存报溢单
      *
@@ -148,6 +251,6 @@ public class BreakageCreateViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.showTableView();
     }
 }
