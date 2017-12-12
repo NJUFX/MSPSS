@@ -61,7 +61,9 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	@FXML
 	TextField AmountSection;
 	@FXML
-	TextField BargainBag;
+	TextField BargainBagPrice;
+	@FXML
+	TextField BargainBagProduct;
 	
 	
 	
@@ -200,30 +202,51 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	 */
 	public void ChoosePromotionType(ActionEvent e) throws Exception{
 		String promotionType = PromotionType.getValue().toString();
+		//初始设置所有的条件都不可选
+		CustomerLevel.setDisable(true);
+		CouponDeno.setEditable(false);
+		CouponNumber.setEditable(false);
+		DiscountAmount.setEditable(false);
+		ProductName.setEditable(false);
+		GiftAmount.setEditable(false);
+		AmountSection.setEditable(false);
+		BargainBagPrice.setEditable(false);
+		BargainBagProduct.setEditable(false);
+		//判定选中的促销策略类型
 		switch(promotionType){
-		
 		case"分级赠送代金券":{
-			CustomerLevel.setEditable(true);
+			CustomerLevel.setDisable(false);
 			CouponDeno.setEditable(true);
 			CouponNumber.setEditable(true);
+			break;
 		}
 		case"分级价格折让":{
-			CustomerLevel.setEditable(true);
+			CustomerLevel.setDisable(false);
 			DiscountAmount.setEditable(true);
+			break;
 		}
 		case"分级赠送赠品":{
-			CustomerLevel.setEditable(true);
+			CustomerLevel.setDisable(false);
 			ProductName.setEditable(true);
 			GiftAmount.setEditable(true);
+			break;
 		}
 		case"总额赠送代金券":{
-			
+			AmountSection.setEditable(true);
+			CouponDeno.setEditable(true);
+			CouponNumber.setEditable(true);
+			break;
 		}
 		case"总额赠送赠品":{
-			
+			AmountSection.setEditable(true);
+			ProductName.setEditable(true);
+			GiftAmount.setEditable(true);
+			break;
 		}
 		case"制定特价包":{
-			
+			BargainBagPrice.setEditable(true);
+			BargainBagProduct.setEditable(true);
+			break;
 		}
 		
 		}
