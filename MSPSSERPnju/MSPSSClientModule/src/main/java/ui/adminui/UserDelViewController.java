@@ -33,14 +33,23 @@ public class UserDelViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
     @FXML
-    static Button sureDeleteButton;
+    Button sureDeleteButton;
     @FXML
-    static Button cancelDelteButton;
+    Button cancelButton;
     @FXML
     static TextField id_to_del;
     @FXML
     Button BackToLogin;
 
+    @FXML
+    public void cancelButtonAction(ActionEvent e) {
+        try {
+            AdminMainViewController controller = (AdminMainViewController) replaceSceneContent("/view/admin/Main.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
     /**
      * 返回登录界面
      *

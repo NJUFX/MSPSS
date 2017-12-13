@@ -92,7 +92,7 @@
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找商品" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id = "commoditySearchButton" onAction="#commoditySearchButtonAction" layoutY="385.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找商品" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
