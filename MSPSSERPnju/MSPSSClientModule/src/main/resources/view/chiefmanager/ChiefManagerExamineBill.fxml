@@ -141,7 +141,7 @@
                <PropertyValueFactory property="billType" />
             </cellValueFactory>
           </TableColumn>
-            <TableColumn prefWidth="110.0" text="显示单据详情" />
+            <TableColumn fx:id="ShowDetail" prefWidth="110.0" text="显示单据详情" />
         </columns>
       </TableView>
     </children>

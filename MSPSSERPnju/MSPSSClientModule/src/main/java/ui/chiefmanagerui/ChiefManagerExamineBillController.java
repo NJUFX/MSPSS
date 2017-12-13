@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import auxiliary.stockmanager.Bill;
-import auxiliary.stockmanager.Log;
+import auxiliary.Bill;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,9 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -25,6 +26,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+
 
 public class ChiefManagerExamineBillController implements Initializable{
 	@FXML
@@ -47,6 +49,8 @@ public class ChiefManagerExamineBillController implements Initializable{
 	ComboBox BillType;
 	@FXML
 	TableView<Bill> BillTable;
+	@FXML
+	TableColumn<Bill,String> ShowDetail;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -55,7 +59,9 @@ public class ChiefManagerExamineBillController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		this.InitTable();
+		ObservableList<Bill> data = BillTable.getItems();
+        data.add(new Bill("1","1","1","1","1"));
 	}
 
 	public void setApp(MainApp application) {
@@ -184,9 +190,42 @@ public class ChiefManagerExamineBillController implements Initializable{
 	 */
 	public void ChooseBillType(ActionEvent e) throws Exception{
 		String billType = BillType.getValue().toString();
-		ObservableList<Bill> data = BillTable.getItems();
-		data.add(new Bill("1","2","3","4","5"));
 		
+		
+	}
+	
+	
+	/**
+	 * 初始化表单
+	 * 
+	 */
+	public void InitTable(){
+		ShowDetail.setCellFactory((col) -> {
+            TableCell<Bill, String> cell = new TableCell<Bill, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        Button delBtn = new Button("详情");
+                        delBtn.setPrefSize(100, 10);
+                        //delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+                        //this.setGraphic(delBtn);
+                        delBtn.setOnMouseClicked((me) -> {
+                            try {
+                                ChiefManagerReadLogController controller = (ChiefManagerReadLogController) replaceSceneContent(
+                                        "/view/chiefmanager/ChiefManagerReadLog.fxml");
+                                //controller.setCommodityTable(OperateCommodity);
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
+                        });
+                    }
+                }
+            };
+            return cell;
+        });
 	}
 
 }

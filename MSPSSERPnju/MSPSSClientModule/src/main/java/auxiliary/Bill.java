@@ -1,4 +1,4 @@
-package auxiliary.stockmanager;
+package auxiliary;
 
 
 import javafx.beans.property.SimpleStringProperty;
@@ -18,7 +18,7 @@ public class Bill {
 	    private final SimpleStringProperty commitTime = new SimpleStringProperty(""); 
 	    private final SimpleStringProperty operator = new SimpleStringProperty(""); 
 	    private final SimpleStringProperty billType = new SimpleStringProperty(""); 
-	    //public SimpleObjectProperty<CheckBox> checkbox = new SimpleObjectProperty<CheckBox>();
+	    
 	   
 	  
 	    public Bill() {  
