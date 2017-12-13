@@ -18,8 +18,11 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/12
+ */
 public class AdminMainViewController implements Initializable {
-	
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -44,6 +47,7 @@ public class AdminMainViewController implements Initializable {
     Button modUserButton;
     @FXML
     Button BackToLogin;
+
     /**
      * 返回登录界面
      *
@@ -84,8 +88,8 @@ public class AdminMainViewController implements Initializable {
     @FXML
     public void modUserButtonAction(ActionEvent e) throws IOException {
         try {
-            UserModifyViewController controller = (UserModifyViewController) replaceSceneContent(
-                    "/view/admin/UserModifyView.fxml");
+            UserModifyFirstViewController controller = (UserModifyFirstViewController) replaceSceneContent(
+                    "/view/admin/UserModifyFirstView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

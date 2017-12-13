@@ -48,8 +48,8 @@ public class CommodityModitySecondViewController implements Initializable {
     @FXML
     public void cancelButtonAction(ActionEvent e) throws IOException {
         try {
-            CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityModifyFirst.fxml");
+            CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                    "/view/stockmanager/commodityManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -65,8 +65,8 @@ public class CommodityModitySecondViewController implements Initializable {
     @FXML
     public void backToBeforeButtonAction(ActionEvent e) throws IOException {
         try {
-            CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityManage.fxml");
+            CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
+                    "/view/stockmanager/commodityModifyFirst.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

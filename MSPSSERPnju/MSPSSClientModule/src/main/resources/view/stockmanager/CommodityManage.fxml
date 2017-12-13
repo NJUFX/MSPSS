@@ -12,7 +12,7 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.CommodityManageViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.CommodityManageViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -29,12 +29,12 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="12.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/商品管理.png" />
             </image>
         </ImageView>
-        <Button id="billCreateButton" fx:id="commodityClassifyButton" onAction="#commodityClassifyButtonAction" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="商品分类" textFill="#f8f4f4">
+        <Button id="billCreateButton" fx:id="commodityClassifyButton" layoutY="319.0" mnemonicParsing="false" onAction="#commodityClassifyButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="商品分类" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -53,7 +53,7 @@
                 <Image url="@../../image/头像.png" />
             </image>
         </ImageView>
-      <Button id="billCreateButton" fx:id="billCreateButton" onAction="#billCreateButtonAction" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="处理单据" textFill="#f8f4f4">
+      <Button id="billCreateButton" fx:id="billCreateButton" layoutY="354.0" mnemonicParsing="false" onAction="#billCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="处理单据" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
@@ -62,7 +62,7 @@
             <font>
                 <Font size="14.0" />
             </font></Label>
-        <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="11.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="16.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockseller/审批单据.png" />
             </image>
@@ -79,7 +79,7 @@
         </Label>
         <Pane id="addCustomerPane" layoutX="218.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
             <children>
-                <Button id="addButton" fx:id="commodityAddButton" onAction="#commodityAddButtonAction" layoutX="31.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="增加商品" textFill="WHITE">
+                <Button id="addButton" fx:id="commodityAddButton" layoutX="31.0" layoutY="146.0" mnemonicParsing="false" onAction="#commodityAddButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="增加商品" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -92,7 +92,7 @@
             </children></Pane>
         <Pane id="delCustomerPane" layoutX="431.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
             <children>
-                <Button id="delButton" fx:id="commodityDelButton" onAction="#commodityDelButtonAction" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="删除商品" textFill="WHITE">
+                <Button id="delButton" fx:id="commodityDelButton" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" onAction="#commodityDelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="删除商品" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -105,7 +105,7 @@
             </children></Pane>
         <Pane id="modCustomerPane" layoutX="648.0" layoutY="200.0" prefHeight="200.0" prefWidth="155.0" styleClass="pane" stylesheets="@../../css/stockseller/customerManage.css">
             <children>
-                <Button id="modButton" fx:id="commodityModButton" onAction="#commodityModButtonAction" layoutX="32.0" layoutY="146.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="修改属性" textFill="WHITE">
+                <Button id="modButton" fx:id="commodityModButton" layoutX="32.0" layoutY="146.0" mnemonicParsing="false" onAction="#commodityModButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="修改属性" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
@@ -118,20 +118,20 @@
             </children></Pane>
         <Pane id="searchCustomerPane" layoutX="479.0" layoutY="59.0" prefHeight="94.0" prefWidth="388.0">
             <children>
-                <TextField layoutX="85.0" layoutY="28.0" prefHeight="35.0" prefWidth="161.0" promptText="关键词/编号" />
-                <Button id="searchButton" fx:id="commoditySearchButton" onAction="#commoditySearchButtonAction" layoutX="246.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="查找" textFill="WHITE">
+                <TextField fx:id="keywordField" layoutX="85.0" layoutY="28.0" onAction="#commoditySearchButtonAction" prefHeight="35.0" prefWidth="161.0" promptText="关键词/编号" />
+                <Button id="searchButton" fx:id="commoditySearchButton" layoutX="246.0" layoutY="28.0" mnemonicParsing="false" onAction="#commoditySearchButtonAction" prefHeight="25.0" prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="查找" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Button>
-                <ComboBox layoutX="-17.0" layoutY="28.0" prefHeight="35.0" prefWidth="102.0" promptText="关键词类型">
+                <ComboBox fx:id="keyTypeComboBox" layoutX="-17.0" layoutY="28.0" prefHeight="35.0" prefWidth="102.0" promptText="关键词类型">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="编号" />
+                            <String fx:value="商品编号" />
                             <String fx:value="分类" />
-                            <String fx:value="等级" />
-                            <String fx:value="联系方式" />
-                            <String fx:value="业务员" />
+                            <String fx:value="编号" />
+                            <String fx:value="进价" />
+                            <String fx:value="零售价" />
                         </FXCollections>
                     </items>
                 </ComboBox>
@@ -146,7 +146,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton"  fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -164,27 +164,27 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Button id="billCreateButton" fx:id="stockInventoryButton" onAction="#stockInventoryButtonAction" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
+      <Button id="billCreateButton" fx:id="stockInventoryButton" layoutY="389.0" mnemonicParsing="false" onAction="#stockInventoryButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button id="billCreateButton" fx:id="stockCheckButton" onAction="#stockCheckButtonAction" layoutY="424.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
+      <Button id="billCreateButton" fx:id="stockCheckButton" layoutY="424.0" mnemonicParsing="false" onAction="#stockCheckButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存查看" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/stockmanager/商品分类.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="12.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="16.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/stockmanager/库存盘点.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="12.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="17.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/stockmanager/库存查看.png" />
          </image>

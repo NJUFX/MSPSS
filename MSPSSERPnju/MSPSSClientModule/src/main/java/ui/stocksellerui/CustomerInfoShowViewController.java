@@ -7,6 +7,9 @@ import main.StageSingleton;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/13
+ */
 public class CustomerInfoShowViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 

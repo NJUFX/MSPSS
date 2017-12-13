@@ -7,9 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import auxiliary.stockmanager.Log;
+import auxiliary.Log;
 import blimpl.blfactory.BLFactoryImpl;
-import blimpl.logblimpl.LogBLServiceImpl;
 import blservice.logblservice.LogBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

@@ -1,33 +1,42 @@
-package auxiliary.stockmanager;
+package auxiliary;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.CheckBox;
 
-
-public class Presentation {
+public class PurchaseBill {
     private final SimpleStringProperty Name = new SimpleStringProperty("");
     private final SimpleStringProperty Id = new SimpleStringProperty("");
-    private final SimpleStringProperty Number = new SimpleStringProperty("");
+    private final SimpleStringProperty Type = new SimpleStringProperty("");
     private final SimpleStringProperty Price = new SimpleStringProperty("");
-    private final SimpleStringProperty Total = new SimpleStringProperty("");
+    private final SimpleStringProperty Number = new SimpleStringProperty("");
     private final SimpleStringProperty Remark = new SimpleStringProperty("");
+    private final SimpleStringProperty Total = new SimpleStringProperty("");
     private final CheckBox IsSelected = new CheckBox();
 
-    public Presentation() {
-        this("", "", "", "", "", "");
+    public PurchaseBill() {
+        this("", "", "", "", "", "","");
     }
 
-    public Presentation(String Name, String Id, String Price, String Number, String Total, String Remark) {
+    public PurchaseBill(String Name, String Id, String Type, String Price, String Number, String Total, String Remark) {
         setName(Name);
         setId(Id);
-        setPrice(Price);
+        setType(Type);
         setNumber(Number);
+        setPrice(Price);
         setTotal(Total);
         setRemark(Remark);
     }
 
     public CheckBox getIsSelected() {
         return IsSelected;
+    }
+
+    public String getPrice() {
+        return Price.get();
+    }
+
+    public void setPrice(String fName) {
+        Price.set(fName);
     }
 
     public String getName() {
@@ -54,20 +63,12 @@ public class Presentation {
         Number.set(fName);
     }
 
-    public String getPrice() {
-        return Price.get();
+    public String getType() {
+        return Type.get();
     }
 
-    public void setPrice(String fName) {
-        Price.set(fName);
-    }
-
-    public String getTotal() {
-        return Total.get();
-    }
-
-    public void setTotal(String fName) {
-        Total.set(fName);
+    public void setType(String fName) {
+        Type.set(fName);
     }
 
     public String getRemark() {
@@ -77,4 +78,13 @@ public class Presentation {
     public void setRemark(String fName) {
         Remark.set(fName);
     }
+
+    public String getTotal() {
+        return Total.get();
+    }
+
+    public void setTotal(String fName) {
+        Total.set(fName);
+    }
 }
+

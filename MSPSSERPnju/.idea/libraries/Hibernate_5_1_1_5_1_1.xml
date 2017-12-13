@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="Hibernate 5.1.1-5.1.1" type="hibernate">
-    <properties version="5.1.1" />
+  <library name="Hibernate 5.1.1-5.1.1">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.5.Final/hibernate-commons-annotations-5.0.1.Final.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.5.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/" />

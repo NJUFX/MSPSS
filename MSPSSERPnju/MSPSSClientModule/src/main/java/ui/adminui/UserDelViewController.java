@@ -19,6 +19,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/12
+ */
 public class UserDelViewController implements Initializable {
     Dialog dialog = new Dialog();
     private MainApp application;
@@ -37,6 +40,7 @@ public class UserDelViewController implements Initializable {
     static TextField id_to_del;
     @FXML
     Button BackToLogin;
+
     /**
      * 返回登录界面
      *
@@ -83,7 +87,7 @@ public class UserDelViewController implements Initializable {
 
     public void modUserButtonAction(ActionEvent e) throws IOException {
         try {
-            UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
+            UserModifyFirstViewController controller = (UserModifyFirstViewController) replaceSceneContent("/view/admin/UserModifyFirstView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
