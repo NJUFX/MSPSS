@@ -11,6 +11,10 @@ import java.util.ArrayList;
  */
 public class CustomerPromotionVO {
     /**
+     * 编号
+     */
+    private int id;
+    /**
      * 该促销策略适用最低的客户的等级
      */
     private int level;
@@ -45,6 +49,16 @@ public class CustomerPromotionVO {
         this.endTime = endTime;
     }
 
+    public CustomerPromotionVO(int id, int level, double discount, int voucher, ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS, Time initTime, Time endTime) {
+        this.id = id;
+        this.level = level;
+        this.discount = discount;
+        this.voucher = voucher;
+        this.presentationCommodityItemVOS = presentationCommodityItemVOS;
+        this.initTime = initTime;
+        this.endTime = endTime;
+    }
+
     public CustomerPromotionVO() {
     }
 
@@ -62,6 +76,14 @@ public class CustomerPromotionVO {
         this.voucher = voucher;
         this.initTime = initTime;
         this.endTime = endTime;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Time getInitTime() {

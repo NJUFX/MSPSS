@@ -9,6 +9,10 @@ import java.util.ArrayList;
  */
 public class CustomerPromotionPO implements Serializable {
     /**
+     * 促销策略编号
+     */
+    private int id;
+    /**
      * 该促销策略适用的最低的客户的等级
      */
     private int level;
@@ -39,6 +43,16 @@ public class CustomerPromotionPO implements Serializable {
     }
 
     public CustomerPromotionPO(int level, double discount, int voucher, ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS, String initTime, String endTime) {
+        this.level = level;
+        this.discount = discount;
+        this.voucher = voucher;
+        this.presentationCommodityItemPOS = presentationCommodityItemPOS;
+        this.initTime = initTime;
+        this.endTime = endTime;
+    }
+
+    public CustomerPromotionPO(int id, int level, double discount, int voucher, ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS, String initTime, String endTime) {
+        this.id = id;
         this.level = level;
         this.discount = discount;
         this.voucher = voucher;

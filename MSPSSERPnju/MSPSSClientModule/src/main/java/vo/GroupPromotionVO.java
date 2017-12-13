@@ -10,6 +10,10 @@ import java.util.ArrayList;
  */
 public class GroupPromotionVO {
     /**
+     * 编号
+     */
+    private int id;
+    /**
      * 折扣率
      */
     private double discountRate;
@@ -31,6 +35,22 @@ public class GroupPromotionVO {
         this.commodityVOS = commodityVOS;
         this.initTime = initTime;
         this.endTime = endTime;
+    }
+
+    public GroupPromotionVO(int id, double discountRate, ArrayList<CommodityVO> commodityVOS, Time initTime, Time endTime) {
+        this.id = id;
+        this.discountRate = discountRate;
+        this.commodityVOS = commodityVOS;
+        this.initTime = initTime;
+        this.endTime = endTime;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Time getInitTime() {

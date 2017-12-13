@@ -9,6 +9,10 @@ import java.util.ArrayList;
  */
 public class GroupPromotionPO implements Serializable{
     /**
+     * 满减策略的编号
+     */
+    private int id;
+    /**
      * 折扣率
      */
     private double discountRate;
@@ -25,6 +29,13 @@ public class GroupPromotionPO implements Serializable{
      */
     private String endTime;
 
+    public GroupPromotionPO(int id, double discountRate, ArrayList<String> commodityIDs, String initTime, String endTime) {
+        this.id = id;
+        this.discountRate = discountRate;
+        this.commodityIDs = commodityIDs;
+        this.initTime = initTime;
+        this.endTime = endTime;
+    }
 
     public GroupPromotionPO(double discountRate, ArrayList<String> commodityIDs, String initTime, String endTime) {
         this.discountRate = discountRate;

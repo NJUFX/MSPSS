@@ -9,9 +9,21 @@ import java.util.ArrayList;
  */
 
 public class AccountPO implements Serializable {
+    /**
+     * 编号
+     */
     private int id;
+    /**
+     * 账户名
+     */
     private String name;
+    /**
+     * 账户余额
+     */
     private double money;
+    /**
+     * 账户创建时间
+     */
     private String createtime;
 
     public AccountPO(){

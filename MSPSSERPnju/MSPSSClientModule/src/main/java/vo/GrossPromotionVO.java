@@ -7,8 +7,10 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 23:41 2017/12/12/012
  */
 public class GrossPromotionVO {
-
-
+    /**
+     * 编号
+     */
+    private int id;
 
     /**
      * 其他类型促销策略折让后的总金额
@@ -56,5 +58,11 @@ public class GrossPromotionVO {
         this.voucher = voucher;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }
