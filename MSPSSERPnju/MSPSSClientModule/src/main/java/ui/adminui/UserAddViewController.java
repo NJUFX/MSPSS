@@ -36,7 +36,9 @@ public class UserAddViewController implements Initializable {
      * 确定按钮
      */
     @FXML
-    static Button sureButton;
+    Button sureButton;
+    @FXML
+    Button cancelButton;
     /**
      * 身份的下拉框
      */
@@ -64,6 +66,16 @@ public class UserAddViewController implements Initializable {
         dialog.confirmDialog("Do you confirm to add this user?");
         System.out.println("Success.");
         dialog.infoDialog("Add the user successfully.");
+    }
+
+    @FXML
+    public void cancelButtonAction(ActionEvent e) {
+        try {
+            AdminMainViewController controller = (AdminMainViewController) replaceSceneContent("/view/admin/Main.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
 
     @FXML
