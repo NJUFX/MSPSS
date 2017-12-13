@@ -204,7 +204,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 			for (int i = 0; i < list.size(); i++) {
 				StockBillVO temp = list.get(i);
 				data.add(new StockBill(temp.getId(), temp.init_time.toString(), temp.commit_time.toString(),
-						temp.getStockManager().getID(), temp.getType().name(), temp));
+						temp.getStockManager().getID(), temp.getType().toString(), temp));
 			}
 			break;
 		}
@@ -213,7 +213,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 			for (int i = 0; i < list.size(); i++) {
 				SalesOutBillVO temp = list.get(i);
 				data.add(new SalesOutBill(temp.getID(), temp.getInit_time().toString(),
-						temp.getCommit_time().toString(), temp.getOperator().getID(), temp.getType().name(), temp));
+						temp.getCommit_time().toString(), temp.getOperator().getID(), temp.getType().toString(), temp));
 			}
 			break;
 		}
@@ -222,7 +222,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 			for (int i = 0; i < list.size(); i++) {
 				SalesInBillVO temp = list.get(i);
 				data.add(new SalesInBill(temp.getID(), temp.getInit_time().toString(), temp.getCommit_time().toString(),
-						temp.getOperator().getID(), temp.getType().name(), temp));
+						temp.getOperator().getID(), temp.getType().toString(), temp));
 			}
 			break;
 		}
@@ -231,7 +231,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 			for (int i = 0; i < list.size(); i++) {
 				FinanceBillVO temp = list.get(i);
 				data.add(new FinanceBill(temp.getID(), temp.getInit_time().toString(), temp.getCommit_time().toString(),
-						temp.getOperator().getID(), temp.getType().name(), temp));
+						temp.getOperator().getID(), temp.getType().toString(), temp));
 			}
 			break;
 		}
