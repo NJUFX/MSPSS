@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.stockmanager.Bill;
+import auxiliary.stockmanager.Log;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -40,6 +45,8 @@ public class ChiefManagerExamineBillController implements Initializable{
 	Button BackToLogin;
 	@FXML
 	ComboBox BillType;
+	@FXML
+	TableView<Bill> BillTable;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -177,6 +184,8 @@ public class ChiefManagerExamineBillController implements Initializable{
 	 */
 	public void ChooseBillType(ActionEvent e) throws Exception{
 		String billType = BillType.getValue().toString();
+		ObservableList<Bill> data = BillTable.getItems();
+		data.add(new Bill("1","2","3","4","5"));
 		
 	}
 
