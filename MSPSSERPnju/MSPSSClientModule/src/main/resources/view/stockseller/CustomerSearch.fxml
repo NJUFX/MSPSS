@@ -158,7 +158,7 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <Button id="sureButton" fx:id="sureButton" layoutX="496.0" layoutY="130.0" mnemonicParsing="false"
+                <Button id="sureButton" fx:id="searchButton" onAction="#searchButtonAction" layoutX="496.0" layoutY="130.0" mnemonicParsing="false"
                         prefHeight="39.0" prefWidth="102.0" stylesheets="@../../css/admin/addUser.css" text="查找"
                         textFill="WHITE">
                     <font>

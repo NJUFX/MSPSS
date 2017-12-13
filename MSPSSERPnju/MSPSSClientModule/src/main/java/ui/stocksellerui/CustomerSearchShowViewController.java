@@ -1,7 +1,9 @@
 package ui.stocksellerui;
 
+import auxiliary.CommodityTable;
 import auxiliary.Customer;
 import com.sun.org.apache.regexp.internal.RE;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -82,6 +84,12 @@ public class CustomerSearchShowViewController implements Initializable {
             };
             return cell;
         });
+        addRow();
+    }
+
+    public void addRow() {
+        ObservableList<Customer> data = customerTableView.getItems();
+        data.add(new Customer("Jiang Chen", "00001", "进货商","4","SS001","50000"));
     }
 
     /**
