@@ -60,8 +60,7 @@ public class ChiefManagerExamineBillController implements Initializable{
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
 		this.InitTable();
-		ObservableList<Bill> data = BillTable.getItems();
-        data.add(new Bill("1","1","1","1","1"));
+		
 	}
 
 	public void setApp(MainApp application) {
@@ -190,7 +189,8 @@ public class ChiefManagerExamineBillController implements Initializable{
 	 */
 	public void ChooseBillType(ActionEvent e) throws Exception{
 		String billType = BillType.getValue().toString();
-		
+		ObservableList<Bill> data = BillTable.getItems();
+        data.add(new Bill("1","1","1","1","1"));
 		
 	}
 	
@@ -211,7 +211,7 @@ public class ChiefManagerExamineBillController implements Initializable{
                         Button delBtn = new Button("详情");
                         delBtn.setPrefSize(100, 10);
                         //delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
-                        //this.setGraphic(delBtn);
+                        this.setGraphic(delBtn);
                         delBtn.setOnMouseClicked((me) -> {
                             try {
                                 ChiefManagerReadLogController controller = (ChiefManagerReadLogController) replaceSceneContent(
