@@ -1,5 +1,9 @@
 package ui.stocksellerui;
 
+import auxiliary.CommodityTable;
+import auxiliary.Customer;
+import com.sun.org.apache.regexp.internal.RE;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -26,16 +34,64 @@ public class CustomerSearchShowViewController implements Initializable {
 
     @FXML
     Button CustomerAddButton;
-
     @FXML
     Button CustomerDelButton;
-
     @FXML
     Button CustomerModButton;
     @FXML
     Button backButtonl;
     @FXML
     Button BackToLogin;
+
+    @FXML
+    TableView<Customer> customerTableView;
+    @FXML
+    TableColumn<Customer, String> NameCol, IdCol, CategoryCol, LevelCol, DAECol, ReceivableCol, OperationCol;
+
+    public void showTableView() {
+        NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        CategoryCol.setCellValueFactory(new PropertyValueFactory<>("Category"));
+        LevelCol.setCellValueFactory(new PropertyValueFactory<>("Level"));
+        DAECol.setCellValueFactory(new PropertyValueFactory<>("DAE"));
+        ReceivableCol.setCellValueFactory(new PropertyValueFactory<>("ReceivableLimit"));
+
+        OperationCol.setCellFactory((col) -> {
+            TableCell<Customer, String> cell = new TableCell<Customer, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        Button delBtn = new Button("选择");
+                        delBtn.setPrefSize(100, 10);
+                        //delBtn.setFont(Font.font(12));
+                        delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+                        this.setGraphic(delBtn);
+                        delBtn.setOnMouseClicked((me) -> {
+                            //OperateCommodity = this.getTableView().getItems().get(this.getIndex());
+                            try {
+                                CustomerInfoShowViewController controller = (CustomerInfoShowViewController) replaceSceneContent(
+                                        "/view/stockseller/CustomerInfoShow.fxml");
+                                //controller.setCommodityTable(OperateCommodity);
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
+                        });
+                    }
+                }
+            };
+            return cell;
+        });
+        addRow();
+    }
+
+    public void addRow() {
+        ObservableList<Customer> data = customerTableView.getItems();
+        data.add(new Customer("Jiang Chen", "00001", "进货商","4","SS001","50000"));
+    }
+
     /**
      * 返回登录界面
      *
@@ -50,6 +106,7 @@ public class CustomerSearchShowViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回上一界面
      *
@@ -117,6 +174,7 @@ public class CustomerSearchShowViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 用来打开fxml文件
      *
@@ -147,5 +205,6 @@ public class CustomerSearchShowViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        this.showTableView();
     }
 }

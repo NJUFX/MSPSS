@@ -226,6 +226,7 @@ public class ChiefManagerExamineBillController implements Initializable{
             };
             return cell;
         });
+
 	}
 
 }
