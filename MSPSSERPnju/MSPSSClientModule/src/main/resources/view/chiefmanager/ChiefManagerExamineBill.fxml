@@ -114,7 +114,7 @@
                   </FXCollections>
            </items>
        </ComboBox>
-      <TableView fx:id="BillTable" layoutX="193.0" layoutY="149.0" prefHeight="342.0" prefWidth="668.0">
+      <TableView fx:id="BillTable" layoutX="193.0" layoutY="149.0" prefHeight="342.0" prefWidth="662.0">
         <columns>
           <TableColumn prefWidth="110.0" text="单据编号">
             <cellValueFactory>
@@ -141,7 +141,7 @@
                <PropertyValueFactory property="billType" />
             </cellValueFactory>
           </TableColumn>
-            <TableColumn fx:id="ShowDetail" prefWidth="110.0" text="显示单据详情" />
+          <TableColumn fx:id="ShowDetail" prefWidth="110.0" text="显示单据详情" />
         </columns>
       </TableView>
     </children>

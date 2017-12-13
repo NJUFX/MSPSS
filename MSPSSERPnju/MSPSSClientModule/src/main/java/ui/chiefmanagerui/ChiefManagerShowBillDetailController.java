@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.Bill;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,10 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.FinanceBillVO;
+import vo.SalesInBillVO;
+import vo.SalesOutBillVO;
+import vo.StockBillVO;
 
 public class ChiefManagerShowBillDetailController implements Initializable{
 	@FXML
@@ -164,6 +169,42 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 		stage.setScene(scene);
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
+	}
+	
+	/**
+	 * 显示库存单据详情
+	 * @param vo
+	 */
+	public void ShowStockBillDetail(StockBillVO vo) {
+		
+		
+	}
+	
+	/**
+	 * 显示进货单据详情
+	 * @param vo
+	 */
+	public void ShowSalesInBillDetail(SalesInBillVO vo) {
+		
+		
+	}
+	
+	/**
+	 * 显示销售单据详情
+	 * @param vo
+	 */
+	public void ShowSalesOutBillDetail(SalesOutBillVO vo) {
+		
+		
+	}
+	
+	/**
+	 * 显示财务单据详情
+	 * @param vo
+	 */
+	public void ShowFinanceBillDetail(FinanceBillVO vo) {
+		
+		
 	}
 
 }
