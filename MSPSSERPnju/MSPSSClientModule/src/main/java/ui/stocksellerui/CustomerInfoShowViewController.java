@@ -88,8 +88,8 @@ public class CustomerInfoShowViewController implements Initializable {
     @FXML
     public void backButtonAction(ActionEvent e) throws IOException {
         try {
-            CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
-                    "/view/stockmanager/commoditySearchShow.fxml");
+            CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
+                    "/view/stockseller/customerSearchShow.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
