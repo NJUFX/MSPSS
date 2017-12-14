@@ -135,7 +135,6 @@ public class CustomerManageViewController implements Initializable {
      */
     @FXML
     public void customerSearchShowButtonAction(ActionEvent e) throws IOException {
-
         try {
             CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
                     "/view/stockseller/CustomerSearchShow.fxml");

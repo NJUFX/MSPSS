@@ -26,17 +26,25 @@ public class CustomerSearchViewController implements Initializable {
 
     @FXML
     Button CustomerAddButton;
-
     @FXML
     Button CustomerDelButton;
-
     @FXML
     Button CustomerModButton;
+    @FXML
+    Button backButtonl, BackToLogin, searchButton;
 
     @FXML
-    Button backButtonl;
-    @FXML
-    Button BackToLogin;
+    public void searchButtonAction(ActionEvent e) {
+        try {
+            CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerSearchShow.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+
     /**
      * 返回登录界面
      *
@@ -51,6 +59,7 @@ public class CustomerSearchViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回上一界面
      *
@@ -118,6 +127,7 @@ public class CustomerSearchViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 用来打开fxml文件
      *

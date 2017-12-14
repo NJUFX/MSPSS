@@ -7,154 +7,173 @@ import util.Time;
 import java.util.ArrayList;
 
 /**
- * Description:
- * Created by Hanxinhu at 20:04 2017/11/21/021
+ * Description: Created by Hanxinhu at 20:04 2017/11/21/021
  */
 public class StockBillVO {
-    /**
-     * 库存单据的具体类型
-     */
-  public   StockBillType type;
-    /**
-     * 库存类订单当前的状态
-     */
-  public   BillStatus status;
-    /**
-     * 单据中国包含的商品信息
-     */
-  public   ArrayList<StockBillItemVO> itemVOS;
+	/**
+	 * 库存单据ID
+	 */
+	public String id;
+	/**
+	 * 库存单据的具体类型
+	 */
+	public StockBillType type;
+	/**
+	 * 库存类订单当前的状态
+	 */
+	public BillStatus status;
+	/**
+	 * 单据中国包含的商品信息
+	 */
+	public ArrayList<StockBillItemVO> itemVOS;
 
-    /**
-     * 单据的产生时间
-     */
-  public   Time init_time;
+	/**
+	 * 单据的产生时间
+	 */
+	public Time init_time;
 
-    /**
-     * 单据的提交时间
-     */
+	/**
+	 * 单据的提交时间
+	 */
 
-  public   Time commit_time;
+	public Time commit_time;
 
-    /**
-     * 单据的审批时间
-     */
-  public   Time approval_time;
+	/**
+	 * 单据的审批时间
+	 */
+	public Time approval_time;
 
-    /**
-     * 库存管理人员添加的备注说明
-     */
-    public    String commentByStockManager;
+	/**
+	 * 库存管理人员添加的备注说明
+	 */
+	public String commentByStockManager;
 
-    /**
-     * 经理审批时的备注说明
-     */
-   public String commentByManager;
-    /**
-     * 产生该单据的库存管理人员
-     */
-   public UserVO stockManager;
+	/**
+	 * 经理审批时的备注说明
+	 */
+	public String commentByManager;
+	/**
+	 * 产生该单据的库存管理人员
+	 */
+	public UserVO stockManager;
 
-    /**
-     * 审批该单据的总经理
-     */
-    public   UserVO manager;
-    public StockBillVO(StockBillType type,BillStatus status,ArrayList<StockBillItemVO> itemVOS,Time init_time,String commentByStockManager,UserVO stockManager){
-    this.type = type;
-    this.status = status;
-    this.init_time = init_time;
-    this.itemVOS = itemVOS;
-    this.commentByStockManager = commentByStockManager;
-    this.stockManager = stockManager;
-    }
-    public StockBillVO(StockBillType type,BillStatus status,ArrayList<StockBillItemVO> itemVOS,Time init_time,Time commit_time,Time approval_time,String commentByStockManager,String commentByManager,UserVO stockManager,UserVO manager){
-        this.type = type;
-        this.status = status;
-        this.itemVOS = itemVOS;
-        this.init_time = init_time;
-        this.commit_time = commit_time ;
-        this.approval_time = approval_time;
-        this.stockManager = stockManager;
-        this.manager = manager;
-        this.commentByManager =commentByManager;
-        this.commentByStockManager = commentByStockManager;
-    }
-    public void setManager(UserVO manager) {
-        this.manager = manager;
-    }
+	/**
+	 * 审批该单据的总经理
+	 */
+	public UserVO manager;
 
-    public UserVO getManager() {
-        return manager;
-    }
+	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS,
+			Time init_time, String commentByStockManager, UserVO stockManager) {
+		this.id = id;
+		this.type = type;
+		this.status = status;
+		this.init_time = init_time;
+		this.itemVOS = itemVOS;
+		this.commentByStockManager = commentByStockManager;
+		this.stockManager = stockManager;
+	}
 
-    public void setStockManager(UserVO stockManager) {
-        this.stockManager = stockManager;
-    }
+	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS,
+			Time init_time, Time commit_time, Time approval_time, String commentByStockManager, String commentByManager,
+			UserVO stockManager, UserVO manager) {
+		this.id = id;
+		this.type = type;
+		this.status = status;
+		this.itemVOS = itemVOS;
+		this.init_time = init_time;
+		this.commit_time = commit_time;
+		this.approval_time = approval_time;
+		this.stockManager = stockManager;
+		this.manager = manager;
+		this.commentByManager = commentByManager;
+		this.commentByStockManager = commentByStockManager;
+	}
 
-    public UserVO getStockManager() {
-        return stockManager;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setType(StockBillType type) {
-        this.type = type;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public BillStatus getStatus() {
-        return status;
-    }
+	public void setManager(UserVO manager) {
+		this.manager = manager;
+	}
 
-    public void setItemVOS(ArrayList<StockBillItemVO> itemVOS) {
-        this.itemVOS = itemVOS;
-    }
+	public UserVO getManager() {
+		return manager;
+	}
 
-    public void setApproval_time(Time approval_time) {
-        this.approval_time = approval_time;
-    }
+	public void setStockManager(UserVO stockManager) {
+		this.stockManager = stockManager;
+	}
 
-    public void setCommentByManager(String commentByManager) {
-        this.commentByManager = commentByManager;
-    }
+	public UserVO getStockManager() {
+		return stockManager;
+	}
 
-    public void setCommentByStockManager(String commentByStockManager) {
-        this.commentByStockManager = commentByStockManager;
-    }
+	public void setType(StockBillType type) {
+		this.type = type;
+	}
 
-    public void setCommit_time(Time commit_time) {
-        this.commit_time = commit_time;
-    }
+	public BillStatus getStatus() {
+		return status;
+	}
 
-    public void setInit_time(Time init_time) {
-        this.init_time = init_time;
-    }
+	public void setItemVOS(ArrayList<StockBillItemVO> itemVOS) {
+		this.itemVOS = itemVOS;
+	}
 
-    public void setStatus(BillStatus status) {
-        this.status = status;
-    }
+	public void setApproval_time(Time approval_time) {
+		this.approval_time = approval_time;
+	}
 
-    public ArrayList<StockBillItemVO> getItemVOS() {
-        return itemVOS;
-    }
+	public void setCommentByManager(String commentByManager) {
+		this.commentByManager = commentByManager;
+	}
 
-    public StockBillType getType() {
-        return type;
-    }
+	public void setCommentByStockManager(String commentByStockManager) {
+		this.commentByStockManager = commentByStockManager;
+	}
 
-    public String getCommentByManager() {
-        return commentByManager;
-    }
+	public void setCommit_time(Time commit_time) {
+		this.commit_time = commit_time;
+	}
 
-    public String getCommentByStockManager() {
-        return commentByStockManager;
-    }
+	public void setInit_time(Time init_time) {
+		this.init_time = init_time;
+	}
 
-    public Time getApproval_time() {
-        return approval_time;
-    }
+	public void setStatus(BillStatus status) {
+		this.status = status;
+	}
 
-    public Time getCommit_time() {
-        return commit_time;
-    }
+	public ArrayList<StockBillItemVO> getItemVOS() {
+		return itemVOS;
+	}
 
-    public Time getInit_time() {
-        return init_time;
-    }
+	public StockBillType getType() {
+		return type;
+	}
+
+	public String getCommentByManager() {
+		return commentByManager;
+	}
+
+	public String getCommentByStockManager() {
+		return commentByStockManager;
+	}
+
+	public Time getApproval_time() {
+		return approval_time;
+	}
+
+	public Time getCommit_time() {
+		return commit_time;
+	}
+
+	public Time getInit_time() {
+		return init_time;
+	}
 }

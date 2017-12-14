@@ -104,44 +104,47 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <ComboBox fx:id="BillType" layoutX="192.0" layoutY="76.0" onAction="#ChooseBillType" prefWidth="150.0" promptText="单据类型" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
+      <ComboBox fx:id="BillType" layoutX="183.0" layoutY="74.0" onAction="#ChooseBillType" prefWidth="150.0" promptText="单据类型" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
            <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="库存类" />
                      <String fx:value="销售类" />
                      <String fx:value="财务类" />
                      <String fx:value="进货类" />
+                     <String fx:value="现金费用类" />
                   </FXCollections>
            </items>
        </ComboBox>
-      <TableView fx:id="BillTable" layoutX="193.0" layoutY="149.0" prefHeight="342.0" prefWidth="668.0">
+      <TableView fx:id="BillTable" layoutX="183.0" layoutY="149.0" prefHeight="342.0" prefWidth="680.0">
         <columns>
-          <TableColumn prefWidth="110.0" text="单据编号">
+          <TableColumn prefWidth="100.0" text="单据编号">
             <cellValueFactory>
                <PropertyValueFactory property="billId" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="110.0" text="生成单据时间">
+          <TableColumn prefWidth="100.0" text="生成单据时间">
             <cellValueFactory>
                <PropertyValueFactory property="createTime" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="110.0" text="提交单据时间">
+          <TableColumn prefWidth="100.0" text="提交单据时间">
               <cellValueFactory>
                <PropertyValueFactory property="commitTime" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="110.0" text="操作人员编号">
+          <TableColumn prefWidth="100.0" text="操作人员编号">
             <cellValueFactory>
                <PropertyValueFactory property="operator" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="110.0" text="单据类型">
+          <TableColumn prefWidth="100.0" text="单据类型">
             <cellValueFactory>
                <PropertyValueFactory property="billType" />
             </cellValueFactory>
           </TableColumn>
-            <TableColumn fx:id="ShowDetail" prefWidth="110.0" text="显示单据详情" />
+          <TableColumn fx:id="ShowDetail" prefWidth="60.0" text="详情" />
+            <TableColumn fx:id="ApproveBill" prefWidth="60.0" text="批准" />
+            <TableColumn fx:id="RejectBill" prefWidth="60.0" text="否决" />
         </columns>
       </TableView>
     </children>
