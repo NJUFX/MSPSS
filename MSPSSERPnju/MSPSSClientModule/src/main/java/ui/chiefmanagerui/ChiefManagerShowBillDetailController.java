@@ -413,9 +413,9 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 		
 		String BillItem = "";
 		for(int i=0;i<vo.getList().size();i++) {
-			BillItem = BillItem + vo.getList().get(i).accountVO.getName();
+			BillItem = BillItem + vo.getList().get(i).accountVO.getName()+"    "+Double.toString(vo.getList().get(i).money)+"    "+vo.getList().get(i).ps+"\n";
 		}
-		
+		FinanceBillItem.setText(BillItem);
 	}
 	/**
 	 * 显示现金费用单详情
@@ -427,7 +427,22 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 		SalesOutBillPane.setVisible(false);
 		FinanceBillPane.setVisible(true);
 		//现金费用单和财务类单据共享同一个面板
+		FinanceBillId.setText(vo.getID());
+		FinanceBillOperator.setText(vo.getOperator().getName());
+		FinanceBillCustomer.setText("---");
+		FinanceBillExamineManager.setText(vo.getManager().getName());
+		FinanceBillInitTime.setText(vo.getInit_time().toString());
+		FinanceBillCommitTime.setText(vo.getCommit_time().toString());
+		FinanceBillExamineTime.setText(vo.getApproval_time().toString());
+		FinanceBillType.setText("现金费用单");
+		FinanceBillSum.setText(Double.toString(vo.getSum()));
+		FinanceBillStatus.setText(vo.getStatus().toString());
 		
+		String BillItem = "";
+		for(int i=0;i<vo.getList().size();i++) {
+			BillItem = BillItem + vo.getList().get(i).name+"    "+Double.toString(vo.getList().get(i).money)+"    "+vo.getList().get(i).ps+"\n";
+		}
+		FinanceBillItem.setText(BillItem);
 		
 	}
 
