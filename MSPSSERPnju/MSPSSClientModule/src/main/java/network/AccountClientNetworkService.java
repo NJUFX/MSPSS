@@ -70,7 +70,7 @@ public interface AccountClientNetworkService extends Remote {
      * @param criteriaClauses
      * @return
      */
-    public ArrayList<AccountPO>  multiSearchLog(ArrayList<CriteriaClause> criteriaClauses);
+    public ArrayList<AccountPO> multiSearchAccount(ArrayList<CriteriaClause> criteriaClauses);
 
 
 

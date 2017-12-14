@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import auxiliary.Bill;
+import auxiliary.CashCostBill;
 import auxiliary.FinanceBill;
 import auxiliary.SalesInBill;
 import auxiliary.SalesOutBill;
@@ -32,6 +33,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.CashCostBillVO;
 import vo.FinanceBillVO;
 import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
@@ -60,6 +62,11 @@ public class ChiefManagerExamineBillController implements Initializable {
 	TableView<Bill> BillTable;
 	@FXML
 	TableColumn<Bill, String> ShowDetail;
+	@FXML
+	TableColumn<Bill, String> ApproveBill;
+	@FXML
+	TableColumn<Bill, String> RejectBill;
+	
 
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -235,6 +242,16 @@ public class ChiefManagerExamineBillController implements Initializable {
 			}
 			break;
 		}
+		
+		case "现金费用类": {
+			ArrayList<CashCostBillVO> list = managerBillService.getWaitingcashCostBillVO();
+			for (int i = 0; i < list.size(); i++) {
+				CashCostBillVO temp = list.get(i);
+				data.add(new CashCostBill(temp.getID(), temp.getInit_time().toString(), temp.getCommit_time().toString(),
+						temp.getOperator().getID(), "现金费用单", temp));
+			}
+			break;
+		}
 
 		}
 
@@ -254,7 +271,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("详情");
-						delBtn.setPrefSize(100, 10);
+						delBtn.setPrefSize(40, 10);
 						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {
@@ -293,12 +310,83 @@ public class ChiefManagerExamineBillController implements Initializable {
 									controller.ShowFinanceBillDetail(vo);
 									break;
 								}
+								case "现金费用类": {
+									CashCostBill currentBill = (CashCostBill) this.getTableView().getItems().get(getIndex());
+									CashCostBillVO vo = currentBill.myself;
+									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									controller.ShowCashCostBillDetail(vo);
+									break;
+								}
 								}
 								
 								ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
 										"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
 								
 								// controller.setCommodityTable(OperateCommodity);
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}
+						});
+					}
+				}
+			};
+			return cell;
+		});
+		
+		ApproveBill.setCellFactory((col) -> {
+			TableCell<Bill, String> cell = new TableCell<Bill, String>() {
+				@Override
+				public void updateItem(String item, boolean empty) {
+					super.updateItem(item, empty);
+					this.setText(null);
+					this.setGraphic(null);
+					if (!empty) {
+						Button delBtn = new Button("批准");
+						delBtn.setPrefSize(40, 10);
+						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+						this.setGraphic(delBtn);
+						delBtn.setOnMouseClicked((me) -> {
+							try {
+								String billType = BillType.getValue().toString();
+								switch(billType) {
+								case"库存类":{
+									StockBill Approve = (StockBill) this.getTableView().getItems().get(getIndex());
+						            StockBillVO vo = Approve.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.approveStockBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Approve);
+								}
+								}
+								
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}
+						});
+					}
+				}
+			};
+			return cell;
+		});
+		
+		RejectBill.setCellFactory((col) -> {
+			TableCell<Bill, String> cell = new TableCell<Bill, String>() {
+				@Override
+				public void updateItem(String item, boolean empty) {
+					super.updateItem(item, empty);
+					this.setText(null);
+					this.setGraphic(null);
+					if (!empty) {
+						Button delBtn = new Button("否决");
+						delBtn.setPrefSize(40, 10);
+						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+						this.setGraphic(delBtn);
+						delBtn.setOnMouseClicked((me) -> {
+							try {
+								
+								
 							} catch (Exception e1) {
 								e1.printStackTrace();
 							}

@@ -1,5 +1,7 @@
 package vo;
 
+import util.Time;
+
 import java.util.ArrayList;
 
 /**
@@ -10,7 +12,7 @@ public class GrossPromotionVO {
     /**
      * 编号
      */
-    private int id;
+    private String id;
 
     /**
      * 其他类型促销策略折让后的总金额
@@ -25,17 +27,52 @@ public class GrossPromotionVO {
     /**
      * 达到该金额后赠送的商品
      */
+
     private ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS;
+    /**
+     * 起始时间
+     */
+    private Time initTime;
+    /**
+     * 结束时间
+     */
+    private Time endTime;
 
-
-    public GrossPromotionVO(double total, int voucher, ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS) {
+    public GrossPromotionVO(double total, int voucher, ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS, Time initTime, Time endTime) {
         this.total = total;
         this.voucher = voucher;
         this.presentationCommodityItemVOS = presentationCommodityItemVOS;
+        this.initTime = initTime;
+        this.endTime = endTime;
+    }
+
+    public GrossPromotionVO(String id, double total, int voucher, ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS, Time initTime, Time endTime) {
+        this.id = id;
+        this.total = total;
+        this.voucher = voucher;
+        this.presentationCommodityItemVOS = presentationCommodityItemVOS;
+        this.initTime = initTime;
+        this.endTime = endTime;
     }
 
     public ArrayList<PresentationCommodityItemVO> getPresentationCommodityItemVOS() {
         return presentationCommodityItemVOS;
+    }
+
+    public Time getInitTime() {
+        return initTime;
+    }
+
+    public void setInitTime(Time initTime) {
+        this.initTime = initTime;
+    }
+
+    public Time getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Time endTime) {
+        this.endTime = endTime;
     }
 
     public void setPresentationCommodityItemVOS(ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS) {
@@ -58,11 +95,11 @@ public class GrossPromotionVO {
         this.voucher = voucher;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

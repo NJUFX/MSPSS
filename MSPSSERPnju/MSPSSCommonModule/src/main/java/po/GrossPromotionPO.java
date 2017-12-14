@@ -11,7 +11,7 @@ public class GrossPromotionPO implements Serializable {
     /**
      * 满减策略的编号
      */
-    private int id;
+    private String id;
     /**
      * 其他类型促销策略折让后的总金额
      * 达到该促销策略所触发的最低总金额
@@ -86,5 +86,11 @@ public class GrossPromotionPO implements Serializable {
         this.presentationCommodityItemPOS = presentationCommodityItemPOS;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }

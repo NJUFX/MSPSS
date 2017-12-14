@@ -13,7 +13,7 @@ public class CustomerPromotionVO {
     /**
      * 编号
      */
-    private int id;
+    private String id;
     /**
      * 该促销策略适用最低的客户的等级
      */
@@ -49,7 +49,7 @@ public class CustomerPromotionVO {
         this.endTime = endTime;
     }
 
-    public CustomerPromotionVO(int id, int level, double discount, int voucher, ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS, Time initTime, Time endTime) {
+    public CustomerPromotionVO(String id, int level, double discount, int voucher, ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS, Time initTime, Time endTime) {
         this.id = id;
         this.level = level;
         this.discount = discount;
@@ -78,11 +78,11 @@ public class CustomerPromotionVO {
         this.endTime = endTime;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
