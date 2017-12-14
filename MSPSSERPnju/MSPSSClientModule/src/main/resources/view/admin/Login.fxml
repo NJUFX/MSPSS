@@ -9,28 +9,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="560.0" prefWidth="900.0" style="-fx-background-image: C\Users\Administrator\OneDrive\重要！\大二\软件工程II\大作业\MSPSSERPnju\MSPSSClientModule\src\main\resources\image\admin\background.jpg" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.LoginController">
-   <children>
-      <ImageView fitHeight="576.0" fitWidth="927.0" layoutX="-4.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/admin/background.jpg" />
-         </image>
-      </ImageView>
-      <Pane layoutX="277.0" layoutY="93.0" prefHeight="380.0" prefWidth="412.0" style="-fx-background-color: transparent;">
-         <children>
-            <PasswordField id="passwordField" fx:id="passwordField" onAction="#loginButtonAction" layoutX="264.0" layoutY="173.0" prefHeight="35.0" prefWidth="180.0" promptText="密码" />
-            <TextField id="id" fx:id="idText" layoutX="264.0" layoutY="116.0" prefHeight="35.0" prefWidth="180.0" promptText="编号" />
-            <Button id="loginButton" fx:id="loginButton" layoutX="264.0" layoutY="230.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="35.0" prefWidth="180.0" stylesheets="@../../css/admin/addUser.css" text="登录" textFill="#f5f2f2">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label contentDisplay="CENTER" layoutX="305.0" layoutY="42.0" prefHeight="63.0" prefWidth="105.0" text="MSPSS" textAlignment="CENTER" textFill="#0f88eb">
-               <font>
-                  <Font name="Microsoft YaHei" size="29.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-   </children>
+<AnchorPane prefHeight="560.0" prefWidth="900.0"
+	style="-fx-background-image: C\Users\Administrator\OneDrive\重要！\大二\软件工程II\大作业\MSPSSERPnju\MSPSSClientModule\src\main\resources\image\admin\background.jpg"
+	xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="ui.adminui.LoginController">
+	<children>
+		<ImageView fitHeight="576.0" fitWidth="927.0" layoutX="-4.0"
+			layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../image/admin/background.jpg" />
+			</image>
+		</ImageView>
+		<Pane layoutX="277.0" layoutY="93.0" prefHeight="380.0"
+			prefWidth="412.0" style="-fx-background-color: transparent;">
+			<children>
+				<PasswordField id="passwordField" fx:id="passwordField"
+					onAction="#loginButtonAction" layoutX="264.0" layoutY="173.0"
+					prefHeight="35.0" prefWidth="180.0" promptText="密码" />
+				<TextField id="id" fx:id="idText" layoutX="264.0" layoutY="116.0"
+					prefHeight="35.0" prefWidth="180.0" promptText="编号" />
+				<Button id="loginButton" fx:id="loginButton" layoutX="264.0"
+					layoutY="230.0" mnemonicParsing="false" onAction="#loginButtonAction"
+					prefHeight="35.0" prefWidth="180.0" stylesheets="@../../css/admin/addUser.css"
+					text="登录" textFill="#f5f2f2">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Button>
+				<Label contentDisplay="CENTER" layoutX="305.0" layoutY="42.0"
+					prefHeight="63.0" prefWidth="105.0" text="MSPSS" textAlignment="CENTER"
+					textFill="#0f88eb">
+					<font>
+						<Font name="Microsoft YaHei" size="29.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
+	</children>
 </AnchorPane>
