@@ -17,4 +17,8 @@ public class FinanceItemVO {
      * 金额
      */
     double money;
+    
+    public AccountVO getAccountVO () {
+    	  return accountVO;
+    }
 }

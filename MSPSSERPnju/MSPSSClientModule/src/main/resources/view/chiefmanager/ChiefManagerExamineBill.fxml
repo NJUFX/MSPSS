@@ -111,6 +111,7 @@
                      <String fx:value="销售类" />
                      <String fx:value="财务类" />
                      <String fx:value="进货类" />
+                     <String fx:value="现金费用类" />
                   </FXCollections>
            </items>
        </ComboBox>

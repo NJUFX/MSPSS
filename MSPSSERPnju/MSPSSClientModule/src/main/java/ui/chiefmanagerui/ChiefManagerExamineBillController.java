@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import auxiliary.Bill;
+import auxiliary.CashCostBill;
 import auxiliary.FinanceBill;
 import auxiliary.SalesInBill;
 import auxiliary.SalesOutBill;
@@ -32,6 +33,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.CashCostBillVO;
 import vo.FinanceBillVO;
 import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
@@ -235,6 +237,16 @@ public class ChiefManagerExamineBillController implements Initializable {
 			}
 			break;
 		}
+		
+		case "现金费用类": {
+			ArrayList<CashCostBillVO> list = managerBillService.getWaitingcashCostBillVO();
+			for (int i = 0; i < list.size(); i++) {
+				CashCostBillVO temp = list.get(i);
+				data.add(new CashCostBill(temp.getID(), temp.getInit_time().toString(), temp.getCommit_time().toString(),
+						temp.getOperator().getID(), "现金费用单", temp));
+			}
+			break;
+		}
 
 		}
 
@@ -291,6 +303,14 @@ public class ChiefManagerExamineBillController implements Initializable {
 									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
 											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
 									controller.ShowFinanceBillDetail(vo);
+									break;
+								}
+								case "现金费用类": {
+									CashCostBill currentBill = (CashCostBill) this.getTableView().getItems().get(getIndex());
+									CashCostBillVO vo = currentBill.myself;
+									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									controller.ShowCashCostBillDetail(vo);
 									break;
 								}
 								}

@@ -21,6 +21,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.CashCostBillVO;
 import vo.FinanceBillVO;
 import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
@@ -137,6 +138,29 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 	Label SalesOutBillExamineTime;
 	@FXML
 	TextArea SalesOutBillItem;
+	@FXML
+	Label FinanceBillId;
+	@FXML
+	Label FinanceBillOperator;
+	@FXML
+	Label FinanceBillCustomer;
+	@FXML
+	Label FinanceBillExamineManager;
+	@FXML
+	Label FinanceBillInitTime;
+	@FXML
+	Label FinanceBillCommitTime;
+	@FXML
+	Label FinanceBillExamineTime;
+	@FXML
+	Label FinanceBillType;
+	@FXML
+	Label FinanceBillSum;
+	@FXML
+	Label FinanceBillStatus;
+	@FXML
+	TextArea FinanceBillItem;
+	
 	
 	
 	
@@ -340,6 +364,28 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 		SalesOutBillPane.setVisible(true);
 		FinanceBillPane.setVisible(false);
 		
+		SalesOutBillId.setText(vo.getID());
+		SalesOutBillType.setText(vo.getType().toString());
+		SalesOutBillStatus.setText(vo.getStatus().toString());
+		SalesOutBillDAE.setText(vo.getDAE());
+		SalesOutBillPromotion.setText(vo.getPromotionVO().getType());
+		SalesOutBillCoupon.setText(Integer.toString(vo.getVoucher()));
+		SalesOutBillCustomer.setText(vo.getCustomerVO().getName());
+		SalesOutBillStorage.setText(vo.getStorage());
+		SalesOutBillOperator.setText(vo.getOperator().getName());
+		SalesOutBillExamineManager.setText(vo.getManager().getName());
+		SalesOutBillSumBeforeDiscount.setText(Double.toString(vo.getSumBeforeDiscount()));
+		SalesOutBillSumAfterDiscount.setText(Double.toString(vo.getSumAfterDiscount()));
+		SalesOutBillAllowance.setText(Double.toString(vo.getAllowance()));
+		SalesOutBillInitTime.setText(vo.getInit_time().toString());
+		SalesOutBillCommitTime.setText(vo.getCommit_time().toString());
+		SalesOutBillExamineTime.setText(vo.getApproval_time().toString());
+		
+		String BillItem = "";
+		for(int i=0;i<vo.getItemVOS().size();i++) {
+			BillItem = BillItem + vo.getItemVOS().get(i).getName()+"-"+vo.getItemVOS().get(i).getType()+"-"+vo.getItemVOS().get(i).getId()+"-"+Double.toString(vo.getItemVOS().get(i).price)+"-"+Double.toString(vo.getItemVOS().get(i).number)+"\n";
+		}
+		SalesOutBillItem.setText(BillItem);
 		
 		
 	}
@@ -353,6 +399,35 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 		SalesInBillPane.setVisible(false);
 		SalesOutBillPane.setVisible(false);
 		FinanceBillPane.setVisible(true);
+		
+		FinanceBillId.setText(vo.getID());
+		FinanceBillOperator.setText(vo.getOperator().getName());
+		FinanceBillCustomer.setText(vo.getCustomerVO().getName());
+		FinanceBillExamineManager.setText(vo.getManagerVO().getName());
+		FinanceBillInitTime.setText(vo.getInit_time().toString());
+		FinanceBillCommitTime.setText(vo.getCommit_time().toString());
+		FinanceBillExamineTime.setText(vo.getApproval_time().toString());
+		FinanceBillType.setText(vo.getType().toString());
+		FinanceBillSum.setText(Double.toString(vo.getSum()));
+		FinanceBillStatus.setText(vo.getStatus().toString());
+		
+		String BillItem = "";
+		for(int i=0;i<vo.getList().size();i++) {
+			BillItem = BillItem + vo.getList().get(i).accountVO.getName();
+		}
+		
+	}
+	/**
+	 * 显示现金费用单详情
+	 * @param vo
+	 */
+	public void ShowCashCostBillDetail(CashCostBillVO vo) {
+		StockBillPane.setVisible(false);
+		SalesInBillPane.setVisible(false);
+		SalesOutBillPane.setVisible(false);
+		FinanceBillPane.setVisible(true);
+		//现金费用单和财务类单据共享同一个面板
+		
 		
 	}
 
