@@ -122,7 +122,7 @@
             <Label layoutX="40.0" layoutY="300.0" style="-fx-background-color: white;" text="审批经理备注" textFill="#0f88eb" />
             <Label fx:id="StockBillExamineManagerComment" layoutX="180.0" layoutY="300.0" prefHeight="17.0" prefWidth="200.0" style="-fx-background-color: white;" textFill="#0f88eb" />
          </children></Pane>
-      <Pane fx:id="SalesInBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
+      <Pane fx:id="SalesInBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;" visible="false">
          <children>
             <Label layoutX="40.0" layoutY="30.0" style="-fx-background-color: white;" text="单据编号" textFill="#0f88eb" />
             <Label layoutX="40.0" layoutY="60.0" style="-fx-background-color: white;" text="默认业务员" textFill="#0f88eb" />
@@ -155,7 +155,65 @@
             <Label fx:id="SalesInBillCommitTime" layoutX="400.0" layoutY="120.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
             <TextArea fx:id="SalesInBillItem" layoutX="300.0" layoutY="150.0" prefHeight="166.0" prefWidth="310.0" />
          </children></Pane>
-      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;" visible="false" />
-      <Pane fx:id="FinanceBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;" visible="false" />
+      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;" visible="false">
+         <children>
+            <Label layoutX="40.0" layoutY="30.0" style="-fx-background-color: white;" text="单据编号" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="210.0" style="-fx-background-color: white;" text="客户" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="120.0" style="-fx-background-color: white;" text="默认业务员" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="240.0" style="-fx-background-color: white;" text="仓库" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="150.0" style="-fx-background-color: white;" text="促销策略" textFill="#0f88eb" />
+            <Label layoutX="260.0" layoutY="90.0" style="-fx-background-color: white;" text="折让金额" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="180.0" style="-fx-background-color: white;" text="代金券金额" textFill="#0f88eb" />
+            <Label layoutX="260.0" layoutY="120.0" style="-fx-background-color: white;" text="单据创建时间" textFill="#0f88eb" />
+            <Label layoutX="260.0" layoutY="150.0" style="-fx-background-color: white;" text="单据提交时间" textFill="#0f88eb" />
+            <Label layoutX="260.0" layoutY="180.0" style="-fx-background-color: white;" text="单据审批时间" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="300.0" style="-fx-background-color: white;" text="审批单据经理" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="270.0" style="-fx-background-color: white;" text="生成单据人员" textFill="#0f88eb" />
+            <Label layoutX="260.0" layoutY="30.0" style="-fx-background-color: white;" text="折让前总额" textFill="#0f88eb" />
+            <Label layoutX="260.0" layoutY="60.0" style="-fx-background-color: white;" text="折让后总额" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="60.0" style="-fx-background-color: white;" text="单据类型" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="90.0" style="-fx-background-color: white;" text="单据状态" textFill="#0f88eb" />
+            <TextArea fx:id="SalesItem" layoutX="482.0" layoutY="30.0" prefHeight="277.0" prefWidth="164.0" />
+            <Label fx:id="SalesOutBillId" layoutX="125.0" layoutY="30.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillType" layoutX="125.0" layoutY="60.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillStatus" layoutX="125.0" layoutY="90.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillDAE" layoutX="125.0" layoutY="120.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillPromotion" layoutX="125.0" layoutY="150.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillCoupon" layoutX="125.0" layoutY="180.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillCustomer" layoutX="125.0" layoutY="210.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillStorage" layoutX="125.0" layoutY="240.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillOperator" layoutX="125.0" layoutY="270.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillExamineManager" layoutX="125.0" layoutY="300.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillInitTime" layoutX="345.0" layoutY="120.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillSumBeforeDiscount" layoutX="345.0" layoutY="30.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillSumAfterDiscount" layoutX="345.0" layoutY="60.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillAllowance" layoutX="345.0" layoutY="90.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillCommitTime" layoutX="345.0" layoutY="150.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesOutBillExamineTime" layoutX="345.0" layoutY="180.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+         </children></Pane>
+      <Pane fx:id="FinanceBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="40.0" layoutY="30.0" style="-fx-background-color: white;" text="单据编号" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="60.0" style="-fx-background-color: white;" text="操作员" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="90.0" style="-fx-background-color: white;" text="客户" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="120.0" style="-fx-background-color: white;" text="审批单据经理" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="150.0" style="-fx-background-color: white;" text="创建单据时间" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="180.0" style="-fx-background-color: white;" text="提交单据时间" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="210.0" style="-fx-background-color: white;" text="审批单据时间" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="240.0" style="-fx-background-color: white;" text="单据类型" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="270.0" style="-fx-background-color: white;" text="金额汇总" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="300.0" style="-fx-background-color: white;" text="单据状态" textFill="#0f88eb" />
+            <TextArea fx:id="FinanceBillItem" layoutX="360.0" layoutY="30.0" prefHeight="287.0" prefWidth="270.0" />
+            <Label fx:id="FinanceBillId" layoutX="170.0" layoutY="30.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillOperator" layoutX="170.0" layoutY="60.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillCustomer" layoutX="170.0" layoutY="90.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillExamineManager" layoutX="170.0" layoutY="120.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillInitTime" layoutX="170.0" layoutY="150.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillCommitTime" layoutX="170.0" layoutY="180.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillExamineTime" layoutX="170.0" layoutY="210.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillType" layoutX="170.0" layoutY="240.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillSum" layoutX="170.0" layoutY="270.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillStatus" layoutX="170.0" layoutY="300.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+         </children></Pane>
     </children>
 </Pane>
