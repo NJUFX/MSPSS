@@ -150,8 +150,8 @@
             <Label fx:id="SalesInBillStatus" layoutX="130.0" layoutY="270.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
             <Label fx:id="SalesInBillInitTime" layoutX="130.0" layoutY="300.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
             <Label fx:id="SalesInBillExamineTime" layoutX="400.0" layoutY="30.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
-            <Label fx:id="SalesInBillExamineTimeManager" layoutX="400.0" layoutY="60.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
-            <Label fx:id="SalesInBillExamineTimeComment" layoutX="400.0" layoutY="90.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesInBillExamineManager" layoutX="400.0" layoutY="60.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="SalesInBillExamineComment" layoutX="400.0" layoutY="90.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
             <Label fx:id="SalesInBillCommitTime" layoutX="400.0" layoutY="120.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
             <TextArea fx:id="SalesInBillItem" layoutX="300.0" layoutY="150.0" prefHeight="166.0" prefWidth="310.0" />
          </children></Pane>

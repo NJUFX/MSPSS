@@ -103,6 +103,40 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 	Label SalesInBillCommitTime;
 	@FXML
 	TextArea SalesInBillItem;
+	@FXML
+	Label SalesOutBillId;
+	@FXML
+	Label SalesOutBillType;
+	@FXML
+	Label SalesOutBillStatus;
+	@FXML
+	Label SalesOutBillDAE;
+	@FXML
+	Label SalesOutBillPromotion;
+	@FXML
+	Label SalesOutBillCoupon;
+	@FXML
+	Label SalesOutBillCustomer;
+	@FXML
+	Label SalesOutBillStorage;
+	@FXML
+	Label SalesOutBillOperator;
+	@FXML
+	Label SalesOutBillExamineManager;
+	@FXML
+	Label SalesOutBillSumBeforeDiscount;
+	@FXML
+	Label SalesOutBillSumAfterDiscount;
+	@FXML
+	Label SalesOutBillAllowance;
+	@FXML
+	Label SalesOutBillInitTime;
+	@FXML
+	Label SalesOutBillCommitTime;
+	@FXML
+	Label SalesOutBillExamineTime;
+	@FXML
+	TextArea SalesOutBillItem;
 	
 	
 	
@@ -305,6 +339,8 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 		SalesInBillPane.setVisible(false);
 		SalesOutBillPane.setVisible(true);
 		FinanceBillPane.setVisible(false);
+		
+		
 		
 	}
 	
