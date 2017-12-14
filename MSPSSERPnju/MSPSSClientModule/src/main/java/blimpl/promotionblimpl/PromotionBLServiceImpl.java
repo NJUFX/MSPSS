@@ -14,11 +14,16 @@ import java.util.ArrayList;
  */
 
 public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInfo {
-    private Promotion promotion;
+    private CustomerPromotion customerPromotion;
+    private GrossPromotion grossPromotion;
+    private GroupPromotion groupPromotion;
 
-    public PromotionBLServiceImpl(Promotion promotion) {
-        this.promotion = promotion;
+    public PromotionBLServiceImpl(CustomerPromotion customerPromotion, GrossPromotion grossPromotion, GroupPromotion groupPromotion) {
+        this.customerPromotion = customerPromotion;
+        this.grossPromotion = grossPromotion;
+        this.groupPromotion = groupPromotion;
     }
+
 
     /**
      * 得到所有当前时间可用的客户促销策略
@@ -27,7 +32,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ArrayList<CustomerPromotionVO> getAvailableCustomerPromotion() {
-        return null;
+        return customerPromotion.getAvailableCustomerPromotion();
     }
 
     /**
@@ -37,7 +42,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ArrayList<GroupPromotionVO> getAvailableGroupPromotion() {
-        return null;
+        return groupPromotion.getAvailableGroupPromotion();
     }
 
     /**
@@ -47,7 +52,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ArrayList<GrossPromotionVO> getAvailableGrossPromotion() {
-        return null;
+        return grossPromotion.getAvailableGrossPromotion();
     }
 
     /**
@@ -58,7 +63,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage addCustomerPromotion(CustomerPromotionVO promotionVO) {
-        return null;
+        return customerPromotion.addCustomerPromotion(promotionVO);
     }
 
     /**
@@ -69,7 +74,8 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage updateCustomerPromotion(CustomerPromotionVO promotionVO) {
-        return null;
+
+        return customerPromotion.updateCustomerPromotion(promotionVO);
     }
 
     /**
@@ -80,7 +86,8 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage deleteCustomerPromotion(CustomerPromotionVO promotionVO) {
-        return null;
+
+        return customerPromotion.deleteCustomerPromotion(promotionVO);
     }
 
     /**
@@ -90,7 +97,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ArrayList<CustomerPromotionVO> getAllCustomerPromotion() {
-        return null;
+        return customerPromotion.getAllCustomerPromotion();
     }
 
     /**
@@ -101,7 +108,8 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage addGroupPromotion(GroupPromotionVO groupPromotionVO) {
-        return null;
+
+        return groupPromotion.addGroupPromotion(groupPromotionVO);
     }
 
     /**
@@ -112,7 +120,8 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage updateGroupPromotion(GroupPromotionVO groupPromotionVO) {
-        return null;
+
+        return groupPromotion.updateGroupPromotion(groupPromotionVO);
     }
 
     /**
@@ -123,7 +132,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage deleteGroupPromotion(GroupPromotionVO groupPromotionVO) {
-        return null;
+        return groupPromotion.deleteGroupPromotion(groupPromotionVO);
     }
 
     /**
@@ -133,7 +142,8 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ArrayList<GroupPromotionVO> getAllGroupPromotion() {
-        return null;
+
+        return groupPromotion.getAllGroupPromotion();
     }
 
     /**
@@ -144,7 +154,8 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage addGrossPromotion(GrossPromotionVO grossPromotionVO) {
-        return null;
+
+        return grossPromotion.addGrossPromotion(grossPromotionVO);
     }
 
     /**
@@ -155,7 +166,8 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage updateGrossPromotion(GrossPromotionVO grossPromotionVO) {
-        return null;
+
+        return grossPromotion.updateGrossPromotion(grossPromotionVO);
     }
 
     /**
@@ -166,7 +178,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ResultMessage deleteGrossPromotion(GrossPromotionVO grossPromotionVO) {
-        return null;
+        return grossPromotion.deleteGrossPromotion(grossPromotionVO);
     }
 
     /**
@@ -176,6 +188,7 @@ public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInf
      */
     @Override
     public ArrayList<GrossPromotionVO> getAllGrossPromotion() {
-        return null;
+        return grossPromotion.getAllGrossPromotion();
     }
+
 }

@@ -7,8 +7,8 @@ import java.util.Calendar;
  * Created by xgy on 2017/11/11.
  */
 public class Time {
-    static final String MAX_TIME = "9999-12-31 23:59:59";
-    static final String MIN_TIME = "0000-01-01 00:00:00";
+   public static final String MAX_TIME = "9999-12-31 23:59:59";
+   public static final String MIN_TIME = "0000-01-01 00:00:00";
     int year;
     int month;
     int day;

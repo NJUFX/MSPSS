@@ -11,7 +11,7 @@ public class GroupPromotionPO implements Serializable{
     /**
      * 满减策略的编号
      */
-    private int id;
+    private String id;
     /**
      * 折扣率
      */
@@ -29,7 +29,7 @@ public class GroupPromotionPO implements Serializable{
      */
     private String endTime;
 
-    public GroupPromotionPO(int id, double discountRate, ArrayList<String> commodityIDs, String initTime, String endTime) {
+    public GroupPromotionPO(String id, double discountRate, ArrayList<String> commodityIDs, String initTime, String endTime) {
         this.id = id;
         this.discountRate = discountRate;
         this.commodityIDs = commodityIDs;
@@ -77,5 +77,13 @@ public class GroupPromotionPO implements Serializable{
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

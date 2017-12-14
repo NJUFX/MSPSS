@@ -12,7 +12,7 @@ public class GroupPromotionVO {
     /**
      * 编号
      */
-    private int id;
+    private String id;
     /**
      * 折扣率
      */
@@ -20,7 +20,7 @@ public class GroupPromotionVO {
     /**
      * 该组合里的商品 graph
      */
-    private ArrayList<CommodityVO> commodityVOS;
+    private ArrayList<String> commodityIDs;
     /**
      * 促销策略起始时间
      */
@@ -30,26 +30,26 @@ public class GroupPromotionVO {
      */
     private Time endTime;
 
-    public GroupPromotionVO(double discountRate, ArrayList<CommodityVO> commodityVOS, Time initTime, Time endTime) {
+    public GroupPromotionVO(double discountRate, ArrayList<String> commodityIDs, Time initTime, Time endTime) {
         this.discountRate = discountRate;
-        this.commodityVOS = commodityVOS;
+        this.commodityIDs = commodityIDs;
         this.initTime = initTime;
         this.endTime = endTime;
     }
 
-    public GroupPromotionVO(int id, double discountRate, ArrayList<CommodityVO> commodityVOS, Time initTime, Time endTime) {
+    public GroupPromotionVO(String id, double discountRate, ArrayList<String> commodityIDs, Time initTime, Time endTime) {
         this.id = id;
         this.discountRate = discountRate;
-        this.commodityVOS = commodityVOS;
+        this.commodityIDs = commodityIDs;
         this.initTime = initTime;
         this.endTime = endTime;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -77,11 +77,11 @@ public class GroupPromotionVO {
         this.discountRate = discountRate;
     }
 
-    public ArrayList<CommodityVO> getCommodityVOS() {
-        return commodityVOS;
+    public ArrayList<String> getCommodityIDs() {
+        return commodityIDs;
     }
 
-    public void setCommodityVOS(ArrayList<CommodityVO> commodityVOS) {
-        this.commodityVOS = commodityVOS;
+    public void setCommodityIDs(ArrayList<String> commodityIDs) {
+        this.commodityIDs = commodityIDs;
     }
 }

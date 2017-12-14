@@ -11,7 +11,7 @@ public class CustomerPromotionPO implements Serializable {
     /**
      * 促销策略编号
      */
-    private int id;
+    private String id;
     /**
      * 该促销策略适用的最低的客户的等级
      */
@@ -51,7 +51,7 @@ public class CustomerPromotionPO implements Serializable {
         this.endTime = endTime;
     }
 
-    public CustomerPromotionPO(int id, int level, double discount, int voucher, ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS, String initTime, String endTime) {
+    public CustomerPromotionPO(String id, int level, double discount, int voucher, ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS, String initTime, String endTime) {
         this.id = id;
         this.level = level;
         this.discount = discount;
@@ -99,5 +99,21 @@ public class CustomerPromotionPO implements Serializable {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ArrayList<PresentationCommodityItemPO> getPresentationCommodityItemPOS() {
+        return presentationCommodityItemPOS;
+    }
+
+    public void setPresentationCommodityItemPOS(ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS) {
+        this.presentationCommodityItemPOS = presentationCommodityItemPOS;
     }
 }

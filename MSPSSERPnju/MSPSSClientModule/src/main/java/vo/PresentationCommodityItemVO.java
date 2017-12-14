@@ -1,5 +1,7 @@
 package vo;
 
+import po.PresentationCommodityItemPO;
+
 /**
  * Description: 促销策略里的赠品数量 以及 商品信息
  * Created by Hanxinhu at 23:55 2017/12/12/012
@@ -8,23 +10,23 @@ public class PresentationCommodityItemVO {
     /**
      * 商品信息
      */
-    CommodityVO commodityVO;
+    String commodityID;
     /**
      * 赠送数量
      */
     int number;
 
-    public PresentationCommodityItemVO(CommodityVO commodityVO, int number) {
-        this.commodityVO = commodityVO;
+    public PresentationCommodityItemVO(String commodityID, int number) {
+        this.commodityID = commodityID;
         this.number = number;
     }
 
-    public CommodityVO getCommodityVO() {
-        return commodityVO;
+    public String getCommodityID() {
+        return commodityID;
     }
 
-    public void setCommodityVO(CommodityVO commodityVO) {
-        this.commodityVO = commodityVO;
+    public void setCommodityID(String commodityID) {
+        this.commodityID = commodityID;
     }
 
     public int getNumber() {
@@ -33,5 +35,9 @@ public class PresentationCommodityItemVO {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public PresentationCommodityItemPO to_po(){
+        return new PresentationCommodityItemPO(commodityID,number);
     }
 }

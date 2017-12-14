@@ -55,20 +55,7 @@ public interface AccountBLService {
      * @return
      */
     public ArrayList<AccountVO> rangeSearchAccountByTime(Time min, Time max);
-    /**
-     * 账户收款
-     *
-     * @param name,money
-     * @return void
-     */
-    public void income(String name,int money);
-    /**
-     * 账户付款
-     *
-     * @param name,money
-     * @return void
-     */
-    public void pay(String name,int money);
+
 
     /**
      * 根据搜索条件搜索

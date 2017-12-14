@@ -24,7 +24,9 @@ public class Account {
     }
 
     public ResultMessage modifyAccount(String oldName,String newName){
+       // find old
         AccountPO po = networkService.searchAccountByName(oldName);
+        //
         ResultMessage message1 =   networkService.addAccount(new AccountPO(newName,po.getMoney(),po.getCreatetime()));
         ResultMessage message2 =   deleteAccount(oldName);
         if (message1==message2&&message1.equals(ResultMessage.SUCCESS))
@@ -44,7 +46,7 @@ public class Account {
         if (vo.getMinTime()!=null&&vo.getMaxTime()!=null){
             criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("createtime",vo.getMinTime(),vo.getMaxTime(),QueryMethod.Range));
         }
-        return pos_to_vos(networkService.multiSearchLog(criteriaClauses));
+        return pos_to_vos(networkService.multiSearchAccount(criteriaClauses));
     }
     public void income(String name,double money){
      AccountPO po =  networkService.searchAccountByName(name);
