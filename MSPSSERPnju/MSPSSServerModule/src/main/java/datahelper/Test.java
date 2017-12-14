@@ -1,5 +1,11 @@
 package datahelper;
 
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.tool.hbm2ddl.Target;
+import org.hibernate.tool.schema.TargetType;
 import po.AccountPO;
 import po.CashCostBillPO;
 import po.CashCostItemPO;
@@ -8,7 +14,12 @@ import util.CriteriaClauseImpl;
 import util.QueryMethod;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
+
+
 
 /**
  * Created by thinkpad on 2017/12/4.
@@ -16,7 +27,7 @@ import java.util.List;
 public class Test {
     DataHelper<AccountPO> datahelper = new HibernateHelper<AccountPO>(AccountPO.class);
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
        /* Test t = new Test();
         CashCostBillPO c = new CashCostBillPO();
         List<CashCostItemPO> list = new ArrayList<CashCostItemPO>();
@@ -37,7 +48,7 @@ public class Test {
         c.setApproval_time("12131");
         c.setCommit_time("131313");
         t.datahelper.save(c);*/
-
+/*
        Test t = new Test();
         CriteriaClause c = CriteriaClauseImpl.createSingleValueQuery("name","23", QueryMethod.Full);
         CriteriaClause b = CriteriaClauseImpl.createRangeValueQuery("money",0,1500,QueryMethod.Range);
@@ -50,6 +61,13 @@ public class Test {
             System.out.println(i.getName());
     }
 
+
+    }
+    */
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+        Metadata metadata = new MetadataSources(serviceRegistry).buildMetadata();
+        SchemaExport schemaExport = new SchemaExport();
+        schemaExport.create(EnumSet.of(TargetType.DATABASE),metadata);
 
     }
 }
