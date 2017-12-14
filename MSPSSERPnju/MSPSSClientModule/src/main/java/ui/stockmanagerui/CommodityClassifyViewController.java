@@ -1,12 +1,17 @@
 package ui.stockmanagerui;
 
+import auxiliary.ClassificationCell;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -23,10 +28,11 @@ import java.util.ResourceBundle;
  */
 public class CommodityClassifyViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    ImageView classImageView = new ImageView(
+            new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
 
     @FXML
     Button BackToLogin;
-
     @FXML
     Button billCreateButton;
     @FXML
@@ -35,12 +41,43 @@ public class CommodityClassifyViewController implements Initializable {
     Button stockInventoryButton;
     @FXML
     Button stockCheckButton;
-    /**
-     @FXML Button commodityAddButton;
-     @FXML Button commodityDelButton;
-     @FXML Button commodityModButton;
-     @FXML Button commoditySearchButton;
-     */
+    @FXML
+    TreeView<String> commodityClassification;// 商品分类
+
+    public void showTreeView() {
+        classImageView.setFitHeight(15);
+        classImageView.setFitWidth(15);
+        Node rootIcon = classImageView;
+        ClassificationCell rootCell = new ClassificationCell("Root", "");
+        ClassificationCell commodityCell = new ClassificationCell("Commodity", "");
+        TreeItem<String> root = new TreeItem<>(commodityCell.getName(),rootIcon);
+        //root.getChildren().add(new TreeItem<>(commodityCell.getName(), rootIcon));
+        for (int i = 1; i <= 5; i++) {
+            ImageView iconView = new ImageView(
+                    new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
+            iconView.setFitHeight(15);
+            iconView.setFitWidth(15);
+            ClassificationCell cell = new ClassificationCell("Commodity" + i, rootCell.getName());
+            //root.getChildren().get(0).getChildren().add(new TreeItem<>(cell.getName(), iconView));
+            root.getChildren().add(new TreeItem<>(cell.getName(), iconView));
+        }
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= 5; j++) {
+                ImageView commodityImageView = new ImageView(
+                        new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
+                commodityImageView.setFitWidth(15);
+                commodityImageView.setFitHeight(15);
+                ClassificationCell cell = new ClassificationCell("Commodity" + i + "." + j,
+                        root.getChildren().get(i - 1).getValue());
+                TreeItem<String> treeItem = root.getChildren().get(i - 1);
+                //root.getChildren().get(0).getChildren().get(i - 1).getChildren().add(new TreeItem<>(cell.getName(), commodityImageView));
+                treeItem.getChildren().add(new TreeItem<>(cell.getName(), commodityImageView));
+            }
+        }
+        commodityClassification.setRoot(root);
+        commodityClassification.setEditable(true);
+        commodityClassification.setCellFactory((TreeView<String> p) -> new TextFieldTreeCellImpl());
+    }
 
     /**
      * 处理单据
@@ -50,7 +87,7 @@ public class CommodityClassifyViewController implements Initializable {
      */
     @FXML
     public void billCreateButtonAction(ActionEvent e) throws IOException {
-        //System.out.println("SUSS");
+        // System.out.println("SUSS");
         try {
             BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BillCreate.fxml");
@@ -78,7 +115,6 @@ public class CommodityClassifyViewController implements Initializable {
         }
     }
 
-
     /**
      * 库存查看
      *
@@ -95,7 +131,6 @@ public class CommodityClassifyViewController implements Initializable {
             e1.printStackTrace();
         }
     }
-
 
     /**
      * 库存盘点
@@ -115,70 +150,6 @@ public class CommodityClassifyViewController implements Initializable {
     }
 
     /**
-     * 增加商品
-     *
-     * @param e
-     * @throws IOException
-     *
-     @FXML public void commodityAddButtonAction(ActionEvent e) throws IOException {
-     try {
-     CommodityAddViewController controller = (CommodityAddViewController) replaceSceneContent(
-     "/view/stockmanager/commodityAdd.fxml");
-     } catch (Exception e1) {
-     // TODO Auto-generated catch block
-     e1.printStackTrace();
-     }
-     }
-
-     /**
-      * 删除商品
-      *
-      * @param e
-     * @throws IOException
-
-     @FXML public void commodityDelButtonAction(ActionEvent e) throws IOException {
-     try {
-     CommodityDelViewController controller = (CommodityDelViewController) replaceSceneContent(
-     "/view/stockmanager/commodityDel.fxml");
-     } catch (Exception e1) {
-     // TODO Auto-generated catch block
-     e1.printStackTrace();
-     }
-     }
-
-     /**
-      * 增加商品
-      *
-      * @param e
-     * @throws IOException
-
-     @FXML public void commodityModButtonAction(ActionEvent e) throws IOException {
-     try {
-     CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
-     "/view/stockmanager/commodityModifyFirst.fxml");
-     } catch (Exception e1) {
-     // TODO Auto-generated catch block
-     e1.printStackTrace();
-     }
-     }
-
-     /**
-      * 增加商品
-      *
-      * @param e
-     * @throws IOException
-
-     @FXML public void commoditySearchButtonAction(ActionEvent e) throws IOException {
-     try {
-     CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
-     "/view/stockmanager/commoditySearchShow.fxml");
-     } catch (Exception e1) {
-     // TODO Auto-generated catch block
-     e1.printStackTrace();
-     }
-     }
-     */
-    /**
      * 返回登录界面
      *
      * @param e
@@ -186,8 +157,7 @@ public class CommodityClassifyViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent(
-                    "/view/admin/Login.fxml");
+            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -223,9 +193,96 @@ public class CommodityClassifyViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO
+        // TODO
+        this.showTreeView();
     }
 
+    private final class TextFieldTreeCellImpl extends TreeCell<String> {
 
+        private TextField textField;
+        private final ContextMenu Menu = new ContextMenu();
+
+        public TextFieldTreeCellImpl() {
+            MenuItem addMenuItem = new MenuItem("增加分类");
+            MenuItem modMenuItem = new MenuItem("修改分类");
+            MenuItem delMenuItem = new MenuItem("删除分类");
+            Menu.getItems().add(addMenuItem);
+            Menu.getItems().add(modMenuItem);
+            Menu.getItems().add(delMenuItem);
+            addMenuItem.setOnAction((ActionEvent t) -> {
+                ImageView imageView = new ImageView(
+                        new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
+                imageView.setFitWidth(15);
+                imageView.setFitHeight(15);
+                TreeItem newItem = new TreeItem<>("New Class", imageView);
+                getTreeItem().getChildren().add(newItem);
+            });
+            modMenuItem.setOnAction((ActionEvent t) -> {
+                startEdit();
+            });
+            delMenuItem.setOnAction(e -> {
+                TreeItem selectItem = getTreeView().getSelectionModel().getSelectedItem();
+                selectItem.getParent().getChildren().remove(selectItem);
+            });
+
+        }
+
+        @Override
+        public void startEdit() {
+            super.startEdit();
+
+            if (textField == null) {
+                createTextField();
+            }
+            setText(null);
+            setGraphic(textField);
+            textField.selectAll();
+        }
+
+        @Override
+        public void cancelEdit() {
+            super.cancelEdit();
+            setText((String) getItem());
+            setGraphic(getTreeItem().getGraphic());
+        }
+
+        @Override
+        public void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+                if (isEditing()) {
+                    if (textField != null) {
+                        textField.setText(getString());
+                    }
+                    setText(null);
+                    setGraphic(textField);
+                } else {
+                    setText(getString());
+                    setGraphic(getTreeItem().getGraphic());
+                    if (!getTreeItem().isLeaf() && getTreeItem().getParent() != null) {
+                        setContextMenu(Menu);
+                    }
+                }
+            }
+        }
+
+        private void createTextField() {
+            textField = new TextField(getString());
+            textField.setOnKeyReleased((javafx.scene.input.KeyEvent t) -> {
+                if (t.getCode() == KeyCode.ENTER) {
+                    commitEdit(textField.getText());
+                } else if (t.getCode() == KeyCode.ESCAPE) {
+                    cancelEdit();
+                }
+            });
+
+        }
+
+        private String getString() {
+            return getItem() == null ? "" : getItem().toString();
+        }
+    }
 }
-
