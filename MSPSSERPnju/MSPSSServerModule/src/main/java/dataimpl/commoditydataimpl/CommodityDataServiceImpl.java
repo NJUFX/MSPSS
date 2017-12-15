@@ -100,6 +100,12 @@ public class CommodityDataServiceImpl implements CommodityDataService{
     }
 
     /**
+     * 完全搜索
+     */
+    public ArrayList<CommodityPO> fullSearchCommodity(String field, Object value){
+        return commodityHelper.fullMatchQuery(field, value);
+    }
+    /**
      * 范围搜索商品
      * @param field,min,max
      * @return
@@ -169,5 +175,29 @@ public class CommodityDataServiceImpl implements CommodityDataService{
      */
     public ClassificationPO getClassification(String id){
         return classificationHelper.exactlyQuery("id",id);
+    }
+
+    /**
+     * 更新商品分类信息
+     */
+    public ResultMessage updateClassification(ClassificationPO classificationPO){
+        return classificationHelper.update(classificationPO);
+    }
+
+    /**
+     * 根据当前的id查找到该节点下的子分类
+     */
+    public ArrayList<ClassificationPO> getChildrenClassification(String id){
+        return classificationHelper.fullMatchQuery("parent_id",id);
+    }
+
+    /**
+     * 完全比配查找
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<ClassificationPO> fullSearchClassificationPO(String field,String val){
+        return classificationHelper.fullMatchQuery(field,val);
     }
 }

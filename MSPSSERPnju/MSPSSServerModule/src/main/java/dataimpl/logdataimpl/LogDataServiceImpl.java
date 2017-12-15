@@ -4,6 +4,7 @@ import datahelper.DataHelper;
 import datahelper.HibernateHelper;
 import dataservice.LogDataService;
 import po.LogPO;
+import util.CriteriaClause;
 import util.ResultMessage;
 
 import java.util.ArrayList;
@@ -55,5 +56,11 @@ public class LogDataServiceImpl implements LogDataService {
         return logHelper.fullMatchQuery(field,value);
     }
 
+    /**
+     * 多重条件搜索
+     */
+    public ArrayList<LogPO> multiSearchLog(ArrayList<CriteriaClause> criteriaClauses){
+        return logHelper.multiCriteriaQuery(criteriaClauses);
+    }
 
 }
