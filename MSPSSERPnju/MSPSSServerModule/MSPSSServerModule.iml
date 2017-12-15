@@ -27,11 +27,9 @@
     <orderEntry type="module" module-name="MSPSSCommonModule" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
-<<<<<<< HEAD
+
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.1.1.Final" level="project" />
-=======
-    <orderEntry type="library" name="Hibernate 5.1.1-5.1.1" level="project" />
->>>>>>> ef53a563fe29b42ec64b7f21cd5846521c71bdc6
+
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.20.0-GA" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
