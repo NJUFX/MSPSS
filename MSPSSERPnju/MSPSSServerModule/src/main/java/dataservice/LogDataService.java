@@ -1,6 +1,7 @@
 package dataservice;
 
 import po.LogPO;
+import util.CriteriaClause;
 import util.ResultMessage;
 import util.Time;
 
@@ -34,4 +35,9 @@ public interface LogDataService {
      * @return符合条件的list
      */
     public ArrayList<LogPO> fullSearch(String field,Object value);
+
+    /**
+     * 多重条件搜索
+     */
+    public ArrayList<LogPO> multiSearchLog(ArrayList<CriteriaClause> criteriaClauses);
 }

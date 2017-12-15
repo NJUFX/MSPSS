@@ -1,6 +1,7 @@
 package dataservice;
 
 import po.AccountPO;
+import util.CriteriaClause;
 import util.ResultMessage;
 
 
@@ -46,6 +47,39 @@ public interface AccountDataService {
      * @return void
      */
     public void pay(String name,double money);
+
+    public ArrayList<AccountPO> rangeSearchAccount(String field, Object min, Object max);
+
+    /**
+     * 完全匹配查找账号
+     * @param field
+     * @param value
+     * @return
+     */
+    public ArrayList<AccountPO> fullSearchAccount(String field,Object value);
+
+    /**
+     * 模糊查找账号
+     * @param field
+     * @param value
+     * @return
+     */
+    public ArrayList<AccountPO> fuzzSearchAccount(String field,Object value);
+
+    /**
+     * 根据账户名精确查找账户
+     * @param name
+     * @return
+     */
+    public AccountPO searchAccountByName(String name);
+
+    /**
+     * 多重条件查找
+     * @param criteriaClauses
+     * @return
+     */
+    public ArrayList<AccountPO>  multiSearchAccount(ArrayList<CriteriaClause> criteriaClauses);
+
 
 
 
