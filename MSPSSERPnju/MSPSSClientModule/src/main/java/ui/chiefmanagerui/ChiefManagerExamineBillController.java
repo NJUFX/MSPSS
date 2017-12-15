@@ -244,7 +244,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 		}
 		
 		case "现金费用类": {
-			ArrayList<CashCostBillVO> list = managerBillService.getWaitingcashCostBillVO();
+			ArrayList<CashCostBillVO> list = managerBillService.getWaitingCashCostBillVO();
 			for (int i = 0; i < list.size(); i++) {
 				CashCostBillVO temp = list.get(i);
 				data.add(new CashCostBill(temp.getID(), temp.getInit_time().toString(), temp.getCommit_time().toString(),

@@ -3,9 +3,7 @@ package blimpl.stockblimpl;
 import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
 import util.ResultMessage;
-import vo.BillVO;
 import vo.ChangeInfoVO;
-import vo.CommodityStockVO;
 import vo.StockVO;
 
 import java.util.ArrayList;

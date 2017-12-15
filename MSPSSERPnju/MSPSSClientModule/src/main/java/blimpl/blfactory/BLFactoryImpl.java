@@ -50,7 +50,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public ManagerBillBLService getManagerBillBLService() {
-      return  BillFactory.getManagerBillBLService();
+      return  BillFactory.getManagerBillBLServiceStub();
     }
 
     @Override
