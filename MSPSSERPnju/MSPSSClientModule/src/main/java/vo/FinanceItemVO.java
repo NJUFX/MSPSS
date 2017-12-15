@@ -17,8 +17,34 @@ public class FinanceItemVO {
      * 金额
      */
     public double money;
-    
+
+    public FinanceItemVO(AccountVO accountVO, String ps, double money) {
+        this.accountVO = accountVO;
+        this.ps = ps;
+        this.money = money;
+    }
+
     public AccountVO getAccountVO () {
     	  return accountVO;
+    }
+
+    public void setAccountVO(AccountVO accountVO) {
+        this.accountVO = accountVO;
+    }
+
+    public String getPs() {
+        return ps;
+    }
+
+    public void setPs(String ps) {
+        this.ps = ps;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
     }
 }

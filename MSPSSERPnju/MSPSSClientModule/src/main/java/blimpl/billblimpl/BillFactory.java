@@ -1,6 +1,7 @@
 package blimpl.billblimpl;
 
 import blservice.billblservice.ManagerBillBLService;
+import blstubdriver.billstubdriver.ManagerBLServiceStub;
 
 /**
  * Description:
@@ -17,5 +18,8 @@ public class BillFactory {
             impl = new BillBLServiceImpl(stockBill,salesOutBill,salesInBill,financeBill);
         }
         return impl;
+    }
+    public synchronized static ManagerBillBLService getManagerBillBLServiceStub(){
+        return new ManagerBLServiceStub();
     }
 }
