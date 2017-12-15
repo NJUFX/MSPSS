@@ -203,6 +203,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 	public void ChooseBillType(ActionEvent e) throws Exception {
 		String billType = BillType.getValue().toString();
 		ObservableList<Bill> data = BillTable.getItems();
+		data.clear();
 		// data.add(new Bill("1","1","1","1","1"));
 		ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
 		switch (billType) {
@@ -271,8 +272,9 @@ public class ChiefManagerExamineBillController implements Initializable {
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("详情");
-						delBtn.setPrefSize(40, 10);
-						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+						delBtn.setPrefSize(50, 5);
+					
+						 //delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {
 							try {
@@ -343,7 +345,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("批准");
-						delBtn.setPrefSize(40, 10);
+						delBtn.setPrefSize(50, 10);
 						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {
@@ -416,7 +418,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("否决");
-						delBtn.setPrefSize(40, 10);
+						delBtn.setPrefSize(50, 10);
 						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {

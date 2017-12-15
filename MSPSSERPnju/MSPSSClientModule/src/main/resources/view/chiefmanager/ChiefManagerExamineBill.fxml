@@ -117,27 +117,27 @@
        </ComboBox>
       <TableView fx:id="BillTable" layoutX="183.0" layoutY="149.0" prefHeight="342.0" prefWidth="680.0">
         <columns>
-          <TableColumn prefWidth="100.0" text="单据编号">
+          <TableColumn prefWidth="120.0" text="单据编号">
             <cellValueFactory>
                <PropertyValueFactory property="billId" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="100.0" text="生成单据时间">
+          <TableColumn prefWidth="120.0" text="生成单据时间">
             <cellValueFactory>
                <PropertyValueFactory property="createTime" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="100.0" text="提交单据时间">
+          <TableColumn prefWidth="120.0" text="提交单据时间">
               <cellValueFactory>
                <PropertyValueFactory property="commitTime" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="100.0" text="操作人员编号">
+          <TableColumn prefWidth="70.0" text="创建者">
             <cellValueFactory>
                <PropertyValueFactory property="operator" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="100.0" text="单据类型">
+          <TableColumn prefWidth="70.0" text="单据类型">
             <cellValueFactory>
                <PropertyValueFactory property="billType" />
             </cellValueFactory>

@@ -191,7 +191,7 @@
             <Label fx:id="SalesOutBillCommitTime" layoutX="345.0" layoutY="150.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
             <Label fx:id="SalesOutBillExamineTime" layoutX="345.0" layoutY="180.0" prefWidth="130.0" style="-fx-background-color: white;" textFill="#0f88eb" />
          </children></Pane>
-      <Pane fx:id="FinanceBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
+      <Pane fx:id="FinanceBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;" visible="false">
          <children>
             <Label layoutX="40.0" layoutY="30.0" style="-fx-background-color: white;" text="单据编号" textFill="#0f88eb" />
             <Label layoutX="40.0" layoutY="60.0" style="-fx-background-color: white;" text="操作员" textFill="#0f88eb" />

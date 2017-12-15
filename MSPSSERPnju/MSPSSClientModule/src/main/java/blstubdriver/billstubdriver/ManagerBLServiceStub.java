@@ -169,11 +169,11 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
         stockBillItemVOS.add(new StockBillItemVO(commodity4,4));
         stockBillItemVOS.add(new StockBillItemVO(commodity5,5));
 
-        StockBillVO stockBillVO1 = new StockBillVO("kcbsd-20121212-00001",StockBillType.Less,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17:11:11:11"),
+        StockBillVO stockBillVO1 = new StockBillVO("kcbsd-20121212-00001",StockBillType.Less,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17 11:11:11"),
                 "不知道为啥就少了",stockManager);
-        StockBillVO stockBillVO2 = new StockBillVO("kcbyd-20121212-00001",StockBillType.More,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17:11:11:11"),
+        StockBillVO stockBillVO2 = new StockBillVO("kcbyd-20121212-00001",StockBillType.More,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17 11:11:11"),
                 "不知道为啥就多了",stockManager);
-        StockBillVO stockBillVO3 = new StockBillVO("kczsd-20121212-00001",StockBillType.More,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17:11:11:11"),
+        StockBillVO stockBillVO3 = new StockBillVO("kczsd-20121212-00001",StockBillType.More,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17 11:11:11"),
                 "我就是想送",stockManager);
         stockBillVOS.add(stockBillVO1);
         stockBillVOS.add(stockBillVO2);
