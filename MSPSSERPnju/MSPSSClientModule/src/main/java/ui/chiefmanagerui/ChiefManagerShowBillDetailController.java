@@ -160,7 +160,8 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 	Label FinanceBillStatus;
 	@FXML
 	TextArea FinanceBillItem;
-	
+	@FXML
+	Button BackToExamineBill;
 	
 	
 	
@@ -444,6 +445,21 @@ public class ChiefManagerShowBillDetailController implements Initializable{
 		}
 		FinanceBillItem.setText(BillItem);
 		
+	}
+	
+	/**
+	 * 返回审批单据界面
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleBackToExamineBillButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerExamineBillController controller = (ChiefManagerExamineBillController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerExamineBill.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }

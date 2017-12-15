@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.Bill;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,8 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -38,6 +41,10 @@ public class FinanceManagerSearchProcessListController implements Initializable 
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	TableView<Bill> BillTable;
+	@FXML
+	TableColumn<Bill, String> ShowDetail;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
