@@ -8,13 +8,17 @@ public class FinanceItemVO {
     /**
      * 银行账户
      */
-    AccountVO accountVO;
+    public AccountVO accountVO;
     /**
      * 备注
      */
-    String ps;
+    public String ps;
     /**
      * 金额
      */
-    double money;
+    public double money;
+    
+    public AccountVO getAccountVO () {
+    	  return accountVO;
+    }
 }

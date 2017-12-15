@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * author：伏家兴
+ * author:Jiang_Chen date:2017/12/13
  */
 public class CustomerDelViewController  implements Initializable {
     Stage stage = StageSingleton.getStage();

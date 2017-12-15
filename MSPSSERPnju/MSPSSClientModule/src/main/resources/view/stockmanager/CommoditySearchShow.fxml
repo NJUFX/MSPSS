@@ -48,7 +48,8 @@
         <Label layoutX="20.0" layoutY="218.0" text="身份: 库存管理人员" textFill="WHITE">
             <font>
                 <Font size="14.0" />
-            </font></Label>
+            </font>
+        </Label>
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
@@ -57,7 +58,8 @@
         <Label layoutX="20.0" layoutY="240.0" text="编号: SM001" textFill="WHITE">
             <font>
                 <Font size="14.0" />
-            </font></Label>
+            </font>
+        </Label>
         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/stockmanager/删除商品2.png" />
@@ -115,22 +117,22 @@
                 </ImageView>
             </graphic>
         </Button>
-      <TableView layoutX="260.0" layoutY="90.0" prefHeight="380.0" prefWidth="500.0">
-        <columns>
-          <TableColumn prefWidth="100.0" text="商品编号" />
-          <TableColumn prefWidth="100.0" text="名称" />
-            <TableColumn prefWidth="100.0" text="分类" />
-            <TableColumn prefWidth="200.0" text="查看详情" />
-        </columns>
-      </TableView>
-      <Button fx:id="backButton" onAction="#backButtonAction" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回" textFill="#0f88eb">
-         <graphic>
-            <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/stockmanager/返回.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+        <TableView fx:id="commodityTableTable" layoutX="255.0" layoutY="90.0" prefHeight="380.0" prefWidth="530.0">
+            <columns>
+                <TableColumn fx:id="IdCol" prefWidth="130.0" text="商品编号" />
+                <TableColumn fx:id="NameCol" prefWidth="130.0" text="名称" />
+                <TableColumn fx:id="CategoryCol" prefWidth="130.0" text="分类" />
+                <TableColumn fx:id="OperationCol" prefWidth="140.0" text="查看详情" />
+            </columns>
+        </TableView>
+        <Button fx:id="backButton" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回" textFill="#0f88eb">
+            <graphic>
+                <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockmanager/返回.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </Pane>

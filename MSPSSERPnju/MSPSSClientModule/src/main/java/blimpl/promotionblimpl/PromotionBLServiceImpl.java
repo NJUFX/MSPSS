@@ -1,77 +1,194 @@
 package blimpl.promotionblimpl;
 
+import blservice.promotionblservice.PromotionBLInfo;
 import blservice.promotionblservice.PromotionBLService;
 import po.PromotionPO;
 import util.ResultMessage;
 import util.Time;
-import vo.PromotionListVO;
-import vo.PromotionVO;
+import vo.*;
 
 import java.util.ArrayList;
 
 /**
- * Created by Harper on 17/11/23
+ * Created by Hanxihu on 17/12/13
  */
 
-public class PromotionBLServiceImpl implements PromotionBLService {
+public class PromotionBLServiceImpl implements PromotionBLService,PromotionBLInfo {
+    private CustomerPromotion customerPromotion;
+    private GrossPromotion grossPromotion;
+    private GroupPromotion groupPromotion;
+
+    public PromotionBLServiceImpl(CustomerPromotion customerPromotion, GrossPromotion grossPromotion, GroupPromotion groupPromotion) {
+        this.customerPromotion = customerPromotion;
+        this.grossPromotion = grossPromotion;
+        this.groupPromotion = groupPromotion;
+    }
+
+
     /**
-     * 增加一条促销策略
+     * 得到所有当前时间可用的客户促销策略
+     *
+     * @return
+     */
+    @Override
+    public ArrayList<CustomerPromotionVO> getAvailableCustomerPromotion() {
+        return customerPromotion.getAvailableCustomerPromotion();
+    }
+
+    /**
+     * 得到所有当前时间可用的特价包促销策略
+     *
+     * @return
+     */
+    @Override
+    public ArrayList<GroupPromotionVO> getAvailableGroupPromotion() {
+        return groupPromotion.getAvailableGroupPromotion();
+    }
+
+    /**
+     * 得到所有当前时间可用的满减促销策略
+     *
+     * @return
+     */
+    @Override
+    public ArrayList<GrossPromotionVO> getAvailableGrossPromotion() {
+        return grossPromotion.getAvailableGrossPromotion();
+    }
+
+    /**
+     * 增加针对客户的促销策略
      *
      * @param promotionVO
-     * @return ResultMessage
+     * @return
      */
-    public ResultMessage add(PromotionVO promotionVO){
-        return ResultMessage.SUCCESS;
+    @Override
+    public ResultMessage addCustomerPromotion(CustomerPromotionVO promotionVO) {
+        return customerPromotion.addCustomerPromotion(promotionVO);
     }
 
     /**
-     * 删除一条促销策略
+     * 更改针对客户的促销策略
      *
-     * @param id
-     * @return ResultMessage
-     */
-    public ResultMessage delete(String id){
-        return ResultMessage.SUCCESS;
-    }
-
-    /**
-     * 更新一条促销策略
-     *
-     * @param id
      * @param promotionVO
-     * @return ResultMessage
+     * @return
      */
-    public ResultMessage update(String id,PromotionVO promotionVO){
-        return ResultMessage.SUCCESS;
+    @Override
+    public ResultMessage updateCustomerPromotion(CustomerPromotionVO promotionVO) {
+
+        return customerPromotion.updateCustomerPromotion(promotionVO);
     }
 
     /**
-     * 搜索所有有效的促销策略
+     * 删除客户的促销策略
      *
-     * @param date
-     * @return ArrayList<PromotionPO>
+     * @param promotionVO
+     * @return
      */
-    public ArrayList<PromotionPO> search(Time date){
-        return null;
+    @Override
+    public ResultMessage deleteCustomerPromotion(CustomerPromotionVO promotionVO) {
+
+        return customerPromotion.deleteCustomerPromotion(promotionVO);
     }
 
     /**
-     * 显示促销策略列表
+     * 得到所有的客户促销策略
      *
-     * @param promotionList
-     * @return PromotionListVO
+     * @return
      */
-    public PromotionListVO showPromotionList(ArrayList<PromotionPO> promotionList){
-        return null;
+    @Override
+    public ArrayList<CustomerPromotionVO> getAllCustomerPromotion() {
+        return customerPromotion.getAllCustomerPromotion();
     }
 
     /**
-     * 显示促销策略详情
+     * 添加特价包促销策略
      *
-     * @param id
-     * @return PromotionVO
+     * @param groupPromotionVO
+     * @return
      */
-    public PromotionVO showPromotionDetail(String id){
-        return null;
+    @Override
+    public ResultMessage addGroupPromotion(GroupPromotionVO groupPromotionVO) {
+
+        return groupPromotion.addGroupPromotion(groupPromotionVO);
     }
+
+    /**
+     * 更新特价包促销策略
+     *
+     * @param groupPromotionVO
+     * @return
+     */
+    @Override
+    public ResultMessage updateGroupPromotion(GroupPromotionVO groupPromotionVO) {
+
+        return groupPromotion.updateGroupPromotion(groupPromotionVO);
+    }
+
+    /**
+     * 删除特价包促销策略
+     *
+     * @param groupPromotionVO
+     * @return
+     */
+    @Override
+    public ResultMessage deleteGroupPromotion(GroupPromotionVO groupPromotionVO) {
+        return groupPromotion.deleteGroupPromotion(groupPromotionVO);
+    }
+
+    /**
+     * 得到所有的特价包促销策略
+     *
+     * @return
+     */
+    @Override
+    public ArrayList<GroupPromotionVO> getAllGroupPromotion() {
+
+        return groupPromotion.getAllGroupPromotion();
+    }
+
+    /**
+     * 添加满减特价包促销策略
+     *
+     * @param grossPromotionVO
+     * @return
+     */
+    @Override
+    public ResultMessage addGrossPromotion(GrossPromotionVO grossPromotionVO) {
+
+        return grossPromotion.addGrossPromotion(grossPromotionVO);
+    }
+
+    /**
+     * 更新满减促销策略
+     *
+     * @param grossPromotionVO
+     * @return
+     */
+    @Override
+    public ResultMessage updateGrossPromotion(GrossPromotionVO grossPromotionVO) {
+
+        return grossPromotion.updateGrossPromotion(grossPromotionVO);
+    }
+
+    /**
+     * 删除满减策略
+     *
+     * @param grossPromotionVO
+     * @return
+     */
+    @Override
+    public ResultMessage deleteGrossPromotion(GrossPromotionVO grossPromotionVO) {
+        return grossPromotion.deleteGrossPromotion(grossPromotionVO);
+    }
+
+    /**
+     * 得到所有的满减策略
+     *
+     * @return
+     */
+    @Override
+    public ArrayList<GrossPromotionVO> getAllGrossPromotion() {
+        return grossPromotion.getAllGrossPromotion();
+    }
+
 }

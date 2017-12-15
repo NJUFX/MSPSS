@@ -1,6 +1,6 @@
 package ui.stockmanagerui;
 
-import auxiliary.stockmanager.Presentation;
+import auxiliary.Presentation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +17,6 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

@@ -15,21 +15,21 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserAddViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerInfoShowViewController">
     <children>
         <Pane id="Navbar" prefHeight="569.0" prefWidth="145.0" style="-fx-background-color: #0F88EB;" />
         <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0F88EB;" />
-        <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
+        <Button id="addUserButton" fx:id="CustomerAddButton" layoutY="282.0" mnemonicParsing="false" onAction="#customerAddButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" onAction="#delUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除客户" textFill="#f8f4f4">
+        <Button id="delUserButton" fx:id="CustomerDelButton" layoutY="317.0" mnemonicParsing="false" onAction="#customerDelButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="删除客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="modUserButton" layoutY="351.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="修改客户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="CustomerModButton" layoutY="351.0" mnemonicParsing="false" onAction="#customerModifyButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="修改客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -47,7 +47,8 @@
         <Label layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
             <font>
                 <Font size="14.0" />
-            </font></Label>
+            </font>
+        </Label>
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
@@ -56,7 +57,8 @@
         <Label layoutX="20.0" layoutY="240.0" text="编号: SS001" textFill="WHITE">
             <font>
                 <Font size="14.0" />
-            </font></Label>
+            </font>
+        </Label>
         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/admin/删除用户.png" />
@@ -67,7 +69,7 @@
                 <Image url="@../../image/admin/编辑用户.png" />
             </image>
         </ImageView>
-        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;查找客户" textFill="WHITE">
+        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;客户信息" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="18.0" />
             </font>
@@ -79,144 +81,144 @@
         </Label>
         <Pane layoutX="190.0" layoutY="55.0" prefHeight="436.0" prefWidth="666.0" style="-fx-background-color: white;">
             <children>
-                <Label layoutX="42.0" layoutY="185.0" text="联系方式">
+                <Label layoutX="72.0" layoutY="182.0" text="联系方式">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="275.0" text="电子邮箱">
+                <Label layoutX="72.0" layoutY="272.0" text="电子邮箱">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="95.0" text="姓名">
+                <Label layoutX="72.0" layoutY="92.0" text="姓名">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="215.0" text="地址">
+                <Label layoutX="72.0" layoutY="212.0" text="地址">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="245.0" text="邮编">
+                <Label layoutX="72.0" layoutY="242.0" text="邮编">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="305.0" text="应收额度">
+                <Label layoutX="72.0" layoutY="302.0" text="应收额度">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="365.0" text="应付">
+                <Label layoutX="72.0" layoutY="362.0" text="应付">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="335.0" text="应收">
+                <Label layoutX="72.0" layoutY="332.0" text="应收">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="42.0" layoutY="395.0" text="业务员">
+                <Label layoutX="72.0" layoutY="392.0" text="业务员">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-            <Label layoutX="29.0" layoutY="17.0" text="客户信息" textFill="#0f88eb">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="23.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="430.0" fitWidth="109.0" layoutX="80.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/stockseller/分隔线.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="42.0" layoutY="65.0" text="编号">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="42.0" layoutY="125.0" text="分类">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="42.0" layoutY="155.0" text="级别">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="185.0" text="联系方式">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="275.0" text="电子邮箱">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="95.0" text="姓名">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="215.0" text="地址">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="245.0" text="邮编">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="305.0" text="应收额度">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="365.0" text="应付">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="335.0" text="应收">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="395.0" text="业务员">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="65.0" text="编号">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="125.0" text="分类">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="155.0" text="级别">
-               <font>
-                  <Font name="Microsoft YaHei" size="16.0" />
-               </font>
-            </Label>
+                <Label layoutX="68.0" layoutY="19.0" text="客户信息" textFill="#0f88eb">
+                    <font>
+                        <Font name="Microsoft YaHei Bold" size="23.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="430.0" fitWidth="109.0" layoutX="110.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockseller/分隔线.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="72.0" layoutY="62.0" text="编号">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="72.0" layoutY="122.0" text="分类">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="72.0" layoutY="152.0" text="级别">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="182.0" text="联系方式">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="272.0" text="电子邮箱">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="92.0" text="姓名">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="212.0" text="地址">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="242.0" text="邮编">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="302.0" text="应收额度">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="362.0" text="应付">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="332.0" text="应收">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="392.0" text="业务员">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="62.0" text="编号">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="122.0" text="分类">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="203.0" layoutY="152.0" text="级别">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0" />
+                    </font>
+                </Label>
             </children>
         </Pane>
-        <Button id="sureButton" fx:id="sureButton" layoutX="670.0" layoutY="515.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="WHITE">
+        <Button id="sureButton" fx:id="delButton" layoutX="670.0" layoutY="510.0" mnemonicParsing="false" onAction="#delButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="modUserButton1" layoutY="385.0" mnemonicParsing="false" onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找客户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="CustomerSearchButton" layoutY="385.0" mnemonicParsing="false" onAction="#customerSearchButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -235,7 +237,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" layoutX="44.0" layoutY="530.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="530.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -253,12 +255,12 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Button id="sureButton" fx:id="sureButton1" layoutX="472.0" layoutY="515.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="修改" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei" size="16.0" />
-         </font>
-      </Button>
-        <Button id="cancelButton" layoutX="275.0" layoutY="515.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="返回" textFill="#0f88eb">
+        <Button id="sureButton" fx:id="modButton" layoutX="472.0" layoutY="510.0" mnemonicParsing="false" onAction="#modButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="修改" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="16.0" />
+            </font>
+        </Button>
+        <Button id="cancelButton" fx:id="backButton" layoutX="275.0" layoutY="510.0" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="返回" textFill="#0f88eb">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>

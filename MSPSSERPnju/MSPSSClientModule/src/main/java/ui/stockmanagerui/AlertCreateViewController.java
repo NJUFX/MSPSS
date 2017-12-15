@@ -1,6 +1,6 @@
 package ui.stockmanagerui;
 
-import auxiliary.stockmanager.Alert;
+import auxiliary.Alert;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

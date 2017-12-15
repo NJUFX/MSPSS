@@ -19,6 +19,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/13
+ */
 public class StockSellerMainViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();

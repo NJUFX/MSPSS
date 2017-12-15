@@ -82,11 +82,7 @@ public interface CommodityClientNetworkService extends Remote {
      */
     public ResultMessage deleteClassification(String id);
 
-    /**
-     * 得到所有的商品分类
-     * @return
-     */
-    public ArrayList<ClassificationPO> getAllClassification();
+
 
     /**
      * 根据当前的id查找到该节点下的子分类

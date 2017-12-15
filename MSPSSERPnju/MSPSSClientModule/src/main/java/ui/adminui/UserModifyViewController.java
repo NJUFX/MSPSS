@@ -20,6 +20,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/12
+ */
 public class UserModifyViewController implements Initializable {
     Dialog dialog = new Dialog();
     private MainApp application;
@@ -65,11 +68,29 @@ public class UserModifyViewController implements Initializable {
 
     @FXML
     Button delUserButton;
-
     @FXML
     Button addUserButton;
     @FXML
-    Button BackToLogin;
+    Button BackToLogin, cancelButton, beforeOperationButton;
+
+    public void cancelButtonAction(ActionEvent e) {
+        try {
+            AdminMainViewController controller = (AdminMainViewController) replaceSceneContent("/view/admin/Main.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    public void beforeOperationButtonAction(ActionEvent e) {
+        try {
+            UserModifyFirstViewController controller = (UserModifyFirstViewController) replaceSceneContent("/view/admin/UserModifyFirstView.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
     /**
      * 返回登录界面
      *

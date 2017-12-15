@@ -18,6 +18,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * author:Jiang_Chen date:2017/12/13
+ */
 public class CustomerAddViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
@@ -33,6 +36,7 @@ public class CustomerAddViewController implements Initializable {
     Button cancelButtonl;
     @FXML
     Button BackToLogin;
+
     /**
      * 返回登录界面
      *
@@ -47,6 +51,7 @@ public class CustomerAddViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回上一界面
      *
@@ -63,6 +68,7 @@ public class CustomerAddViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 删除客户
      *

@@ -20,7 +20,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * author:Jiang_Chen date:2017/12/12
+ */
 public class UserAddViewController implements Initializable {
     Dialog dialog = new Dialog();
     private MainApp application;
@@ -34,7 +36,9 @@ public class UserAddViewController implements Initializable {
      * 确定按钮
      */
     @FXML
-    static Button sureButton;
+    Button sureButton;
+    @FXML
+    Button cancelButton;
     /**
      * 身份的下拉框
      */
@@ -65,12 +69,23 @@ public class UserAddViewController implements Initializable {
     }
 
     @FXML
+    public void cancelButtonAction(ActionEvent e) {
+        try {
+            AdminMainViewController controller = (AdminMainViewController) replaceSceneContent("/view/admin/Main.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    @FXML
     Button delUserButton;
 
     @FXML
     Button modUserButton;
     @FXML
     Button BackToLogin;
+
     /**
      * 返回登录界面
      *
@@ -98,7 +113,7 @@ public class UserAddViewController implements Initializable {
 
     public void modUserButtonAction(ActionEvent e) throws IOException {
         try {
-            UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
+            UserModifyFirstViewController controller = (UserModifyFirstViewController) replaceSceneContent("/view/admin/UserModifyFirstView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

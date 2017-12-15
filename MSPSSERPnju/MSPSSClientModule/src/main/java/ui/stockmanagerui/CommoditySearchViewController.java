@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -35,6 +37,32 @@ public class CommoditySearchViewController implements Initializable {
     Button commodityModButton;
     @FXML
     Button backButton;
+
+    @FXML
+    ComboBox<String> keyTypeComboBox;
+    @FXML
+    TextField keywordField;
+    @FXML
+    Button searchButton;
+
+    /**
+     * 查找商品列表的显示界面
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void commoditySearchButtonAction(ActionEvent e) throws IOException {
+        try {
+            CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
+                    "/view/stockmanager/commoditySearchShow.fxml");
+            controller.setKeyType(keyTypeComboBox.getTypeSelector());
+            controller.setKeyword(keywordField.getText());
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 返回商品管理界面
@@ -103,6 +131,7 @@ public class CommoditySearchViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 下一步
      *
@@ -119,6 +148,7 @@ public class CommoditySearchViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回登录界面
      *
