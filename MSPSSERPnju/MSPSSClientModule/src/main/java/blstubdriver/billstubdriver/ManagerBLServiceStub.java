@@ -28,6 +28,14 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
    private static final    AccountVO accountVO1 = new AccountVO("HuaQi",111,new Time());
    private static final AccountVO accountVO2 = new AccountVO("zhaoshang",1111111,new Time());
 
+    public static void main(String[] args) {
+        ManagerBillBLService service = new ManagerBLServiceStub();
+        System.out.println(new Time());
+        ArrayList<StockBillVO> stockBillVOS = service.getWaitingStockBill();
+        for(StockBillVO vo : stockBillVOS){
+            System.out.println(vo.init_time.toString());
+        }
+    }
     public ManagerBLServiceStub() {
 
 

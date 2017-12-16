@@ -61,7 +61,16 @@ public class StockBillVO {
 	 * 审批该单据的总经理
 	 */
 	public UserVO manager;
-
+	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS, Time init_time, Time commit_time, String commentByStockManager, UserVO stockManager) {
+		this.id = id;
+		this.type = type;
+		this.status = status;
+		this.itemVOS = itemVOS;
+		this.init_time = init_time;
+		this.commit_time = commit_time;
+		this.commentByStockManager = commentByStockManager;
+		this.stockManager = stockManager;
+	}
 	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS,
 			Time init_time, String commentByStockManager, UserVO stockManager) {
 		this.id = id;
@@ -73,16 +82,7 @@ public class StockBillVO {
 		this.stockManager = stockManager;
 	}
 
-	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS, Time init_time, Time commit_time, String commentByStockManager, UserVO stockManager) {
-		this.id = id;
-		this.type = type;
-		this.status = status;
-		this.itemVOS = itemVOS;
-		this.init_time = init_time;
-		this.commit_time = commit_time;
-		this.commentByStockManager = commentByStockManager;
-		this.stockManager = stockManager;
-	}
+
 
 	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS,
 					   Time init_time, Time commit_time, Time approval_time, String commentByStockManager, String commentByManager,
