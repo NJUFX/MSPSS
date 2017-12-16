@@ -91,6 +91,39 @@ public class SalesInBillVO {
             this.init_time = init_time;
     }
 
+    public SalesInBillVO(String ID, String DAE, String provider, String storage, SalesInBillType type, UserVO operator, String ps, double sumMoney, ArrayList<SalesItemVO> itemVOS, BillStatus status, Time init_time, Time commit_time) {
+        this.ID = ID;
+        this.DAE = DAE;
+        this.provider = provider;
+        this.storage = storage;
+        this.type = type;
+        this.operator = operator;
+        this.ps = ps;
+        this.sumMoney = sumMoney;
+        this.itemVOS = itemVOS;
+        this.status = status;
+        this.init_time = init_time;
+        this.commit_time = commit_time;
+    }
+
+    public SalesInBillVO(String ID, String DAE, String provider, String storage, SalesInBillType type, UserVO operator, String ps, double sumMoney, ArrayList<SalesItemVO> itemVOS, BillStatus status, Time init_time, Time commit_time, Time approval_time, String commentByManager, UserVO manager) {
+        this.ID = ID;
+        this.DAE = DAE;
+        this.provider = provider;
+        this.storage = storage;
+        this.type = type;
+        this.operator = operator;
+        this.ps = ps;
+        this.sumMoney = sumMoney;
+        this.itemVOS = itemVOS;
+        this.status = status;
+        this.init_time = init_time;
+        this.commit_time = commit_time;
+        this.approval_time = approval_time;
+        this.commentByManager = commentByManager;
+        this.manager = manager;
+    }
+
     public UserVO getManager() {
         return manager;
     }

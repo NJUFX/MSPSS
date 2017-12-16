@@ -169,12 +169,15 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
         stockBillItemVOS.add(new StockBillItemVO(commodity4,4));
         stockBillItemVOS.add(new StockBillItemVO(commodity5,5));
 
-        StockBillVO stockBillVO1 = new StockBillVO("kcbsd-20121212-00001",StockBillType.Less,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17 11:11:11"),
-                "不知道为啥就少了",stockManager);
-        StockBillVO stockBillVO2 = new StockBillVO("kcbyd-20121212-00001",StockBillType.More,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17 11:11:11"),
-                "不知道为啥就多了",stockManager);
-        StockBillVO stockBillVO3 = new StockBillVO("kczsd-20121212-00001",StockBillType.More,BillStatus.commit,stockBillItemVOS,new Time("2017-10-17 11:11:11"),
-                "我就是想送",stockManager);
+        StockBillVO stockBillVO1 = new StockBillVO("kczsd-20121212-00001",StockBillType.Less,BillStatus.commit,stockBillItemVOS,
+                new Time(),new Time(),"no message",stockManager);
+        StockBillVO stockBillVO2 = new StockBillVO("kczsd-20121212-00001",StockBillType.Less,BillStatus.commit,stockBillItemVOS,
+                new Time(),new Time(),"no message",stockManager);
+        StockBillVO stockBillVO3 = new StockBillVO("kczsd-20121212-00001",StockBillType.Less,BillStatus.commit,stockBillItemVOS,
+                new Time(),new Time(),"no message",stockManager);
+      stockBillVOS.add(  new StockBillVO("kczsd-20121212-00001",StockBillType.Less,BillStatus.commit,stockBillItemVOS,
+                new Time(),new Time(),"no message",stockManager));
+
         stockBillVOS.add(stockBillVO1);
         stockBillVOS.add(stockBillVO2);
         stockBillVOS.add(stockBillVO3);
@@ -196,14 +199,16 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
         salesItemVOS.add(new SalesItemVO(commodity6,1,12));
         salesItemVOS.add(new SalesItemVO(commodity5,1,12));
         salesItemVOS.add(new SalesItemVO(commodity4,1,12));
-        SalesInBillVO salesInBillVO1 = new SalesInBillVO("jhd-20171215-00001",new Time(),"su","第一仓库",stockManager,salesItemVOS
-        ,"断货了很急");
-        salesInBillVO1.setType(SalesInBillType.IN);
-        SalesInBillVO salesInBillVO2 = new SalesInBillVO("jhthd-20171215-00001",new Time(),"su","第一仓库",stockManager,salesItemVOS
-                ,"断货了很急");
-        salesInBillVO2.setType(SalesInBillType.OUT);
+        SalesInBillVO salesInBillVO1 =      new SalesInBillVO("jhd-20131212-00001","huawei","intel","第一仓库",SalesInBillType.OUT
+                ,stockManager,"断货了很急",111111,salesItemVOS,BillStatus.commit,new Time(),new Time());
+
+
+        SalesInBillVO salesInBillVO2 = new SalesInBillVO("jhd-20131212-00001","huawei","intel","第一仓库",SalesInBillType.OUT
+                ,stockManager,"断货了很急",111111,salesItemVOS,BillStatus.commit,new Time(),new Time());
         salesInBillVOS.add(salesInBillVO1);
         salesInBillVOS.add(salesInBillVO2);
+        salesInBillVOS.add(new SalesInBillVO("jhd-20131212-00001","huawei","intel","第一仓库",SalesInBillType.OUT
+                ,stockManager,"断货了很急",111111,salesItemVOS,BillStatus.commit,new Time(),new Time()));
         return salesInBillVOS ;
     }
 
@@ -230,6 +235,9 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
                 null,BillStatus.commit,null);
 
 
+        salesOutBillVOS.add(salesOutBillVO1);
+        salesOutBillVOS.add(salesOutBillVO2);
+        salesOutBillVOS.add(salesOutBillVO1);
         salesOutBillVOS.add(salesOutBillVO1);
 
 
