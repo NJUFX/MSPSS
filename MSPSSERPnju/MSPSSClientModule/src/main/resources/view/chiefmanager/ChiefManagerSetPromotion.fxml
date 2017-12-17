@@ -95,8 +95,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="778.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="退出" textFill="#0f88eb" />
-      <Button layoutX="655.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
+      <Button layoutX="415.0" layoutY="497.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
       <Pane layoutX="170.0" layoutY="57.0" prefHeight="105.0" prefWidth="708.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="88.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -127,60 +126,46 @@
             <DatePicker fx:id="EndTime" layoutX="467.0" layoutY="62.0" prefHeight="24.0" prefWidth="145.0" promptText="结束时间" style="-fx-background-color: white; -fx-border-color: #0f88eb;" />
          </children>
       </Pane>
-      <Pane layoutX="170.0" layoutY="166.0" prefHeight="339.0" prefWidth="339.0" style="-fx-background-color: white;">
+      <Pane layoutX="170.0" layoutY="166.0" prefHeight="290.0" prefWidth="345.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/客户（黑色）.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/数量.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/商品.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/折让金额.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/代金券.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/数量.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/总额区间.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="26.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="26.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/特价包价格.png" />
                </image>
             </ImageView>
-            <Label layoutX="75.0" layoutY="55.0" style="-fx-background-color: white;" text="赠送数量" textFill="#0f88eb" />
-            <Label layoutX="75.0" layoutY="125.0" style="-fx-background-color: white;" text="折让金额" textFill="#0f88eb" />
-            <Label layoutX="75.0" layoutY="90.0" style="-fx-background-color: white;" text="商品/赠品名称" textFill="#0f88eb" />
-            <Label layoutX="75.0" layoutY="160.0" style="-fx-background-color: white;" text="代金券面额" textFill="#0f88eb" />
-            <Label layoutX="75.0" layoutY="195.0" style="-fx-background-color: white;" text="代金券张数" textFill="#0f88eb" />
-            <Label layoutX="75.0" layoutY="230.0" style="-fx-background-color: white;" text="针对总额区间" textFill="#0f88eb" />
-            <Label layoutX="75.0" layoutY="265.0" style="-fx-background-color: white;" text="特价包价格" textFill="#0f88eb" />
+            <Label layoutX="75.0" layoutY="65.0" style="-fx-background-color: white;" text="折让金额" textFill="#0f88eb" />
+            <Label layoutX="75.0" layoutY="109.0" style="-fx-background-color: white;" text="代金券面额" textFill="#0f88eb" />
+            <Label layoutX="75.0" layoutY="155.0" style="-fx-background-color: white;" text="代金券张数" textFill="#0f88eb" />
+            <Label layoutX="75.0" layoutY="200.0" style="-fx-background-color: white;" text="针对总额区间" textFill="#0f88eb" />
+            <Label layoutX="75.0" layoutY="245.0" style="-fx-background-color: white;" text="特价包价格" textFill="#0f88eb" />
             <Label layoutX="75.0" layoutY="20.0" style="-fx-background-color: white;" text="客户级别" textFill="#0f88eb" />
-            <TextField fx:id="CouponDeno" editable="false" layoutX="175.0" layoutY="155.0" prefHeight="25.0" prefWidth="150.0" />
-            <TextField fx:id="GiftAmount" editable="false" layoutX="175.0" layoutY="50.0" prefHeight="27.0" prefWidth="150.0" />
-            <TextField fx:id="ProductName" editable="false" layoutX="175.0" layoutY="85.0" prefHeight="27.0" prefWidth="150.0" />
-            <TextField fx:id="DiscountAmount" editable="false" layoutX="175.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="CouponDeno" editable="false" layoutX="175.0" layoutY="104.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="DiscountAmount" editable="false" layoutX="175.0" layoutY="60.0" prefHeight="25.0" prefWidth="150.0" />
             <ComboBox fx:id="CustomerLevel" layoutX="175.0" layoutY="15.0" prefWidth="150.0" promptText="1~5" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
              <items>
                   <FXCollections fx:factory="observableArrayList">
@@ -192,21 +177,14 @@
                   </FXCollections>
              </items>
             </ComboBox>
-            <TextField fx:id="CouponNumber" editable="false" layoutX="175.0" layoutY="190.0" prefHeight="25.0" prefWidth="150.0" />
-            <TextField fx:id="AmountSection" editable="false" layoutX="175.0" layoutY="225.0" prefHeight="25.0" prefWidth="150.0" promptText="e.g. 1000-5000" />
-            <TextField fx:id="BargainBagPrice" editable="false" layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="150.0" />
-            <Label layoutX="75.0" layoutY="300.0" style="-fx-background-color: white;" text="特价包商品" textFill="#0f88eb" />
-            <TextField fx:id="BargainBagProduct" editable="false" layoutX="175.0" layoutY="295.0" prefHeight="25.0" prefWidth="150.0" promptText="e.g. 灯泡-4,插座-2" />
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="25.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/商品.png" />
-               </image>
-            </ImageView>
+            <TextField fx:id="CouponNumber" editable="false" layoutX="175.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="AmountSection" editable="false" layoutX="175.0" layoutY="195.0" prefHeight="25.0" prefWidth="150.0" promptText="e.g. 1000-5000" />
+            <TextField fx:id="BargainBagPrice" editable="false" layoutX="175.0" layoutY="240.0" prefHeight="25.0" prefWidth="150.0" />
          </children>
       </Pane>
-      <Pane layoutX="516.0" layoutY="166.0" prefHeight="339.0" prefWidth="362.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="533.0" layoutY="165.0" prefHeight="290.0" prefWidth="345.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <TableView prefHeight="339.0" prefWidth="362.0">
+            <TableView prefHeight="290.0" prefWidth="345.0">
               <columns>
                 <TableColumn prefWidth="244.0" text="促销策略" />
                 <TableColumn prefWidth="102.0" text="起止时间" />
@@ -214,7 +192,10 @@
             </TableView>
          </children>
       </Pane>
-      <Button layoutX="410.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="制定" textFill="WHITE" />
-      <Button layoutX="531.0" layoutY="512.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
+      <Button layoutX="170.0" layoutY="497.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="制定" textFill="WHITE" />
+      <Button layoutX="291.0" layoutY="497.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
+      <TextField layoutX="533.0" layoutY="497.0" prefHeight="27.0" prefWidth="130.0" />
+      <TextField layoutX="680.0" layoutY="497.0" prefHeight="27.0" prefWidth="50.0" />
+      <Button layoutX="783.0" layoutY="497.0" mnemonicParsing="false" text="增加" />
     </children>
 </Pane>
