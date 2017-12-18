@@ -10,6 +10,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import auxiliary.stockmanager.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchSalesList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchPromotionListController">
     <children>
@@ -96,21 +115,115 @@
             </ImageView>
          </graphic></Button>
       <Button fx:id="BackToSetPromotion" layoutX="767.0" layoutY="489.0" mnemonicParsing="false" onAction="#handleBackToPromotionButtonAction" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Pane layoutX="202.0" layoutY="138.0" prefHeight="320.0" prefWidth="665.0" style="-fx-background-color: #f8f8f8;">
+      <Pane layoutX="175.0" layoutY="138.0" prefHeight="320.0" prefWidth="695.0" style="-fx-background-color: #f8f8f8;">
          <children>
-            <TableView prefHeight="320.0" prefWidth="665.0">
+            <TableView fx:id="GrossTable" prefHeight="320.0" prefWidth="695.0" visible="false">
+               <columns>
+                  <TableColumn prefWidth="120.0" text="开始时间" >
+                     <cellValueFactory>
+                        <PropertyValueFactory property="startTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="120.0" text="结束时间" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="endTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="106.0" text="触发总额" >
+                  <cellValueFactory>
+                        <PropertyValueFactory property="total" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="106.0" text="代金券金额" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="voucher" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="106.0" text="赠送商品" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="giftItems" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="107.0" text="赠送数量" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="giftNum" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="GrossTableDelete" prefWidth="30.0" text="—" />
+               </columns>
+            </TableView>
+            <TableView fx:id="GroupTable" prefHeight="320.0" prefWidth="695.0">
+               <columns>
+                  <TableColumn prefWidth="120.0" text="开始时间" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="startTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="120.0" text="结束时间" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="endTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="140.0" text="折扣率" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="discountRate" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="143.0" text="赠送商品" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productItems" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="142.0" text="赠送数量" >
+                  <cellValueFactory>
+                        <PropertyValueFactory property="productNum" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="GroupTableDelete" prefWidth="30.0" text="—" />
+               </columns>
+            </TableView>
+            <TableView fx:id="CustomerTable" prefHeight="320.0" prefWidth="695.0" visible="false">
               <columns>
-                <TableColumn prefWidth="120.0" text="开始时间" />
-                <TableColumn prefWidth="120.0" text="结束时间" />
-                  <TableColumn prefWidth="85.0" text="客户等级" />
-                  <TableColumn prefWidth="85.0" text="折让金额" />
-                  <TableColumn prefWidth="85.0" text="代金券金额" />
-                  <TableColumn prefWidth="85.0" text="赠送商品" />
-                  <TableColumn prefWidth="85.0" text="赠送数量" />
+                <TableColumn prefWidth="120.0" text="开始时间" >
+                  <cellValueFactory>
+                        <PropertyValueFactory property="startTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                <TableColumn prefWidth="120.0" text="结束时间" >
+                  <cellValueFactory>
+                        <PropertyValueFactory property="endTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="85.0" text="客户等级" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="customerLevel" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="85.0" text="折让金额" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="discount" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="85.0" text="代金券金额" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="voucher" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="85.0" text="赠送商品" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="giftItems" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="85.0" text="赠送数量" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="giftNum" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="CustomerTableDelete" prefWidth="30.0" text="—" />
               </columns>
             </TableView>
          </children></Pane>
-      <ComboBox fx:id="PromotionType" layoutX="202.0" layoutY="89.0" onAction="#ChoosePromotionType" prefHeight="27.0" prefWidth="145.0" promptText="促销策略类型" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
+      <ComboBox fx:id="PromotionType" layoutX="175.0" layoutY="89.0" onAction="#ChoosePromotionType" prefHeight="27.0" prefWidth="145.0" promptText="促销策略类型" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="分级促销策略" />
