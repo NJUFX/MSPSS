@@ -1,4 +1,5 @@
 package blimpl.promotionblimpl;
+import blstubdriver.promotionstubdriver.Promotion_Stub;
 
 import blservice.promotionblservice.PromotionBLInfo;
 import blservice.promotionblservice.PromotionBLService;
@@ -13,17 +14,22 @@ public class PromotionBLFactory {
     private static GrossPromotion grossPromotion = new GrossPromotion();
     private static PromotionBLServiceImpl impl;
 
-    private synchronized static PromotionBLInfo getPromotionInfo(){
+    public synchronized static PromotionBLInfo getPromotionInfo(){
         if (impl==null){
             impl = new PromotionBLServiceImpl(customerPromotion,grossPromotion,groupPromotion);
         }
        return impl;
     }
-    private synchronized static PromotionBLService getPromotionBLService(){
+   public synchronized static PromotionBLService getPromotionBLService(){
         if (impl==null){
             impl = new PromotionBLServiceImpl(customerPromotion,grossPromotion,groupPromotion);
         }
         return impl;
     }
+    public synchronized static PromotionBLService getPromotionBLServiceStub(){
+
+        return new Promotion_Stub();
+    }
+
 }
 
