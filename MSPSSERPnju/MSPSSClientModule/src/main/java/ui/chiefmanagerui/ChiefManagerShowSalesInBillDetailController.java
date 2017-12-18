@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.Bill;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,18 +13,21 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.CashCostBillVO;
+import vo.FinanceBillVO;
+import vo.SalesInBillVO;
+import vo.SalesOutBillVO;
+import vo.StockBillVO;
 
-public class ChiefManagerSearchListController implements Initializable{
+public class ChiefManagerShowSalesInBillDetailController implements Initializable{
 	@FXML
 	Button SearchList;
 	@FXML
@@ -40,22 +44,40 @@ public class ChiefManagerSearchListController implements Initializable{
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	
 	@FXML
-	ComboBox TableType;
+	Pane SalesInPane;
 	@FXML
-	DatePicker StartTime;
+	Label SalesInBillId;
+	@FXML 
+	Label SalesInBillDAE;
 	@FXML
-	DatePicker EndTime;
+	Label SalesInBillProvider;
 	@FXML
-	TextField ProductName;
+	Label SalesInBillStorage;
 	@FXML
-	TextField CustomerName;
+	Label SalesInBillType;
 	@FXML
-	TextField AssistantName;
+	Label SalesInBillOperator;
 	@FXML
-	TextField StorageName;
+	Label SalesInBillPS;
 	@FXML
-	ComboBox BillType;
+	Label SalesInBillSumMoney;
+	@FXML
+	Label SalesInBillStatus;
+	@FXML
+	Label SalesInBillInitTime;
+	
+	@FXML
+	Label SalesInBillCommitTime;
+	@FXML
+	TextArea SalesInBillItem;
+	
+	@FXML
+	Button BackToExamineBill;
+	
+	
+	
 	
 	
 	Dialog dialog = new Dialog();
@@ -186,56 +208,50 @@ public class ChiefManagerSearchListController implements Initializable{
 		return (Initializable) loader.getController();
 	}
 	
+	
+	
 	/**
-	 * 判断报表类型
-	 * @param e
-	 * @throws Exception
+	 * 显示进货单据详情
+	 * @param vo
 	 */
-	public void ChooseTableType(ActionEvent e) throws Exception{
-		//comboBox不允许自己输入内容
-		TableType.setEditable(false);
-		BillType.setEditable(false);
-		//初始化控件
-		StartTime.setDisable(false);
-		EndTime.setDisable(false);
-		ProductName.setEditable(true);
-		CustomerName.setEditable(true);
-		AssistantName.setEditable(true);
-		StorageName.setEditable(true);
-		BillType.setDisable(false);
+	public void ShowSalesInBillDetail(SalesInBillVO vo) {
 		
-		String tableType = TableType.getValue().toString();
-		switch(tableType) {
-		case"销售明细表":{
-			BillType.setDisable(true);
-			break;
+		SalesInBillId.setText(vo.getID());
+		SalesInBillDAE.setText(vo.getDAE());
+		SalesInBillProvider.setText(vo.getProvider());
+		SalesInBillStorage.setText(vo.getStorage());
+		SalesInBillType.setText(vo.getType().toString());
+		SalesInBillOperator.setText(vo.getOperator().getName());
+		SalesInBillPS.setText(vo.getPs());
+		SalesInBillSumMoney.setText(Double.toString(vo.getSumMoney()));
+		SalesInBillStatus.setText(vo.getStatus().toString());
+		SalesInBillInitTime.setText(vo.getInit_time().toString());
+		//SalesInBillExamineTime.setText("");
+		//SalesInBillExamineManager.setText("");
+		//SalesInBillExamineComment.setText("");
+		SalesInBillCommitTime.setText(vo.getCommit_time().toString());
+		String BillItem = "";
+		for(int i=0;i<vo.getItemVOS().size();i++) {
+			BillItem = BillItem + vo.getItemVOS().get(i).getName()+"-"+vo.getItemVOS().get(i).getType()+"-"+vo.getItemVOS().get(i).getId()+"-"+Double.toString(vo.getItemVOS().get(i).price)+"-"+Double.toString(vo.getItemVOS().get(i).number)+"\n";
 		}
-		case"经营情况表":{
-			ProductName.setEditable(false);
-			CustomerName.setEditable(false);
-			AssistantName.setEditable(false);
-			StorageName.setEditable(false);
-			BillType.setDisable(true);
-			break;
-		}
-		case"经营历程表":{
-			ProductName.setEditable(false);
-			break;
-		}
-		}
+		SalesInBillItem.setText(BillItem);
 	}
 	
+	
+	
 	/**
-	 * 清空所有条件
+	 * 返回审批单据界面
 	 * @param e
 	 * @throws Exception
 	 */
-	public void handleClearButtonAction(ActionEvent e) throws Exception{
-		ProductName.setText("");
-		CustomerName.setText("");
-		AssistantName.setText("");
-		StorageName.setText("");
-	
+	public void handleBackToExamineBillButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerExamineBillController controller = (ChiefManagerExamineBillController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerExamineBill.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }

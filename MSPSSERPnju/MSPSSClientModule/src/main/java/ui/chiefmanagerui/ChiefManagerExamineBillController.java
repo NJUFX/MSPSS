@@ -283,47 +283,47 @@ public class ChiefManagerExamineBillController implements Initializable {
 								case "库存类": {
 									StockBill currentBill = (StockBill) this.getTableView().getItems().get(getIndex());
 									StockBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowStockBillDetailController controller = (ChiefManagerShowStockBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowStockBillDetail.fxml");
 									controller.ShowStockBillDetail(vo);
 									break;
 								}
 								case "进货类": {
 									SalesInBill currentBill = (SalesInBill) this.getTableView().getItems().get(getIndex());
 									SalesInBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowSalesInBillDetailController controller = (ChiefManagerShowSalesInBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowSalesInBillDetail.fxml");
 									controller.ShowSalesInBillDetail(vo);
 									break;
 								}
 								case "销售类": {
 									SalesOutBill currentBill = (SalesOutBill) this.getTableView().getItems().get(getIndex());
 									SalesOutBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowSalesOutBillDetailController controller = (ChiefManagerShowSalesOutBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowSalesOutBillDetail.fxml");
 									controller.ShowSalesOutBillDetail(vo);
 									break;
 								}
 								case "财务类": {
 									FinanceBill currentBill = (FinanceBill) this.getTableView().getItems().get(getIndex());
 									FinanceBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowFinanceBillDetailController controller = (ChiefManagerShowFinanceBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowFinanceBillDetail.fxml");
 									controller.ShowFinanceBillDetail(vo);
 									break;
 								}
 								case "现金费用类": {
 									CashCostBill currentBill = (CashCostBill) this.getTableView().getItems().get(getIndex());
 									CashCostBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowCashCostBillDetailController controller = (ChiefManagerShowCashCostBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowCashCostBillDetail.fxml");
 									controller.ShowCashCostBillDetail(vo);
 									break;
 								}
 								}
 								
-								ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-										"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+								//ChiefManagerShowStockBillDetailController controller = (ChiefManagerShowStockBillDetailController) replaceSceneContent(
+										//"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
 								
 								// controller.setCommodityTable(OperateCommodity);
 							} catch (Exception e1) {

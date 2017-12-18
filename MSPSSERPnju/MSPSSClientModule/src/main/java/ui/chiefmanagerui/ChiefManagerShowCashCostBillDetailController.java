@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.Bill;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,18 +13,21 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.CashCostBillVO;
+import vo.FinanceBillVO;
+import vo.SalesInBillVO;
+import vo.SalesOutBillVO;
+import vo.StockBillVO;
 
-public class ChiefManagerSearchListController implements Initializable{
+public class ChiefManagerShowCashCostBillDetailController implements Initializable{
 	@FXML
 	Button SearchList;
 	@FXML
@@ -40,22 +44,31 @@ public class ChiefManagerSearchListController implements Initializable{
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	
 	@FXML
-	ComboBox TableType;
+	Pane FinanceBillPane;
+	
 	@FXML
-	DatePicker StartTime;
+	Label FinanceBillId;
 	@FXML
-	DatePicker EndTime;
+	Label FinanceBillOperator;
 	@FXML
-	TextField ProductName;
+	Label FinanceBillInitTime;
 	@FXML
-	TextField CustomerName;
+	Label FinanceBillCommitTime;
 	@FXML
-	TextField AssistantName;
+	Label FinanceBillType;
 	@FXML
-	TextField StorageName;
+	Label FinanceBillSum;
 	@FXML
-	ComboBox BillType;
+	Label FinanceBillStatus;
+	@FXML
+	TextArea FinanceBillItem;
+	@FXML
+	Button BackToExamineBill;
+	
+	
+	
 	
 	
 	Dialog dialog = new Dialog();
@@ -186,56 +199,44 @@ public class ChiefManagerSearchListController implements Initializable{
 		return (Initializable) loader.getController();
 	}
 	
+	
+	
 	/**
-	 * 判断报表类型
-	 * @param e
-	 * @throws Exception
+	 * 显示现金费用单据详情
+	 * @param vo
 	 */
-	public void ChooseTableType(ActionEvent e) throws Exception{
-		//comboBox不允许自己输入内容
-		TableType.setEditable(false);
-		BillType.setEditable(false);
-		//初始化控件
-		StartTime.setDisable(false);
-		EndTime.setDisable(false);
-		ProductName.setEditable(true);
-		CustomerName.setEditable(true);
-		AssistantName.setEditable(true);
-		StorageName.setEditable(true);
-		BillType.setDisable(false);
+	public void ShowCashCostBillDetail(CashCostBillVO vo) {
 		
-		String tableType = TableType.getValue().toString();
-		switch(tableType) {
-		case"销售明细表":{
-			BillType.setDisable(true);
-			break;
+		
+		FinanceBillId.setText(vo.getID());
+		FinanceBillOperator.setText(vo.getOperator().getName());
+		FinanceBillInitTime.setText(vo.getInit_time().toString());
+		FinanceBillCommitTime.setText(vo.getCommit_time().toString());
+		FinanceBillType.setText("现金费用单");
+		FinanceBillSum.setText(Double.toString(vo.getSum()));
+		FinanceBillStatus.setText(vo.getStatus().toString());
+		
+		String BillItem = "";
+		for(int i=0;i<vo.getList().size();i++) {
+			BillItem = BillItem + vo.getList().get(i).name+"    "+Double.toString(vo.getList().get(i).money)+"    "+vo.getList().get(i).ps+"\n";
 		}
-		case"经营情况表":{
-			ProductName.setEditable(false);
-			CustomerName.setEditable(false);
-			AssistantName.setEditable(false);
-			StorageName.setEditable(false);
-			BillType.setDisable(true);
-			break;
-		}
-		case"经营历程表":{
-			ProductName.setEditable(false);
-			break;
-		}
-		}
+		FinanceBillItem.setText(BillItem);
 	}
 	
+	
 	/**
-	 * 清空所有条件
+	 * 返回审批单据界面
 	 * @param e
 	 * @throws Exception
 	 */
-	public void handleClearButtonAction(ActionEvent e) throws Exception{
-		ProductName.setText("");
-		CustomerName.setText("");
-		AssistantName.setText("");
-		StorageName.setText("");
-	
+	public void handleBackToExamineBillButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerExamineBillController controller = (ChiefManagerExamineBillController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerExamineBill.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }
