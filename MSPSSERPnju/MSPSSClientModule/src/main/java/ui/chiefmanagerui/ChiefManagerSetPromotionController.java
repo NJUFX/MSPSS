@@ -34,6 +34,7 @@ import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.Time;
 import vo.CustomerPromotionVO;
+import vo.GrossPromotionVO;
 import vo.GroupPromotionVO;
 import vo.PresentationCommodityItemVO;
 
@@ -324,7 +325,13 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			if(!(Coupon.getText().equals(""))) {
 				voucher = Integer.parseInt(Coupon.getText());
 			}
-			
+			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			if(promotionCommodity.size()!=0) {
+				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,promotionCommodity,start ,end));
+			}
+			else {
+				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,start,end));
+			}
 			
 			break;
 		}
@@ -362,6 +369,44 @@ public class ChiefManagerSetPromotionController implements Initializable{
 		data.add(new PromotionCommodity(ProductField.getText(),ProductSum.getText()));
 	}
 	
+	/**
+	 * 监听清空条件按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleClearConditionButtonAction(ActionEvent e) throws Exception{
+		
+		CustomerLevel.setDisable(true);
+		Coupon.setText("");
+		Coupon.setEditable(false);
+		DiscountAmount.setText("");
+		DiscountAmount.setEditable(false);
+		Amount.setText("");
+		Amount.setEditable(false);
+		BargainBagPrice.setText("");
+		BargainBagPrice.setEditable(false);
+		ProductField.setText("");
+		ProductSum.setText("");
+		ProductField.setEditable(false);
+		ProductSum.setEditable(false);
+		ObservableList<PromotionCommodity> data = ProductTable.getItems();
+		data.clear();
+	}
+	
+	/**
+	 * 监听策略列表按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleSearchPromotionButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerSearchPromotionListController controller = (ChiefManagerSearchPromotionListController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerSearchPromotionList.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
 	
 
 }
