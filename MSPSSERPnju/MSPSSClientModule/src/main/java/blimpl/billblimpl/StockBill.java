@@ -72,7 +72,8 @@ public class StockBill {
             StockBillItemVO itemVO = new StockBillItemVO(commodityInfoService.getCommodity(itemPO.getCommodityID()),itemPO.getNumber());
             itemVOS.add(itemVO);
         }
-        StockBillVO stockBillVO = new StockBillVO(po.getType(),po.getStatus(),itemVOS,new Time(po.getInit_time()),new Time(po.getCommit_time()),new Time(po.getApproval_time()),po.getCommentByStockManager(),po.getCommentByManager()
+        StockBillVO stockBillVO = new StockBillVO("1",po.getType(),po.getStatus(),itemVOS,new Time(po.getInit_time()),new Time(po.getCommit_time()),new Time(po.getApproval_time()),po.getCommentByStockManager(),po.getCommentByManager()
+
         ,userInfo.getUser(po.getInitID()),userInfo.getUser(po.getApprovalID()));
         return  stockBillVO;
     }

@@ -203,6 +203,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 	public void ChooseBillType(ActionEvent e) throws Exception {
 		String billType = BillType.getValue().toString();
 		ObservableList<Bill> data = BillTable.getItems();
+		data.clear();
 		// data.add(new Bill("1","1","1","1","1"));
 		ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
 		switch (billType) {
@@ -244,7 +245,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 		}
 		
 		case "现金费用类": {
-			ArrayList<CashCostBillVO> list = managerBillService.getWaitingcashCostBillVO();
+			ArrayList<CashCostBillVO> list = managerBillService.getWaitingCashCostBillVO();
 			for (int i = 0; i < list.size(); i++) {
 				CashCostBillVO temp = list.get(i);
 				data.add(new CashCostBill(temp.getID(), temp.getInit_time().toString(), temp.getCommit_time().toString(),
@@ -271,8 +272,9 @@ public class ChiefManagerExamineBillController implements Initializable {
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("详情");
-						delBtn.setPrefSize(40, 10);
-						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+						delBtn.setPrefSize(50, 5);
+					
+						 //delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {
 							try {
@@ -281,47 +283,47 @@ public class ChiefManagerExamineBillController implements Initializable {
 								case "库存类": {
 									StockBill currentBill = (StockBill) this.getTableView().getItems().get(getIndex());
 									StockBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowStockBillDetailController controller = (ChiefManagerShowStockBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowStockBillDetail.fxml");
 									controller.ShowStockBillDetail(vo);
 									break;
 								}
 								case "进货类": {
 									SalesInBill currentBill = (SalesInBill) this.getTableView().getItems().get(getIndex());
 									SalesInBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowSalesInBillDetailController controller = (ChiefManagerShowSalesInBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowSalesInBillDetail.fxml");
 									controller.ShowSalesInBillDetail(vo);
 									break;
 								}
 								case "销售类": {
 									SalesOutBill currentBill = (SalesOutBill) this.getTableView().getItems().get(getIndex());
 									SalesOutBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowSalesOutBillDetailController controller = (ChiefManagerShowSalesOutBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowSalesOutBillDetail.fxml");
 									controller.ShowSalesOutBillDetail(vo);
 									break;
 								}
 								case "财务类": {
 									FinanceBill currentBill = (FinanceBill) this.getTableView().getItems().get(getIndex());
 									FinanceBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowFinanceBillDetailController controller = (ChiefManagerShowFinanceBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowFinanceBillDetail.fxml");
 									controller.ShowFinanceBillDetail(vo);
 									break;
 								}
 								case "现金费用类": {
 									CashCostBill currentBill = (CashCostBill) this.getTableView().getItems().get(getIndex());
 									CashCostBillVO vo = currentBill.myself;
-									ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+									ChiefManagerShowCashCostBillDetailController controller = (ChiefManagerShowCashCostBillDetailController) replaceSceneContent(
+											"/view/chiefmanager/ChiefManagerShowCashCostBillDetail.fxml");
 									controller.ShowCashCostBillDetail(vo);
 									break;
 								}
 								}
 								
-								ChiefManagerShowBillDetailController controller = (ChiefManagerShowBillDetailController) replaceSceneContent(
-										"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+								//ChiefManagerShowStockBillDetailController controller = (ChiefManagerShowStockBillDetailController) replaceSceneContent(
+										//"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
 								
 								// controller.setCommodityTable(OperateCommodity);
 							} catch (Exception e1) {
@@ -343,7 +345,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("批准");
-						delBtn.setPrefSize(40, 10);
+						delBtn.setPrefSize(50, 10);
 						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {
@@ -355,6 +357,42 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            StockBillVO vo = Approve.myself;
 						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
 						            managerBillService.approveStockBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Approve);
+								}
+								case"进货类":{
+									SalesInBill Approve = (SalesInBill) this.getTableView().getItems().get(getIndex());
+						            SalesInBillVO vo = Approve.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.approveSalesInBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Approve);
+								}
+								case"销售类":{
+									SalesOutBill Approve = (SalesOutBill) this.getTableView().getItems().get(getIndex());
+						            SalesOutBillVO vo = Approve.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.approveSalesOutBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Approve);
+								}
+								case"财务类":{
+									FinanceBill Approve = (FinanceBill) this.getTableView().getItems().get(getIndex());
+						            FinanceBillVO vo = Approve.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.approveFinanceBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Approve);
+								}
+								case"现金费用类":{
+									CashCostBill Approve = (CashCostBill) this.getTableView().getItems().get(getIndex());
+						            CashCostBillVO vo = Approve.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.approveCashCostBill(vo);
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Approve);
@@ -380,12 +418,59 @@ public class ChiefManagerExamineBillController implements Initializable {
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("否决");
-						delBtn.setPrefSize(40, 10);
+						delBtn.setPrefSize(50, 10);
 						// delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {
 							try {
-								
+								String billType = BillType.getValue().toString();
+								switch(billType) {
+								case"库存类":{
+									StockBill Reject = (StockBill) this.getTableView().getItems().get(getIndex());
+						            StockBillVO vo = Reject.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.rejectStockBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Reject);
+								}
+								case"进货类":{
+									SalesInBill Reject = (SalesInBill) this.getTableView().getItems().get(getIndex());
+						            SalesInBillVO vo = Reject.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.rejectSalesInBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Reject);
+								}
+								case"销售类":{
+									SalesOutBill Reject = (SalesOutBill) this.getTableView().getItems().get(getIndex());
+						            SalesOutBillVO vo = Reject.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.rejectSalesOutBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Reject);
+								}
+								case"财务类":{
+									FinanceBill Reject = (FinanceBill) this.getTableView().getItems().get(getIndex());
+						            FinanceBillVO vo = Reject.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.rejectFinanceBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Reject);
+								}
+								case"现金费用类":{
+									CashCostBill Reject = (CashCostBill) this.getTableView().getItems().get(getIndex());
+						            CashCostBillVO vo = Reject.myself;
+						            ManagerBillBLService managerBillService = new BLFactoryImpl().getManagerBillBLService();
+						            managerBillService.rejectCashCostBill(vo);
+						            //删除已被审批的行
+						            ObservableList<Bill> data = BillTable.getItems();
+						            data.remove(Reject);
+								}
+								}
 								
 							} catch (Exception e1) {
 								e1.printStackTrace();

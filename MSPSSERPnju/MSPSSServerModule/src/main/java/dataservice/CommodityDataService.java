@@ -25,6 +25,11 @@ public interface CommodityDataService {
     public ResultMessage modifyCommodity(CommodityPO commodityPO);
 
     /**
+     * 完全查找
+     */
+    public ArrayList<CommodityPO> fullSearchCommodity(String field, Object value);
+
+    /**
      * 删除商品
      * @param key,name
      * @return
@@ -93,5 +98,22 @@ public interface CommodityDataService {
      */
     public ClassificationPO getClassification(String id);
 
+    /**
+     * 更新分类信息
+     */
+    public ResultMessage updateClassification(ClassificationPO classificationPO);
+
+    /**
+     * 根据当前的id查找到该节点下的子分类
+     */
+    public ArrayList<ClassificationPO> getChildrenClassification(String id);
+
+    /**
+     * 完全比配查找
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<ClassificationPO> fullSearchClassificationPO(String field,String val);
 
 }

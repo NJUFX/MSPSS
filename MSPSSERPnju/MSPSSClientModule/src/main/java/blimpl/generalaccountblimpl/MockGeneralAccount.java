@@ -32,7 +32,7 @@ public class MockGeneralAccount extends GeneralAccount{
 
 
     public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) {
-        if(generalaccount.getaccountlist().get(0).getname().equals(("苏果超市")))
+        if(generalaccount.getaccountlist().get(0).getName().equals(("苏果超市")))
 
               return ResultMessage.SUCCESS;
         else

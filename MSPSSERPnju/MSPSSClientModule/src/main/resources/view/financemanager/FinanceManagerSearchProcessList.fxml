@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.paint.*?>
@@ -94,10 +95,35 @@
       <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
       <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <TableView prefHeight="347.0" prefWidth="660.0">
-              <columns>
-                <TableColumn prefWidth="659.0" text="单据" />
-              </columns>
+            <TableView fx:id="BillTable" prefHeight="347.0" prefWidth="660.0">
+               <columns>
+                  <TableColumn prefWidth="110.0" text="单据编号">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="billId" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="110.0" text="生成单据时间">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="createTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="110.0" text="提交单据时间">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="commitTime" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="110.0" text="操作人员编号">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="operator" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="110.0" text="单据类型">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="billType" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="ShowDetail" prefWidth="110.0" text="详情" />
+               </columns>
             </TableView>
          </children></Pane>
     </children>

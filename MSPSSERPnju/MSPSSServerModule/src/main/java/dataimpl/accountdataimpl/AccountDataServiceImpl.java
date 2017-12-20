@@ -3,6 +3,7 @@ package dataimpl.accountdataimpl;
 import datahelper.DataHelper;
 import dataservice.AccountDataService;
 import po.AccountPO;
+import util.CriteriaClause;
 import util.ResultMessage;
 
 import java.util.ArrayList;
@@ -101,6 +102,49 @@ public class AccountDataServiceImpl  implements AccountDataService{
         account.setMoney(sum);
         accountHelper.update(account);
     }
+
+    public ArrayList<AccountPO> rangeSearchAccount(String field, Object min, Object max){
+        return accountHelper.rangeQuery(field,min,max);
+    }
+
+    /**
+     * 完全匹配查找账号
+     * @param field
+     * @param value
+     * @return
+     */
+    public ArrayList<AccountPO> fullSearchAccount(String field,Object value){
+        return accountHelper.fullMatchQuery(field,value);
+    }
+
+    /**
+     * 模糊查找账号
+     * @param field
+     * @param value
+     * @return
+     */
+    public ArrayList<AccountPO> fuzzSearchAccount(String field,Object value){
+        return accountHelper.fuzzyMatchQuery(field,(String)value);
+    }
+
+    /**
+     * 根据账户名精确查找账户
+     * @param name
+     * @return
+     */
+    public AccountPO searchAccountByName(String name){
+        return accountHelper.exactlyQuery("name",name);
+    }
+
+    /**
+     * 多重条件查找
+     * @param criteriaClauses
+     * @return
+     */
+    public ArrayList<AccountPO>  multiSearchAccount(ArrayList<CriteriaClause> criteriaClauses){
+        return accountHelper.multiCriteriaQuery(criteriaClauses);
+    }
+
 
 
 

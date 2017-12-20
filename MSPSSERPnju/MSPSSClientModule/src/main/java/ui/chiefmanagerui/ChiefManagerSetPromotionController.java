@@ -3,8 +3,17 @@ package ui.chiefmanagerui;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import auxiliary.Bill;
+import auxiliary.PromotionCommodity;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.ManagerBillBLService;
+import blservice.logblservice.LogBLService;
+import blservice.promotionblservice.PromotionBLService;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -22,6 +32,11 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Time;
+import vo.CustomerPromotionVO;
+import vo.GrossPromotionVO;
+import vo.GroupPromotionVO;
+import vo.PresentationCommodityItemVO;
 
 public class ChiefManagerSetPromotionController implements Initializable{
 	@FXML
@@ -49,21 +64,29 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	@FXML
 	ComboBox CustomerLevel;
 	@FXML
-	TextField GiftAmount;
-	@FXML
-	TextField ProductName;
-	@FXML
 	TextField DiscountAmount;
 	@FXML
-	TextField CouponDeno;
+	TextField Coupon;
+	
 	@FXML
-	TextField CouponNumber;
-	@FXML
-	TextField AmountSection;
+	TextField Amount;
 	@FXML
 	TextField BargainBagPrice;
 	@FXML
-	TextField BargainBagProduct;
+	TableView ProductTable;
+	@FXML
+	TextField ProductField;
+	@FXML
+	TextField ProductSum;
+	@FXML
+	Button AddButton;
+	@FXML
+	Button ConfirmPromotion;
+	@FXML
+	Button ClearCondition;
+	@FXML 
+	Button SearchPromotion;
+	
 	
 	
 	
@@ -204,52 +227,186 @@ public class ChiefManagerSetPromotionController implements Initializable{
 		String promotionType = PromotionType.getValue().toString();
 		//初始设置所有的条件都不可选
 		CustomerLevel.setDisable(true);
-		CouponDeno.setEditable(false);
-		CouponNumber.setEditable(false);
+		Coupon.setEditable(false);
 		DiscountAmount.setEditable(false);
-		ProductName.setEditable(false);
-		GiftAmount.setEditable(false);
-		AmountSection.setEditable(false);
+		Amount.setEditable(false);
 		BargainBagPrice.setEditable(false);
-		BargainBagProduct.setEditable(false);
+		ProductField.setEditable(false);
+		ProductSum.setEditable(false);
+	
 		//判定选中的促销策略类型
 		switch(promotionType){
-		case"分级赠送代金券":{
+		case"分级促销策略":{
 			CustomerLevel.setDisable(false);
-			CouponDeno.setEditable(true);
-			CouponNumber.setEditable(true);
-			break;
-		}
-		case"分级价格折让":{
-			CustomerLevel.setDisable(false);
+			Coupon.setEditable(true);
 			DiscountAmount.setEditable(true);
+			ProductField.setEditable(true);
+			ProductSum.setEditable(true);
 			break;
 		}
-		case"分级赠送赠品":{
-			CustomerLevel.setDisable(false);
-			ProductName.setEditable(true);
-			GiftAmount.setEditable(true);
+		
+		case"总额促销策略":{
+			Amount.setEditable(true);
+			Coupon.setEditable(true);
+			ProductField.setEditable(true);
+			ProductSum.setEditable(true);
 			break;
 		}
-		case"总额赠送代金券":{
-			AmountSection.setEditable(true);
-			CouponDeno.setEditable(true);
-			CouponNumber.setEditable(true);
-			break;
-		}
-		case"总额赠送赠品":{
-			AmountSection.setEditable(true);
-			ProductName.setEditable(true);
-			GiftAmount.setEditable(true);
-			break;
-		}
+		
 		case"制定特价包":{
 			BargainBagPrice.setEditable(true);
-			BargainBagProduct.setEditable(true);
+			ProductField.setEditable(true);
+			ProductSum.setEditable(true);
 			break;
 		}
 		
 		}
 	}
+	
+	/**
+	 * 监听制定策略按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleConfirmPromotionButtonAction(ActionEvent e) throws Exception{
+		String promotionType = PromotionType.getValue().toString();
+		switch(promotionType){
+		case"分级促销策略":{
+			int level = Integer.parseInt(CustomerLevel.getValue().toString());
+			double discount = 0.0;
+			int voucher = 0;
+			ArrayList<PresentationCommodityItemVO> promotionCommodity = new ArrayList<PresentationCommodityItemVO>();
+			ObservableList<PromotionCommodity> data = ProductTable.getItems();
+			LocalDate startTime = StartTime.getValue();
+			LocalDate endTime = EndTime.getValue();
+			Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
+			Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
+
+			if(data.size()!=0) {
+				for(int i=0;i<data.size();i++) {
+					promotionCommodity.add(new PresentationCommodityItemVO(data.get(i).getCommodity(),Integer.parseInt(data.get(i).getSum())));
+				}
+			}
+			if(!(DiscountAmount.getText().equals(""))) {
+				discount = Double.parseDouble(DiscountAmount.getText());
+			}
+			if(!(Coupon.getText().equals(""))) {
+				voucher = Integer.parseInt(Coupon.getText());
+			}
+			
+			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			if(promotionCommodity.size()!=0) {
+				promotionBLService.addCustomerPromotion(new CustomerPromotionVO(level,discount,voucher,start,end));
+			}
+			else {
+				promotionBLService.addCustomerPromotion(new CustomerPromotionVO(level,discount,voucher,promotionCommodity,start,end));
+			}
+			break;
+		}
+		
+		case"总额促销策略":{
+			double total = 0.0;
+			int voucher = 0;
+			ArrayList<PresentationCommodityItemVO> promotionCommodity = new ArrayList<PresentationCommodityItemVO>();
+			ObservableList<PromotionCommodity> data = ProductTable.getItems();
+			LocalDate startTime = StartTime.getValue();
+			LocalDate endTime = EndTime.getValue();
+			Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
+			Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
+			
+			if(data.size()!=0) {
+				for(int i=0;i<data.size();i++) {
+					promotionCommodity.add(new PresentationCommodityItemVO(data.get(i).getCommodity(),Integer.parseInt(data.get(i).getSum())));
+				}
+			}
+			if(!(Amount.getText().equals(""))) {
+				total = Double.parseDouble(Amount.getText());
+			}
+			if(!(Coupon.getText().equals(""))) {
+				voucher = Integer.parseInt(Coupon.getText());
+			}
+			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			if(promotionCommodity.size()!=0) {
+				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,promotionCommodity,start ,end));
+			}
+			else {
+				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,start,end));
+			}
+			
+			break;
+		}
+		
+		case"制定特价包":{
+			double discountRate = Double.parseDouble(BargainBagPrice.getText());
+			ObservableList<PromotionCommodity> data = ProductTable.getItems();
+			ArrayList<String> commodity = new ArrayList<String>();
+			LocalDate startTime = StartTime.getValue();
+			LocalDate endTime = EndTime.getValue();
+			Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
+			Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
+			
+			for(int i=0;i<data.size();i++) {
+				commodity.add(data.get(i).getCommodity());
+			}
+			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			promotionBLService.addGroupPromotion(new GroupPromotionVO(discountRate,commodity,start,end));
+			
+			break;
+		}
+		
+		}
+		
+		
+	}
+	
+	/**
+	 * 监听增加商品按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddButtonButtonAction(ActionEvent e) throws Exception{
+		ObservableList<PromotionCommodity> data = ProductTable.getItems();
+		data.add(new PromotionCommodity(ProductField.getText(),ProductSum.getText()));
+	}
+	
+	/**
+	 * 监听清空条件按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleClearConditionButtonAction(ActionEvent e) throws Exception{
+		
+		CustomerLevel.setDisable(true);
+		Coupon.setText("");
+		Coupon.setEditable(false);
+		DiscountAmount.setText("");
+		DiscountAmount.setEditable(false);
+		Amount.setText("");
+		Amount.setEditable(false);
+		BargainBagPrice.setText("");
+		BargainBagPrice.setEditable(false);
+		ProductField.setText("");
+		ProductSum.setText("");
+		ProductField.setEditable(false);
+		ProductSum.setEditable(false);
+		ObservableList<PromotionCommodity> data = ProductTable.getItems();
+		data.clear();
+	}
+	
+	/**
+	 * 监听策略列表按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleSearchPromotionButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerSearchPromotionListController controller = (ChiefManagerSearchPromotionListController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerSearchPromotionList.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 
 }

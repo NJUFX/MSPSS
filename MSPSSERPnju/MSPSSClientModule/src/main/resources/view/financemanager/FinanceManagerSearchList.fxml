@@ -135,6 +135,7 @@
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="经营情况表" />
                      <String fx:value="销售明细表" />
+                     <String fx:value="经营历程表" />
                   </FXCollections>
              </items>
              </ComboBox>

@@ -1,7 +1,6 @@
 package blservice.stockbl;
 
 import util.ResultMessage;
-import vo.BillVO;
 import vo.ChangeInfoVO;
 
 import java.util.ArrayList;

@@ -12,7 +12,10 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -37,6 +40,23 @@ public class ChiefManagerSearchListController implements Initializable{
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	ComboBox TableType;
+	@FXML
+	DatePicker StartTime;
+	@FXML
+	DatePicker EndTime;
+	@FXML
+	TextField ProductName;
+	@FXML
+	TextField CustomerName;
+	@FXML
+	TextField AssistantName;
+	@FXML
+	TextField StorageName;
+	@FXML
+	ComboBox BillType;
+	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -164,6 +184,58 @@ public class ChiefManagerSearchListController implements Initializable{
 		stage.setScene(scene);
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
+	}
+	
+	/**
+	 * 判断报表类型
+	 * @param e
+	 * @throws Exception
+	 */
+	public void ChooseTableType(ActionEvent e) throws Exception{
+		//comboBox不允许自己输入内容
+		TableType.setEditable(false);
+		BillType.setEditable(false);
+		//初始化控件
+		StartTime.setDisable(false);
+		EndTime.setDisable(false);
+		ProductName.setEditable(true);
+		CustomerName.setEditable(true);
+		AssistantName.setEditable(true);
+		StorageName.setEditable(true);
+		BillType.setDisable(false);
+		
+		String tableType = TableType.getValue().toString();
+		switch(tableType) {
+		case"销售明细表":{
+			BillType.setDisable(true);
+			break;
+		}
+		case"经营情况表":{
+			ProductName.setEditable(false);
+			CustomerName.setEditable(false);
+			AssistantName.setEditable(false);
+			StorageName.setEditable(false);
+			BillType.setDisable(true);
+			break;
+		}
+		case"经营历程表":{
+			ProductName.setEditable(false);
+			break;
+		}
+		}
+	}
+	
+	/**
+	 * 清空所有条件
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleClearButtonAction(ActionEvent e) throws Exception{
+		ProductName.setText("");
+		CustomerName.setText("");
+		AssistantName.setText("");
+		StorageName.setText("");
+	
 	}
 
 }

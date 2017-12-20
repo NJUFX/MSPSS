@@ -97,7 +97,7 @@ public class BillBLServiceImpl implements ManagerBillBLService{
     }
 
     @Override
-    public ArrayList<CashCostBillVO> getWaitingcashCostBillVO() {
+    public ArrayList<CashCostBillVO> getWaitingCashCostBillVO() {
         return null;
     }
 
