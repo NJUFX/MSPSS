@@ -39,7 +39,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
     @Override
     public ResultMessage withdrawFinanceBill(FinanceBillVO vo) {
 
-        return null;
+        return financeBill.withdrawFinanceBill(vo);
     }
 
     /**
@@ -50,7 +50,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage withdrawCashCostBill(CashCostBillVO cashCostBillVO) {
-        return null;
+        return cashCostBill.withdrawCashCostBill(cashCostBillVO);
     }
 
     /**
@@ -61,7 +61,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage saveSalesInBill(SalesInBillVO vo) {
-        return null;
+        return salesInBill.saveSalesInBill(vo);
     }
 
     /**
@@ -72,7 +72,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage commitSalesInBill(SalesInBillVO vo) {
-        return null;
+        return salesInBill.commitSalesInBill(vo);
     }
 
     /**
@@ -83,7 +83,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage deleteSalesInBill(SalesInBillVO vo) {
-        return null;
+        return salesInBill.deleteSalesInBill(vo);
     }
 
     /**
@@ -94,7 +94,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage withdrawSalesInBill(SalesInBillVO vo) {
-        return null;
+        return salesInBill.withdrawSalesInBill(vo);
     }
 
     /**
@@ -105,7 +105,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ArrayList<SalesInBillVO> getMySalesInBill(String operatorID) {
-        return null;
+        return salesInBill.getMySalesInBill(operatorID);
     }
 
     /**
@@ -117,7 +117,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage saveSalesOutBill(SalesOutBillVO vo) {
-        return null;
+        return salesOutBill.saveSalesOutBill(vo);
     }
 
     /**
@@ -128,7 +128,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage commitSalesOutBill(SalesOutBillVO vo) {
-        return null;
+        return salesOutBill.commitSalesOutBill(vo);
     }
 
     /**
@@ -139,7 +139,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage deleteSalesOutBill(SalesOutBillVO vo) {
-        return null;
+        return salesOutBill.deleteSalesOutBill(vo);
     }
 
     /**
@@ -150,7 +150,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ArrayList<SalesOutBillVO> getMySalesOutBill(String operatorID) {
-        return null;
+        return salesOutBill.getMySalesOutBill(operatorID);
     }
 
     /**
@@ -159,7 +159,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage withdrawSalesOutBill(SalesOutBillVO vo) {
-        return null;
+        return salesOutBill.withdrawSalesOutBill(vo);
     }
 
     /**
@@ -170,7 +170,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage withdrawStockBill(StockBillVO vo) {
-        return null;
+        return stockBill.withdrawStockBill(vo);
     }
 
     /**
@@ -180,7 +180,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ArrayList<AlarmBillVO> getAllAlarmBill() {
-        return null;
+        return alarmBill.getAllAlarmBills();
     }
 
 

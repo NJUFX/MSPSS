@@ -77,5 +77,18 @@ public class CashCostBill {
         return new ArrayList<>();
     }
 
+    /**
+     * 通过单据
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage approveCashCostBill(CashCostBillVO vo) {
+        return ResultMessage.SUCCESS;
+    }
+
+    public ResultMessage rejectCashCostBill(CashCostBillVO vo) {
+        return ResultMessage.SUCCESS;
+    }
 
 }

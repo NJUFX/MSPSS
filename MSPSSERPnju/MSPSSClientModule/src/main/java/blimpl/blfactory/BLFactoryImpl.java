@@ -75,7 +75,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public CommodityInfoService getCommodityInfoServiceStub() {
-        return CommodityBLFactory.getCommodityBLService();
+        return CommodityBLFactory.getCommodityBLInfo();
     }
 
     @Override

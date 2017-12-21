@@ -69,4 +69,12 @@ public class FinanceBill {
     public ArrayList<FinanceBillVO> getFinanceBill() {
         return new ArrayList<>();
     }
+
+    public ResultMessage approveFinanceBill(FinanceBillVO financeBillVO) {
+        return ResultMessage.SUCCESS;
+    }
+
+    public ResultMessage rejectFinanceBill(FinanceBillVO financeBillVO) {
+        return ResultMessage.SUCCESS;
+    }
 }

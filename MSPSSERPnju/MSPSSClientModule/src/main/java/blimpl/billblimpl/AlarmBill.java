@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class AlarmBill {
     public ResultMessage addAlarmBill(AlarmBillVO vo) {
+
         return ResultMessage.SUCCESS;
     }
 

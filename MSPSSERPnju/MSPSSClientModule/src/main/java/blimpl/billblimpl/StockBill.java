@@ -138,5 +138,12 @@ public class StockBill {
         return po;
     }
 
+    public ResultMessage approveStockBill(StockBillVO stockBillVO) {
+        return ResultMessage.SUCCESS;
+    }
+
+    public ResultMessage rejectStockBill(StockBillVO stockBillVO) {
+        return ResultMessage.SUCCESS;
+    }
 
 }

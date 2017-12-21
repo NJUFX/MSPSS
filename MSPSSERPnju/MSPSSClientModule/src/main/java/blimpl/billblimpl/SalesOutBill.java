@@ -71,4 +71,12 @@ public class SalesOutBill {
         return new ArrayList<>();
     }
 
+    public ResultMessage approveSalesOutBill(SalesOutBillVO salesOutBillVO) {
+        return ResultMessage.SUCCESS;
+    }
+
+    public ResultMessage rejectSalesOutBill(SalesOutBillVO salesOutBillVO) {
+        return ResultMessage.SUCCESS;
+    }
+
 }

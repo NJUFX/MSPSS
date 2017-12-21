@@ -72,4 +72,12 @@ public class SalesInBill {
     public ArrayList<SalesInBillVO> getWaitingSalesInBill() {
         return new ArrayList<>();
     }
+
+    public ResultMessage approveSalesInBill(SalesInBillVO salesInBillVO) {
+        return ResultMessage.SUCCESS;
+    }
+
+    public ResultMessage rejectSalesInBill(SalesInBillVO salesInBillVO) {
+        return ResultMessage.SUCCESS;
+    }
 }
