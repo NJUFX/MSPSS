@@ -16,7 +16,7 @@ public class CashCostBill {
      * @param cashCostBillVO
      * @return
      */
-    public ResultMessage addCashCostBill(CashCostBillVO cashCostBillVO) {
+    public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO) {
         return ResultMessage.SUCCESS;
     }
 
@@ -28,9 +28,11 @@ public class CashCostBill {
      * @param cashCostBillVO
      * @return
      */
-    public ResultMessage updateCashCostBill(CashCostBillVO cashCostBillVO) {
+    public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO) {
         return ResultMessage.SUCCESS;
     }
+
+    ;
 
     /**
      * 删除现金费用单
@@ -42,6 +44,8 @@ public class CashCostBill {
         return ResultMessage.SUCCESS;
     }
 
+    ;
+
     /**
      * 得到某操作员创建的所有现金费用单
      *
@@ -51,4 +55,27 @@ public class CashCostBill {
     public ArrayList<CashCostBillVO> getMyCashCostBill(String operatorID) {
         return new ArrayList<>();
     }
+
+    ;
+
+    /**
+     * 撤回已经提交的现金费用单
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    public ResultMessage withdrawCashCostBill(CashCostBillVO cashCostBillVO) {
+        return ResultMessage.SUCCESS;
+    }
+
+    /**
+     * 得到待审批的现金费用单
+     *
+     * @return
+     */
+    public ArrayList<CashCostBillVO> getWaitingCashCostBill() {
+        return new ArrayList<>();
+    }
+
+
 }

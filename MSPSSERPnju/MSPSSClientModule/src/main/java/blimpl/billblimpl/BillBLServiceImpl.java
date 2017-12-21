@@ -2,6 +2,7 @@ package blimpl.billblimpl;
 
 import blservice.billblservice.FinanceBillBLService;
 import blservice.billblservice.ManagerBillBLService;
+import blservice.billblservice.SalesmanBillBLService;
 import blservice.billblservice.StockManagerBillBLService;
 import util.ResultMessage;
 import vo.*;
@@ -12,18 +13,183 @@ import java.util.ArrayList;
  * Description:
  * Created by Hanxinhu at 13:21 2017/11/21/021
  */
-public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBillBLService, FinanceBillBLService {
+public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBillBLService, FinanceBillBLService, SalesmanBillBLService {
     private StockBill stockBill ;
     private SalesOutBill salesOutBill ;
-    private SalesInBill salesInBill ;
+    private SalesInBill salesInBill;
     private FinanceBill financeBill ;
     private CashCostBill cashCostBill;
+    private AlarmBill alarmBill;
 
-    public BillBLServiceImpl(StockBill stockBill, SalesOutBill salesOutBill, SalesInBill salesInBill, FinanceBill financeBill) {
+    public BillBLServiceImpl(StockBill stockBill, SalesOutBill salesOutBill, SalesInBill salesInBill, FinanceBill financeBill, CashCostBill cashCostBill, AlarmBill alarmBill) {
         this.stockBill = stockBill;
         this.salesOutBill = salesOutBill;
         this.salesInBill = salesInBill;
         this.financeBill = financeBill;
+        this.cashCostBill = cashCostBill;
+        this.alarmBill = alarmBill;
+    }
+
+    /**
+     * 撤回已经提交的单据
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage withdrawFinanceBill(FinanceBillVO vo) {
+
+        return null;
+    }
+
+    /**
+     * 撤回已经提交的现金费用单
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage withdrawCashCostBill(CashCostBillVO cashCostBillVO) {
+        return null;
+    }
+
+    /**
+     * 保存进货单 进货退货单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage saveSalesInBill(SalesInBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 提交进货单 进货退货单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage commitSalesInBill(SalesInBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 删除进货单 进货退货单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage deleteSalesInBill(SalesInBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 撤回已经提交的进货单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage withdrawSalesInBill(SalesInBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 得到自己的 进货单 进货退货单
+     *
+     * @param operatorID
+     * @return
+     */
+    @Override
+    public ArrayList<SalesInBillVO> getMySalesInBill(String operatorID) {
+        return null;
+    }
+
+    /**
+     * 添加销售单
+     * 保存
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage saveSalesOutBill(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 提交销售单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage commitSalesOutBill(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 删除销售单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage deleteSalesOutBill(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 得到自己的销售单
+     *
+     * @param operatorID
+     * @return
+     */
+    @Override
+    public ArrayList<SalesOutBillVO> getMySalesOutBill(String operatorID) {
+        return null;
+    }
+
+    /**
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage withdrawSalesOutBill(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 撤回库存类单据 （status为commit)
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage withdrawStockBill(StockBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 得到所有的库存报警单
+     *
+     * @return
+     */
+    @Override
+    public ArrayList<AlarmBillVO> getAllAlarmBill() {
+        return null;
+    }
+
+
+    public BillBLServiceImpl(StockBill stockBill, SalesOutBill salesOutBill, SalesInBill salesInBill, FinanceBill financeBill, CashCostBill cashCostBill) {
+        this.stockBill = stockBill;
+        this.salesOutBill = salesOutBill;
+        this.salesInBill = salesInBill;
+        this.financeBill = financeBill;
+        this.cashCostBill = cashCostBill;
     }
 
     @Override
@@ -109,7 +275,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage getMyStockBill(String operatorID) {
+    public ArrayList<StockBillVO> getMyStockBill(String operatorID) {
         return null;
     }
 
@@ -120,7 +286,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage addStockBill(StockBillVO vo) {
+    public ResultMessage saveStockBill(StockBillVO vo) {
         return stockBill.addStockBill(vo);
     }
 
@@ -131,7 +297,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage updateStockBill(StockBillVO vo) {
+    public ResultMessage commitStockBill(StockBillVO vo) {
         return stockBill.updateStockBill(vo);
     }
 
@@ -154,9 +320,9 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage addFinanceBill(FinanceBillVO vo) {
+    public ResultMessage saveFinanceBill(FinanceBillVO vo) {
 
-        return financeBill.addFinanceBill(vo);
+        return financeBill.saveFinanceBill(vo);
     }
 
     /**
@@ -166,8 +332,9 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage updateFinanceBill(FinanceBillVO vo) {
-        return financeBill.updateFinanceBill(vo);
+    public ResultMessage commitFinanceBill(FinanceBillVO vo) {
+
+        return financeBill.commitFinanceBill(vo);
     }
 
     /**
@@ -199,8 +366,8 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage addCashCostBill(CashCostBillVO cashCostBillVO) {
-        return cashCostBill.addCashCostBill(cashCostBillVO);
+    public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO) {
+        return cashCostBill.saveCashCostBill(cashCostBillVO);
     }
 
     /**
@@ -210,8 +377,8 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage updateCashCostBill(CashCostBillVO cashCostBillVO) {
-        return cashCostBill.updateCashCostBill(cashCostBillVO);
+    public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO) {
+        return cashCostBill.commitCashCostBill(cashCostBillVO);
     }
 
     /**
@@ -235,4 +402,6 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
     public ArrayList<CashCostBillVO> getMyCashCostBill(String operatorID) {
         return cashCostBill.getMyCashCostBill(operatorID);
     }
+
+
 }

@@ -22,7 +22,7 @@ public interface FinanceBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage addFinanceBill(FinanceBillVO vo);
+    public ResultMessage saveFinanceBill(FinanceBillVO vo);
 
     /**
      * 更新应收应付单
@@ -30,7 +30,7 @@ public interface FinanceBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage updateFinanceBill(FinanceBillVO vo);
+    public ResultMessage commitFinanceBill(FinanceBillVO vo);
 
     /**
      * 删除应收应付单
@@ -49,12 +49,19 @@ public interface FinanceBillBLService {
     public ArrayList<FinanceBillVO> getMyFinanceBill(String operatorID);
 
     /**
+     * 撤回已经提交的单据
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage withdrawFinanceBill(FinanceBillVO vo);
+    /**
      * 添加现金费用单
      *
      * @param cashCostBillVO
      * @return
      */
-    public ResultMessage addCashCostBill(CashCostBillVO cashCostBillVO);
+    public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO);
 
     /**
      * 更新现金费用单
@@ -62,7 +69,7 @@ public interface FinanceBillBLService {
      * @param cashCostBillVO
      * @return
      */
-    public ResultMessage updateCashCostBill(CashCostBillVO cashCostBillVO);
+    public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO);
 
     /**
      * 删除现金费用单
@@ -80,4 +87,11 @@ public interface FinanceBillBLService {
      */
     public ArrayList<CashCostBillVO> getMyCashCostBill(String operatorID);
 
+    /**
+     * 撤回已经提交的现金费用单
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    public ResultMessage withdrawCashCostBill(CashCostBillVO cashCostBillVO);
 }

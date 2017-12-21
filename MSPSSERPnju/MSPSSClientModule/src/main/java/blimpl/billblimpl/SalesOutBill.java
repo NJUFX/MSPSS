@@ -1,7 +1,6 @@
 package blimpl.billblimpl;
 
 import util.ResultMessage;
-import vo.FilterFlagVO;
 import vo.SalesOutBillVO;
 
 import java.util.ArrayList;
@@ -11,13 +10,65 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 13:23 2017/11/21/021
  */
 public class SalesOutBill {
-    public ResultMessage addSalesOutBill(SalesOutBillVO salesOutBillVO){
-        return ResultMessage.FAILED;
+    /**
+     * 添加销售单
+     * 保存
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage saveSalesOutBill(SalesOutBillVO vo) {
+        return ResultMessage.SUCCESS;
     }
-    public ResultMessage updateSalesOutBill(SalesOutBillVO salesOutBillVO){
-        return ResultMessage.FAILED;
+
+    ;
+
+    /**
+     * 提交销售单
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage commitSalesOutBill(SalesOutBillVO vo) {
+        return ResultMessage.SUCCESS;
     }
-    public ArrayList<SalesOutBillVO> searchSalesOutBill(FilterFlagVO flag){
-        return null;
+
+    ;
+
+    /**
+     * 删除销售单
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage deleteSalesOutBill(SalesOutBillVO vo) {
+        return ResultMessage.SUCCESS;
     }
+
+    ;
+
+    /**
+     * 得到自己的销售单
+     *
+     * @param operatorID
+     * @return
+     */
+    public ArrayList<SalesOutBillVO> getMySalesOutBill(String operatorID) {
+        return new ArrayList<>();
+    }
+
+    ;
+
+    /**
+     * @param vo
+     * @return
+     */
+    public ResultMessage withdrawSalesOutBill(SalesOutBillVO vo) {
+        return ResultMessage.SUCCESS;
+    }
+
+    public ArrayList<SalesOutBillVO> getWaitingSalesOutBill() {
+        return new ArrayList<>();
+    }
+
 }

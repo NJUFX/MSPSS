@@ -19,12 +19,12 @@
 //    private SalesOutBillVO salesOutBillVO = new SalesOutBillVO();
 //    @Test
 //    public void a_add(){
-//        ResultMessage message = salesOutBill.addSalesOutBill(salesOutBillVO);
+//        ResultMessage message = salesOutBill.saveSalesOutBill(salesOutBillVO);
 //        Assert.assertEquals(message,ResultMessage.SUCCESS);
 //    }
 //    @Test
 //    public void b_update(){
-//        ResultMessage message = salesOutBill.updateSalesOutBill(salesOutBillVO);
+//        ResultMessage message = salesOutBill.commitSalesOutBill(salesOutBillVO);
 //        Assert.assertEquals(message,ResultMessage.SUCCESS);
 //    }
 //    @Test

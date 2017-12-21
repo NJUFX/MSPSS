@@ -21,6 +21,51 @@ public class StockBill {
     UserInfo userInfo;
     StockBLInfo stockBLInfo;
 
+    /**
+     * 添加库存类单据
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage saveStockBill(StockBillVO vo) {
+        return ResultMessage.SUCCESS;
+    }
+
+    /**
+     * 更新库存类单据
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage commitStockBill(StockBillVO vo) {
+        return ResultMessage.SUCCESS;
+    }
+
+
+    /**
+     * 撤回库存类单据 （status为commit)
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage withdrawStockBill(StockBillVO vo) {
+        return ResultMessage.SUCCESS;
+    }
+
+    /**
+     * 得到操作员创建的单据
+     *
+     * @param operatorID
+     * @return
+     */
+
+    public ArrayList<StockBillVO> getMyStockBill(String operatorID) {
+        return new ArrayList<>();
+    }
+
+    public ArrayList<StockBillVO> getWaitingStockBill() {
+        return new ArrayList<>();
+    }
     public ResultMessage addStockBill(StockBillVO stockBillVO){
        return networkService.addStockBill(vo_to_po(stockBillVO));
     }
