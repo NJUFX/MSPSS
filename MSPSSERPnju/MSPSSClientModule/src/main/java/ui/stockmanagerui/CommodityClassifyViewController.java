@@ -50,7 +50,7 @@ public class CommodityClassifyViewController implements Initializable {
         Node rootIcon = classImageView;
         ClassificationCell rootCell = new ClassificationCell("Root", "");
         ClassificationCell commodityCell = new ClassificationCell("Commodity", "");
-        TreeItem<String> root = new TreeItem<>(commodityCell.getName(),rootIcon);
+        TreeItem<String> root = new TreeItem<>(commodityCell.getName(), rootIcon);
         //root.getChildren().add(new TreeItem<>(commodityCell.getName(), rootIcon));
         for (int i = 1; i <= 5; i++) {
             ImageView iconView = new ImageView(
