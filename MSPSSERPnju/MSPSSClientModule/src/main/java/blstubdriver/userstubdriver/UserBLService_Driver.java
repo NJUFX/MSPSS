@@ -2,20 +2,19 @@ package blstubdriver.userstubdriver;
 
 import org.junit.Test;
 import status.Log_In_Out_Status;
-import util.Kind_Of_Power;
 import util.Kind_Of_Users;
 import util.ResultMessage;
-import vo.*;
+import vo.UserVO;
 
 public class UserBLService_Driver {
     UserBLService_Stub userBLService_stub = new UserBLService_Stub();
 
     @Test
-    public void dirve() {
+    public void drive() {
 
         //test addUser
-        UserVO user = new UserVO("SS001", "Chen", Kind_Of_Users.StockSeller, "000000", "0000");
-        UserVO user2 = new UserVO("CM001", "July", Kind_Of_Users.ChiefManager, "000000", "0000");
+        UserVO user = new UserVO("SS001", "Chen", Kind_Of_Users.StockSeller, "000000");
+        UserVO user2 = new UserVO("CM001", "July", Kind_Of_Users.ChiefManager, "000000");
 
         ResultMessage isAdd = userBLService_stub.addUser(user);
         userBLService_stub.addUser(user2);
@@ -25,24 +24,18 @@ public class UserBLService_Driver {
             System.out.println("Fail to add user.");
         }
 
-        ResultMessage isSucess = userBLService_stub.modifyPower(user, Kind_Of_Power.CheckListLimit, 1);
-        if (isSucess == ResultMessage.SUCCESS) {
-            System.out.println("Modify power successfully.");
-        } else {
-            System.out.println("Fail to modify power.");
-        }
 
-        //test modifyUser
+        //test updateUser
         user.setPassword("010101");
-        ResultMessage isMod = userBLService_stub.modifyUser(user);
+        ResultMessage isMod = userBLService_stub.updateUser(user);
         if (isMod == ResultMessage.SUCCESS) {
             System.out.println("Modify user successfully.");
         } else {
             System.out.println("Fail to modify");
         }
 
-        //test delUser
-        ResultMessage isDel = userBLService_stub.delUser("SS001");
+        //test deleteUser
+        ResultMessage isDel = userBLService_stub.deleteUser("SS001");
         if (isDel == ResultMessage.SUCCESS) {
             System.out.println("Delete user successfully.");
         } else {

@@ -1,10 +1,7 @@
 package blimpl.billblimpl;
 
 import util.ResultMessage;
-import vo.FilterFlagVO;
 import vo.FinanceBillVO;
-
-import java.util.ArrayList;
 
 /**
  * Description:
@@ -20,9 +17,9 @@ public class MockFinanceBill extends FinanceBill {
     public ResultMessage updateFinanceBill(FinanceBillVO financeBillVO) {
         return ResultMessage.SUCCESS;
     }
-
-    @Override
-    public ArrayList<FinanceBillVO> searchFinanceBill(FilterFlagVO flagVO) {
-        return new ArrayList<FinanceBillVO>();
-    }
+//
+//    @Override
+//    public ArrayList<FinanceBillVO> searchFinanceBill(FilterFlagVO flagVO) {
+//        return new ArrayList<FinanceBillVO>();
+//    }
 }

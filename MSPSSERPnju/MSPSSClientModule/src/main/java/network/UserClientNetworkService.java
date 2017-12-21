@@ -4,19 +4,14 @@ import po.UserPO;
 import util.ResultMessage;
 
 import java.rmi.Remote;
+import java.util.ArrayList;
 
 /**
  * Description:
  * Created by Hanxinhu at 10:27 2017/11/30/030
  */
 public interface UserClientNetworkService extends Remote {
-    /**
-     * 增加权限
-     *
-     * @param power
-     * @return
-     */
-    public ResultMessage modifyPower(UserPO user, String power);
+
 
     /**
      * @param user
@@ -30,13 +25,13 @@ public interface UserClientNetworkService extends Remote {
      * @param userid 用户id
      * @return 删除用户的运行结果
      */
-    public ResultMessage delUser(String userid);
+    public ResultMessage deleteUser(String userid);
 
     /**
      * @param user
      * @return
      */
-    public ResultMessage modifyUser(UserPO user);
+    public ResultMessage updateUser(UserPO user);
 
     /**
      * 通过登录账号返回ID
@@ -44,5 +39,23 @@ public interface UserClientNetworkService extends Remote {
      * @return
      */
     public UserPO searchUserByID(String ID);
+
+    /**
+     * 完全匹配一定类型的用户
+     *
+     * @param filed
+     * @param val
+     * @return
+     */
+    public ArrayList<UserPO> fullSearchUser(String filed, Object val);
+
+    /**
+     * 精确查找
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<UserPO> exactlySearchUser(String field, String val);
 
 }

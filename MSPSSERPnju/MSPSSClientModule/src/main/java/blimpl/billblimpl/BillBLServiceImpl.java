@@ -1,9 +1,8 @@
 package blimpl.billblimpl;
 
-import blimpl.stockblimpl.Stock;
-import blservice.billblservice.BillBLInfo;
-import blservice.billblservice.BillBLService;
+import blservice.billblservice.FinanceBillBLService;
 import blservice.billblservice.ManagerBillBLService;
+import blservice.billblservice.StockManagerBillBLService;
 import util.ResultMessage;
 import vo.*;
 
@@ -13,11 +12,12 @@ import java.util.ArrayList;
  * Description:
  * Created by Hanxinhu at 13:21 2017/11/21/021
  */
-public class BillBLServiceImpl implements ManagerBillBLService{
+public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBillBLService, FinanceBillBLService {
     private StockBill stockBill ;
     private SalesOutBill salesOutBill ;
     private SalesInBill salesInBill ;
     private FinanceBill financeBill ;
+    private CashCostBill cashCostBill;
 
     public BillBLServiceImpl(StockBill stockBill, SalesOutBill salesOutBill, SalesInBill salesInBill, FinanceBill financeBill) {
         this.stockBill = stockBill;
@@ -102,15 +102,137 @@ public class BillBLServiceImpl implements ManagerBillBLService{
     }
 
 
-    public ResultMessage addStockBill(StockBillVO stockBillVO){
-        return stockBill.addStockBill(stockBillVO);
-    }
-    public ResultMessage updateStockBill(StockBillVO stockBillVO){
-        return stockBill.updateStockBill(stockBillVO);
-    }
-    public ResultMessage checkStockBill(StockBillVO stockBillVO){
-        return  stockBill.check(stockBillVO);
+    /**
+     * 得到操作员创建的单据
+     *
+     * @param operatorID
+     * @return
+     */
+    @Override
+    public ResultMessage getMyStockBill(String operatorID) {
+        return null;
     }
 
+    /**
+     * 添加库存类单据
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage addStockBill(StockBillVO vo) {
+        return stockBill.addStockBill(vo);
+    }
 
+    /**
+     * 更新库存类单据
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage updateStockBill(StockBillVO vo) {
+        return stockBill.updateStockBill(vo);
+    }
+
+    /**
+     * 删除库存类单据
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage deleteStockBill(StockBillVO vo) {
+
+        return stockBill.deleteStockBill(vo);
+    }
+
+    /**
+     * 添加应收应付单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage addFinanceBill(FinanceBillVO vo) {
+
+        return financeBill.addFinanceBill(vo);
+    }
+
+    /**
+     * 更新应收应付单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage updateFinanceBill(FinanceBillVO vo) {
+        return financeBill.updateFinanceBill(vo);
+    }
+
+    /**
+     * 删除应收应付单
+     *
+     * @param vo
+     * @return
+     */
+    @Override
+    public ResultMessage deleteFinanceBill(FinanceBillVO vo) {
+        return financeBill.deleteFinanceBill(vo);
+    }
+
+    /**
+     * 得到某操作员创建的应收应付单据
+     *
+     * @param operatorID
+     * @return
+     */
+    @Override
+    public ArrayList<FinanceBillVO> getMyFinanceBill(String operatorID) {
+        return financeBill.getMyFinanceBill(operatorID);
+    }
+
+    /**
+     * 添加现金费用单
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage addCashCostBill(CashCostBillVO cashCostBillVO) {
+        return cashCostBill.addCashCostBill(cashCostBillVO);
+    }
+
+    /**
+     * 更新现金费用单
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage updateCashCostBill(CashCostBillVO cashCostBillVO) {
+        return cashCostBill.updateCashCostBill(cashCostBillVO);
+    }
+
+    /**
+     * 删除现金费用单
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage deleteCashCostBill(CashCostBillVO cashCostBillVO) {
+        return cashCostBill.deleteCashCostBill(cashCostBillVO);
+    }
+
+    /**
+     * 得到某操作员创建的所有现金费用单
+     *
+     * @param operatorID
+     * @return
+     */
+    @Override
+    public ArrayList<CashCostBillVO> getMyCashCostBill(String operatorID) {
+        return cashCostBill.getMyCashCostBill(operatorID);
+    }
 }

@@ -1,13 +1,11 @@
 package blimpl.billblimpl;
 
-import blimpl.stockblimpl.Stock;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.stockbl.StockBLInfo;
 import blservice.userblservice.UserInfo;
 import network.BillClientNetworkService;
 import po.StockBillItemPO;
 import po.StockBillPO;
-import po.StockPO;
 import util.*;
 import vo.*;
 
@@ -22,11 +20,17 @@ public class StockBill {
     CommodityInfoService commodityInfoService;
     UserInfo userInfo;
     StockBLInfo stockBLInfo;
+
     public ResultMessage addStockBill(StockBillVO stockBillVO){
        return networkService.addStockBill(vo_to_po(stockBillVO));
     }
+
     public ResultMessage updateStockBill(StockBillVO stockBillVO){
         return networkService.updateStockBill(vo_to_po(stockBillVO));
+    }
+
+    public ResultMessage deleteStockBill(StockBillVO vo) {
+        return networkService.deleteStockBill(vo.id);
     }
 
     public ResultMessage check(StockBillVO stockBillVO){
@@ -88,5 +92,6 @@ public class StockBill {
         ,vo.commentByStockManager,vo.commentByManager,vo.stockManager.getID(),vo.getManager().getID());
         return po;
     }
+
 
 }

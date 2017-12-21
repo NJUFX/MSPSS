@@ -26,6 +26,14 @@ public interface BillClientNetworkService {
     public ResultMessage updateStockBill(StockBillPO stockBillPO);
 
     /**
+     * 删除某单据 未提交状态
+     *
+     * @param id
+     * @return
+     */
+    public ResultMessage deleteStockBill(String id);
+
+    /**
      *用于查找某一数据
      */
     public ArrayList<StockBillPO> fullSearchStockBill(String field, Object value);

@@ -1,7 +1,6 @@
 package blimpl.billblimpl;
 
 import util.ResultMessage;
-import vo.FilterFlagVO;
 import vo.FinanceBillVO;
 
 import java.util.ArrayList;
@@ -11,14 +10,50 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 13:23 2017/11/21/021
  */
 public class FinanceBill {
-    public ResultMessage addFinanceBill(FinanceBillVO financeBillVO){
-        return ResultMessage.FAILED;
+    /**
+     * 添加应收应付单
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage addFinanceBill(FinanceBillVO vo) {
+        return ResultMessage.SUCCESS;
     }
-    public ResultMessage updateFinanceBill(FinanceBillVO financeBillVO){
-        return ResultMessage.FAILED;
+
+    ;
+
+    /**
+     * 更新应收应付单
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage updateFinanceBill(FinanceBillVO vo) {
+        return ResultMessage.SUCCESS;
     }
-    public ArrayList<FinanceBillVO> searchFinanceBill(FilterFlagVO flagVO){
-        return null;
+
+    ;
+
+    /**
+     * 删除应收应付单
+     *
+     * @param vo
+     * @return
+     */
+    public ResultMessage deleteFinanceBill(FinanceBillVO vo) {
+        return ResultMessage.SUCCESS;
+    }
+
+    ;
+
+    /**
+     * 得到某操作员创建的应收应付单据
+     *
+     * @param operatorID
+     * @return
+     */
+    public ArrayList<FinanceBillVO> getMyFinanceBill(String operatorID) {
+        return new ArrayList<>();
     }
 
 }

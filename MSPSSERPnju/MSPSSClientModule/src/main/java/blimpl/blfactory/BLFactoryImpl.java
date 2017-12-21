@@ -1,11 +1,11 @@
 package blimpl.blfactory;
 
+import blimpl.accountblimpl.AccountFactory;
 import blimpl.billblimpl.BillFactory;
 import blimpl.commodityblimpl.CommodityBLFactory;
 import blimpl.logblimpl.LogFactory;
 import blimpl.promotionblimpl.PromotionBLFactory;
 import blservice.accountblservice.AccountBLInfo;
-import blimpl.accountblimpl.AccountFactory;
 import blservice.accountblservice.AccountBLService;
 import blservice.billblservice.BillBLInfo;
 import blservice.billblservice.BillBLService;
@@ -86,7 +86,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public PromotionBLService getPromotionBLServiceStub() {
-        return  PromotionBLFactory.getPromotionBLServiceStub();
+        return null;
     }
 
     @Override
@@ -161,7 +161,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public PromotionBLService getPromotionBLService() {
-        return null;
+        return PromotionBLFactory.getPromotionBLServiceStub();
     }
 
     @Override
