@@ -327,10 +327,13 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 					this.setText(null);
 					this.setGraphic(null);
 					if (!empty) {
-						Image btnImage = new Image(getClass().getResourceAsStream("删除.png"));
+						Image btnImage = new Image(getClass().getResourceAsStream("/image/删除.png"));
 						Button delBtn = new Button();
-						delBtn.setGraphic(new ImageView(btnImage));
-						delBtn.setPrefSize(30, 5);
+						ImageView iv = new ImageView(btnImage);
+						iv.setFitWidth(15);
+						iv.setFitHeight(15);
+						delBtn.setGraphic(iv);
+						delBtn.setPrefSize(25, 5);
 
 						// delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
 						this.setGraphic(delBtn);
@@ -361,10 +364,13 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 					this.setText(null);
 					this.setGraphic(null);
 					if (!empty) {
-						Image btnImage = new Image(getClass().getResourceAsStream("删除.png"));
+						Image btnImage = new Image(getClass().getResourceAsStream("/image/删除.png"));
 						Button delBtn = new Button();
-						delBtn.setGraphic(new ImageView(btnImage));
-						delBtn.setPrefSize(30, 5);
+						ImageView iv = new ImageView(btnImage);
+						iv.setFitWidth(15);
+						iv.setFitHeight(15);
+						delBtn.setGraphic(iv);
+						delBtn.setPrefSize(25, 5);
 
 						// delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
 						this.setGraphic(delBtn);
@@ -395,10 +401,13 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 					this.setText(null);
 					this.setGraphic(null);
 					if (!empty) {
-						Image btnImage = new Image(getClass().getResourceAsStream("删除.png"));
+						Image btnImage = new Image(getClass().getResourceAsStream("/image/删除.png"));
 						Button delBtn = new Button();
-						delBtn.setGraphic(new ImageView(btnImage));
-						delBtn.setPrefSize(30, 5);
+						ImageView iv = new ImageView(btnImage);
+						iv.setFitWidth(15);
+						iv.setFitHeight(15);
+						delBtn.setGraphic(iv);
+						delBtn.setPrefSize(25, 5);
 
 						// delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
 						this.setGraphic(delBtn);

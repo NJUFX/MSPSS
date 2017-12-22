@@ -368,6 +368,8 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	public void handleAddButtonButtonAction(ActionEvent e) throws Exception{
 		ObservableList<PromotionCommodity> data = ProductTable.getItems();
 		data.add(new PromotionCommodity(ProductField.getText(),ProductSum.getText()));
+		ProductField.setText("");
+		ProductSum.setText("");
 	}
 	
 	/**
