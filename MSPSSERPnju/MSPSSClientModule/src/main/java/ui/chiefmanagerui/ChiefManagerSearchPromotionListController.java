@@ -84,6 +84,8 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	PromotionBLService promotionBLService= new BLFactoryImpl().getPromotionBLServiceStub();
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -223,7 +225,7 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 			GroupTable.setVisible(false);
 			ObservableList<CustomerPromotion> data = CustomerTable.getItems();
 			data.clear();
-			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 			ArrayList<CustomerPromotionVO> list = promotionBLService.getAllCustomerPromotion();
 			if (list.size() != 0) {
 				for (int i = 0; i < list.size(); i++) {
@@ -249,7 +251,7 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 			GroupTable.setVisible(false);
 			ObservableList<GrossPromotion> data = GrossTable.getItems();
 			data.clear();
-			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 			ArrayList<GrossPromotionVO> list = promotionBLService.getAllGrossPromotion();
 			if (list.size() != 0) {
 				for (int i = 0; i < list.size(); i++) {
@@ -276,7 +278,7 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 			GroupTable.setVisible(true);
 			ObservableList<GroupPromotion> data =  GroupTable.getItems();
 			data.clear();
-			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 			ArrayList<GroupPromotionVO> list = promotionBLService.getAllGroupPromotion();
 			if (list.size() != 0) {
 				for (int i = 0; i < list.size(); i++) {
@@ -336,7 +338,7 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 							try {
 								CustomerPromotion cp = this.getTableView().getItems().get(getIndex());
 								CustomerPromotionVO deleteVO = cp.getCustomerPromotionVO();
-								PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+								//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 								promotionBLService.deleteCustomerPromotion(deleteVO);
 								ObservableList<CustomerPromotion> data = CustomerTable.getItems();
 								data.remove(cp);
@@ -370,7 +372,7 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 							try {
 								GrossPromotion gp = this.getTableView().getItems().get(getIndex());
 								GrossPromotionVO deleteVO = gp.getGrossPromotionVO();
-								PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+								//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 								promotionBLService.deleteGrossPromotion(deleteVO);
 								ObservableList<GrossPromotion> data = GrossTable.getItems();
 								data.remove(gp);
@@ -404,7 +406,7 @@ public class ChiefManagerSearchPromotionListController implements Initializable 
 							try {
 								GroupPromotion gp = this.getTableView().getItems().get(getIndex());
 								GroupPromotionVO deleteVO = gp.getGroupPromotionVO();
-								PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+								//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 								promotionBLService.deleteGroupPromotion(deleteVO);
 								ObservableList<GroupPromotion> data = GroupTable.getItems();
 								data.remove(gp);
