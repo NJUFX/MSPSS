@@ -1,10 +1,6 @@
 package po;
 
-import util.BillStatus;
-
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,7 +45,25 @@ public class CashCostBillPO implements Serializable {
      */
     private String approval_time;
 
+    /**
+     * 银行的账户名
+     */
+    private String accountName;
+    
     public CashCostBillPO() {
+    }
+
+    public CashCostBillPO(String ID, String operatorID, String managerID, int status, List<CashCostItemPO> list, double sum, String init_time, String commit_time, String approval_time, String accountName) {
+        this.ID = ID;
+        this.operatorID = operatorID;
+        this.managerID = managerID;
+        this.status = status;
+        this.list = list;
+        this.sum = sum;
+        this.init_time = init_time;
+        this.commit_time = commit_time;
+        this.approval_time = approval_time;
+        this.accountName = accountName;
     }
 
     public CashCostBillPO(String ID, String operatorID, String managerID, int status, List<CashCostItemPO> list, double sum, String init_time, String commit_time, String approval_time) {

@@ -184,13 +184,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
     }
 
 
-    public BillBLServiceImpl(StockBill stockBill, SalesOutBill salesOutBill, SalesInBill salesInBill, FinanceBill financeBill, CashCostBill cashCostBill) {
-        this.stockBill = stockBill;
-        this.salesOutBill = salesOutBill;
-        this.salesInBill = salesInBill;
-        this.financeBill = financeBill;
-        this.cashCostBill = cashCostBill;
-    }
+
 
     @Override
     public ResultMessage approveStockBill(StockBillVO stockBillVO) {
@@ -244,7 +238,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ArrayList<StockBillVO> getWaitingStockBill() {
-        return null;
+        return stockBill.getWaitingStockBill();
     }
 
     @Override
@@ -276,7 +270,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ArrayList<StockBillVO> getMyStockBill(String operatorID) {
-        return null;
+        return stockBill.getMyStockBill(operatorID);
     }
 
     /**
@@ -287,7 +281,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage saveStockBill(StockBillVO vo) {
-        return stockBill.addStockBill(vo);
+        return stockBill.saveStockBill(vo);
     }
 
     /**
@@ -298,7 +292,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      */
     @Override
     public ResultMessage commitStockBill(StockBillVO vo) {
-        return stockBill.updateStockBill(vo);
+        return stockBill.commitStockBill(vo);
     }
 
     /**
