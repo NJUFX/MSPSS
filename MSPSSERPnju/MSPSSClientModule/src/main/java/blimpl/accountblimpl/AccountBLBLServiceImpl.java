@@ -54,11 +54,17 @@ public class AccountBLBLServiceImpl implements AccountBLService,AccountBLInfo {
         return account.searchAccountByName(name);
     }
     @Override
-    public void income(String name,int money){
+    public void income(String name, double money) {
         account.income(name,money);
     }
+
     @Override
-    public void pay(String name,int money){
+    public AccountVO getAccountVO(String name) {
+        return account.searchAccountByName(name);
+    }
+
+    @Override
+    public void pay(String name, double money) {
         account.pay(name,money);
     }
 

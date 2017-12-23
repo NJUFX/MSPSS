@@ -49,7 +49,7 @@ public class CashCostBillPO implements Serializable {
      * 银行的账户名
      */
     private String accountName;
-    
+
     public CashCostBillPO() {
     }
 
@@ -88,6 +88,14 @@ public class CashCostBillPO implements Serializable {
 
     public String getOperatorID() {
         return operatorID;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     public void setOperatorID(String operatorID) {

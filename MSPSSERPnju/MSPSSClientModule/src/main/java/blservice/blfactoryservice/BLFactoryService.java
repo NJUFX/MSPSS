@@ -16,6 +16,7 @@ import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
 import blservice.tableblservice.TableBLService;
 import blservice.userblservice.UserBLService;
+import blservice.userblservice.UserInfo;
 
 /**
  * Description:
@@ -57,6 +58,8 @@ public interface BLFactoryService {
     public StockBLService getStockBLService();
 
     public UserBLService getUserBLService();
+
+    public UserInfo getUserInfo();
 
     public TableBLService getTableBLService();
 
