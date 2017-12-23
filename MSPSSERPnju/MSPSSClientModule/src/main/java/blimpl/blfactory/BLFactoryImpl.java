@@ -22,6 +22,7 @@ import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
 import blservice.tableblservice.TableBLService;
 import blservice.userblservice.UserBLService;
+import blservice.userblservice.UserInfo;
 
 /**
  * Description:
@@ -194,8 +195,8 @@ public class BLFactoryImpl implements BLFactoryService {
         return null;
     }
 
-
-
-
-
+    @Override
+    public UserInfo getUserInfo() {
+        return UserBLFactory.getUserInfo();
+    }
 }

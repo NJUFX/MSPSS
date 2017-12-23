@@ -1,9 +1,7 @@
 package network;
 
-import po.StockBillPO;
-import util.CriteriaClause;
-import util.ResultMessage;
-import util.StockBillType;
+import po.*;
+import util.*;
 
 import java.util.ArrayList;
 
@@ -49,4 +47,82 @@ public interface BillClientNetworkService {
      * @return
      */
     public String getStockBillID(StockBillType type);
+
+    /**
+     * 在数据层增加 现金费用单
+     *
+     * @param po
+     * @return
+     */
+    public ResultMessage addCashCostBill(CashCostBillPO po);
+
+    /**
+     * 在数据层更新 现金费用单
+     *
+     * @param po
+     * @return
+     */
+    public ResultMessage updateCashCostBill(CashCostBillPO po);
+
+    public ResultMessage deleteCashCostBill(String id);
+
+    /**
+     * 得到应有的现金费用单ID
+     *
+     * @return
+     */
+    public String getCashCostBillID();
+
+    public ArrayList<CashCostBillPO> multiSearchCashCostBill(ArrayList<CriteriaClause> criteriaClauses);
+
+    public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val);
+
+
+    public ResultMessage addFinanceBill(FinanceBillPO po);
+
+    public ResultMessage updateFinanceBill(FinanceBillPO po);
+
+    public ResultMessage deleteFinanceBill(String id);
+
+    public ArrayList<FinanceBillPO> fullSearchFinanceBill(String field, Object val);
+
+    public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses);
+
+    /**
+     * 根据财务类单据类型返回应有的单据
+     *
+     * @param type
+     * @return
+     */
+    public String getFinanceBillID(FinanceBillType type);
+
+    public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO);
+
+    public ResultMessage updateSalesInBill(SalesInBillPO salesInBillPO);
+
+    public ResultMessage deleteSalesInBill(String id);
+
+    public ArrayList<SalesInBillPO> fullSearchSalesInBill(String field, Object val);
+
+    public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses);
+
+    /**
+     * 根据进货单 进货退货单来返回应有的ID
+     *
+     * @param type
+     * @return
+     */
+    public String getSalesInBillID(SalesInBillType type);
+
+    public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO);
+
+    public ResultMessage updateSalesOutBill(SalesOutBillPO salesOutBillPO);
+
+    public ResultMessage deleteSalesOutBill(String id);
+
+    public ArrayList<SalesOutBillPO> fullSearchSalesOutBill(String field, Object val);
+
+    public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses);
+
+    public String getSalesOutBillID(SalesOutBillType type);
 }
