@@ -93,6 +93,7 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	PromotionBLService promotionBLService= new BLFactoryImpl().getPromotionBLServiceStub();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -294,8 +295,8 @@ public class ChiefManagerSetPromotionController implements Initializable{
 				voucher = Integer.parseInt(Coupon.getText());
 			}
 			
-			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
-			if(promotionCommodity.size()!=0) {
+			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			if(promotionCommodity.size()==0) {
 				promotionBLService.addCustomerPromotion(new CustomerPromotionVO(level,discount,voucher,start,end));
 			}
 			else {
@@ -325,7 +326,7 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			if(!(Coupon.getText().equals(""))) {
 				voucher = Integer.parseInt(Coupon.getText());
 			}
-			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 			if(promotionCommodity.size()!=0) {
 				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,promotionCommodity,start ,end));
 			}
@@ -348,7 +349,7 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			for(int i=0;i<data.size();i++) {
 				commodity.add(data.get(i).getCommodity());
 			}
-			PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
+			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 			promotionBLService.addGroupPromotion(new GroupPromotionVO(discountRate,commodity,start,end));
 			
 			break;
@@ -367,6 +368,8 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	public void handleAddButtonButtonAction(ActionEvent e) throws Exception{
 		ObservableList<PromotionCommodity> data = ProductTable.getItems();
 		data.add(new PromotionCommodity(ProductField.getText(),ProductSum.getText()));
+		ProductField.setText("");
+		ProductSum.setText("");
 	}
 	
 	/**

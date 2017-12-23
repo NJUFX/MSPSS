@@ -27,6 +27,10 @@ public class CashCostBillVO {
      */
     public BillStatus status;
     /**
+     * 银行账户
+     */
+    public AccountVO accountVO;
+    /**
      * 条目清单
      */
     ArrayList<CashCostItemVO> list;
@@ -46,19 +50,28 @@ public class CashCostBillVO {
      * 审批时间
      */
     public Time approval_time;
-    public CashCostBillVO(String ID,UserVO operator,UserVO manager,BillStatus status,ArrayList<CashCostItemVO> list,double sum,
-                          Time init_time,Time commit_time,Time approval_time){
-        this.ID = ID;
+    public CashCostBillVO(UserVO operator,AccountVO account,ArrayList<CashCostItemVO> list,double sum){
+        
         this.operator = operator;
-        this.manager = manager;
-        this.status = status;
+        this.accountVO = account;
         this.list = list;
         this.sum = sum;
-        this.init_time = init_time;
-        this.commit_time = commit_time;
-        this.approval_time = approval_time;
-
+       
     }
+    
+    public CashCostBillVO(String ID,UserVO operator,UserVO manager,BillStatus status,AccountVO account,ArrayList<CashCostItemVO> list,double sum,
+            Time init_time,Time commit_time,Time approval_time){
+this.ID = ID;
+this.operator = operator;
+this.manager = manager;
+this.status = status;
+this.accountVO = account;
+this.list = list;
+this.sum = sum;
+this.init_time = init_time;
+this.commit_time = commit_time;
+this.approval_time = approval_time;
+}
 
     public void setOperator(UserVO operator) {
         this.operator = operator;

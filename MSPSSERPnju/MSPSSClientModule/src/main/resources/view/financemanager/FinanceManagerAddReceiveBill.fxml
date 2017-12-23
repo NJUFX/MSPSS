@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerMakeBillMainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerAddReceiveBillController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -89,26 +89,63 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Pane layoutX="215.0" layoutY="94.0" prefHeight="382.0" prefWidth="609.0" style="-fx-background-color: white;">
+      <Pane layoutX="215.0" layoutY="94.0" prefHeight="333.0" prefWidth="609.0" style="-fx-background-color: white;">
          <children>
-            <Button fx:id="AddReceiveBill" layoutX="220.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleAddReceiveBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="收款单" textFill="#0f88eb" />
-            <Button fx:id="AddPayBill" layoutX="220.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleAddPayBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="付款单" textFill="#0f88eb" />
-            <Button fx:id="AddCashCostBill" layoutX="220.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddCashCostButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="现金费用单" textFill="#0f88eb" />
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="60.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="156.0" layoutY="50.0" style="-fx-background-color: white;" text="客户名称" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="100.0" style="-fx-background-color: white;" text="银行账户" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="150.0" style="-fx-background-color: white;" text="转账金额" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="200.0" style="-fx-background-color: white;" text="备注" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="156.0" layoutY="250.0" style="-fx-background-color: white;" text="总额汇总" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="96.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../image/收款单.png" />
+                  <Image url="@../../image/客户（线条）.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="60.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="96.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../image/付款单.png" />
+                  <Image url="@../../image/银行账户.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="60.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="96.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/现金收费单.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="96.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/备注.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="96.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/总额区间.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="311.0" layoutY="45.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
+            <TextField layoutX="311.0" layoutY="95.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
+            <TextField layoutX="311.0" layoutY="145.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
+            <TextField layoutX="311.0" layoutY="195.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
+            <TextField layoutX="311.0" layoutY="245.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
          </children></Pane>
     </children>
 </Pane>
