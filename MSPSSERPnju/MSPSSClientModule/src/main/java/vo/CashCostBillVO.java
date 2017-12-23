@@ -57,6 +57,7 @@ public class CashCostBillVO {
         this.init_time = init_time;
         this.commit_time = commit_time;
         this.approval_time = approval_time;
+
     }
 
     public void setOperator(UserVO operator) {

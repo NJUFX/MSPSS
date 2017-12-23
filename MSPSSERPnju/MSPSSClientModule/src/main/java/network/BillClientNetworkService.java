@@ -1,8 +1,9 @@
 package network;
 
 import po.StockBillPO;
+import util.CriteriaClause;
 import util.ResultMessage;
-import vo.StockBillVO;
+import util.StockBillType;
 
 import java.util.ArrayList;
 
@@ -38,5 +39,14 @@ public interface BillClientNetworkService {
      */
     public ArrayList<StockBillPO> fullSearchStockBill(String field, Object value);
 
-    public ArrayList<StockBillVO> exactlySearchHotel(String field, Object value);
+
+    public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses);
+
+    /**
+     * 返回形如 KDZSD-20101010-00001
+     *
+     * @param type
+     * @return
+     */
+    public String getStockBillID(StockBillType type);
 }

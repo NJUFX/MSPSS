@@ -16,10 +16,10 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 13:22 2017/11/21/021
  */
 public class StockBill {
-    BillClientNetworkService networkService;
-    CommodityInfoService commodityInfoService;
-    UserInfo userInfo;
-    StockBLInfo stockBLInfo;
+    private BillClientNetworkService networkService;
+    private CommodityInfoService commodityInfoService;
+    private UserInfo userInfo;
+    private StockBLInfo stockBLInfo;
 
     /**
      * 添加库存类单据
@@ -28,7 +28,25 @@ public class StockBill {
      * @return
      */
     public ResultMessage saveStockBill(StockBillVO vo) {
-        return ResultMessage.SUCCESS;
+        //赋值单据的状态
+        vo.setStatus(BillStatus.init);
+        //如果是第一次保存 记录下保存时间
+        if (vo.init_time == null) {
+            vo.setInit_time(new Time());
+        }
+        //判断是否是第一次保存 是的话赋值ID,并在数据层添加po
+        //否则在数据层 更新po
+        boolean isSaved = vo.getId() != null;
+        if (vo.getId() == null) {
+            String id = getID(vo.type);
+            vo.setId(id);
+        }
+
+        StockBillPO po = vo_to_po(vo);
+        if (isSaved)
+            return networkService.updateStockBill(po);
+        else
+            return networkService.addStockBill(po);
     }
 
     /**
@@ -38,7 +56,10 @@ public class StockBill {
      * @return
      */
     public ResultMessage commitStockBill(StockBillVO vo) {
-        return ResultMessage.SUCCESS;
+        vo.setStatus(BillStatus.commit);
+        vo.setCommit_time(new Time());
+        StockBillPO po = vo_to_po(vo);
+        return networkService.updateStockBill(po);
     }
 
 
@@ -49,7 +70,10 @@ public class StockBill {
      * @return
      */
     public ResultMessage withdrawStockBill(StockBillVO vo) {
-        return ResultMessage.SUCCESS;
+        vo.setStatus(BillStatus.init);
+        vo.setCommit_time(null);
+        StockBillPO po = vo_to_po(vo);
+        return networkService.updateStockBill(po);
     }
 
     /**
@@ -60,11 +84,15 @@ public class StockBill {
      */
 
     public ArrayList<StockBillVO> getMyStockBill(String operatorID) {
-        return new ArrayList<>();
+        ArrayList<StockBillPO> pos = networkService.fullSearchStockBill("operatorID", operatorID);
+
+        return pos_to_vos(pos);
     }
 
     public ArrayList<StockBillVO> getWaitingStockBill() {
-        return new ArrayList<>();
+        ArrayList<StockBillPO> pos = networkService.fullSearchStockBill("status", BillStatus.commit);
+
+        return pos_to_vos(pos);
     }
     public ResultMessage addStockBill(StockBillVO stockBillVO){
        return networkService.addStockBill(vo_to_po(stockBillVO));
@@ -78,41 +106,58 @@ public class StockBill {
         return networkService.deleteStockBill(vo.id);
     }
 
-    public ResultMessage check(StockBillVO stockBillVO){
-        if (stockBillVO.status== BillStatus.rejected)
-        return     updateStockBill(stockBillVO);
-        else
-        {
-            //更新单据信息
-            updateStockBill(stockBillVO);
-              ArrayList<StockBillItemVO> itemVOS  =  stockBillVO.getItemVOS();
-            ArrayList<ChangeInfoVO> changeInfoVOS = new ArrayList<>();
-            StockInfo info = (stockBillVO.type== StockBillType.More) ? StockInfo.Out:StockInfo.In;
-            for (int i = 0; i < itemVOS.size() ; i++) {
-                StockBillItemVO itemVO = itemVOS.get(i);
-                ChangeInfoVO changeInfoVO;
-                if (info==StockInfo.In)
-                {
-                     changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID,itemVO.number,info,stockBillVO.approval_time.toString(),itemVO.commodityVO.importCost*itemVO.number);
-                }
-                else
-                {
-                     changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID,itemVO.number,info,stockBillVO.approval_time.toString(),itemVO.commodityVO.exportCost*itemVO.number);
-                }
-                changeInfoVOS.add(changeInfoVO);
-            }
-            stockBLInfo.updateStock(changeInfoVOS);
-            //更新每一个商品的库存
-            for(int i = 0;i < itemVOS.size();i++){
-                CommodityVO commodityVO = itemVOS.get(i).commodityVO;
-                commodityVO.setNumberInStock(commodityVO.getNumberInStock()-itemVOS.get(i).getNumber());
-                commodityInfoService.updateCommodity(commodityVO);
-            }
-        }
-        return ResultMessage.SUCCESS;
+    /**
+     * 存疑 有需要时再写
+     *
+     * @param flagVO
+     * @return
+     */
+    public ArrayList<StockBillVO> searchStockBill(FilterFlagVO flagVO) {
+
+        return new ArrayList<>();
     }
-    public ArrayList<StockBillVO> searchStockBill(FilterFlagVO flagVO){
-        return null;
+
+
+    public ResultMessage approveStockBill(StockBillVO stockBillVO) {
+        stockBillVO.setStatus(BillStatus.approval);
+        stockBillVO.setApproval_time(new Time());
+        //更新单据信息
+
+        ArrayList<StockBillItemVO> itemVOS = stockBillVO.getItemVOS();
+        ArrayList<ChangeInfoVO> changeInfoVOS = new ArrayList<>();
+        StockInfo info = (stockBillVO.type == StockBillType.More) ? StockInfo.Out : StockInfo.In;
+        for (int i = 0; i < itemVOS.size(); i++) {
+            StockBillItemVO itemVO = itemVOS.get(i);
+            ChangeInfoVO changeInfoVO;
+            if (info == StockInfo.In) {
+                changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID, itemVO.number, info, stockBillVO.approval_time.toString(), itemVO.commodityVO.importCost * itemVO.number);
+            } else {
+                changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID, itemVO.number, info, stockBillVO.approval_time.toString(), itemVO.commodityVO.exportCost * itemVO.number);
+            }
+            changeInfoVOS.add(changeInfoVO);
+        }
+        stockBLInfo.updateStock(changeInfoVOS);
+        //更新每一个商品的库存
+        for (int i = 0; i < itemVOS.size(); i++) {
+            CommodityVO commodityVO = itemVOS.get(i).commodityVO;
+            commodityVO.setNumberInStock(commodityVO.getNumberInStock() - itemVOS.get(i).getNumber());
+            commodityInfoService.updateCommodity(commodityVO);
+        }
+
+        return networkService.updateStockBill(vo_to_po(stockBillVO));
+    }
+
+    public ResultMessage rejectStockBill(StockBillVO stockBillVO) {
+        stockBillVO.setApproval_time(new Time());
+        stockBillVO.setStatus(BillStatus.rejected);
+        //设置审批时间
+        //设置审批状态为拒绝
+
+        return networkService.updateStockBill(vo_to_po(stockBillVO));
+    }
+
+    public String getID(StockBillType type) {
+        return networkService.getStockBillID(type);
     }
     private StockBillVO po_to_vo(StockBillPO po){
         ArrayList<StockBillItemVO> itemVOS = new ArrayList<>();
@@ -121,9 +166,9 @@ public class StockBill {
             StockBillItemVO itemVO = new StockBillItemVO(commodityInfoService.getCommodity(itemPO.getCommodityID()),itemPO.getNumber());
             itemVOS.add(itemVO);
         }
-        StockBillVO stockBillVO = new StockBillVO("1",po.getType(),po.getStatus(),itemVOS,new Time(po.getInit_time()),new Time(po.getCommit_time()),new Time(po.getApproval_time()),po.getCommentByStockManager(),po.getCommentByManager()
+        StockBillVO stockBillVO = new StockBillVO(po.getID(), po.getType(), po.getStatus(), itemVOS, new Time(po.getInit_time()), new Time(po.getCommit_time()), new Time(po.getApproval_time()), po.getCommentByStockManager(), po.getCommentByManager()
 
-        ,userInfo.getUser(po.getInitID()),userInfo.getUser(po.getApprovalID()));
+                , userInfo.getUser(po.getInitID()), userInfo.getUser(po.getApprovalID()));
         return  stockBillVO;
     }
     private StockBillPO vo_to_po(StockBillVO vo){
@@ -133,17 +178,17 @@ public class StockBill {
             StockBillItemPO itemPO = new StockBillItemPO(itemVO.commodityVO.ID,itemVO.number);
             itemPOS.add(itemPO);
         }
-        StockBillPO po = new StockBillPO(vo.type,vo.status,itemPOS,vo.init_time.toString(),vo.commit_time.toString(),vo.approval_time.toString()
-        ,vo.commentByStockManager,vo.commentByManager,vo.stockManager.getID(),vo.getManager().getID());
+        StockBillPO po = new StockBillPO(vo.getId(), vo.getType(), vo.getStatus(), itemPOS, vo.init_time.toString(), vo.commit_time.toString(), vo.approval_time.toString()
+                , vo.commentByStockManager, vo.commentByManager, vo.stockManager.getID(), vo.getManager().getID());
         return po;
     }
 
-    public ResultMessage approveStockBill(StockBillVO stockBillVO) {
-        return ResultMessage.SUCCESS;
+    private ArrayList<StockBillVO> pos_to_vos(ArrayList<StockBillPO> pos) {
+        ArrayList<StockBillVO> vos = new ArrayList<>();
+        for (int i = 0; i < pos.size(); i++) {
+            StockBillPO po = pos.get(i);
+            vos.add(po_to_vo(po));
+        }
+        return vos;
     }
-
-    public ResultMessage rejectStockBill(StockBillVO stockBillVO) {
-        return ResultMessage.SUCCESS;
-    }
-
 }

@@ -13,6 +13,14 @@ import java.util.List;
  */
 public class StockBillPO implements Serializable{
     /**
+     * 本来是没想到的
+     * 但是为了统一格式 还是加上统一类型的ID吧
+     * 库存赠送单 KCZSD-20171111-00001
+     * 库存报损单 KCBSD-
+     * 库存报溢单 KCBYD-
+     */
+    private String ID;
+    /**
      * 库存单据的具体类型
      */
     private StockBillType type;
@@ -60,6 +68,19 @@ public class StockBillPO implements Serializable{
      */
     private String approvalID;
 
+    public StockBillPO(String ID, StockBillType type, BillStatus status, List<StockBillItemPO> itemPOS, String init_time, String commit_time, String approval_time, String commentByStockManager, String commentByManager, String initID, String approvalID) {
+        this.ID = ID;
+        this.type = type;
+        this.status = status;
+        this.itemPOS = itemPOS;
+        this.init_time = init_time;
+        this.commit_time = commit_time;
+        this.approval_time = approval_time;
+        this.commentByStockManager = commentByStockManager;
+        this.commentByManager = commentByManager;
+        this.initID = initID;
+        this.approvalID = approvalID;
+    }
 
     public StockBillPO(StockBillType type, BillStatus status, ArrayList<StockBillItemPO> itemPOS, String init_time,
                        String commit_time, String approval_time, String commentByStockManager, String commentByManager,
@@ -155,5 +176,13 @@ public class StockBillPO implements Serializable{
 
     public void setApprovalID(String approvalID) {
         this.approvalID = approvalID;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }
