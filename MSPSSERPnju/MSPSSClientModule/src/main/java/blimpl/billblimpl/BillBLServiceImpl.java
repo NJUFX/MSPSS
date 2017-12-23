@@ -208,7 +208,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage approveCashCostBill(CashCostBillVO cashCostBillVO) {
-        return null;
+        return cashCostBill.approveCashCostBill(cashCostBillVO);
     }
 
     @Override
@@ -233,7 +233,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage rejectCashCostBill(CashCostBillVO cashCostBillVO) {
-        return null;
+        return cashCostBill.rejectCashCostBill(cashCostBillVO);
     }
 
     @Override
@@ -258,7 +258,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ArrayList<CashCostBillVO> getWaitingCashCostBillVO() {
-        return null;
+        return cashCostBill.getWaitingCashCostBill();
     }
 
 
