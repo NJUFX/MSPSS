@@ -8,7 +8,13 @@ import vo.BusinessTableVO;
  */
 public class BusinessTable {
 
-    public BusinessTableVO search(Time begin, Time end){
-
+    public BusinessTableVO search(Time begin,Time end){
+        return null;
     }
+
+    public BusinessTableVO compareByTime(BusinessTableVO businessTableVO){
+        return null;
+    }
+
+
 }

@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/15.
@@ -92,6 +93,22 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
     public UserPO searchUserByID(String ID){
         try{
           userServerNetworkService.searchUserByID(ID);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 精确查找
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<UserPO> exactlySearchUser(String field, String val){
+        try{
+            userServerNetworkService.;
         }catch (RemoteException e){
             e.printStackTrace();
         }

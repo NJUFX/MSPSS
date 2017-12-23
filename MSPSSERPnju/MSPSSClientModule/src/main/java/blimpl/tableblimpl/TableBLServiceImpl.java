@@ -11,62 +11,62 @@ import vo.*;
  * Created by thinkpad on 2017/11/11.
  */
 public class TableBLServiceImpl implements TableBLService {
-    BusinessTable businessTable;
-    SaleTable saleTable;
-    ProcessTable processTable;
+    BusinessTable businessTableTool;
+    SaleTable saleTableTool;
+    ProcessTable processTableTool;
 
-    public TableBLServiceImpl(BusinessTable businessTable, SaleTable saleTable, ProcessTable processTable) {
-        this.businessTable = businessTable;
-        this.saleTable = saleTable;
-        this.processTable = processTable;
+    public TableBLServiceImpl(BusinessTable businessTableTool, SaleTable saleTableTool, ProcessTable processTableTool) {
+        this.businessTableTool = businessTableTool;
+        this.saleTableTool = saleTableTool;
+        this.processTableTool = processTableTool;
     }
-
-
 
     @Override
     public BusinessTableVO checkBusinessTable(Time begin, Time end) {
 
-         return businessTable.search(begin,end);
+         return businessTableTool.search(begin,end);
     }
 
     @Override
     public BusinessTableVO compareBTByTime(BusinessTableVO businesstable) {
 
-        return  businesstable.compareByTime(businesstable);
+        return  businessTableTool.compareByTime(businesstable);
     }
 
     @Override
     public ProcessTableVO checkProcessTable(ProcessTableFilterFlagsVO flags) {
 
-        return  MyTable.checkProcessTable(flags);
+        return  processTableTool.search(flags);
     }
 
     @Override
     public ProcessTableVO comparePTByName(ProcessTableVO processtable) {
 
-        return  MyTable.comparePTByTime(processtable);
+        return  processTableTool.compareByName(processtable);
     }
 
     @Override
     public ProcessTableVO comparePTByTime(ProcessTableVO processtable) {
 
-        return MyTable.comparePTByTime(processtable);
+        return processTableTool.compareByTime(processtable);
     }
 
     @Override
     public SaleTableVO checkSaleTable(SaleTableFilterFlagsVO flags) {
 
-        return  MyTable.checkSaleTable(flags);
+        return  saleTableTool.search(flags);
     }
 
     @Override
     public SaleTableVO compareSTByName(SaleTableVO saletable) {
-        return null;
+
+        return saleTableTool.compareByName(saletable);
     }
 
     @Override
     public SaleTableVO compareSTByTime(SaleTableVO saletable) {
-        return null;
+
+        return saleTableTool.compareByTime(saletable);
     }
 
     @Override

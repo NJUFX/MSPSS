@@ -32,4 +32,23 @@ public interface GeneralAccountDataService {
      * @param field,value
      */
     public GeneralAccountPO exactlySearchGeneralAccount(String field,Object value);
+
+
+
+    /**
+     * 多个匹配
+     * @param field value
+     */
+    public ArrayList<GeneralAccountPO> fullSearchGeneralAccount(String field,Object value);
+    /**
+     * 模糊查找
+     * @param field,value
+     */
+    public ArrayList<GeneralAccountPO> fuzzySearchGeneralAccount(String field,String value);
+
+    /**
+     * 范围查找
+     * @param field,min,max
+     */
+    public ArrayList<GeneralAccountPO> rangeSearchGeneralAccount(String field,Object min,Object max);
 }
