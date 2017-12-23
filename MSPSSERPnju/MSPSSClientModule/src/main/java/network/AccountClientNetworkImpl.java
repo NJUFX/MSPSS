@@ -137,7 +137,7 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      * @param criteriaClauses
      * @return
      */
-    public ArrayList<AccountPO>  multiSearchLog(ArrayList<CriteriaClause> criteriaClauses){
+    public ArrayList<AccountPO>  multiSearchAccount(ArrayList<CriteriaClause> criteriaClauses){
         try{
             accountServerNetworkService.multiSearchAccount(criteriaClauses);
         }catch (RemoteException e){
