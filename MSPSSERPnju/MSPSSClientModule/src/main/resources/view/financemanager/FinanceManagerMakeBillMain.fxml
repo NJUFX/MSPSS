@@ -93,7 +93,7 @@
          <children>
             <Button fx:id="AddReceiveBill" layoutX="220.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleAddReceiveBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="收款单" textFill="#0f88eb" />
             <Button fx:id="AddPayBill" layoutX="220.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleAddPayBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="付款单" textFill="#0f88eb" />
-            <Button fx:id="AddCashCostBill" layoutX="220.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddCashCostButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="现金费用单" textFill="#0f88eb" />
+            <Button fx:id="AddCashCostBill" layoutX="220.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddCashCostBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="现金费用单" textFill="#0f88eb" />
             <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="60.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/收款单.png" />

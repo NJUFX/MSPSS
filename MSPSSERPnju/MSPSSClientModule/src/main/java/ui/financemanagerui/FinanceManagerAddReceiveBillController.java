@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.FinanceItem;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,8 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -38,6 +42,18 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	TableView FinanceItemTable;
+	@FXML
+	TextField AccountField;
+	@FXML
+	TextField SumField;
+	@FXML
+	TextField PsField;
+	@FXML
+	TextField CustomerName;
+	@FXML
+	TextField SumAmount;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -165,6 +181,34 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 		stage.setScene(scene);
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
+	}
+	
+	/**
+	 * 监听增加转账列表按钮
+	 * 
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddFinanceItemButtonAction(ActionEvent e) throws Exception{
+	   ObservableList<FinanceItem> data = FinanceItemTable.getItems();
+	   data.add(new FinanceItem(AccountField.getText(),SumField.getText(),PsField.getText()));
+	}
+	
+	
+	/**
+	 * 监听清空条件按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleClearConditionButtonAction(ActionEvent e) throws Exception {
+		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
+		data.clear();
+		AccountField.setText("");
+		SumField.setText("");
+		PsField.setText("");
+		CustomerName.setText("");
+		SumAmount.setText("");
+		
 	}
 
 
