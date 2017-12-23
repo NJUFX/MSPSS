@@ -54,6 +54,10 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	TextField CustomerName;
 	@FXML
 	TextField SumAmount;
+	@FXML 
+	Button BackToMakeBillMain;
+	@FXML
+	Button ClearCondition;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -192,6 +196,9 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	public void handleAddFinanceItemButtonAction(ActionEvent e) throws Exception{
 	   ObservableList<FinanceItem> data = FinanceItemTable.getItems();
 	   data.add(new FinanceItem(AccountField.getText(),SumField.getText(),PsField.getText()));
+	   AccountField.setText("");
+		SumField.setText("");
+		PsField.setText("");
 	}
 	
 	
@@ -209,6 +216,21 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 		CustomerName.setText("");
 		SumAmount.setText("");
 		
+	}
+	
+	/**
+	 * 监听返回增加单据主界面按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleBackToMakeBillMainButtonAction(ActionEvent e) throws Exception{
+		try {
+			FinanceManagerMakeBillMainController controller = (FinanceManagerMakeBillMainController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerMakeBillMain.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 

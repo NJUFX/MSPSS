@@ -99,7 +99,7 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Pane layoutX="215.0" layoutY="94.0" prefHeight="370.0" prefWidth="610.0" style="-fx-background-color: white;">
+      <Pane layoutX="218.0" layoutY="89.0" prefHeight="370.0" prefWidth="610.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="107.0" layoutY="33.0" style="-fx-background-color: white;" text="客户名称" textFill="#0f88eb">
                <font>
@@ -123,7 +123,7 @@
             </ImageView>
             <TextField fx:id="CustomerName" layoutX="199.0" layoutY="28.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
             <TextField fx:id="SumAmount" layoutX="199.0" layoutY="71.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
-            <TableView fx:id="FinanceItemTable" layoutX="47.0" layoutY="111.0" prefHeight="193.0" prefWidth="551.0">
+            <TableView fx:id="FinanceItemTable" layoutX="47.0" layoutY="111.0" prefHeight="192.0" prefWidth="543.0">
               <columns>
                 <TableColumn prefWidth="180.0" text="银行账户">
                    <cellValueFactory>
@@ -143,13 +143,13 @@
               </columns>
             </TableView>
             <TextField fx:id="AccountField" layoutX="47.0" layoutY="315.0" prefHeight="27.0" prefWidth="125.0" promptText="银行账户" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
-            <TextField fx:id="SumField" layoutX="195.0" layoutY="315.0" prefHeight="29.0" prefWidth="125.0" promptText="金额" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
-            <TextField fx:id="PsField" layoutX="340.0" layoutY="315.0" prefHeight="29.0" prefWidth="125.0" promptText="备注" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
-            <Button fx:id="AddFinanceItem" layoutX="488.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleAddFinanceItemButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="增加" textFill="WHITE" />
+            <TextField fx:id="SumField" layoutX="194.0" layoutY="315.0" prefHeight="29.0" prefWidth="125.0" promptText="金额" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
+            <TextField fx:id="PsField" layoutX="336.0" layoutY="315.0" prefHeight="29.0" prefWidth="125.0" promptText="备注" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
+            <Button fx:id="AddFinanceItem" layoutX="480.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleAddFinanceItemButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="增加" textFill="WHITE" />
          </children></Pane>
-      <Button fx:id="ClearCondition" layoutX="415.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleClearConditionButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
-      <Button layoutX="704.0" layoutY="485.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
-      <Button layoutX="561.0" layoutY="485.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="提交" textFill="WHITE" />
-      <Button layoutX="265.0" layoutY="485.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="保存" textFill="WHITE" />
+      <Button fx:id="ClearCondition" layoutX="413.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleClearConditionButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
+      <Button fx:id="BackToMakeBillMain" layoutX="698.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleBackToMakeBillMainButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
+      <Button layoutX="556.0" layoutY="480.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="提交" textFill="WHITE" />
+      <Button layoutX="268.0" layoutY="480.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="保存" textFill="WHITE" />
     </children>
 </Pane>
