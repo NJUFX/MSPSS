@@ -1,11 +1,17 @@
 package vo;
 
-import util.*;
+import util.Kind_Of_Users;
 
 public class UserVO {
     /**
      * 用户的ID
+     编号开头
+     ss 库存管理人员
+     sm 销售人员
+     fm 财务人员
+     cm 总经理
      */
+
     private String ID;
     /**
      * 用户名
@@ -19,10 +25,6 @@ public class UserVO {
      * 用户的密码
      */
     private String password;
-    /**
-     * 用户的权限
-     */
-    private String power;
     /**
      * 是否被使用过
      */
@@ -68,28 +70,6 @@ public class UserVO {
         this.password = pa;
     }
 
-    public String getPower() {
-        return power;
-    }
-
-    public void setPower(String po) {
-        this.power = po;
-    }
-
-    /**
-     * @param Id
-     * @param Name
-     * @param Category
-     * @param Password
-     * @param Power
-     */
-    public UserVO(String Id, String Name, Kind_Of_Users Category, String Password, String Power) {
-        this.ID = Id;
-        this.name = Name;
-        this.category = Category;
-        this.password = Password;
-        this.power = Power;
-    }
 
     /**
      *
@@ -103,5 +83,25 @@ public class UserVO {
         this.name = name;
         this.category = category;
         this.password = password;
+    }
+
+    public int getCategoryForPO() {
+        switch (category) {
+            case Financer:
+                return 4;
+            case StockSeller:
+                return 2;
+            case FinancerManager:
+                return 5;
+            case StockManager:
+                return 1;
+            case StockSellerManager:
+                return 3;
+            case ChiefManager:
+                return 6;
+            default:
+                return 0;
+        }
+
     }
 }

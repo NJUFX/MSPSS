@@ -26,7 +26,7 @@
 //    }
 //    @Test
 //    public void b_update(){
-//        ResultMessage message = salesInBill.updateSalesInBill(salesInBillVO);
+//        ResultMessage message = salesInBill.commitSalesInBill(salesInBillVO);
 //        assertEquals(message,ResultMessage.SUCCESS);
 //    }
 //    @Test

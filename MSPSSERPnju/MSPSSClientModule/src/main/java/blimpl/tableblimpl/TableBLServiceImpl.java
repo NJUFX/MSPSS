@@ -4,29 +4,39 @@ import blservice.tableblservice.TableBLService;
 import filterflags.BusinessTableFilterFlags;
 import filterflags.ProcessTableFilterFlags;
 import filterflags.SaleTableFilterFlags;
-import vo.BusinessTableVO;
-import vo.ProcessTableVO;
-import vo.SaleTableVO;
+import util.Time;
+import vo.*;
 
 /**
  * Created by thinkpad on 2017/11/11.
  */
 public class TableBLServiceImpl implements TableBLService {
-    Table MyTable = new Table();
-    @Override
-    public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags) {
+    BusinessTable businessTable;
+    SaleTable saleTable;
+    ProcessTable processTable;
 
-        return MyTable.checkBusinessTable(flags);
+    public TableBLServiceImpl(BusinessTable businessTable, SaleTable saleTable, ProcessTable processTable) {
+        this.businessTable = businessTable;
+        this.saleTable = saleTable;
+        this.processTable = processTable;
+    }
+
+
+
+    @Override
+    public BusinessTableVO checkBusinessTable(Time begin, Time end) {
+
+         return businessTable.search(begin,end);
     }
 
     @Override
     public BusinessTableVO compareBTByTime(BusinessTableVO businesstable) {
 
-        return  MyTable.compareBTByTime(businesstable);
+        return  businesstable.compareByTime(businesstable);
     }
 
     @Override
-    public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags) {
+    public ProcessTableVO checkProcessTable(ProcessTableFilterFlagsVO flags) {
 
         return  MyTable.checkProcessTable(flags);
     }
@@ -44,7 +54,7 @@ public class TableBLServiceImpl implements TableBLService {
     }
 
     @Override
-    public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) {
+    public SaleTableVO checkSaleTable(SaleTableFilterFlagsVO flags) {
 
         return  MyTable.checkSaleTable(flags);
     }

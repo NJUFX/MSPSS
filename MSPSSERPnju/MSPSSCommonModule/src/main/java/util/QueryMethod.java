@@ -5,8 +5,8 @@ package util;
  * Created by Hanxinhu at 16:57 2017/11/30/030
  */
 public enum QueryMethod {
-    Fuzz, Range,Full;
+    Fuzz, Range, Full, Prefix;
     public boolean valueShouldBeString(){
-        return this.equals(Fuzz);
+        return this.equals(Fuzz) || this.equals(Prefix);
     }
 }

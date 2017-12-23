@@ -104,6 +104,6 @@ public interface  ManagerBillBLService {
      * 得到所有等待审批的现金费用单据
      * @return
      */
-    public ArrayList<CashCostBillVO> getWaitingcashCostBillVO();
+    public ArrayList<CashCostBillVO> getWaitingCashCostBillVO();
 
 }

@@ -45,6 +45,13 @@ public class GrossPromotionVO {
         this.initTime = initTime;
         this.endTime = endTime;
     }
+    
+    public GrossPromotionVO(double total, int voucher, Time initTime, Time endTime) {
+        this.total = total;
+        this.voucher = voucher;
+        this.initTime = initTime;
+        this.endTime = endTime;
+    }
 
     public GrossPromotionVO(String id, double total, int voucher, ArrayList<PresentationCommodityItemVO> presentationCommodityItemVOS, Time initTime, Time endTime) {
         this.id = id;

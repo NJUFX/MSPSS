@@ -1,6 +1,5 @@
 package po;
 
-import util.Kind_Of_Power;
 import util.Kind_Of_Users;
 
 import java.io.Serializable;
@@ -9,19 +8,44 @@ import java.io.Serializable;
  * Created by thinkpad on 2017/10/21.
  */
 public class UserPO implements Serializable {
+    /**
+     * 编号
+     * 用户的ID
+     * 编号开头
+     * ss 库存管理人员
+     * sm 销售人员
+     * fm 财务人员
+     * cm 总经理
+     */
     private String ID;
+    /**
+     * 用户名
+     */
     private String name;
+    /**
+     * 用户种类
+     * 1 对应库存管理人员
+     * 2 对应 普通销售人员
+     * 3 对应 销售经理
+     * 4 对应 普通财务人员
+     * 5 对应 财务经理即最高权限
+     * 6 对应 总经理
+     */
     private int category;
+    /**
+     * 密码保存时理应是已经加密过的密码 参见Encrypt.Encryptor
+     */
     private String password;
-    private String power;
+    /**
+     * 为了防止删除已经使用过的用户后出现系统错误
+     */
     private boolean isValid = true;
 
-    public UserPO(String ID, String name, int category, String password, String power) {
+    public UserPO(String ID, String name, int category, String password) {
         this.ID = ID;
         this.name = name;
         this.category = category;
         this.password = password;
-        this.power = power;
     }
 
     public UserPO() {
@@ -45,10 +69,6 @@ public class UserPO implements Serializable {
 
     public void setCategory(int category) {
         this.category = category;
-    }
-
-    public String getPower() {
-        return power;
     }
 
     public boolean isValid() {
@@ -81,36 +101,42 @@ public class UserPO implements Serializable {
         this.isValid = b;
     }
 
-    public void setPower(String power) {
-        this.power = power;
+    /**
+     * 用户种类
+     * 1 对应库存管理人员
+     * 2 对应 普通销售人员
+     * 3 对应 销售经理
+     * 4 对应 普通财务人员
+     * 5 对应 财务经理即最高权限
+     * 6 对应 总经理
+     */
+    public Kind_Of_Users getKind() {
+        Kind_Of_Users kind;
+        switch (category) {
+            case 1:
+                kind = Kind_Of_Users.StockManager;
+                break;
+            case 2:
+                kind = Kind_Of_Users.StockSeller;
+                break;
+            case 3:
+                kind = Kind_Of_Users.StockSellerManager;
+                break;
+            case 4:
+                kind = Kind_Of_Users.Financer;
+                break;
+            case 5:
+                kind = Kind_Of_Users.FinancerManager;
+                break;
+            case 6:
+                kind = Kind_Of_Users.ChiefManager;
+                break;
+            default:
+                kind = Kind_Of_Users.ChiefManager;
+        }
+        return kind;
     }
 
-    public boolean getCheckListLimit() {
-        if (power.charAt(0) == '0') {
-            return false;
-        }
-        return true;
-    }
 
-    public boolean getExamineLimit() {
-        if (power.charAt(1) == '0') {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean getReadLogLimit() {
-        if (power.charAt(2) == '0') {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean getMakePromotionLimit() {
-        if (power.charAt(3) == '0') {
-            return false;
-        }
-        return true;
-    }
 }
 

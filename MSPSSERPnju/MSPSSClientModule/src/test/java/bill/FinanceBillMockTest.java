@@ -20,12 +20,12 @@
 //    private FinanceBillVO financeBillVO = new FinanceBillVO();
 //    @Test
 //    public void  a_add(){
-//        ResultMessage resultMessage = financeBill.addFinanceBill(financeBillVO);
+//        ResultMessage resultMessage = financeBill.saveFinanceBill(financeBillVO);
 //        assertEquals(resultMessage,ResultMessage.SUCCESS);
 //    }
 //    @Test
 //    public void b_update(){
-//        ResultMessage resultMessage = financeBill.updateFinanceBill(financeBillVO);
+//        ResultMessage resultMessage = financeBill.commitFinanceBill(financeBillVO);
 //        assertEquals(resultMessage,ResultMessage.SUCCESS);
 //    }
 //    @Test

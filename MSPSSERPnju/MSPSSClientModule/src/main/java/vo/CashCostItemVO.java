@@ -18,4 +18,10 @@ public class CashCostItemVO {
      *
      */
     public String ps;
+
+    public CashCostItemVO(String name, double money, String ps) {
+        this.name = name;
+        this.money = money;
+        this.ps = ps;
+    }
 }

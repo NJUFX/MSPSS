@@ -1,6 +1,7 @@
 package blstubdriver.customerstubdriver;
 
 import blservice.customerblservice.CustomerBLService;
+import filterflags.CustomerSearchFlag;
 import util.Kind_Of_Customers;
 import util.ResultMessage;
 import vo.CustomerVO;
@@ -11,7 +12,18 @@ public class CustomerBLService_Stub implements CustomerBLService {
     public static ArrayList<CustomerVO> customerList = new ArrayList<>();
     public static CustomerVO customer = new CustomerVO("0000000", Kind_Of_Customers.SALER, 5, "songtuan", "88488888", "南京市栖霞区仙林街道168号", "222243", "songtuan@163.com", 5000, 3400, 0, "001");
 
+    /**
+     * 通过关键词类型和关键词来查找客户
+     *
+     * @param keyType
+     * @param keyword
+     * @return
+     */
     @Override
+    public ArrayList<CustomerVO> searchCustomer(CustomerSearchFlag keyType, String keyword) {
+        return null;
+    }
+
     public ArrayList<CustomerVO> searchCustomer(String keytype, String keyword) {
         ArrayList<CustomerVO> searchlist = new ArrayList<>();
         if (keytype.equals("level")) {

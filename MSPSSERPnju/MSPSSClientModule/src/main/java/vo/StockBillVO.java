@@ -62,6 +62,32 @@ public class StockBillVO {
 	 */
 	public UserVO manager;
 
+	/**
+	 * 在产生界面端new vo时所需要的信息
+	 * 其余都在逻辑层赋值
+	 *
+	 * @param type
+	 * @param itemVOS
+	 * @param commentByStockManager
+	 * @param stockManager
+	 */
+	public StockBillVO(StockBillType type, ArrayList<StockBillItemVO> itemVOS, String commentByStockManager, UserVO stockManager) {
+		this.type = type;
+		this.itemVOS = itemVOS;
+		this.commentByStockManager = commentByStockManager;
+		this.stockManager = stockManager;
+	}
+
+	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS, Time init_time, Time commit_time, String commentByStockManager, UserVO stockManager) {
+		this.id = id;
+		this.type = type;
+		this.status = status;
+		this.itemVOS = itemVOS;
+		this.init_time = init_time;
+		this.commit_time = commit_time;
+		this.commentByStockManager = commentByStockManager;
+		this.stockManager = stockManager;
+	}
 	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS,
 			Time init_time, String commentByStockManager, UserVO stockManager) {
 		this.id = id;
@@ -73,9 +99,11 @@ public class StockBillVO {
 		this.stockManager = stockManager;
 	}
 
+
+
 	public StockBillVO(String id, StockBillType type, BillStatus status, ArrayList<StockBillItemVO> itemVOS,
-			Time init_time, Time commit_time, Time approval_time, String commentByStockManager, String commentByManager,
-			UserVO stockManager, UserVO manager) {
+					   Time init_time, Time commit_time, Time approval_time, String commentByStockManager, String commentByManager,
+					   UserVO stockManager, UserVO manager) {
 		this.id = id;
 		this.type = type;
 		this.status = status;

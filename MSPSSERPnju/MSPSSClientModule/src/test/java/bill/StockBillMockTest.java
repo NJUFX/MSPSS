@@ -21,12 +21,12 @@
 //
 //    @Test
 //    public void a_addStockBill(){
-//        ResultMessage resultMessage = stockBill.addStockBill(stockBillVO);
+//        ResultMessage resultMessage = stockBill.saveStockBill(stockBillVO);
 //        assertEquals(resultMessage,ResultMessage.SUCCESS);
 //    }
 //    @Test
 //    public void b_updateStockBill(){
-//        ResultMessage resultMessage = stockBill.updateStockBill(stockBillVO);
+//        ResultMessage resultMessage = stockBill.commitStockBill(stockBillVO);
 //        assertEquals(resultMessage,ResultMessage.SUCCESS);
 //    }
 //    @Test

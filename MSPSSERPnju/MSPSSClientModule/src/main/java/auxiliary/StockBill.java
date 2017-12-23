@@ -1,6 +1,6 @@
 package auxiliary;
 
-import javafx.beans.property.SimpleObjectProperty;
+
 import javafx.beans.property.SimpleStringProperty;
 import vo.StockBillVO;
 
