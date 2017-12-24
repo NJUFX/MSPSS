@@ -9,6 +9,8 @@ import auxiliary.Account;
 import auxiliary.CustomerPromotion;
 import auxiliary.GrossPromotion;
 import auxiliary.GroupPromotion;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.accountblservice.AccountBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,11 +61,12 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		this.initTable();
 	}
 
 	public void setApp(MainApp application) {
@@ -186,7 +189,7 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	
 	public void initTable() {
 		DeleteAccount.setCellFactory((col) -> {
-			TableCell<CustomerPromotion, String> cell = new TableCell<CustomerPromotion, String>() {
+			TableCell<Account, String> cell = new TableCell<Account, String>() {
 				@Override
 				public void updateItem(String item, boolean empty) {
 					super.updateItem(item, empty);
@@ -205,7 +208,10 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 						this.setGraphic(delBtn);
 						delBtn.setOnMouseClicked((me) -> {
 							try {
-								
+								Account currentAccount = this.getTableView().getItems().get(getIndex());
+								accountBLService.deleteAccount(currentAccount.getName());
+								ObservableList<Account> data = AccountTable.getItems();
+								data.remove(currentAccount);
 
 							} catch (Exception e1) {
 								e1.printStackTrace();
@@ -217,6 +223,15 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 			return cell;
 		});
 
+		
+	}
+	
+	/**
+	 * 监听查找账户按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleSearchAccountButtonAction(ActionEvent e) throws Exception{
 		
 	}
 
