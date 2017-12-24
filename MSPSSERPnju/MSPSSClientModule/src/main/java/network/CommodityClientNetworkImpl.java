@@ -37,8 +37,15 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ResultMessage addCommodity(CommodityPO commodityPO){
+
+        try{
+            return commodityServerNetworkService.addCommodity(commodityPO);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 更新商品信息
@@ -46,8 +53,15 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ResultMessage modifyCommodity(CommodityPO commodityPO){
+
+        try{
+          return commodityServerNetworkService.modifyCommodity(commodityPO);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 删除商品
@@ -55,8 +69,14 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ResultMessage deleteCommodity(CommodityPO commodityPO){
+        try{
+          return commodityServerNetworkService.deleteCommodity(commodityPO);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 精确查找商品
@@ -64,12 +84,23 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public CommodityPO exactlySearchCommodity(String id){
+
+        try{
+            return commodityServerNetworkService.exactlySearchCommodity(id);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
 
     public ArrayList<CommodityPO> fullSearchCommodity(String field, Object value){
+        try{
+          return commodityServerNetworkService.fullSearchCommodity(field, value);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
     /**
      *
      * @param filed
@@ -77,8 +108,15 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ArrayList<CommodityPO> fuzzySearchCommodity(String filed,String value){
+
+        try{
+             return commodityServerNetworkService.fuzzySearchCommodity(filed, value);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      *
@@ -88,8 +126,15 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ArrayList<CommodityPO> rangeSearchCommodity(String field, Object min, Object max){
+
+        try{
+          return commodityServerNetworkService.rangeSearchCommodity(field, min, max);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 添加商品分类
@@ -97,8 +142,15 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ResultMessage addClassification(ClassificationPO classificationPO){
+
+        try{
+          return commodityServerNetworkService.addClassification(classificationPO);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 更新商品分类信息
@@ -106,8 +158,15 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ResultMessage updateClassification(ClassificationPO classificationPO){
+
+        try{
+            return commodityServerNetworkService.updateClassification(classificationPO);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 删除商品分类
@@ -115,31 +174,59 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ResultMessage deleteClassification(String id){
+
+        try{
+        return commodityServerNetworkService.deleteClassification(id);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 得到所有的商品分类
      * @return
      */
     public ArrayList<ClassificationPO> getAllClassification(){
+
+        try{
+            return commodityServerNetworkService.getAllClassification();
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 根据当前的id查找到该节点下的子分类
      */
     public ArrayList<ClassificationPO> getChildrenClassification(String id){
+
+        try{
+           return commodityServerNetworkService.getChildrenClassification(id);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
     /**
      * 得到特定的商品分类
      * @param id
      * @return
      */
     public ClassificationPO getClassification(String id){
+
+        try{
+            return commodityServerNetworkService.getClassification(id);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
+
 
     /**
      * 完全比配查找
@@ -148,6 +235,12 @@ public class CommodityClientNetworkImpl implements CommodityClientNetworkService
      * @return
      */
     public ArrayList<ClassificationPO> fullSearchClassificationPO(String field,String val){
+
+        try{
+             return commodityServerNetworkService.fullSearchClassificationPO(field, val);
+        }catch(RemoteException e){
+            e.printStackTrace();
+        }
         return null;
-    };
+    }
 }

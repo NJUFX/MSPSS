@@ -4,16 +4,15 @@ import blservice.tableblservice.TableBLService;
 import filterflags.BusinessTableFilterFlags;
 import filterflags.ProcessTableFilterFlags;
 import filterflags.SaleTableFilterFlags;
-import vo.BusinessTableVO;
-import vo.ProcessTableVO;
-import vo.SaleTableVO;
+import util.Time;
+import vo.*;
 
 /**
  * Created by thinkpad on 2017/11/11.
  */
 public class Table_Stub implements TableBLService{
     @Override
-    public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags) {
+    public BusinessTableVO checkBusinessTable(Time begin, Time end) {
         return null;
     }
 
@@ -23,7 +22,7 @@ public class Table_Stub implements TableBLService{
     }
 
     @Override
-    public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags) {
+    public ProcessTableVO checkProcessTable(ProcessTableFilterFlagsVO flags) {
         return null;
     }
 
@@ -38,7 +37,7 @@ public class Table_Stub implements TableBLService{
     }
 
     @Override
-    public SaleTableVO checkSaleTable(SaleTableFilterFlags flags) {
+    public SaleTableVO checkSaleTable(SaleTableFilterFlagsVO flags) {
         return null;
     }
 

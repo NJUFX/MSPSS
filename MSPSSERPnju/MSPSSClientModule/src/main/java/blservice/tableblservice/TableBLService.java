@@ -3,9 +3,8 @@ package blservice.tableblservice;
 import filterflags.SaleTableFilterFlags;
 import filterflags.BusinessTableFilterFlags;
 import filterflags.ProcessTableFilterFlags;
-import vo.BusinessTableVO;
-import vo.ProcessTableVO;
-import vo.SaleTableVO;
+import util.Time;
+import vo.*;
 
 /**
  * Created by thinkpad on 2017/11/11.
@@ -18,21 +17,21 @@ public interface TableBLService {
      * @param flags
      * @return 销售明细表VO
      */
-    public SaleTableVO checkSaleTable(SaleTableFilterFlags flags);
+    public SaleTableVO checkSaleTable(SaleTableFilterFlagsVO flags);
     /**
      * 查询经营情况表
      *
-     * @param flags
+     * @param begin,end
      * @return 经营情况表VO
      */
-    public BusinessTableVO checkBusinessTable(BusinessTableFilterFlags flags);
+    public BusinessTableVO checkBusinessTable(Time begin,Time end);
     /**
      * 查询经营历程表
      *
      * @param flags
      * @return 经营历程表VO
      */
-    public ProcessTableVO checkProcessTable(ProcessTableFilterFlags flags);
+    public ProcessTableVO checkProcessTable(ProcessTableFilterFlagsVO flags);
     /**
      * 导出经营情况表
      *

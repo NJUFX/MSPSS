@@ -1,7 +1,6 @@
 package table;
 
 import blimpl.tableblimpl.MockTable;
-import blimpl.tableblimpl.Table;
 import filterflags.BusinessTableFilterFlags;
 import filterflags.ProcessTableFilterFlags;
 import filterflags.SaleTableFilterFlags;
@@ -10,7 +9,7 @@ import util.Time;
 import vo.BusinessTableVO;
 import vo.ProcessTableVO;
 import vo.SaleTableVO;
-import static org.junit.Assert.*;
+
 /**
  * Created by thinkpad on 2017/11/14.
  */
