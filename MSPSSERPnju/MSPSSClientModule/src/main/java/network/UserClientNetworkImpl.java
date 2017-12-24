@@ -63,9 +63,9 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      * @param userid 用户id
      * @return 删除用户的运行结果
      */
-    public ResultMessage delUser(String userid){
+    public ResultMessage deleteUser(String userid){
         try{
-          userServerNetworkService.delUser(userid);
+            userServerNetworkService.deleteUser(userid);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -76,9 +76,9 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      * @param user
      * @return
      */
-    public ResultMessage modifyUser(UserPO user){
+    public ResultMessage updateUser(UserPO user){
         try{
-             userServerNetworkService.modifyUser(user);
+            userServerNetworkService.updateUser(user);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -106,12 +106,30 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      * @param val
      * @return
      */
-    public ArrayList<UserPO> exactlySearchUser(String field, String val){
+    public UserPO exactlySearchUser(String field, Object val){
         try{
-            userServerNetworkService.;
+            userServerNetworkService.exactlySearchUser(field,val);
         }catch (RemoteException e){
             e.printStackTrace();
         }
         return null;
     }
+
+    /**
+     * 完全匹配一定类型的用户
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<UserPO> fullSearchUser(String field, Object val){
+        try{
+            userServerNetworkService.fullSearchUser(field,val);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 }

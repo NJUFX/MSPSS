@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+      <class name ="po.CustomerPromotionPO" table ="customer_promotion_po">
+
+          <id name = "id" column="id" type ="string">
+
+          </id>
+
+          <property name="level" column ="level" type="int"></property>
+          <property name="discount" column="discount" type="double"></property>
+          <property name="voucher" column="voucher" type="int"></property>
+          <property name="initTime" column="init_time" type="string"></property>
+          <property name="endTime" column="end_time" type="string"></property>
+
+
+
+
+          <list name ="presentationCommodityItemPOS" table="presentation_commodity_item_po" cascade="all">
+              <key column="customer_promotion_po_id"></key>
+              <index column="item_index"></index>
+              <one-to-many class="po.PresentationCommodityItemPO" ></one-to-many>
+          </list>
+      </class>
+
+</hibernate-mapping>

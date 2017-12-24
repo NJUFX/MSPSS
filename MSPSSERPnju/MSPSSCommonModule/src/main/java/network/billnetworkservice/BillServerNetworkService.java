@@ -1,14 +1,14 @@
-package dataservice;
+package network.billnetworkservice;
 
-
-import filterflags.BillFilter;
 import po.*;
 import util.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public interface BillDataService {
+/**
+ * Created by thinkpad on 2017/12/24.
+ */
+public interface BillServerNetworkService {
     /**
      * 添加库存类单据 用于点击保存时
      * @param stockBillPO
@@ -39,6 +39,13 @@ public interface BillDataService {
 
     public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses);
 
+    /**
+     * 返回形如 KDZSD-20101010-00001
+     *
+     * @param type
+     * @return
+     */
+    public String getStockBillID(StockBillType type);
 
     /**
      * 在数据层增加 现金费用单
@@ -58,7 +65,12 @@ public interface BillDataService {
 
     public ResultMessage deleteCashCostBill(String id);
 
-
+    /**
+     * 得到应有的现金费用单ID
+     *
+     * @return
+     */
+    public String getCashCostBillID();
 
     public ArrayList<CashCostBillPO> multiSearchCashCostBill(ArrayList<CriteriaClause> criteriaClauses);
 
@@ -75,7 +87,13 @@ public interface BillDataService {
 
     public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses);
 
-
+    /**
+     * 根据财务类单据类型返回应有的单据
+     *
+     * @param type
+     * @return
+     */
+    public String getFinanceBillID(FinanceBillType type);
 
     public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO);
 
@@ -87,8 +105,13 @@ public interface BillDataService {
 
     public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses);
 
-
-
+    /**
+     * 根据进货单 进货退货单来返回应有的ID
+     *
+     * @param type
+     * @return
+     */
+    public String getSalesInBillID(SalesInBillType type);
 
     public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO);
 
@@ -100,9 +123,5 @@ public interface BillDataService {
 
     public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses);
 
-
-
-
+    public String getSalesOutBillID(SalesOutBillType type);
 }
-
-

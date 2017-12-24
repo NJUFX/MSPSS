@@ -6,6 +6,9 @@ import dataservice.UserDataService;
 import po.UserPO;
 import util.ResultMessage;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 /**
  * Created by thinkpad on 2017/12/8.
  */
@@ -22,14 +25,8 @@ public class UserDataServiceImpl implements UserDataService{
      * @return
      */
     public ResultMessage modifyPower(UserPO user, String power){
-        try{
-            user.setPower(power);
-            userHelper.update(user);
-            return ResultMessage.SUCCESS;
-        }catch(Exception e){
-            System.out.println("modify power fail");
-            return ResultMessage.FAILED;
-        }
+        //po中没发现有power
+      return ResultMessage.FAILED;
     }
 
     /**
@@ -53,7 +50,7 @@ public class UserDataServiceImpl implements UserDataService{
      * @param userid 用户id
      * @return 删除用户的运行结果
      */
-    public ResultMessage delUser(String userid){
+    public ResultMessage deleteUser(String userid){
         try{
             userHelper.delete("id",userid);
             return ResultMessage.SUCCESS;
@@ -62,12 +59,11 @@ public class UserDataServiceImpl implements UserDataService{
             return ResultMessage.FAILED;
         }
     }
-
     /**
      * @param user
      * @return
      */
-    public ResultMessage modifyUser(UserPO user){
+    public ResultMessage updateUser(UserPO user){
         try{
             userHelper.update(user);
             return ResultMessage.SUCCESS;
@@ -77,14 +73,35 @@ public class UserDataServiceImpl implements UserDataService{
         }
     }
 
+
     /**
-     * 根据ID找user
+     * 通过登录账号返回ID
      * @param ID
      * @return
      */
-    public UserPO findUserByID(String ID){
+    public UserPO searchUserByID(String ID){
+     return userHelper.exactlyQuery("id",ID);
+    }
 
-            return userHelper.exactlyQuery("id",ID);
+    /**
+     * 完全匹配一定类型的用户
+     *
+     * @param filed
+     * @param val
+     * @return
+     */
+    public ArrayList<UserPO> fullSearchUser(String filed, Object val){
+        return userHelper.fullMatchQuery(filed, val);
+    }
 
+    /**
+     * 精确查找
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public UserPO exactlySearchUser(String field, Object val){
+        return userHelper.exactlyQuery(field,val);
     }
 }
