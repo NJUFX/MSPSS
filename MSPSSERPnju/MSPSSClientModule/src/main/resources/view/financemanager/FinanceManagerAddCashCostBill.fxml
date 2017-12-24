@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.*?>
 <?import auxiliary.*?>
 
-<Pane fx:id="CommitCashCostBill" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#handleCommitCashCostBillButtonAction" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerAddCashCostBillController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerAddCashCostBillController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -149,7 +149,7 @@
       </Pane>
       <Button fx:id="ClearCondition" layoutX="398.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleClearConditionButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: white;" text="清空" textFill="#0f88eb" />
       <Button fx:id="BackToMakeBillMain" layoutX="683.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleBackToMakeBillMainButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
-      <Button layoutX="541.0" layoutY="485.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="提交" textFill="WHITE" />
+      <Button fx:id="CommitCashCostBill" layoutX="541.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleCommitCashCostBillButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="提交" textFill="WHITE" />
       <Button fx:id="SaveCashCostBill" layoutX="253.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleSaveCashCostBillButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="保存" textFill="WHITE" />
     </children>
 </Pane>

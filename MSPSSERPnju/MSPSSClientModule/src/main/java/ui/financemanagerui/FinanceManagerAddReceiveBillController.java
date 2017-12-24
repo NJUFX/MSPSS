@@ -68,6 +68,8 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	TextField CustomerName;
 	@FXML
 	TextField SumAmount;
+	@FXML
+	Button AddFinanceItem;
 	@FXML 
 	Button BackToMakeBillMain;
 	@FXML
@@ -272,7 +274,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 		String customerName = CustomerName.getText();
 		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
 		CustomerVO customerVO= customerList.get(0);
-		Double sum = Double.parseDouble(SumField.getText());
+		Double sum = Double.parseDouble(SumAmount.getText());
 		ArrayList<FinanceItemVO> financeItems = new ArrayList<FinanceItemVO>();
 		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
 		for(int i=0;i<data.size();i++) {
@@ -293,7 +295,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
     	String customerName = CustomerName.getText();
 		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
 		CustomerVO customerVO= customerList.get(0);
-		Double sum = Double.parseDouble(SumField.getText());
+		Double sum = Double.parseDouble(SumAmount.getText());
 		ArrayList<FinanceItemVO> financeItems = new ArrayList<FinanceItemVO>();
 		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
 		for(int i=0;i<data.size();i++) {

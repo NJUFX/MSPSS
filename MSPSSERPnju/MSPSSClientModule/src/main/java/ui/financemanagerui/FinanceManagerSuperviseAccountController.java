@@ -5,6 +5,11 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.Account;
+import auxiliary.CustomerPromotion;
+import auxiliary.GrossPromotion;
+import auxiliary.GroupPromotion;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,12 +18,20 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.CustomerPromotionVO;
+import vo.GrossPromotionVO;
+import vo.GroupPromotionVO;
 
 public class FinanceManagerSuperviseAccountController implements Initializable {
 
@@ -38,6 +51,10 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	TableView AccountTable;
+	@FXML
+	TableColumn<Account,String> DeleteAccount;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -166,6 +183,43 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
 	}
+	
+	public void initTable() {
+		DeleteAccount.setCellFactory((col) -> {
+			TableCell<CustomerPromotion, String> cell = new TableCell<CustomerPromotion, String>() {
+				@Override
+				public void updateItem(String item, boolean empty) {
+					super.updateItem(item, empty);
+					this.setText(null);
+					this.setGraphic(null);
+					if (!empty) {
+						Image btnImage = new Image(getClass().getResourceAsStream("/image/删除.png"));
+						Button delBtn = new Button();
+						ImageView iv = new ImageView(btnImage);
+						iv.setFitWidth(15);
+						iv.setFitHeight(15);
+						delBtn.setGraphic(iv);
+						delBtn.setPrefSize(50, 5);
+
+						// delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
+						this.setGraphic(delBtn);
+						delBtn.setOnMouseClicked((me) -> {
+							try {
+								
+
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}
+						});
+					}
+				}
+			};
+			return cell;
+		});
+
+		
+	}
+
 
 
 }
