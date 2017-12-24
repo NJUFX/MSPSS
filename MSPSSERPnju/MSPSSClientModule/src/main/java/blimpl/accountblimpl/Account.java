@@ -41,7 +41,10 @@ public class Account {
     public ArrayList<AccountVO> searchAccount(AccountFilterFlagsVO vo){
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
         if (vo.getName()!=null){
-            criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("name",vo.getName(), QueryMethod.Full));
+            if (vo.getName().equals(""))
+                criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("createtime", Time.MIN_TIME, Time.MAX_TIME, QueryMethod.Range));
+            else
+                criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("name", vo.getName(), QueryMethod.Full));
         }
         if (vo.getMinTime()!=null&&vo.getMaxTime()!=null){
             criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("createtime",vo.getMinTime(),vo.getMaxTime(),QueryMethod.Range));

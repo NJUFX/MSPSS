@@ -1,6 +1,5 @@
 package blimpl.customerblimpl;
 
-import filterflags.CustomerSearchFlag;
 import network.CustomerClientNetworkService;
 import po.CustomerPO;
 import util.Kind_Of_Customers;
@@ -117,6 +116,40 @@ public class Customer {
             vos.add(vo);
         }
         return vos;
+    }
+
+    /**
+     * 改变用户的应收额度 实在是想不出英文名了:) orz
+     * 默认为减少
+     *
+     * @param customerID
+     * @param money
+     * @return
+     */
+
+    public ResultMessage changeYingShou(String customerID, double money) {
+        CustomerPO po = networkService.searchCustomerByID(customerID);
+        if (po == null)
+            return ResultMessage.FAILED;
+        po.setIncomemoney(po.getIncomemoney() - money);
+        return networkService.updateCustomer(po);
+    }
+
+    /**
+     * 改变客户的应付额度 实在是想不出英文名了:) orz
+     * 默认为减少
+     *
+     * @param customerID
+     * @param money
+     * @return
+     */
+
+    public ResultMessage changeYingFu(String customerID, double money) {
+        CustomerPO po = networkService.searchCustomerByID(customerID);
+        if (po == null)
+            return ResultMessage.FAILED;
+        po.setPaymoney(po.getPaymoney() - money);
+        return networkService.updateCustomer(po);
     }
 
 }
