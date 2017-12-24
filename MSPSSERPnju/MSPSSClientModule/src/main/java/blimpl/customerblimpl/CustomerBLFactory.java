@@ -1,12 +1,21 @@
 package blimpl.customerblimpl;
 
+import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
 
 public class CustomerBLFactory {
-    private Customer customer;
-    private CustomerBLServiceImpl impl;
-    public synchronized CustomerBLService getCustomerBLService(){
+    private static Customer customer;
+    private static CustomerBLServiceImpl impl;
+
+    public synchronized static CustomerBLService getCustomerBLService() {
         if (impl!=null){
+            impl = new CustomerBLServiceImpl(customer);
+        }
+        return impl;
+    }
+
+    public synchronized static CustomerBLInfo getCustomerBLInfo() {
+        if (impl != null) {
             impl = new CustomerBLServiceImpl(customer);
         }
         return impl;

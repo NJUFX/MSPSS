@@ -80,6 +80,20 @@ public class FinanceBillVO {
 
 	}
 
+    public FinanceBillVO(String ID, UserVO operator, CustomerVO customerVO, UserVO managerVO, Time init_time, Time commit_time, Time approval_time, FinanceBillType type, double sum, BillStatus status, ArrayList<FinanceItemVO> list) {
+        this.ID = ID;
+        this.operator = operator;
+        this.customerVO = customerVO;
+        this.managerVO = managerVO;
+        this.init_time = init_time;
+        this.commit_time = commit_time;
+        this.approval_time = approval_time;
+        this.type = type;
+        this.sum = sum;
+        this.status = status;
+        this.list = list;
+    }
+
 	public void setList(ArrayList<FinanceItemVO> list) {
 		this.list = list;
 	}

@@ -1,7 +1,6 @@
 package po;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Description:
@@ -29,6 +28,15 @@ public class FinanceItemPO implements Serializable{
      * 对应的FinanceBill
      */
     private FinanceBillPO financebill;
+
+    public FinanceItemPO() {
+    }
+
+    public FinanceItemPO(String accountID, String ps, double money) {
+        this.accountID = accountID;
+        this.ps = ps;
+        this.money = money;
+    }
 
     public String getId() {
         return id;

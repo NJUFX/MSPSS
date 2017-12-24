@@ -203,7 +203,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage approveFinanceBill(FinanceBillVO financeBillVO) {
-        return null;
+        return financeBill.approveFinanceBill(financeBillVO);
     }
 
     @Override
@@ -228,7 +228,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage rejectFinanceBill(FinanceBillVO financeBillVO) {
-        return null;
+        return financeBill.rejectFinanceBill(financeBillVO);
     }
 
     @Override
@@ -253,7 +253,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ArrayList<FinanceBillVO> getWaitingFinanceBill() {
-        return null;
+        return financeBill.getWaitingFinanceBill();
     }
 
     @Override
