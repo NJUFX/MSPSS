@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -57,6 +58,8 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	TableView AccountTable;
 	@FXML
 	TableColumn<Account,String> DeleteAccount;
+	@FXML
+	TextField SearchCondition;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -232,7 +235,7 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	 * @throws Exception
 	 */
 	public void handleSearchAccountButtonAction(ActionEvent e) throws Exception{
-		
+		String condition = SearchCondition.getText();
 	}
 
 
