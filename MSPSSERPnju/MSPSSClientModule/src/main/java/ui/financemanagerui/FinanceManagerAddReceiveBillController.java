@@ -3,9 +3,15 @@ package ui.financemanagerui;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import auxiliary.FinanceItem;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.accountblservice.AccountBLService;
+import blservice.billblservice.FinanceBillBLService;
+import blservice.customerblservice.CustomerBLService;
+import filterflags.CustomerSearchFlag;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,6 +30,13 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.FinanceBillType;
+import vo.AccountFilterFlagsVO;
+import vo.AccountVO;
+import vo.CustomerVO;
+import vo.FinanceBillVO;
+import vo.FinanceItemVO;
+import vo.UserVO;
 
 public class FinanceManagerAddReceiveBillController implements Initializable {
 
@@ -45,7 +59,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	@FXML
 	TableView FinanceItemTable;
 	@FXML
-	TextField AccountField;
+	ComboBox AccountField;
 	@FXML
 	TextField SumField;
 	@FXML
@@ -58,15 +72,34 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	Button BackToMakeBillMain;
 	@FXML
 	Button ClearCondition;
+	@FXML
+	Button SaveReceiveBill;
+	@FXML
+	Button CommitReceiveBill;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
+	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
+	FinanceBillBLService billBLService = new BLFactoryImpl().getFinanceBillBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
 		
+		ArrayList<AccountVO> accountList = accountBLService.searchAccount(new AccountFilterFlagsVO("",null,null));
+		ObservableList<String> account = AccountField.getItems();
+		for(int i = 0;i<accountList.size();i++) {
+			account.add(accountList.get(i).getName());
+			//account.add(accountList.get(i));
+		}
+		
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {
@@ -195,8 +228,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	 */
 	public void handleAddFinanceItemButtonAction(ActionEvent e) throws Exception{
 	   ObservableList<FinanceItem> data = FinanceItemTable.getItems();
-	   data.add(new FinanceItem(AccountField.getText(),SumField.getText(),PsField.getText()));
-	   AccountField.setText("");
+	   data.add(new FinanceItem(AccountField.getValue().toString(),SumField.getText(),PsField.getText()));
 		SumField.setText("");
 		PsField.setText("");
 	}
@@ -210,14 +242,12 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	public void handleClearConditionButtonAction(ActionEvent e) throws Exception {
 		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
 		data.clear();
-		AccountField.setText("");
 		SumField.setText("");
 		PsField.setText("");
 		CustomerName.setText("");
 		SumAmount.setText("");
 		
 	}
-	
 	/**
 	 * 监听返回增加单据主界面按钮
 	 * @param e
@@ -231,6 +261,48 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}
+	
+	/**
+	 * 监听保存单据按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleSaveReceiveBillButtonAction(ActionEvent e) throws Exception{
+		String customerName = CustomerName.getText();
+		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
+		CustomerVO customerVO= customerList.get(0);
+		Double sum = Double.parseDouble(SumField.getText());
+		ArrayList<FinanceItemVO> financeItems = new ArrayList<FinanceItemVO>();
+		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
+		for(int i=0;i<data.size();i++) {
+			FinanceItem temp = data.get(i);
+			AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(temp.getAccount(),null,null)).get(0);
+			financeItems.add(new FinanceItemVO(accountVO,temp.getPs(),Double.parseDouble(temp.getSum())));
+	}
+		billBLService.saveFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.IN,financeItems));
+		
+	}
+	
+	 /**
+	  * 监听提交单据按钮
+	  * @param e
+	  * @throws Exception
+	  */
+    public void handleCommitReceiveBillButtonAction(ActionEvent e) throws Exception{
+    	String customerName = CustomerName.getText();
+		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
+		CustomerVO customerVO= customerList.get(0);
+		Double sum = Double.parseDouble(SumField.getText());
+		ArrayList<FinanceItemVO> financeItems = new ArrayList<FinanceItemVO>();
+		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
+		for(int i=0;i<data.size();i++) {
+			FinanceItem temp = data.get(i);
+			AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(temp.getAccount(),null,null)).get(0);
+			financeItems.add(new FinanceItemVO(accountVO,temp.getPs(),Double.parseDouble(temp.getSum())));
+	}
+		billBLService.commitFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.IN,financeItems));
+		
 	}
 
 

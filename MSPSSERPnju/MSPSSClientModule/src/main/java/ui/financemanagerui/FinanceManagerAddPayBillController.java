@@ -32,10 +32,13 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.FinanceBillType;
 import vo.AccountFilterFlagsVO;
 import vo.AccountVO;
 import vo.CustomerVO;
+import vo.FinanceBillVO;
 import vo.FinanceItemVO;
+import vo.UserVO;
 
 public class FinanceManagerAddPayBillController implements Initializable {
 
@@ -82,16 +85,23 @@ public class FinanceManagerAddPayBillController implements Initializable {
 	CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
 	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
 	FinanceBillBLService billBLService = new BLFactoryImpl().getFinanceBillBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
+		
 		ArrayList<AccountVO> accountList = accountBLService.searchAccount(new AccountFilterFlagsVO("",null,null));
 		ObservableList<String> account = AccountField.getItems();
 		for(int i = 0;i<accountList.size();i++) {
 			account.add(accountList.get(i).getName());
 			//account.add(accountList.get(i));
 		}
+		
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {
@@ -271,9 +281,9 @@ public class FinanceManagerAddPayBillController implements Initializable {
 		for(int i=0;i<data.size();i++) {
 			FinanceItem temp = data.get(i);
 			AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(temp.getAccount(),null,null)).get(0);
-			financeItems.add(new FinanceItemVO(accountVO,PsField.getText(),Double.parseDouble(SumField.getText())));
+			financeItems.add(new FinanceItemVO(accountVO,temp.getPs(),Double.parseDouble(temp.getSum())));
 		}
-		
+		billBLService.saveFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.OUT,financeItems));
 		
 	}
 	
@@ -283,6 +293,18 @@ public class FinanceManagerAddPayBillController implements Initializable {
 	  * @throws Exception
 	  */
     public void handleCommitPayBillButtonAction(ActionEvent e) throws Exception{
+    	String customerName = CustomerName.getText();
+		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
+		CustomerVO customerVO= customerList.get(0);
+		Double sum = Double.parseDouble(SumField.getText());
+		ArrayList<FinanceItemVO> financeItems = new ArrayList<FinanceItemVO>();
+		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
+		for(int i=0;i<data.size();i++) {
+			FinanceItem temp = data.get(i);
+			AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(temp.getAccount(),null,null)).get(0);
+			financeItems.add(new FinanceItemVO(accountVO,temp.getPs(),Double.parseDouble(temp.getSum())));
+	}
+		billBLService.commitFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.OUT,financeItems));
 		
 	}
     
