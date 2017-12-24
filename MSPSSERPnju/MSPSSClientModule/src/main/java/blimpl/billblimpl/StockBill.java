@@ -94,13 +94,7 @@ public class StockBill {
 
         return pos_to_vos(pos);
     }
-    public ResultMessage addStockBill(StockBillVO stockBillVO){
-       return networkService.addStockBill(vo_to_po(stockBillVO));
-    }
 
-    public ResultMessage updateStockBill(StockBillVO stockBillVO){
-        return networkService.updateStockBill(vo_to_po(stockBillVO));
-    }
 
     public ResultMessage deleteStockBill(StockBillVO vo) {
         return networkService.deleteStockBill(vo.id);
@@ -166,9 +160,15 @@ public class StockBill {
             StockBillItemVO itemVO = new StockBillItemVO(commodityInfoService.getCommodity(itemPO.getCommodityID()),itemPO.getNumber());
             itemVOS.add(itemVO);
         }
-        StockBillVO stockBillVO = new StockBillVO(po.getID(), po.getType(), po.getStatus(), itemVOS, new Time(po.getInit_time()), new Time(po.getCommit_time()), new Time(po.getApproval_time()), po.getCommentByStockManager(), po.getCommentByManager()
+        UserVO operator = userInfo.getUser(po.getInitID());
+        UserVO approval = po.getApprovalID() != null ? userInfo.getUser(po.getApprovalID()) : null;
+        Time commitTime = po.getCommit_time() != null ? new Time(po.getCommit_time()) : null;
+        Time approvalTime = po.getApproval_time() != null ? new Time(po.getApproval_time()) : null;
 
-                , userInfo.getUser(po.getInitID()), userInfo.getUser(po.getApprovalID()));
+        StockBillVO stockBillVO = new StockBillVO(po.getID(), StockBillType.values()[po.getType()],
+                BillStatus.values()[po.getStatus()], itemVOS, new Time(po.getInit_time()),
+                commitTime, approvalTime, po.getCommentByStockManager(), po.getCommentByManager()
+                , operator, approval);
         return  stockBillVO;
     }
     private StockBillPO vo_to_po(StockBillVO vo){
@@ -178,7 +178,8 @@ public class StockBill {
             StockBillItemPO itemPO = new StockBillItemPO(itemVO.commodityVO.ID,itemVO.number);
             itemPOS.add(itemPO);
         }
-        StockBillPO po = new StockBillPO(vo.getId(), vo.getType(), vo.getStatus(), itemPOS, vo.init_time.toString(), vo.commit_time.toString(), vo.approval_time.toString()
+
+        StockBillPO po = new StockBillPO(vo.getId(), vo.getType().ordinal(), vo.getStatus().ordinal(), itemPOS, vo.init_time.toString(), vo.commit_time.toString(), vo.approval_time.toString()
                 , vo.commentByStockManager, vo.commentByManager, vo.stockManager.getID(), vo.getManager().getID());
         return po;
     }
