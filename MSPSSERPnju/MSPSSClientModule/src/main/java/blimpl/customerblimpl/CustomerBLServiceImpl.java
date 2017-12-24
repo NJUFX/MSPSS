@@ -74,4 +74,30 @@ public class CustomerBLServiceImpl implements CustomerBLService,CustomerBLInfo {
     public CustomerVO getCustomerByID(String ID) {
         return customer.getCustomerInfo(ID);
     }
+
+    /**
+     * 改变用户的应收额度 实在是想不出英文名了:) orz
+     * 默认为减少
+     *
+     * @param customerID
+     * @param money
+     * @return
+     */
+    @Override
+    public ResultMessage changeYingShou(String customerID, double money) {
+        return customer.changeYingShou(customerID, money);
+    }
+
+    /**
+     * 改变客户的应付额度 实在是想不出英文名了:) orz
+     * 默认为减少
+     *
+     * @param customerID
+     * @param money
+     * @return
+     */
+    @Override
+    public ResultMessage changeYingFu(String customerID, double money) {
+        return customer.changeYingFu(customerID, money);
+    }
 }

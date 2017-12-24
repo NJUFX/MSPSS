@@ -1,10 +1,6 @@
 package po;
 
-import util.BillStatus;
-import util.FinanceBillType;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,7 +40,7 @@ public class FinanceBillPO implements Serializable {
    /**
     * 财务单类型 为收款单 付款单
     */
-   private FinanceBillType type;
+   private int type;
    /**
     * 总额
     */
@@ -62,7 +58,8 @@ public class FinanceBillPO implements Serializable {
    public FinanceBillPO(){
 
    }
-   public FinanceBillPO(String ID, String operatorID, String customerID, String managerID, String init_time, String commit_time, String approval_time, FinanceBillType type, double sum, int status, List<FinanceItemPO> list) {
+
+    public FinanceBillPO(String ID, String operatorID, String customerID, String managerID, String init_time, String commit_time, String approval_time, int type, double sum, int status, List<FinanceItemPO> list) {
       this.ID = ID;
       this.operatorID = operatorID;
       this.customerID = customerID;
@@ -132,11 +129,11 @@ public class FinanceBillPO implements Serializable {
       this.approval_time = approval_time;
    }
 
-   public FinanceBillType getType() {
+    public int getType() {
       return type;
    }
 
-   public void setType(FinanceBillType type) {
+    public void setType(int type) {
       this.type = type;
    }
 
