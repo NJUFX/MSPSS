@@ -30,37 +30,37 @@ public class GeneralAccountBLServiceImpl implements GeneralAccountBLService {
 
 
     /**
-     * 精确查找商品
-     * @param id
+     * 按名字精确查找账户
+     * @param name
      * @return
      */
-    public GeneralAccountVO exactlySearchGeneralAccount(String field,String id){
-        return generalAccount.exactlySearchGeneralAccount(field, id);
+    public GeneralAccountVO exactlySearchGeneralAccountByName(String name){
+        return generalAccount.exactlySearchGeneralAccount("name", name);
     }
 
-    public ArrayList<GeneralAccountVO> fullSearchGeneralAccount(String field, Object value){
-        return generalAccount.fullSearchGeneralAccount(field, value);
+    public ArrayList<GeneralAccountVO> fullSearchGeneralAccountByTime(Time time){
+        return generalAccount.fullSearchGeneralAccount("time", time.toString());
     }
     /**
+     *按名称模糊查找
      *
-     * @param filed
      * @param value
      * @return
      */
-    public ArrayList<GeneralAccountVO> fuzzySearchGeneralAccount(String filed,String value){
-        return generalAccount.fuzzySearchGeneralAccount(filed, value);
+    public ArrayList<GeneralAccountVO> fuzzySearchGeneralAccountByName(String value){
+        return generalAccount.fuzzySearchGeneralAccount("name", value);
     }
 
 
     /**
      *
-     * @param field
+     *
      * @param min
      * @param max
      * @return
      */
-    public ArrayList<GeneralAccountVO> rangeSearchGeneralAccount(String field, Object min, Object max){
-        return generalAccount.rangeSearchGeneralAccount(field, min, max);
+    public ArrayList<GeneralAccountVO> rangeSearchGeneralAccountByTime(Time min, Time max){
+        return generalAccount.rangeSearchGeneralAccount("time", min.toString(), max.toString());
     }
 
 }
