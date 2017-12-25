@@ -1,5 +1,9 @@
 package ui.adminui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.userblservice.UserBLService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
@@ -14,6 +18,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import main.StageSingleton;
 import ui.common.Dialog;
+import util.Kind_Of_Users;
+import util.ResultMessage;
+import vo.UserVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +33,10 @@ import java.util.ResourceBundle;
 public class UserModifyViewController implements Initializable {
     Dialog dialog = new Dialog();
     private MainApp application;
+    UserBLService userBLService = new BLFactoryImpl().getUserBLService();
+
+    static String id_to_modify;
+    static UserVO user_to_modify;
 
     public void setApp(MainApp application) {
         this.application = application;
@@ -42,28 +53,82 @@ public class UserModifyViewController implements Initializable {
      * 身份的下拉框
      */
     @FXML
-    public ComboBox<String> userCategory;
+    public ComboBox<String> userCategory, userLevel;
 
+    @FXML
+    Label nameLabel, cateLabel, idLabel;
 
     /**
      * 用户id
      */
     @FXML
-    public Label userId;
-    /**
-     * 用户权限下拉框
-     */
+    public Label userId, userName;
+
     @FXML
-    public ComboBox<String> userPower;
+    public void userCategoryAction(ActionEvent e) {
+        ObservableList<String> options = FXCollections.observableArrayList();
+        userLevel.setItems(options);
+        if (userCategory.getValue().equals("进货销售人员")) {
+            userLevel.getItems().add("普通职员");
+            userLevel.getItems().add("销售经理");
+        } else if (userCategory.getValue().equals("财务人员")) {
+            userLevel.getItems().add("普通职员");
+            userLevel.getItems().add("财务经理");
+        } else {
+            userLevel.setVisible(false);
+        }
+        //userLevel.getItems().add("");
+    }
 
     /**
      * @param e
      */
     @FXML
     public void sureButtonAction(ActionEvent e) {
-        dialog.confirmDialog("Do you confirm to modify this user?");
-        System.out.println("Success.");
-        dialog.infoDialog("Modify the user successfully.");
+        if (userCategory.getValue() == null) {
+            dialog.errorInfoDialog("Something null, please check your input.");
+        } else {
+            boolean isSure = dialog.confirmDialog("Do you confirm to add this user?");
+            if (isSure == true) {
+                Kind_Of_Users kind_of_users = Kind_Of_Users.SystemManager;
+                switch (userCategory.getValue()) {
+                    case "库存管理人员":
+                        kind_of_users = Kind_Of_Users.StockManager;
+                        break;
+                    case "进货销售人员":
+                        if (userLevel.getValue() == null) {
+                            dialog.errorInfoDialog("Something null, please check your input.");
+                        } else if (userLevel.getValue().equals("普通职员")) {
+                            kind_of_users = Kind_Of_Users.StockSeller;
+                        } else {
+                            kind_of_users = Kind_Of_Users.StockSellerManager;
+                        }
+                        break;
+                    case "财务人员":
+                        if (userLevel.getValue() == null) {
+                            dialog.errorInfoDialog("Something null, please check your input.");
+                        } else if (userLevel.getValue().equals("普通职员")) {
+                            kind_of_users = Kind_Of_Users.Financer;
+                        } else {
+                            kind_of_users = Kind_Of_Users.FinancerManager;
+                        }
+                        break;
+                    case "总经理":
+                        kind_of_users = Kind_Of_Users.ChiefManager;
+                        break;
+                    case "系统管理员":
+                        kind_of_users = Kind_Of_Users.SystemManager;
+                        break;
+                }
+
+                UserVO userVo = new UserVO(user_to_modify.getID(), user_to_modify.getName(), kind_of_users, user_to_modify.getPassword());
+                userBLService.updateUser(userVo);
+                ResultMessage resultMessage = userBLService.addUser(userVo);
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Add the user successfully.");
+                }
+            }
+        }
     }
 
     @FXML
@@ -85,6 +150,7 @@ public class UserModifyViewController implements Initializable {
     public void beforeOperationButtonAction(ActionEvent e) {
         try {
             UserModifyFirstViewController controller = (UserModifyFirstViewController) replaceSceneContent("/view/admin/UserModifyFirstView.fxml");
+            controller.idField.setText(id_to_modify);
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -155,5 +221,13 @@ public class UserModifyViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
+        nameLabel.setText("姓名：" + LoginController.getCurrentUser().getName());
+        cateLabel.setText("身份：" + LoginController.getCategory());
+        idLabel.setText("编号：" + LoginController.getCurrentUser().getID());
+
+        user_to_modify = userBLService.searchUserByID(id_to_modify);
+        userId.setText(user_to_modify.getID());
+        userName.setText(user_to_modify.getName());
+        // userCategory.setValue();
     }
 }

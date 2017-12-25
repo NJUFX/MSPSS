@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -26,6 +27,9 @@ public class AdminMainViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        nameLabel.setText("姓名：" + LoginController.getCurrentUser().getName());
+        cateLabel.setText("身份：" + LoginController.getCategory());
+        idLabel.setText("编号：" + LoginController.getCurrentUser().getID());
     }
 
     Dialog dialog = new Dialog();
@@ -39,14 +43,15 @@ public class AdminMainViewController implements Initializable {
 
     @FXML
     Button addUserButton;
-
     @FXML
     Button delUserButton;
-
     @FXML
-    Button modUserButton;
+    Button modUserButton, searchUserButton;
     @FXML
     Button BackToLogin;
+    @FXML
+    Label nameLabel, cateLabel, idLabel;
+
 
     /**
      * 返回登录界面
@@ -68,6 +73,17 @@ public class AdminMainViewController implements Initializable {
         try {
             UserAddViewController controller = (UserAddViewController) replaceSceneContent(
                     "/view/admin/UserAddView.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void searchddUserButtonAction(ActionEvent e) throws IOException {
+        try {
+            UserSearchViewController controller = (UserSearchViewController) replaceSceneContent(
+                    "/view/admin/UserSearchView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.net.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -15,7 +16,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0"
       prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserModifyViewController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserSearchViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -29,20 +30,20 @@
         </Pane>
         <Button id="addUserButton" fx:id="addUserButton" layoutY="282.0" mnemonicParsing="false"
                 onAction="#addUserButtonAction" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/admin/modUser.css" text="增加用户" textFill="#f8f4f4">
+                stylesheets="@../../css/admin/delUser.css" text="增加用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0"/>
             </font>
         </Button>
-        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false"
-                onAction="#delUserButtonAction" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/admin/modUser.css" text="删除用户" textFill="#f8f4f4">
+        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" prefHeight="35.0"
+                prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="删除用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0"/>
             </font>
         </Button>
-        <Button id="modUserButton" layoutY="351.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/admin/modUser.css" text="修改用户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="modUserButton" layoutY="351.0" mnemonicParsing="false"
+                onAction="#modUserButtonAction" prefHeight="35.0" prefWidth="145.0"
+                stylesheets="@../../css/admin/delUser.css" text="修改用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0"/>
             </font>
@@ -58,7 +59,7 @@
                 <Font name="Microsoft YaHei" size="14.0"/>
             </font>
         </Label>
-        <Label fx:id="cateLabel" layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
+        <Label fx:id="cateLabel" layoutX="20.0" layoutY="218.0" text="身份: 系统管理员" textFill="WHITE">
             <font>
                 <Font size="14.0"/>
             </font>
@@ -86,7 +87,7 @@
                 <Image url="@../../image/admin/编辑用户.png"/>
             </image>
         </ImageView>
-        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;修改用户" textFill="WHITE">
+        <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;查找用户" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="18.0"/>
             </font>
@@ -96,71 +97,6 @@
                 <Font name="Microsoft YaHei" size="22.0"/>
             </font>
         </Label>
-        <Pane layoutX="260.0" layoutY="109.0" prefHeight="313.0" prefWidth="522.0"
-              style="-fx-background-color: #FFFFFF;">
-            <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="352.0" layoutY="54.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../image/admin/头像.png"/>
-                    </image>
-                </ImageView>
-                <Label layoutX="118.0" layoutY="57.0" text="编号">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="118.0" layoutY="108.0" text="姓名">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="118.0" layoutY="157.0" text="身份">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="118.0" layoutY="200.0" text="权限">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Label>
-                <ComboBox id="userCategory" fx:id="userCategory" onAction="#userCategoryAction" layoutX="186.0"
-                          layoutY="157.0" prefHeight="23.0"
-                          prefWidth="114.0">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="总经理"/>
-                            <String fx:value="进货销售人员"/>
-                            <String fx:value="库存管理人员"/>
-                            <String fx:value="财务人员"/>
-                            <String fx:value="系统管理员"/>
-                        </FXCollections>
-                    </items>
-                </ComboBox>
-
-                <ComboBox id="userPower" fx:id="userLevel" layoutX="187.0" layoutY="200.0" prefHeight="23.0"
-                          prefWidth="114.0"/>
-                <Label id="userId" fx:id="userId" layoutX="186.0" layoutY="58.0" prefHeight="22.0" prefWidth="114.0"
-                       stylesheets="@../../css/admin/addUser.css"/>
-                <Label id="userId" fx:id="userName" layoutX="186.0" layoutY="108.0" prefHeight="22.0" prefWidth="114.0"
-                       stylesheets="@../../css/admin/addUser.css"/>
-            </children>
-        </Pane>
-        <Button id="cancelButton" fx:id="cancelButton" layoutX="292.0" layoutY="457.0" mnemonicParsing="false"
-                onAction="#cancelButtonAction" prefHeight="36.0" prefWidth="109.0"
-                stylesheets="@../../css/admin/modUser.css" text="取消" textFill="#0f88eb">
-            <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
-            </font>
-        </Button>
-        <Button id="sureButton" fx:id="sureButton" layoutX="635.0" layoutY="457.0" mnemonicParsing="false"
-                onAction="#sureButtonAction" prefHeight="34.0" prefWidth="109.0"
-                stylesheets="@../../css/admin/modUser.css" text="确认" textFill="WHITE">
-            <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
-            </font>
-        </Button>
         <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
                 stylesheets="@../../css/stockseller/common.css">
             <graphic>
@@ -192,12 +128,60 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="sureButton" fx:id="beforeOperationButton" layoutX="463.0" layoutY="457.0" mnemonicParsing="false"
-                onAction="#beforeOperationButtonAction" prefHeight="34.0" prefWidth="109.0"
-                stylesheets="@../../css/admin/modUser.css" text="上一步" textFill="WHITE">
+        <Button id="delUserButton" layoutY="386.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
+                stylesheets="@../../css/admin/delUser.css" text="查找用户" textFill="#f8f4f4">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font size="16.0"/>
             </font>
         </Button>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="394.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../image/搜索.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="backButton" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" onAction="#backButtonAction"
+                prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回"
+                textFill="#0f88eb">
+            <graphic>
+                <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockmanager/返回.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Pane layoutX="159.0" layoutY="160.0" prefHeight="226.0" prefWidth="695.0">
+            <children>
+                <TextField fx:id="keywordField" layoutX="203.0" layoutY="130.0" prefHeight="40.0" prefWidth="293.0"
+                           promptText="关键词/编号">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </TextField>
+                <ComboBox fx:id="keyTypeBox" onAction="#keyTypeBoxAction" layoutX="100.0" layoutY="130.0"
+                          prefHeight="40.0" prefWidth="102.0" promptText="关键词类型">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="编号"/>
+                            <String fx:value="身份"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Button id="sureButton" fx:id="searchButton" layoutX="496.0" layoutY="130.0" mnemonicParsing="false"
+                        onAction="#searchButtonAction" prefHeight="39.0" prefWidth="102.0"
+                        stylesheets="@../../css/admin/addUser.css" text="查找" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei" size="16.0"/>
+                    </font>
+                </Button>
+                <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="250.0" layoutY="30.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockseller/search.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
     </children>
 </Pane>
