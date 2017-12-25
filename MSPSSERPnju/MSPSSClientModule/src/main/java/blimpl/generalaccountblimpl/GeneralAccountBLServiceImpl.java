@@ -54,7 +54,7 @@ public class GeneralAccountBLServiceImpl implements GeneralAccountBLService {
 
     /**
      *
-     *
+     *按时间范围查找
      * @param min
      * @param max
      * @return
