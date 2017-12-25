@@ -1,11 +1,6 @@
 package po;
 
-import util.BillStatus;
-import util.SalesInBillType;
-import util.Time;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +14,12 @@ public class SalesInBillPO implements Serializable {
      * 进货退货单格式为（格式为：JHDTH-yyyyMMdd-xxxxx）
      */
     private String ID;
-
+    /**
+     * 默认业务员 //不知道写VO的时候的从哪里看到添加上去的
+     * 突然想删去，但是界面层已经有相关部分了
+     * 害怕删除后会打我，就添加上这一项吧 黑人脸！
+     */
+    private String DAE;
     /**
      * 供应商
      */
@@ -81,8 +81,9 @@ public class SalesInBillPO implements Serializable {
     public SalesInBillPO() {
     }
 
-    public SalesInBillPO(String ID, String provider, String storage, int type, String operatorID, String ps, double sumMoney, List<SalesItemPO> itemPOS, int status, String init_time, String commit_time, String approval_time, String commentByManager, String managerID) {
+    public SalesInBillPO(String ID, String DAE, String provider, String storage, int type, String operatorID, String ps, double sumMoney, List<SalesItemPO> itemPOS, int status, String init_time, String commit_time, String approval_time, String commentByManager, String managerID) {
         this.ID = ID;
+        this.DAE = DAE;
         this.provider = provider;
         this.storage = storage;
         this.type = type;
@@ -208,5 +209,13 @@ public class SalesInBillPO implements Serializable {
 
     public void setManagerID(String managerID) {
         this.managerID = managerID;
+    }
+
+    public String getDAE() {
+        return DAE;
+    }
+
+    public void setDAE(String DAE) {
+        this.DAE = DAE;
     }
 }
