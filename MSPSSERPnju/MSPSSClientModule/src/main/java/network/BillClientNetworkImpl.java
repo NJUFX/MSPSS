@@ -8,21 +8,28 @@ import java.util.ArrayList;
 /**
  * Created by thinkpad on 2017/12/24.
  */
-public class BillClientNetworkImpl {
-
+public class BillClientNetworkImpl implements BillClientNetworkService {
     /**
      * 添加库存类单据 用于点击保存时
+     *
      * @param stockBillPO
      * @return
      */
-    public ResultMessage addStockBill(StockBillPO stockBillPO);
+    @Override
+    public ResultMessage addStockBill(StockBillPO stockBillPO) {
+        return null;
+    }
 
     /**
      * 更新库存类单据 用于点击提交时
+     *
      * @param stockBillPO
      * @return
      */
-    public ResultMessage updateStockBill(StockBillPO stockBillPO);
+    @Override
+    public ResultMessage updateStockBill(StockBillPO stockBillPO) {
+        return null;
+    }
 
     /**
      * 删除某单据 未提交状态
@@ -30,15 +37,26 @@ public class BillClientNetworkImpl {
      * @param id
      * @return
      */
-    public ResultMessage deleteStockBill(String id);
+    @Override
+    public ResultMessage deleteStockBill(String id) {
+        return null;
+    }
 
     /**
-     *用于查找某一数据
+     * 用于查找某一数据
+     *
+     * @param field
+     * @param value
      */
-    public ArrayList<StockBillPO> fullSearchStockBill(String field, Object value);
+    @Override
+    public ArrayList<StockBillPO> fullSearchStockBill(String field, Object value) {
+        return null;
+    }
 
-
-    public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses);
+    @Override
+    public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses) {
+        return null;
+    }
 
     /**
      * 返回形如 KDZSD-20101010-00001
@@ -46,7 +64,10 @@ public class BillClientNetworkImpl {
      * @param type
      * @return
      */
-    public String getStockBillID(StockBillType type);
+    @Override
+    public String getStockBillID(StockBillType type) {
+        return null;
+    }
 
     /**
      * 在数据层增加 现金费用单
@@ -54,7 +75,10 @@ public class BillClientNetworkImpl {
      * @param po
      * @return
      */
-    public ResultMessage addCashCostBill(CashCostBillPO po);
+    @Override
+    public ResultMessage addCashCostBill(CashCostBillPO po) {
+        return null;
+    }
 
     /**
      * 在数据层更新 现金费用单
@@ -62,31 +86,60 @@ public class BillClientNetworkImpl {
      * @param po
      * @return
      */
-    public ResultMessage updateCashCostBill(CashCostBillPO po);
+    @Override
+    public ResultMessage updateCashCostBill(CashCostBillPO po) {
+        return null;
+    }
 
-    public ResultMessage deleteCashCostBill(String id);
+    @Override
+    public ResultMessage deleteCashCostBill(String id) {
+        return null;
+    }
 
     /**
      * 得到应有的现金费用单ID
      *
      * @return
      */
-    public String getCashCostBillID();
+    @Override
+    public String getCashCostBillID() {
+        return null;
+    }
 
-    public ArrayList<CashCostBillPO> multiSearchCashCostBill(ArrayList<CriteriaClause> criteriaClauses);
+    @Override
+    public ArrayList<CashCostBillPO> multiSearchCashCostBill(ArrayList<CriteriaClause> criteriaClauses) {
+        return null;
+    }
 
-    public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val);
+    @Override
+    public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val) {
+        return null;
+    }
 
+    @Override
+    public ResultMessage addFinanceBill(FinanceBillPO po) {
+        return null;
+    }
 
-    public ResultMessage addFinanceBill(FinanceBillPO po);
+    @Override
+    public ResultMessage updateFinanceBill(FinanceBillPO po) {
+        return null;
+    }
 
-    public ResultMessage updateFinanceBill(FinanceBillPO po);
+    @Override
+    public ResultMessage deleteFinanceBill(String id) {
+        return null;
+    }
 
-    public ResultMessage deleteFinanceBill(String id);
+    @Override
+    public ArrayList<FinanceBillPO> fullSearchFinanceBill(String field, Object val) {
+        return null;
+    }
 
-    public ArrayList<FinanceBillPO> fullSearchFinanceBill(String field, Object val);
-
-    public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses);
+    @Override
+    public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses) {
+        return null;
+    }
 
     /**
      * 根据财务类单据类型返回应有的单据
@@ -94,17 +147,35 @@ public class BillClientNetworkImpl {
      * @param type
      * @return
      */
-    public String getFinanceBillID(FinanceBillType type);
+    @Override
+    public String getFinanceBillID(FinanceBillType type) {
+        return null;
+    }
 
-    public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO);
+    @Override
+    public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO) {
+        return null;
+    }
 
-    public ResultMessage updateSalesInBill(SalesInBillPO salesInBillPO);
+    @Override
+    public ResultMessage updateSalesInBill(SalesInBillPO salesInBillPO) {
+        return null;
+    }
 
-    public ResultMessage deleteSalesInBill(String id);
+    @Override
+    public ResultMessage deleteSalesInBill(String id) {
+        return null;
+    }
 
-    public ArrayList<SalesInBillPO> fullSearchSalesInBill(String field, Object val);
+    @Override
+    public ArrayList<SalesInBillPO> fullSearchSalesInBill(String field, Object val) {
+        return null;
+    }
 
-    public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses);
+    @Override
+    public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses) {
+        return null;
+    }
 
     /**
      * 根据进货单 进货退货单来返回应有的ID
@@ -112,17 +183,58 @@ public class BillClientNetworkImpl {
      * @param type
      * @return
      */
-    public String getSalesInBillID(SalesInBillType type);
+    @Override
+    public String getSalesInBillID(SalesInBillType type) {
+        return null;
+    }
 
-    public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO);
+    @Override
+    public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO) {
+        return null;
+    }
 
-    public ResultMessage updateSalesOutBill(SalesOutBillPO salesOutBillPO);
+    @Override
+    public ResultMessage updateSalesOutBill(SalesOutBillPO salesOutBillPO) {
+        return null;
+    }
 
-    public ResultMessage deleteSalesOutBill(String id);
+    @Override
+    public ResultMessage deleteSalesOutBill(String id) {
+        return null;
+    }
 
-    public ArrayList<SalesOutBillPO> fullSearchSalesOutBill(String field, Object val);
+    @Override
+    public ArrayList<SalesOutBillPO> fullSearchSalesOutBill(String field, Object val) {
+        return null;
+    }
 
-    public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses);
+    @Override
+    public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses) {
+        return null;
+    }
 
-    public String getSalesOutBillID(SalesOutBillType type);
+    @Override
+    public String getSalesOutBillID(SalesOutBillType type) {
+        return null;
+    }
+
+    @Override
+    public ResultMessage addAlarmBill(AlarmBillPO po) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val) {
+        return null;
+    }
+
+    /**
+     * 得到库存报警单应有的数据
+     *
+     * @return
+     */
+    @Override
+    public String getAlarmID() {
+        return null;
+    }
 }

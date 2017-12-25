@@ -2,6 +2,7 @@ package blimpl.billblimpl;
 
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityInfoService;
+import blservice.customerblservice.CustomerBLInfo;
 import blservice.userblservice.UserInfo;
 import network.BillClientNetworkService;
 import po.SalesInBillPO;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 public class SalesInBill {
     private static CommodityInfoService commodityInfo = new BLFactoryImpl().getCommodityInfoService();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
     private static BillClientNetworkService networkService;
     /**
      * 保存进货单 进货退货单
@@ -53,7 +55,9 @@ public class SalesInBill {
      * @return
      */
     public ResultMessage commitSalesInBill(SalesInBillVO vo) {
-        return ResultMessage.SUCCESS;
+        vo.setStatus(BillStatus.commit);
+        vo.setCommit_time(new Time());
+        return networkService.updateSalesInBill(vo_to_po(vo));
     }
 
     ;
@@ -65,7 +69,10 @@ public class SalesInBill {
      * @return
      */
     public ResultMessage deleteSalesInBill(SalesInBillVO vo) {
-        return ResultMessage.SUCCESS;
+        if (vo.getStatus() == BillStatus.init)
+            return networkService.deleteSalesInBill(vo.ID);
+
+        return ResultMessage.FAILED;
     }
 
     /**
@@ -75,7 +82,9 @@ public class SalesInBill {
      * @return
      */
     public ResultMessage withdrawSalesInBill(SalesInBillVO vo) {
-        return ResultMessage.SUCCESS;
+        vo.setStatus(BillStatus.init);
+        vo.setCommit_time(null);
+        return networkService.updateSalesInBill(vo_to_po(vo));
     }
 
     /**
@@ -85,7 +94,9 @@ public class SalesInBill {
      * @return
      */
     public ArrayList<SalesInBillVO> getMySalesInBill(String operatorID) {
-        return new ArrayList<>();
+        ArrayList<SalesInBillPO> pos = networkService.fullSearchSalesInBill("operator_id", operatorID);
+
+        return pos_to_vos(pos);
     }
 
     /**
@@ -94,17 +105,56 @@ public class SalesInBill {
      * @return
      */
     public ArrayList<SalesInBillVO> getWaitingSalesInBill() {
-        return new ArrayList<>();
+        ArrayList<SalesInBillPO> pos = networkService.fullSearchSalesInBill("status", BillStatus.commit.ordinal());
+        return pos_to_vos(pos);
     }
 
     public ResultMessage approveSalesInBill(SalesInBillVO salesInBillVO) {
-        return ResultMessage.SUCCESS;
+        salesInBillVO.setStatus(BillStatus.approval);
+        salesInBillVO.setApproval_time(new Time());
+        //根据是进货单还是进货退货单决定后面的操作 vo.type
+
+        //判断是否是进货单
+        boolean isIn = salesInBillVO.getType() == SalesInBillType.IN;
+        //下面是进货单的操作
+        if (isIn) {
+            //进货单通过审批后 供应商的应收款就增加了
+            customerBLInfo.changeYingShou(salesInBillVO.getProvider(), salesInBillVO.getSumMoney() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesInBillVO.getItemVOS()) {
+                commodityInfo.updateCommodityByIn(item.getId(), item.getNumber(), item.getPrice());
+            }
+            return networkService.updateSalesInBill(vo_to_po(salesInBillVO));
+        } else {
+            //进货退货单通过审批后 供应商的应付款就增加了
+            customerBLInfo.changeYingFu(salesInBillVO.getProvider(), salesInBillVO.getSumMoney() * -1);
+            for (SalesItemVO item : salesInBillVO.getItemVOS()) {
+                commodityInfo.updateCommodityByOut(item.getId(), item.getNumber(), item.getPrice());
+            }
+            return networkService.updateSalesInBill(vo_to_po(salesInBillVO));
+        }
+
     }
 
     public ResultMessage rejectSalesInBill(SalesInBillVO salesInBillVO) {
-        return ResultMessage.SUCCESS;
+        salesInBillVO.setStatus(BillStatus.rejected);
+        salesInBillVO.setApproval_time(new Time());
+        return networkService.updateSalesInBill(vo_to_po(salesInBillVO));
     }
 
+    private ArrayList<SalesInBillVO> pos_to_vos(ArrayList<SalesInBillPO> pos) {
+        if (pos == null)
+            return new ArrayList<>();
+        ArrayList<SalesInBillVO> billVOS = new ArrayList<>();
+        for (SalesInBillPO po : pos
+                ) {
+            billVOS.add(po_to_vo(po));
+        }
+        return billVOS;
+    }
 
     private SalesInBillVO po_to_vo(SalesInBillPO po) {
         Time initTime = po.getInit_time() != null ? new Time(po.getInit_time()) : null;

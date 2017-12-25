@@ -118,4 +118,32 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
     public ArrayList<CommodityVO> search(FilterFlagVO vo) {
         return commodity.searchCommodity(vo);
     }
+
+    /**
+     * 在进货后，根据商品的进货信息，更新商品的库存均价，以及最近进价
+     *
+     * @param commodityID
+     * @param number
+     * @param price
+     * @return
+     */
+    @Override
+    public ResultMessage updateCommodityByIn(String commodityID, int number, double price) {
+
+        return commodity.updateCommodityByIn(commodityID, number, price);
+    }
+
+    /**
+     * 售货后，根据商品的售出信息，更新库存数量，以及最近售价
+     * 同时检测是否会出现库存报警现象
+     *
+     * @param commodityID
+     * @param number
+     * @param price
+     * @return
+     */
+    @Override
+    public ResultMessage updateCommodityByOut(String commodityID, int number, double price) {
+        return commodity.updateCommodityByOut(commodityID, number, price);
+    }
 }

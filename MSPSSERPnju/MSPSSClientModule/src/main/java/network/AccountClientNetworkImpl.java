@@ -1,5 +1,5 @@
 package network;
-import com.sun.org.apache.regexp.internal.RE;
+
 import network.accountnetworkservice.AccountServerNetworkService;
 import po.AccountPO;
 import util.CriteriaClause;
@@ -18,16 +18,6 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     private AccountServerNetworkService accountServerNetworkService;
 
-    /**
-     * 多重条件查找
-     *
-     * @param criteriaClauses
-     * @return
-     */
-    @Override
-    public ArrayList<AccountPO> multiSearchAccount(ArrayList<CriteriaClause> criteriaClauses) {
-        return null;
-    }
 
     public AccountClientNetworkImpl(){
         try {
