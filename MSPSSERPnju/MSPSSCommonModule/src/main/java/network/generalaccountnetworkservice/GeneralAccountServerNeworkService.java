@@ -48,4 +48,17 @@ public interface GeneralAccountServerNeworkService {
      */
     public ArrayList<GeneralAccountPO> rangeSearchGeneralAccount(String field, Object min, Object max)throws RemoteException;
 
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerPO searchCustomer(String name)throws RemoteException;
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityPO searchCommodity(String name)throws  RemoteException;
 }

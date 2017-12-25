@@ -66,4 +66,22 @@ public class GeneralAccountServerNetworkImpl implements GeneralAccountServerNewo
         return generalAccountDataService.rangeSearchGeneralAccount(field,min,max);
     }
 
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerPO searchCustomer(String name)throws RemoteException{
+        return generalAccountDataService.searchCustomer(name);
+    }
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityPO searchCommodity(String name)throws RemoteException{
+        return generalAccountDataService.searchCommodity(name);
+    }
+
 }

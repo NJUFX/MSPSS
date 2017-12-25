@@ -14,6 +14,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import network.generalaccountnetworkservice.GeneralAccountServerNeworkService;
+import vo.CustomerVO;
+
 /**
  * Created by thinkpad on 2017/12/23.
  */
@@ -98,6 +100,35 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
     public ArrayList<GeneralAccountPO> rangeSearchGeneralAccount(String field, Object min, Object max){
         try{
             generalAccountServerNeworkService.rangeSearchGeneralAccount(field, min, max);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerPO searchCustomer(String name){
+        try{
+            generalAccountServerNeworkService.searchCustomer(name);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityPO searchCommodity(String name){
+        try{
+            generalAccountServerNeworkService.searchCommodity(name);
         }catch (RemoteException e){
             e.printStackTrace();
         }

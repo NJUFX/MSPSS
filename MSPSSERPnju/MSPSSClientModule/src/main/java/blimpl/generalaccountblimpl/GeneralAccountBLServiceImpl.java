@@ -1,9 +1,12 @@
 package blimpl.generalaccountblimpl;
 
 import blservice.generalaccountblservice.GeneralAccountBLService;
+import po.CommodityPO;
 import po.GeneralAccountPO;
 import util.ResultMessage;
 import util.Time;
+import vo.CommodityVO;
+import vo.CustomerVO;
 import vo.GeneralAccountVO;
 
 import java.util.ArrayList;
@@ -61,6 +64,24 @@ public class GeneralAccountBLServiceImpl implements GeneralAccountBLService {
      */
     public ArrayList<GeneralAccountVO> rangeSearchGeneralAccountByTime(Time min, Time max){
         return generalAccount.rangeSearchGeneralAccount("time", min.toString(), max.toString());
+    }
+
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerVO searchCustomer(String name){
+        return generalAccount.searchCustomer(name);
+    }
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityVO searchCommodity(String name){
+        return generalAccount.searchCommodity(name);
     }
 
 }

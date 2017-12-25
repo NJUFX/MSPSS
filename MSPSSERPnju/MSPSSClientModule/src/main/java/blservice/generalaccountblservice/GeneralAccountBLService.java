@@ -1,7 +1,10 @@
 package blservice.generalaccountblservice;
 
+import po.CommodityPO;
 import po.GeneralAccountPO;
 import util.ResultMessage;
+import vo.CommodityVO;
+import vo.CustomerVO;
 import vo.GeneralAccountVO;
 import util.Time;
 
@@ -52,5 +55,20 @@ public interface GeneralAccountBLService {
      */
     public ArrayList<GeneralAccountVO> rangeSearchGeneralAccountByTime(Time min, Time max);
 
+
+
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerVO searchCustomer(String name);
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityVO searchCommodity(String name);
 
 }
