@@ -56,6 +56,6 @@ public interface UserClientNetworkService extends Remote {
      * @param val
      * @return
      */
-    public ArrayList<UserPO> exactlySearchUser(String field, String val);
+    public UserPO exactlySearchUser(String field, Object val);
 
 }

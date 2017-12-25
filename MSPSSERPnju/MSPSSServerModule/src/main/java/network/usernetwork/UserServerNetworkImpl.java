@@ -42,16 +42,16 @@ public class UserServerNetworkImpl extends UnicastRemoteObject implements UserSe
      * @param userid 用户id
      * @return 删除用户的运行结果
      */
-    public ResultMessage delUser(String userid) throws RemoteException{
-        return userDataService.delUser(userid);
+    public ResultMessage deleteUser(String userid) throws RemoteException{
+        return userDataService.deleteUser(userid);
     }
 
     /**
      * @param user
      * @return
      */
-    public ResultMessage modifyUser(UserPO user) throws RemoteException{
-        return userDataService.modifyPower(user,user.getPower());
+    public ResultMessage updateUser(UserPO user){
+        return userDataService.updateUser(user);
     }
 
     /**
@@ -60,6 +60,30 @@ public class UserServerNetworkImpl extends UnicastRemoteObject implements UserSe
      * @return
      */
     public UserPO searchUserByID(String ID) throws RemoteException{
-        return userDataService.findUserByID(ID);
+        return userDataService.searchUserByID(ID);
     }
+
+    /**
+     * 完全匹配一定类型的用户
+     *
+     * @param filed
+     * @param val
+     * @return
+     */
+    public ArrayList<UserPO> fullSearchUser(String filed, Object val){
+        return userDataService.fullSearchUser(filed, val);
+    }
+
+    /**
+     * 精确查找
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public UserPO exactlySearchUser(String field, Object val){
+        return userDataService.exactlySearchUser(field,val);
+    }
+
+
 }
