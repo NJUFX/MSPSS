@@ -45,7 +45,7 @@ public class BillCreateViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            LoginController controller = (LoginController) replaceSceneContent2("/view/admin/Login.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

@@ -63,6 +63,23 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
      */
     private GeneralAccountPO generalaccount;
 
+    public GeneralAccount_CustomerList_PO() {
+    }
+
+    public GeneralAccount_CustomerList_PO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney) {
+        Exist = exist;
+        this.ID = ID;
+        this.category = category;
+        this.level = level;
+        this.name = name;
+        this.phonenumber = phonenumber;
+        this.address = address;
+        this.postcode = postcode;
+        this.email = email;
+        Invalue = invalue;
+        this.incomemoney = incomemoney;
+        this.paymoney = paymoney;
+    }
 
     public String getKeycolumn() {
         return keycolumn;

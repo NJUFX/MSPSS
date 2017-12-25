@@ -1,5 +1,5 @@
 package network;
-
+import com.sun.org.apache.regexp.internal.RE;
 import network.accountnetworkservice.AccountServerNetworkService;
 import po.AccountPO;
 import util.CriteriaClause;
@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     private AccountServerNetworkService accountServerNetworkService;
-
 
     public AccountClientNetworkImpl(){
         try {

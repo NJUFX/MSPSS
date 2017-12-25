@@ -4,6 +4,8 @@ package util;
  * created by hanxinhu at 2017/12/20
  */
 public enum Kind_Of_Users {
+    SystemManager,
+
     StockManager,
 
     StockSeller,
@@ -29,6 +31,8 @@ public enum Kind_Of_Users {
             return 5;
         if (this == ChiefManager)
             return 6;
+        if (this == SystemManager)
+            return 7;
         return 0;
     }
 }
