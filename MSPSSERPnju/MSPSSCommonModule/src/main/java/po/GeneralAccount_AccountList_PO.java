@@ -9,8 +9,16 @@ public class GeneralAccount_AccountList_PO implements Serializable  {
 
     private String keycolumn;
     private String name;
-    private int money;
+    private double money;
     private GeneralAccountPO generalaccount;
+
+    public GeneralAccount_AccountList_PO() {
+    }
+
+    public GeneralAccount_AccountList_PO(String name, double money) {
+        this.name = name;
+        this.money = money;
+    }
 
     public String getKeycolumn() {
         return keycolumn;
@@ -36,13 +44,11 @@ public class GeneralAccount_AccountList_PO implements Serializable  {
         this.name = name;
     }
 
-    public int getMoney() {
+    public double getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(double money) {
         this.money = money;
     }
-
-
 }

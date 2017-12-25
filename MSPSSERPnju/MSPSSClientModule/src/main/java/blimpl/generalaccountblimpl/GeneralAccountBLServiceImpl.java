@@ -1,6 +1,7 @@
 package blimpl.generalaccountblimpl;
 
 import blservice.generalaccountblservice.GeneralAccountBLService;
+import po.GeneralAccountPO;
 import util.ResultMessage;
 import util.Time;
 import vo.GeneralAccountVO;
@@ -12,21 +13,54 @@ import java.util.ArrayList;
  */
 public class GeneralAccountBLServiceImpl implements GeneralAccountBLService {
 
-    GeneralAccount MyGeneralAccount = new GeneralAccount();
-    @Override
-    public ArrayList<GeneralAccountVO> checkGeneralAccount(Time begin, Time end) {
+    GeneralAccount generalAccount ;
 
-        return MyGeneralAccount.checkGeneralAccount(begin,end);
+    protected GeneralAccountBLServiceImpl(GeneralAccount generalAccount){
+        this.generalAccount = generalAccount;
     }
 
-    @Override
-    public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) {
-
-        return MyGeneralAccount.newGeneralAccount(generalaccount);
+    /**
+     * 添加期初账户
+     * @param
+     * @return ResultMessage
+     */
+    public ResultMessage addGeneralAcocunt(GeneralAccountVO generalAccountVO){
+        return generalAccount.addGeneralAcocunt(generalAccountVO);
     }
 
-    @Override
-    public ArrayList<GeneralAccountVO> ETLsort(ArrayList<GeneralAccountVO> accountlist) {
-        return MyGeneralAccount.ETLsort(accountlist);
+
+    /**
+     * 按名字精确查找账户
+     * @param name
+     * @return
+     */
+    public GeneralAccountVO exactlySearchGeneralAccountByName(String name){
+        return generalAccount.exactlySearchGeneralAccount("name", name);
     }
+
+    public ArrayList<GeneralAccountVO> fullSearchGeneralAccountByTime(Time time){
+        return generalAccount.fullSearchGeneralAccount("time", time.toString());
+    }
+    /**
+     *按名称模糊查找
+     *
+     * @param value
+     * @return
+     */
+    public ArrayList<GeneralAccountVO> fuzzySearchGeneralAccountByName(String value){
+        return generalAccount.fuzzySearchGeneralAccount("name", value);
+    }
+
+
+    /**
+     *
+     *按时间范围查找
+     * @param min
+     * @param max
+     * @return
+     */
+    public ArrayList<GeneralAccountVO> rangeSearchGeneralAccountByTime(Time min, Time max){
+        return generalAccount.rangeSearchGeneralAccount("time", min.toString(), max.toString());
+    }
+
 }

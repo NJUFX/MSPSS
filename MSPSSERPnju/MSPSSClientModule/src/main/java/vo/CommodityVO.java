@@ -66,6 +66,16 @@ public class CommodityVO {
         this.exportCost = exportCost;
     }
 
+    public CommodityVO(String name, String classificationName, String type, String ID, double importCost, double exportCost,int numberInStock) {
+        this.name = name;
+        this.classificationName = classificationName;
+        this.type = type;
+        this.ID = ID;
+        this.importCost = importCost;
+        this.exportCost = exportCost;
+        this.numberInStock = numberInStock;
+    }
+
     public CommodityVO(String name, String classificationVO, String type, String ID, double importCost, double exportCost, double latestImportCost, double latestExportCost, int numberInStock, int alertNumber) {
         this.name = name;
         this.classificationName = classificationVO;

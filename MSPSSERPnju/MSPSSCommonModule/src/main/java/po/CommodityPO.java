@@ -39,6 +39,15 @@ public class CommodityPO implements Serializable{
      * 零售价
      */
     private double exportCost;
+    /**
+     * 最近一次进价
+     */
+    private double latestImportCost;
+
+    /**
+     * 最近一次售价
+     */
+    private double latestExportCost;
 
     /**
      * 库存数量(要与stock同步,这可能会出bug!!!!!!）
@@ -162,5 +171,34 @@ public class CommodityPO implements Serializable{
             return this.ID.equals(((CommodityPO) obj).ID);
         }
             return false;
+    }
+
+    public CommodityPO(String name, String classificationID, String type, String ID, double importCost, double exportCost, double latestImportCost, double latestExportCost, int numberInStock, int alertNumber) {
+        this.name = name;
+        this.classificationID = classificationID;
+        this.type = type;
+        this.ID = ID;
+        this.importCost = importCost;
+        this.exportCost = exportCost;
+        this.latestImportCost = latestImportCost;
+        this.latestExportCost = latestExportCost;
+        this.numberInStock = numberInStock;
+        this.alertNumber = alertNumber;
+    }
+
+    public double getLatestImportCost() {
+        return latestImportCost;
+    }
+
+    public void setLatestImportCost(double latestImportCost) {
+        this.latestImportCost = latestImportCost;
+    }
+
+    public double getLatestExportCost() {
+        return latestExportCost;
+    }
+
+    public void setLatestExportCost(double latestExportCost) {
+        this.latestExportCost = latestExportCost;
     }
 }

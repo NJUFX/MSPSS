@@ -1,6 +1,7 @@
 package blservice.billblservice;
 
 import util.ResultMessage;
+import util.Time;
 import vo.AlarmBillVO;
 import vo.StockBillVO;
 
@@ -52,10 +53,11 @@ public interface StockManagerBillBLService {
     public ArrayList<StockBillVO> getMyStockBill(String operatorID);
 
     /**
-     * 得到所有的库存报警单
+     * 得到某一天的库存报警单
      *
      * @return
+     * @param time
      */
-    public ArrayList<AlarmBillVO> getAllAlarmBill();
+    public ArrayList<AlarmBillVO> getAllAlarmBill(Time time);
 
 }

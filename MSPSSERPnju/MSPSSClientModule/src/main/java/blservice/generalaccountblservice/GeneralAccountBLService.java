@@ -1,5 +1,6 @@
 package blservice.generalaccountblservice;
 
+import po.GeneralAccountPO;
 import util.ResultMessage;
 import vo.GeneralAccountVO;
 import util.Time;
@@ -10,27 +11,46 @@ import java.util.ArrayList;
  * Created by thinkpad on 2017/11/11.
  */
 public interface GeneralAccountBLService {
+
     /**
-     * 新建期初建账
-     *
-     * @param generalaccount
-     * @return 新建成功与否
+     * 添加期初账户
+     * @param
+     * @return ResultMessage
      */
-    public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount);
+    public ResultMessage addGeneralAcocunt(GeneralAccountVO generalAccountPO);
+
+
     /**
-     * 查询建账信息
-     *
-     * @param begin,end
-     * @return 建账信息列表
+     * 精确查找账户，按账户的名称
+     * @param name
+     * @return
      */
-    public ArrayList<GeneralAccountVO> checkGeneralAccount(Time begin, Time end);
+    public GeneralAccountVO exactlySearchGeneralAccountByName(String name);
+
     /**
-     * 按时间先后排序
+     *输出一个时间里的所有账户
      *
-     * @param accountlist
-     * @return 排序后的列表
+     * @param time
+     * @return
      */
-    public ArrayList<GeneralAccountVO> ETLsort(ArrayList<GeneralAccountVO> accountlist);
+    public ArrayList<GeneralAccountVO> fullSearchGeneralAccountByTime(Time time);
+    /**
+     *模糊查找，按账户名称查找，如“2017第一季度总账”可以输入value为“2017”来查找
+     *
+     * @param value
+     * @return
+     */
+    public ArrayList<GeneralAccountVO> fuzzySearchGeneralAccountByName(String value);
+
+
+    /**
+     *范围搜索，按时间区间来搜索账户
+     *
+     * @param min
+     * @param max
+     * @return
+     */
+    public ArrayList<GeneralAccountVO> rangeSearchGeneralAccountByTime(Time min, Time max);
 
 
 }

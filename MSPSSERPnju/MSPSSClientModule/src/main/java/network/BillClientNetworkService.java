@@ -125,4 +125,22 @@ public interface BillClientNetworkService {
     public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses);
 
     public String getSalesOutBillID(SalesOutBillType type);
+
+    public ResultMessage addAlarmBill(AlarmBillPO po);
+
+    /**
+     * 用来根据前缀来得到某天的产生的库存报警单
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val);
+
+    /**
+     * 得到库存报警单应有的数据
+     *
+     * @return
+     */
+    public String getAlarmID();
 }

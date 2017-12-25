@@ -1,13 +1,8 @@
 package network;
 
-import auxiliary.Customer;
-import po.AccountPO;
-import po.CommodityPO;
-import po.CustomerPO;
 import po.GeneralAccountPO;
 import util.ResultMessage;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 

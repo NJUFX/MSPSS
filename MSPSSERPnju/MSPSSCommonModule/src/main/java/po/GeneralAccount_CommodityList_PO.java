@@ -50,6 +50,19 @@ public class GeneralAccount_CommodityList_PO implements Serializable {
      */
     private GeneralAccountPO generalaccount;
 
+    public GeneralAccount_CommodityList_PO() {
+    }
+
+    public GeneralAccount_CommodityList_PO(String name, String classificationID, String type, String ID, double importCost, double exportCost, int numberInStock) {
+        this.name = name;
+        this.classificationID = classificationID;
+        this.type = type;
+        this.ID = ID;
+        this.importCost = importCost;
+        this.exportCost = exportCost;
+        this.numberInStock = numberInStock;
+    }
+
     public String getKeycolumn() {
         return keycolumn;
     }

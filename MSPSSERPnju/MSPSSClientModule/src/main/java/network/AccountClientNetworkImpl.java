@@ -18,17 +18,6 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     private AccountServerNetworkService accountServerNetworkService;
 
-    /**
-     * 多重条件查找
-     *
-     * @param criteriaClauses
-     * @return
-     */
-    @Override
-    public ArrayList<AccountPO> multiSearchAccount(ArrayList<CriteriaClause> criteriaClauses) {
-        return null;
-    }
-
     public AccountClientNetworkImpl(){
         try {
             accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("AccountServerNetworkService");

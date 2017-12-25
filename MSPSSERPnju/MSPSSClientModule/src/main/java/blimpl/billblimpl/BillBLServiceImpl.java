@@ -1,10 +1,8 @@
 package blimpl.billblimpl;
 
-import blservice.billblservice.FinanceBillBLService;
-import blservice.billblservice.ManagerBillBLService;
-import blservice.billblservice.SalesmanBillBLService;
-import blservice.billblservice.StockManagerBillBLService;
+import blservice.billblservice.*;
 import util.ResultMessage;
+import util.Time;
 import vo.*;
 
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
  * Description:
  * Created by Hanxinhu at 13:21 2017/11/21/021
  */
-public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBillBLService, FinanceBillBLService, SalesmanBillBLService {
+public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBillBLService, FinanceBillBLService, SalesmanBillBLService, BillBLInfo {
     private StockBill stockBill ;
     private SalesOutBill salesOutBill ;
     private SalesInBill salesInBill;
@@ -177,10 +175,11 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * 得到所有的库存报警单
      *
      * @return
+     * @param time
      */
     @Override
-    public ArrayList<AlarmBillVO> getAllAlarmBill() {
-        return alarmBill.getAllAlarmBills();
+    public ArrayList<AlarmBillVO> getAllAlarmBill(Time time) {
+        return alarmBill.getAlarmBill(time);
     }
 
 
@@ -193,7 +192,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage approveSalesInBill(SalesInBillVO salesInBillVO) {
-        return null;
+        return salesInBill.approveSalesInBill(salesInBillVO);
     }
 
     @Override
@@ -218,7 +217,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage rejectSalesInBill(SalesInBillVO salesInBillVO) {
-        return null;
+        return salesInBill.rejectSalesInBill(salesInBillVO);
     }
 
     @Override
@@ -243,7 +242,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ArrayList<SalesInBillVO> getWaitingSalesInBill() {
-        return null;
+        return salesInBill.getWaitingSalesInBill();
     }
 
     @Override
@@ -398,4 +397,8 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
     }
 
 
+    @Override
+    public ResultMessage addAlarmBill(String commodityID, int number) {
+        return alarmBill.addAlarmBill(commodityID, number);
+    }
 }
