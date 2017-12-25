@@ -1,5 +1,7 @@
 package ui.adminui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.userblservice.UserBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,40 +17,70 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.common.Dialog;
+import vo.UserVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-/**
- * author:Jiang_Chen date:2017/12/12
- */
-public class UserModifyFirstViewController implements Initializable {
+public class UserSearchViewController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+        nameLabel.setText("姓名：" + LoginController.getCurrentUser().getName());
+        cateLabel.setText("身份：" + LoginController.getCategory());
+        idLabel.setText("编号：" + LoginController.getCurrentUser().getID());
+    }
+
+    UserBLService userBLService = new BLFactoryImpl().getUserBLService();
+
     Dialog dialog = new Dialog();
+    private MainApp application;
+
+    public void setApp(MainApp application) {
+        this.application = application;
+    }
+
     Stage stage = StageSingleton.getStage();
-    static String id_to_modify = "";
-    /**
-     *
-     */
-    @FXML
-    Button nextOperationButton, cancelButton;
 
     @FXML
-    TextField idField;
-
-    /**
-     * @param e
-     */
+    Button addUserButton;
     @FXML
-    public void nextOperationButtonAction(ActionEvent e) {
+    Button delUserButton;
+    @FXML
+    Button modUserButton, searchButton;
+    @FXML
+    Button BackToLogin, backButton;
+    @FXML
+    Label nameLabel, cateLabel, idLabel;
+    @FXML
+    TextField keywordField;
+    @FXML
+    ComboBox<String> keyTypeBox;
+
+    public void keyTypeBoxAction(ActionEvent e) {
+        if (keyTypeBox.getValue().equals("身份")) {
+            keywordField.setVisible(false);
+        }
+    }
+
+    public void searchButtonAction(ActionEvent e) {
         try {
-            if (idField.getText() == null) {
-                dialog.errorInfoDialog("Please input the id of user your want to modify.");
+            if (keyTypeBox.getValue() == null || keywordField.getText() == null) {
+                dialog.errorInfoDialog("Something null, please check your input.");
             } else {
-                id_to_modify = idField.getText();
-                UserModifyViewController.id_to_modify = id_to_modify;
-                UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
+                ArrayList<UserVO> arrayList = new ArrayList<>();
+
+                if (keyTypeBox.getValue().equals("编号")) {
+                    UserVO userVO = userBLService.searchUserByID(keywordField.getText().trim());
+                } else if (keyTypeBox.getValue().equals("身份")) {
+
+                }
+                UserSearchShowViewController controller = (UserSearchShowViewController) replaceSceneContent(
+                        "/view/admin/UserSearchShowView.fxml");
             }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
@@ -56,8 +88,7 @@ public class UserModifyFirstViewController implements Initializable {
         }
     }
 
-    @FXML
-    public void cancelButtonAction(ActionEvent e) {
+    public void backButtonAction(ActionEvent e) {
         try {
             AdminMainViewController controller = (AdminMainViewController) replaceSceneContent("/view/admin/Main.fxml");
         } catch (Exception e1) {
@@ -65,16 +96,6 @@ public class UserModifyFirstViewController implements Initializable {
             e1.printStackTrace();
         }
     }
-
-    @FXML
-    Button delUserButton;
-    @FXML
-    Button addUserButton;
-    @FXML
-    Button BackToLogin;
-    @FXML
-    Label nameLabel, cateLabel, idLabel;
-
 
     /**
      * 返回登录界面
@@ -94,22 +115,35 @@ public class UserModifyFirstViewController implements Initializable {
     @FXML
     public void addUserButtonAction(ActionEvent e) throws IOException {
         try {
-            UserAddViewController controller = (UserAddViewController) replaceSceneContent("/view/admin/UserAddView.fxml");
+            UserAddViewController controller = (UserAddViewController) replaceSceneContent(
+                    "/view/admin/UserAddView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
     }
 
+    @FXML
     public void delUserButtonAction(ActionEvent e) throws IOException {
         try {
-            UserDelViewController controller = (UserDelViewController) replaceSceneContent("/view/admin/UserDelView.fxml");
+            UserDelViewController controller = (UserDelViewController) replaceSceneContent(
+                    "/view/admin/UserDelView.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
     }
 
+    @FXML
+    public void modUserButtonAction(ActionEvent e) throws IOException {
+        try {
+            UserModifyFirstViewController controller = (UserModifyFirstViewController) replaceSceneContent(
+                    "/view/admin/UserModifyFirstView.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 用来打开fxml文件
@@ -120,7 +154,8 @@ public class UserModifyFirstViewController implements Initializable {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        //InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
+        // InputStream in =
+        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
@@ -137,11 +172,4 @@ public class UserModifyFirstViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //TODO
-        nameLabel.setText("姓名：" + LoginController.getCurrentUser().getName());
-        cateLabel.setText("身份：" + LoginController.getCategory());
-        idLabel.setText("编号：" + LoginController.getCurrentUser().getID());
-    }
 }

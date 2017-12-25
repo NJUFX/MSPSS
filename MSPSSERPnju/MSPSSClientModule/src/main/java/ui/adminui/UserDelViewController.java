@@ -1,8 +1,11 @@
 package ui.adminui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.userblservice.UserBLService;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.StageSingleton;
@@ -13,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import util.ResultMessage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +29,7 @@ import java.util.ResourceBundle;
 public class UserDelViewController implements Initializable {
     Dialog dialog = new Dialog();
     private MainApp application;
+    UserBLService userBLService = new BLFactoryImpl().getUserBLService();
 
     public void setApp(MainApp application) {
         this.application = application;
@@ -33,11 +38,13 @@ public class UserDelViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
     @FXML
+    Label nameLabel, cateLabel, idLabel;
+    @FXML
     Button sureDeleteButton;
     @FXML
     Button cancelButton;
     @FXML
-    static TextField id_to_del;
+    TextField id_to_del;
     @FXML
     Button BackToLogin;
 
@@ -50,6 +57,7 @@ public class UserDelViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回登录界面
      *
@@ -67,14 +75,19 @@ public class UserDelViewController implements Initializable {
 
     @FXML
     public void sureDeleteButtonAction(ActionEvent e) {
-        dialog.confirmDialog("Do you confirm to delete this user?");
-        System.out.println("Success.");
-        dialog.infoDialog("Delete the user successfully.");
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //TODO
+        if (id_to_del.getText() == null) {
+            dialog.errorInfoDialog("Please input the id of user you want to delete.");
+        } else {
+            boolean b = dialog.confirmDialog("Do you confirm to delete this user?");
+            if (b == true) {
+                ResultMessage resultMessage = userBLService.deleteUser(id_to_del.getText().trim());
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Delete the user successfully.");
+                } else if (resultMessage == ResultMessage.NOT_EXIST) {
+                    dialog.errorInfoDialog("User not exist!");
+                }
+            }
+        }
     }
 
     @FXML
@@ -127,5 +140,13 @@ public class UserDelViewController implements Initializable {
         stage.sizeToScene();
         stage.setResizable(false);
         return (Initializable) loader.getController();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        //TODO
+        nameLabel.setText("姓名：" + LoginController.getCurrentUser().getName());
+        cateLabel.setText("身份：" + LoginController.getCategory());
+        idLabel.setText("编号：" + LoginController.getCurrentUser().getID());
     }
 }
