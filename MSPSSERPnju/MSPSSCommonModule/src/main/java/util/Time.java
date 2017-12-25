@@ -88,6 +88,10 @@ public class Time {
         return String.format("%04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
     }
 
+    public String getTimeStringWithoutSplit() {
+        return String.format("%04d%02d%02d", year, month, day);
+    }
+
     public static String getTimeFormat() {
         Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
         int year = c.get(Calendar.YEAR);

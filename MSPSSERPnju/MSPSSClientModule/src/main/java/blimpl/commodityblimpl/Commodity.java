@@ -1,5 +1,6 @@
 package blimpl.commodityblimpl;
 
+import blservice.billblservice.BillBLInfo;
 import network.CommodityClientNetworkService;
 import po.CommodityPO;
 import util.ResultMessage;
@@ -13,8 +14,8 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 23:13 2017/11/15/015
  */
 public class Commodity {
-    CommodityClientNetworkService netService;
-
+    private static CommodityClientNetworkService netService;
+    private static BillBLInfo billBLInfo;
     /**
      * 添加商品
      * @param commodityVO
@@ -164,4 +165,43 @@ public class Commodity {
         return vos;
     }
 
+    /**
+     * 在进货后，根据商品的进货信息，更新商品的库存均价，以及最近进价
+     *
+     * @param commodityID
+     * @param number
+     * @param price
+     * @return
+     */
+    public ResultMessage updateCommodityByIn(String commodityID, int number, double price) {
+        CommodityPO po = netService.exactlySearchCommodity(commodityID);
+        po.setLatestImportCost(price);
+        double currentPrice = (po.getNumberInStock() * po.getImportCost() + number * price) / (po.getNumberInStock()
+                + number);
+        po.setImportCost(currentPrice);
+        po.setNumberInStock(po.getNumberInStock() + number);
+        return netService.modifyCommodity(po);
+    }
+
+    /**
+     * 售货后，根据商品的售出信息，更新库存数量，以及最近售价
+     * 同时检测是否会出现库存报警现象
+     *
+     * @param commodityID
+     * @param number
+     * @param price
+     * @return
+     */
+    public ResultMessage updateCommodityByOut(String commodityID, int number, double price) {
+        CommodityPO po = netService.exactlySearchCommodity(commodityID);
+        po.setLatestExportCost(price);
+        double currentPrice = (price * number + po.getNumberInStock() * po.getExportCost()) / (number + po.getNumberInStock());
+        po.setExportCost(currentPrice);
+        po.setNumberInStock(po.getNumberInStock() - number);
+        //如果当期库存值小于等于库存报警值 产生库存报警单
+        if (po.getNumberInStock() < po.getAlertNumber())
+            billBLInfo.addAlarmBill(commodityID, po.getNumberInStock());
+
+        return netService.modifyCommodity(po);
+    }
 }

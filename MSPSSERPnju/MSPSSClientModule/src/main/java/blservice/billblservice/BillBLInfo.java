@@ -1,7 +1,6 @@
 package blservice.billblservice;
 
 import util.ResultMessage;
-import vo.AlarmBillVO;
 
 /**
  * Project_Name ERPnju
@@ -10,5 +9,6 @@ import vo.AlarmBillVO;
  * Created on 16:56 2017/11/11/011
  */
 public interface BillBLInfo {
-    public ResultMessage addAlarmBill(AlarmBillVO alarmBillVO);
+    public ResultMessage addAlarmBill(String commodityID, int number);
+
 }
