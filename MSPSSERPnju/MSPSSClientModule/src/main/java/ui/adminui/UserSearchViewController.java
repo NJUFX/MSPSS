@@ -1,6 +1,7 @@
 package ui.adminui;
 
 import blimpl.blfactory.BLFactoryImpl;
+import blimpl.userblimpl.User;
 import blservice.userblservice.UserBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.common.Dialog;
+import util.Kind_Of_Users;
 import vo.UserVO;
 
 import java.io.IOException;
@@ -25,6 +27,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * author:jiang_chen
+ * date:2017/12/25
+ */
 public class UserSearchViewController implements Initializable {
 
     @Override
@@ -59,11 +65,15 @@ public class UserSearchViewController implements Initializable {
     @FXML
     TextField keywordField;
     @FXML
-    ComboBox<String> keyTypeBox;
+    ComboBox<String> keyTypeBox, keywordBox;
 
     public void keyTypeBoxAction(ActionEvent e) {
         if (keyTypeBox.getValue().equals("身份")) {
             keywordField.setVisible(false);
+            keywordBox.setVisible(true);
+        } else {
+            keywordBox.setVisible(false);
+            keywordField.setVisible(true);
         }
     }
 
@@ -76,16 +86,52 @@ public class UserSearchViewController implements Initializable {
 
                 if (keyTypeBox.getValue().equals("编号")) {
                     UserVO userVO = userBLService.searchUserByID(keywordField.getText().trim());
+                    arrayList.add(userVO);
+                    UserSearchShowViewController.keyType = "id";
+                    UserSearchShowViewController.keyword = keywordField.getText().trim();
                 } else if (keyTypeBox.getValue().equals("身份")) {
+                    UserSearchShowViewController.keyType = "Category";
+                    UserSearchShowViewController.keyword = keywordBox.getValue();
 
+                    Kind_Of_Users kind_of_users = Kind_Of_Users.SystemManager;
+                    switch (keywordBox.getValue()) {
+                        case "库存管理人员":
+                            kind_of_users = Kind_Of_Users.StockManager;
+                            break;
+                        case "进货销售人员":
+                            kind_of_users = Kind_Of_Users.StockSeller;
+                            break;
+                        case "销售经理":
+                            kind_of_users = Kind_Of_Users.StockSellerManager;
+                            break;
+                        case "财务人员":
+                            kind_of_users = Kind_Of_Users.Financer;
+                            break;
+                        case "财务经理":
+                            kind_of_users = Kind_Of_Users.FinancerManager;
+                            break;
+                        case "总经理":
+                            kind_of_users = Kind_Of_Users.ChiefManager;
+                            break;
+                        case "系统管理员":
+                            kind_of_users = Kind_Of_Users.SystemManager;
+                            break;
+                    }
+                    arrayList = userBLService.searchUserByKind(kind_of_users);
+                    UserSearchShowViewController.kind_of_users = kind_of_users;
+                    UserSearchShowViewController.arrayList = arrayList;
                 }
                 UserSearchShowViewController controller = (UserSearchShowViewController) replaceSceneContent(
                         "/view/admin/UserSearchShowView.fxml");
             }
-        } catch (Exception e1) {
+        } catch (
+                Exception e1)
+
+        {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+
     }
 
     public void backButtonAction(ActionEvent e) {

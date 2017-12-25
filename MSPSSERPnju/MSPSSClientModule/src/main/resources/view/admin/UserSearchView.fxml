@@ -159,7 +159,7 @@
                         <Font size="14.0"/>
                     </font>
                 </TextField>
-                <ComboBox fx:id="keyTypeBox" onAction="#keyTypeBoxAction" layoutX="100.0" layoutY="130.0"
+                <ComboBox fx:id="keyTypeBox" layoutX="100.0" layoutY="130.0" onAction="#keyTypeBoxAction"
                           prefHeight="40.0" prefWidth="102.0" promptText="关键词类型">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -181,6 +181,19 @@
                         <Image url="@../../image/stockseller/search.png"/>
                     </image>
                 </ImageView>
+                <ComboBox fx:id="keywordBox" layoutX="203.0" layoutY="130.0" prefHeight="40.0" prefWidth="293.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="总经理"/>
+                            <String fx:value="库存管理人员"/>
+                            <String fx:value="进货销售人员"/>
+                            <String fx:value="销售经理"/>
+                            <String fx:value="财务人员"/>
+                            <String fx:value="财务经理"/>
+                            <String fx:value="系统管理员"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
             </children>
         </Pane>
     </children>

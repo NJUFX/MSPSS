@@ -38,7 +38,6 @@ public class AlertCreateViewController implements Initializable {
 	Button BackToLogin;
 	@FXML
 	Button cancelButton;
-
 	@FXML
 	TableView<Alert> alertTable;
 	@FXML
