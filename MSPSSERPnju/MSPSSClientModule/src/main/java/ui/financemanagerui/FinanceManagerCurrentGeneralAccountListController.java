@@ -13,6 +13,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -20,7 +21,7 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 
-public class FinanceManagerCreateGeneralAccountController implements Initializable {
+public class FinanceManagerCurrentGeneralAccountListController implements Initializable {
 
 	@FXML
 	Button SearchList;
@@ -39,7 +40,9 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	@FXML
 	Button BackToLogin;
 	@FXML
-	Button CheckCurrentList;
+	Button BackToCreateGeneralAccount;
+	@FXML
+	TableView CurrentList;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -72,7 +75,7 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 */
 	public void handleSearchListButtonAction(ActionEvent e) throws IOException {
 		try {
-			FinanceManagerSearchListController controller = (FinanceManagerSearchListController) replaceSceneContent(
+			FinanceManagerCurrentGeneralAccountListController controller = (FinanceManagerCurrentGeneralAccountListController) replaceSceneContent(
 					"/view/financemanager/FinanceManagerSearchList.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
@@ -170,14 +173,14 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	}
 	
 	/**
-	 * 监听当前列表按钮
+	 * 返回期初建账界面
 	 * @param e
 	 * @throws Exception
 	 */
-	public void handleCheckCurrentListButtonAction(ActionEvent e) throws Exception{
+	public void handleBackToCreateGeneralAccountButtonAction(ActionEvent e) throws Exception{
 		try {
-			FinanceManagerCurrentGeneralAccountListController controller = (FinanceManagerCurrentGeneralAccountListController) replaceSceneContent(
-					"/view/financemanager/FinanceManagerCurrentGeneralAccountList.fxml");
+			FinanceManagerCreateGeneralAccountController controller = (FinanceManagerCreateGeneralAccountController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerCreateGeneralAccount.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

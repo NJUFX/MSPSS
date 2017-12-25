@@ -89,68 +89,89 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Pane layoutX="160.0" layoutY="55.0" prefHeight="130.0" prefWidth="725.0" style="-fx-background-color: #f8f8f8; -fx-border-color: #f8f8f8;">
+      <Pane layoutX="188.0" layoutY="133.0" prefHeight="275.0" prefWidth="675.0" style="-fx-background-color: white;">
          <children>
-            <TableView prefHeight="100.0" prefWidth="725.0">
-              <columns>
-                <TableColumn prefWidth="103.0" text="商品信息" />
-                <TableColumn prefWidth="103.0" text="类型" />
-                  <TableColumn prefWidth="103.0" text="型号" />
-                  <TableColumn prefWidth="103.0" text="平均进价" />
-                  <TableColumn prefWidth="103.0" text="平均售价" />
-                  <TableColumn prefWidth="103.0" text="最近进价" />
-                  <TableColumn prefWidth="104.0" text="最近售价" />
-              </columns>
-            </TableView>
-            <TextField layoutY="103.0" prefHeight="10.0" prefWidth="95.0" promptText="新增商品信息" style="-fx-background-radius: 00;" />
-            <TextField layoutX="97.0" layoutY="103.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="194.0" layoutY="103.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="291.0" layoutY="103.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="388.0" layoutY="103.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="485.0" layoutY="103.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="582.0" layoutY="103.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <Button layoutX="684.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
-         </children></Pane>
-      <Pane layoutX="160.0" layoutY="318.0" prefHeight="130.0" prefWidth="725.0" style="-fx-background-color: #f8f8f8; -fx-border-color: #F2F2F2;">
-         <children>
-            <TableView prefHeight="99.0" prefWidth="725.0">
-               <columns>
-                  <TableColumn prefWidth="363.0" text="账户名称" />
-                  <TableColumn prefWidth="362.0" text="余额" />
-               </columns>
-            </TableView>
-            <TextField layoutY="104.0" prefHeight="27.0" prefWidth="340.0" promptText="新增账户信息" style="-fx-background-radius: 00;" />
-            <TextField layoutX="340.0" layoutY="104.0" prefHeight="27.0" prefWidth="340.0" promptText="新增账户信息" style="-fx-background-radius: 00;" />
-            <Button layoutX="684.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
-         </children></Pane>
-      <Pane layoutX="160.0" layoutY="185.0" prefHeight="130.0" prefWidth="725.0" style="-fx-background-color: white; -fx-border-color: #f8f8f8;">
-         <children>
-            <TableView prefHeight="99.0" prefWidth="725.0">
-               <columns>
-                  <TableColumn prefWidth="120.0" text="客户等级" />
-                  <TableColumn prefWidth="121.0" text="客户姓名" />
-                  <TableColumn prefWidth="121.0" text="联系方式" />
-                  <TableColumn prefWidth="120.0" text="应收/应付" />
-                  <TableColumn prefWidth="121.0" text="银行账户名称" />
-                  <TableColumn prefWidth="120.0" text="余额" />
-               </columns>
-            </TableView>
-            <Button layoutX="684.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
-            <TextField layoutX="585.0" layoutY="103.0" prefHeight="27.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="468.0" layoutY="103.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="351.0" layoutY="103.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="234.0" layoutY="103.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="117.0" layoutY="103.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutY="103.0" prefHeight="10.0" prefWidth="115.0" promptText="新增客户信息" style="-fx-background-radius: 00;" />
+            <TextField layoutX="506.0" layoutY="73.0" prefHeight="25.0" prefWidth="145.0" promptText="新增账户信息" style="-fx-background-radius: 00;" />
+            <TextField layoutX="506.0" layoutY="28.0" prefHeight="25.0" prefWidth="145.0" promptText="新增账户信息" style="-fx-background-radius: 00;" />
+            <TextField layoutX="305.0" layoutY="73.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="305.0" layoutY="28.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="120.0" layoutY="73.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="120.0" layoutY="28.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="305.0" layoutY="208.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="120.0" layoutY="208.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="120.0" layoutY="163.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="120.0" layoutY="118.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="305.0" layoutY="118.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField layoutX="305.0" layoutY="163.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <Label layoutX="25.0" layoutY="33.0" style="-fx-background-color: white;" text="商品名称" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="78.0" style="-fx-background-color: white;" text="商品类别" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="123.0" style="-fx-background-color: white;" text="商品型号" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="168.0" style="-fx-background-color: white;" text="商品进价" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="230.0" layoutY="33.0" style="-fx-background-color: white;" text="客户名称" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="230.0" layoutY="78.0" style="-fx-background-color: white;" text="联系方式" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="230.0" layoutY="123.0" style="-fx-background-color: white;" text="客户应收" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="230.0" layoutY="168.0" style="-fx-background-color: white;" text="客户应付" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="230.0" layoutY="213.0" style="-fx-background-color: white;" text="客户分类" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="213.0" style="-fx-background-color: white;" text="商品类别" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="440.0" layoutY="33.0" style="-fx-background-color: white;" text="账户名称" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="440.0" layoutY="78.0" style="-fx-background-color: white;" text="账户余额" textFill="#0f88eb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="348.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
+            <Button layoutX="146.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
+            <Button layoutX="550.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
          </children>
       </Pane>
-      <Pane layoutX="160.0" layoutY="448.0" prefHeight="60.0" prefWidth="725.0" style="-fx-background-color: #f8f8f8; -fx-border-color: #F2F2F2;">
-         <children>
-            <TextField layoutY="17.0" promptText="期初账户名称" style="-fx-background-radius: 0;" />
-            <TextField layoutX="218.0" layoutY="17.0" promptText="创建者" style="-fx-background-radius: 0;" />
-            <Button layoutX="491.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 14; -fx-border-radius: 14; -fx-border-color: #0f88ea;" text="√" textFill="#0f88ea" />
-            <Button layoutX="566.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 14; -fx-border-radius: 14; -fx-border-color: #0f88ea;" text="X" textFill="#0f88ea" />
-         </children>
-      </Pane>
+      <TextField layoutX="207.0" layoutY="76.0" promptText="期初账户名称" style="-fx-background-radius: 0;" />
+      <TextField layoutX="425.0" layoutY="76.0" promptText="创建者" style="-fx-background-radius: 0;" />
+      <Button fx:id="CheckCurrentList" layoutX="456.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleCheckCurrentListButtonAction" prefHeight="27.0" prefWidth="95.0" text="当前列表" textFill="WHITE" />
+      <Button layoutX="756.0" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="95.0" text="提交账目" textFill="WHITE" />
+      <Button layoutX="606.0" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="清空信息" textFill="#0f88eb" />
     </children>
 </Pane>
