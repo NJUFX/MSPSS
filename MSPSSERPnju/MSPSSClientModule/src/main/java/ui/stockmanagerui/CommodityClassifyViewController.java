@@ -191,11 +191,17 @@ public class CommodityClassifyViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    @FXML
+    Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        this.showTreeView();
+        idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
+        nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
+        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        showTreeView();
     }
+
 
     private final class TextFieldTreeCellImpl extends TreeCell<String> {
 

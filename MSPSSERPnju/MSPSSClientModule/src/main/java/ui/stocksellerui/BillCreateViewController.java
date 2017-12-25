@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -179,10 +180,15 @@ public class BillCreateViewController implements Initializable {
         stage.sizeToScene();
         return (Initializable) loader.getController();
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
 
+    @FXML
+    Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
+        nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
+        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
     }
 
 }

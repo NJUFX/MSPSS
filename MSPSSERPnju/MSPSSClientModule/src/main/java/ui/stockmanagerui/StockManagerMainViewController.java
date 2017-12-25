@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -33,22 +34,9 @@ public class StockManagerMainViewController implements Initializable {
     }
 
     @FXML
-    Button BackToLogin;
-
+    Button BackToLogin, billCreateButton, commodityManageButton;
     @FXML
-    Button billCreateButton;
-
-    @FXML
-    Button commodityManageButton;
-
-    @FXML
-    Button commodityClassifyButton;
-
-    @FXML
-    Button stockInventoryButton;
-
-    @FXML
-    Button stockCheckButton;
+    Button commodityClassifyButton, stockInventoryButton, stockCheckButton;
 
     /**
      * 处理单据
@@ -179,9 +167,14 @@ public class StockManagerMainViewController implements Initializable {
         }
     }
 
+    @FXML
+    Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
+        nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
+        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
     }
 
 }

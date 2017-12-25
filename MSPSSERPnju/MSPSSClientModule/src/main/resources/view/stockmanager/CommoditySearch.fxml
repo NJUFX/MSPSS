@@ -53,12 +53,12 @@
                 <Image url="@../../image/stockmanager/增加商品2.png"/>
             </image>
         </ImageView>
-        <Label layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
+        <Label fx:id="nameOfCurrentUser" layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="14.0"/>
             </font>
         </Label>
-        <Label layoutX="20.0" layoutY="218.0" text="身份: 库存管理人员" textFill="WHITE">
+        <Label fx:id="categoryOfCurrentUser" layoutX="20.0" layoutY="218.0" text="身份: 库存管理人员" textFill="WHITE">
             <font>
                 <Font size="14.0"/>
             </font>
@@ -69,7 +69,7 @@
                 <Image url="@../../image/头像.png"/>
             </image>
         </ImageView>
-        <Label layoutX="20.0" layoutY="240.0" text="编号: SM001" textFill="WHITE">
+        <Label fx:id="idOfCurrentUser" layoutX="20.0" layoutY="240.0" text="编号: SM001" textFill="WHITE">
             <font>
                 <Font size="14.0"/>
             </font>

@@ -58,18 +58,30 @@ public class UserAddViewController implements Initializable {
     Label nameLabel, cateLabel, idLabel, userLevelLabel;
     @FXML
     TextField nameField;
+    @FXML
+    Button searchUserButton;
 
+    @FXML
+    public void searchddUserButtonAction(ActionEvent e) throws IOException {
+        try {
+            UserSearchViewController controller = (UserSearchViewController) replaceSceneContent(
+                    "/view/admin/UserSearchView.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
     @FXML
     public void userCategoryAction(ActionEvent e) {
         ObservableList<String> options = FXCollections.observableArrayList();
         userLevel.setItems(options);
         if (userCategory.getValue().equals("进货销售人员")) {
-            userLevelLabel.setVisible(true);
+            //userLevelLabel.setVisible(true);
             userLevel.setVisible(true);
             userLevel.getItems().add("普通职员");
             userLevel.getItems().add("销售经理");
         } else if (userCategory.getValue().equals("财务人员")) {
-            userLevelLabel.setVisible(true);
+            //userLevelLabel.setVisible(true);
             userLevel.setVisible(true);
             userLevel.getItems().add("普通职员");
             userLevel.getItems().add("财务经理");

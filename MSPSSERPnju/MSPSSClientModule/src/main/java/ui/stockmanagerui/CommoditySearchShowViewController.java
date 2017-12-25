@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -228,9 +225,16 @@ public class CommoditySearchShowViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    @FXML
+    Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.showTableView();
+        idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
+        nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
+        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        showTableView();
     }
+
 }
 

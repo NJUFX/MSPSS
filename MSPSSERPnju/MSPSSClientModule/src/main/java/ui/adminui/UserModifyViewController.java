@@ -57,7 +57,19 @@ public class UserModifyViewController implements Initializable {
 
     @FXML
     Label nameLabel, cateLabel, idLabel;
+    @FXML
+    Button searchUserButton;
 
+    @FXML
+    public void searchddUserButtonAction(ActionEvent e) throws IOException {
+        try {
+            UserSearchViewController controller = (UserSearchViewController) replaceSceneContent(
+                    "/view/admin/UserSearchView.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
     /**
      * 用户id
      */
