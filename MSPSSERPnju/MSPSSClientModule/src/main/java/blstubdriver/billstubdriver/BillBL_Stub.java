@@ -15,7 +15,7 @@
 // */
 //public class BillBL_Stub implements BillBLInfo,BillBLService {
 //    @Override
-//    public ResultMessage makeAlarmBill(AlarmBillVO alarmBillVO) {
+//    public ResultMessage addAlarmBill(AlarmBillVO alarmBillVO) {
 //        System.out.println("make successful");
 //        return ResultMessage.SUCCESS;
 //    }

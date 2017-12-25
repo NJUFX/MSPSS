@@ -40,8 +40,8 @@
       <mapping resource="SalesItemPO.hbm.xml"></mapping>
       <mapping resource="SalesOutBillPO.hbm.xml"></mapping>
       <mapping resource="UserPO.hbm.xml"></mapping>
-
-
+      <mapping resource="CustomerPromotionPO.hbm.xml"></mapping>
+      <mapping resource="PresentationCommodityItemPO.hbm.xml"></mapping>
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

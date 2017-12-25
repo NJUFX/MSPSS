@@ -16,6 +16,9 @@ public class Time {
     int minute;
     int second;
     public Time(String time){
+        if (time == null || time.equals("")) {
+            return;
+        }
         String[] times = time.split(" ");
        String[] date = times[0].split("-");
 
@@ -82,9 +85,22 @@ public class Time {
 
     @Override
     public String toString() {
-        return String.format("%d-%02d-%02d %02d:%02d:%02d",year,month,day,hour,minute,second);
+        return String.format("%04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
     }
 
+    public static String getTimeFormat() {
+        Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH) + 1;
+        int day = c.get(Calendar.DATE);
+        return String.format("%04d%02d%02d", year, month, day);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Time.getInstance().toString());
+        System.out.println(Time.getTimeFormat());
+        System.out.println(new Time(null));
+    }
 
 
 }

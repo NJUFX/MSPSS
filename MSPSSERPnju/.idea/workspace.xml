@@ -65,6 +65,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file leaf-file-name="CommodityClientNetworkImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CommodityClientNetworkImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="30" column="9" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="30" selection-end-column="9" />
+=======
       <file leaf-file-name="StockBill.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/StockBill.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,11 +82,22 @@
             <state relative-caret-position="105">
               <caret line="74" column="54" lean-forward="false" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
 >>>>>>> f780ba97098f9da06275afab10396a8d8f1c177c
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="CustomerClientNetworkImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CustomerClientNetworkImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="29" column="9" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="29" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
       <file leaf-file-name="MockGeneralAccount.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/generalaccountblimpl/MockGeneralAccount.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,10 +109,21 @@
             <state relative-caret-position="-72">
               <caret line="34" column="73" lean-forward="false" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
               <folding />
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="LogClientNetworkImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/LogClientNetworkImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="30" column="9" lean-forward="true" selection-start-line="21" selection-start-column="6" selection-end-line="30" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
       <file leaf-file-name="CommodityClientNetworkImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CommodityClientNetworkImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,10 +160,20 @@
                 <element signature="e#3445#3446#0" expanded="true" />
               </folding>
 >>>>>>> f780ba97098f9da06275afab10396a8d8f1c177c
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="UserClientNetworkImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/UserClientNetworkImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2325">
+              <caret line="93" column="54" lean-forward="false" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+=======
       <file leaf-file-name="AccountClientNetworkImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/AccountClientNetworkImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -148,11 +187,20 @@
               <folding>
                 <element signature="e#752#753#0" expanded="true" />
                 <element signature="e#779#780#0" expanded="true" />
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="UserServerNetworkService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/network/usernetworkservice/UserServerNetworkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+=======
       <file leaf-file-name="Account_Stub.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/accountstubdriver/Account_Stub.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -167,10 +215,19 @@
                 <marker date="1513404040699" expanded="false" signature="806:817" ph="&lt;~&gt;" />
               </folding>
 >>>>>>> f780ba97098f9da06275afab10396a8d8f1c177c
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="UserServerNetworkImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/network/usernetwork/UserServerNetworkImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+              <folding />
+=======
       <file leaf-file-name="MockSalesInBill.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/billblimpl/MockSalesInBill.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -179,10 +236,18 @@
               <folding>
                 <element signature="e#0#703#0" expanded="true" />
               </folding>
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="UserClientNetworkService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/UserClientNetworkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="695">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+=======
       <file leaf-file-name="CommodityStockMockTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/stock/CommodityStockMockTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -193,11 +258,19 @@
             <state relative-caret-position="193">
               <caret line="17" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
 >>>>>>> f780ba97098f9da06275afab10396a8d8f1c177c
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="LogClientNetworkService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/LogClientNetworkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="20" column="86" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="20" selection-end-column="86" />
+=======
       <file leaf-file-name="ManagerBLServiceStub.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/billstubdriver/ManagerBLServiceStub.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -208,26 +281,43 @@
             <state relative-caret-position="-238">
               <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
 >>>>>>> f780ba97098f9da06275afab10396a8d8f1c177c
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="CustomerClientNetworkService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CustomerClientNetworkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="26" column="52" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="26" selection-end-column="52" />
+=======
       <file leaf-file-name="AccountMockTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/account/AccountMockTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="47" column="45" lean-forward="false" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="AccountClientNetworkImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/AccountClientNetworkImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="148" column="1" lean-forward="true" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+=======
       <file leaf-file-name="CommodityClassifyViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="55" column="47" lean-forward="false" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
               <folding />
             </state>
           </provider>
@@ -279,6 +369,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockManagerMainViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/BillCreateViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerAddViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerDelViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerModifyFirstViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerModifySecondViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/PurcRetCreateViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesCreateViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesRetCreateViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/StockSellerMainViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/PurchaseBill.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/PurchaseCreate.fxml" />
+=======
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/PurchaseCreateViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/promotionblservice/PromotionBLService.java" />
         <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/AccountPO.java" />
@@ -313,6 +418,13 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/ClassificationCell.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/AccountClientNetworkImpl.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CommodityClientNetworkImpl.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CustomerClientNetworkImpl.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/LogClientNetworkImpl.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/UserClientNetworkImpl.java" />
+=======
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/customerstubdriver/CustomerBLService_Stub.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/SalesInBillVO.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/StockBillVO.java" />
@@ -330,6 +442,7 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/test/java/account/AccountMockTest.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/test/java/stock/CommodityStockMockTest.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blstubdriver/billstubdriver/ManagerBLServiceStub.java" />
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
       </list>
     </option>
   </component>
@@ -395,6 +508,388 @@
 >>>>>>> f780ba97098f9da06275afab10396a8d8f1c177c
       <pane id="ProjectPane">
         <subPane>
+<<<<<<< HEAD
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSServerModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSServerModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSServerModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="usernetwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSServerModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSServerModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSServerModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataimpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="userdataimpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSServerModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataimpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSCommonModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSCommonModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSCommonModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSClientModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSClientModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSClientModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSClientModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSERPnju" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSPSSClientModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+=======
           <expand>
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
@@ -514,6 +1009,7 @@
             </path>
           </expand>
           <select />
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
         </subPane>
       </pane>
 <<<<<<< HEAD
@@ -976,7 +1472,7 @@
       <workItem from="1512986049130" duration="451000" />
       <workItem from="1513164220679" duration="2522000" />
       <workItem from="1513305468001" duration="152000" />
-      <workItem from="1513305830701" duration="26000" />
+      <workItem from="1513305830701" duration="2401000" />
     </task>
     <task id="LOCAL-00001" summary="……">
       <created>1512985407950</created>
@@ -989,7 +1485,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="13626000" />
+=======
     <option name="totallyTimeSpent" value="17875000" />
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -1128,6 +1628,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java">
+=======
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesCreateViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1229,6 +1732,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/CommodityTable.java">
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="26" column="0" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="26" selection-end-column="0" />
@@ -1261,6 +1765,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/PurchaseCreateViewController.java">
+=======
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/ClassificationCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1282,6 +1789,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/event/EventHandler.java" />
     <entry file="file://$PROJECT_DIR$/MSPSSServerModule/MSPSSServerModule.iml">
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
@@ -1647,6 +2155,10 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/event/EventHandler.java" />
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java">
+=======
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/account/AccountMockTest.java">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1665,6 +2177,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/test/java/stock/CommodityStockMockTest.java">
+>>>>>>> 0c3d5e4ce51ac1e84376134fa641af6588afff3d
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
         <state relative-caret-position="276">
@@ -1687,6 +2200,143 @@
           <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
 >>>>>>> f780ba97098f9da06275afab10396a8d8f1c177c
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/CashCostBill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-251">
+          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/Alert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/Bill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/ClassificationCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding>
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/Presentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/AccountClientNetworkImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="148" column="1" lean-forward="true" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CommodityClientNetworkImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="30" column="9" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="30" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CustomerClientNetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="26" column="52" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="26" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/CustomerClientNetworkImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="29" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/LogClientNetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="20" column="86" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="20" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/LogClientNetworkImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="30" column="9" lean-forward="true" selection-start-line="21" selection-start-column="6" selection-end-line="30" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/UserClientNetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/network/usernetwork/UserServerNetworkImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSCommonModule/src/main/java/network/usernetworkservice/UserServerNetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/network/UserClientNetworkImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2325">
+          <caret line="93" column="54" lean-forward="false" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

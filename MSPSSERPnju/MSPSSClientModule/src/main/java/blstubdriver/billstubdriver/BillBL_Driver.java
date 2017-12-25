@@ -26,7 +26,7 @@
 //        ResultMessage testMessage;
 //
 //        //1
-//        testMessage = billInfo.makeAlarmBill(null);
+//        testMessage = billInfo.addAlarmBill(null);
 //        if (testMessage== ResultMessage.SUCCESS)
 //            System.out.println("make success !!!!!!");
 //        else

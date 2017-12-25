@@ -1,8 +1,5 @@
 package po;
 
-import util.BillStatus;
-import util.StockBillType;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +10,21 @@ import java.util.List;
  */
 public class StockBillPO implements Serializable{
     /**
+     * 本来是没想到的
+     * 但是为了统一格式 还是加上统一类型的ID吧
+     * 库存赠送单 KCZSD-20171111-00001
+     * 库存报损单 KCBSD-
+     * 库存报溢单 KCBYD-
+     */
+    private String ID;
+    /**
      * 库存单据的具体类型
      */
-    private StockBillType type;
+    private int type;
     /**
      * 库存类订单当前的状态
      */
-    private BillStatus status;
+    private int status;
     /**
      * 单据中国包含的商品信息
      */
@@ -60,8 +65,21 @@ public class StockBillPO implements Serializable{
      */
     private String approvalID;
 
+    public StockBillPO(String ID, int type, int status, List<StockBillItemPO> itemPOS, String init_time, String commit_time, String approval_time, String commentByStockManager, String commentByManager, String initID, String approvalID) {
+        this.ID = ID;
+        this.type = type;
+        this.status = status;
+        this.itemPOS = itemPOS;
+        this.init_time = init_time;
+        this.commit_time = commit_time;
+        this.approval_time = approval_time;
+        this.commentByStockManager = commentByStockManager;
+        this.commentByManager = commentByManager;
+        this.initID = initID;
+        this.approvalID = approvalID;
+    }
 
-    public StockBillPO(StockBillType type, BillStatus status, ArrayList<StockBillItemPO> itemPOS, String init_time,
+    public StockBillPO(int type, int status, ArrayList<StockBillItemPO> itemPOS, String init_time,
                        String commit_time, String approval_time, String commentByStockManager, String commentByManager,
                        String initID, String approvalID ){
 
@@ -77,11 +95,11 @@ public class StockBillPO implements Serializable{
         this.approvalID = approvalID;
     }
 
-    public StockBillType getType() {
+    public int getType() {
         return type;
     }
 
-    public BillStatus getStatus() {
+    public int getStatus() {
         return status;
     }
 
@@ -117,11 +135,11 @@ public class StockBillPO implements Serializable{
         return approvalID;
     }
 
-    public void setType(StockBillType type) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public void setStatus(BillStatus status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -155,5 +173,13 @@ public class StockBillPO implements Serializable{
 
     public void setApprovalID(String approvalID) {
         this.approvalID = approvalID;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }

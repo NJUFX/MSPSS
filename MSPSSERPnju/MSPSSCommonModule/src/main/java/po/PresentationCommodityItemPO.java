@@ -9,6 +9,10 @@ import java.util.ArrayList;
  */
 public class PresentationCommodityItemPO implements Serializable {
     /**
+     * 数据库主键，不要自己赋值
+     */
+    String keycolumn;
+    /**
      * 商品的ID
      */
     String  commodityID;
@@ -17,12 +21,18 @@ public class PresentationCommodityItemPO implements Serializable {
      */
     int number;
 
+    /**
+     * 所属的CustomerPromotion
+     */
+    CustomerPromotionPO customerPromotionPOID;
+
     public PresentationCommodityItemPO() {
     }
 
-    public PresentationCommodityItemPO(String commodityID, int number) {
+    public PresentationCommodityItemPO(String commodityID, int number, CustomerPromotionPO customerPromotionPOID) {
         this.commodityID = commodityID;
         this.number = number;
+        this.customerPromotionPOID = customerPromotionPOID;
     }
 
     public String getCommodityID() {
@@ -39,5 +49,21 @@ public class PresentationCommodityItemPO implements Serializable {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public CustomerPromotionPO getCustomerPromotionPOID() {
+        return customerPromotionPOID;
+    }
+
+    public void setCustomerPromotionPOID(CustomerPromotionPO customerPromotionPOID) {
+        this.customerPromotionPOID = customerPromotionPOID;
+    }
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
     }
 }

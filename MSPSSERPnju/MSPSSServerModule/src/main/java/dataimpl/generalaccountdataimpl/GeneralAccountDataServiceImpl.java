@@ -97,7 +97,29 @@ public class GeneralAccountDataServiceImpl implements GeneralAccountDataService 
         return generalAccountHelper.exactlyQuery(field,value);
     }
 
+    /**
+     * 多个匹配
+     * @param field value
+     */
+    public ArrayList<GeneralAccountPO> fullSearchGeneralAccount(String field,Object value){
+        return generalAccountHelper.fullMatchQuery(field, value);
+    }
 
+    /**
+     * 模糊查找
+     * @param field,value
+     */
+    public ArrayList<GeneralAccountPO> fuzzySearchGeneralAccount(String field,String value){
+        return generalAccountHelper.fuzzyMatchQuery(field, value);
+    }
+
+    /**
+     * 范围查找
+     * @param field,min,max
+     */
+    public ArrayList<GeneralAccountPO> rangeSearchGeneralAccount(String field,Object min,Object max){
+        return generalAccountHelper.rangeQuery(field,min,max);
+    }
 
 
 

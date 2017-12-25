@@ -29,6 +29,15 @@ public class CashCostItemPO implements Serializable {
      */
     private CashCostBillPO cashcostbill;
 
+    public CashCostItemPO() {
+    }
+
+    public CashCostItemPO(String name, String ps, double money) {
+        this.name = name;
+        this.ps = ps;
+        this.money = money;
+    }
+
     public int getId() {
         return id;
     }
@@ -68,4 +77,5 @@ public class CashCostItemPO implements Serializable {
     public void setCashcostbill(CashCostBillPO cashcostbill) {
         this.cashcostbill = cashcostbill;
     }
+
 }

@@ -114,112 +114,112 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="BackToSetPromotion" layoutX="767.0" layoutY="489.0" mnemonicParsing="false" onAction="#handleBackToPromotionButtonAction" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Pane layoutX="175.0" layoutY="138.0" prefHeight="320.0" prefWidth="695.0" style="-fx-background-color: #f8f8f8;">
+      <Button fx:id="BackToSetPromotion" layoutX="775.0" layoutY="488.0" mnemonicParsing="false" onAction="#handleBackToPromotionButtonAction" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Pane layoutX="175.0" layoutY="138.0" prefHeight="320.0" prefWidth="700.0" style="-fx-background-color: #f8f8f8;">
          <children>
-            <TableView fx:id="GrossTable" prefHeight="320.0" prefWidth="695.0" visible="false">
+            <TableView fx:id="GrossTable" prefHeight="320.0" prefWidth="700.0" visible="false">
                <columns>
-                  <TableColumn prefWidth="120.0" text="开始时间" >
+                  <TableColumn prefWidth="120.0" text="开始时间">
                      <cellValueFactory>
                         <PropertyValueFactory property="startTime" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="120.0" text="结束时间" >
+                  <TableColumn prefWidth="120.0" text="结束时间">
                     <cellValueFactory>
                         <PropertyValueFactory property="endTime" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="106.0" text="触发总额" >
+                  <TableColumn prefWidth="100.0" text="触发总额">
                   <cellValueFactory>
                         <PropertyValueFactory property="total" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="106.0" text="代金券金额" >
+                  <TableColumn prefWidth="100.0" text="代金券金额">
                     <cellValueFactory>
                         <PropertyValueFactory property="voucher" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="106.0" text="赠送商品" >
+                  <TableColumn prefWidth="100.0" text="赠送商品">
                     <cellValueFactory>
                         <PropertyValueFactory property="giftItems" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="107.0" text="赠送数量" >
+                  <TableColumn prefWidth="107.0" text="赠送数量">
                     <cellValueFactory>
                         <PropertyValueFactory property="giftNum" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="GrossTableDelete" prefWidth="30.0" text="—" />
+                  <TableColumn fx:id="GrossTableDelete" prefWidth="40.0" text="—" />
                </columns>
             </TableView>
-            <TableView fx:id="GroupTable" prefHeight="320.0" prefWidth="695.0">
+            <TableView fx:id="GroupTable" prefHeight="320.0" prefWidth="700.0" visible="false">
                <columns>
-                  <TableColumn prefWidth="120.0" text="开始时间" >
+                  <TableColumn prefWidth="120.0" text="开始时间">
                     <cellValueFactory>
                         <PropertyValueFactory property="startTime" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="120.0" text="结束时间" >
+                  <TableColumn prefWidth="120.0" text="结束时间">
                     <cellValueFactory>
                         <PropertyValueFactory property="endTime" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="140.0" text="折扣率" >
+                  <TableColumn prefWidth="135.0" text="折扣率">
                     <cellValueFactory>
                         <PropertyValueFactory property="discountRate" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="143.0" text="赠送商品" >
+                  <TableColumn prefWidth="135.0" text="赠送商品">
                     <cellValueFactory>
                         <PropertyValueFactory property="productItems" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="142.0" text="赠送数量" >
+                  <TableColumn prefWidth="135.0" text="赠送数量">
                   <cellValueFactory>
                         <PropertyValueFactory property="productNum" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="GroupTableDelete" prefWidth="30.0" text="—" />
+                  <TableColumn fx:id="GroupTableDelete" prefWidth="40.0" text="—" />
                </columns>
             </TableView>
-            <TableView fx:id="CustomerTable" prefHeight="320.0" prefWidth="695.0" visible="false">
+            <TableView fx:id="CustomerTable" prefHeight="320.0" prefWidth="700.0">
               <columns>
-                <TableColumn prefWidth="120.0" text="开始时间" >
+                <TableColumn prefWidth="120.0" text="开始时间">
                   <cellValueFactory>
                         <PropertyValueFactory property="startTime" />
                      </cellValueFactory>
                   </TableColumn>
-                <TableColumn prefWidth="120.0" text="结束时间" >
+                <TableColumn prefWidth="120.0" text="结束时间">
                   <cellValueFactory>
                         <PropertyValueFactory property="endTime" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="85.0" text="客户等级" >
+                  <TableColumn prefWidth="81.0" text="客户等级">
                     <cellValueFactory>
                         <PropertyValueFactory property="customerLevel" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="85.0" text="折让金额" >
+                  <TableColumn prefWidth="81.0" text="折让金额">
                     <cellValueFactory>
                         <PropertyValueFactory property="discount" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="85.0" text="代金券金额" >
+                  <TableColumn prefWidth="81.0" text="代金券金额">
                     <cellValueFactory>
                         <PropertyValueFactory property="voucher" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="85.0" text="赠送商品" >
+                  <TableColumn prefWidth="81.0" text="赠送商品">
                     <cellValueFactory>
                         <PropertyValueFactory property="giftItems" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="85.0" text="赠送数量" >
+                  <TableColumn prefWidth="81.0" text="赠送数量">
                     <cellValueFactory>
                         <PropertyValueFactory property="giftNum" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="CustomerTableDelete" prefWidth="30.0" text="—" />
+                  <TableColumn fx:id="CustomerTableDelete" prefWidth="40.0" text="—" />
               </columns>
             </TableView>
          </children></Pane>

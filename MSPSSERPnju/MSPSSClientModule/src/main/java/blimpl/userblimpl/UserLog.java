@@ -3,13 +3,14 @@ package blimpl.userblimpl;
 import network.UserClientNetworkService;
 import po.UserPO;
 import status.Log_In_Out_Status;
-import vo.UserVO;
 
-import java.util.ArrayList;
-
+/**
+ * 用于检验用户登录是否成功
+ */
 public class UserLog {
-    public static ArrayList<UserVO> UserList = UserManage.UserList;
-    protected UserClientNetworkService userClientNetwork;
+
+    private UserClientNetworkService userClientNetwork;
+
 
     /**
      * 登陆
@@ -35,7 +36,6 @@ public class UserLog {
      * @return
      */
     public Log_In_Out_Status logout(String ID) {
-
         return Log_In_Out_Status.Logout_Sucess;
     }
 

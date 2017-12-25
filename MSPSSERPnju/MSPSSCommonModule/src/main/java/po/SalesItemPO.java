@@ -39,6 +39,16 @@ public class SalesItemPO implements Serializable{
    */
   private SalesOutBillPO salesOutBillPO;
 
+  public SalesItemPO() {
+  }
+
+  public SalesItemPO(String id, int number, double price, String ps) {
+    this.id = id;
+    this.number = number;
+    this.price = price;
+    this.ps = ps;
+  }
+
   public String getKeycolumn() {
     return keycolumn;
   }

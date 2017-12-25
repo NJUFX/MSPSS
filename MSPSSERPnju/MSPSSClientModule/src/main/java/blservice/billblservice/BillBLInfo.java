@@ -10,5 +10,5 @@ import vo.AlarmBillVO;
  * Created on 16:56 2017/11/11/011
  */
 public interface BillBLInfo {
-    public ResultMessage  makeAlarmBill(AlarmBillVO alarmBillVO);
+    public ResultMessage addAlarmBill(AlarmBillVO alarmBillVO);
 }

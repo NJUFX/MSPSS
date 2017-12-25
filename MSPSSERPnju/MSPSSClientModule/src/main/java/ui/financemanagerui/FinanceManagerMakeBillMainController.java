@@ -38,6 +38,12 @@ public class FinanceManagerMakeBillMainController implements Initializable {
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML 
+	Button AddReceiveBill;
+	@FXML
+	Button AddPayBill;
+	@FXML
+	Button AddCashCostBill;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -167,5 +173,50 @@ public class FinanceManagerMakeBillMainController implements Initializable {
 		return (Initializable) loader.getController();
 	}
 
+	/**
+	 * 监听增加收款单按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddReceiveBillButtonAction(ActionEvent e)throws Exception{
+		try {
+			FinanceManagerAddReceiveBillController controller = (FinanceManagerAddReceiveBillController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerAddReceiveBill.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 监听增加付款单按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddPayBillButtonAction(ActionEvent e)throws Exception{
+		try {
+			FinanceManagerAddPayBillController controller = (FinanceManagerAddPayBillController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerAddPayBill.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 监听增加现金收费单按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddCashCostBillButtonAction(ActionEvent e)throws Exception{
+		try {
+			FinanceManagerAddCashCostBillController controller = (FinanceManagerAddCashCostBillController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerAddCashCostBill.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 
 }
