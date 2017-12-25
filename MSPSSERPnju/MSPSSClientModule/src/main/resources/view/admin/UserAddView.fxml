@@ -24,6 +24,12 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
+        <Button id="modUserButton" fx:id="searchUserButton" onAction="#searchddUserButtonAction" layoutY="386.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
+                stylesheets="@../../css/admin/addUser.css" text="查找用户" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Button>
         <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="增加用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
@@ -159,5 +165,11 @@
                 </ImageView>
             </graphic>
         </Button>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="394.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../image/搜索.png"/>
+            </image>
+        </ImageView>
     </children>
 </Pane>
