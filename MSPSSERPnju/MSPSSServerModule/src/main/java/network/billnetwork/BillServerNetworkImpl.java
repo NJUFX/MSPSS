@@ -59,6 +59,15 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
     }
 
 
+    /**
+     * 返回形如 KDZSD-20101010-00001
+     *
+     * @param type
+     * @return
+     */
+    public String getStockBillID(StockBillType type)throws RemoteException{
+        return billDataService.getStockBillID(type);
+    }
 
     /**
      * 在数据层增加 现金费用单
@@ -93,7 +102,14 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val)throws RemoteException{
         return billDataService.fullSearchCashCostBill(field, val);
     }
-
+    /**
+     * 得到应有的现金费用单ID
+     *
+     * @return
+     */
+    public String getCashCostBillID()throws RemoteException{
+        return billDataService.getCashCostBillID();
+    }
 
     public ResultMessage addFinanceBill(FinanceBillPO po)throws RemoteException{
         return billDataService.addFinanceBill(po);
@@ -116,6 +132,15 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
     }
 
 
+    /**
+     * 根据财务类单据类型返回应有的单据
+     *
+     * @param type
+     * @return
+     */
+    public String getFinanceBillID(FinanceBillType type)throws RemoteException{
+        return billDataService.getFinanceBillID(type);
+    }
 
     public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO)throws RemoteException{
         return billDataService.addSalesInBill(salesInBillPO);
@@ -137,7 +162,9 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
         return billDataService.mutilSearchSalesInBill(criteriaClauses);
     }
 
-
+    public String getSalesInBillID(SalesInBillType type)throws RemoteException{
+        return billDataService.getSalesInBillID(type);
+    }
 
     public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO)throws RemoteException{
         return billDataService.addSalesOutBill(salesOutBillPO);
@@ -159,5 +186,7 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
         return billDataService.mutilSearchSalesOutBill(criteriaClauses);
     }
 
-
+    public String getSalesOutBillID(SalesOutBillType type)throws RemoteException{
+        return billDataService.getSalesOutBillID(type);
+    }
 }

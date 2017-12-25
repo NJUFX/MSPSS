@@ -105,7 +105,12 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      * @return
      */
     public String getStockBillID(StockBillType type){
-
+        try{
+            return billServerNetworkService.getStockBillID(type);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -155,7 +160,15 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      *
      * @return
      */
-    public String getCashCostBillID();
+    public String getCashCostBillID(){
+      try{
+          return billServerNetworkService.getCashCostBillID();
+      }catch (RemoteException e){
+          e.printStackTrace();
+      }
+      return null;
+    }
+
 
     public ArrayList<CashCostBillPO> multiSearchCashCostBill(ArrayList<CriteriaClause> criteriaClauses){
         try{
@@ -230,7 +243,15 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      * @param type
      * @return
      */
-    public String getFinanceBillID(FinanceBillType type);
+    public String getFinanceBillID(FinanceBillType type){
+    try{
+    billServerNetworkService.getFinanceBillID(type);
+
+    }catch (RemoteException e){
+        e.printStackTrace();
+    }
+    return null;
+}
 
     public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO){
         try{
@@ -287,8 +308,15 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      * @return
      */
     public String getSalesInBillID(SalesInBillType type){
+        try{
+           return billServerNetworkService.getSalesInBillID(type);
+        }catch (RemoteException e){
+            e.printStackTrace();
 
-    }
+        }
+        return null;
+     }
+
 
     public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO){
         try{
@@ -338,6 +366,12 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         return null;
     }
 
-    public String getSalesOutBillID(SalesOutBillType type){
-
+    public String getSalesOutBillID(SalesOutBillType type) {
+        try {
+            billServerNetworkService.getSalesOutBillID(type);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

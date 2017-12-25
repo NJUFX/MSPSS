@@ -1,5 +1,6 @@
 package network.billnetworkservice;
 
+import com.sun.org.apache.regexp.internal.RE;
 import po.*;
 import util.*;
 
@@ -40,7 +41,13 @@ public interface BillServerNetworkService {
 
     public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses)throws RemoteException;
 
-
+    /**
+     * 返回形如 KDZSD-20101010-00001
+     *
+     * @param type
+     * @return
+     */
+    public String getStockBillID(StockBillType type)throws RemoteException;
     /**
      * 在数据层增加 现金费用单
      *
@@ -64,6 +71,13 @@ public interface BillServerNetworkService {
 
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val)throws RemoteException;
 
+    /**
+     * 得到应有的现金费用单ID
+     *
+     * @return
+     */
+    public String getCashCostBillID()throws RemoteException;
+
 
     public ResultMessage addFinanceBill(FinanceBillPO po)throws RemoteException;
 
@@ -74,7 +88,13 @@ public interface BillServerNetworkService {
     public ArrayList<FinanceBillPO> fullSearchFinanceBill(String field, Object val)throws RemoteException;
 
     public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses)throws RemoteException;
-
+    /**
+     * 根据财务类单据类型返回应有的单据
+     *
+     * @param type
+     * @return
+     */
+    public String getFinanceBillID(FinanceBillType type)throws RemoteException;
 
     public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO)throws RemoteException;
 
@@ -86,7 +106,7 @@ public interface BillServerNetworkService {
 
     public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses)throws RemoteException;
 
-
+    public String getSalesInBillID(SalesInBillType type)throws RemoteException;
     public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO)throws RemoteException;
 
     public ResultMessage updateSalesOutBill(SalesOutBillPO salesOutBillPO)throws RemoteException;
@@ -96,6 +116,6 @@ public interface BillServerNetworkService {
     public ArrayList<SalesOutBillPO> fullSearchSalesOutBill(String field, Object val)throws RemoteException;
 
     public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses)throws RemoteException;
-
+    public String getSalesOutBillID(SalesOutBillType type)throws RemoteException;
 
 }

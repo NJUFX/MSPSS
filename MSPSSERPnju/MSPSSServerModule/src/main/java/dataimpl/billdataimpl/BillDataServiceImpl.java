@@ -86,7 +86,44 @@ public class BillDataServiceImpl implements BillDataService{
         return stockBillHelper.multiCriteriaQuery(criteriaClauses);
     }
 
+    /**
+     * 返回形如 KCZSD-20101010-00001
+     *
+     * @param type
+     * @return
+     */
+    public String getStockBillID(StockBillType type){
+        ArrayList<StockBillPO> stockBillPOS;
+        String prefix;
+        switch(type){
+            case Presentation:
+                 stockBillPOS = stockBillHelper.prefixMatchQuery("id","KCZSD");
+                 prefix ="KCZSD";
+                break;
+            case More:
+                 stockBillPOS = stockBillHelper.prefixMatchQuery("id","KCBYD");
+                prefix ="KCBYD";
+                 break;
+            case Less:
+                stockBillPOS = stockBillHelper.prefixMatchQuery("id","KCBSD");
+                prefix = "KCBSD";
+                break;
+            default:
+                stockBillPOS = new ArrayList<StockBillPO>();
+                prefix ="";
+        }
 
+        int num = stockBillPOS.size()+1;
+
+        String strNum = ""+num;
+
+        while(strNum.length()<5){
+            strNum = "0"+strNum;
+        }
+
+        return prefix+"-"+Time.getTimeFormat()+"-"+strNum;
+
+    }
 
     /**
      * 在数据层增加 现金费用单
@@ -138,7 +175,24 @@ public class BillDataServiceImpl implements BillDataService{
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val){
         return cashCostBillHelper.fullMatchQuery(field, val);
     }
+    /**
+     * 得到应有的现金费用单ID
+     *
+     * @return
+     */
+    public String getCashCostBillID(){
+        ArrayList<CashCostBillPO> cashCostBillPOS = cashCostBillHelper.prefixMatchQuery("id","XJFYD");
+        int num = cashCostBillPOS.size()+1;
 
+        String strNum = ""+num;
+
+        while(strNum.length()<5){
+            strNum = "0"+strNum;
+        }
+
+        return "XJFYD"+"-"+Time.getTimeFormat()+"-"+strNum;
+
+    }
 
     public ResultMessage addFinanceBill(FinanceBillPO po){
         try{
@@ -178,7 +232,40 @@ public class BillDataServiceImpl implements BillDataService{
         return financeBillHelper.multiCriteriaQuery(criteriaClauses);
     }
 
+    /**
+     * 根据财务类单据类型返回应有的单据
+     *
+     * @param type
+     * @return
+     */
+    public String getFinanceBillID(FinanceBillType type){
+        ArrayList<FinanceBillPO> financeBillPOS;
+        String prefix;
+        switch(type){
+            case IN:
+                financeBillPOS = financeBillHelper.prefixMatchQuery("id","SKD");
+                prefix ="SKD";
+                break;
+            case OUT:
+                financeBillPOS = financeBillHelper.prefixMatchQuery("id","FKD");
+                prefix ="FKD";
+                break;
 
+            default:
+                financeBillPOS = new ArrayList<FinanceBillPO>();
+                prefix ="";
+        }
+
+        int num = financeBillPOS.size()+1;
+
+        String strNum = ""+num;
+
+        while(strNum.length()<5){
+            strNum = "0"+strNum;
+        }
+
+        return prefix+"-"+Time.getTimeFormat()+"-"+strNum;
+    }
 
     public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO){
         try{
@@ -218,7 +305,34 @@ public class BillDataServiceImpl implements BillDataService{
         return salesInBillHelper.multiCriteriaQuery(criteriaClauses);
     }
 
+    public String getSalesInBillID(SalesInBillType type){
+        ArrayList<SalesInBillPO> salesInBillPOS;
+        String prefix;
+        switch(type){
+            case IN:
+                salesInBillPOS = salesInBillHelper.prefixMatchQuery("id","JHD");
+                prefix ="JHD";
+                break;
+            case OUT:
+                salesInBillPOS = salesInBillHelper.prefixMatchQuery("id","JHTHD");
+                prefix ="JHTHD";
+                break;
 
+            default:
+                salesInBillPOS = new ArrayList<SalesInBillPO>();
+                prefix ="";
+        }
+
+        int num = salesInBillPOS.size()+1;
+
+        String strNum = ""+num;
+
+        while(strNum.length()<5){
+            strNum = "0"+strNum;
+        }
+
+        return prefix+"-"+Time.getTimeFormat()+"-"+strNum;
+    }
 
     public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO){
         try{
@@ -258,5 +372,32 @@ public class BillDataServiceImpl implements BillDataService{
         return salesOutBillHelper.multiCriteriaQuery(criteriaClauses);
     }
 
+    public String getSalesOutBillID(SalesOutBillType type){
+        ArrayList<SalesOutBillPO> salesOutBillPOS;
+        String prefix;
+        switch(type){
+            case RETURN:
+                salesOutBillPOS = salesOutBillHelper.prefixMatchQuery("id","XSTHD");
+                prefix ="XSTHD";
+                break;
+            case OUT:
+                salesOutBillPOS = salesOutBillHelper.prefixMatchQuery("id","XSD");
+                prefix ="XSD";
+                break;
 
+            default:
+                salesOutBillPOS = new ArrayList<SalesOutBillPO>();
+                prefix ="";
+        }
+
+        int num = salesOutBillPOS.size()+1;
+
+        String strNum = ""+num;
+
+        while(strNum.length()<5){
+            strNum = "0"+strNum;
+        }
+
+        return prefix+"-"+Time.getTimeFormat()+"-"+strNum;
+    }
 }
