@@ -3,6 +3,7 @@ package ui.financemanagerui;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import auxiliary.Account;
@@ -32,6 +33,8 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Time;
+import vo.AccountVO;
 import vo.CustomerPromotionVO;
 import vo.GrossPromotionVO;
 import vo.GroupPromotionVO;
@@ -60,16 +63,30 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	TableColumn<Account,String> DeleteAccount;
 	@FXML
 	TextField SearchCondition;
+	@FXML
+	Button SearchAccount;
+	@FXML
+	TextField AddAccountName;
+	@FXML
+	TextField AddAccountMoney;
+	@FXML
+	TextField CurrentAccountName;
+	@FXML
+	TextField NewAccountName;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
 	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
+	ArrayList<AccountVO> testStub = new ArrayList<AccountVO>();
+	
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
 		this.initTable();
+			testStub.add(new AccountVO("testName",100000.0,new Time(2017,12,25,15,40,23)));
+
 	}
 
 	public void setApp(MainApp application) {
@@ -205,7 +222,7 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 						iv.setFitWidth(15);
 						iv.setFitHeight(15);
 						delBtn.setGraphic(iv);
-						delBtn.setPrefSize(50, 5);
+						delBtn.setPrefSize(100, 5);
 
 						// delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
 						this.setGraphic(delBtn);
@@ -235,9 +252,47 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	 * @throws Exception
 	 */
 	public void handleSearchAccountButtonAction(ActionEvent e) throws Exception{
+		ObservableList<Account> data = AccountTable.getItems();
+		data.clear();
 		String condition = SearchCondition.getText();
+		ArrayList<AccountVO> accountList = accountBLService.fuzzSearchAccountByName(condition);
+		//ArrayList<AccountVO> accountList = testStub;
+		for(int i=0;i<accountList.size();i++) {
+			AccountVO temp = accountList.get(i);
+			data.add(new Account(temp.getName(),Double.toString(temp.getMoney())));
+		}
+	}
+	
+	
+	/**
+	 * 监听增加账户按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddAccountButtonAction(ActionEvent e) throws Exception{
+		String AccountName = AddAccountName.getText();
+		String AccountMoney = AddAccountMoney.getText();
+		ObservableList<Account> data = AccountTable.getItems();
+		data.add(new Account(AccountName,AccountMoney));
+		accountBLService.addAccount(new AccountVO(AccountName,Double.parseDouble(AccountName),null));
 	}
 
 
+	/**
+	 * 监听修改账户按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleUpdateAccountButtonAction(ActionEvent e) throws Exception{
+		ObservableList<Account> data = AccountTable.getItems();
+		for(int i=0;i<data.size();i++) {
+			if(data.get(i).getName().equals(CurrentAccountName.getText())) {
+				Account temp = data.get(i);
+				data.add(new Account(NewAccountName.getText(),temp.getMoney()));
+				data.remove(temp);
+				accountBLService.modifyAccount(CurrentAccountName.getText(), NewAccountName.getText());
+			}
+		}
+	}
 
 }

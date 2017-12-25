@@ -101,12 +101,12 @@
       </ImageView>
       <Pane layoutX="187.0" layoutY="368.0" prefHeight="125.0" prefWidth="664.0" style="-fx-background-color: #e0e0e0;">
          <children>
-            <TextField layoutX="27.0" layoutY="32.0" prefHeight="18.0" prefWidth="290.0" promptText="账户名称" />
-            <TextField layoutX="329.0" layoutY="33.0" prefHeight="25.0" prefWidth="209.0" promptText="账户金额" />
-            <Button layoutX="544.0" layoutY="34.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="增加账户" textFill="WHITE" />
-            <TextField layoutX="27.0" layoutY="67.0" prefHeight="25.0" prefWidth="290.0" promptText="当前账户名称" />
-            <TextField layoutX="329.0" layoutY="67.0" prefHeight="27.0" prefWidth="209.0" promptText="变更账户名称" />
-            <Button layoutX="544.0" layoutY="65.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="修改账户" textFill="#0f88eb" />
+            <TextField fx:id="AddAccountName" layoutX="27.0" layoutY="32.0" prefHeight="18.0" prefWidth="290.0" promptText="账户名称" />
+            <TextField fx:id="AddAccountMoney" layoutX="329.0" layoutY="33.0" prefHeight="25.0" prefWidth="209.0" promptText="账户金额" />
+            <Button fx:id="AddAccount" layoutX="544.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleAddAccountButtonAction" prefHeight="20.0" prefWidth="100.0" text="增加账户" textFill="WHITE" />
+            <TextField fx:id="CurrentAccountName" layoutX="27.0" layoutY="67.0" prefHeight="25.0" prefWidth="290.0" promptText="当前账户名称" />
+            <TextField fx:id="NewAccountName" layoutX="329.0" layoutY="67.0" prefHeight="27.0" prefWidth="209.0" promptText="变更账户名称" />
+            <Button fx:id="UpdateAccount" layoutX="544.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleUpdateAccountButtonAction" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="修改账户" textFill="#0f88eb" />
          </children>
       </Pane>
       <TableView fx:id="AccountTable" layoutX="213.0" layoutY="137.0" prefHeight="240.0" prefWidth="620.0">
@@ -124,8 +124,8 @@
             <TableColumn fx:id="DeleteAccount" prefWidth="100.0" text="删除账户" />
         </columns>
       </TableView>
-      <TextField layoutX="372.0" layoutY="76.0" prefHeight="20.0" prefWidth="335.0" style="-fx-background-radius: 0;" />
-      <Button layoutX="733.0" layoutY="76.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
+      <TextField fx:id="SearchCondition" layoutX="372.0" layoutY="76.0" prefHeight="20.0" prefWidth="335.0" promptText="     账户名" style="-fx-background-radius: 0;" />
+      <Button fx:id="SearchAccount" layoutX="733.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleSearchAccountButtonAction" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
       <ImageView fitHeight="18.0" fitWidth="19.0" layoutX="378.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/stockseller/搜索.png" />
