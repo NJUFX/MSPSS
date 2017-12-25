@@ -12,6 +12,10 @@ public class CustomerVO {
      */
     private String ID;
     /**
+     * 客户分类
+     */
+    private Kind_Of_Customers category;
+    /**
      * 等级
      */
     private int level;
@@ -60,6 +64,13 @@ public class CustomerVO {
      */
     private Kind_Of_Customers kind;
 
+    public Kind_Of_Customers getCategory() {
+        return category;
+    }
+
+    public void setCategory(Kind_Of_Customers category) {
+        this.category = category;
+    }
 
     public String getID() {
         return ID;

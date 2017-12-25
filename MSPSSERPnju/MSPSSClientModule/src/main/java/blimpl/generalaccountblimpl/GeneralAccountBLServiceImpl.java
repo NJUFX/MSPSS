@@ -1,6 +1,7 @@
 package blimpl.generalaccountblimpl;
 
 import blservice.generalaccountblservice.GeneralAccountBLService;
+import po.GeneralAccountPO;
 import util.ResultMessage;
 import util.Time;
 import vo.GeneralAccountVO;
@@ -12,21 +13,54 @@ import java.util.ArrayList;
  */
 public class GeneralAccountBLServiceImpl implements GeneralAccountBLService {
 
-    GeneralAccount MyGeneralAccount = new GeneralAccount();
-    @Override
-    public ArrayList<GeneralAccountVO> checkGeneralAccount(Time begin, Time end) {
+    GeneralAccount generalAccount ;
 
-        return MyGeneralAccount.checkGeneralAccount(begin,end);
+    protected GeneralAccountBLServiceImpl(GeneralAccount generalAccount){
+        this.generalAccount = generalAccount;
     }
 
-    @Override
-    public ResultMessage newGeneralAccount(GeneralAccountVO generalaccount) {
-
-        return MyGeneralAccount.newGeneralAccount(generalaccount);
+    /**
+     * 添加期初账户
+     * @param
+     * @return ResultMessage
+     */
+    public ResultMessage addGeneralAcocunt(GeneralAccountVO generalAccountVO){
+        return generalAccount.addGeneralAcocunt(generalAccountVO);
     }
 
-    @Override
-    public ArrayList<GeneralAccountVO> ETLsort(ArrayList<GeneralAccountVO> accountlist) {
-        return MyGeneralAccount.ETLsort(accountlist);
+
+    /**
+     * 精确查找商品
+     * @param id
+     * @return
+     */
+    public GeneralAccountVO exactlySearchGeneralAccount(String field,String id){
+        return generalAccount.exactlySearchGeneralAccount(field, id);
     }
+
+    public ArrayList<GeneralAccountVO> fullSearchGeneralAccount(String field, Object value){
+        return generalAccount.fullSearchGeneralAccount(field, value);
+    }
+    /**
+     *
+     * @param filed
+     * @param value
+     * @return
+     */
+    public ArrayList<GeneralAccountVO> fuzzySearchGeneralAccount(String filed,String value){
+        return generalAccount.fuzzySearchGeneralAccount(filed, value);
+    }
+
+
+    /**
+     *
+     * @param field
+     * @param min
+     * @param max
+     * @return
+     */
+    public ArrayList<GeneralAccountVO> rangeSearchGeneralAccount(String field, Object min, Object max){
+        return generalAccount.rangeSearchGeneralAccount(field, min, max);
+    }
+
 }

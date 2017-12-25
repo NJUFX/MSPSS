@@ -13,7 +13,7 @@ public class AccountVO {
 
         this.createTime = createTime;
     }
-    public AccountVO(String name,int money){
+    public AccountVO(String name,double money){
         this.name = name;
         this.money = money;
         this.createTime = new Time();
