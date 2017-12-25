@@ -91,18 +91,18 @@
       </ImageView>
       <Pane layoutX="188.0" layoutY="133.0" prefHeight="275.0" prefWidth="675.0" style="-fx-background-color: white;">
          <children>
-            <TextField layoutX="506.0" layoutY="73.0" prefHeight="25.0" prefWidth="145.0" promptText="新增账户信息" style="-fx-background-radius: 00;" />
-            <TextField layoutX="506.0" layoutY="28.0" prefHeight="25.0" prefWidth="145.0" promptText="新增账户信息" style="-fx-background-radius: 00;" />
-            <TextField layoutX="305.0" layoutY="73.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="305.0" layoutY="28.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="120.0" layoutY="73.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="120.0" layoutY="28.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="305.0" layoutY="208.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="120.0" layoutY="208.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="120.0" layoutY="163.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="120.0" layoutY="118.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="305.0" layoutY="118.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
-            <TextField layoutX="305.0" layoutY="163.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="AccountMoney" layoutX="506.0" layoutY="73.0" prefHeight="25.0" prefWidth="145.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="AccountName" layoutX="506.0" layoutY="28.0" prefHeight="25.0" prefWidth="145.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="CustomerContact" layoutX="305.0" layoutY="73.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="CustomerName" layoutX="305.0" layoutY="28.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="ProductType" layoutX="120.0" layoutY="73.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="ProductName" layoutX="120.0" layoutY="28.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="CustomerType" layoutX="305.0" layoutY="208.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="ProductExportCost" layoutX="120.0" layoutY="208.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="ProductImportCost" layoutX="120.0" layoutY="163.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="ProductId" layoutX="120.0" layoutY="118.0" prefHeight="10.0" prefWidth="95.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="CustomerIncomeMoney" layoutX="305.0" layoutY="118.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
+            <TextField fx:id="CustomerPayMoney" layoutX="305.0" layoutY="163.0" prefHeight="10.0" prefWidth="115.0" style="-fx-background-radius: 00;" />
             <Label layoutX="25.0" layoutY="33.0" style="-fx-background-color: white;" text="商品名称" textFill="#0f88eb">
                <font>
                   <Font size="14.0" />
@@ -148,7 +148,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="25.0" layoutY="213.0" style="-fx-background-color: white;" text="商品类别" textFill="#0f88eb">
+            <Label layoutX="25.0" layoutY="213.0" style="-fx-background-color: white;" text="商品售价" textFill="#0f88eb">
                <font>
                   <Font size="14.0" />
                </font>
@@ -163,15 +163,15 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="348.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
-            <Button layoutX="146.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
-            <Button layoutX="550.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
+            <Button fx:id="AddCustomer" layoutX="348.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddCustomerButtonAction" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
+            <Button fx:id="AddCommodity" layoutX="146.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddCommodityButtonAction" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
+            <Button fx:id="AddAccount" layoutX="550.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddAccountButtonAction" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
          </children>
       </Pane>
-      <TextField layoutX="207.0" layoutY="76.0" promptText="期初账户名称" style="-fx-background-radius: 0;" />
-      <TextField layoutX="425.0" layoutY="76.0" promptText="创建者" style="-fx-background-radius: 0;" />
+      <TextField fx:id="GeneralAccountName" layoutX="207.0" layoutY="76.0" promptText="期初账户名称" style="-fx-background-radius: 0;" />
+      <TextField fx:id="CreaterName" layoutX="425.0" layoutY="76.0" promptText="创建者" style="-fx-background-radius: 0;" />
       <Button fx:id="CheckCurrentList" layoutX="456.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleCheckCurrentListButtonAction" prefHeight="27.0" prefWidth="95.0" text="当前列表" textFill="WHITE" />
-      <Button layoutX="756.0" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="95.0" text="提交账目" textFill="WHITE" />
-      <Button layoutX="606.0" layoutY="435.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="清空信息" textFill="#0f88eb" />
+      <Button fx:id="CommitGeneralAccount" layoutX="756.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleCommitGeneralAccountButtonAction" prefHeight="27.0" prefWidth="95.0" text="提交账目" textFill="WHITE" />
+      <Button fx:id="ClearInformation" layoutX="606.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleClearInfomationButtonAction" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="清空信息" textFill="#0f88eb" />
     </children>
 </Pane>

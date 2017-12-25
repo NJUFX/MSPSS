@@ -99,15 +99,23 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Button fx:id="BackToCreateGeneralAccount" layoutX="713.0" layoutY="427.0" mnemonicParsing="false" onAction="#handleBackToCreateGeneralAccountButtonAction" prefHeight="25.0" prefWidth="110.0" text="返回" textFill="WHITE" />
-      <Pane layoutX="223.0" layoutY="105.0" prefHeight="297.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <Button fx:id="BackToCreateGeneralAccount" layoutX="711.0" layoutY="427.0" mnemonicParsing="false" onAction="#handleBackToCreateGeneralAccountButtonAction" prefHeight="25.0" prefWidth="110.0" text="返回" textFill="WHITE" />
+      <Pane layoutX="223.0" layoutY="105.0" prefHeight="297.0" prefWidth="598.0" style="-fx-background-color: white;">
          <children>
-            <TableView fx:id="CurrentList" prefHeight="297.0" prefWidth="600.0">
+            <TableView fx:id="CommodityList" prefHeight="297.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="200.0" text="商品名称" />
-                <TableColumn prefWidth="200.0" text="客户名称" />
-                  <TableColumn prefWidth="200.0" text="账户名称" />
+                <TableColumn fx:id="CommodityList" prefWidth="200.0" text="商品名称" />
               </columns>
+            </TableView>
+            <TableView fx:id="CustomerList" layoutX="199.0" prefHeight="297.0" prefWidth="200.0">
+               <columns>
+                  <TableColumn prefWidth="200.0" text="客户名称" />
+               </columns>
+            </TableView>
+            <TableView fx:id="AccountList" layoutX="398.0" prefHeight="297.0" prefWidth="200.0">
+               <columns>
+                  <TableColumn prefWidth="200.0" text="账户名称" />
+               </columns>
             </TableView>
          </children>
       </Pane>

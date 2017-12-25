@@ -13,6 +13,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -40,6 +41,44 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	Button BackToLogin;
 	@FXML
 	Button CheckCurrentList;
+	@FXML
+	Button ClearInformation;
+	@FXML
+	TextField GeneralAccountName;
+	@FXML
+	TextField CreaterName;
+	@FXML
+	TextField ProductName;
+	@FXML
+	TextField ProductType;
+	@FXML
+	TextField ProductId;
+	@FXML
+	TextField ProductImportCost;
+	@FXML
+	TextField ProductExportCost;
+	@FXML
+	TextField CustomerName;
+	@FXML
+	TextField CustomerContact;
+	@FXML
+	TextField CustomerIncomeMoney;
+	@FXML
+	TextField CustomerPayMoney;
+	@FXML
+	TextField CustomerType;
+	@FXML
+	TextField AccountName;
+	@FXML
+	TextField AccountMoney;
+	@FXML
+	Button AddCommodity;
+	@FXML
+	Button AddCustomer;
+	@FXML
+	Button AddAccount;
+	@FXML
+	Button CommitGeneralAccount;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -182,6 +221,42 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}
+	
+	/**
+	 * 监听清空条件按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleClearInfomationButtonAction(ActionEvent e) throws Exception{
+		
+	}
+	
+	/**
+	 * 监听增加商品按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddCommodityButtonAction(ActionEvent e) throws Exception{
+		
+	}
+	
+	/**
+	 * 监听增加账户按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddAccountButtonAction(ActionEvent e) throws Exception{
+		
+	}
+	
+	/**
+	 * 监听提交账目按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleCommitGeneralAccountButtonAction(ActionEvent e)throws Exception{
+		
 	}
 
 
