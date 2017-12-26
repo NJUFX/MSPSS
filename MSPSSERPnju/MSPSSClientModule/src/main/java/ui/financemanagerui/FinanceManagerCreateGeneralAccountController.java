@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import auxiliary.GeneralAccount;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.accountblservice.AccountBLService;
+import blservice.generalaccountblservice.GeneralAccountBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +29,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Kind_Of_Customers;
 import util.Time;
 import vo.AccountVO;
 import vo.CommodityVO;
@@ -90,25 +94,26 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	static ArrayList<CommodityVO> commodityList = new ArrayList<CommodityVO>();
 	static ArrayList<CustomerVO> customerList = new ArrayList<CustomerVO>();
 	static ArrayList<AccountVO> accountList = new ArrayList<AccountVO>();
-	
+	GeneralAccountBLService generalAccountBLService = new BLFactoryImpl().getGeneralAccountBLService();
+	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		CommodityVO commodity1 = new CommodityVO("LED灯","12138","IEEE-0001",10,10,100);
+		commodityList.add(commodity1) ;
+		 CustomerVO customer = new CustomerVO("1",Kind_Of_Customers.SUPPLIER,2,"hanqi",
+			        "10086","NJ","210046","hxh@foxmail.com",100,1000,100,"hemusheng");
+		 customerList.add(customer);
+		  AccountVO accountVO1 = new AccountVO("HuaQi",111,new Time());
+		  accountList.add(accountVO1);
 	}
 
 	public void setApp(MainApp application) {
 		this.application = application;
 	}
 	
-	/*
-	public void SetTags(String name,String Role,String id) {
-		NameTag.setText(name);
-		RoleTag.setText(Role);
-		IdTag.setText(id);
-	}
-	*/
+	
 
 	
 	/**
@@ -242,7 +247,12 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 * @throws Exception
 	 */
 	public void handleAddCommodityButtonAction(ActionEvent e) throws Exception{
-		
+		ObservableList<GeneralAccount> data = CurrentCommodity.getItems();
+		data.add(new GeneralAccount(CommodityName.getText()));
+		CommodityVO temp = generalAccountBLService.searchCommodity(CommodityName.getText());
+		//CommodityVO temp = new CommodityVO("LED灯","12138","IEEE-0003",10,12,120);
+		commodityList.add(temp);
+		CommodityName.setText("");
 		 
 	}
 	
@@ -252,7 +262,13 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 * @throws Exception
 	 */
 	public void handleAddCustomerButtonAction(ActionEvent e) throws Exception{
-		
+		ObservableList<GeneralAccount> data = CurrentCustomer.getItems();
+		data.add(new GeneralAccount(CustomerName.getText()));
+		CustomerVO temp = generalAccountBLService.searchCustomer(CustomerName.getText());
+		//CustomerVO temp = new CustomerVO("2",Kind_Of_Customers.SUPPLIER,2,"hanqi",
+		       // "10086","NJ","210046","hxh@foxmail.com",100,1000,100,"hemusheng");
+		customerList.add(temp);
+		 CustomerName.setText("");
 	}
 	
 	/**
@@ -261,7 +277,12 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 * @throws Exception
 	 */
 	public void handleAddAccountButtonAction(ActionEvent e) throws Exception{
-		
+		ObservableList<GeneralAccount> data = CurrentAccount.getItems();
+		data.add(new GeneralAccount(AccountName.getText()));
+		AccountVO temp = accountBLService.exactlySearchAccountByName(AccountName.getText());
+		//AccountVO temp = new AccountVO("zhaoshang",1111111,new Time());
+		accountList.add(temp);
+		 AccountName.setText("");
 	}
 	
 	/**
@@ -277,6 +298,7 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 		commodityList.clear();
 		customerList.clear();
 		accountList.clear();
+		
 	}
 
 
