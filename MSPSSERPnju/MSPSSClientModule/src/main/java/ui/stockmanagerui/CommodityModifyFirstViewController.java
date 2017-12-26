@@ -1,5 +1,7 @@
 package ui.stockmanagerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.commodityblservice.CommodityBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,11 +10,13 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +29,8 @@ import java.util.ResourceBundle;
  */
 public class CommodityModifyFirstViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
+    CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
 
     @FXML
     Button BackToLogin;
@@ -38,6 +44,8 @@ public class CommodityModifyFirstViewController implements Initializable {
     Button nextOperationButton;
     @FXML
     Button cancelButton;
+    @FXML
+    TextField id_to_modify_Field;
 
     /**
      * 返回上一界面（商品管理界面）
@@ -74,7 +82,7 @@ public class CommodityModifyFirstViewController implements Initializable {
     }
 
     /**
-     * 修改商品
+     * 增加商品
      *
      * @param e
      * @throws IOException
@@ -116,8 +124,11 @@ public class CommodityModifyFirstViewController implements Initializable {
     @FXML
     public void nextOperationButtonAction(ActionEvent e) throws IOException {
         try {
-            CommodityModitySecondViewController controller = (CommodityModitySecondViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityModifySecond.fxml");
+            if (id_to_modify_Field.getText() != null || !id_to_modify_Field.getText().equals("")) {
+                CommodityModitySecondViewController controller = (CommodityModitySecondViewController) replaceSceneContent(
+                        "/view/stockmanager/commodityModifySecond.fxml");
+                CommodityModitySecondViewController.id_to_modify = id_to_modify_Field.getText();
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

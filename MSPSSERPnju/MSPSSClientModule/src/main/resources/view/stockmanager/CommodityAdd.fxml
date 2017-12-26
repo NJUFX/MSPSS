@@ -138,15 +138,8 @@
                         <Font name="Microsoft YaHei" size="16.0"/>
                     </font>
                 </Label>
-                <ComboBox id="userCategory" fx:id="customerCategory1" layoutX="530.0" layoutY="38.0" prefHeight="23.0"
-                          prefWidth="114.0">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="进货商"/>
-                            <String fx:value="销售商"/>
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <ComboBox id="userCategory" fx:id="classificationBox" layoutX="530.0" layoutY="38.0" prefHeight="23.0"
+                          prefWidth="114.0"/>
                 <TextField id="userName" layoutX="97.0" layoutY="145.0" prefHeight="21.0" prefWidth="114.0"/>
                 <Label layoutX="228.0" layoutY="145.0" text="库存警戒值">
                     <font>

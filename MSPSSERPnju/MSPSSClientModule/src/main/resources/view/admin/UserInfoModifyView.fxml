@@ -63,7 +63,8 @@
                 <Font size="16.0"/>
             </font>
         </Label>
-        <ComboBox fx:id="categoryBox" layoutX="169.0" layoutY="173.0" prefHeight="22.0" prefWidth="94.0">
+        <ComboBox fx:id="categoryBox" onAction="#categoryBoxAction" layoutX="169.0" layoutY="173.0" prefHeight="22.0"
+                  prefWidth="94.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="总经理"/>
