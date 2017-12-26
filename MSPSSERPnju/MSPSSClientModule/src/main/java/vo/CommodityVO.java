@@ -20,37 +20,37 @@ public class CommodityVO {
     /**
      * 商品编号
      */
-   public String ID;
+    public String ID;
 
     /**
      * 进价
      */
-   public double importCost;
+    public double importCost;
 
     /**
      * 零售价
      */
-   public double exportCost;
+    public double exportCost;
 
     /**
      * 最近一次进价
      */
-   public double latestImportCost;
+    public double latestImportCost;
 
     /**
      * 最近一次售价
      */
-   public double latestExportCost;
+    public double latestExportCost;
     /**
      * 库存数量
      */
-   public int numberInStock;
+    public int numberInStock;
     /**
      * 库存警戒值
      */
-   public int alertNumber;
+    public int alertNumber;
 
-    public CommodityVO(String name, String ID,String type, double importCost, double exportCost,int numberInStock){
+    public CommodityVO(String name, String ID, String type, double importCost, double exportCost, int numberInStock) {
         this.name = name;
         this.ID = ID;
         this.numberInStock = numberInStock;
@@ -58,7 +58,8 @@ public class CommodityVO {
         this.importCost = importCost;
         this.exportCost = exportCost;
     }
-    public CommodityVO(String name, String type, String classificationName, double importCost, double exportCost){
+
+    public CommodityVO(String name, String type, String classificationName, double importCost, double exportCost) {
         this.name = name;
         this.classificationName = classificationName;
         this.type = type;
@@ -66,7 +67,7 @@ public class CommodityVO {
         this.exportCost = exportCost;
     }
 
-    public CommodityVO(String name, String classificationName, String type, String ID, double importCost, double exportCost,int numberInStock) {
+    public CommodityVO(String name, String classificationName, String type, String ID, double importCost, double exportCost, int numberInStock) {
         this.name = name;
         this.classificationName = classificationName;
         this.type = type;
@@ -91,7 +92,7 @@ public class CommodityVO {
 
     @Override
     public String toString() {
-        return "商品名为"+name+" 商品类型为 "+classificationName+"商品型号为 " +type+" 商品编号为 "+ID+" 进价为 "+ importCost +" 售价为 "+ exportCost;
+        return "商品名为" + name + " 商品类型为 " + classificationName + "商品型号为 " + type + " 商品编号为 " + ID + " 进价为 " + importCost + " 售价为 " + exportCost;
     }
 
     public void setID(String ID) {
@@ -153,7 +154,6 @@ public class CommodityVO {
     public void setImportCost(double importCost) {
         this.importCost = importCost;
     }
-
 
 
     public double getImportCost() {

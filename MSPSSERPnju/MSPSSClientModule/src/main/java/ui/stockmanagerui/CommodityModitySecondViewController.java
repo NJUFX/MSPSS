@@ -1,5 +1,7 @@
 package ui.stockmanagerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.commodityblservice.CommodityBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +28,9 @@ import java.util.ResourceBundle;
  */
 public class CommodityModitySecondViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
+    CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
+    static String id_to_modify;
 
     @FXML
     Button BackToLogin;
@@ -34,11 +40,11 @@ public class CommodityModitySecondViewController implements Initializable {
     Button commodityAddButton;
     @FXML
     Button commoditySearchButton;
-
     @FXML
     Button backToBeforeButton;
     @FXML
-    Button cancelButton;
+    Button cancelButton, sureButton;
+
 
     /**
      * 返回上一界面
@@ -68,6 +74,7 @@ public class CommodityModitySecondViewController implements Initializable {
         try {
             CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
                     "/view/stockmanager/commodityModifyFirst.fxml");
+            controller.id_to_modify_Field.setText(id_to_modify);
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
