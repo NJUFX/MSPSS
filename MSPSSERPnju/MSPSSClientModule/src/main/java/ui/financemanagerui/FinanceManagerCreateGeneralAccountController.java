@@ -3,9 +3,12 @@ package ui.financemanagerui;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import auxiliary.GeneralAccount;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +16,9 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -21,9 +26,11 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Time;
 import vo.AccountVO;
 import vo.CommodityVO;
 import vo.CustomerVO;
+import vo.GeneralAccountVO;
 
 public class FinanceManagerCreateGeneralAccountController implements Initializable {
 
@@ -43,38 +50,19 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
-	@FXML
-	Button CheckCurrentList;
-	@FXML
-	Button ClearInformation;
+	
+
 	@FXML
 	TextField GeneralAccountName;
 	@FXML
-	TextField CreaterName;
+	DatePicker CreateTime;
 	@FXML
-	TextField ProductName;
-	@FXML
-	TextField ProductType;
-	@FXML
-	TextField ProductId;
-	@FXML
-	TextField ProductImportCost;
-	@FXML
-	TextField ProductExportCost;
+	TextField CommodityName;
 	@FXML
 	TextField CustomerName;
 	@FXML
-	TextField CustomerContact;
-	@FXML
-	TextField CustomerIncomeMoney;
-	@FXML
-	TextField CustomerPayMoney;
-	@FXML
-	TextField CustomerType;
-	@FXML
 	TextField AccountName;
-	@FXML
-	TextField AccountMoney;
+	
 	@FXML
 	Button AddCommodity;
 	@FXML
@@ -83,6 +71,18 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	Button AddAccount;
 	@FXML
 	Button CommitGeneralAccount;
+	@FXML
+	Button ClearInformation;
+	
+	@FXML
+	TableView CurrentCommodity;
+	@FXML
+	TableView CurrentCustomer;
+	@FXML
+	TableView CurrentAccount;
+	
+	
+	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -216,20 +216,7 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 		return (Initializable) loader.getController();
 	}
 	
-	/**
-	 * 监听当前列表按钮
-	 * @param e
-	 * @throws Exception
-	 */
-	public void handleCheckCurrentListButtonAction(ActionEvent e) throws Exception{
-		try {
-			FinanceManagerCurrentGeneralAccountListController controller = (FinanceManagerCurrentGeneralAccountListController) replaceSceneContent(
-					"/view/financemanager/FinanceManagerCurrentGeneralAccountList.fxml");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
+	
 	
 	/**
 	 * 监听清空条件按钮
@@ -237,7 +224,16 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 * @throws Exception
 	 */
 	public void handleClearInfomationButtonAction(ActionEvent e) throws Exception{
-		
+		 GeneralAccountName.setText("");
+		 CommodityName.setText("");
+		 CustomerName.setText("");
+		 AccountName.setText("");
+		ObservableList<GeneralAccount> commodityData = CurrentCommodity.getItems();
+		ObservableList<GeneralAccount> customerData = CurrentCustomer.getItems();
+		ObservableList<GeneralAccount> accountData = CurrentAccount.getItems();
+		commodityData.clear();
+		customerData.clear();
+		accountData.clear();
 	}
 	
 	/**
@@ -247,6 +243,7 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 */
 	public void handleAddCommodityButtonAction(ActionEvent e) throws Exception{
 		
+		 
 	}
 	
 	/**
@@ -273,7 +270,13 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 * @throws Exception
 	 */
 	public void handleCommitGeneralAccountButtonAction(ActionEvent e)throws Exception{
-		
+		String name = GeneralAccountName.getText();
+		LocalDate Time = CreateTime.getValue();
+		Time createTime = new Time(Time.getYear(),Time.getMonthValue(),Time.getDayOfMonth(),0,0,0);
+		GeneralAccountVO generalAccountVO = new GeneralAccountVO(name,createTime,commodityList,customerList,accountList);
+		commodityList.clear();
+		customerList.clear();
+		accountList.clear();
 	}
 
 
