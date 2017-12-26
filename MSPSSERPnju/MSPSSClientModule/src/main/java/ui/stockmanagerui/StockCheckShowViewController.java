@@ -1,5 +1,9 @@
 package ui.stockmanagerui;
 
+import auxiliary.StockInventory;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.stockbl.StockBLService;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,10 +17,14 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
+import vo.StockVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 /**
@@ -24,8 +32,10 @@ import java.util.ResourceBundle;
  */
 public class StockCheckShowViewController implements Initializable {
 
+    StockBLService stockBLService = new BLFactoryImpl().getStockBLService();
+    Dialog dialog = new Dialog();
     Stage stage = StageSingleton.getStage();
-
+    String startTime, endTime;
     @FXML
     Button BackToLogin;
 
@@ -43,6 +53,19 @@ public class StockCheckShowViewController implements Initializable {
 
     @FXML
     Button backButton;
+
+    public void showTableView() {
+        // ObservableList<Stock> data = commodityTableTable.getItems();
+
+        Iterator<StockVO> iterator = stockBLService.viewStock(startTime, endTime);
+        if (iterator.hasNext()) {
+            while (iterator.hasNext()) {
+
+            }
+        } else {
+            dialog.errorInfoDialog("Nothing in this time quantum.");
+        }
+    }
 
     /**
      * 处理单据

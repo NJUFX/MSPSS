@@ -26,9 +26,9 @@ import java.util.ResourceBundle;
  * author:Jiang_Chen date:2017/12/12
  */
 public class StockInventoryViewController implements Initializable {
-
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
+
 
     @FXML
     Button BackToLogin;
@@ -82,7 +82,7 @@ public class StockInventoryViewController implements Initializable {
     }
 
     /**
-     * 添加一条信息
+     * 添加信息
      */
     public void addRow() {
         ObservableList<StockInventory> data = stockInventoryTable.getItems();

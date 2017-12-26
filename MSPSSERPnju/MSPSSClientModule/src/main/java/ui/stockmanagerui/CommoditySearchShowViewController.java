@@ -82,7 +82,7 @@ public class CommoditySearchShowViewController implements Initializable {
                     this.setGraphic(null);
                     if (!empty) {
                         Button delBtn = new Button("选择");
-                        delBtn.setPrefSize(100, 10);
+                        delBtn.setPrefSize(80, 10);
                         //delBtn.setFont(Font.font(12));
                         delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
                         this.setGraphic(delBtn);
