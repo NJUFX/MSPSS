@@ -1,6 +1,9 @@
 package ui.stockmanagerui;
 
 import auxiliary.ClassificationCell;
+import blimpl.blfactory.BLFactoryImpl;
+import blimpl.commodityblimpl.Classification;
+import blservice.commodityblservice.CommodityBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,10 +20,15 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
+import util.ResultMessage;
+import vo.ClassificationVO;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -28,6 +36,9 @@ import java.util.ResourceBundle;
  */
 public class CommodityClassifyViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
+    CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
+
     ImageView classImageView = new ImageView(
             new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
 
@@ -48,35 +59,32 @@ public class CommodityClassifyViewController implements Initializable {
         classImageView.setFitHeight(15);
         classImageView.setFitWidth(15);
         Node rootIcon = classImageView;
-        ClassificationCell rootCell = new ClassificationCell("Root", "");
+
         ClassificationCell commodityCell = new ClassificationCell("Commodity", "");
-        TreeItem<String> root = new TreeItem<>(commodityCell.getName(), rootIcon);
-        //root.getChildren().add(new TreeItem<>(commodityCell.getName(), rootIcon));
-        for (int i = 1; i <= 5; i++) {
-            ImageView iconView = new ImageView(
-                    new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
-            iconView.setFitHeight(15);
-            iconView.setFitWidth(15);
-            ClassificationCell cell = new ClassificationCell("Commodity" + i, rootCell.getName());
-            //root.getChildren().get(0).getChildren().add(new TreeItem<>(cell.getName(), iconView));
-            root.getChildren().add(new TreeItem<>(cell.getName(), iconView));
-        }
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 1; j <= 5; j++) {
-                ImageView commodityImageView = new ImageView(
-                        new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
-                commodityImageView.setFitWidth(15);
-                commodityImageView.setFitHeight(15);
-                ClassificationCell cell = new ClassificationCell("Commodity" + i + "." + j,
-                        root.getChildren().get(i - 1).getValue());
-                TreeItem<String> treeItem = root.getChildren().get(i - 1);
-                //root.getChildren().get(0).getChildren().get(i - 1).getChildren().add(new TreeItem<>(cell.getName(), commodityImageView));
-                treeItem.getChildren().add(new TreeItem<>(cell.getName(), commodityImageView));
-            }
-        }
+        TreeItem<String> root = new TreeItem<>(commodityCell.getName(), rootIcon);//根分类
+
+        addChildren(commodityBLService.getRootClassifications(), root);
+
         commodityClassification.setRoot(root);
         commodityClassification.setEditable(true);
         commodityClassification.setCellFactory((TreeView<String> p) -> new TextFieldTreeCellImpl());
+    }
+
+    public void addChildren(ArrayList<ClassificationVO> list, TreeItem<String> treeItem) {
+        for (int i = 0; i < list.size(); i++) {
+            ClassificationVO childrenVO = list.get(i);
+            ImageView commodityImageView = new ImageView(
+                    new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
+            commodityImageView.setFitWidth(15);
+            commodityImageView.setFitHeight(15);
+            treeItem.getChildren().add(new TreeItem<>(childrenVO.getName(), commodityImageView));
+            for (int z = 0; z < treeItem.getChildren().size(); z++) {
+                if (treeItem.getChildren().get(z).getValue().equals(childrenVO.getName())) {
+                    TreeItem<String> childrenItem = treeItem.getChildren().get(z);
+                    addChildren(commodityBLService.getChildrenClassification(childrenVO), childrenItem);
+                }
+            }
+        }
     }
 
     /**
@@ -222,13 +230,32 @@ public class CommodityClassifyViewController implements Initializable {
                 imageView.setFitHeight(15);
                 TreeItem newItem = new TreeItem<>("New Class", imageView);
                 getTreeItem().getChildren().add(newItem);
+                ClassificationVO father = new ClassificationVO(getTreeItem().getValue().toString());
+                ClassificationVO classificationVO = new ClassificationVO(newItem.getValue().toString(), father);
+                ResultMessage resultMessage = commodityBLService.addClassification(classificationVO);
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Add a classification successfully.");
+                }
+
             });
             modMenuItem.setOnAction((ActionEvent t) -> {
+                String id = getTreeItem().getValue();
+                String fatherID = getTreeItem().getParent().getValue();
+                ClassificationVO fatherVo = new ClassificationVO(fatherID);
                 startEdit();
+                commodityBLService.deleteClassification(id);
+                ClassificationVO children = new ClassificationVO(getTreeItem().getValue().toString(), fatherVo);
+                ResultMessage resultMessage = commodityBLService.addClassification(children);
+                if (ResultMessage.SUCCESS == resultMessage) {
+                    dialog.infoDialog("Modify a classification successfully.");
+                }
             });
             delMenuItem.setOnAction(e -> {
                 TreeItem selectItem = getTreeView().getSelectionModel().getSelectedItem();
                 selectItem.getParent().getChildren().remove(selectItem);
+                if (commodityBLService.deleteClassification(selectItem.getValue().toString()) == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Delete a classification successfully.");
+                }
             });
 
         }
