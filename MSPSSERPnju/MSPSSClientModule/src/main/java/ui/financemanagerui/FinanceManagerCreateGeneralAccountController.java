@@ -3,6 +3,7 @@ package ui.financemanagerui;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -20,6 +21,9 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.AccountVO;
+import vo.CommodityVO;
+import vo.CustomerVO;
 
 public class FinanceManagerCreateGeneralAccountController implements Initializable {
 
@@ -83,6 +87,10 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	static ArrayList<CommodityVO> commodityList = new ArrayList<CommodityVO>();
+	static ArrayList<CustomerVO> customerList = new ArrayList<CustomerVO>();
+	static ArrayList<AccountVO> accountList = new ArrayList<AccountVO>();
+	
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -238,6 +246,15 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	 * @throws Exception
 	 */
 	public void handleAddCommodityButtonAction(ActionEvent e) throws Exception{
+		
+	}
+	
+	/**
+	 * 监听增加客户按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleAddCustomerButtonAction(ActionEvent e) throws Exception{
 		
 	}
 	
