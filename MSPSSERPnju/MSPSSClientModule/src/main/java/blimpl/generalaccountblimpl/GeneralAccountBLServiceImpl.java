@@ -1,9 +1,12 @@
 package blimpl.generalaccountblimpl;
 
 import blservice.generalaccountblservice.GeneralAccountBLService;
+import po.CommodityPO;
 import po.GeneralAccountPO;
 import util.ResultMessage;
 import util.Time;
+import vo.CommodityVO;
+import vo.CustomerVO;
 import vo.GeneralAccountVO;
 
 import java.util.ArrayList;
@@ -30,37 +33,55 @@ public class GeneralAccountBLServiceImpl implements GeneralAccountBLService {
 
 
     /**
-     * 精确查找商品
-     * @param id
+     * 按名字精确查找账户
+     * @param name
      * @return
      */
-    public GeneralAccountVO exactlySearchGeneralAccount(String field,String id){
-        return generalAccount.exactlySearchGeneralAccount(field, id);
+    public GeneralAccountVO exactlySearchGeneralAccountByName(String name){
+        return generalAccount.exactlySearchGeneralAccount("name", name);
     }
 
-    public ArrayList<GeneralAccountVO> fullSearchGeneralAccount(String field, Object value){
-        return generalAccount.fullSearchGeneralAccount(field, value);
+    public ArrayList<GeneralAccountVO> fullSearchGeneralAccountByTime(Time time){
+        return generalAccount.fullSearchGeneralAccount("time", time.toString());
     }
     /**
+     *按名称模糊查找
      *
-     * @param filed
      * @param value
      * @return
      */
-    public ArrayList<GeneralAccountVO> fuzzySearchGeneralAccount(String filed,String value){
-        return generalAccount.fuzzySearchGeneralAccount(filed, value);
+    public ArrayList<GeneralAccountVO> fuzzySearchGeneralAccountByName(String value){
+        return generalAccount.fuzzySearchGeneralAccount("name", value);
     }
 
 
     /**
      *
-     * @param field
+     *按时间范围查找
      * @param min
      * @param max
      * @return
      */
-    public ArrayList<GeneralAccountVO> rangeSearchGeneralAccount(String field, Object min, Object max){
-        return generalAccount.rangeSearchGeneralAccount(field, min, max);
+    public ArrayList<GeneralAccountVO> rangeSearchGeneralAccountByTime(Time min, Time max){
+        return generalAccount.rangeSearchGeneralAccount("time", min.toString(), max.toString());
+    }
+
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerVO searchCustomer(String name){
+        return generalAccount.searchCustomer(name);
+    }
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityVO searchCommodity(String name){
+        return generalAccount.searchCommodity(name);
     }
 
 }

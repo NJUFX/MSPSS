@@ -8,12 +8,14 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +28,7 @@ import java.util.ResourceBundle;
  */
 public class CommoditySearchViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
-
+    Dialog dialog = new Dialog();
     @FXML
     Button BackToLogin;
     @FXML
@@ -37,16 +39,23 @@ public class CommoditySearchViewController implements Initializable {
     Button commodityModButton;
     @FXML
     Button backButton;
-
     @FXML
-    ComboBox<String> keyTypeComboBox;
+    ComboBox<String> keyTypeComboBox, classificationBox;
     @FXML
     TextField keywordField;
     @FXML
     Button searchButton;
 
+    public void keyTypeComboBoxAction(ActionEvent e) {
+        if (keyTypeComboBox.getValue().equals("分类")) {
+            classificationBox.setVisible(true);
+        } else {
+            classificationBox.setVisible(false);
+        }
+    }
+
     /**
-     * 查找商品列表的显示界面
+     * 查找
      *
      * @param e
      * @throws IOException
@@ -54,10 +63,37 @@ public class CommoditySearchViewController implements Initializable {
     @FXML
     public void commoditySearchButtonAction(ActionEvent e) throws IOException {
         try {
-            CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
-                    "/view/stockmanager/commoditySearchShow.fxml");
-            controller.setKeyType(keyTypeComboBox.getTypeSelector());
-            controller.setKeyword(keywordField.getText());
+            String key_word = "", key_type = "";
+            boolean b = true;
+            if (keyTypeComboBox.getValue() != null || !keyTypeComboBox.getValue().trim().equals("")) {
+                if (keyTypeComboBox.getValue().equals("分类")) {
+                    if (classificationBox.getValue() != null || !classificationBox.getValue().trim().equals("")) {
+                        key_word = classificationBox.getValue().trim();
+                    } else if (keywordField.getText() != null || !keywordField.getText().trim().equals("")) {
+                        key_word = keywordField.getText().trim();
+                    } else {
+                        dialog.errorInfoDialog("Please input keyword.");
+                        b = false;
+                    }
+                } else {
+                    if (keywordField.getText() != null || !keywordField.getText().trim().equals("")) {
+                        key_word = (keywordField.getText().trim());
+                    } else {
+                        dialog.errorInfoDialog("Please input keyword.");
+                        b = false;
+                    }
+                }
+                key_type = (keyTypeComboBox.getTypeSelector());
+            } else {
+                dialog.errorInfoDialog("Please choose key type.");
+                b = false;
+            }
+            if (b == true) {
+                CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
+                        "/view/stockmanager/commoditySearchShow.fxml");
+                controller.setKeyword(key_word);
+                controller.setKeyType(key_type);
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -192,8 +228,14 @@ public class CommoditySearchViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    @FXML
+    Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO
+        idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
+        nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
+        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
     }
+
 }

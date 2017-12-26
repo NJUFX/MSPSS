@@ -1,5 +1,7 @@
 package ui.stockmanagerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.commodityblservice.CommodityBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,11 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
+import util.ResultMessage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +30,8 @@ import java.util.ResourceBundle;
  */
 public class CommodityDelViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
-
+    Dialog dialog = new Dialog();
+    CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
     @FXML
     Button BackToLogin;
     @FXML
@@ -34,7 +41,18 @@ public class CommodityDelViewController implements Initializable {
     @FXML
     Button commoditySearchButton;
     @FXML
-    Button cancelButton;
+    Button cancelButton, delButton;
+    @FXML
+    TextField id_to_del;
+
+    public void delButtonAction(ActionEvent e) {
+        if (id_to_del.getText() != null || !id_to_del.getText().equals("")) {
+            ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_del.getText().trim());
+            if (resultMessage == ResultMessage.SUCCESS) {
+                dialog.infoDialog("Delete a commodity successfully.");
+            }
+        }
+    }
 
     /**
      * 返回商品管理界面
@@ -52,6 +70,7 @@ public class CommodityDelViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 删除商品
      *
@@ -146,8 +165,14 @@ public class CommodityDelViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    @FXML
+    Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO
+        idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
+        nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
+        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
     }
+
 }

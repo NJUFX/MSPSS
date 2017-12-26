@@ -1,5 +1,9 @@
 package ui.stockmanagerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.commodityblservice.CommodityBLService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,16 +11,25 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 import ui.stocksellerui.BillCreateViewController;
+import util.ResultMessage;
+import vo.ClassificationVO;
+import vo.CommodityVO;
 
+import javax.accessibility.AccessibleIcon;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -25,6 +38,8 @@ import java.util.ResourceBundle;
  */
 public class CommodityAddViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
+    CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
 
     @FXML
     Button BackToLogin;
@@ -35,7 +50,40 @@ public class CommodityAddViewController implements Initializable {
     @FXML
     Button commoditySearchButton;
     @FXML
-    Button cancelButton;
+    Button cancelButton, sureButton;
+    @FXML
+    TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField;
+    @FXML
+    ComboBox<String> classificationBox;
+
+    ArrayList<ClassificationVO> list = commodityBLService.getRootClassifications();
+
+    public void showClassificationBox(ArrayList<ClassificationVO> list) {
+        //ObservableList<String> options = FXCollections.observableArrayList();
+        for (int i = 0; i < list.size(); i++) {
+            if (commodityBLService.getChildrenClassification(list.get(i)).size() == 0) {
+                classificationBox.getItems().add(list.get(i).getName());
+            } else {
+                ArrayList<ClassificationVO> list2 = commodityBLService.getChildrenClassification(list.get(i));
+                showClassificationBox(list2);
+            }
+        }
+
+    }
+
+    public void sureButtonAction(ActionEvent e) {
+        CommodityVO commodityVO = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationBox.getValue(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
+        commodityVO.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
+        commodityVO.setNumberInStock(Integer.parseInt(stockNumberField.getText().trim()));
+        ResultMessage resultMessage = commodityBLService.addCommodity(commodityVO);
+        if (ResultMessage.SUCCESS == resultMessage) {
+            dialog.infoDialog("Add a commodity successfully.");
+        } else if (ResultMessage.EXIST == resultMessage) {
+            dialog.errorInfoDialog("This commodity exists!");
+        } else if (ResultMessage.FAILED == resultMessage) {
+            dialog.errorInfoDialog("Something wrong, please check your input.");
+        }
+    }
 
     /**
      * 返回上一界面（商品管理界面）
@@ -148,8 +196,15 @@ public class CommodityAddViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    @FXML
+    Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO
+        idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
+        nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
+        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        showClassificationBox(list);
     }
+
 }

@@ -12,128 +12,151 @@
 <?import javafx.collections.*?>
 <?import java.util.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerDelViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0"
+      prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerDelViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
-                <ColorInput height="560.0" paint="#0f88eb" width="145" />
+                <ColorInput height="560.0" paint="#0f88eb" width="145"/>
             </effect>
         </Pane>
         <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0">
             <effect>
-                <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
+                <ColorInput height="40.0" paint="#0f88eb" width="755.0"/>
             </effect>
         </Pane>
-        <Button id="addUserButton" fx:id="addCustomerButton" onAction="#customerAddButtonAction" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
+        <Button id="addUserButton" fx:id="addCustomerButton" onAction="#customerAddButtonAction" layoutY="282.0"
+                mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
+                stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
             <font>
-                <Font size="16.0" />
+                <Font size="16.0"/>
             </font>
         </Button>
-        <Button id="delUserButton" layoutY="317.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="删除客户" textFill="#f8f4f4">
+        <Button id="delUserButton" layoutY="317.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
+                stylesheets="@../../css/stockseller/buttonpressed.css" text="删除客户" textFill="#f8f4f4">
             <font>
-                <Font size="16.0" />
+                <Font size="16.0"/>
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="modCustomerButton" layoutY="351.0" mnemonicParsing="false" onAction="#customerModifyButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="修改客户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="modCustomerButton" layoutY="351.0" mnemonicParsing="false"
+                onAction="#customerModifyButtonAction" prefHeight="35.0" prefWidth="145.0"
+                stylesheets="@../../css/stockseller/common.css" text="修改客户" textFill="#f8f4f4">
             <font>
-                <Font size="16.0" />
+                <Font size="16.0"/>
             </font>
         </Button>
-        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="290.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../../image/admin/增加用户.png" />
+                <Image url="@../../image/admin/增加用户.png"/>
             </image>
         </ImageView>
-        <Label layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
+        <Label fx:id="nameOfCurrentUser" layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="14.0" />
+                <Font name="Microsoft YaHei" size="14.0"/>
             </font>
         </Label>
-        <Label layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
+        <Label fx:id="categoryOfCurrentUser" layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
             <font>
-                <Font size="14.0" />
-            </font></Label>
-        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../../image/头像.png" />
+                <Image url="@../../image/头像.png"/>
             </image>
         </ImageView>
-        <Label layoutX="20.0" layoutY="240.0" text="编号: SS001" textFill="WHITE">
+        <Label fx:id="idOfCurrentUser" layoutX="20.0" layoutY="240.0" text="编号: SS001" textFill="WHITE">
             <font>
-                <Font size="14.0" />
-            </font></Label>
-        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="325.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../../image/admin/删除用户.png" />
+                <Image url="@../../image/admin/删除用户.png"/>
             </image>
         </ImageView>
-        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="359.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../../image/admin/编辑用户.png" />
+                <Image url="@../../image/admin/编辑用户.png"/>
             </image>
         </ImageView>
         <Label layoutX="230.0" prefHeight="40.0" prefWidth="125.0" text="&gt;删除客户" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="18.0" />
+                <Font name="Microsoft YaHei" size="18.0"/>
             </font>
         </Label>
         <Label layoutX="150.0" prefHeight="40.0" prefWidth="76.0" text="MSPSS" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="22.0" />
+                <Font name="Microsoft YaHei" size="22.0"/>
             </font>
         </Label>
-        <Button id="cancelButton" fx:id="cancelButtonl" onAction="#cancelButtonAction" layoutX="323.0" layoutY="448.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+        <Button id="cancelButton" fx:id="cancelButtonl" onAction="#cancelButtonAction" layoutX="323.0" layoutY="448.0"
+                mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css"
+                text="取消" textFill="#0f88eb">
             <font>
-                <Font name="Microsoft YaHei" size="16.0" />
+                <Font name="Microsoft YaHei" size="16.0"/>
             </font>
         </Button>
-        <Button id="sureButton" layoutX="586.0" layoutY="448.0" mnemonicParsing="false"  prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认删除" textFill="WHITE">
+        <Button id="sureButton" layoutX="586.0" layoutY="448.0" mnemonicParsing="false" prefHeight="30.0"
+                prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认删除" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="16.0" />
+                <Font name="Microsoft YaHei" size="16.0"/>
             </font>
         </Button>
-        <Button id="modUserButton" fx:id="searchCustomerButton" layoutY="385.0" mnemonicParsing="false" onAction="#customerSearchButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找客户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="searchCustomerButton" layoutY="385.0" mnemonicParsing="false"
+                onAction="#customerSearchButtonAction" prefHeight="35.0" prefWidth="145.0"
+                stylesheets="@../../css/admin/addUser.css" text="查找客户" textFill="#f8f4f4">
             <font>
-                <Font size="16.0" />
+                <Font size="16.0"/>
             </font>
         </Button>
-        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="393.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../../image/搜索.png" />
+                <Image url="@../../image/搜索.png"/>
             </image>
         </ImageView>
-        <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
+                stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../image/设置.png" />
+                        <Image url="@../../image/设置.png"/>
                     </image>
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0"
+                layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
+                stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../image/退出登录.png" />
+                        <Image url="@../../image/退出登录.png"/>
                     </image>
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
+                stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../image/发送信息.png" />
+                        <Image url="@../../image/发送信息.png"/>
                     </image>
                 </ImageView>
             </graphic>
         </Button>
         <Label layoutX="240.0" layoutY="245.0" prefHeight="48.0" prefWidth="141.0" text="输入客户编号">
             <font>
-                <Font name="Microsoft YaHei" size="20.0" />
+                <Font name="Microsoft YaHei" size="20.0"/>
             </font>
         </Label>
-        <TextField layoutX="384.0" layoutY="252.0" prefHeight="40.0" prefWidth="300.0" />
+        <TextField layoutX="384.0" layoutY="252.0" prefHeight="40.0" prefWidth="300.0"/>
     </children>
 </Pane>

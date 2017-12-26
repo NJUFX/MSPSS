@@ -1,7 +1,10 @@
 package network;
 
+import po.CommodityPO;
+import po.CustomerPO;
 import po.GeneralAccountPO;
 import util.ResultMessage;
+import vo.CustomerVO;
 
 import java.util.ArrayList;
 
@@ -46,5 +49,20 @@ public interface GeneralAccountClientNetworkService {
      * @return
      */
     public ArrayList<GeneralAccountPO> rangeSearchGeneralAccount(String field, Object min, Object max);
+
+
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerPO searchCustomer(String name);
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityPO searchCommodity(String name);
 
 }

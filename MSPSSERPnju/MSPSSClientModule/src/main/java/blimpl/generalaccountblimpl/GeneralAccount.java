@@ -2,10 +2,7 @@ package blimpl.generalaccountblimpl;
 
 import network.GeneralAccountClientNetworkImpl;
 import network.GeneralAccountClientNetworkService;
-import po.GeneralAccountPO;
-import po.GeneralAccount_AccountList_PO;
-import po.GeneralAccount_CommodityList_PO;
-import po.GeneralAccount_CustomerList_PO;
+import po.*;
 import util.Kind_Of_Customers;
 import util.ResultMessage;
 import util.Time;
@@ -85,6 +82,28 @@ public class GeneralAccount {
         }
 
         return generalAccountVOS;
+    }
+
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerVO searchCustomer(String name){
+       CustomerPO customerPO =  generalAccountClientNetworkService.searchCustomer(name);
+       CustomerVO customerVO = new CustomerVO(customerPO.getID(),Kind_Of_Customers.values()[customerPO.getCategory()],customerPO.getLevel(), customerPO.getName(), customerPO.getPhonenumber(), customerPO.getAddress(), customerPO.getPostcode(), customerPO.getEmail(), customerPO.getInvalue(),customerPO.getIncomemoney(), customerPO.getPaymoney(), "期初建账");
+       return customerVO;
+    }
+
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityVO searchCommodity(String name){
+        CommodityPO commodityPO = generalAccountClientNetworkService.searchCommodity(name);
+        CommodityVO commodityVO = new CommodityVO(commodityPO.getName(), commodityPO.getClassificationID(), commodityPO.getType(), commodityPO.getID(), commodityPO.getImportCost(), commodityPO.getExportCost(), commodityPO.getLatestImportCost(), commodityPO.getLatestExportCost(), commodityPO.getNumberInStock(), commodityPO.getAlertNumber());
+        return commodityVO;
     }
 
 

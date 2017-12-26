@@ -121,7 +121,23 @@ public class GeneralAccountDataServiceImpl implements GeneralAccountDataService 
         return generalAccountHelper.rangeQuery(field,min,max);
     }
 
+    /**
+     * 在已有数据库中搜索客户
+     * @param name
+     * @return
+     */
+    public CustomerPO searchCustomer(String name){
+        return customerHelper.exactlyQuery("name",name);
+    }
 
+    /**
+     * 在已有数据库中搜索商品
+     * @param name
+     * @return
+     */
+    public CommodityPO searchCommodity(String name){
+        return commodityHelper.exactlyQuery("name",name);
+    }
 
     //以下是实现功能的辅助私有类
 

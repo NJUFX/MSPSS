@@ -1,5 +1,6 @@
 package network;
 
+import com.sun.org.apache.regexp.internal.RE;
 import network.billnetworkservice.BillServerNetworkService;
 import po.*;
 import util.*;
@@ -97,7 +98,21 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         }
         return null;
     }
-
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<StockBillPO> rangeSearchStockBill(String field,Object max,Object min){
+        try{
+            return billServerNetworkService.rangeSearchStockBill(field, max, min);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     /**
      * 返回形如 KDZSD-20101010-00001
      *
@@ -187,7 +202,21 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         }
         return null;
     }
-
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<CashCostBillPO> rangeSearchCashCostBill(String field,Object max,Object min){
+        try{
+            return billServerNetworkService.rangeSearchCashCostBill(field, max, min);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public ResultMessage addFinanceBill(FinanceBillPO po){
         try{
@@ -236,7 +265,21 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         }
         return null;
     }
-
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<FinanceBillPO> rangeSearchFinanceBill(String field,Object max,Object min){
+        try{
+            return billServerNetworkService.rangeSearchFinanceBill(field, max, min);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     /**
      * 根据财务类单据类型返回应有的单据
      *
@@ -300,7 +343,21 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         }
         return null;
     }
-
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesInBillPO> rangeSearchSalesInBill(String field,Object max,Object min){
+        try{
+            return billServerNetworkService.rangeSearchSalesInBill(field, max, min);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     /**
      * 根据进货单 进货退货单来返回应有的ID
      *
@@ -365,6 +422,21 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         }
         return null;
     }
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesOutBillPO> rangeSearchSalesOutBill(String field,Object max,Object min){
+        try{
+            return billServerNetworkService.rangeSearchSalesOutBill(field, max, min);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public String getSalesOutBillID(SalesOutBillType type) {
         try {
@@ -375,9 +447,14 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         return null;
     }
 
-    @Override
-    public ResultMessage addAlarmBill(AlarmBillPO po) {
-        return null;
+    public ResultMessage addAlarmBill(AlarmBillPO po){
+        try{
+            billServerNetworkService.addAlarmBill(po);
+            return ResultMessage.SUCCESS;
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
+        return ResultMessage.FAILED;
     }
 
     /**
@@ -387,8 +464,12 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      * @param val
      * @return
      */
-    @Override
-    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val) {
+    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val){
+        try{
+            return billServerNetworkService.prefixSearchAlarmBill(field, val);
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -397,8 +478,12 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      *
      * @return
      */
-    @Override
-    public String getAlarmID() {
+    public String getAlarmID(){
+        try{
+            return billServerNetworkService.getAlarmID();
+        }catch (RemoteException e){
+            e.printStackTrace();
+        }
         return null;
     }
 }

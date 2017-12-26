@@ -58,6 +58,16 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
         return billDataService.multiSearchStockBill(criteriaClauses);
     }
 
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<StockBillPO> rangeSearchStockBill(String field,Object max,Object min)throws RemoteException{
+        return billDataService.rangeSearchStockBill(field, max, min);
+    }
 
     /**
      * 返回形如 KDZSD-20101010-00001
@@ -102,6 +112,18 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val)throws RemoteException{
         return billDataService.fullSearchCashCostBill(field, val);
     }
+
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<CashCostBillPO> rangeSearchCashCostBill(String field,Object max,Object min)throws RemoteException{
+        return billDataService.rangeSearchCashCostBill(field, max, min);
+    }
+
     /**
      * 得到应有的现金费用单ID
      *
@@ -131,6 +153,16 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
         return billDataService.multiSearchFinanceBill(criteriaClauses);
     }
 
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<FinanceBillPO> rangeSearchFinanceBill(String field,Object max,Object min)throws RemoteException{
+        return billDataService.rangeSearchFinanceBill(field, max, min);
+    }
 
     /**
      * 根据财务类单据类型返回应有的单据
@@ -161,6 +193,17 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
     public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses)throws RemoteException{
         return billDataService.mutilSearchSalesInBill(criteriaClauses);
     }
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesInBillPO> rangeSearchSalesInBill(String field,Object max,Object min)throws RemoteException{
+        return billDataService.rangeSearchSalesInBill(field, max, min);
+    }
+
 
     public String getSalesInBillID(SalesInBillType type)throws RemoteException{
         return billDataService.getSalesInBillID(type);
@@ -185,8 +228,43 @@ public class BillServerNetworkImpl implements BillServerNetworkService {
     public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses)throws RemoteException{
         return billDataService.mutilSearchSalesOutBill(criteriaClauses);
     }
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesOutBillPO> rangeSearchSalesOutBill(String field,Object max,Object min)throws RemoteException{
+        return billDataService.rangeSearchSalesOutBill(field, max, min);
+    }
 
     public String getSalesOutBillID(SalesOutBillType type)throws RemoteException{
         return billDataService.getSalesOutBillID(type);
+    }
+
+
+    public ResultMessage addAlarmBill(AlarmBillPO po)throws RemoteException{
+        return billDataService.addAlarmBill(po);
+    }
+
+    /**
+     * 用来根据前缀来得到某天的产生的库存报警单
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val)throws RemoteException{
+        return billDataService.prefixSearchAlarmBill(field, val);
+    }
+
+    /**
+     * 得到库存报警单应有的数据
+     *
+     * @return
+     */
+    public String getAlarmID()throws RemoteException{
+        return billDataService.getAlarmID();
     }
 }
