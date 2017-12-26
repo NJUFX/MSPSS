@@ -40,6 +40,15 @@ public interface BillDataService {
     public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses);
 
     /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<StockBillPO> rangeSearchStockBill(String field,Object max,Object min);
+
+    /**
      * 返回形如 KDZSD-20101010-00001
      *
      * @param type
@@ -71,6 +80,14 @@ public interface BillDataService {
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val);
 
     /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<CashCostBillPO> rangeSearchCashCostBill(String field,Object max,Object min);
+    /**
      * 得到应有的现金费用单ID
      *
      * @return
@@ -86,6 +103,14 @@ public interface BillDataService {
 
     public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses);
 
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<FinanceBillPO> rangeSearchFinanceBill(String field,Object max,Object min);
     /**
      * 根据财务类单据类型返回应有的单据
      *
@@ -104,7 +129,14 @@ public interface BillDataService {
 
     public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses);
 
-
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesInBillPO> rangeSearchSalesInBill(String field,Object max,Object min);
     public String getSalesInBillID(SalesInBillType type);
 
     public ResultMessage addSalesOutBill(SalesOutBillPO salesOutBillPO);
@@ -117,9 +149,35 @@ public interface BillDataService {
 
     public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses);
 
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesOutBillPO> rangeSearchSalesOutBill(String field,Object max,Object min);
+
     public String getSalesOutBillID(SalesOutBillType type);
 
 
+    public ResultMessage addAlarmBill(AlarmBillPO po);
+
+    /**
+     * 用来根据前缀来得到某天的产生的库存报警单
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val);
+
+    /**
+     * 得到库存报警单应有的数据
+     *
+     * @return
+     */
+    public String getAlarmID();
 }
 
 

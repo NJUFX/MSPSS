@@ -41,6 +41,14 @@ public interface BillClientNetworkService {
     public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses);
 
     /**
+     * 范围查找库存类单据
+     * @param field
+     * @param min
+     * @param max
+     * @return
+     */
+    public ArrayList<StockBillPO> rangeSearchStockBill(String field,Object min,Object max);
+    /**
      * 返回形如 KDZSD-20101010-00001
      *
      * @param type
@@ -77,6 +85,14 @@ public interface BillClientNetworkService {
 
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val);
 
+    /**
+     * 范围搜索现金费用单
+     * @param field
+     * @param min
+     * @param max
+     * @return
+     */
+    public ArrayList<CashCostBillPO> rangeSearchCashCostBill(String field,Object min,Object max);
 
     public ResultMessage addFinanceBill(FinanceBillPO po);
 
@@ -88,6 +104,14 @@ public interface BillClientNetworkService {
 
     public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses);
 
+    /**
+     * 范围搜索财务类单据
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<FinanceBillPO> rangeSearchFinanceBill(String field,Object max,Object min);
     /**
      * 根据财务类单据类型返回应有的单据
      *
@@ -107,6 +131,14 @@ public interface BillClientNetworkService {
     public ArrayList<SalesInBillPO> mutilSearchSalesInBill(ArrayList<CriteriaClause> criteriaClauses);
 
     /**
+     * 范围搜索进货/退货单据
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesInBillPO> rangeSearchSalesInBill(String field,Object max,Object min);
+    /**
      * 根据进货单 进货退货单来返回应有的ID
      *
      * @param type
@@ -124,6 +156,14 @@ public interface BillClientNetworkService {
 
     public ArrayList<SalesOutBillPO> mutilSearchSalesOutBill(ArrayList<CriteriaClause> criteriaClauses);
 
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesOutBillPO> rangeSearchSalesOutBill(String field,Object max,Object min);
     public String getSalesOutBillID(SalesOutBillType type);
 
     public ResultMessage addAlarmBill(AlarmBillPO po);
