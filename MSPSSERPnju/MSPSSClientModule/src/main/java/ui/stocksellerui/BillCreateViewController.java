@@ -37,7 +37,12 @@ public class BillCreateViewController implements Initializable {
     @FXML
     Button customerManageButton;
     @FXML
-    Button BackToLogin;
+    Button BackToLogin, billCheckButton;
+
+    @FXML
+    public void billCheckButtonAction(ActionEvent e) {
+    }
+
     /**
      * 返回登录界面
      *
@@ -52,6 +57,7 @@ public class BillCreateViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 客户管理
      *

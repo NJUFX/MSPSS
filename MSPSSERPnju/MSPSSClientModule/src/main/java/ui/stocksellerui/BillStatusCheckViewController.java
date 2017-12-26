@@ -29,7 +29,6 @@ public class BillStatusCheckViewController implements Initializable {
     Button BackToLogin;
     @FXML
     Button backButton;
-
     @FXML
     public void backButtonAction(ActionEvent e) throws IOException {
         System.out.println("Sucess");
