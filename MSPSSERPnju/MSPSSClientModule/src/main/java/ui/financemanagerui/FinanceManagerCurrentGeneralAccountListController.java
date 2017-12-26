@@ -42,7 +42,11 @@ public class FinanceManagerCurrentGeneralAccountListController implements Initia
 	@FXML
 	Button BackToCreateGeneralAccount;
 	@FXML
-	TableView CurrentList;
+	TableView CommodityList;
+	@FXML
+	TableView CustomerList;
+	@FXML
+	TableView AccountList;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
