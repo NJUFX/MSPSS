@@ -11,6 +11,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
+<?import fxmltableview.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerCreateGeneralAccountController">
     <children>
@@ -90,7 +99,7 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Pane layoutX="171.0" layoutY="123.0" prefHeight="314.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <Pane layoutX="223.0" layoutY="126.0" prefHeight="314.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
             <Button fx:id="AddCustomer" layoutX="366.0" layoutY="249.0" mnemonicParsing="false" onAction="#handleAddCustomerButtonAction" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
             <Button fx:id="AddCommodity" layoutX="163.0" layoutY="249.0" mnemonicParsing="false" onAction="#handleAddCommodityButtonAction" prefHeight="25.0" prefWidth="19.0" style="-fx-background-radius: 14; -fx-background-color: #ffffff; -fx-border-color: #0f88eb; -fx-border-radius: 14;" text="+" textFill="#0f88eb" />
@@ -98,26 +107,38 @@
             <TextField fx:id="CommodityName" layoutX="6.0" layoutY="250.0" prefHeight="27.0" prefWidth="157.0" promptText="商品名" style="-fx-background-radius: 0;" />
             <TextField fx:id="CustomerName" layoutX="209.0" layoutY="250.0" prefHeight="27.0" prefWidth="157.0" promptText="客户名" style="-fx-background-radius: 0;" />
             <TextField fx:id="AccountName" layoutX="407.0" layoutY="250.0" prefHeight="27.0" prefWidth="157.0" promptText="账户名" style="-fx-background-radius: 0;" />
-            <TableView prefHeight="214.0" prefWidth="200.0">
+            <TableView fx:id="CurrentCommodity" prefHeight="214.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="CurrentCommodity" prefWidth="199.0" text="商品名称" />
+                <TableColumn prefWidth="199.0" text="商品名称">
+                <cellValueFactory>
+          <PropertyValueFactory property="item" />
+        </cellValueFactory>
+      </TableColumn>
               </columns>
             </TableView>
-            <TableView layoutX="200.0" prefHeight="214.0" prefWidth="200.0">
+            <TableView fx:id="CurrentCustomer" layoutX="200.0" prefHeight="214.0" prefWidth="200.0">
                <columns>
-                  <TableColumn fx:id="CurrentCustomer" prefWidth="199.0" text="客户名称" />
+                  <TableColumn prefWidth="199.0" text="客户名称">
+                  <cellValueFactory>
+          <PropertyValueFactory property="item" />
+        </cellValueFactory>
+      </TableColumn>
                </columns>
             </TableView>
             <TableView fx:id="CurrentAccount" layoutX="400.0" prefHeight="214.0" prefWidth="200.0">
                <columns>
-                  <TableColumn prefWidth="199.0" text="账户名称" />
+                  <TableColumn prefWidth="199.0" text="账户名称">
+                  <cellValueFactory>
+          <PropertyValueFactory property="item" />
+        </cellValueFactory>
+      </TableColumn>
                </columns>
             </TableView>
          </children>
       </Pane>
-      <TextField fx:id="GeneralAccountName" layoutX="207.0" layoutY="76.0" promptText="期初账户名称" style="-fx-background-radius: 0;" />
-      <Button fx:id="CommitGeneralAccount" layoutX="533.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleCommitGeneralAccountButtonAction" prefHeight="27.0" prefWidth="95.0" text="提交账目" textFill="WHITE" />
-      <Button fx:id="ClearInformation" layoutX="676.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleClearInfomationButtonAction" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="清空信息" textFill="#0f88eb" />
-      <DatePicker fx:id="CreateTime" layoutX="412.0" layoutY="76.0" prefHeight="27.0" prefWidth="167.0" promptText="创建日期" />
+      <TextField fx:id="GeneralAccountName" layoutX="259.0" layoutY="79.0" promptText="期初账户名称" style="-fx-background-radius: 0;" />
+      <Button fx:id="CommitGeneralAccount" layoutX="585.0" layoutY="463.0" mnemonicParsing="false" onAction="#handleCommitGeneralAccountButtonAction" prefHeight="27.0" prefWidth="95.0" text="提交账目" textFill="WHITE" />
+      <Button fx:id="ClearInformation" layoutX="728.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleClearInfomationButtonAction" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;" text="清空信息" textFill="#0f88eb" />
+      <DatePicker fx:id="CreateTime" layoutX="464.0" layoutY="79.0" prefHeight="27.0" prefWidth="167.0" promptText="创建日期" />
     </children>
 </Pane>

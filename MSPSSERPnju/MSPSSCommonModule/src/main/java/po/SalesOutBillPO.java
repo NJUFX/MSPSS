@@ -1,10 +1,6 @@
 package po;
 
-import util.BillStatus;
-import util.SalesOutBillType;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,10 +43,14 @@ public class SalesOutBillPO implements Serializable {
      */
     private String storage;
 
+
+    //fixme 把促销策略删除了为了让你看到先注释掉
+    /*
     /**
      *促销策略的编号
-     */
+
     private String promotionID;
+    */
     /**
      * 创建销售单的时间
      */
@@ -76,7 +76,11 @@ public class SalesOutBillPO implements Serializable {
      * 使用的代金券金额
      */
     private int voucher;
-
+    //fixme 新增加的赠送的代金券数额
+    /**
+     * 增加的代金券数额
+     */
+    private int present_vocher;
     /**
      *折让前总额
      */
@@ -94,7 +98,7 @@ public class SalesOutBillPO implements Serializable {
     public SalesOutBillPO() {
     }
 
-    public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String promotionID, String init_time, String commit_time, String approval_time, String ps, int allowance, int voucher, double sumBeforeDiscount, double sumAfterDiscount, List<SalesItemPO> salesItemPOS) {
+    public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String init_time, String commit_time, String approval_time, String ps, int allowance, int voucher, int present_vocher, double sumBeforeDiscount, double sumAfterDiscount, List<SalesItemPO> salesItemPOS) {
         this.ID = ID;
         this.type = type;
         this.customerID = customerID;
@@ -103,7 +107,7 @@ public class SalesOutBillPO implements Serializable {
         this.managerID = managerID;
         this.status = status;
         this.storage = storage;
-        this.promotionID = promotionID;
+        this.present_vocher = present_vocher;
         this.init_time = init_time;
         this.commit_time = commit_time;
         this.approval_time = approval_time;
@@ -179,13 +183,7 @@ public class SalesOutBillPO implements Serializable {
         this.storage = storage;
     }
 
-    public String getPromotionID() {
-        return promotionID;
-    }
 
-    public void setPromotionID(String promotionID) {
-        this.promotionID = promotionID;
-    }
 
     public String getInit_time() {
         return init_time;
