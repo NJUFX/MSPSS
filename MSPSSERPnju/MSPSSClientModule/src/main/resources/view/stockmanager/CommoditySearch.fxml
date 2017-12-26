@@ -148,15 +148,18 @@
                         <Font size="14.0"/>
                     </font>
                 </TextField>
-                <ComboBox fx:id="keyTypeComboBox" layoutX="100.0" layoutY="130.0" prefHeight="40.0" prefWidth="102.0"
+                <ComboBox fx:id="keyTypeComboBox" onAction="#keyTypeComboBoxAction" layoutX="100.0" layoutY="130.0"
+                          prefHeight="40.0" prefWidth="102.0"
                           promptText="关键词类型">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="商品编号"/>
-                            <String fx:value="分类"/>
-                            <String fx:value="编号"/>
-                            <String fx:value="进价"/>
-                            <String fx:value="零售价"/>
+                            <String fx:value="商品分类"/>
+                            <String fx:value="商品名称"/>
+                            <String fx:value="进价（向上查找）"/>
+                            <String fx:value="进价（向下查找）"/>
+                            <String fx:value="零售价（向上查找）"/>
+                            <String fx:value="零售价（向下查找）"/>
                         </FXCollections>
                     </items>
                 </ComboBox>

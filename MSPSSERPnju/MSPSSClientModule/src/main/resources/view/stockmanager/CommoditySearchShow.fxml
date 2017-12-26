@@ -154,5 +154,16 @@
                 </ImageView>
             </graphic>
         </Button>
+        <Button fx:id="refreshButton" layoutX="150.0" layoutY="88.0" mnemonicParsing="false"
+                onAction="#refreshButtonAction" prefHeight="29.0" prefWidth="64.0"
+                stylesheets="@../../css/stockseller/returnButton.css" text="刷新" textFill="#0f88eb">
+            <graphic>
+                <ImageView fitHeight="23.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/admin/refresh.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </Pane>

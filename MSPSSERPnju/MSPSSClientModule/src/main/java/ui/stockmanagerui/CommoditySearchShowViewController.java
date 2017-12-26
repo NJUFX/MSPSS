@@ -1,6 +1,9 @@
 package ui.stockmanagerui;
 
 import auxiliary.CommodityTable;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.commodityblservice.CommodityBLService;
+import blservice.commodityblservice.CommodityInfoService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,10 +18,14 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import vo.CommodityVO;
+import vo.FilterFlagVO;
+import vo.UserVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -28,8 +35,11 @@ import java.util.ResourceBundle;
 public class CommoditySearchShowViewController implements Initializable {
     public CommodityTable OperateCommodity = new CommodityTable();
     Stage stage = StageSingleton.getStage();
-
+    CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
+    static ArrayList<CommodityVO> arrayList = new ArrayList<>();
     private String keyType, keyword;
+    FilterFlagVO filterFlagVO = new FilterFlagVO();
 
     public void setKeyType(String keyType) {
         this.keyType = keyType;
@@ -48,18 +58,21 @@ public class CommoditySearchShowViewController implements Initializable {
     @FXML
     Button commodityModButton;
     @FXML
-    Button backButton;
+    Button backButton, refreshButton;
     @FXML
     TableView<CommodityTable> commodityTableTable;
     @FXML
-    TableColumn<CommodityTable, String> IdCol, NameCol, CategoryCol;
+    TableColumn<CommodityTable, String> IdCol, NameCol, CategoryCol, ImportCol, ExportCol;
     @FXML
     TableColumn<CommodityTable, String> OperationCol;
+
 
     public void showTableView() {
         IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         CategoryCol.setCellValueFactory(new PropertyValueFactory<>("Category"));
+        ImportCol.setCellValueFactory(new PropertyValueFactory<>("ImportPrice"));
+        ExportCol.setCellValueFactory(new PropertyValueFactory<>("ExportPrice"));
         OperationCol.setCellFactory((col) -> {
             TableCell<CommodityTable, String> cell = new TableCell<CommodityTable, String>() {
                 @Override
@@ -78,6 +91,7 @@ public class CommoditySearchShowViewController implements Initializable {
                             try {
                                 CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
                                         "/view/stockmanager/CommodityInfoShow.fxml");
+                                controller.id_to_modify = this.getTableView().getItems().get(this.getIndex()).getId();
                                 //controller.setCommodityTable(OperateCommodity);
                             } catch (Exception e1) {
                                 e1.printStackTrace();
@@ -93,7 +107,54 @@ public class CommoditySearchShowViewController implements Initializable {
 
     public void addRow() {
         ObservableList<CommodityTable> data = commodityTableTable.getItems();
-        data.add(new CommodityTable("00001", "HongKong Lamp", "China"));
+
+        switch (keyType) {
+            case "分类":
+                filterFlagVO.classificationName = keyword;
+                break;
+            case "编号":
+                filterFlagVO.id = keyword;
+                break;
+            case "名称":
+                filterFlagVO.name = keyword;
+                break;
+            case "进价（向上查找）":
+                filterFlagVO.importCostMin = Double.parseDouble(keyword);
+                break;
+            case "进价（向下查找）":
+                filterFlagVO.importCostMax = Double.parseDouble(keyword);
+                break;
+            case "零售价（向上查找）":
+                filterFlagVO.exportCostMin = Double.parseDouble(keyword);
+                break;
+            case "零售价（向下查找）":
+                filterFlagVO.exportCostMax = Double.parseDouble(keyword);
+                break;
+        }
+        arrayList = commodityInfoService.search(filterFlagVO);
+        for (int i = 0; i < arrayList.size(); i++) {
+            CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
+            data.add(c);
+        }
+    }
+
+    @FXML
+    public void refreshButtonAction(ActionEvent e) {
+        ObservableList<CommodityTable> data = commodityTableTable.getItems();
+        arrayList = commodityInfoService.search(filterFlagVO);
+        for (int i = 0; i < arrayList.size(); i++) {
+            CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
+            data.add(c);
+        }
+    }
+
+    public void refreshButtonAction() {
+        ObservableList<CommodityTable> data = commodityTableTable.getItems();
+        arrayList = commodityInfoService.search(filterFlagVO);
+        for (int i = 0; i < arrayList.size(); i++) {
+            CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
+            data.add(c);
+        }
     }
 
     /**

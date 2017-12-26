@@ -2,6 +2,7 @@ package ui.stockmanagerui;
 
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityBLService;
+import blservice.commodityblservice.CommodityInfoService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,17 +10,22 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.ClassificationVO;
+import vo.CommodityVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -30,6 +36,7 @@ public class CommodityModitySecondViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     static String id_to_modify;
 
     @FXML
@@ -44,7 +51,43 @@ public class CommodityModitySecondViewController implements Initializable {
     Button backToBeforeButton;
     @FXML
     Button cancelButton, sureButton;
+    @FXML
+    TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField;
+    @FXML
+    ComboBox<String> classificationBox;
+    @FXML
+    Label idLabel;
 
+    public void showClassificationBox(ArrayList<ClassificationVO> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (commodityBLService.getChildrenClassification(list.get(i)).size() == 0) {
+                classificationBox.getItems().add(list.get(i).getName());
+            } else {
+                ArrayList<ClassificationVO> list2 = commodityBLService.getChildrenClassification(list.get(i));
+                showClassificationBox(list2);
+            }
+        }
+    }
+
+    /**
+     * 修改按钮
+     *
+     * @param e
+     */
+    public void sureButtonAction(ActionEvent e) {
+        if (id_to_modify != null || !id_to_modify.equals("")) {
+            CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
+            commodityBLService.deleteCommodity(id_to_modify.trim());
+            CommodityVO newcommodity = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationBox.getValue(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
+            newcommodity.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
+            newcommodity.setID(commodityVO.getID());
+            newcommodity.setLatestExportCost(commodityVO.getLatestExportCost());
+            newcommodity.setLatestImportCost(commodityVO.getLatestImportCost());
+            newcommodity.setNumberInStock(Integer.parseInt(stockNumberField.getText().trim()));
+            commodityBLService.addCommodity(newcommodity);
+
+        }
+    }
 
     /**
      * 返回上一界面
@@ -184,6 +227,17 @@ public class CommodityModitySecondViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+
+        showClassificationBox(commodityBLService.getRootClassifications());
+
+        CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
+        nameField.setText(commodityVO.getName());
+        idLabel.setText(commodityVO.getID());
+        importPriceField.setText(String.valueOf(commodityVO.getImportCost()));
+        exportPriceField.setText(String.valueOf(commodityVO.getExportCost()));
+        typeField.setText(commodityVO.getType());
+        alertField.setText(String.valueOf(commodityVO.getAlertNumber()));
+        classificationBox.setValue(commodityVO.getClassificationName());
     }
 
 }
