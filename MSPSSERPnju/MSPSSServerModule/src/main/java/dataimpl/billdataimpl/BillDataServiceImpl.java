@@ -16,13 +16,15 @@ public class BillDataServiceImpl implements BillDataService{
     private DataHelper<FinanceBillPO> financeBillHelper;
     private DataHelper<SalesInBillPO> salesInBillHelper;
     private DataHelper<SalesOutBillPO> salesOutBillHelper;
+    private DataHelper<AlarmBillPO> alarmBillHelper;
 
-    public BillDataServiceImpl(DataHelper<StockBillPO> stockBillHelper, DataHelper<CashCostBillPO> cashCostBillHelper, DataHelper<FinanceBillPO> financeBillHelper, DataHelper<SalesInBillPO> salesInBillHelper, DataHelper<SalesOutBillPO> salesOutBillHelper) {
+    public BillDataServiceImpl(DataHelper<StockBillPO> stockBillHelper, DataHelper<CashCostBillPO> cashCostBillHelper, DataHelper<FinanceBillPO> financeBillHelper, DataHelper<SalesInBillPO> salesInBillHelper, DataHelper<SalesOutBillPO> salesOutBillHelper ,DataHelper<AlarmBillPO> alarmBillHelper) {
         this.stockBillHelper = stockBillHelper;
         this.cashCostBillHelper = cashCostBillHelper;
         this.financeBillHelper = financeBillHelper;
         this.salesInBillHelper = salesInBillHelper;
         this.salesOutBillHelper = salesOutBillHelper;
+        this.alarmBillHelper  = alarmBillHelper;
     }
 
     /**
@@ -84,6 +86,17 @@ public class BillDataServiceImpl implements BillDataService{
 
     public ArrayList<StockBillPO> multiSearchStockBill(ArrayList<CriteriaClause> criteriaClauses){
         return stockBillHelper.multiCriteriaQuery(criteriaClauses);
+    }
+
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<StockBillPO> rangeSearchStockBill(String field,Object max,Object min){
+        return stockBillHelper.rangeQuery(field,max,min);
     }
 
     /**
@@ -175,6 +188,19 @@ public class BillDataServiceImpl implements BillDataService{
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val){
         return cashCostBillHelper.fullMatchQuery(field, val);
     }
+
+
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<CashCostBillPO> rangeSearchCashCostBill(String field,Object max,Object min){
+        return cashCostBillHelper.rangeQuery(field, max, min);
+    }
+
     /**
      * 得到应有的现金费用单ID
      *
@@ -230,6 +256,17 @@ public class BillDataServiceImpl implements BillDataService{
 
     public ArrayList<FinanceBillPO> multiSearchFinanceBill(ArrayList<CriteriaClause> criteriaClauses){
         return financeBillHelper.multiCriteriaQuery(criteriaClauses);
+    }
+
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<FinanceBillPO> rangeSearchFinanceBill(String field,Object max,Object min){
+        return financeBillHelper.rangeQuery(field, max, min);
     }
 
     /**
@@ -305,6 +342,17 @@ public class BillDataServiceImpl implements BillDataService{
         return salesInBillHelper.multiCriteriaQuery(criteriaClauses);
     }
 
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesInBillPO> rangeSearchSalesInBill(String field,Object max,Object min){
+        return salesInBillHelper.rangeQuery(field, max, min);
+    }
+
     public String getSalesInBillID(SalesInBillType type){
         ArrayList<SalesInBillPO> salesInBillPOS;
         String prefix;
@@ -372,6 +420,17 @@ public class BillDataServiceImpl implements BillDataService{
         return salesOutBillHelper.multiCriteriaQuery(criteriaClauses);
     }
 
+    /**
+     * 范围查找
+     * @param field
+     * @param max
+     * @param min
+     * @return
+     */
+    public ArrayList<SalesOutBillPO> rangeSearchSalesOutBill(String field,Object max,Object min){
+        return salesOutBillHelper.rangeQuery(field, max, min);
+    }
+
     public String getSalesOutBillID(SalesOutBillType type){
         ArrayList<SalesOutBillPO> salesOutBillPOS;
         String prefix;
@@ -399,5 +458,38 @@ public class BillDataServiceImpl implements BillDataService{
         }
 
         return prefix+"-"+Time.getTimeFormat()+"-"+strNum;
+    }
+
+    public ResultMessage addAlarmBill(AlarmBillPO po){
+        return alarmBillHelper.save(po);
+    }
+
+    /**
+     * 用来根据前缀来得到某天的产生的库存报警单
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val){
+        return alarmBillHelper.prefixMatchQuery(field, val);
+    }
+
+    /**
+     * 得到库存报警单应有的数据
+     *
+     * @return
+     */
+    public String getAlarmID(){
+        ArrayList<AlarmBillPO> alarmBillPOS = alarmBillHelper.prefixMatchQuery("id","KCBJD");
+        int num = alarmBillPOS.size()+1;
+
+        String strNum = ""+num;
+
+        while(strNum.length()<5){
+            strNum = "0"+strNum;
+        }
+
+        return "KCBJD"+"-"+Time.getTimeFormat()+"-"+strNum;
     }
 }

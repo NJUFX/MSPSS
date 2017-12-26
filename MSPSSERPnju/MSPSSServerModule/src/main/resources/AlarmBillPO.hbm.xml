@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="po.AlarmBillPO" table="alarmbillpo">
+        <id name="id" column="id" type="string">
+
+    </id>
+        <property name="commodityID" column="commodity_id" type="string"/>
+        <property name="number" column="number" type ="int"/>
+        <property name="time" column="time" type="string"/>
+
+    </class>
+</hibernate-mapping>
