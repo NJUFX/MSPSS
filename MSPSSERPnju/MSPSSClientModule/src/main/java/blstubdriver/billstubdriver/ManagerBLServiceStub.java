@@ -1,6 +1,5 @@
 package blstubdriver.billstubdriver;
 
-import blimpl.billblimpl.FinanceBill;
 import blservice.billblservice.ManagerBillBLService;
 import util.*;
 import vo.*;
@@ -21,8 +20,8 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
    private static final CommodityVO commodity7 = new CommodityVO("LED灯","12138","IEEE-0007",10,16,160);
    private static final CommodityVO commodity8 = new CommodityVO("LED灯","12138","IEEE-0008",10,17,170);
    private static final CommodityVO commodity9 = new CommodityVO("LED灯","12138","IEEE-0009",10,18,180);
-   private static final UserVO stockManager = new UserVO("sm","hanxinhu", Kind_Of_Users.StockManager,"111","121");
-   private static final UserVO manager = new UserVO("sm","hanxinhu", Kind_Of_Users.StockManager,"111","121");
+    private static final UserVO stockManager = new UserVO("sm", "hanxinhu", Kind_Of_Users.StockManager, "111");
+    private static final UserVO manager = new UserVO("sm", "hanxinhu", Kind_Of_Users.StockManager, "111");
    private static final CustomerVO customer = new CustomerVO("1",Kind_Of_Customers.SUPPLIER,2,"hanqi",
         "10086","NJ","210046","hxh@foxmail.com",100,1000,100,"hemusheng");
    private static final    AccountVO accountVO1 = new AccountVO("HuaQi",111,new Time());
@@ -288,10 +287,10 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
         cashCostItemVOS.add(new CashCostItemVO("maidengpao",111,"ps"));
         cashCostItemVOS.add(new CashCostItemVO("maidengpao",111,"ps"));
         cashCostItemVOS.add(new CashCostItemVO("maidengpao",111,"ps"));
-        CashCostBillVO cashCostBillVO1 = new CashCostBillVO("xjfyd-00000000-00001"
-        ,stockManager,null,BillStatus.commit,cashCostItemVOS,10000,new Time(),new Time(),null);
-        CashCostBillVO cashCostBillVO2 = new CashCostBillVO("xjfyd-00000000-00001"
-                ,stockManager,null,BillStatus.commit,cashCostItemVOS,10000,new Time(),new Time(),null);
+        CashCostBillVO cashCostBillVO1 = new CashCostBillVO("1212", manager, manager, BillStatus.commit, accountVO1, cashCostItemVOS,
+
+                10000, new Time(), new Time(), new Time());
+        CashCostBillVO cashCostBillVO2 = cashCostBillVO1;
         cashCostBillVOS.add(cashCostBillVO1);
         cashCostBillVOS.add(cashCostBillVO2);
         return cashCostBillVOS;

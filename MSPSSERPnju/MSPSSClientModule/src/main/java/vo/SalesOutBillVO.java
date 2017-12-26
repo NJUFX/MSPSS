@@ -36,7 +36,7 @@ public class SalesOutBillVO {
   public PromotionVO promotionVO;
 
     /**
-     * 出库商品列表
+     * 出库商品列表accountpo
      */
   public ArrayList<SalesItemVO> itemVOS;
 
@@ -48,6 +48,12 @@ public class SalesOutBillVO {
      * 使用的代金券金额
      */
   public int voucher;
+
+    //fixme
+    /**
+     * 该订单赠送客户代价券的额度
+     */
+    public int presentation_voucher;
     /**
      * 创建订单时间
      */
@@ -87,6 +93,7 @@ public class SalesOutBillVO {
      * 单据的状态
      */
     public BillStatus status;
+
     public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, int allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager
     , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status,PromotionVO promotionVO){
         this.ID = ID;

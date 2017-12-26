@@ -374,4 +374,31 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         }
         return null;
     }
+
+    @Override
+    public ResultMessage addAlarmBill(AlarmBillPO po) {
+        return null;
+    }
+
+    /**
+     * 用来根据前缀来得到某天的产生的库存报警单
+     *
+     * @param field
+     * @param val
+     * @return
+     */
+    @Override
+    public ArrayList<AlarmBillPO> prefixSearchAlarmBill(String field, String val) {
+        return null;
+    }
+
+    /**
+     * 得到库存报警单应有的数据
+     *
+     * @return
+     */
+    @Override
+    public String getAlarmID() {
+        return null;
+    }
 }
