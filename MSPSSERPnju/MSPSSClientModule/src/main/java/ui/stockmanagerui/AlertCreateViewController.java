@@ -61,13 +61,13 @@ public class AlertCreateViewController implements Initializable {
         AlertNumberCol.setCellValueFactory(new PropertyValueFactory<>("AlertNumber"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
-
+/*
         ArrayList<StockBillVO> arrayList = stockManagerBillBLService.getAllAlarmBill();
         if (arrayList != null || arrayList.size() != 0) {
             for (int i = 0; i < arrayList.size(); i++) {
-                Alert alert = new Alert(arrayList.get(i).id,"","");
+            //    Alert alert = new Alert(arrayList.get(i).id,"","");
             }
-        }
+        }*/
     }
 
     /**

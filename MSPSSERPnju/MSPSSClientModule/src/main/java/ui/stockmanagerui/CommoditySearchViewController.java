@@ -47,7 +47,7 @@ public class CommoditySearchViewController implements Initializable {
     Button searchButton;
 
     public void keyTypeComboBoxAction(ActionEvent e) {
-        if (keyTypeComboBox.getValue().equals("分类")) {
+        if (keyTypeComboBox.getValue().equals("商品分类")) {
             classificationBox.setVisible(true);
         } else {
             classificationBox.setVisible(false);
@@ -65,18 +65,18 @@ public class CommoditySearchViewController implements Initializable {
         try {
             String key_word = "", key_type = "";
             boolean b = true;
-            if (keyTypeComboBox.getValue() != null || !keyTypeComboBox.getValue().trim().equals("")) {
+            if (keyTypeComboBox.getValue() != null && !keyTypeComboBox.getValue().trim().equals("")) {
                 if (keyTypeComboBox.getValue().equals("分类")) {
-                    if (classificationBox.getValue() != null || !classificationBox.getValue().trim().equals("")) {
+                    if (classificationBox.getValue() != null && !classificationBox.getValue().trim().equals("")) {
                         key_word = classificationBox.getValue().trim();
-                    } else if (keywordField.getText() != null || !keywordField.getText().trim().equals("")) {
+                    } else if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
                         key_word = keywordField.getText().trim();
                     } else {
                         dialog.errorInfoDialog("Please input keyword.");
                         b = false;
                     }
                 } else {
-                    if (keywordField.getText() != null || !keywordField.getText().trim().equals("")) {
+                    if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
                         key_word = (keywordField.getText().trim());
                     } else {
                         dialog.errorInfoDialog("Please input keyword.");
@@ -210,8 +210,6 @@ public class CommoditySearchViewController implements Initializable {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
 
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
@@ -236,6 +234,7 @@ public class CommoditySearchViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
+        classificationBox.setVisible(false);
     }
 
 }

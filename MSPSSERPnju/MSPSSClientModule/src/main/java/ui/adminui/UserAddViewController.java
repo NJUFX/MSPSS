@@ -71,6 +71,7 @@ public class UserAddViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     @FXML
     public void userCategoryAction(ActionEvent e) {
         ObservableList<String> options = FXCollections.observableArrayList();

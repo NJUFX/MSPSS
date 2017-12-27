@@ -63,7 +63,9 @@ public class CommodityClassifyViewController implements Initializable {
         ClassificationCell commodityCell = new ClassificationCell("Commodity", "");
         TreeItem<String> root = new TreeItem<>(commodityCell.getName(), rootIcon);//根分类
 
-        addChildren(commodityBLService.getRootClassifications(), root);
+        if (commodityBLService.getRootClassifications() != null || commodityBLService.getRootClassifications().size() != 0) {
+            addChildren(commodityBLService.getRootClassifications(), root);
+        }
 
         commodityClassification.setRoot(root);
         commodityClassification.setEditable(true);

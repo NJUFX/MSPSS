@@ -51,11 +51,12 @@ public class CustomerAddViewController implements Initializable {
 
     @FXML
     TextField nameField, phoneField, addressField, postcodeField, emailField, inValueField,
-            incomemoneyField, paymoneyField, workerField;
+            incomemoneyField, paymoneyField;
     @FXML
     ComboBox<String> categoryBox, levelBox;
+
     @FXML
-    Label idLabel;
+    Label idLabel, workerLabel;
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
@@ -68,7 +69,7 @@ public class CustomerAddViewController implements Initializable {
         }
         CustomerVO customerVO = new CustomerVO(idLabel.getText(), kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
                 addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
-                Double.parseDouble(paymoneyField.getText().trim()), workerField.getText().trim());
+                Double.parseDouble(paymoneyField.getText().trim()), workerLabel.getText().trim());
         ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
         if (resultMessage == ResultMessage.SUCCESS) {
             dialog.infoDialog("Add a customer successfully.");
@@ -197,6 +198,7 @@ public class CustomerAddViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
+        workerLabel.setText(LoginController.getCurrentUser().getID());
     }
 
 }

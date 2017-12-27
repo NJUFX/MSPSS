@@ -8,6 +8,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -33,13 +34,15 @@ public class CustomerModifyFirstViewController implements Initializable {
 
     @FXML
     Button NextOperationButton;
-
     @FXML
     Button CustomerSearchButton;
     @FXML
     Button cancelButtonl;
     @FXML
     Button BackToLogin;
+    @FXML
+    TextField id_to_modify_field;
+
     /**
      * 返回登录界面
      *
@@ -54,6 +57,7 @@ public class CustomerModifyFirstViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回上一界面
      *
@@ -70,6 +74,7 @@ public class CustomerModifyFirstViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 增加客户
      *
@@ -115,6 +120,9 @@ public class CustomerModifyFirstViewController implements Initializable {
         try {
             CustomerModifySecondViewController controller = (CustomerModifySecondViewController) replaceSceneContent(
                     "/view/stockseller/CustomerModifySecond.fxml");
+            if (id_to_modify_field.getText() != null && !id_to_modify_field.getText().trim().equals("")) {
+                controller.id_to_modify = id_to_modify_field.getText().trim();
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

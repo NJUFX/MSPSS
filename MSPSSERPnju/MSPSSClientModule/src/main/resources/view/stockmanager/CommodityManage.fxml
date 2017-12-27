@@ -143,29 +143,33 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane id="searchCustomerPane" layoutX="479.0" layoutY="59.0" prefHeight="94.0" prefWidth="388.0">
+        <Pane id="searchCustomerPane" layoutX="445.0" layoutY="59.0" prefHeight="100.0" prefWidth="422.0">
             <children>
                 <TextField fx:id="keywordField" layoutX="85.0" layoutY="28.0" onAction="#commoditySearchButtonAction"
-                           prefHeight="35.0" prefWidth="161.0" promptText="关键词/编号"/>
-                <Button id="searchButton" fx:id="commoditySearchButton" layoutX="246.0" layoutY="28.0"
+                           prefHeight="35.0" prefWidth="213.0" promptText="关键词/编号"/>
+                <Button id="searchButton" fx:id="commoditySearchButton" layoutX="298.0" layoutY="28.0"
                         mnemonicParsing="false" onAction="#commoditySearchButtonAction" prefHeight="25.0"
                         prefWidth="94.0" stylesheets="@../../css/stockseller/common.css" text="查找" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0"/>
                     </font>
                 </Button>
-                <ComboBox fx:id="keyTypeComboBox" layoutX="-17.0" layoutY="28.0" prefHeight="35.0" prefWidth="102.0"
+                <ComboBox fx:id="keyTypeComboBox" onAction="#keyTypeComboBoxAction" layoutX="-17.0" layoutY="28.0"
+                          prefHeight="35.0" prefWidth="102.0"
                           promptText="关键词类型">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="商品编号"/>
-                            <String fx:value="分类"/>
-                            <String fx:value="编号"/>
-                            <String fx:value="进价"/>
-                            <String fx:value="零售价"/>
+                            <String fx:value="商品分类"/>
+                            <String fx:value="商品名称"/>
+                            <String fx:value="进价（向上查找）"/>
+                            <String fx:value="进价（向下查找）"/>
+                            <String fx:value="零售价（向上查找）"/>
+                            <String fx:value="零售价（向下查找）"/>
                         </FXCollections>
                     </items>
                 </ComboBox>
+                <ComboBox layoutX="248.0" layoutY="27.0" prefHeight="36.0" prefWidth="50.0"/>
             </children>
         </Pane>
         <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"

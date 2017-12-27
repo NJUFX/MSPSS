@@ -49,16 +49,17 @@ public class UserModifyFirstViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * @param e
      */
     @FXML
     public void nextOperationButtonAction(ActionEvent e) {
         try {
-            if (idField.getText() == null) {
+            if (idField.getText() == null || idField.getText().trim().equals("")) {
                 dialog.errorInfoDialog("Please input the id of user your want to modify.");
             } else {
-                id_to_modify = idField.getText();
+                id_to_modify = idField.getText().trim();
                 UserModifyViewController.id_to_modify = id_to_modify;
                 UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
             }

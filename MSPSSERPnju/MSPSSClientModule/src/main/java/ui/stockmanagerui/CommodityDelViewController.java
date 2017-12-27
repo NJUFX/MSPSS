@@ -46,7 +46,7 @@ public class CommodityDelViewController implements Initializable {
     TextField id_to_del;
 
     public void delButtonAction(ActionEvent e) {
-        if (id_to_del.getText() != null || !id_to_del.getText().equals("")) {
+        if (id_to_del.getText() != null && !id_to_del.getText().equals("")) {
             ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_del.getText().trim());
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Delete a commodity successfully.");

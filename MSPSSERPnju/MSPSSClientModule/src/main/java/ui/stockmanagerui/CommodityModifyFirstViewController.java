@@ -124,7 +124,7 @@ public class CommodityModifyFirstViewController implements Initializable {
     @FXML
     public void nextOperationButtonAction(ActionEvent e) throws IOException {
         try {
-            if (id_to_modify_Field.getText() != null || !id_to_modify_Field.getText().equals("")) {
+            if (id_to_modify_Field.getText() != null && !id_to_modify_Field.getText().equals("")) {
                 CommodityModitySecondViewController controller = (CommodityModitySecondViewController) replaceSceneContent(
                         "/view/stockmanager/commodityModifySecond.fxml");
                 CommodityModitySecondViewController.id_to_modify = id_to_modify_Field.getText();
