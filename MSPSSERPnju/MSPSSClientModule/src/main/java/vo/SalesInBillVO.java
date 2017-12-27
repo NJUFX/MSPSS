@@ -26,7 +26,7 @@ public class SalesInBillVO {
      */
     public String provider;
     /**
-     *仓库
+     * 仓库
      */
     public String storage;
 
@@ -60,35 +60,41 @@ public class SalesInBillVO {
     /**
      * 单据的创建时间
      */
-   public Time init_time;
+    public Time init_time;
     /**
      * 单据的提交时间
      */
-   public Time commit_time;
+    public Time commit_time;
     /**
      * 单据的审批时间
      */
-   public Time approval_time;
+    public Time approval_time;
 
     /**
      * 经理的审批评论
      */
-   public String commentByManager;
+    public String commentByManager;
 
     /**
      * 审批的总经理
      */
-   public UserVO manager;
+    public UserVO manager;
 
-    public SalesInBillVO(String ID,Time init_time,String provider,String storage,UserVO operator,
-                         ArrayList<SalesItemVO> itemVOS,String ps){
-            this.ID = ID;
-            this.provider = provider;
-            this.storage = storage;
-            this.operator = operator;
-            this.itemVOS = itemVOS;
-            this.ps = ps;
-            this.init_time = init_time;
+    public SalesInBillVO(String id, SalesInBillType type, BillStatus status) {
+        this.ID = id;
+        this.type = type;
+        this.status = status;
+    }
+
+    public SalesInBillVO(String ID, Time init_time, String provider, String storage, UserVO operator,
+                         ArrayList<SalesItemVO> itemVOS, String ps) {
+        this.ID = ID;
+        this.provider = provider;
+        this.storage = storage;
+        this.operator = operator;
+        this.itemVOS = itemVOS;
+        this.ps = ps;
+        this.init_time = init_time;
     }
 
     public SalesInBillVO(String ID, String DAE, String provider, String storage, SalesInBillType type, UserVO operator, String ps, double sumMoney, ArrayList<SalesItemVO> itemVOS, BillStatus status, Time init_time, Time commit_time) {

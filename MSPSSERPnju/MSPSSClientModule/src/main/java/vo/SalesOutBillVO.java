@@ -16,11 +16,11 @@ public class SalesOutBillVO {
      * 销售单为（XSD-yyyyMMdd-xxxxx）
      * 销售退货单位（XSTHD-yyyyMMdd-xxxxx）
      */
-  public   String ID;
+    public String ID;
     /**
      * 客户
      */
-  public   CustomerVO customerVO;
+    public CustomerVO customerVO;
     /**
      * 业务员
      */
@@ -29,25 +29,25 @@ public class SalesOutBillVO {
     /**
      * 仓库
      */
-  public String storage;
+    public String storage;
     /**
      * 促销策略
      */
-  public PromotionVO promotionVO;
+    public PromotionVO promotionVO;
 
     /**
      * 出库商品列表accountpo
      */
-  public ArrayList<SalesItemVO> itemVOS;
+    public ArrayList<SalesItemVO> itemVOS;
 
     /**
      * 折让
      */
-  public int allowance;
+    public int allowance;
     /**
      * 使用的代金券金额
      */
-  public int voucher;
+    public int voucher;
 
     //fixme
     /**
@@ -57,19 +57,19 @@ public class SalesOutBillVO {
     /**
      * 创建订单时间
      */
-  public Time init_time;
+    public Time init_time;
     /**
      * 提交时间
      */
-  public Time commit_time;
+    public Time commit_time;
     /**
      * 审批时间
      */
-  public Time approval_time;
+    public Time approval_time;
     /**
      * 审批的经理
      */
-  public UserVO manager;
+    public UserVO manager;
 
 
     /**
@@ -81,7 +81,7 @@ public class SalesOutBillVO {
      */
     public double sumBeforeDiscount;
     /**
-     *折让后总额
+     * 折让后总额
      */
     public double sumAfterDiscount;
 
@@ -94,14 +94,20 @@ public class SalesOutBillVO {
      */
     public BillStatus status;
 
+    public SalesOutBillVO(String id, SalesOutBillType type, BillStatus status) {
+        this.ID = id;
+        this.type = type;
+        this.status = status;
+    }
+
     public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, int allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager
-    , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status,PromotionVO promotionVO){
+            , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status, PromotionVO promotionVO) {
         this.ID = ID;
         this.DAE = DAE;
         this.storage = storage;
         this.type = type;
         this.allowance = allowance;
-        this.voucher =voucher;
+        this.voucher = voucher;
         this.init_time = init_time;
         this.commit_time = commit_time;
         this.approval_time = approval_time;
