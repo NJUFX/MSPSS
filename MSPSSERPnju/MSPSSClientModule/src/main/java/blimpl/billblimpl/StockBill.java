@@ -153,7 +153,7 @@ public class StockBill {
     public String getID(StockBillType type) {
         return networkService.getStockBillID(type);
     }
-    private StockBillVO po_to_vo(StockBillPO po){
+    public StockBillVO po_to_vo(StockBillPO po){
         ArrayList<StockBillItemVO> itemVOS = new ArrayList<>();
         for (int i = 0; i <  po.getItemPOS().size(); i++) {
             StockBillItemPO itemPO = po.getItemPOS().get(i);

@@ -137,7 +137,7 @@ public class FinanceBill {
         return networkService.updateFinanceBill(vo_to_po(financeBillVO));
     }
 
-    private FinanceBillVO po_to_vo(FinanceBillPO po) {
+    public FinanceBillVO po_to_vo(FinanceBillPO po) {
         List<FinanceItemPO> itemPOS = po.getList();
         ArrayList<FinanceItemVO> vos = new ArrayList<>();
         for (FinanceItemPO itemPO : itemPOS) {

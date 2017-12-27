@@ -146,7 +146,7 @@ public class CashCostBill {
         return po;
     }
 
-    private CashCostBillVO po_to_vo(CashCostBillPO po) {
+    public CashCostBillVO po_to_vo(CashCostBillPO po) {
         //谨慎 谨慎 再谨慎
         Time commitTime = po.getCommit_time() != null ? new Time(po.getCommit_time()) : null;
         Time approvalTime = po.getApproval_time() != null ? new Time(po.getApproval_time()) : null;

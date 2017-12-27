@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+      <class name ="po.StockBillPO" table ="stockbillpo">
+
+          <id name = "ID" column="id" type ="string">
+
+          </id>
+
+          <property name="type" column ="type" type="int">
+
+          </property>
+          <property name="status" column="status" type="int"></property>
+          <property name="init_time" column="init_time" type="string"></property>
+          <property name="commit_time" column="commit_time" type="string"></property>
+          <property name="approval_time" column="approval_time" type="string"></property>
+          <property name="commentByStockManager" column="comment_by_stock_manager" type="string"></property>
+          <property name="commentByManager" column="comment_by_manager" type="string"></property>
+          <property name="initID" column="init_id" type="string"></property>
+          <property name="approvalID" column="approval_id" type="string"></property>
+
+          <list name="itemPOS" table ="stockbill_item_po" cascade="all">
+              <key column="commodity_id"></key>
+              <index column="item_index" ></index>
+              <one-to-many class ="po.StockBillItemPO"/>
+
+
+          </list>
+
+
+      </class>
+
+</hibernate-mapping>

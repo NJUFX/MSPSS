@@ -156,7 +156,7 @@ public class SalesInBill {
         return billVOS;
     }
 
-    private SalesInBillVO po_to_vo(SalesInBillPO po) {
+    public SalesInBillVO po_to_vo(SalesInBillPO po) {
         Time initTime = po.getInit_time() != null ? new Time(po.getInit_time()) : null;
         Time commitTime = po.getCommit_time() != null ? new Time(po.getCommit_time()) : null;
         Time approvalTime = po.getApproval_time() != null ? new Time(po.getApproval_time()) : null;
