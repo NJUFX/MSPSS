@@ -1,15 +1,9 @@
 package ui.stockmanagerui;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBuilder;
-
-import javax.xml.soap.Node;
-
-import javafx.event.ActionEvent;
 import ui.common.Dialog;
 
 import java.net.URL;
