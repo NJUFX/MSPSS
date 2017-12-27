@@ -67,13 +67,7 @@ public interface TableBLService {
      * @return 排序好的VO
      */
     public SaleTableVO compareSTByName(SaleTableVO saletable);
-    /**
-     * 按时间先后排序
-     *
-     * @param businesstable
-     * @return 排序好的VO
-     */
-    public BusinessTableVO compareBTByTime(BusinessTableVO businesstable);
+
     /**
      * 按时间先后排序
      *
