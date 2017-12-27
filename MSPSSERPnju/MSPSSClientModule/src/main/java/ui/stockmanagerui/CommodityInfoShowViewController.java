@@ -18,6 +18,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.ResultMessage;
 import vo.CommodityVO;
 
 import java.io.IOException;
@@ -53,7 +54,6 @@ public class CommodityInfoShowViewController implements Initializable {
     Button commoditySearchButton;
     @FXML
     Button backButton;
-
     @FXML
     Button delButton;
     @FXML
@@ -64,14 +64,6 @@ public class CommodityInfoShowViewController implements Initializable {
             recentSellingPrice;
     // 名称，编号，型号，分类，进价，售价，库存数量，库存警戒值
 
-    public void setView() {
-        /*
-         * name.setText(commodityVO.getName()); id.setText(commodityVO.getID());
-		 * type.setText(commodityVO.getType());
-		 * //category.setText(commodityVO.setClassificationVO());
-		 * purchasingPrice.setText(String.valueOf(commodityVO.getImportCost()));
-		 */
-    }
 
     /**
      * 删除当前的商品，返回商品列表
@@ -81,14 +73,17 @@ public class CommodityInfoShowViewController implements Initializable {
     @FXML
     public void delButtonAction(ActionEvent e) {
         try {
-            //System.out.println("test");
-            CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
-                    "/view/stockmanager/CommoditySearchShow.fxml");
-            controller.refreshButtonAction();
+
+            ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_modify);
+            if (resultMessage == ResultMessage.SUCCESS) {
+                CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
+                        "/view/stockmanager/CommoditySearchShow.fxml");
+                controller.refreshButtonAction();
+                dialog.infoDialog("Delete the commodity successfully.");
+            }
         } catch (Exception e1) {
             e1.printStackTrace();
         }
-        dialog.infoDialog("Delete the commodity successfully.");
     }
 
     /**
@@ -99,11 +94,9 @@ public class CommodityInfoShowViewController implements Initializable {
     @FXML
     public void modButtonAction(ActionEvent e) {
         try {
-            System.out.println("test");
-            //CommodityInfoModifyViewController controller = (CommodityInfoModifyViewController) replaceSceneContent("/view/stockmanager/CommodityInfoModify.fxml");
             CommodityInfoModifyViewController controller = (CommodityInfoModifyViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/CommodityInfoModify.fxml", 415, 421);
-            System.out.println("test");
+
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -270,7 +263,7 @@ public class CommodityInfoShowViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
 
         CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify);
         id.setText(commodityVO.getID());

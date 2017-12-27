@@ -26,9 +26,9 @@ import java.util.ResourceBundle;
  * author:Jiang_Chen date:2017/12/12
  */
 public class StockInventoryViewController implements Initializable {
-
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
+
 
     @FXML
     Button BackToLogin;
@@ -82,7 +82,7 @@ public class StockInventoryViewController implements Initializable {
     }
 
     /**
-     * 添加一条信息
+     * 添加信息
      */
     public void addRow() {
         ObservableList<StockInventory> data = stockInventoryTable.getItems();
@@ -210,7 +210,7 @@ public class StockInventoryViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
     }
 

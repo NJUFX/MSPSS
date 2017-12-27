@@ -196,6 +196,12 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="681.0" layoutY="91.0" mnemonicParsing="false" text="查看已制定单据"/>
+        <Button id="billCheckButton" fx:id="billCheckButton" layoutX="649.0" layoutY="86.0" mnemonicParsing="false"
+                onAction="#billCheckButtonAction" prefHeight="29.0" prefWidth="141.0"
+                stylesheets="@../../css/stockseller/billCreate.css" text="查看已制定单据" textFill="#0f88eb">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Button>
     </children>
 </Pane>

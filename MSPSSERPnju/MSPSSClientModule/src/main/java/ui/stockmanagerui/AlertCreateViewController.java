@@ -1,6 +1,8 @@
 package ui.stockmanagerui;
 
 import auxiliary.Alert;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.StockManagerBillBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,10 +18,12 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.StockBillVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -28,6 +32,8 @@ import java.util.ResourceBundle;
 public class AlertCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
+    StockManagerBillBLService stockManagerBillBLService = new BLFactoryImpl().getStockManagerBillBLService();
+
     @FXML
     Button overflowCreateButton;
     @FXML
@@ -55,6 +61,13 @@ public class AlertCreateViewController implements Initializable {
         AlertNumberCol.setCellValueFactory(new PropertyValueFactory<>("AlertNumber"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
+
+        ArrayList<StockBillVO> arrayList = stockManagerBillBLService.getAllAlarmBill();
+        if (arrayList != null || arrayList.size() != 0) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                Alert alert = new Alert(arrayList.get(i).id,"","");
+            }
+        }
     }
 
     /**
@@ -225,7 +238,7 @@ public class AlertCreateViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
     }
 

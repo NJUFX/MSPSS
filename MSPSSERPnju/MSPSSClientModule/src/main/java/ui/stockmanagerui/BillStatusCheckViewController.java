@@ -1,4 +1,4 @@
-package ui.stocksellerui;
+package ui.stockmanagerui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,32 +19,127 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * author:Jiang_Chen date:2017/12/13
- */
-public class CustomerSearchViewController implements Initializable {
+public class BillStatusCheckViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
     @FXML
-    Button CustomerAddButton;
-    @FXML
-    Button CustomerDelButton;
-    @FXML
-    Button CustomerModButton;
-    @FXML
-    Button backButtonl, BackToLogin, searchButton;
+    Button BackToLogin;
 
     @FXML
-    public void searchButtonAction(ActionEvent e) {
+    Button commodityManageButton;
+
+    @FXML
+    Button commodityClassifyButton;
+
+    @FXML
+    Button stockInventoryButton;
+
+    @FXML
+    Button stockCheckButton, backButton;
+
+    @FXML
+    public void backButtonAction(ActionEvent e) {
         try {
-            CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
-                    "/view/stockseller/CustomerSearchShow.fxml");
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
+                    "/view/stockmanager/BillCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
     }
 
+    /**
+     * 商品管理
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void commodityManageButtonAction(ActionEvent e) throws IOException {
+        try {
+            CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                    "/view/stockmanager/CommodityManage.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 商品分类
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void commodityClassifyButtonAction(ActionEvent e) throws IOException {
+        try {
+            CommodityClassifyViewController controller = (CommodityClassifyViewController) replaceSceneContent(
+                    "/view/stockmanager/CommodityClassify.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 库存查看
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void stockCheckButtonAction(ActionEvent e) throws IOException {
+        try {
+            StockCheckViewController controller = (StockCheckViewController) replaceSceneContent(
+                    "/view/stockmanager/StockCheck.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 库存盘点
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void stockInventoryButtonAction(ActionEvent e) throws IOException {
+        try {
+            StockInventoryViewController controller = (StockInventoryViewController) replaceSceneContent(
+                    "/view/stockmanager/StockInventory.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * 用来打开fxml文件
+     *
+     * @param fxml
+     * @return
+     * @throws Exception
+     */
+    private Initializable replaceSceneContent(String fxml) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, 900, 560);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        return (Initializable) loader.getController();
+    }
 
     /**
      * 返回登录界面
@@ -61,101 +156,6 @@ public class CustomerSearchViewController implements Initializable {
         }
     }
 
-    /**
-     * 返回上一界面
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void backButtonAction(ActionEvent e) throws IOException {
-        try {
-            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
-                    "/view/stockseller/CustomerManage.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
-
-    /**
-     * 增加客户
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void customerAddButtonAction(ActionEvent e) throws IOException {
-        try {
-            CustomerAddViewController controller = (CustomerAddViewController) replaceSceneContent(
-                    "/view/stockseller/CustomerAdd.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
-
-    /**
-     * 删除客户
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void customerDelButtonAction(ActionEvent e) throws IOException {
-        try {
-            CustomerDelViewController controller = (CustomerDelViewController) replaceSceneContent(
-                    "/view/stockseller/CustomerDel.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
-
-    /**
-     * 修改客户属性
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void customerModifyButtonAction(ActionEvent e) throws IOException {
-        try {
-            CustomerModifyFirstViewController controller = (CustomerModifyFirstViewController) replaceSceneContent(
-                    "/view/stockseller/CustomerModifyFirst.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
-
-    /**
-     * 用来打开fxml文件
-     *
-     * @param fxml
-     * @return
-     * @throws Exception
-     */
-    private Initializable replaceSceneContent(String fxml) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-        InputStream in = MainApp.class.getResourceAsStream(fxml);
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(MainApp.class.getResource(fxml));
-        Pane page;
-        try {
-            page = (Pane) loader.load(in);
-        } finally {
-            in.close();
-        }
-        Scene scene = new Scene(page, 900, 560);
-        stage.setScene(scene);
-        stage.sizeToScene();
-        stage.setResizable(false);
-        return (Initializable) loader.getController();
-    }
-
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
 
@@ -165,5 +165,4 @@ public class CustomerSearchViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
     }
-
 }

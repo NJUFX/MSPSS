@@ -47,7 +47,18 @@ public class BillCreateViewController implements Initializable {
     @FXML
     Button alertCreateButton;
     @FXML
-    Button presentationCreateButton;
+    Button presentationCreateButton, billCheckButton;
+
+    @FXML
+    public void billCheckButtonAction(ActionEvent e) {
+        try {
+            BillStatusCheckViewController controller = (BillStatusCheckViewController) replaceSceneContent(
+                    "/view/stockmanager/BillStatusCheck.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 库存报溢单
@@ -242,7 +253,7 @@ public class BillCreateViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
     }
 
 }
