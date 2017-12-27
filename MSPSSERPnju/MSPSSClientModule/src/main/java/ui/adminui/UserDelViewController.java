@@ -60,6 +60,7 @@ public class UserDelViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     @FXML
     public void cancelButtonAction(ActionEvent e) {
         try {
@@ -87,7 +88,7 @@ public class UserDelViewController implements Initializable {
 
     @FXML
     public void sureDeleteButtonAction(ActionEvent e) {
-        if (id_to_del.getText() == null) {
+        if (id_to_del.getText() == null || id_to_del.getText().trim().equals("")) {
             dialog.errorInfoDialog("Please input the id of user you want to delete.");
         } else {
             boolean b = dialog.confirmDialog("Do you confirm to delete this user?");

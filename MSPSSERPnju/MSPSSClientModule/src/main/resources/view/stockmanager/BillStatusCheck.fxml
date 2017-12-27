@@ -14,7 +14,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0"
       prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BillCreateViewController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BillStatusCheckViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -89,89 +89,6 @@
                 <Font name="Microsoft YaHei" size="22.0"/>
             </font>
         </Label>
-        <Pane layoutX="240.0" layoutY="65.0" prefHeight="60.0" prefWidth="243.0">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../image/stockseller/单据类型.png"/>
-                    </image>
-                </ImageView>
-                <Label layoutX="58.0" layoutY="23.0" text="单据类型">
-                    <font>
-                        <Font size="18.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane id="modCustomerPane" layoutX="233.0" layoutY="130.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane"
-              stylesheets="@../../css/stockseller/billCreate.css">
-            <children>
-                <Button id="modButton" fx:id="breakageCreateButton" onAction="#breakageCreateButtonAction"
-                        layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0"
-                        stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Button>
-                <Label layoutX="57.0" layoutY="27.0" text="库存报损单">
-                    <font>
-                        <Font size="18.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane id="modCustomerPane" layoutX="233.0" layoutY="230.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane"
-              stylesheets="@../../css/stockseller/billCreate.css">
-            <children>
-                <Button id="modButton" fx:id="overflowCreateButton" onAction="#overflowCreateButtonAction"
-                        layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0"
-                        stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Button>
-                <Label layoutX="57.0" layoutY="27.0" text="库存报溢单">
-                    <font>
-                        <Font size="18.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane id="modCustomerPane" layoutX="233.0" layoutY="330.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane"
-              stylesheets="@../../css/stockseller/billCreate.css">
-            <children>
-                <Button id="modButton" fx:id="alertCreateButton" onAction="#alertCreateButtonAction" layoutX="430.0"
-                        layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0"
-                        stylesheets="@../../css/stockseller/common.css" text="处理" textFill="WHITE">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Button>
-                <Label layoutX="57.0" layoutY="27.0" text="库存报警单">
-                    <font>
-                        <Font size="18.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane id="modCustomerPane" layoutX="233.0" layoutY="430.0" prefHeight="80.0" prefWidth="557.0" styleClass="pane"
-              stylesheets="@../../css/stockseller/billCreate.css">
-            <children>
-                <Button id="modButton" fx:id="presentationCreateButton" onAction="#presentationCreateButtonAction"
-                        layoutX="430.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0"
-                        stylesheets="@../../css/stockseller/common.css" text="制定" textFill="WHITE">
-                    <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
-                    </font>
-                </Button>
-                <Label layoutX="57.0" layoutY="27.0" text="库存赠送单">
-                    <font>
-                        <Font size="18.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
         <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
                 stylesheets="@../../css/stockseller/common.css">
             <graphic>
@@ -235,12 +152,17 @@
                 <Image url="@../../image/stockmanager/库存查看.png"/>
             </image>
         </ImageView>
-        <Button id="billCheckButton" fx:id="billCheckButton" layoutX="649.0" layoutY="86.0" mnemonicParsing="false"
-                onAction="#billCheckButtonAction" prefHeight="29.0" prefWidth="141.0"
-                stylesheets="@../../css/stockseller/billCreate.css" text="查看已制定单据" textFill="#0f88eb">
-            <font>
-                <Font size="16.0"/>
-            </font>
+        <Button fx:id="backButton" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" onAction="#backButtonAction"
+                prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回"
+                textFill="#0f88eb">
+            <graphic>
+                <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockmanager/返回.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
         </Button>
     </children>
 </Pane>
+

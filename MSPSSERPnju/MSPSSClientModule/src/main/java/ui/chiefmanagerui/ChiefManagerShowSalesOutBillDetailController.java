@@ -1,11 +1,5 @@
 package ui.chiefmanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import auxiliary.Bill;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +15,12 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import vo.CashCostBillVO;
-import vo.FinanceBillVO;
-import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
-import vo.StockBillVO;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class ChiefManagerShowSalesOutBillDetailController implements Initializable{
 	@FXML
@@ -229,7 +224,7 @@ public class ChiefManagerShowSalesOutBillDetailController implements Initializab
 		SalesOutBillType.setText(vo.getType().toString());
 		SalesOutBillStatus.setText(vo.getStatus().toString());
 		SalesOutBillDAE.setText(vo.getDAE());
-		SalesOutBillPromotion.setText(vo.getPromotionVO().getType());
+        SalesOutBillPromotion.setText("");//fixme 这里暂时存在一些问题 所以我先把它注释掉了
 		SalesOutBillCoupon.setText(Integer.toString(vo.getVoucher()));
 		SalesOutBillCustomer.setText(vo.getCustomerVO().getName());
 		SalesOutBillStorage.setText(vo.getStorage());

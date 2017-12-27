@@ -1,5 +1,7 @@
 package ui.stocksellerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.customerblservice.CustomerBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,11 +10,14 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
+import util.ResultMessage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,21 +27,36 @@ import java.util.ResourceBundle;
 /**
  * author:Jiang_Chen date:2017/12/13
  */
-public class CustomerDelViewController  implements Initializable {
+public class CustomerDelViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
-
+    CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
+    Dialog dialog = new Dialog();
     @FXML
     Button addCustomerButton;
-
     @FXML
     Button modCustomerButton;
-
     @FXML
     Button searchCustomerButton;
     @FXML
     Button cancelButtonl;
     @FXML
-    Button BackToLogin;
+    Button BackToLogin, sureButton;
+    @FXML
+    TextField idField;
+
+    public void sureButtonAction(ActionEvent e) {
+        if (idField.getText() != null || !idField.getText().trim().equals("")) {
+            ResultMessage resultMessage = customerBLService.delCustomer(idField.getText().trim());
+            if (resultMessage == ResultMessage.SUCCESS) {
+                dialog.infoDialog("Delete a customer successfully.");
+            } else {
+                dialog.infoDialog("Fail to delete the customer");
+            }
+        } else {
+            dialog.errorInfoDialog("You haven't input id.");
+        }
+    }
+
     /**
      * 返回登录界面
      *
@@ -68,6 +88,7 @@ public class CustomerDelViewController  implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 增加客户
      *
@@ -155,7 +176,7 @@ public class CustomerDelViewController  implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
     }
 
 }

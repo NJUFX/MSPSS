@@ -52,7 +52,7 @@ public class CommodityAddViewController implements Initializable {
     @FXML
     Button cancelButton, sureButton;
     @FXML
-    TextField nameField, importPriceField, exportPriceField, typeField;
+    TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField;
     @FXML
     ComboBox<String> classificationBox;
 
@@ -73,6 +73,8 @@ public class CommodityAddViewController implements Initializable {
 
     public void sureButtonAction(ActionEvent e) {
         CommodityVO commodityVO = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationBox.getValue(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
+        commodityVO.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
+        commodityVO.setNumberInStock(Integer.parseInt(stockNumberField.getText().trim()));
         ResultMessage resultMessage = commodityBLService.addCommodity(commodityVO);
         if (ResultMessage.SUCCESS == resultMessage) {
             dialog.infoDialog("Add a commodity successfully.");
@@ -201,7 +203,7 @@ public class CommodityAddViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showClassificationBox(list);
     }
 

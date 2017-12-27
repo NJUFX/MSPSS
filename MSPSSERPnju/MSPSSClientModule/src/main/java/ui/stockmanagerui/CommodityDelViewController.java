@@ -46,7 +46,7 @@ public class CommodityDelViewController implements Initializable {
     TextField id_to_del;
 
     public void delButtonAction(ActionEvent e) {
-        if (id_to_del.getText() != null || !id_to_del.getText().equals("")) {
+        if (id_to_del.getText() != null && !id_to_del.getText().equals("")) {
             ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_del.getText().trim());
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Delete a commodity successfully.");
@@ -172,7 +172,7 @@ public class CommodityDelViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
     }
 
 }

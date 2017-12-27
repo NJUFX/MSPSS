@@ -1,5 +1,9 @@
 package ui.stocksellerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blimpl.customerblimpl.Customer;
+import blservice.customerblservice.CustomerBLInfo;
+import blservice.customerblservice.CustomerBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +11,15 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import vo.CustomerVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,18 +29,17 @@ import java.util.ResourceBundle;
 /**
  * author:Jiang_Chen date:2017/12/13
  */
-public class CustomerModifySecondViewController  implements Initializable {
+public class CustomerModifySecondViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
-
+    CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
+    CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
+    String id_to_modify;
     @FXML
     Button CustomerAddButton;
-
     @FXML
     Button CustomerDelButton;
-
     @FXML
     Button sureButton;
-
     @FXML
     Button CustomerSearchButton;
     @FXML
@@ -42,6 +48,30 @@ public class CustomerModifySecondViewController  implements Initializable {
     Button cancelButtonl;
     @FXML
     Button BackToLogin;
+
+    @FXML
+    TextField nameField, phoneField, addressField, postcodeField, emailField, inValueField;
+    @FXML
+    ComboBox<String> categoryBox, levelBox;
+    @FXML
+    Label idLabel, workerField, paymoneyField, incomemoneyField;
+
+    /**
+     * 确认修改
+     *
+     * @param e
+     * @throws IOException
+     */
+    @FXML
+    public void sureButtonAction(ActionEvent e) throws IOException {
+        try {
+
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
     /**
      * 返回登录界面
      *
@@ -56,6 +86,7 @@ public class CustomerModifySecondViewController  implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回上一界面
      *
@@ -72,6 +103,7 @@ public class CustomerModifySecondViewController  implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回上一界面
      *
@@ -88,6 +120,7 @@ public class CustomerModifySecondViewController  implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 增加客户
      *
@@ -122,22 +155,6 @@ public class CustomerModifySecondViewController  implements Initializable {
         }
     }
 
-    /**
-     * 确认修改
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void sureButtonAction(ActionEvent e) throws IOException {
-        try {
-            CustomerModifySecondViewController controller = (CustomerModifySecondViewController) replaceSceneContent(
-                    "/view/stockseller/CustomerModifySecond.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
 
     /**
      * 查找客户
@@ -167,8 +184,6 @@ public class CustomerModifySecondViewController  implements Initializable {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
@@ -192,7 +207,12 @@ public class CustomerModifySecondViewController  implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
-    }
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
 
+        CustomerVO customerVO = customerBLInfo.getCustomerByID(id_to_modify);
+        idLabel.setText(customerVO.getID());
+        workerField.setText(customerVO.getDAE());
+        paymoneyField.setText(String.valueOf(customerVO.getPaymoney()));
+        incomemoneyField.setText(String.valueOf(customerVO.getIncomemoney()));
+    }
 }

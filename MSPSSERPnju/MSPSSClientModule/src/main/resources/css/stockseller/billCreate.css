@@ -1,6 +1,6 @@
 #billCreateButton.button{
     -fx-background-color: #0d5ae1;
-    -fx-background-radius:0;
+    -fx-background-radius:0.0;
 }
 .pane{
     -fx-background-color:#FFFFFF;
@@ -9,6 +9,14 @@
 
 .pane:hover{
     -fx-background-color: #e1e1e1;
-
 }
+#billCheckButton.button{
+	-fx-background-color:#f0f0f0;
+	-fx-underline:false;
+}
+
+#billCheckButton.button:hover{
+	-fx-underline:true;
+}
+
 

@@ -141,29 +141,29 @@
         </Button>
         <Pane layoutX="159.0" layoutY="160.0" prefHeight="226.0" prefWidth="695.0">
             <children>
-                <TextField fx:id="keywordField" onAction="#commoditySearchButtonAction" layoutX="203.0" layoutY="130.0"
-                           prefHeight="40.0" prefWidth="293.0"
-                           promptText="关键词/编号">
+                <TextField fx:id="keywordField" layoutX="203.0" layoutY="130.0" onAction="#commoditySearchButtonAction"
+                           prefHeight="40.0" prefWidth="293.0" promptText="关键词/编号">
                     <font>
                         <Font size="14.0"/>
                     </font>
                 </TextField>
-                <ComboBox fx:id="keyTypeComboBox" layoutX="100.0" layoutY="130.0" prefHeight="40.0" prefWidth="102.0"
-                          promptText="关键词类型">
+                <ComboBox fx:id="keyTypeComboBox" layoutX="100.0" layoutY="130.0" onAction="#keyTypeComboBoxAction"
+                          prefHeight="40.0" prefWidth="102.0" promptText="关键词类型">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="商品编号"/>
-                            <String fx:value="分类"/>
-                            <String fx:value="编号"/>
-                            <String fx:value="进价"/>
-                            <String fx:value="零售价"/>
+                            <String fx:value="商品分类"/>
+                            <String fx:value="商品名称"/>
+                            <String fx:value="进价（向上查找）"/>
+                            <String fx:value="进价（向下查找）"/>
+                            <String fx:value="零售价（向上查找）"/>
+                            <String fx:value="零售价（向下查找）"/>
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <Button id="sureButton" fx:id="searchButton" onAction="#commoditySearchButtonAction" layoutX="496.0"
-                        layoutY="130.0" mnemonicParsing="false"
-                        prefHeight="39.0" prefWidth="102.0" stylesheets="@../../css/admin/addUser.css" text="查找"
-                        textFill="WHITE">
+                <Button id="sureButton" fx:id="searchButton" layoutX="496.0" layoutY="130.0" mnemonicParsing="false"
+                        onAction="#commoditySearchButtonAction" prefHeight="39.0" prefWidth="102.0"
+                        stylesheets="@../../css/admin/addUser.css" text="查找" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0"/>
                     </font>
@@ -174,9 +174,10 @@
                         <Image url="@../../image/stockseller/search.png"/>
                     </image>
                 </ImageView>
+                <ComboBox fx:id="classificationBox" layoutX="446.0" layoutY="130.0" prefHeight="40.0" prefWidth="17.0"/>
             </children>
         </Pane>
-        <Button fx:id="backButton" onAction="#backButtonAction" layoutX="150.0" layoutY="45.0" mnemonicParsing="false"
+        <Button fx:id="backButton" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" onAction="#backButtonAction"
                 prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回"
                 textFill="#0f88eb">
             <graphic>

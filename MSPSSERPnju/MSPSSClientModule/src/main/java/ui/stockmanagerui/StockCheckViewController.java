@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -18,6 +19,7 @@ import ui.common.Dialog;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
@@ -26,7 +28,7 @@ import java.util.ResourceBundle;
 public class StockCheckViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();
-
+    Dialog dialog = new Dialog();
     @FXML
     Button BackToLogin;
 
@@ -44,6 +46,8 @@ public class StockCheckViewController implements Initializable {
 
     @FXML
     Button sureButton;
+    @FXML
+    DatePicker startTime, endTime;
 
     /**
      * 处理单据
@@ -107,8 +111,19 @@ public class StockCheckViewController implements Initializable {
     @FXML
     public void sureButtonAction(ActionEvent e) throws IOException {
         try {
+            LocalDate start = startTime.getValue();
+            String startStr = start.getYear() + "-" + start.getMonthValue() + "-" + start.getDayOfMonth();
+            LocalDate end = endTime.getValue();
+            String endStr = end.getYear() + "-" + end.getMonthValue() + "-" + end.getDayOfMonth();
             StockCheckShowViewController controller = (StockCheckShowViewController) replaceSceneContent(
                     "/view/stockmanager/StockCheckShow.fxml");
+            if (start.compareTo(end) >= 0) {
+                controller.startTime = startStr;
+                controller.endTime = endStr;
+            } else {
+                controller.startTime = endStr;
+                controller.endTime = startStr;
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -181,7 +196,7 @@ public class StockCheckViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
     }
 
 }
