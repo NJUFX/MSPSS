@@ -28,12 +28,6 @@ public class TableBLServiceImpl implements TableBLService {
     }
 
     @Override
-    public BusinessTableVO compareBTByTime(BusinessTableVO businesstable) {
-
-        return  businessTableTool.compareByTime(businesstable);
-    }
-
-    @Override
     public ProcessTableVO checkProcessTable(ProcessTableFilterFlagsVO flags) {
 
         return  processTableTool.search(flags);

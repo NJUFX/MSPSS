@@ -26,7 +26,7 @@ public interface TableBLService {
      */
     public BusinessTableVO checkBusinessTable(Time begin,Time end);
     /**
-     * 查询经营历程表
+     * 查询经营历程表,!!!注意客户名，业务名如果有重复的情况，只能查找到一个业务员的所有单据，不能查到多个重名的业务员
      *
      * @param flags
      * @return 经营历程表VO
@@ -67,13 +67,7 @@ public interface TableBLService {
      * @return 排序好的VO
      */
     public SaleTableVO compareSTByName(SaleTableVO saletable);
-    /**
-     * 按时间先后排序
-     *
-     * @param businesstable
-     * @return 排序好的VO
-     */
-    public BusinessTableVO compareBTByTime(BusinessTableVO businesstable);
+
     /**
      * 按时间先后排序
      *

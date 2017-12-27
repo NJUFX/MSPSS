@@ -8,6 +8,10 @@ import java.io.Serializable;
  */
 public class StockBillItemPO  implements Serializable{
     /**
+     * 主键，切勿自己赋值
+     */
+    private String keycolumn;
+    /**
      * 商品的编号
      */
    public String commodityID;
@@ -16,10 +20,32 @@ public class StockBillItemPO  implements Serializable{
      * 商品的数量
      */
    public int number;
+
+    /**
+     *所属的stockBill，不用自己赋值
+     *
+     */
+    private StockBillPO stockBillPO;
    public StockBillItemPO(String commodityID,int number){
        this.commodityID = commodityID;
        this.number = number;
    }
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
+
+    public StockBillPO getStockBillPO() {
+        return stockBillPO;
+    }
+
+    public void setStockBillPO(StockBillPO stockBillPO) {
+        this.stockBillPO = stockBillPO;
+    }
 
     public int getNumber() {
         return number;

@@ -12,6 +12,10 @@ import java.io.Serializable;
  */
 public class StockPO implements Serializable{
     /**
+     * 主键，切勿自己赋值
+     */
+    private String keycolumn;
+    /**
      * inOrOut 出库还是入库
      */
    private StockInfo inOrOut;

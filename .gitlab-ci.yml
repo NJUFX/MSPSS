@@ -36,7 +36,7 @@ cache:
   stage: build
   script:
     - 'cd MSPSSERPnju'
-    - 'mvn $MAVEN_CLI_OPTS test-compile'
+    - 'mvn $MAVEN_CLI_OPTS compile'
 
 # For merge requests do not `deploy` but only run `verify`.
 # See https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html

@@ -17,6 +17,17 @@ public class ProcessTableVO {
     //付款单与收款单
     ArrayList<FinanceBillVO> financeBillList;
 
+    //报溢单，报损单，赠送单
+    ArrayList<StockBillVO> stockBillList;
+
+    public ArrayList<StockBillVO> getStockBillList() {
+        return stockBillList;
+    }
+
+    public void setStockBillList(ArrayList<StockBillVO> stockBillList) {
+        this.stockBillList = stockBillList;
+    }
+
     public ArrayList<SalesInBillVO> getSalesInBillList() {
         return salesInBillList;
     }
