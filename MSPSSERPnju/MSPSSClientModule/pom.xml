@@ -29,16 +29,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>3.15-beta2</version>
         </dependency>
-
-
-=======
->>>>>>> b16e8e451dc0ee706a1f8b660381d8a940209e73
     </dependencies>
 
 </project>
