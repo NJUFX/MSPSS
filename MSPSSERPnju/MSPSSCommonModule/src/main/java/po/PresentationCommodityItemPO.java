@@ -1,7 +1,6 @@
 package po;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Description:
@@ -33,6 +32,11 @@ public class PresentationCommodityItemPO implements Serializable {
         this.commodityID = commodityID;
         this.number = number;
         this.customerPromotionPOID = customerPromotionPOID;
+    }
+
+    public PresentationCommodityItemPO(String commodityID, int number) {
+        this.commodityID = commodityID;
+        this.number = number;
     }
 
     public String getCommodityID() {

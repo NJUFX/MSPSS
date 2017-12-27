@@ -82,7 +82,7 @@ public class CommoditySearchShowViewController implements Initializable {
                     this.setGraphic(null);
                     if (!empty) {
                         Button delBtn = new Button("选择");
-                        delBtn.setPrefSize(100, 10);
+                        delBtn.setPrefSize(80, 10);
                         //delBtn.setFont(Font.font(12));
                         delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
                         this.setGraphic(delBtn);
@@ -293,7 +293,7 @@ public class CommoditySearchShowViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
-        categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
+        categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
     }
 
