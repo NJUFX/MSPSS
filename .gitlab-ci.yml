@@ -35,6 +35,7 @@ cache:
 .validate: &validate
   stage: build
   script:
+    - 'cd MSPSSERPnju'
     - 'mvn $MAVEN_CLI_OPTS test-compile'
 
 # For merge requests do not `deploy` but only run `verify`.
