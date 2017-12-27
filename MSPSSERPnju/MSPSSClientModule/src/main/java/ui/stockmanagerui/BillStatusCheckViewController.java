@@ -13,17 +13,13 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
-import ui.common.Dialog;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * author:Jiang_Chen date:2017/12/12
- */
-public class BillCreateViewController implements Initializable {
+public class BillStatusCheckViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
 
     @FXML
@@ -39,101 +35,17 @@ public class BillCreateViewController implements Initializable {
     Button stockInventoryButton;
 
     @FXML
-    Button stockCheckButton;
-    @FXML
-    Button overflowCreateButton;
-    @FXML
-    Button breakageCreateButton;
-    @FXML
-    Button alertCreateButton;
-    @FXML
-    Button presentationCreateButton, billCheckButton;
+    Button stockCheckButton, backButton;
 
     @FXML
-    public void billCheckButtonAction(ActionEvent e) {
+    public void backButtonAction(ActionEvent e) {
         try {
-            BillStatusCheckViewController controller = (BillStatusCheckViewController) replaceSceneContent(
-                    "/view/stockmanager/BillStatusCheck.fxml");
+            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
+                    "/view/stockmanager/BillCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-    }
-
-    /**
-     * 库存报溢单
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void overflowCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
-        try {
-            OverflowCreateViewController controller = (OverflowCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/OverflowCreate.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-
-    }
-
-    /**
-     * 库存报损单
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void breakageCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
-        try {
-            BreakageCreateViewController controller = (BreakageCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/BreakageCreate.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-
-    }
-
-    /**
-     * 库存赠送单
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void presentationCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
-        try {
-            PresentationCreateViewController controller = (PresentationCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/PresentationCreate.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-
-    }
-
-    /**
-     * 库存报警单
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void alertCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
-        try {
-            AlertCreateViewController controller = (AlertCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/AlertCreate.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-
     }
 
     /**
@@ -146,7 +58,7 @@ public class BillCreateViewController implements Initializable {
     public void commodityManageButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityManage.fxml");
+                    "/view/stockmanager/CommodityManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -163,7 +75,7 @@ public class BillCreateViewController implements Initializable {
     public void commodityClassifyButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityClassifyViewController controller = (CommodityClassifyViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityClassify.fxml");
+                    "/view/stockmanager/CommodityClassify.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -213,8 +125,6 @@ public class BillCreateViewController implements Initializable {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
 
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
@@ -255,5 +165,4 @@ public class BillCreateViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
     }
-
 }

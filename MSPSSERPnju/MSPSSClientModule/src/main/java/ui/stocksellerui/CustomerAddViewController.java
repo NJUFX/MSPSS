@@ -1,5 +1,7 @@
 package ui.stocksellerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.customerblservice.CustomerBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +9,19 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
+import util.Kind_Of_Customers;
+import util.Kind_Of_Users;
+import util.ResultMessage;
+import vo.CustomerVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +33,8 @@ import java.util.ResourceBundle;
  */
 public class CustomerAddViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
+    Dialog dialog = new Dialog();
 
     @FXML
     Button delCustomerButton;
@@ -36,7 +47,35 @@ public class CustomerAddViewController implements Initializable {
     @FXML
     Button cancelButtonl;
     @FXML
-    Button BackToLogin;
+    Button BackToLogin, sureButton;
+
+    @FXML
+    TextField nameField, phoneField, addressField, postcodeField, emailField, inValueField,
+            incomemoneyField, paymoneyField, workerField;
+    @FXML
+    ComboBox<String> categoryBox, levelBox;
+    @FXML
+    Label idLabel;
+
+    @FXML
+    public void sureButtonAction(ActionEvent e) {
+        String kind = categoryBox.getValue();
+        Kind_Of_Customers kind_of_customers;
+        if (kind.equals("进货商")) {
+            kind_of_customers = Kind_Of_Customers.SUPPLIER;
+        } else {
+            kind_of_customers = Kind_Of_Customers.SALER;
+        }
+        CustomerVO customerVO = new CustomerVO(idLabel.getText(), kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
+                addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
+                Double.parseDouble(paymoneyField.getText().trim()), workerField.getText().trim());
+        ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
+        if (resultMessage == ResultMessage.SUCCESS) {
+            dialog.infoDialog("Add a customer successfully.");
+        } else {
+            dialog.infoDialog("Fail to add the customer");
+        }
+    }
 
     /**
      * 返回登录界面

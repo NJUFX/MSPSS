@@ -41,6 +41,12 @@ public class BillCreateViewController implements Initializable {
 
     @FXML
     public void billCheckButtonAction(ActionEvent e) {
+        try {
+            BillStatusCheckViewController controller = (BillStatusCheckViewController) replaceSceneContent2("/view/stockseller/BillStatusCheck.fxml");
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
 
     /**

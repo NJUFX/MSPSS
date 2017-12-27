@@ -8,6 +8,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -29,10 +30,12 @@ public class BillStatusCheckViewController implements Initializable {
     Button BackToLogin;
     @FXML
     Button backButton;
+    //@FXML
+
+
     @FXML
     public void backButtonAction(ActionEvent e) throws IOException {
         System.out.println("Sucess");
-
         try {
             CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
                     "/view/stocksellerBillCreate.fxml");
