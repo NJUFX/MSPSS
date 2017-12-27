@@ -36,7 +36,7 @@ public class BillConverter {
     }
 
     public SalesOutBillVO SalesOutBill_PO_To_VO(SalesOutBillPO salesOutBillPO){
-     return salesOutBill
+     return salesOutBill;
     }
 
     public StockBillVO StockBill_PO_To_VO(StockBillPO stockBillPO){
