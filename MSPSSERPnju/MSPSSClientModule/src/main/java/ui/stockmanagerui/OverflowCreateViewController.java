@@ -40,7 +40,7 @@ public class OverflowCreateViewController implements Initializable {
     @FXML
     Button cancelButton;
     @FXML
-    Button sureButton;
+    Button sureButton, saveButton;
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
@@ -76,6 +76,11 @@ public class OverflowCreateViewController implements Initializable {
         SystemNumberCol.setCellValueFactory(new PropertyValueFactory<>("SystemNumber"));
         RealNumberCol.setCellValueFactory(new PropertyValueFactory<>("RealNumber"));
         SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
+    }
+
+    @FXML
+    public void saveButtonAction() {
+
     }
 
     /**

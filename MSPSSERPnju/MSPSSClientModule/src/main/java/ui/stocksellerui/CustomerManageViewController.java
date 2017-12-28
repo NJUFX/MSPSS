@@ -7,7 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -44,6 +46,28 @@ public class CustomerManageViewController implements Initializable {
     Button CustomerSearchButton;
     @FXML
     Button BackToLogin;
+    @FXML
+    ComboBox<String> keyTypeBox;
+    @FXML
+    TextField keywordField;
+
+    @FXML
+    public void customerSearchShowButtonAction(ActionEvent e) {
+        try {
+            if (keyTypeBox.getValue() != null && !keyTypeBox.getValue().trim().equals("") &&
+                    keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
+                CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
+                        "/view/stockseller/CustomerSearchShow.fxml");
+                controller.keyType = keyTypeBox.getValue();
+                controller.keyword = keywordField.getText().trim();
+            } else {
+                dialog.errorInfoDialog("Something null, please check your input.");
+            }
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * 返回登录界面
@@ -129,24 +153,6 @@ public class CustomerManageViewController implements Initializable {
     }
 
     /**
-     * 查找客户的结果显示
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void customerSearchShowButtonAction(ActionEvent e) throws IOException {
-        try {
-            CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
-                    "/view/stockseller/CustomerSearchShow.fxml");
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-    }
-
-
-    /**
      * 用来打开fxml文件
      *
      * @param fxml
@@ -166,7 +172,7 @@ public class CustomerManageViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 560);
+        Scene scene = new Scene(page, 900.0, 560);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setResizable(false);

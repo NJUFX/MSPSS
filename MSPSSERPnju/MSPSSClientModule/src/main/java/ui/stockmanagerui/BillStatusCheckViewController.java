@@ -38,7 +38,8 @@ public class BillStatusCheckViewController implements Initializable {
 
     @FXML
     Button BackToLogin;
-
+    @FXML
+    ComboBox<String> statusScreenBox, typeScreenBox;
     @FXML
     Button commodityManageButton;
 
@@ -55,6 +56,75 @@ public class BillStatusCheckViewController implements Initializable {
     TableView<BillCheckTable> tableTableView;
     @FXML
     TableColumn<BillCheckTable, String> SerialCol, IdCol, NameCol, StatusCol, OperationCol;
+    @FXML
+    public void screenBoxAction(ActionEvent e) {
+        tableTableView.getItems().clear();
+        addRow();
+        typeScreen();
+        statusScreen();
+    }
+
+    public void typeScreen() {
+        ObservableList<BillCheckTable> data = tableTableView.getItems();
+        if (typeScreenBox.getValue() != null && !typeScreenBox.getValue().equals("全部单据")) {
+            int size = data.size();
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < data.size(); j++) {
+                    if (!data.get(j).getName().equals(typeScreenBox.getValue())) {
+                        data.remove(j);
+                    }
+                }
+            }
+        }
+    }
+
+    public void statusScreen() {
+        ObservableList<BillCheckTable> data = tableTableView.getItems();
+        int size = data.size();
+        if (statusScreenBox.getValue() == null || statusScreenBox.getValue().equals("全部状态")) {
+            return;
+        } else if (statusScreenBox.getValue().equals("已提交")) {
+            for (int j = 0; j < size; j++) {
+                for (int i = 0; i < data.size(); i++) {
+                    if (!data.get(i).getStatus().equals("已提交")) {
+                        data.remove(i);
+                    }
+                }
+            }
+        } else if (statusScreenBox.getValue().equals("已保存")) {
+            for (int j = 0; j < size; j++) {
+                for (int i = 0; i < data.size(); i++) {
+                    if (!data.get(i).getStatus().equals("已保存")) {
+                        data.remove(i);
+                    }
+                }
+            }
+        } else if (statusScreenBox.getValue().equals("已审批")) {
+            for (int j = 0; j < size; j++) {
+                for (int i = 0; i < data.size(); i++) {
+                    if (!(data.get(i).getStatus().equals("审批通过") || data.get(i).getStatus().equals("审批未通过"))) {
+                        data.remove(i);
+                    }
+                }
+            }
+        } else if (statusScreenBox.getValue().equals("审批通过")) {
+            for (int j = 0; j < size; j++) {
+                for (int i = 0; i < data.size(); i++) {
+                    if (!(data.get(i).getStatus().equals("审批通过"))) {
+                        data.remove(i);
+                    }
+                }
+            }
+        } else if (statusScreenBox.getValue().equals("审批未通过")) {
+            for (int j = 0; j < size; j++) {
+                for (int i = 0; i < data.size(); i++) {
+                    if (!(data.get(i).getStatus().equals("审批未通过"))) {
+                        data.remove(i);
+                    }
+                }
+            }
+        }
+    }
 
     public void showTableView() {
 
@@ -126,12 +196,14 @@ public class BillStatusCheckViewController implements Initializable {
                     if (!empty) {
                         String name = this.getTableView().getItems().get(this.getIndex()).getStatus();
                         this.setText(String.valueOf(name));
-                        if (name.equals("已提交")) {
+                        if (name.equals("已保存")) {
+                            this.setTextFill(Color.rgb(12, 12, 12));
+                        } else if (name.equals("已提交")) {
                             this.setTextFill(Color.rgb(0, 153, 204));
                         } else if (name.equals("审批通过")) {
                             this.setTextFill(Color.rgb(51, 200, 51));
                         } else if (name.equals("审批未通过")) {
-                            this.setTextFill(Color.RED);
+                            this.setTextFill(Color.rgb(230, 18, 6));
                         }
                     }
                 }
@@ -177,10 +249,10 @@ public class BillStatusCheckViewController implements Initializable {
     public void addRow() {
         // ArrayList<StockBillVO> list = stockManagerBillBLService.getMyStockBill(LoginController.getCurrentUser().getID());
         ArrayList<StockBillVO> list = new ArrayList<>();
-        list.add(new StockBillVO("KCBYD01", StockBillType.More, BillStatus.commit));
-        list.add(new StockBillVO("KCZSDD01", StockBillType.Presentation, BillStatus.approval));
-        list.add(new StockBillVO("KCBSD01", StockBillType.Less, BillStatus.rejected));
-        list.add(new StockBillVO("KCZSD01", StockBillType.Presentation, BillStatus.rejected));
+        list.add(new StockBillVO("KCBYD0006", StockBillType.More, BillStatus.commit));
+        list.add(new StockBillVO("KCZSDD04321", StockBillType.Presentation, BillStatus.approval));
+        list.add(new StockBillVO("KCBSD0331", StockBillType.Less, BillStatus.rejected));
+        list.add(new StockBillVO("KCZSD031", StockBillType.Presentation, BillStatus.rejected));
         list.add(new StockBillVO("KCBSD01", StockBillType.Less, BillStatus.init));
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();

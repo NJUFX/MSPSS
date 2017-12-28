@@ -76,7 +76,7 @@ public class SalesCreateViewController implements Initializable {
     @FXML
     public void purchaseCreateButtonAction(ActionEvent e) throws IOException {
         try {
-            PurchaseCreateViewController controller = (PurchaseCreateViewController) replaceSceneContent("/view/stockseller/PurchaseCreate.fxml");
+            PurchaseCreateViewController controller = (PurchaseCreateViewController) replaceSceneContent2("/view/stockseller/PurchaseCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -92,7 +92,7 @@ public class SalesCreateViewController implements Initializable {
     @FXML
     public void purcRetCreateButtonAction(ActionEvent e) throws IOException {
         try {
-            PurcRetCreateViewController controller = (PurcRetCreateViewController) replaceSceneContent("/view/stockseller/PurcRetCreate.fxml");
+            PurcRetCreateViewController controller = (PurcRetCreateViewController) replaceSceneContent2("/view/stockseller/PurcRetCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -137,7 +137,7 @@ public class SalesCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 620);
+        Scene scene = new Scene(page, 900.0, 730);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setResizable(false);
@@ -145,9 +145,6 @@ public class SalesCreateViewController implements Initializable {
     }
     private Initializable replaceSceneContent2(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
@@ -157,7 +154,7 @@ public class SalesCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 560);
+        Scene scene = new Scene(page, 900, 560.0);
 
         stage.setScene(scene);
         stage.setResizable(false);
