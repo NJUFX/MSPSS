@@ -1,6 +1,7 @@
 package blimpl.billblimpl;
 
 import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.StockBillInfo;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.userblservice.UserInfo;
@@ -21,11 +22,12 @@ import java.util.List;
  * Created by Hanxinhu at 13:23 2017/11/21/021
  */
 public class SalesOutBill {
+    //fixme 还有选择的销售策略的问题
     private static BillClientNetworkService networkService;
     private static CommodityInfoService commodityinfoService = new BLFactoryImpl().getCommodityInfoService();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-
+    private static StockBillInfo stockBillInfo = new StockBill();
     /**
      * 添加销售单
      * 保存
@@ -58,10 +60,10 @@ public class SalesOutBill {
         vo.setCommit_time(new Time());
         vo.setStatus(BillStatus.commit);
         ArrayList<PresentationCommodityItemVO> list = vo.getPresentations();
-
-        //fixme 这里应该有一个调用接口直接产生库存赠送单 待定
+        stockBillInfo.addStockPresentationBill(list);
 
         //开始将单据赠送出去
+
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
 
