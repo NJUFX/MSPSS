@@ -22,10 +22,7 @@ public class Table_Stub implements TableBLService{
         return null;
     }
 
-    @Override
-    public ProcessTableVO comparePTByName(ProcessTableVO processtable) {
-        return null;
-    }
+
 
     @Override
     public ProcessTableVO comparePTByTime(ProcessTableVO processtable) {
@@ -37,10 +34,7 @@ public class Table_Stub implements TableBLService{
         return null;
     }
 
-    @Override
-    public SaleTableVO compareSTByName(SaleTableVO saletable) {
-        return null;
-    }
+
 
     @Override
     public SaleTableVO compareSTByTime(SaleTableVO saletable) {

@@ -25,6 +25,11 @@ public class PresentationCommodityItemPO implements Serializable {
      */
     CustomerPromotionPO customerPromotionPOID;
 
+    /**
+     * 所属的gross_promotion_po
+     */
+    GrossPromotionPO grossPromotionPO;
+
     public PresentationCommodityItemPO() {
     }
 
@@ -69,5 +74,13 @@ public class PresentationCommodityItemPO implements Serializable {
 
     public void setKeycolumn(String keycolumn) {
         this.keycolumn = keycolumn;
+    }
+
+    public GrossPromotionPO getGrossPromotionPO() {
+        return grossPromotionPO;
+    }
+
+    public void setGrossPromotionPO(GrossPromotionPO grossPromotionPO) {
+        this.grossPromotionPO = grossPromotionPO;
     }
 }
