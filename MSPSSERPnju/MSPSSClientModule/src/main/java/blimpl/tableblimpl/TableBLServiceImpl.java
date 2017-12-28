@@ -14,11 +14,15 @@ public class TableBLServiceImpl implements TableBLService {
     BusinessTable businessTableTool;
     SaleTable saleTableTool;
     ProcessTable processTableTool;
+    ExportHelper exportHelper;
+    TableComparator tableComparator;
 
     public TableBLServiceImpl(BusinessTable businessTableTool, SaleTable saleTableTool, ProcessTable processTableTool) {
         this.businessTableTool = businessTableTool;
         this.saleTableTool = saleTableTool;
         this.processTableTool = processTableTool;
+        exportHelper = new ExportHelper();
+        tableComparator = new TableComparator();
     }
 
     @Override
@@ -33,16 +37,12 @@ public class TableBLServiceImpl implements TableBLService {
         return  processTableTool.search(flags);
     }
 
-    @Override
-    public ProcessTableVO comparePTByName(ProcessTableVO processtable) {
 
-        return  processTableTool.compareByName(processtable);
-    }
 
     @Override
     public ProcessTableVO comparePTByTime(ProcessTableVO processtable) {
 
-        return processTableTool.compareByTime(processtable);
+        return tableComparator.ComparePTByTime(processtable);
     }
 
     @Override
@@ -51,30 +51,26 @@ public class TableBLServiceImpl implements TableBLService {
         return  saleTableTool.search(flags);
     }
 
-    @Override
-    public SaleTableVO compareSTByName(SaleTableVO saletable) {
 
-        return saleTableTool.compareByName(saletable);
-    }
 
     @Override
     public SaleTableVO compareSTByTime(SaleTableVO saletable) {
 
-        return saleTableTool.compareByTime(saletable);
+        return tableComparator.CompareSTByTime(saletable);
     }
 
     @Override
     public void exportBusinessTable(BusinessTableVO businesstable) {
-
+         exportHelper.BusinessTableExport(businesstable);
     }
 
     @Override
     public void exportProcessTable(ProcessTableVO processtable) {
-
+        exportHelper.ProcessTableExport(processtable);
     }
 
     @Override
     public void exportSaleTable(SaleTableVO saletable) {
-
+        exportHelper.SaleTableExport(saletable);
     }
 }

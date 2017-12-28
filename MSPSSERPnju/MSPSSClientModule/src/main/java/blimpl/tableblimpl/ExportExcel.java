@@ -16,6 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.util.CellRangeAddress;
+import util.Time;
 
 /***
  * 导出List<Object>数据到excel（最多可导出65535行）
@@ -84,11 +85,18 @@ public final class ExportExcel {
         //autoSizeColumn(titleMap.size());
         // 写入处理结果
         try {
+            /*
             //生成UUID文件名称
             UUID uuid = UUID.randomUUID();
             String filedisplay = uuid + ".xls";
+            */
+            Date nowTime = new Date(System.currentTimeMillis());
+            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd hh：mm：ss");
+            String retStrFormatNowDate = sdFormatter.format(nowTime);
+
+            String filedisplay = dataList.get(0).getClass().getName()+" "+retStrFormatNowDate+".xls";
             //如果web项目，1、设置下载框的弹出（设置response相关参数)；2、通过httpservletresponse.getOutputStream()获取
-            OutputStream out = new FileOutputStream("D:\\" + filedisplay);
+            OutputStream out = new FileOutputStream("E:\\" + filedisplay);
             workbook.write(out);
             out.close();
         }
@@ -159,6 +167,7 @@ public final class ExportExcel {
                 HSSFRow textRow = sheet.createRow(CONTENT_START_POSITION + i);
                 int j = 0;
                 for (String entry : titleMap.keySet()) {
+
                     String method = "get" + entry.substring(0, 1).toUpperCase() + entry.substring(1);
                     Method m = obj.getClass().getMethod(method, null);
                     String value =   m.invoke(obj, null).toString();
