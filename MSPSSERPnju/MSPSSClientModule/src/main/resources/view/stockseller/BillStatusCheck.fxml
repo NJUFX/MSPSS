@@ -113,22 +113,24 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="backButton" onAction="#backButtonAction" layoutX="150.0" layoutY="45.0" mnemonicParsing="false"
-                stylesheets="@../../css/stockseller/returnButton.css" text="返回" textFill="#0f88eb">
+        <Button fx:id="backButton" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" onAction="#backButtonAction"
+                prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回"
+                textFill="#0f88eb">
             <graphic>
-                <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/stockmanager/返回.png"/>
                     </image>
                 </ImageView>
             </graphic>
         </Button>
-        <TableView layoutX="223.0" layoutY="121.0" prefHeight="338.0" prefWidth="600.0">
+        <TableView fx:id="tableTableView" layoutX="210.0" layoutY="100.0" prefHeight="366.0" prefWidth="625.0">
             <columns>
-                <TableColumn prefWidth="150.0" text="单据编号"/>
-                <TableColumn prefWidth="150.0" text="单据名称"/>
-                <TableColumn prefWidth="150.0" text="单据状态"/>
-                <TableColumn prefWidth="150.0" text="查看详情"/>
+                <TableColumn fx:id="SerialCol" prefWidth="25.0" sortable="false" text=" "/>
+                <TableColumn fx:id="IdCol" prefWidth="150.0" text="单据编号"/>
+                <TableColumn fx:id="NameCol" prefWidth="150.0" sortable="false" text="单据名称"/>
+                <TableColumn fx:id="StatusCol" prefWidth="150.0" sortable="false" text="单据状态"/>
+                <TableColumn fx:id="OperationCol" prefWidth="150.0" sortable="false" text="操作"/>
             </columns>
         </TableView>
     </children>

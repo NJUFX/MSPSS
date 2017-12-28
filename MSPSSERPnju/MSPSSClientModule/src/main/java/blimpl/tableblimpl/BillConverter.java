@@ -36,7 +36,11 @@ public class BillConverter {
     }
 
     public SalesOutBillVO SalesOutBill_PO_To_VO(SalesOutBillPO salesOutBillPO){
+<<<<<<< HEAD
      return null;
+=======
+     return salesOutBill;
+>>>>>>> 4ca224f2565a453bf693ae9f709625bcc20b9db9
     }
 
     public StockBillVO StockBill_PO_To_VO(StockBillPO stockBillPO){

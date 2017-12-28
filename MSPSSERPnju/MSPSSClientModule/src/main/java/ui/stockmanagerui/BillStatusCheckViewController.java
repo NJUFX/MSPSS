@@ -1,26 +1,40 @@
 package ui.stockmanagerui;
 
+import auxiliary.Bill;
+import auxiliary.BillCheckTable;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.StockManagerBillBLService;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
+import util.BillStatus;
+import util.StockBillType;
+import vo.StockBillVO;
 
+import javax.naming.Name;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BillStatusCheckViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    StockManagerBillBLService stockManagerBillBLService = new BLFactoryImpl().getStockManagerBillBLService();
+    Dialog dialog = new Dialog();
 
     @FXML
     Button BackToLogin;
@@ -36,6 +50,166 @@ public class BillStatusCheckViewController implements Initializable {
 
     @FXML
     Button stockCheckButton, backButton;
+
+    @FXML
+    TableView<BillCheckTable> tableTableView;
+    @FXML
+    TableColumn<BillCheckTable, String> SerialCol, IdCol, NameCol, StatusCol, OperationCol;
+
+    public void showTableView() {
+
+        SerialCol.setCellFactory((col) -> {
+            TableCell<BillCheckTable, String> cell = new TableCell<BillCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+
+                    if (!empty) {
+                        int rowIndex = this.getIndex() + 1;
+                        this.setText(String.valueOf(rowIndex));
+                    }
+                }
+            };
+            return cell;
+        });
+
+        IdCol.setCellFactory(col -> {
+            TableCell<BillCheckTable, String> cell = new TableCell<BillCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        String id = this.getTableView().getItems().get(this.getIndex()).getId();
+                        this.setText(String.valueOf(id));
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
+
+        NameCol.setCellFactory(col -> {
+            TableCell<BillCheckTable, String> cell = new TableCell<BillCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        String name = this.getTableView().getItems().get(this.getIndex()).getName();
+                        this.setText(String.valueOf(name));
+                        if (name.equals("库存报损单")) {
+                            this.setTextFill(Color.rgb(0, 102, 153));
+                        } else if (name.equals("库存报溢单")) {
+                            this.setTextFill(Color.rgb(255, 204, 0));
+                        } else if (name.equals("库存赠送单")) {
+                            this.setTextFill(Color.rgb(204, 51, 51));
+                        }
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
+
+        StatusCol.setCellFactory(col -> {
+            TableCell<BillCheckTable, String> cell = new TableCell<BillCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        String name = this.getTableView().getItems().get(this.getIndex()).getStatus();
+                        this.setText(String.valueOf(name));
+                        if (name.equals("已提交")) {
+                            this.setTextFill(Color.rgb(0, 153, 204));
+                        } else if (name.equals("审批通过")) {
+                            this.setTextFill(Color.rgb(51, 200, 51));
+                        } else if (name.equals("审批未通过")) {
+                            this.setTextFill(Color.RED);
+                        }
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
+
+        OperationCol.setCellFactory((col) -> {
+            TableCell<BillCheckTable, String> cell = new TableCell<BillCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        Button delBtn = new Button("打开");
+                        delBtn.setPrefSize(80, 10);
+                        delBtn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+                        this.setGraphic(delBtn);
+                        delBtn.setOnMouseClicked((me) -> {
+                            try {
+                                /*
+                                CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
+                                        "/view/stockmanager/CommodityInfoShow.fxml");
+                                controller.id_to_modify = this.getTableView().getItems().get(this.getIndex()).getId();
+                                //controller.setCommodityTable(OperateCommodity);
+                                */
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
+                        });
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
+
+        addRow();
+    }
+
+    public void addRow() {
+        // ArrayList<StockBillVO> list = stockManagerBillBLService.getMyStockBill(LoginController.getCurrentUser().getID());
+        ArrayList<StockBillVO> list = new ArrayList<>();
+        list.add(new StockBillVO("KCBYD01", StockBillType.More, BillStatus.commit));
+        list.add(new StockBillVO("KCZSDD01", StockBillType.Presentation, BillStatus.approval));
+        list.add(new StockBillVO("KCBSD01", StockBillType.Less, BillStatus.rejected));
+        list.add(new StockBillVO("KCZSD01", StockBillType.Presentation, BillStatus.rejected));
+        list.add(new StockBillVO("KCBSD01", StockBillType.Less, BillStatus.init));
+
+        ObservableList<BillCheckTable> data = tableTableView.getItems();
+        for (int i = 0; i < list.size(); i++) {
+            StockBillType stockBillType = list.get(i).getType();
+            String name = "", status = "";
+            if (StockBillType.Less == stockBillType) {
+                name = "库存报损单";
+            } else if (StockBillType.More == stockBillType) {
+                name = "库存报溢单";
+            } else if (StockBillType.Presentation == stockBillType) {
+                name = "库存赠送单";
+            }
+            BillStatus billStatus = list.get(i).getStatus();
+            if (BillStatus.init == billStatus) {
+                status = "已保存";//黑
+            } else if (BillStatus.commit == billStatus) {
+                status = "已提交";//蓝
+            } else if (BillStatus.approval == billStatus) {
+                status = "审批通过";//绿
+            } else if (BillStatus.rejected == billStatus) {
+                status = "审批未通过";//红
+            }
+
+            BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getId(), name, status);
+            data.add(billCheckTable);
+        }
+
+    }
 
     @FXML
     public void backButtonAction(ActionEvent e) {
@@ -164,5 +338,6 @@ public class BillStatusCheckViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
+        showTableView();
     }
 }

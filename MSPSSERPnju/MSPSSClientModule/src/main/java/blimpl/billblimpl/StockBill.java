@@ -1,8 +1,10 @@
 package blimpl.billblimpl;
 
+import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.stockbl.StockBLInfo;
 import blservice.userblservice.UserInfo;
+import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.StockBillItemPO;
 import po.StockBillPO;
@@ -16,10 +18,10 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 13:22 2017/11/21/021
  */
 public class StockBill {
-    private BillClientNetworkService networkService;
-    private CommodityInfoService commodityInfoService;
-    private UserInfo userInfo;
-    private StockBLInfo stockBLInfo;
+    private BillClientNetworkService networkService = new BillClientNetworkImpl();
+    private CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
+    private UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    private StockBLInfo stockBLInfo = new BLFactoryImpl().getStockBLInfo();
 
     /**
      * 添加库存类单据
@@ -100,16 +102,6 @@ public class StockBill {
         return networkService.deleteStockBill(vo.id);
     }
 
-    /**
-     * 存疑 有需要时再写
-     *
-     * @param flagVO
-     * @return
-     */
-    public ArrayList<StockBillVO> searchStockBill(FilterFlagVO flagVO) {
-
-        return new ArrayList<>();
-    }
 
 
     public ResultMessage approveStockBill(StockBillVO stockBillVO) {
