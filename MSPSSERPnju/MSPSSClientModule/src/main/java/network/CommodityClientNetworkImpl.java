@@ -1,6 +1,5 @@
 package network;
 
-import network.accountnetworkservice.AccountServerNetworkService;
 import network.commoditynetworkservice.CommodityServerNetworkService;
 import po.ClassificationPO;
 import po.CommodityPO;

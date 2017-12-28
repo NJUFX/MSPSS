@@ -187,7 +187,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage approveStockBill(StockBillVO stockBillVO) {
-        return null;
+        return stockBill.approveStockBill(stockBillVO);
     }
 
     @Override
@@ -197,7 +197,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage approveSalesOutBill(SalesOutBillVO salesOutBillVO) {
-        return null;
+        return salesOutBill.approveSalesOutBill(salesOutBillVO);
     }
 
     @Override
@@ -212,7 +212,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage rejectStockBill(StockBillVO stockBillVO) {
-        return null;
+        return stockBill.rejectStockBill(stockBillVO);
     }
 
     @Override
@@ -222,7 +222,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ResultMessage rejectSalesOutBill(SalesOutBillVO salesOutBillVO) {
-        return null;
+        return salesOutBill.rejectSalesOutBill(salesOutBillVO);
     }
 
     @Override
@@ -247,7 +247,7 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
 
     @Override
     public ArrayList<SalesOutBillVO> getWaitingSalesOutBill() {
-        return null;
+        return salesOutBill.getWaitingSalesOutBill();
     }
 
     @Override

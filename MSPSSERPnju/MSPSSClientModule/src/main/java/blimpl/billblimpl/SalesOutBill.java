@@ -57,8 +57,11 @@ public class SalesOutBill {
     public ResultMessage commitSalesOutBill(SalesOutBillVO vo) {
         vo.setCommit_time(new Time());
         vo.setStatus(BillStatus.commit);
-        ArrayList list = vo.getPresentations();
+        ArrayList<PresentationCommodityItemVO> list = vo.getPresentations();
+
         //fixme 这里应该有一个调用接口直接产生库存赠送单 待定
+
+        //开始将单据赠送出去
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
 
