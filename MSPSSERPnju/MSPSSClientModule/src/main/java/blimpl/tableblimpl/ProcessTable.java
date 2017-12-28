@@ -18,10 +18,13 @@ public class ProcessTable {
     BillClientNetworkService billClientNetworkService;
     CustomerClientNetworkService customerClientNetworkService;
     UserClientNetworkService userClientNetworkService;
+
+    BillConverter billConverter;
     protected ProcessTable(){
         billClientNetworkService = new BillClientNetworkImpl();
         customerClientNetworkService = new CustomerClientNetworkImpl();
         userClientNetworkService = new UserClientNetworkImpl();
+        billConverter = new BillConverter();
     }
 
     /**
@@ -30,17 +33,19 @@ public class ProcessTable {
      * @return
      */
     public ProcessTableVO search(ProcessTableFilterFlagsVO flags){
+
+        ProcessTableVO processTableVO ;
         //进货退货单
-        ArrayList<SalesInBillVO> salesInBillList;
+        ArrayList<SalesInBillVO> salesInBillList = new ArrayList<SalesInBillVO>();
         //销售单
-        ArrayList<SalesOutBillVO> salesOutBillList;
+        ArrayList<SalesOutBillVO> salesOutBillList = new ArrayList<SalesOutBillVO>();
         //现金费用单
-        ArrayList<CashCostBillVO> cashCostBillList;
+        ArrayList<CashCostBillVO> cashCostBillList = new ArrayList<CashCostBillVO>();
         //付款单与收款单
-        ArrayList<FinanceBillVO> financeBillList;
+        ArrayList<FinanceBillVO> financeBillList = new ArrayList<FinanceBillVO>();
 
         //报溢单，报损单，赠送单
-        ArrayList<StockBillVO> stockBillList;
+        ArrayList<StockBillVO> stockBillList = new ArrayList<StockBillVO>();
 
         ArrayList<CriteriaClause> cashCostBillCriteriaClauses = new ArrayList<CriteriaClause>();
         ArrayList<CriteriaClause> financeBillCriteriaClauses = new ArrayList<CriteriaClause>();
@@ -86,10 +91,39 @@ public class ProcessTable {
         ArrayList<CashCostBillPO> cashCostBillPOS = billClientNetworkService.multiSearchCashCostBill(cashCostBillCriteriaClauses);
         ArrayList<FinanceBillPO> financeBillPOS = billClientNetworkService.multiSearchFinanceBill(financeBillCriteriaClauses);
         ArrayList<SalesInBillPO> salesInBillPOS = billClientNetworkService.mutilSearchSalesInBill(salesInBillCriteriaClauses);
-        ArrayList<SalesOutBillPO> salesOutBills = billClientNetworkService.mutilSearchSalesOutBill(salesOutBillCriteriaClauses);
+        ArrayList<SalesOutBillPO> salesOutBillPOS = billClientNetworkService.mutilSearchSalesOutBill(salesOutBillCriteriaClauses);
         ArrayList<StockBillPO> stockBillPOS = billClientNetworkService.multiSearchStockBill(stockBillCriteriaClauses);
 
 
+        for(int i=0;i<=cashCostBillPOS.size()-1;i++){
+          cashCostBillList.add(billConverter.CashCostBill_PO_To_VO(cashCostBillPOS.get(i)));
+        }
+
+        for(int i=0;i<=financeBillPOS.size()-1;i++){
+            financeBillList.add(billConverter.FinanceBill_PO_To_VO(financeBillPOS.get(i)));
+        }
+
+        for(int i=0;i<=salesInBillPOS.size()-1;i++){
+            salesInBillList.add(billConverter.SalesInBill_PO_To_VO(salesInBillPOS.get(i)));
+        }
+
+        for(int i=0;i<=salesOutBillPOS.size()-1;i++){
+            salesOutBillList.add(billConverter.SalesOutBill_PO_To_VO(salesOutBillPOS.get(i)));
+        }
+
+        for(int i=0;i<=stockBillPOS.size()-1;i++){
+            stockBillList.add(billConverter.StockBill_PO_To_VO(stockBillPOS.get(i)));
+        }
+
+        processTableVO = new ProcessTableVO();
+
+        processTableVO.setCashCostBillList(cashCostBillList);
+        processTableVO.setFinanceBillList(financeBillList);
+        processTableVO.setSalesInBillList(salesInBillList);
+        processTableVO.setSalesOutBillList(salesOutBillList);
+        processTableVO.setStockBillList(stockBillList);
+
+        return processTableVO;
 
     }
 
