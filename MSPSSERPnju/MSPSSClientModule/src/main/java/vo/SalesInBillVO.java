@@ -78,11 +78,7 @@ public class SalesInBillVO {
     /**
      * 审批的总经理
      */
-<<<<<<< HEAD
 
-    public UserVO manager;
-
-=======
 
    public UserVO manager;
 
@@ -97,7 +93,7 @@ public class SalesInBillVO {
     }
 
  
->>>>>>> f59cd79e654dc4bb5f11a08c12ba490088ef5c62
+
     public SalesInBillVO(String id, SalesInBillType type, BillStatus status) {
         this.ID = id;
         this.type = type;
