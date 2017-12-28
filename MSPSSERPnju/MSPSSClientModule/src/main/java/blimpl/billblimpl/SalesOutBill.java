@@ -1,6 +1,7 @@
 package blimpl.billblimpl;
 
 import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.StockBillInfo;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.userblservice.UserInfo;
@@ -21,11 +22,12 @@ import java.util.List;
  * Created by Hanxinhu at 13:23 2017/11/21/021
  */
 public class SalesOutBill {
+    //fixme 还有选择的销售策略的问题
     private static BillClientNetworkService networkService;
     private static CommodityInfoService commodityinfoService = new BLFactoryImpl().getCommodityInfoService();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-
+    private static StockBillInfo stockBillInfo = new StockBill();
     /**
      * 添加销售单
      * 保存
@@ -58,10 +60,10 @@ public class SalesOutBill {
         vo.setCommit_time(new Time());
         vo.setStatus(BillStatus.commit);
         ArrayList<PresentationCommodityItemVO> list = vo.getPresentations();
-
-        //fixme 这里应该有一个调用接口直接产生库存赠送单 待定
+        stockBillInfo.addStockPresentationBill(list);
 
         //开始将单据赠送出去
+
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
 
@@ -139,7 +141,7 @@ public class SalesOutBill {
         }
 
         SalesOutBillVO vo = new SalesOutBillVO(po.getID(), type, status, customerVO, po.getDAE(), po.getStorage()
-                , null, salesItemVOS, null, po.getAllowance(), po.getVoucher(), po.getPresent_vocher(), initTime
+                , salesItemVOS, null, po.getAllowance(), po.getVoucher(), po.getPresent_vocher(), initTime
                 , commitTime, approvalTime, manager, operator, po.getSumBeforeDiscount(), po.getSumAfterDiscount());
         return vo;
     }
@@ -183,4 +185,103 @@ public class SalesOutBill {
         SalesItemVO vo = new SalesItemVO(commodityVO, po.getNumber(), po.getPrice());
         return vo;
     }
+
+    /**
+     * 根据订单内容返回合适的客户促销策略
+     *
+     * @param vo
+     * @return
+     */
+    public ArrayList<CustomerPromotionVO> searchCustomerPromotion(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 根据订单内容返回合适的特价包策略
+     *
+     * @param vo
+     * @return
+     */
+    public ArrayList<GroupPromotionVO> searchGroupPromotion(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 根据订单内容返回合适的满减策略
+     *
+     * @param vo
+     * @return
+     */
+    public ArrayList<GrossPromotionVO> searchGrossPromotion(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单设置针对客户的促销策略
+     *
+     * @param customerPromotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO setCustomerPromotion(CustomerPromotionVO customerPromotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单设置针对满额的促销策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO setGrossPromotion(GrossPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单使用特价包的销售策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO setGroupPromotion(GroupPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对于一个销售单取消使用针对客户的促销策略
+     *
+     * @param customerPromotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO unSetCustomerPromotion(CustomerPromotionVO customerPromotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单取消使用针对满减的促销策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO unSetGrossPromotion(GrossPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+
+        return null;
+    }
+
+    /**
+     * 对一个销售单取消使用针对组合包的促销策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO unSetGroupPromotion(GroupPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+
 }

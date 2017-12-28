@@ -78,9 +78,26 @@ public class SalesInBillVO {
     /**
      * 审批的总经理
      */
+<<<<<<< HEAD
 
     public UserVO manager;
 
+=======
+
+   public UserVO manager;
+
+    public SalesInBillVO(String ID, String DAE, String provider, String storage,String ps,double sumMoney,String commentByManager) {
+        this.ID = ID;
+        this.DAE = DAE;
+        this.provider = provider;
+        this.storage = storage;
+        this.ps = ps;
+        this.sumMoney = sumMoney;
+        this.commentByManager =commentByManager;
+    }
+
+ 
+>>>>>>> f59cd79e654dc4bb5f11a08c12ba490088ef5c62
     public SalesInBillVO(String id, SalesInBillType type, BillStatus status) {
         this.ID = id;
         this.type = type;

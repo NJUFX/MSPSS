@@ -18,3 +18,12 @@
 #billCheckButton.button:hover{
 	-fx-underline:true;
 }
+
+#promotionChooseButton.button{
+    -fx-background-color:#FFFFFF;
+    -fx-underline:false;
+}
+
+#promotionChooseButton.button:hover{
+    -fx-underline:true;
+}

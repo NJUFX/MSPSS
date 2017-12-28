@@ -186,7 +186,7 @@ public class PurchaseCreateViewController implements Initializable {
 	@FXML
 	public void purcRetCreateButtonAction(ActionEvent e) throws IOException {
 		try {
-			PurcRetCreateViewController controller = (PurcRetCreateViewController) replaceSceneContent(
+			PurcRetCreateViewController controller = (PurcRetCreateViewController) replaceSceneContent2(
 					"/view/stockseller/PurcRetCreate.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
@@ -249,7 +249,7 @@ public class PurchaseCreateViewController implements Initializable {
 		} finally {
 			in.close();
 		}
-		Scene scene = new Scene(page, 900, 620);
+		Scene scene = new Scene(page, 900, 730);
 
 		stage.setScene(scene);
 		stage.setResizable(false);

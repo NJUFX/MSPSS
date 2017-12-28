@@ -19,210 +19,211 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="620.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0"
-      style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ui.stocksellerui.PurchaseCreateViewController">
+<Pane maxHeight="620.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.PurchaseCreateViewController">
     <children>
-        <Pane id="Navbar" prefHeight="620.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;"/>
-        <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0f88eb;"/>
-        <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/stockseller/buttonpressed.css" text="进货单" textFill="#f8f4f4">
+        <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;">
+         <children>
+              <Button layoutX="8.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
+                  <graphic>
+                      <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../image/设置.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+              </Button>
+         </children></Pane>
+        <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0f88eb;" />
+        <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="进货单" textFill="#f8f4f4">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Button>
-        <Button id="purcRetButton" fx:id="purcRetCreateButton" layoutY="317.0" mnemonicParsing="false"
-                onAction="#purcRetCreateButtonAction" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/stockseller/common.css" text=" 进货退货单" textFill="#f8f4f4">
+        <Button id="purcRetButton" fx:id="purcRetCreateButton" layoutY="317.0" mnemonicParsing="false" onAction="#purcRetCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text=" 进货退货单" textFill="#f8f4f4">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Button>
-        <Button id="salesButton" fx:id="salesCreateButton" layoutY="351.0" mnemonicParsing="false"
-                onAction="#salesCreateButtonAction" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/stockseller/common.css" text="销售单" textFill="#f8f4f4">
+        <Button id="salesButton" fx:id="salesCreateButton" layoutY="351.0" mnemonicParsing="false" onAction="#salesCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="销售单" textFill="#f8f4f4">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Button>
         <Label fx:id="nameOfCurrentUser" layoutX="20.0" layoutY="195.0" text="姓名: 江尘" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="14.0"/>
+                <Font name="Microsoft YaHei" size="14.0" />
             </font>
         </Label>
         <Label fx:id="categoryOfCurrentUser" layoutX="20.0" layoutY="218.0" text="身份: 进货销售人员" textFill="WHITE">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
         </Label>
-        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../image/头像.png"/>
+                <Image url="@../../image/头像.png" />
             </image>
         </ImageView>
         <Label fx:id="idOfCurrentUser" layoutX="20.0" layoutY="240.0" text="编号: SS001" textFill="WHITE">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
         </Label>
         <Label layoutX="230.0" prefHeight="40.0" prefWidth="175.0" text="&gt;制定进货单 " textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="18.0"/>
+                <Font name="Microsoft YaHei" size="18.0" />
             </font>
         </Label>
         <Label layoutX="150.0" prefHeight="40.0" prefWidth="76.0" text="MSPSS" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="22.0"/>
+                <Font name="Microsoft YaHei" size="22.0" />
             </font>
         </Label>
-        <Pane layoutX="160.0" layoutY="63.0" prefHeight="480.0" prefWidth="723.0" style="-fx-background-color: white;">
+        <Pane layoutX="160.0" layoutY="63.0" prefHeight="408.0" prefWidth="723.0" style="-fx-background-color: white;">
             <children>
-                <Label layoutX="44.0" layoutY="39.0" text="编号">
+                <Label layoutX="28.0" layoutY="27.0" text="编号">
                     <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="44.0" layoutY="92.0" text="入库商品列表" textFill="#0f88eb">
+                <Label layoutX="26.0" layoutY="58.0" text="入库商品列表" textFill="#0f88eb">
                     <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <Label id="userId" layoutX="97.0" layoutY="38.0" prefHeight="22.0" prefWidth="126.0"
-                       style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;" text="JHD-xxyyzz-00001"/>
-                <Label layoutX="253.0" layoutY="39.0" text="供应商">
+                <Label id="userId" layoutX="65.0" layoutY="27.0" prefHeight="19.0" prefWidth="107.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;" text="JHXSD-xxyyzz-00001">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+                <Label layoutX="187.0" layoutY="27.0" text="供应商">
                     <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="474.0" layoutY="39.0" text="业务员">
+                <Label layoutX="352.0" layoutY="27.0" text="业务员">
                     <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <ComboBox id="userCategory" fx:id="typeBox" layoutX="205.0" layoutY="264.0" prefHeight="23.0"
-                          prefWidth="73.0"/>
-                <Label layoutX="474.0" layoutY="81.0" text="操作员">
+                <ComboBox id="userCategory" fx:id="typeBox" layoutX="198.0" layoutY="217.0" prefHeight="23.0" prefWidth="73.0" />
+                <Label layoutX="517.0" layoutY="27.0" text="操作员">
                     <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <TextField id="userName" layoutX="312.0" layoutY="38.0" prefHeight="21.0" prefWidth="114.0"
-                           promptText="编号"/>
-                <TextField id="userName" layoutX="530.0" layoutY="38.0" prefHeight="21.0" prefWidth="114.0"/>
-                <TextField id="userName" layoutX="530.0" layoutY="81.0" prefHeight="21.0" prefWidth="114.0"/>
-                <TextField id="userName" fx:id="numberField" layoutX="358.0" layoutY="264.0"
-                           onAction="#numberFieldAction" prefHeight="23.0" prefWidth="70.0" promptText="1"/>
-                <Label layoutX="42.0" layoutY="304.0" text="总额">
+                <TextField id="userName" layoutX="238.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+                <TextField id="userName" layoutX="402.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+                <TextField id="userName" layoutX="566.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+                <TextField id="userName" fx:id="numberField" layoutX="351.0" layoutY="217.0" onAction="#numberFieldAction" prefHeight="23.0" prefWidth="72.0" promptText="1">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+                <Label layoutX="26.0" layoutY="258.0" text="总额">
                     <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <Label fx:id="idLabel" layoutX="134.0" layoutY="264.0" prefHeight="23.0" prefWidth="70.0"
-                       style="-fx-background-color: white; -fx-border-color: #bbbbbb;"/>
-                <TableView fx:id="purchaseBillTableView" layoutX="27.0" layoutY="129.0" prefHeight="128.0"
-                           prefWidth="668.0">
+                <Label fx:id="idLabel" layoutX="127.0" layoutY="217.0" prefHeight="23.0" prefWidth="70.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+                <TableView fx:id="purchaseBillTableView" layoutX="24.0" layoutY="86.0" prefHeight="128.0" prefWidth="668.0">
                     <columns>
-                        <TableColumn fx:id="NameCol" prefWidth="100.0" text="商品名称"/>
-                        <TableColumn fx:id="IdCol" prefWidth="75.0" text="商品编号"/>
-                        <TableColumn fx:id="TypeCol" prefWidth="75.0" text="型号"/>
-                        <TableColumn fx:id="PriceCol" prefWidth="75.0" text="单价"/>
-                        <TableColumn fx:id="NumberCol" prefWidth="75.0" text="数量"/>
-                        <TableColumn fx:id="TotalCol" prefWidth="75.0" text="金额"/>
-                        <TableColumn fx:id="RemarkCol" prefWidth="155.0" text="备注"/>
-                        <TableColumn fx:id="IsSelectCol" prefWidth="37.0" text="..."/>
+                        <TableColumn fx:id="NameCol" prefWidth="100.0" text="商品名称" />
+                        <TableColumn fx:id="IdCol" prefWidth="75.0" text="商品编号" />
+                        <TableColumn fx:id="TypeCol" prefWidth="75.0" text="型号" />
+                        <TableColumn fx:id="PriceCol" prefWidth="75.0" text="单价" />
+                        <TableColumn fx:id="NumberCol" prefWidth="75.0" text="数量" />
+                        <TableColumn fx:id="TotalCol" prefWidth="75.0" text="金额" />
+                        <TableColumn fx:id="RemarkCol" prefWidth="155.0" text="备注" />
+                        <TableColumn fx:id="IsSelectCol" prefWidth="37.0" text="..." />
                     </columns>
                 </TableView>
-                <Button id="sureButton" fx:id="addRowButton" layoutX="632.0" layoutY="293.0" mnemonicParsing="false"
-                        onAction="#addRowButtonAction" prefHeight="25.0" prefWidth="58.0"
-                        stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
+                <Button id="sureButton" fx:id="addRowButton" layoutX="633.0" layoutY="246.0" mnemonicParsing="false" onAction="#addRowButtonAction" prefHeight="25.0" prefWidth="58.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
                     <font>
-                        <Font name="Microsoft YaHei" size="12.0"/>
+                        <Font name="Microsoft YaHei" size="12.0" />
                     </font>
                 </Button>
-                <Label fx:id="priceLabel" layoutX="282.0" layoutY="264.0" prefHeight="23.0" prefWidth="70.0"
-                       style="-fx-background-color: white; -fx-border-color: #bbbbbb;"/>
-                <Label fx:id="totalLabel" layoutX="434.0" layoutY="264.0" prefHeight="23.0" prefWidth="70.0"
-                       style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0"/>
-                <Label fx:id="billTotalMoney" layoutX="94.0" layoutY="304.0" prefHeight="23.0" prefWidth="114.0"
-                       style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0"/>
-                <TextField id="userName" fx:id="remarkField" layoutX="510.0" layoutY="264.0"
-                           onAction="#addRowButtonAction" prefHeight="23.0" prefWidth="181.0"/>
-                <Label layoutX="42.0" layoutY="345.0" text="备注">
+                <Label fx:id="priceLabel" layoutX="275.0" layoutY="217.0" prefHeight="23.0" prefWidth="72.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+                <Label fx:id="totalLabel" layoutX="427.0" layoutY="217.0" prefHeight="23.0" prefWidth="72.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+                <Label fx:id="billTotalMoney" layoutX="63.0" layoutY="256.0" prefHeight="23.0" prefWidth="96.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+                <TextField id="userName" fx:id="remarkField" layoutX="503.0" layoutY="217.0" onAction="#addRowButtonAction" prefHeight="23.0" prefWidth="190.0">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+                <Label layoutX="26.0" layoutY="292.0" text="备注">
                     <font>
-                        <Font name="Microsoft YaHei" size="16.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <TextArea layoutX="93.0" layoutY="344.0" prefHeight="96.0" prefWidth="534.0"/>
-                <TextField fx:id="nameField" layoutX="28.0" layoutY="264.0" prefHeight="23.0" prefWidth="77.0"/>
-                <Button fx:id="chooseCommodityButton" layoutX="106.0" layoutY="264.0" mnemonicParsing="false"
-                        onAction="#chooseCommodityButtonAction" prefHeight="23.0" prefWidth="24.0" text="Button"/>
-                <Button id="cancelButton" fx:id="delRowButton" layoutX="565.0" layoutY="293.0" mnemonicParsing="false"
-                        onAction="#delRowButtonAction" prefHeight="25.0" prefWidth="58.0"
-                        stylesheets="@../../css/admin/addUser.css" text="删除" textFill="#0f88eb">
+                <TextArea layoutX="65.0" layoutY="290.0" prefHeight="96.0" prefWidth="626.0" />
+                <TextField fx:id="nameField" layoutX="25.0" layoutY="217.0" prefHeight="23.0" prefWidth="73.0">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+                <Button fx:id="chooseCommodityButton" layoutX="99.0" layoutY="217.0" mnemonicParsing="false" onAction="#chooseCommodityButtonAction" prefHeight="23.0" prefWidth="24.0" text="Button" />
+                <Button id="cancelButton" fx:id="delRowButton" layoutX="569.0" layoutY="245.0" mnemonicParsing="false" onAction="#delRowButtonAction" prefHeight="25.0" prefWidth="58.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="#0f88eb">
                     <font>
-                        <Font name="Microsoft YaHei" size="12.0"/>
+                        <Font name="Microsoft YaHei" size="12.0" />
                     </font>
                 </Button>
             </children>
         </Pane>
-        <Button id="cancelButton" fx:id="cancelButton" layoutX="475.0" layoutY="556.0" mnemonicParsing="false"
-                onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0"
-                stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+        <Button id="cancelButton" fx:id="cancelButton" layoutX="483.0" layoutY="494.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="sureButton" fx:id="sureButton" layoutX="752.0" layoutY="557.0" mnemonicParsing="false"
-                prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="提交"
-                textFill="WHITE">
+        <Button id="sureButton" fx:id="sureButton" layoutX="760.0" layoutY="495.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="提交" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="salesRetButton" fx:id="salesRetCreateButton" layoutY="385.0" mnemonicParsing="false"
-                onAction="#salesRetCreateButtonAction" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/stockseller/common.css" text="销售退货单" textFill="#f8f4f4">
+        <Button id="sureButton" layoutX="623.0" layoutY="495.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="保存" textFill="WHITE">
             <font>
-                <Font size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="6.0" layoutY="580.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
-                stylesheets="@../../css/stockseller/common.css">
-            <graphic>
-                <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../image/设置.png"/>
-                    </image>
-                </ImageView>
-            </graphic>
+        <Button id="salesRetButton" fx:id="salesRetCreateButton" layoutY="385.0" mnemonicParsing="false" onAction="#salesRetCreateButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="销售退货单" textFill="#f8f4f4">
+            <font>
+                <Font size="16.0" />
+            </font>
         </Button>
-        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="580.0" mnemonicParsing="false"
-                onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0"
-                stylesheets="@../../css/stockseller/common.css">
+        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../image/退出登录.png"/>
+                        <Image url="@../../image/退出登录.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="80.0" layoutY="580.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
-                stylesheets="@../../css/stockseller/common.css">
+        <Button layoutX="80.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../image/发送信息.png"/>
+                        <Image url="@../../image/发送信息.png" />
                     </image>
                 </ImageView>
             </graphic>
-        </Button>
-        <Button id="sureButton" layoutX="615.0" layoutY="557.0" mnemonicParsing="false" prefHeight="30.0"
-                prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="保存" textFill="WHITE">
-            <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
-            </font>
         </Button>
     </children>
 </Pane>

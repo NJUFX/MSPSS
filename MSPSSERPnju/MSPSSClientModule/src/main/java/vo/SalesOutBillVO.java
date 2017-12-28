@@ -39,10 +39,6 @@ public class SalesOutBillVO {
      * 仓库
      */
     public String storage;
-    /**
-     * 促销策略
-     */
-    public PromotionVO promotionVO;
 
     /**
      * 出库商品列表accountpo
@@ -100,8 +96,13 @@ public class SalesOutBillVO {
 
     public String ps;
 
+    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status) {
+        this.ID = ID;
+        this.type = type;
+        this.status = status;
+    }
     public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, int allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager
-            , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status, PromotionVO promotionVO) {
+            , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status) {
         this.ID = ID;
         this.DAE = DAE;
         this.storage = storage;
@@ -116,17 +117,15 @@ public class SalesOutBillVO {
         this.status = status;
         this.operator = operator;
         this.manager = manager;
-        this.promotionVO = promotionVO;
     }
 
-    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, PromotionVO promotionVO, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, int allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount) {
+    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, int allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount) {
         this.ID = ID;
         this.type = type;
         this.status = status;
         this.customerVO = customerVO;
         this.DAE = DAE;
         this.storage = storage;
-        this.promotionVO = promotionVO;
         this.itemVOS = itemVOS;
         this.presentations = presentations;
         this.allowance = allowance;
@@ -141,14 +140,13 @@ public class SalesOutBillVO {
         this.sumAfterDiscount = sumAfterDiscount;
     }
 
-    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, PromotionVO promotionVO, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, int allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount, String ps) {
+    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, int allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount, String ps) {
         this.ID = ID;
         this.type = type;
         this.status = status;
         this.customerVO = customerVO;
         this.DAE = DAE;
         this.storage = storage;
-        this.promotionVO = promotionVO;
         this.itemVOS = itemVOS;
         this.presentations = presentations;
         this.allowance = allowance;
@@ -292,10 +290,6 @@ public class SalesOutBillVO {
         return allowance;
     }
 
-    public void setPromotionVO(PromotionVO promotionVO) {
-        this.promotionVO = promotionVO;
-    }
-
     public int getVoucher() {
         return voucher;
     }
@@ -310,10 +304,6 @@ public class SalesOutBillVO {
 
     public void setSumBeforeDiscount(double sumBeforeDiscount) {
         this.sumBeforeDiscount = sumBeforeDiscount;
-    }
-
-    public PromotionVO getPromotionVO() {
-        return promotionVO;
     }
 
     public void setVoucher(int voucher) {

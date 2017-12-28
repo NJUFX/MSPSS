@@ -1,5 +1,8 @@
 package ui.stocksellerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.customerblservice.CustomerBLInfo;
+import blservice.customerblservice.CustomerBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,15 +10,17 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import ui.stockmanagerui.CommodityInfoModifyViewController;
-import ui.stockmanagerui.CommoditySearchShowViewController;
+import util.Kind_Of_Customers;
+import vo.CustomerVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,6 +34,11 @@ public class CustomerInfoShowViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     Stage newStage = new Stage();
+    CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
+    CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
+
+    String id_to_show;
+    CustomerVO customerVO = customerBLInfo.getCustomerByID(id_to_show);
     @FXML
     Button CustomerAddButton;
     @FXML
@@ -43,7 +53,9 @@ public class CustomerInfoShowViewController implements Initializable {
     Button delButton;
     @FXML
     Button modButton, backButton;
-
+    @FXML
+    Label nameLabel, phoneLabel, addressLabel, postcodeLabel, emailLabel, inValueLabel,
+            incomemoneyLabel, paymoneyLabel, categoryLabel, levelLabel, idLabel, workerLabel;
 
     /**
      * 删除当前的商品，返回商品列表
@@ -53,7 +65,6 @@ public class CustomerInfoShowViewController implements Initializable {
     @FXML
     public void delButtonAction(ActionEvent e) {
         try {
-            //System.out.println("test");
             CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
                     "/view/stockseller/CustomerSearchShow.fxml");
         } catch (Exception e1) {
@@ -71,10 +82,9 @@ public class CustomerInfoShowViewController implements Initializable {
     public void modButtonAction(ActionEvent e) {
         try {
             System.out.println("test");
-            //CommodityInfoModifyViewController controller = (CommodityInfoModifyViewController) replaceSceneContent("/view/stockmanager/CommodityInfoModify.fxml");
             CustomerInfoModifyViewController controller = (CustomerInfoModifyViewController) replaceAnotherSceneContent(
                     "/view/stockseller/CustomerInfoModify.fxml", 415, 421);
-            //System.out.println("test");
+            controller.customerVO = customerVO;
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -190,8 +200,6 @@ public class CustomerInfoShowViewController implements Initializable {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
@@ -201,7 +209,7 @@ public class CustomerInfoShowViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 560);
+        Scene scene = new Scene(page, 900.00, 560);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setResizable(false);
@@ -219,7 +227,7 @@ public class CustomerInfoShowViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, width, height);
+        Scene scene = new Scene(page, width, height + 0);
         newStage.setTitle("MSPSS");
         newStage.setScene(scene);
         newStage.sizeToScene();
@@ -236,6 +244,24 @@ public class CustomerInfoShowViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份" + LoginController.getCategory());
-    }
+        if (id_to_show != null && !id_to_show.trim().equals("")) {
 
+            idLabel.setText(customerVO.getID());
+            nameLabel.setText(customerVO.getName());
+            phoneLabel.setText(customerVO.getPhonenumber());
+            addressLabel.setText(customerVO.getAddress());
+            postcodeLabel.setText(customerVO.getPostcode());
+            emailLabel.setText(customerVO.getEmail());
+            inValueLabel.setText(String.valueOf(customerVO.getInvalue()));
+            incomemoneyLabel.setText(String.valueOf(customerVO.getIncomemoney()));
+            paymoneyLabel.setText(String.valueOf(customerVO.getPaymoney()));
+            String category = "进货商";
+            if (customerVO.getCategory() == Kind_Of_Customers.SALER) {
+                category = "销售商";
+            }
+            categoryLabel.setText(category);
+            levelLabel.setText(String.valueOf(customerVO.getLevel()));
+            workerLabel.setText(customerVO.getDAE());
+        }
+    }
 }

@@ -3,8 +3,13 @@ package ui.chiefmanagerui;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.logblservice.LogBLService;
+import blservice.tableblservice.TableBLService;
+import filterflags.ProcessTableFilterFlags;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +27,12 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Time;
+import vo.BusinessTableVO;
+import vo.ProcessTableFilterFlagsVO;
+import vo.ProcessTableVO;
+import vo.SaleTableFilterFlagsVO;
+import vo.SaleTableVO;
 
 public class ChiefManagerSearchListController implements Initializable{
 	@FXML
@@ -56,11 +67,14 @@ public class ChiefManagerSearchListController implements Initializable{
 	TextField StorageName;
 	@FXML
 	ComboBox BillType;
+	@FXML
+	Button Search;
 	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -236,6 +250,84 @@ public class ChiefManagerSearchListController implements Initializable{
 		AssistantName.setText("");
 		StorageName.setText("");
 	
+	}
+	
+	/**
+	 * 监听查询按钮
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleSearchButtonAction(ActionEvent e) throws Exception{
+		String tableType = TableType.getValue().toString();
+		switch(tableType) {
+		case"销售明细表":{
+			LocalDate startTime = StartTime.getValue();
+			LocalDate endTime = EndTime.getValue();
+			Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
+			Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
+			
+			String commodityName = "";
+			commodityName = ProductName.getText();
+			String customerName = "";
+			customerName = CustomerName.getText();
+			String operator = "";
+			operator = AssistantName.getText();
+			String storage = "";
+			storage = StorageName.getText();
+			
+			SaleTableFilterFlagsVO flag = new SaleTableFilterFlagsVO();
+			flag.setBegin(start);
+			flag.setEnd(end);
+			flag.setCommodityName(commodityName);
+			flag.setCustomerName(customerName);
+			flag.setOperatorName(operator);
+			flag.setStorage(storage);
+			SaleTableVO vo = tableBLService.checkSaleTable(flag);
+			ChiefManagerSearchSalesListController controller = (ChiefManagerSearchSalesListController) replaceSceneContent(
+						"/view/chiefmanager/ChiefManagerSearchSalesList.fxml");
+			controller.ShowSalesList(vo);
+			break;
+		}
+		
+		case"经营情况表":{
+			LocalDate startTime = StartTime.getValue();
+			LocalDate endTime = EndTime.getValue();
+			Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
+			Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
+			BusinessTableVO vo = tableBLService.checkBusinessTable(start, end);
+				ChiefManagerSearchManageListController controller = (ChiefManagerSearchManageListController) replaceSceneContent(
+						"/view/chiefmanager/ChiefManagerSearchManageList.fxml");
+			
+			break;
+		}
+		
+		case"经营历程表":{
+			LocalDate startTime = StartTime.getValue();
+			LocalDate endTime = EndTime.getValue();
+			Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
+			Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
+			String customerName = "";
+			customerName = CustomerName.getText();
+			String operator = "";
+			operator = AssistantName.getText();
+			String storage = "";
+			storage = StorageName.getText();
+			String billType = BillType.getValue().toString();
+			ProcessTableFilterFlagsVO flag = new ProcessTableFilterFlagsVO();
+			flag.setBegin(start);
+			flag.setEnd(end);
+			flag.setCustomerName(customerName);
+			flag.setOperatorName(operator);
+			flag.setStorage(storage);
+			ProcessTableVO vo = tableBLService.checkProcessTable(flag);
+				ChiefManagerSearchProcessListController controller = (ChiefManagerSearchProcessListController) replaceSceneContent(
+						"/view/chiefmanager/ChiefManagerSearchProcessList.fxml");
+			controller.setBillType(billType);	
+			controller.showProcessTable(vo);
+			break;
+		}
+		
+		}
 	}
 
 }

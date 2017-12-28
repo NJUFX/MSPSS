@@ -236,10 +236,10 @@ public class ManagerBLServiceStub implements ManagerBillBLService {
         salesItemVOS.add(new SalesItemVO(commodity4,1,12));
         SalesOutBillVO salesOutBillVO1 = new SalesOutBillVO("xsd-20121212-00011","小黄","第一仓库",
                 SalesOutBillType.OUT,11,11,customer,manager,null,salesItemVOS,new Time(),new Time(),
-                null,BillStatus.commit,null);
+                null, BillStatus.commit);
         SalesOutBillVO salesOutBillVO2 = new SalesOutBillVO("xsthd-20121212-00011","小黄","第一仓库",
                 SalesOutBillType.RETURN,11,11,customer,manager,null,salesItemVOS,new Time(),new Time(),
-                null,BillStatus.commit,null);
+                null, BillStatus.commit);
 
 
         salesOutBillVOS.add(salesOutBillVO1);

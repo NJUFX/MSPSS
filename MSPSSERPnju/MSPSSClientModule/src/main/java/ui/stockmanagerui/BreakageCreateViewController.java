@@ -41,7 +41,7 @@ public class BreakageCreateViewController implements Initializable {
     @FXML
     Button cancelButton;
     @FXML
-    Button sureButton;
+    Button sureButton, saveButton;
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
@@ -78,6 +78,11 @@ public class BreakageCreateViewController implements Initializable {
         RealNumberCol.setCellValueFactory(new PropertyValueFactory<>("RealNumber"));
         SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
         RemarkCol.setCellValueFactory(new PropertyValueFactory<>("Remark"));
+    }
+
+    @FXML
+    public void saveButtonAction() {
+
     }
 
     /**
