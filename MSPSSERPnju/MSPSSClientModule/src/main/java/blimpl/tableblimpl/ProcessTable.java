@@ -127,21 +127,5 @@ public class ProcessTable {
 
     }
 
-    /**
-     * 所有单据按名称以字典序的方式排序
-     * @param processTableVO
-     * @return
-     */
-    public ProcessTableVO compareByName(ProcessTableVO processTableVO){
-        return null;
-    }
 
-    /**
-     * 所有单据按时间从先到后排序
-     * @param processTableVO
-     * @return
-     */
-    public ProcessTableVO compareByTime(ProcessTableVO processTableVO){
-        return null;
-    }
 }

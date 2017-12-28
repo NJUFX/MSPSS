@@ -60,13 +60,7 @@ public interface TableBLService {
      * @return 排序好的VO
      */
     public SaleTableVO compareSTByTime(SaleTableVO saletable);
-    /**
-     * 按姓名字典序先后排序
-     *
-     * @param saletable
-     * @return 排序好的VO
-     */
-    public SaleTableVO compareSTByName(SaleTableVO saletable);
+
 
     /**
      * 按时间先后排序
@@ -75,13 +69,6 @@ public interface TableBLService {
      * @return 排序好的VO
      */
     public ProcessTableVO comparePTByTime(ProcessTableVO processtable);
-    /**
-     * 按姓名字典序先后排序
-     *
-     * @param processtable
-     * @return 排序好的VO
-     */
-    public ProcessTableVO comparePTByName(ProcessTableVO processtable);
 
 
 }
