@@ -141,7 +141,7 @@ public class SalesOutBill {
         }
 
         SalesOutBillVO vo = new SalesOutBillVO(po.getID(), type, status, customerVO, po.getDAE(), po.getStorage()
-                , null, salesItemVOS, null, po.getAllowance(), po.getVoucher(), po.getPresent_vocher(), initTime
+                , salesItemVOS, null, po.getAllowance(), po.getVoucher(), po.getPresent_vocher(), initTime
                 , commitTime, approvalTime, manager, operator, po.getSumBeforeDiscount(), po.getSumAfterDiscount());
         return vo;
     }
@@ -185,4 +185,103 @@ public class SalesOutBill {
         SalesItemVO vo = new SalesItemVO(commodityVO, po.getNumber(), po.getPrice());
         return vo;
     }
+
+    /**
+     * 根据订单内容返回合适的客户促销策略
+     *
+     * @param vo
+     * @return
+     */
+    public ArrayList<CustomerPromotionVO> searchCustomerPromotion(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 根据订单内容返回合适的特价包策略
+     *
+     * @param vo
+     * @return
+     */
+    public ArrayList<GroupPromotionVO> searchGroupPromotion(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 根据订单内容返回合适的满减策略
+     *
+     * @param vo
+     * @return
+     */
+    public ArrayList<GrossPromotionVO> searchGrossPromotion(SalesOutBillVO vo) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单设置针对客户的促销策略
+     *
+     * @param customerPromotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO setCustomerPromotion(CustomerPromotionVO customerPromotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单设置针对满额的促销策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO setGrossPromotion(GrossPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单使用特价包的销售策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO setGroupPromotion(GroupPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对于一个销售单取消使用针对客户的促销策略
+     *
+     * @param customerPromotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO unSetCustomerPromotion(CustomerPromotionVO customerPromotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+    /**
+     * 对一个销售单取消使用针对满减的促销策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO unSetGrossPromotion(GrossPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+
+        return null;
+    }
+
+    /**
+     * 对一个销售单取消使用针对组合包的促销策略
+     *
+     * @param promotionVO
+     * @param salesOutBillVO
+     * @return
+     */
+    public SalesOutBillVO unSetGroupPromotion(GroupPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
+        return null;
+    }
+
+
 }
