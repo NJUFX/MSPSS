@@ -256,4 +256,12 @@ public class SalesOutBillPO implements Serializable {
     public void setSalesItemPOS(List<SalesItemPO> salesItemPOS) {
         this.salesItemPOS = salesItemPOS;
     }
+
+    public int getPresent_vocher() {
+        return present_vocher;
+    }
+
+    public void setPresent_vocher(int present_vocher) {
+        this.present_vocher = present_vocher;
+    }
 }

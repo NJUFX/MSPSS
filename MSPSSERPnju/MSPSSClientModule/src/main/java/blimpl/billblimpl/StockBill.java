@@ -1,8 +1,11 @@
 package blimpl.billblimpl;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.StockBillInfo;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.stockbl.StockBLInfo;
 import blservice.userblservice.UserInfo;
+import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.StockBillItemPO;
 import po.StockBillPO;
@@ -10,16 +13,32 @@ import util.*;
 import vo.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description:
  * Created by Hanxinhu at 13:22 2017/11/21/021
  */
-public class StockBill {
-    private BillClientNetworkService networkService;
-    private CommodityInfoService commodityInfoService;
-    private UserInfo userInfo;
-    private StockBLInfo stockBLInfo;
+public class StockBill implements StockBillInfo {
+    private BillClientNetworkService networkService = new BillClientNetworkImpl();
+    private CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
+    private UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    private StockBLInfo stockBLInfo = new BLFactoryImpl().getStockBLInfo();
+
+    @Override
+    public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list) {
+        ArrayList<StockBillItemVO> itemVOS = new ArrayList<>();
+
+        for (PresentationCommodityItemVO pre : list) {
+            CommodityVO commodityVO = commodityInfoService.getCommodity(pre.getCommodityID());
+            itemVOS.add(new StockBillItemVO(commodityVO, pre.getNumber()));
+        }
+        StockBillVO vo = new StockBillVO(StockBillType.Presentation, itemVOS, "由销售策略产生赠送单而产生", null);
+        saveStockBill(vo);
+        return commitStockBill(vo);
+    }
+
+
 
     /**
      * 添加库存类单据
@@ -100,16 +119,6 @@ public class StockBill {
         return networkService.deleteStockBill(vo.id);
     }
 
-    /**
-     * 存疑 有需要时再写
-     *
-     * @param flagVO
-     * @return
-     */
-    public ArrayList<StockBillVO> searchStockBill(FilterFlagVO flagVO) {
-
-        return new ArrayList<>();
-    }
 
 
     public ResultMessage approveStockBill(StockBillVO stockBillVO) {

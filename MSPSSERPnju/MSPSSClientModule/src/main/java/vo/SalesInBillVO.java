@@ -78,8 +78,20 @@ public class SalesInBillVO {
     /**
      * 审批的总经理
      */
-    public UserVO manager;
 
+   public UserVO manager;
+
+    public SalesInBillVO(String ID, String DAE, String provider, String storage,String ps,double sumMoney,String commentByManager) {
+        this.ID = ID;
+        this.DAE = DAE;
+        this.provider = provider;
+        this.storage = storage;
+        this.ps = ps;
+        this.sumMoney = sumMoney;
+        this.commentByManager =commentByManager;
+    }
+
+ 
     public SalesInBillVO(String id, SalesInBillType type, BillStatus status) {
         this.ID = id;
         this.type = type;
@@ -95,6 +107,7 @@ public class SalesInBillVO {
         this.itemVOS = itemVOS;
         this.ps = ps;
         this.init_time = init_time;
+
     }
 
     public SalesInBillVO(String ID, String DAE, String provider, String storage, SalesInBillType type, UserVO operator, String ps, double sumMoney, ArrayList<SalesItemVO> itemVOS, BillStatus status, Time init_time, Time commit_time) {

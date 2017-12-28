@@ -1,15 +1,6 @@
 package ui.financemanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
 import auxiliary.Account;
-import auxiliary.CustomerPromotion;
-import auxiliary.GrossPromotion;
-import auxiliary.GroupPromotion;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLService;
 import javafx.collections.ObservableList;
@@ -19,12 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -35,9 +21,12 @@ import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.Time;
 import vo.AccountVO;
-import vo.CustomerPromotionVO;
-import vo.GrossPromotionVO;
-import vo.GroupPromotionVO;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class FinanceManagerSuperviseAccountController implements Initializable {
 

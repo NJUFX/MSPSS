@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.paint.*?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchManageListController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchManageListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -95,22 +96,77 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
+      <Button layoutX="605.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="导出" textFill="WHITE" />
+      <Button layoutX="753.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="返回" textFill="#0d5ae1" />
       <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label layoutX="90.0" layoutY="65.0" style="-fx-background-color: #FFFFFF;" text="收入类" textFill="#0f88eb" />
-            <Label layoutX="180.0" layoutY="39.0" style="-fx-background-color: #FFFFFF;" text="折让后总收入" textFill="#0f88eb" />
-            <Label layoutX="186.0" layoutY="94.0" style="-fx-background-color: #FFFFFF;" text="折让金额" textFill="#0f88eb" />
-            <Label layoutX="90.0" layoutY="166.0" style="-fx-background-color: #FFFFFF;" text="支出类" textFill="#0f88eb" />
-            <Label layoutX="193.0" layoutY="166.0" style="-fx-background-color: #FFFFFF;" text="总支出" textFill="#0f88eb" />
-            <Label layoutX="90.0" layoutY="250.0" style="-fx-background-color: #FFFFFF;" text="利润" textFill="#0f88eb" />
-            <Label layoutX="193.0" layoutY="250.0" style="-fx-background-color: #FFFFFF;" text="利润" textFill="#0f88eb" />
-            <TextField editable="false" layoutX="351.0" layoutY="34.0" style="-fx-background-radius: 0;" />
-            <TextField editable="false" layoutX="351.0" layoutY="89.0" style="-fx-background-radius: 0;" />
-            <TextField editable="false" layoutX="351.0" layoutY="161.0" style="-fx-background-radius: 0;" />
-            <TextField editable="false" layoutX="351.0" layoutY="245.0" style="-fx-background-radius: 0;" />
+            <Label layoutX="182.0" layoutY="51.0" style="-fx-background-color: transparent;" text="•销售收入" textFill="#0f88eb">
+               <font>
+                  <Font name="Helvetica Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.0" layoutY="96.0" style="-fx-background-color: transparent;" text="•商品类收入" textFill="#0f88eb">
+               <font>
+                  <Font name="Helvetica Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.0" layoutY="141.0" style="-fx-background-color: transparent;" text="•销售成本" textFill="#0f88eb">
+               <font>
+                  <Font name="Helvetica Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.0" layoutY="186.0" style="-fx-background-color: transparent;" text="•商品类支出" textFill="#0f88eb">
+               <font>
+                  <Font name="Helvetica Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.0" layoutY="231.0" style="-fx-background-color: transparent;" text="•总支出" textFill="#0f88eb">
+               <font>
+                  <Font name="Helvetica Light" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="321.0" layoutY="123.0" style="-fx-background-color: transparent;" textFill="#0f88eb" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="146.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/现金收费单.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="SalesIncome" editable="false" layoutX="303.0" layoutY="49.0" prefHeight="24.0" prefWidth="195.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="146.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/商品.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="CommodityIncome" editable="false" layoutX="303.0" layoutY="93.0" prefHeight="24.0" prefWidth="195.0" />
+            <Label layoutX="182.0" layoutY="276.0" style="-fx-background-color: transparent;" text="•利润" textFill="#0f88eb">
+               <font>
+                  <Font name="Helvetica Light" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="146.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/折让金额.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="146.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/总额区间.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="146.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/特价包价格.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="146.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/利润.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="SalesCost" editable="false" layoutX="303.0" layoutY="137.0" prefHeight="24.0" prefWidth="195.0" />
+            <TextField fx:id="CommodityCost" editable="false" layoutX="303.0" layoutY="181.0" prefHeight="24.0" prefWidth="195.0" />
+            <TextField fx:id="TotalCost" editable="false" layoutX="303.0" layoutY="225.0" prefHeight="24.0" prefWidth="195.0" />
+            <TextField fx:id="Profit" editable="false" layoutX="303.0" layoutY="269.0" prefHeight="24.0" prefWidth="195.0" />
          </children></Pane>
     </children>
 </Pane>

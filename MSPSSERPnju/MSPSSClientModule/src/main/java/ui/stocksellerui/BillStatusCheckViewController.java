@@ -25,7 +25,6 @@ import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
 import vo.StockBillVO;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -43,89 +42,11 @@ public class BillStatusCheckViewController implements Initializable {
     @FXML
     Button backButton;
     //@FXML
-    @FXML
-    ComboBox<String> statusScreenBox, typeScreenBox;
 
     @FXML
     TableView<BillCheckTable> tableTableView;
     @FXML
     TableColumn<BillCheckTable, String> SerialCol, IdCol, NameCol, StatusCol, OperationCol;
-
-    @FXML
-    public void screenBoxAction(ActionEvent e) {
-        tableTableView.getItems().clear();
-        addPurchaseBillRow();
-        addPurcRetBillRow();
-        addSalesBillRow();
-        addSalesRetBill();
-
-        typeScreen();
-        statusScreen();
-
-    }
-
-    public void typeScreen() {
-        ObservableList<BillCheckTable> data = tableTableView.getItems();
-        if (typeScreenBox.getValue() != null && !typeScreenBox.getValue().equals("全部单据")) {
-            int size = data.size();
-            for (int i = 0; i < size; i++) {
-                for (int j = 0; j < data.size(); j++) {
-                    if (!data.get(j).getName().equals(typeScreenBox.getValue())) {
-                        data.remove(j);
-                    }
-                }
-            }
-        }
-    }
-
-    public void statusScreen() {
-        ObservableList<BillCheckTable> data = tableTableView.getItems();
-        int size = data.size();
-        if (statusScreenBox.getValue() == null || statusScreenBox.getValue().equals("全部状态")) {
-            return;
-        } else if (statusScreenBox.getValue().equals("已提交")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!data.get(i).getStatus().equals("已提交")) {
-                        data.remove(i);
-                    }
-                }
-            }
-        } else if (statusScreenBox.getValue().equals("已保存")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!data.get(i).getStatus().equals("已保存")) {
-                        data.remove(i);
-                    }
-                }
-            }
-        } else if (statusScreenBox.getValue().equals("已审批")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!(data.get(i).getStatus().equals("审批通过") || data.get(i).getStatus().equals("审批未通过"))) {
-                        data.remove(i);
-                    }
-                }
-            }
-        } else if (statusScreenBox.getValue().equals("审批通过")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!(data.get(i).getStatus().equals("审批通过"))) {
-                        data.remove(i);
-                    }
-                }
-            }
-        } else if (statusScreenBox.getValue().equals("审批未通过")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!(data.get(i).getStatus().equals("审批未通过"))) {
-                        data.remove(i);
-                    }
-                }
-            }
-        }
-    }
-
 
     public void showTableView() {
 
@@ -203,9 +124,7 @@ public class BillStatusCheckViewController implements Initializable {
                         } else if (name.equals("审批通过")) {
                             this.setTextFill(Color.rgb(51, 200, 51));
                         } else if (name.equals("审批未通过")) {
-                            this.setTextFill(Color.rgb(230, 18, 6));
-                        } else if (name.equals("已保存")) {
-                            this.setTextFill(Color.rgb(12, 12, 12));
+                            this.setTextFill(Color.RED);
                         }
                     }
                 }
@@ -244,48 +163,18 @@ public class BillStatusCheckViewController implements Initializable {
             cell.setStyle("-fx-alignment:CENTER;");
             return cell;
         });
+
         addPurchaseBillRow();
-        addPurcRetBillRow();
         addSalesBillRow();
-        addSalesRetBill();
     }
 
     public void addPurchaseBillRow() {
         // ArrayList<StockBillVO> list = stockManagerBillBLService.getMyStockBill(LoginController.getCurrentUser().getID());
         ArrayList<SalesInBillVO> list = new ArrayList<>();
 
-        list.add(new SalesInBillVO("JHD01", SalesInBillType.OUT, BillStatus.commit));
-        list.add(new SalesInBillVO("JHD021", SalesInBillType.OUT, BillStatus.approval));
-        list.add(new SalesInBillVO("JHD1001", SalesInBillType.OUT, BillStatus.approval));
-
-        ObservableList<BillCheckTable> data = tableTableView.getItems();
-        for (int i = 0; i < list.size(); i++) {
-            SalesInBillType salesInBillType = list.get(i).getType();
-            String name = "", status = "";
-            if (SalesInBillType.OUT == salesInBillType) {
-                name = "进货单";
-                BillStatus billStatus = list.get(i).getStatus();
-                if (BillStatus.init == billStatus) {
-                    status = "已保存";//黑
-                } else if (BillStatus.commit == billStatus) {
-                    status = "已提交";//蓝
-                } else if (BillStatus.approval == billStatus) {
-                    status = "审批通过";//绿
-                } else if (BillStatus.rejected == billStatus) {
-                    status = "审批未通过";//红
-                }
-                BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
-                data.add(billCheckTable);
-            }
-        }
-    }
-
-    public void addPurcRetBillRow() {
-        ArrayList<SalesInBillVO> list = new ArrayList<>();
-
-        list.add(new SalesInBillVO("JHTHD0", SalesInBillType.IN, BillStatus.commit));
-        list.add(new SalesInBillVO("JHTHD0006", SalesInBillType.IN, BillStatus.approval));
-        list.add(new SalesInBillVO("JHThD41", SalesInBillType.IN, BillStatus.init));
+        list.add(new SalesInBillVO("JHTHD01", SalesInBillType.OUT, BillStatus.commit));
+        list.add(new SalesInBillVO("JHD01", SalesInBillType.IN, BillStatus.approval));
+        list.add(new SalesInBillVO("JHTHD01", SalesInBillType.OUT, BillStatus.init));
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
@@ -293,53 +182,30 @@ public class BillStatusCheckViewController implements Initializable {
             String name = "", status = "";
             if (SalesInBillType.IN == salesInBillType) {
                 name = "进货退货单";
-                BillStatus billStatus = list.get(i).getStatus();
-                if (BillStatus.init == billStatus) {
-                    status = "已保存";//黑
-                } else if (BillStatus.commit == billStatus) {
-                    status = "已提交";//蓝
-                } else if (BillStatus.approval == billStatus) {
-                    status = "审批通过";//绿
-                } else if (BillStatus.rejected == billStatus) {
-                    status = "审批未通过";//红
-                }
-                BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
-                data.add(billCheckTable);
+            } else if (SalesInBillType.OUT == salesInBillType) {
+                name = "进货单";
             }
+            BillStatus billStatus = list.get(i).getStatus();
+            if (BillStatus.init == billStatus) {
+                status = "已保存";//黑
+            } else if (BillStatus.commit == billStatus) {
+                status = "已提交";//蓝
+            } else if (BillStatus.approval == billStatus) {
+                status = "审批通过";//绿
+            } else if (BillStatus.rejected == billStatus) {
+                status = "审批未通过";//红
+            }
+
+            BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
+            data.add(billCheckTable);
         }
+
     }
 
     public void addSalesBillRow() {
         ArrayList<SalesOutBillVO> list = new ArrayList<>();
-        list.add(new SalesOutBillVO("XSD01", SalesOutBillType.OUT, BillStatus.commit));
-        list.add(new SalesOutBillVO("XSD0121", SalesOutBillType.OUT, BillStatus.rejected));
-
-        ObservableList<BillCheckTable> data = tableTableView.getItems();
-        for (int i = 0; i < list.size(); i++) {
-            SalesOutBillType salesOutBillType = list.get(i).getType();
-            String name = "", status = "";
-            if (SalesOutBillType.OUT == salesOutBillType) {
-                name = "销售单";
-                BillStatus billStatus = list.get(i).getStatus();
-                if (BillStatus.init == billStatus) {
-                    status = "已保存";//黑
-                } else if (BillStatus.commit == billStatus) {
-                    status = "已提交";//蓝
-                } else if (BillStatus.approval == billStatus) {
-                    status = "审批通过";//绿
-                } else if (BillStatus.rejected == billStatus) {
-                    status = "审批未通过";//红
-                }
-                BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
-                data.add(billCheckTable);
-            }
-        }
-    }
-
-    public void addSalesRetBill() {
-        ArrayList<SalesOutBillVO> list = new ArrayList<>();
-        list.add(new SalesOutBillVO("XSTHD00001", SalesOutBillType.RETURN, BillStatus.rejected));
-        list.add(new SalesOutBillVO("XSTHD01", SalesOutBillType.RETURN, BillStatus.init));
+        list.add(new SalesOutBillVO("XSD01", SalesOutBillType.OUT, BillStatus.rejected));
+        list.add(new SalesOutBillVO("XSTHD01", SalesOutBillType.RETURN, BillStatus.rejected));
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
@@ -347,28 +213,32 @@ public class BillStatusCheckViewController implements Initializable {
             String name = "", status = "";
             if (SalesOutBillType.RETURN == salesOutBillType) {
                 name = "销售退货单";
-                BillStatus billStatus = list.get(i).getStatus();
-                if (BillStatus.init == billStatus) {
-                    status = "已保存";//黑
-                } else if (BillStatus.commit == billStatus) {
-                    status = "已提交";//蓝
-                } else if (BillStatus.approval == billStatus) {
-                    status = "审批通过";//绿
-                } else if (BillStatus.rejected == billStatus) {
-                    status = "审批未通过";//红
-                }
-                BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
-                data.add(billCheckTable);
+            } else if (SalesOutBillType.OUT == salesOutBillType) {
+                name = "销售单";
             }
+            BillStatus billStatus = list.get(i).getStatus();
+            if (BillStatus.init == billStatus) {
+                status = "已保存";//黑
+            } else if (BillStatus.commit == billStatus) {
+                status = "已提交";//蓝
+            } else if (BillStatus.approval == billStatus) {
+                status = "审批通过";//绿
+            } else if (BillStatus.rejected == billStatus) {
+                status = "审批未通过";//红
+            }
+
+            BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
+            data.add(billCheckTable);
         }
+
     }
 
     @FXML
     public void backButtonAction(ActionEvent e) throws IOException {
         System.out.println("Sucess");
         try {
-            BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
-                    "/view/stockseller/BillCreate.fxml");
+            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                    "/view/stockseller/CustomerManage.fxml");
             // replaceSceneContent("/view/stockseller/CustomerManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block

@@ -194,11 +194,11 @@ public class SalesInBill {
         return po;
     }
 
-    private SalesItemPO vo_to_po(SalesItemVO vo) {
+    public static SalesItemPO vo_to_po(SalesItemVO vo) {
         return new SalesItemPO(vo.getId(), vo.getNumber(), vo.getPrice(), vo.getPs());
     }
 
-    private SalesItemVO po_to_vo(SalesItemPO po) {
+    public static SalesItemVO po_to_vo(SalesItemPO po) {
         CommodityVO commodityVO = commodityInfo.getCommodity(po.getId());
         SalesItemVO vo = new SalesItemVO(commodityVO, po.getNumber(), po.getPrice());
         return vo;

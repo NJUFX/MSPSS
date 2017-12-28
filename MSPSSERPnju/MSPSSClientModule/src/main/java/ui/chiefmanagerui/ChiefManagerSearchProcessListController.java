@@ -22,6 +22,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.ProcessTableVO;
 
 public class ChiefManagerSearchProcessListController implements Initializable {
 	
@@ -175,5 +176,14 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
 	}
+	
+	/**
+	 * 显示经营历程表
+	 * @param vo
+	 * @throws Exception
+	 */
+	public void showProcessTable(ProcessTableVO vo) throws Exception{
+		
+	} 
 
 }
