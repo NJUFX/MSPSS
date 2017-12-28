@@ -16,10 +16,6 @@ public class Table_Stub implements TableBLService{
         return null;
     }
 
-    @Override
-    public BusinessTableVO compareBTByTime(BusinessTableVO businesstable) {
-        return null;
-    }
 
     @Override
     public ProcessTableVO checkProcessTable(ProcessTableFilterFlagsVO flags) {

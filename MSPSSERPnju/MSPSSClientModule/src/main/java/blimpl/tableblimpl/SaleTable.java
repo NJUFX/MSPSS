@@ -84,21 +84,6 @@ public class SaleTable {
         return saleTableVO;
     }
 
-    /**
-     * 按商品名称以字典序的的方式排序
-     * @param flags
-     * @return
-     */
-    public SaleTableVO compareByName(SaleTableVO flags){
-        return null;
-    }
 
-    /**
-     * 按时间从前往后排序
-     * @param saleTableVO
-     * @return
-     */
-    public SaleTableVO compareByTime(SaleTableVO saleTableVO){
-        return null;
-    }
+
 }

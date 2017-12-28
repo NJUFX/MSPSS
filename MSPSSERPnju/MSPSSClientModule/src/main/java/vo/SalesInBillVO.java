@@ -80,8 +80,18 @@ public class SalesInBillVO {
      */
    public UserVO manager;
 
-    public SalesInBillVO(String ID,Time init_time,String provider,String storage,UserVO operator,
-                         ArrayList<SalesItemVO> itemVOS,String ps){
+    public SalesInBillVO(String ID, String DAE, String provider, String storage,String ps,double sumMoney,String commentByManager) {
+        this.ID = ID;
+        this.DAE = DAE;
+        this.provider = provider;
+        this.storage = storage;
+        this.ps = ps;
+        this.sumMoney = sumMoney;
+        this.commentByManager =commentByManager;
+    }
+
+    public SalesInBillVO(String ID, Time init_time, String provider, String storage, UserVO operator,
+                         ArrayList<SalesItemVO> itemVOS, String ps){
             this.ID = ID;
             this.provider = provider;
             this.storage = storage;
