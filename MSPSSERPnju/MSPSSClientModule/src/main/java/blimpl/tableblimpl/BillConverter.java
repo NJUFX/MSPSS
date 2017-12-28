@@ -2,13 +2,7 @@ package blimpl.tableblimpl;
 
 import blimpl.billblimpl.*;
 import po.*;
-import util.BillStatus;
-import util.FinanceBillType;
-import util.Time;
 import vo.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by thinkpad on 2017/12/27.
@@ -36,7 +30,7 @@ public class BillConverter {
     }
 
     public SalesOutBillVO SalesOutBill_PO_To_VO(SalesOutBillPO salesOutBillPO){
-     return salesOutBill;
+      return null;
     }
 
     public StockBillVO StockBill_PO_To_VO(StockBillPO stockBillPO){

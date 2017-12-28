@@ -100,6 +100,11 @@ public class SalesOutBillVO {
 
     public String ps;
 
+    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status) {
+        this.ID = ID;
+        this.type = type;
+        this.status = status;
+    }
     public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, int allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager
             , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status, PromotionVO promotionVO) {
         this.ID = ID;
