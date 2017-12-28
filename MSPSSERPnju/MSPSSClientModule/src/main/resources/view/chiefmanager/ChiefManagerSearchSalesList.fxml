@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchSalesList.css"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchSalesListController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchSalesList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchSalesListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -95,19 +95,42 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
-      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #f8f8f8;">
+      <Button layoutX="602.0" layoutY="464.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Button layoutX="750.0" layoutY="464.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
+      <Pane layoutX="190.0" layoutY="110.0" prefHeight="321.0" prefWidth="660.0" style="-fx-background-color: #f8f8f8;">
          <children>
-            <TableView prefHeight="347.0" prefWidth="660.0">
+            <TableView fx:id="SalesTable" prefHeight="321.0" prefWidth="660.0">
               <columns>
-                <TableColumn prefWidth="110.0" text="时间" />
-                <TableColumn prefWidth="110.0" text="商品名" />
-                  <TableColumn prefWidth="110.0" text="型号" />
-                  <TableColumn prefWidth="110.0" text="数量" />
-                  <TableColumn prefWidth="110.0" text="单价" />
-                  <TableColumn prefWidth="109.0" text="总额" />
+                <TableColumn prefWidth="110.0" text="时间">
+                  <cellValueFactory>
+                   <PropertyValueFactory property="time" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="商品名">
+                  <cellValueFactory>
+                   <PropertyValueFactory property="commodity" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="110.0" text="型号">
+                    <cellValueFactory>
+                   <PropertyValueFactory property="type" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="110.0" text="数量">
+                    <cellValueFactory>
+                   <PropertyValueFactory property="amount" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="110.0" text="单价">
+                    <cellValueFactory>
+                   <PropertyValueFactory property="perPrice" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="109.0" text="总额">
+                    <cellValueFactory>
+                   <PropertyValueFactory property="totalPrice" />
+                  </cellValueFactory>
+                </TableColumn>
               </columns>
             </TableView>
          </children></Pane>
