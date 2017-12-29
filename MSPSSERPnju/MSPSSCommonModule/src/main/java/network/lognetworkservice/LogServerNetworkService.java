@@ -4,13 +4,14 @@ import po.LogPO;
 import util.CriteriaClause;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/14.
  */
-public interface LogServerNetworkService {
+public interface LogServerNetworkService extends Remote {
     public ResultMessage addLog(LogPO logPO) throws RemoteException;
 
     public ArrayList<LogPO> rangeSearch(String field, Object min, Object max) throws RemoteException;

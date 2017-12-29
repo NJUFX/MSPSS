@@ -1,6 +1,8 @@
 package  util;
 
-public enum ResultMessage {
+import java.io.Serializable;
+
+public enum ResultMessage implements Serializable{
     SUCCESS, // 成功
     FAILED, // 失败
     WRONG, // 错误

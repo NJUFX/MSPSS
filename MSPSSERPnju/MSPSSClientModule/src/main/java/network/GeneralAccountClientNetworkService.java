@@ -6,6 +6,7 @@ import po.GeneralAccountPO;
 import util.ResultMessage;
 import vo.CustomerVO;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * Description:
  * Created by Hanxinhu at 14:07 2017/11/30/030
  */
-public interface GeneralAccountClientNetworkService {
+public interface GeneralAccountClientNetworkService extends Remote{
 
 
     /**

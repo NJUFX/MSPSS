@@ -52,7 +52,7 @@ public class SalesOutBillVO {
     /**
      * 折让
      */
-    public int allowance;
+    public double allowance;
     /**
      * 使用的代金券金额
      */
@@ -101,7 +101,8 @@ public class SalesOutBillVO {
         this.type = type;
         this.status = status;
     }
-    public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, int allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager
+
+    public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, double allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager
             , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status) {
         this.ID = ID;
         this.DAE = DAE;
@@ -119,7 +120,7 @@ public class SalesOutBillVO {
         this.manager = manager;
     }
 
-    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, int allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount) {
+    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, double allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount) {
         this.ID = ID;
         this.type = type;
         this.status = status;
@@ -140,7 +141,7 @@ public class SalesOutBillVO {
         this.sumAfterDiscount = sumAfterDiscount;
     }
 
-    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, int allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount, String ps) {
+    public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status, CustomerVO customerVO, String DAE, String storage, ArrayList<SalesItemVO> itemVOS, ArrayList<PresentationCommodityItemVO> presentations, double allowance, int voucher, int presentation_voucher, Time init_time, Time commit_time, Time approval_time, UserVO manager, UserVO operator, double sumBeforeDiscount, double sumAfterDiscount, String ps) {
         this.ID = ID;
         this.type = type;
         this.status = status;
@@ -274,7 +275,7 @@ public class SalesOutBillVO {
         this.operator = operator;
     }
 
-    public void setAllowance(int allowance) {
+    public void setAllowance(double allowance) {
         this.allowance = allowance;
     }
 
@@ -286,7 +287,7 @@ public class SalesOutBillVO {
         this.customerVO = customerVO;
     }
 
-    public int getAllowance() {
+    public double getAllowance() {
         return allowance;
     }
 

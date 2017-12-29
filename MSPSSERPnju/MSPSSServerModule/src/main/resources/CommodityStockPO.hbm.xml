@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="po.CommodityStockPO" table="commodity_stock_po">
+        <id name="keycolumn" column="keycolumn" type="string">
+        <generator class="uuid" />
+    </id>
+        <property name="number" column="number" type="int"/>
+        <property name="price" column="price" type ="double"/>
+        <property name="pici" column="pici" type="string"/>
+        <property name="pihao" column="pihao" type="string"></property>
+        <property name="exportDate" column="export_date" type="string"></property>
+
+
+    </class>
+</hibernate-mapping>

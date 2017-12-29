@@ -4,6 +4,7 @@ import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.StockBillInfo;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
+import blservice.promotionblservice.PromotionBLInfo;
 import blservice.userblservice.UserInfo;
 import network.BillClientNetworkService;
 import po.SalesItemPO;
@@ -15,6 +16,7 @@ import util.Time;
 import vo.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -28,6 +30,7 @@ public class SalesOutBill {
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
     private static StockBillInfo stockBillInfo = new StockBill();
+    private static PromotionBLInfo promotionBLInfo = new BLFactoryImpl().getPromotionBLInfo();
     /**
      * 添加销售单
      * 保存
@@ -193,7 +196,16 @@ public class SalesOutBill {
      * @return
      */
     public ArrayList<CustomerPromotionVO> searchCustomerPromotion(SalesOutBillVO vo) {
-        return null;
+        //返回该时间范围内可用的
+        List<CustomerPromotionVO> customerPromotionVOS = promotionBLInfo.getAvailableCustomerPromotion();
+        ArrayList<CustomerPromotionVO> promotionVOS = new ArrayList<>();
+        int customerLevel = vo.getCustomerVO().getLevel();
+        for (CustomerPromotionVO pro : customerPromotionVOS
+                ) {
+            if (pro.getLevel() >= customerLevel)
+                promotionVOS.add(pro);
+        }
+        return promotionVOS;
     }
 
     /**
@@ -203,7 +215,21 @@ public class SalesOutBill {
      * @return
      */
     public ArrayList<GroupPromotionVO> searchGroupPromotion(SalesOutBillVO vo) {
-        return null;
+        List<SalesItemVO> salesItemVOS = vo.getItemVOS();
+        ArrayList<GroupPromotionVO> promotionVOS = promotionBLInfo.getAvailableGroupPromotion();
+        ArrayList<GroupPromotionVO> avail = new ArrayList<>();
+        HashSet<String> commodityIDs = new HashSet<>();
+        for (SalesItemVO item : salesItemVOS
+                ) {
+            commodityIDs.add(item.getId());
+        }
+        for (GroupPromotionVO groupPromotionVO : promotionVOS) {
+            ArrayList<String> ids = groupPromotionVO.getCommodityIDs();
+            if (commodityIDs.containsAll(ids)) {
+                avail.add(groupPromotionVO);
+            }
+        }
+        return avail;
     }
 
     /**
@@ -213,7 +239,16 @@ public class SalesOutBill {
      * @return
      */
     public ArrayList<GrossPromotionVO> searchGrossPromotion(SalesOutBillVO vo) {
-        return null;
+        ArrayList<GrossPromotionVO> promotionVOS = promotionBLInfo.getAvailableGrossPromotion();
+        ArrayList<GrossPromotionVO> avail = new ArrayList<>();
+        double sum = vo.sumAfterDiscount;
+        for (GrossPromotionVO grossPromotion :
+                promotionVOS) {
+            if (grossPromotion.getTotal() > sum) {
+                avail.add(grossPromotion);
+            }
+        }
+        return avail;
     }
 
     /**
@@ -224,7 +259,15 @@ public class SalesOutBill {
      * @return
      */
     public SalesOutBillVO setCustomerPromotion(CustomerPromotionVO customerPromotionVO, SalesOutBillVO salesOutBillVO) {
-        return null;
+        if (customerPromotionVO.getLevel() <= salesOutBillVO.getCustomerVO().getLevel()) {
+            //增加销售单的折让
+            salesOutBillVO.setAllowance(salesOutBillVO.getAllowance() + customerPromotionVO.getDiscount());
+            salesOutBillVO.setPresentation_voucher(salesOutBillVO.getPresentation_voucher() + customerPromotionVO.getVoucher());
+            salesOutBillVO.getPresentations().addAll(customerPromotionVO.getPresentationCommodityItemVOS());
+        }
+        return salesOutBillVO;
+
+
     }
 
     /**
@@ -235,7 +278,12 @@ public class SalesOutBill {
      * @return
      */
     public SalesOutBillVO setGrossPromotion(GrossPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
-        return null;
+        double sum = salesOutBillVO.getSumAfterDiscount();
+        if (sum <= promotionVO.getTotal()) {
+            salesOutBillVO.getPresentations().addAll(promotionVO.getPresentationCommodityItemVOS());
+            salesOutBillVO.setPresentation_voucher(salesOutBillVO.getPresentation_voucher() + promotionVO.getVoucher());
+        }
+        return salesOutBillVO;
     }
 
     /**
@@ -246,7 +294,13 @@ public class SalesOutBill {
      * @return
      */
     public SalesOutBillVO setGroupPromotion(GroupPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
-        return null;
+        for (SalesItemVO itemVO : salesOutBillVO.getItemVOS()) {
+            if (promotionVO.getCommodityIDs().contains(itemVO.getId())) {
+                double price = itemVO.getPrice() * promotionVO.getDiscountRate();
+                itemVO.setPrice(price);
+            }
+        }
+        return salesOutBillVO;
     }
 
     /**
@@ -257,7 +311,13 @@ public class SalesOutBill {
      * @return
      */
     public SalesOutBillVO unSetCustomerPromotion(CustomerPromotionVO customerPromotionVO, SalesOutBillVO salesOutBillVO) {
-        return null;
+        if (customerPromotionVO.getLevel() <= salesOutBillVO.getCustomerVO().getLevel()) {
+            //增加销售单的折让
+            salesOutBillVO.setAllowance(salesOutBillVO.getAllowance() - customerPromotionVO.getDiscount());
+            salesOutBillVO.setPresentation_voucher(salesOutBillVO.getPresentation_voucher() - customerPromotionVO.getVoucher());
+            salesOutBillVO.getPresentations().removeAll(customerPromotionVO.getPresentationCommodityItemVOS());
+        }
+        return salesOutBillVO;
     }
 
     /**
@@ -269,7 +329,11 @@ public class SalesOutBill {
      */
     public SalesOutBillVO unSetGrossPromotion(GrossPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
 
-        return null;
+
+        salesOutBillVO.getPresentations().removeAll(promotionVO.getPresentationCommodityItemVOS());
+        salesOutBillVO.setPresentation_voucher(salesOutBillVO.getPresentation_voucher() - promotionVO.getVoucher());
+
+        return salesOutBillVO;
     }
 
     /**
@@ -280,7 +344,13 @@ public class SalesOutBill {
      * @return
      */
     public SalesOutBillVO unSetGroupPromotion(GroupPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
-        return null;
+        for (SalesItemVO itemVO : salesOutBillVO.getItemVOS()) {
+            if (promotionVO.getCommodityIDs().contains(itemVO.getId())) {
+                double price = itemVO.getPrice() / (1 + promotionVO.getDiscountRate());
+                itemVO.setPrice(price);
+            }
+        }
+        return salesOutBillVO;
     }
 
 

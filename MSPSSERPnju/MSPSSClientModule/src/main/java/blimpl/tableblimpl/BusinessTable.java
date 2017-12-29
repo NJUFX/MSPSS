@@ -38,6 +38,7 @@ public class BusinessTable {
         //商品类成本
         double commodityCost=0;
 
+
         for(int i=0;i<=salesInBillPOS.size()-1;i++){
             //如果是进货单
             if(salesInBillPOS.get(i).getType()==0){

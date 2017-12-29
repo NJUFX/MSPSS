@@ -27,8 +27,7 @@
       <mapping resource="CashCostBillPO.hbm.xml"/>
       <mapping resource="CashCostItemPO.hbm.xml"/>
       <mapping resource="ClassificationPO.hbm.xml"/>
-      <mapping resource="Classification_Children_PO.hbm.xml"></mapping>
-      <mapping resource="Classification_Commodity_PO.hbm.xml"></mapping>
+
       <mapping resource="CommodityPO.hbm.xml"></mapping>
       <mapping resource="CustomerPO.hbm.xml"></mapping>
       <mapping resource="FinanceBillPO.hbm.xml"></mapping>
@@ -43,6 +42,10 @@
       <mapping resource="CustomerPromotionPO.hbm.xml"></mapping>
       <mapping resource="AlarmBillPO.hbm.xml"></mapping>
       <mapping resource="StockPO.hbm.xml"></mapping>
+      <mapping resource="CommodityStockPO.hbm.xml"></mapping>
+      <mapping resource="GroupPromotionPO.hbm.xml"></mapping>
+      <mapping resource="PresentationCommodityItemPO.hbm.xml"></mapping>
+      <mapping resource="GrossPromotionPO.hbm.xml"></mapping>
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

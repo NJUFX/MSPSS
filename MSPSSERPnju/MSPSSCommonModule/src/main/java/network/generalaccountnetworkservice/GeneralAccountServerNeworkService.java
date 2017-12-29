@@ -6,13 +6,14 @@ import po.CustomerPO;
 import po.GeneralAccountPO;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/14.
  */
-public interface GeneralAccountServerNeworkService {
+public interface GeneralAccountServerNeworkService extends Remote{
 
 
     /**

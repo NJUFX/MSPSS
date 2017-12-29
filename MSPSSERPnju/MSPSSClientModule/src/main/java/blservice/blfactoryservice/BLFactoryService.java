@@ -12,6 +12,7 @@ import blservice.generalaccountblservice.GeneralAccountBLService;
 import blservice.logblservice.LogBLInfo;
 import blservice.logblservice.LogBLService;
 import blservice.mainblservice.MainBLService;
+import blservice.promotionblservice.PromotionBLInfo;
 import blservice.promotionblservice.PromotionBLService;
 import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
@@ -65,6 +66,9 @@ public interface BLFactoryService {
     public UserInfo getUserInfo();
 
     public TableBLService getTableBLService();
+
+    public PromotionBLInfo getPromotionBLInfo();
+
 
     //stub
     public AccountBLService getAccountBLServiceStub();

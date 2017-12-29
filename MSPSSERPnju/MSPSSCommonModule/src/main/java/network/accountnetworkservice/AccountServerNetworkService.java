@@ -4,13 +4,14 @@ import po.AccountPO;
 import util.CriteriaClause;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/14.
  */
-public interface AccountServerNetworkService  {
+public interface AccountServerNetworkService extends Remote {
     /**
      * 添加账户
      * @param account

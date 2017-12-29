@@ -1,10 +1,12 @@
 package util;
 
+import java.io.Serializable;
+
 /**
  * Description:
  * Created by Hanxinhu at 19:50 2017/11/27/027
  */
-public enum StockBillType {
+public enum StockBillType implements Serializable {
     /**
      *  库存赠送单
      */

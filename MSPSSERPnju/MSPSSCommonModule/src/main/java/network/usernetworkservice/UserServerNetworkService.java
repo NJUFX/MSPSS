@@ -3,13 +3,14 @@ package network.usernetworkservice;
 import po.UserPO;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/14.
  */
-public interface UserServerNetworkService {
+public interface UserServerNetworkService extends Remote{
     /**
      * 增加权限
      *

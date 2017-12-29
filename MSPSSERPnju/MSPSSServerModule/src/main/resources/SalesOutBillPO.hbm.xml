@@ -19,7 +19,7 @@
         <property name="commit_time" column="commit_time" type="string"/>
         <property name="approval_time" column="approval_time" type="string"/>
 
-        <property name="promotionID" column="promotion_id" type="string"/>
+
         <property name="allowance" column="allowance" type="int"/>
         <property name="voucher" column="voucher" type="int"/>
         <property name="sumBeforeDiscount" column="sum_before_discount" type="double"/>

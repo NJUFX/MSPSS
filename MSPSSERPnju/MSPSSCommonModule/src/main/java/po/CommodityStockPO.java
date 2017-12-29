@@ -17,6 +17,10 @@ import java.io.Serializable;
 public class CommodityStockPO implements Serializable {
 
     /**
+     * 主键，不要自己赋值
+     */
+    private String keycolumn;
+    /**
      * 商品编号
      */
     private String commodityID;
@@ -53,6 +57,14 @@ public class CommodityStockPO implements Serializable {
     }
 
     public CommodityStockPO() {
+    }
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
     }
 
     public String getCommodityID() {

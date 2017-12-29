@@ -322,6 +322,7 @@ public class ChiefManagerSearchListController implements Initializable{
 			ProcessTableVO vo = tableBLService.checkProcessTable(flag);
 				ChiefManagerSearchProcessListController controller = (ChiefManagerSearchProcessListController) replaceSceneContent(
 						"/view/chiefmanager/ChiefManagerSearchProcessList.fxml");
+			controller.setBillType(billType);	
 			controller.showProcessTable(vo);
 			break;
 		}

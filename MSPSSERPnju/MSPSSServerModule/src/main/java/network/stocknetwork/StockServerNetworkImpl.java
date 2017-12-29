@@ -7,12 +7,13 @@ import po.StockPO;
 import util.ResultMessage;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/24.
  */
-public class StockServerNetworkImpl implements StockServerNetworkService {
+public class StockServerNetworkImpl  extends UnicastRemoteObject implements StockServerNetworkService {
     private StockDataService stockDataService;
 
     public StockServerNetworkImpl() throws RemoteException {

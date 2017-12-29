@@ -15,17 +15,7 @@
           <property name="parentID" column ="parent_id" type="string"></property>
           <property name="LeafNode" column ="leaf_node" type="boolean"></property>
 
-          <list name="childrenID" table="classification_children_po" cascade="all">
-              <key column="classification_id"></key>
-              <index column="index_" type="int"></index>
-              <one-to-many class="po.Classification_Children_PO"></one-to-many>
-          </list>
 
-          <list name="commodityIDs" table="classification_commodity_po" cascade="all">
-              <key column="classification_id"></key>
-              <index column="index_" type="int"></index>
-              <one-to-many class="po.Classification_Commodity_PO"></one-to-many>
-          </list>
       </class>
 
 </hibernate-mapping>

@@ -1,10 +1,12 @@
 package util;
 
+import java.io.Serializable;
+
 /**
  * Description:
  * Created by Hanxinhu at 20:27 2017/11/27/027
  */
-public enum BillStatus {
+public enum BillStatus implements Serializable {
     /**
      * 草稿状态
      */

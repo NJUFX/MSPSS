@@ -4,13 +4,14 @@ import com.sun.org.apache.regexp.internal.RE;
 import po.*;
 import util.*;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/24.
  */
-public interface BillServerNetworkService {
+public interface BillServerNetworkService extends Remote {
     /**
      * 添加库存类单据 用于点击保存时
      * @param stockBillPO

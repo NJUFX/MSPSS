@@ -1,10 +1,12 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * Description:
  * Created by Hanxinhu at 16:54 2017/12/25/025
  */
-public class AlarmBillPO {
+public class AlarmBillPO implements Serializable{
     /**
      * 库存报警单的ID
      * 为了统一格式 也做出 KCBJD-20171225-00001
