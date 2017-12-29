@@ -54,7 +54,7 @@ public class CustomerPO  implements Serializable{
      * 应付
      */
     private double paymoney;
-    //fixme 新在客户里增加了用来记录客户拥有的代金券数额
+
     /**
      * 拥有的代金券数额
      */
@@ -200,6 +200,14 @@ public class CustomerPO  implements Serializable{
 
     public void setAccountID(String accountID) {
         this.accountID = accountID;
+    }
+
+    public int getVoucher() {
+        return voucher;
+    }
+
+    public void setVoucher(int voucher) {
+        this.voucher = voucher;
     }
 }
 

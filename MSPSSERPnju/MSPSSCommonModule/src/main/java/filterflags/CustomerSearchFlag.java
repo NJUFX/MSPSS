@@ -14,7 +14,7 @@ public enum CustomerSearchFlag {
      */
     NAME("name"),
     /**
-     *客户登记
+     *客户等级
      */
     LEVEL("level"),
     /**

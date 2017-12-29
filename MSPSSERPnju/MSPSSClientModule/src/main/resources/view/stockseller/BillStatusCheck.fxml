@@ -13,7 +13,7 @@
 <?import java.util.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0"
-      prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131"
+      prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.BillStatusCheckViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
@@ -124,7 +124,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <TableView fx:id="tableTableView" layoutX="210.0" layoutY="100.0" prefHeight="366.0" prefWidth="625.0">
+        <TableView fx:id="tableTableView" layoutX="210.0" layoutY="110.0" prefHeight="366.0" prefWidth="625.0">
             <columns>
                 <TableColumn fx:id="SerialCol" prefWidth="25.0" sortable="false" text=" "/>
                 <TableColumn fx:id="IdCol" prefWidth="150.0" text="单据编号"/>
@@ -133,5 +133,40 @@
                 <TableColumn fx:id="OperationCol" prefWidth="150.0" sortable="false" text="操作"/>
             </columns>
         </TableView>
+        <ComboBox fx:id="typeScreenBox" onAction="#screenBoxAction" layoutX="622.0" layoutY="63.0" prefHeight="23.0"
+                  prefWidth="80.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="全部单据"/>
+                    <String fx:value="进货单"/>
+                    <String fx:value="进货退货单"/>
+                    <String fx:value="销售单"/>
+                    <String fx:value="销售退货单"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="statusScreenBox" onAction="#screenBoxAction" layoutX="750.0" layoutY="63.0"
+                  prefHeight="23.0" prefWidth="80.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="全部状态"/>
+                    <String fx:value="已保存"/>
+                    <String fx:value="已提交"/>
+                    <String fx:value="已审批"/>
+                    <String fx:value="审批通过"/>
+                    <String fx:value="审批未通过"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label layoutX="715.0" layoutY="62.0" prefHeight="22.0" prefWidth="31.0" text="状态" textFill="#0f88eb">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label layoutX="555.0" layoutY="62.0" prefHeight="22.0" prefWidth="62.0" text="单据类型" textFill="#0f88eb">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
     </children>
 </Pane>

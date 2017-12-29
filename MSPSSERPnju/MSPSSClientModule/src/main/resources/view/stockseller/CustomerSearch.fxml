@@ -141,12 +141,14 @@
         </Button>
         <Pane layoutX="159.0" layoutY="160.0" prefHeight="226.0" prefWidth="695.0">
             <children>
-                <TextField layoutX="203.0" layoutY="130.0" prefHeight="40.0" prefWidth="293.0" promptText="关键词/编号">
+                <TextField fx:id="keywordField" layoutX="203.0" layoutY="130.0" prefHeight="40.0" prefWidth="293.0"
+                           promptText="关键词/编号">
                     <font>
                         <Font size="14.0"/>
                     </font>
                 </TextField>
-                <ComboBox layoutX="100.0" layoutY="130.0" prefHeight="40.0" prefWidth="102.0" promptText="关键词类型">
+                <ComboBox fx:id="keyTypeBox" layoutX="100.0" layoutY="130.0" prefHeight="40.0" prefWidth="102.0"
+                          promptText="关键词类型">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="姓名"/>

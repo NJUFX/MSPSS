@@ -43,6 +43,8 @@
       <mapping resource="CustomerPromotionPO.hbm.xml"></mapping>
       <mapping resource="AlarmBillPO.hbm.xml"></mapping>
       <mapping resource="StockPO.hbm.xml"></mapping>
+      <mapping resource="CommodityStockPO.hbm.xml"></mapping>
+      <mapping resource="GroupPromotionPO.hbm.xml"></mapping>
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

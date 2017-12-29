@@ -37,7 +37,7 @@ public class PresentationCreateViewController implements Initializable {
     @FXML
     Button BackToLogin;
     @FXML
-    Button cancelButton;
+    Button cancelButton, sureButton, saveButton;
     @FXML
     TableView<Presentation> presentationTable;
     @FXML
@@ -71,6 +71,16 @@ public class PresentationCreateViewController implements Initializable {
         TotalCol.setCellValueFactory(new PropertyValueFactory<>("Total"));
         RemarkCol.setCellValueFactory(new PropertyValueFactory<>("Remark"));
         IsSelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
+    }
+
+    @FXML
+    public void saveButtonAction() {
+
+    }
+
+    @FXML
+    public void sureButtonAction() {
+
     }
 
     @FXML

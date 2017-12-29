@@ -4,8 +4,10 @@ import blimpl.accountblimpl.AccountFactory;
 import blimpl.billblimpl.BillFactory;
 import blimpl.commodityblimpl.CommodityBLFactory;
 import blimpl.customerblimpl.CustomerBLFactory;
+import blimpl.generalaccountblimpl.GeneralAccountBLFactory;
 import blimpl.logblimpl.LogFactory;
 import blimpl.promotionblimpl.PromotionBLFactory;
+import blimpl.tableblimpl.TableBLFactory;
 import blimpl.userblimpl.UserBLFactory;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.accountblservice.AccountBLService;
@@ -89,7 +91,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public GeneralAccountBLService getGeneralAccountBLServiceStub() {
-        return null;
+        return GeneralAccountBLFactory.getGeneralAccountBLService();
     }
 
     @Override
@@ -200,7 +202,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public TableBLService getTableBLService() {
-        return null;
+        return TableBLFactory.getTableBLService();
     }
 
     @Override

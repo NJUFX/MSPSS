@@ -1,6 +1,8 @@
 package ui.stocksellerui;
 
 import auxiliary.BillCheckTable;
+import auxiliary.SalesInBill;
+import auxiliary.SalesOutBill;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,8 +20,10 @@ import ui.adminui.LoginController;
 import util.BillStatus;
 import util.SalesInBillType;
 import util.SalesOutBillType;
+import util.SalesInBillType;
 import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
+import vo.StockBillVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -200,7 +204,6 @@ public class BillStatusCheckViewController implements Initializable {
 
     public void addSalesBillRow() {
         ArrayList<SalesOutBillVO> list = new ArrayList<>();
-
         list.add(new SalesOutBillVO("XSD01", SalesOutBillType.OUT, BillStatus.rejected));
         list.add(new SalesOutBillVO("XSTHD01", SalesOutBillType.RETURN, BillStatus.rejected));
 

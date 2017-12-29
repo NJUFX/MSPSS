@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.SalesTableBill;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,12 +15,16 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.SaleTableVO;
+import vo.SalesItemVO;
+import vo.SalesOutBillVO;
 
 public class ChiefManagerSearchSalesListController implements Initializable{
 	@FXML
@@ -37,6 +43,8 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	TableView SalesTable;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -164,6 +172,22 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 		stage.setScene(scene);
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
+	}
+	
+	/**
+	 * 显示销售明细表
+	 * @param vo
+	 */
+	public void ShowSalesList(SaleTableVO vo) {
+		ObservableList data = SalesTable.getItems();
+		for(int i=0;i<vo.getSalesOutBills().size();i++) {
+			SalesOutBillVO tempBill = vo.getSalesOutBills().get(i);
+			String time = tempBill.getInit_time().toString();
+			for(int j=0;j<tempBill.getItemVOS().size();j++) {
+				SalesItemVO item = tempBill.getItemVOS().get(j);
+				data.add(new SalesTableBill(time,item.getName(),item.getType(),Integer.toString(item.getNumber()),Double.toString(item.getPrice()),item.getTotal()));
+			}
+		}
 	}
 
 }

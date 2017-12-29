@@ -69,8 +69,8 @@
                 <Font name="Microsoft YaHei" size="22.0"/>
             </font>
         </Label>
-        <Button id="cancelButton" fx:id="cancelButton" layoutX="611.0" layoutY="510.0" mnemonicParsing="false"
-                onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0"
+        <Button id="cancelButton" fx:id="cancelButton" layoutX="486.0" layoutY="509.0" mnemonicParsing="false"
+                onAction="#cancelButtonAction" prefHeight="17.0" prefWidth="94.0"
                 stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
             <font>
                 <Font name="Microsoft YaHei" size="16.0"/>
@@ -78,7 +78,14 @@
         </Button>
         <Button id="sureButton" fx:id="sureButton" layoutX="752.0" layoutY="510.0" mnemonicParsing="false"
                 onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0"
-                stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+                stylesheets="@../../css/admin/addUser.css" text="提交" textFill="WHITE">
+            <font>
+                <Font name="Microsoft YaHei" size="16.0"/>
+            </font>
+        </Button>
+        <Button id="sureButton" fx:id="saveButton" layoutX="620.0" layoutY="510.0" mnemonicParsing="false"
+                onAction="#saveButtonAction" prefHeight="30.0" prefWidth="94.0"
+                stylesheets="@../../css/admin/addUser.css" text="保存" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0"/>
             </font>

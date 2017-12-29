@@ -11,14 +11,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.BusinessTableVO;
 
 public class ChiefManagerSearchManageListController implements Initializable{
 	@FXML
@@ -37,6 +43,18 @@ public class ChiefManagerSearchManageListController implements Initializable{
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	TextField SalesIncome;
+	@FXML
+	TextField CommodityIncome;
+	@FXML
+	TextField SalesCost;
+	@FXML
+	TextField CommodityCost;
+	@FXML
+	TextField TotalCost;
+	@FXML
+	TextField Profit;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
@@ -51,14 +69,6 @@ public class ChiefManagerSearchManageListController implements Initializable{
 	public void setApp(MainApp application) {
 		this.application = application;
 	}
-	
-	/*
-	public void SetTags(String name,String Role,String id) {
-		NameTag.setText(name);
-		RoleTag.setText(Role);
-		IdTag.setText(id);
-	}
-	*/
 
 	
 	/**
@@ -165,5 +175,24 @@ public class ChiefManagerSearchManageListController implements Initializable{
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
 	}
+	
+	
+	/**
+	 * 显示经营情况表
+	 * 
+	 * @param vo
+	 * @throws Exception
+	 */
+	public void showManageTable(BusinessTableVO vo) throws Exception{
+		SalesIncome.setText(Double.toString(vo.getSalesIncome()));
+		CommodityIncome.setText(Double.toString(vo.getCommodityIncome()));
+		SalesCost.setText(Double.toString(vo.getSalesCost()));
+		CommodityCost.setText(Double.toString(vo.getCommodityCost()));
+		double totalCost = vo.getCommodityCost()+vo.getSalesCost();
+		double profit = vo.getCommodityIncome()+vo.getSalesIncome()-totalCost;
+		TotalCost.setText(Double.toString(totalCost));
+		Profit.setText(Double.toString(profit));
 
+	}
+	
 }
