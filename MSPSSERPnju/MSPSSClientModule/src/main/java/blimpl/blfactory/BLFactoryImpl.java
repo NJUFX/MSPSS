@@ -19,6 +19,7 @@ import blservice.generalaccountblservice.GeneralAccountBLService;
 import blservice.logblservice.LogBLInfo;
 import blservice.logblservice.LogBLService;
 import blservice.mainblservice.MainBLService;
+import blservice.promotionblservice.PromotionBLInfo;
 import blservice.promotionblservice.PromotionBLService;
 import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
@@ -200,6 +201,11 @@ public class BLFactoryImpl implements BLFactoryService {
     @Override
     public TableBLService getTableBLService() {
         return null;
+    }
+
+    @Override
+    public PromotionBLInfo getPromotionBLInfo() {
+        return PromotionBLFactory.getPromotionInfo();
     }
 
     @Override
