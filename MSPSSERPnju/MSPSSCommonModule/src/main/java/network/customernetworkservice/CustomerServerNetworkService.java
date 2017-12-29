@@ -3,13 +3,14 @@ package network.customernetworkservice;
 import po.CustomerPO;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/14.
  */
-public interface CustomerServerNetworkService {
+public interface CustomerServerNetworkService extends Remote{
     public ResultMessage addCustomer(CustomerPO po) throws RemoteException;
 
     public ResultMessage updateCustomer(CustomerPO po) throws RemoteException;

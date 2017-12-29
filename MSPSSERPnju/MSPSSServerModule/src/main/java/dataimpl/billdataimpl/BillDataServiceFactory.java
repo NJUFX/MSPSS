@@ -13,7 +13,7 @@ public class BillDataServiceFactory {
 
     public static synchronized BillDataServiceImpl getBillDataService(){
         if(billDataService==null){
-            billDataService = new BillDataServiceImpl(new HibernateHelper<StockBillPO>(),new HibernateHelper<CashCostBillPO>(),new HibernateHelper<FinanceBillPO>(),new HibernateHelper<SalesInBillPO>(),new HibernateHelper<SalesOutBillPO>());
+            billDataService = new BillDataServiceImpl(new HibernateHelper<StockBillPO>(),new HibernateHelper<CashCostBillPO>(),new HibernateHelper<FinanceBillPO>(),new HibernateHelper<SalesInBillPO>(),new HibernateHelper<SalesOutBillPO>(),new HibernateHelper<AlarmBillPO>());
         }
         return billDataService;
     }

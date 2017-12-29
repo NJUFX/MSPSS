@@ -180,7 +180,7 @@ public class BLFactoryImpl implements BLFactoryService {
     }
 
     @Override
-    public PromotionBLService getPromotionBLService() {
+    public  PromotionBLService getPromotionBLService() {
         return PromotionBLFactory.getPromotionBLServiceStub();
     }
 

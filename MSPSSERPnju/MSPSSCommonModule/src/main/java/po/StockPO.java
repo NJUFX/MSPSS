@@ -83,4 +83,12 @@ public class StockPO implements Serializable{
     public StockInfo getInOrOut() {
         return inOrOut;
     }
+
+    public String getKeycolumn() {
+        return keycolumn;
+    }
+
+    public void setKeycolumn(String keycolumn) {
+        this.keycolumn = keycolumn;
+    }
 }

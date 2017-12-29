@@ -3,13 +3,14 @@ package network;
 import po.*;
 import util.*;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 /**
  * Description:
  * Created by Hanxinhu at 14:06 2017/11/30/030
  */
-public interface BillClientNetworkService {
+public interface BillClientNetworkService extends Remote {
     /**
      * 添加库存类单据 用于点击保存时
      * @param stockBillPO

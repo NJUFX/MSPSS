@@ -3,6 +3,7 @@ package network;
 import po.StockPO;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -10,7 +11,7 @@ import java.util.Iterator;
  * Description:
  * Created by Hanxinhu at 14:08 2017/11/30/030
  */
-public interface StockClientNetworkService {
+public interface StockClientNetworkService extends Remote{
     /**
      * 得到需要时间范围内的进出库信息
      *

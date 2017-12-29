@@ -4,13 +4,14 @@ import po.ClassificationPO;
 import po.CommodityPO;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/14.
  */
-public interface CommodityServerNetworkService {
+public interface CommodityServerNetworkService extends Remote{
 
     /**
      * 添加商品

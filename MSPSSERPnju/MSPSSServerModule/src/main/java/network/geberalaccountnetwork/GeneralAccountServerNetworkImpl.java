@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by thinkpad on 2017/12/14.
  */
-public class GeneralAccountServerNetworkImpl implements GeneralAccountServerNeworkService{
+public class GeneralAccountServerNetworkImpl extends UnicastRemoteObject implements GeneralAccountServerNeworkService{
     private GeneralAccountDataService generalAccountDataService;
 
     public GeneralAccountServerNetworkImpl()throws RemoteException{

@@ -7,12 +7,13 @@ import po.*;
 import util.*;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/25.
  */
-public class BillServerNetworkImpl implements BillServerNetworkService {
+public class BillServerNetworkImpl  extends UnicastRemoteObject implements BillServerNetworkService {
     private BillDataService billDataService;
 
     public BillServerNetworkImpl() throws RemoteException {

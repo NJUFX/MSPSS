@@ -1,9 +1,11 @@
 package util;
 
+import java.io.Serializable;
+
 /**
  * created by hanxinhu at 2017/12/20
  */
-public enum Kind_Of_Users {
+public enum Kind_Of_Users implements Serializable {
     SystemManager,
 
     StockManager,

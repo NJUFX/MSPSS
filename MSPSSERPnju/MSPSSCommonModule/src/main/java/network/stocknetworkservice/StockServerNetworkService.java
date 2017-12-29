@@ -3,13 +3,14 @@ package network.stocknetworkservice;
 import po.StockPO;
 import util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by thinkpad on 2017/12/24.
  */
-public interface StockServerNetworkService {
+public interface StockServerNetworkService extends Remote {
     /**
      * 得到需要时间范围内的进出库信息
      *
