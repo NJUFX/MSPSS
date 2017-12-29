@@ -135,7 +135,7 @@ public class PurcRetCreateViewController  implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 730.0);
+        Scene scene = new Scene(page, 900, 700.0);
 
         stage.setScene(scene);
         stage.setResizable(false);

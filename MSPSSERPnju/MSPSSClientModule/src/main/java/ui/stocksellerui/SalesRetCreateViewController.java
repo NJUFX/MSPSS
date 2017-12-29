@@ -135,7 +135,7 @@ public class SalesRetCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 730.00);
+        Scene scene = new Scene(page, 900, 700.00);
 
         stage.setScene(scene);
         stage.setResizable(false);

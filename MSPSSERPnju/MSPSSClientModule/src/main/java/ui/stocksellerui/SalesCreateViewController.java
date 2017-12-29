@@ -35,7 +35,25 @@ public class SalesCreateViewController implements Initializable {
     @FXML
     Button BackToLogin;
     @FXML
-    Button cancelButton;
+    Button cancelButton, sureButton, saveButton, chooseCommodityButton;
+
+
+    public void numberFieldAction(ActionEvent e) {
+
+    }
+
+    public void chooseCommodityButtonAction(ActionEvent e) {
+
+    }
+
+    public void delRowButtonAction(ActionEvent e) {
+
+    }
+
+    public void addRowButtonAction(ActionEvent e) {
+
+    }
+
     /**
      * 返回上一界面
      *
@@ -52,6 +70,7 @@ public class SalesCreateViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回登录界面
      *
@@ -137,12 +156,13 @@ public class SalesCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900.0, 730);
+        Scene scene = new Scene(page, 900.0, 700);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setResizable(false);
         return (Initializable) loader.getController();
     }
+
     private Initializable replaceSceneContent2(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         InputStream in = MainApp.class.getResourceAsStream(fxml);
@@ -162,6 +182,7 @@ public class SalesCreateViewController implements Initializable {
         stage.setResizable(false);
         return (Initializable) loader.getController();
     }
+
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
 

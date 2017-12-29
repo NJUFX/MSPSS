@@ -169,7 +169,7 @@ public class BillCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 730);
+        Scene scene = new Scene(page, 900, 700);
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setResizable(false);
