@@ -71,7 +71,7 @@ public class SalesOutBillPO implements Serializable {
     /**
      * 折让
      */
-    private int allowance;
+    private double allowance;
     /**
      * 使用的代金券金额
      */
@@ -98,7 +98,7 @@ public class SalesOutBillPO implements Serializable {
     public SalesOutBillPO() {
     }
 
-    public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String init_time, String commit_time, String approval_time, String ps, int allowance, int voucher, int present_vocher, double sumBeforeDiscount, double sumAfterDiscount, List<SalesItemPO> salesItemPOS) {
+    public SalesOutBillPO(String ID, int type, String customerID, String DAE, String operatorID, String managerID, int status, String storage, String init_time, String commit_time, String approval_time, String ps, double allowance, int voucher, int present_vocher, double sumBeforeDiscount, double sumAfterDiscount, List<SalesItemPO> salesItemPOS) {
         this.ID = ID;
         this.type = type;
         this.customerID = customerID;
@@ -217,11 +217,11 @@ public class SalesOutBillPO implements Serializable {
         this.ps = ps;
     }
 
-    public int getAllowance() {
+    public double getAllowance() {
         return allowance;
     }
 
-    public void setAllowance(int allowance) {
+    public void setAllowance(double allowance) {
         this.allowance = allowance;
     }
 
