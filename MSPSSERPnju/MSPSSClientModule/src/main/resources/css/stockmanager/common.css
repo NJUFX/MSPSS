@@ -1,0 +1,14 @@
+#classificationButton.button {
+    -fx-background-color: #FFFFFF;
+    -fx-underline: false;
+}
+
+#classificationButton.button:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-underline: true;
+}
+
+#classificationButton.button:pressed {
+    -fx-background-color: #c1c1c1;
+    -fx-underline: true;
+}
