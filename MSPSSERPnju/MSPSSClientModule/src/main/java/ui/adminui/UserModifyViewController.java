@@ -53,10 +53,10 @@ public class UserModifyViewController implements Initializable {
      * 身份的下拉框
      */
     @FXML
-    public ComboBox<String> userCategory, userLevel;
+    public ComboBox<String> userLevel;
 
     @FXML
-    Label nameLabel, cateLabel, idLabel;
+    Label nameLabel, cateLabel, idLabel, userCategory;
     @FXML
     Button searchUserButton;
 
@@ -70,40 +70,25 @@ public class UserModifyViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 用户id
      */
     @FXML
     public Label userId, userName;
 
-    @FXML
-    public void userCategoryAction(ActionEvent e) {
-        ObservableList<String> options = FXCollections.observableArrayList();
-        userLevel.setItems(options);
-        if (userCategory.getValue().equals("进货销售人员")) {
-            userLevel.getItems().add("普通职员");
-            userLevel.getItems().add("销售经理");
-        } else if (userCategory.getValue().equals("财务人员")) {
-            userLevel.getItems().add("普通职员");
-            userLevel.getItems().add("财务经理");
-        } else {
-            userLevel.setVisible(false);
-        }
-        //userLevel.getItems().add("");
-    }
-
     /**
      * @param e
      */
     @FXML
     public void sureButtonAction(ActionEvent e) {
-        if (userCategory.getValue() == null) {
+        if (userCategory.getText() == null) {
             dialog.errorInfoDialog("Something null, please check your input.");
         } else {
             boolean isSure = dialog.confirmDialog("Do you confirm to add this user?");
             if (isSure == true) {
                 Kind_Of_Users kind_of_users = Kind_Of_Users.SystemManager;
-                switch (userCategory.getValue()) {
+                switch (userCategory.getText()) {
                     case "库存管理人员":
                         kind_of_users = Kind_Of_Users.StockManager;
                         break;
@@ -230,6 +215,22 @@ public class UserModifyViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+
+    public String getCategory(UserVO currentUser) {
+        if (currentUser.getCategory() == Kind_Of_Users.ChiefManager) {
+            return "总经理";
+        } else if (currentUser.getCategory() == Kind_Of_Users.Financer || currentUser.getCategory() == Kind_Of_Users.FinancerManager) {
+            return "财务人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.StockManager) {
+            return "库存管理人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.StockSeller || currentUser.getCategory() == Kind_Of_Users.StockSellerManager) {
+            return "进货销售人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.SystemManager) {
+            return "系统管理员";
+        }
+        return "";
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
@@ -240,6 +241,18 @@ public class UserModifyViewController implements Initializable {
         user_to_modify = userBLService.searchUserByID(id_to_modify);
         userId.setText(user_to_modify.getID());
         userName.setText(user_to_modify.getName());
-        // userCategory.setValue();
+        userCategory.setText(getCategory(user_to_modify));
+
+        ObservableList<String> options = FXCollections.observableArrayList();
+        userLevel.setItems(options);
+        if (userCategory.getText().equals("进货销售人员")) {
+            userLevel.getItems().add("普通职员");
+            userLevel.getItems().add("销售经理");
+        } else if (userCategory.getText().equals("财务人员")) {
+            userLevel.getItems().add("普通职员");
+            userLevel.getItems().add("财务经理");
+        } else {
+            userLevel.setVisible(false);
+        }
     }
 }

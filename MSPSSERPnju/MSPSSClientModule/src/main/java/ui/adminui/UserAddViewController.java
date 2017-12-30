@@ -88,7 +88,7 @@ public class UserAddViewController implements Initializable {
             userLevel.getItems().add("财务经理");
         } else {
             userLevel.setVisible(false);
-            userLevelLabel.setVisible(false);
+            //userLevelLabel.setVisible(false);
         }
         //userLevel.getItems().add("");
     }

@@ -12,69 +12,50 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0"
-      prefWidth="310.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ui.adminui.UserInfoModifyViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminui.UserInfoModifyViewController">
     <children>
-        <Label layoutX="79.0" layoutY="173.0" text="身份">
+        <Label layoutX="62.0" layoutY="161.0" text="身份">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Label>
-        <Label layoutX="79.0" layoutY="219.0" text="权限">
+        <Label layoutX="62.0" layoutY="207.0" text="权限">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Label>
-        <Label layoutX="79.0" layoutY="84.0" text="编号">
+        <Label layoutX="62.0" layoutY="72.0" text="编号">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Label>
-        <ImageView fitHeight="205.0" fitWidth="50.0" layoutX="119.0" layoutY="67.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <image>
-                <Image url="@../../image/stockseller/分隔线.png"/>
-            </image>
-        </ImageView>
-        <Label layoutX="79.0" layoutY="128.0" text="姓名">
+        <Label layoutX="62.0" layoutY="116.0" text="姓名">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Label>
-        <Label layoutX="108.0" layoutY="31.0" text="编辑属性" textFill="#0f88eb">
+        <Label layoutX="93.0" layoutY="26.0" text="编辑属性" textFill="#0f88eb">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="sureButton" layoutX="168.0" layoutY="276.0" mnemonicParsing="false" onAction="#sureButtonAction"
-                prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/stockseller/common.css" text="确定"
-                textFill="WHITE"/>
-        <Button id="cancelButton" fx:id="cancelButton" layoutX="81.0" layoutY="276.0" mnemonicParsing="false"
-                onAction="#cancelButtonAction" prefHeight="25.0" prefWidth="60.0"
-                stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb"/>
-        <Label fx:id="idLabel" layoutX="181.0" layoutY="84.0" prefHeight="22.0" prefWidth="94.0" text="id">
+        <Button fx:id="sureButton" layoutX="142.0" layoutY="264.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/stockseller/common.css" text="确定" textFill="WHITE" />
+        <Button id="cancelButton" fx:id="cancelButton" layoutX="63.0" layoutY="264.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb" />
+        <Label fx:id="idLabel" layoutX="148.0" layoutY="72.0" prefHeight="22.0" prefWidth="94.0" text="id">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="nameLabel" layoutX="181.0" layoutY="128.0" prefHeight="22.0" prefWidth="94.0" text="name">
+        <Label fx:id="nameLabel" layoutX="148.0" layoutY="116.0" prefHeight="22.0" prefWidth="94.0" text="name">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <ComboBox fx:id="categoryBox" onAction="#categoryBoxAction" layoutX="169.0" layoutY="173.0" prefHeight="22.0"
-                  prefWidth="94.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="总经理"/>
-                    <String fx:value="进货销售人员"/>
-                    <String fx:value="库存管理人员"/>
-                    <String fx:value="财务人员"/>
-                    <String fx:value="系统管理员"/>
-                </FXCollections>
-            </items>
-        </ComboBox>
-        <ComboBox fx:id="powerBox" layoutX="168.0" layoutY="219.0" prefHeight="22.0" prefWidth="94.0"/>
+        <ComboBox fx:id="powerBox" layoutX="135.0" layoutY="207.0" prefHeight="22.0" prefWidth="94.0" />
+      <Label fx:id="categoryBox" layoutX="148.0" layoutY="161.0" prefHeight="22.0" prefWidth="94.0" text="category">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
     </children>
 </Pane>

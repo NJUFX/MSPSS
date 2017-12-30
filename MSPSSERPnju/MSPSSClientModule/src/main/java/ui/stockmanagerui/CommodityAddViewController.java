@@ -56,6 +56,7 @@ public class CommodityAddViewController implements Initializable {
     @FXML
     ComboBox<String> classificationBox;
 
+    /*
     ArrayList<ClassificationVO> list = commodityBLService.getRootClassifications();
 
     public void showClassificationBox(ArrayList<ClassificationVO> list) {
@@ -69,7 +70,7 @@ public class CommodityAddViewController implements Initializable {
             }
         }
 
-    }
+    }*/
 
     public void sureButtonAction(ActionEvent e) {
         CommodityVO commodityVO = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationBox.getValue(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
@@ -204,7 +205,7 @@ public class CommodityAddViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        showClassificationBox(list);
+        //showClassificationBox(list);
     }
 
 }

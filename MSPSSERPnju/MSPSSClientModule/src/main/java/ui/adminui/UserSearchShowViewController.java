@@ -150,6 +150,7 @@ public class UserSearchShowViewController implements Initializable {
                     UserInfoModifyViewController controller = (UserInfoModifyViewController) replaceAnotherSceneContent("/view/admin/UserInfoModifyView.fxml", 310, 355);
                     controller.idLabel.setText(data.get(i).getId());
                     controller.nameLabel.setText(data.get(i).getName());
+                    controller.categoryBox.setText(getCategory(userBLService.searchUserByID(data.get(i).getId())));
                 } catch (Exception e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
@@ -240,6 +241,21 @@ public class UserSearchShowViewController implements Initializable {
         stage.sizeToScene();
         stage.setResizable(false);
         return (Initializable) loader.getController();
+    }
+
+    public String getCategory(UserVO currentUser) {
+        if (currentUser.getCategory() == Kind_Of_Users.ChiefManager) {
+            return "总经理";
+        } else if (currentUser.getCategory() == Kind_Of_Users.Financer || currentUser.getCategory() == Kind_Of_Users.FinancerManager) {
+            return "财务人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.StockManager) {
+            return "库存管理人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.StockSeller || currentUser.getCategory() == Kind_Of_Users.StockSellerManager) {
+            return "进货销售人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.SystemManager) {
+            return "系统管理员";
+        }
+        return "";
     }
 
     /**

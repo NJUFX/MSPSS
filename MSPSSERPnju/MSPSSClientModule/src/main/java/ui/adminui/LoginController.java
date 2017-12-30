@@ -72,7 +72,7 @@ public class LoginController implements Initializable {
 
     @FXML
     public void loginButtonAction(ActionEvent e) {
-        if (idText.getText() != null && passwordField.getText() != null) {
+        if (idText.getText() != null && !idText.getText().trim().equals("") && passwordField.getText() != null && !passwordField.getText().trim().equals("")) {
             String id = idText.getText();
             String password = passwordField.getText();
             //currentUser = userBLService.searchUserByID(id);
@@ -92,24 +92,25 @@ public class LoginController implements Initializable {
     public void userLogin(String id, String password) {
         // 判断id是否在系统里
         // 判断密码是否正确
-        Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Logout_Sucess.Login_Sucess;//mainBLService.login(id, password);
+        Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;//mainBLService.login(id, password);
         if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
-            switch (id.substring(0, 2)) {
-                case "SY":
-                    toAdminMain();
-                    break;
-                case "SM":
-                    toStockManagerMain();
-                    break;
-                case "FM":
-                    toFinanceManagerMain();
-                    break;
-                case "SS":
-                    toStockSellerMain();
-                    break;
-                case "CM":
-                    toChiefManagerMain();
-                    break;
+            if (id.equals("admin") && password.equals("admin")) {
+                toAdminMain();
+            } else {
+                switch (id.substring(0, 2)) {
+                    case "SM":
+                        toStockManagerMain();
+                        break;
+                    case "FM":
+                        toFinanceManagerMain();
+                        break;
+                    case "SS":
+                        toStockSellerMain();
+                        break;
+                    case "CM":
+                        toChiefManagerMain();
+                        break;
+                }
             }
             // currentUser = userBLService.searchUserByID(id);
             dialog.infoDialog("Login Successfully.");

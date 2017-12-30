@@ -45,18 +45,17 @@ public class CustomerAddViewController implements Initializable {
     @FXML
     Button searchCustomerButton;
     @FXML
-    Button cancelButtonl;
+    Button cancelButton;
     @FXML
     Button BackToLogin, sureButton;
 
     @FXML
-    TextField nameField, phoneField, addressField, postcodeField, emailField, inValueField,
-            incomemoneyField, paymoneyField;
+    TextField nameField, phoneField, addressField, postcodeField, emailField, inValueField;
     @FXML
     ComboBox<String> categoryBox, levelBox;
 
     @FXML
-    Label idLabel, workerLabel;
+    Label idLabel, workerLabel,incomemoneyField, paymoneyField;
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
