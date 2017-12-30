@@ -36,16 +36,25 @@ import blservice.userblservice.UserBLService;
 public class LoginController implements Initializable {
     Dialog dialog = new Dialog();
     Stage stage = StageSingleton.getStage();
+    Stage newStage = new Stage();
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
     static UserVO currentUser = new UserVO("00001", "测试", Kind_Of_Users.FinancerManager, "00001");
 
     @FXML
-    public Button loginButton;
+    public Button loginButton, modPasswordButton;
     @FXML
     public TextField idText;
     @FXML
     public PasswordField passwordField;
+
+    public void modPasswordButtonAction(ActionEvent e) {
+        try {
+            ModifyPasswordViewController controller = (ModifyPasswordViewController) replaceAnotherSceneContent("/view/admin/ModifyPassword.fxml", 296, 332,"修改密码");
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
 
     public static String getCategory() {
         if (currentUser.getCategory() == Kind_Of_Users.ChiefManager) {
@@ -210,6 +219,26 @@ public class LoginController implements Initializable {
         stage.setScene(scene);
         stage.sizeToScene();
         stage.setResizable(false);
+        return (Initializable) loader.getController();
+    }
+
+    private Initializable replaceAnotherSceneContent(String fxml, double width, double height, String title) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, width, height);
+        newStage.setScene(scene);
+        newStage.setTitle(title);
+        newStage.sizeToScene();
+        newStage.setResizable(false);
+        newStage.show();
         return (Initializable) loader.getController();
     }
 

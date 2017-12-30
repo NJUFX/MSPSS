@@ -5,3 +5,11 @@
 .button {
     -fx-background-color: #0F88eb;
 }
+
+#modPasswordButton.button{
+    -fx-background-color: #000723;
+}
+
+#modPasswordButton.button:hover{
+    -fx-underline: true;
+}

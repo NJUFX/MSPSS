@@ -73,7 +73,6 @@ public class AddCommodityViewController implements Initializable {
             errorLabel.setVisible(true);
         }
     }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         errorLabel.setVisible(false);
