@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
 
     public void modPasswordButtonAction(ActionEvent e) {
         try {
-            ModifyPasswordViewController controller = (ModifyPasswordViewController) replaceAnotherSceneContent("/view/admin/ModifyPassword.fxml", 296, 332,"修改密码");
+            ModifyPasswordViewController controller = (ModifyPasswordViewController) replaceAnotherSceneContent("/view/admin/ModifyPassword.fxml", 296, 332, "修改密码");
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -101,9 +101,9 @@ public class LoginController implements Initializable {
     public void userLogin(String id, String password) {
         // 判断id是否在系统里
         // 判断密码是否正确
-        Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;//mainBLService.login(id, password);
+        Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
         if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
-            if (id.equals("admin") && password.equals("admin")) {
+            if (id.equals("admin")) {
                 toAdminMain();
             } else {
                 switch (id.substring(0, 2)) {
@@ -121,7 +121,7 @@ public class LoginController implements Initializable {
                         break;
                 }
             }
-            // currentUser = userBLService.searchUserByID(id);
+            currentUser = userBLService.searchUserByID(id);
             dialog.infoDialog("Login Successfully.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_IdNotExist) {
             dialog.errorInfoDialog("Id not exist, please check your input.");
