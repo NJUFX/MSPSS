@@ -101,28 +101,45 @@ public class LoginController implements Initializable {
     public void userLogin(String id, String password) {
         // 判断id是否在系统里
         // 判断密码是否正确
-        Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
+        Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;//mainBLService.login(id, password);
         if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
             if (id.equals("admin")) {
                 toAdminMain();
+                currentUser = userBLService.searchUserByID(id);
+                dialog.infoDialog("Login Successfully.");
             } else {
-                switch (id.substring(0, 2)) {
-                    case "SM":
-                        toStockManagerMain();
-                        break;
-                    case "FM":
-                        toFinanceManagerMain();
-                        break;
-                    case "SS":
-                        toStockSellerMain();
-                        break;
-                    case "CM":
-                        toChiefManagerMain();
-                        break;
+                if (id.length() < 2) {
+                    dialog.errorInfoDialog("Id is wrong, please check your input.");
+                } else {
+                    boolean b = false;
+                    switch (id.substring(0, 2).toUpperCase()) {
+                        case "SM":
+                            b = true;
+                            toStockManagerMain();
+                            break;
+                        case "FM":
+                            b = true;
+                            toFinanceManagerMain();
+                            break;
+                        case "SS":
+                            b = true;
+                            toStockSellerMain();
+                            break;
+                        case "CM":
+                            b = true;
+                            toChiefManagerMain();
+                            break;
+                        default:
+                            b = false;
+                            dialog.errorInfoDialog("Id is wrong, please check your input.");
+                            break;
+                    }
+                    if (b == true) {
+                        currentUser = userBLService.searchUserByID(id);
+                        dialog.infoDialog("Login Successfully.");
+                    }
                 }
             }
-            currentUser = userBLService.searchUserByID(id);
-            dialog.infoDialog("Login Successfully.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_IdNotExist) {
             dialog.errorInfoDialog("Id not exist, please check your input.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_PasswordWrong) {
@@ -150,6 +167,7 @@ public class LoginController implements Initializable {
             StockSellerMainViewController main = (StockSellerMainViewController) replaceSceneContent(
                     "/view/stockseller/Main.fxml");
             // main.setApp(this);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@ import auxiliary.CommodityTable;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
+import blservice.mainblservice.MainBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +18,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 import vo.CommodityVO;
 import vo.FilterFlagVO;
 import vo.UserVO;
@@ -35,6 +38,7 @@ import java.util.ResourceBundle;
 public class CommoditySearchShowViewController implements Initializable {
     public CommodityTable OperateCommodity = new CommodityTable();
     Stage stage = StageSingleton.getStage();
+    Dialog dialog = new Dialog();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     static ArrayList<CommodityVO> arrayList = new ArrayList<>();
@@ -250,8 +254,15 @@ public class CommoditySearchShowViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent(
-                    "/view/admin/Login.fxml");
+            MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idOfCurrentUser.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

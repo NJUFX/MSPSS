@@ -1,5 +1,7 @@
 package ui.adminui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.mainblservice.MainBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.common.Dialog;
 
 import java.io.IOException;
@@ -27,6 +30,7 @@ import java.util.ResourceBundle;
 public class UserModifyFirstViewController implements Initializable {
     Dialog dialog = new Dialog();
     Stage stage = StageSingleton.getStage();
+    MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
     static String id_to_modify = "";
     /**
      *
@@ -97,7 +101,14 @@ public class UserModifyFirstViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idLabel.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
