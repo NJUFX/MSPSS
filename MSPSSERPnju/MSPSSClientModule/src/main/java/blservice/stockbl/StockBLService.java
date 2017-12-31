@@ -1,10 +1,10 @@
 package blservice.stockbl;
 
-import vo.CommodityStockVO;
 import vo.StockVO;
 
-import java.util.Iterator;
+import java.util.List;
 
+import util.Time;
 /**
  * Project_Name ERPnju
  * Author: HanXinHu
@@ -15,8 +15,10 @@ public interface StockBLService {
     /**
      * 查看库存查看 返回
      * @return
+     * @param startTime
+     * @param endTime
      */
-    public Iterator<StockVO> viewStock(String startTime,String endTime);
+    public List<StockVO> viewStock(Time startTime, Time endTime);
 
 
 }

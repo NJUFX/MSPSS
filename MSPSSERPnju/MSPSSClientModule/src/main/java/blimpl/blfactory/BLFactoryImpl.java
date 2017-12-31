@@ -177,7 +177,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public MainBLService getMainBLService() {
-        return null;
+        return UserBLFactory.getMainBLService();
     }
 
     @Override
@@ -192,12 +192,12 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public StockBLService getStockBLService() {
-        return null;
+        return  null;
     }
 
     @Override
     public UserBLService getUserBLService() {
-        return null;
+        return UserBLFactory.getUserBLService();
     }
 
     @Override
