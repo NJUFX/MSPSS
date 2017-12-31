@@ -1,3 +1,5 @@
+
+[![build status](http://101.37.19.32:10080/FX/MSPSS/badges/master/build.svg)](http://101.37.19.32:10080/FX/MSPSS/commits/master)
 #软工二大作业 进销存系统<br>
 <a href="#mingzi"></a>
 
