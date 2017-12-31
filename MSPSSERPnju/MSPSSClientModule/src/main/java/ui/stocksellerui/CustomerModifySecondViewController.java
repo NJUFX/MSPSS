@@ -4,6 +4,7 @@ import blimpl.blfactory.BLFactoryImpl;
 import blimpl.customerblimpl.Customer;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
+import blservice.mainblservice.MainBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 import vo.CustomerVO;
 
 import java.io.IOException;
@@ -33,6 +36,7 @@ public class CustomerModifySecondViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
+    Dialog dialog = new Dialog();
     String id_to_modify;
     @FXML
     Button CustomerAddButton;
@@ -80,7 +84,15 @@ public class CustomerModifySecondViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idOfCurrentUser.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

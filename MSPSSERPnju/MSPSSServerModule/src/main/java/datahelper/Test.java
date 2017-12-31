@@ -9,8 +9,10 @@ import org.hibernate.tool.schema.TargetType;
 import po.AccountPO;
 import po.CashCostBillPO;
 import po.CashCostItemPO;
+import po.UserPO;
 import util.CriteriaClause;
 import util.CriteriaClauseImpl;
+import util.Kind_Of_Users;
 import util.QueryMethod;
 
 import java.util.ArrayList;
@@ -63,11 +65,19 @@ public class Test {
 
 
     }
-    */
+
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
         Metadata metadata = new MetadataSources(serviceRegistry).buildMetadata();
         SchemaExport schemaExport = new SchemaExport();
         schemaExport.create(EnumSet.of(TargetType.DATABASE),metadata);
+       */
+        DataHelper<UserPO>  userPODataHelper = new HibernateHelper<>(UserPO.class);
+        UserPO po1 = new UserPO("SS-1991","JiangChen", Kind_Of_Users.StockSeller.ordinal(),"123456");
+        UserPO po2  = new UserPO("SM-1911","xgy",Kind_Of_Users.StockManager.ordinal(),"123456");
+        UserPO po3  = new UserPO("admin","admin",Kind_Of_Users.SystemManager.ordinal(),"admin");
+        userPODataHelper.save(po1);
+        userPODataHelper.save(po2);
+        userPODataHelper.save(po3);
 
     }
 }
