@@ -23,7 +23,7 @@ public class StockController implements StockBLService,StockBLInfo {
 
     @Override
     public List<StockVO> viewStock(Time startTime, Time endTime) {
-        return stock.viewStock(startTime,endTime).iterator();
+        return stock.viewStock(startTime.toString(),endTime.toString());
     }
 
     @Override
