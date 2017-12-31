@@ -43,6 +43,7 @@ cache:
 .verify: &verify
   stage: test
   script:
+     - 'cd MSPSSERPnju'
     - 'mvn $MAVEN_CLI_OPTS verify site site:stage'
   except:
     - master
@@ -71,6 +72,7 @@ deploy:jdk8:
   # Use stage test here, so the pages job may later pickup the created site.
   stage: test
   script:
+      - 'cd MSPSSERPnju'
     - 'mvn $MAVEN_CLI_OPTS deploy site site:stage'
   only:
     - master
