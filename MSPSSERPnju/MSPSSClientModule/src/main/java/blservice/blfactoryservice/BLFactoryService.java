@@ -3,7 +3,10 @@ package blservice.blfactoryservice;
 
 import blservice.accountblservice.AccountBLInfo;
 import blservice.accountblservice.AccountBLService;
-import blservice.billblservice.*;
+import blservice.billblservice.FinanceBillBLService;
+import blservice.billblservice.ManagerBillBLService;
+import blservice.billblservice.SalesmanBillBLService;
+import blservice.billblservice.StockManagerBillBLService;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
@@ -28,8 +31,6 @@ public interface BLFactoryService {
     public AccountBLService getAccountBLService();
 
     public AccountBLInfo getAccountBLInfo();
-
-    public BillBLInfo getBillInfo();
 
     public StockManagerBillBLService getStockManagerBillBLService();
 
@@ -72,12 +73,6 @@ public interface BLFactoryService {
 
     //stub
     public AccountBLService getAccountBLServiceStub();
-
-
-    public BillBLInfo getBillInfoStub();
-
-    public BillBLService getBillBLServiceStub();
-
 
 
     public CommodityBLService getCommodityBLServiceStub();
