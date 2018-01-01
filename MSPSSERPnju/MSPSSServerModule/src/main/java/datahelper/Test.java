@@ -82,7 +82,7 @@ public class Test {
 
         System.out.println(pos.isEmpty());
 
-        pos = userPODataHelper.prefixMatchQuery("id","SS");
+        pos = userPODataHelper.prefixMatchQuery("id","SS-1991");
         UserPO po = pos.get(0);
         System.out.println(po.getCategory()+" "+po.getID());
     }

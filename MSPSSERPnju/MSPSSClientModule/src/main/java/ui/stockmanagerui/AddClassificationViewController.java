@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import main.StageSingleton;
 import ui.common.Dialog;
 import util.ResultMessage;
 import vo.ClassificationVO;
@@ -22,6 +24,7 @@ import java.util.ResourceBundle;
 public class AddClassificationViewController implements Initializable {
     Dialog dialog = new Dialog();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
+    Stage stage = StageSingleton.getStage();
     static String name_of_class;
     TreeItem<ClassificationCell> treeItem;
     @FXML

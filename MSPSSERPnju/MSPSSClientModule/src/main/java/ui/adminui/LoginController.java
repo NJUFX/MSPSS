@@ -101,7 +101,8 @@ public class LoginController implements Initializable {
     public void userLogin(String id, String password) {
         // 判断id是否在系统里
         // 判断密码是否正确
-        Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;//mainBLService.login(id, password);
+        Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;
+        //Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
         if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
             if (id.equals("admin")) {
                 toAdminMain();
@@ -166,7 +167,6 @@ public class LoginController implements Initializable {
         try {
             StockSellerMainViewController main = (StockSellerMainViewController) replaceSceneContent(
                     "/view/stockseller/Main.fxml");
-            // main.setApp(this);
 
         } catch (Exception e) {
             e.printStackTrace();

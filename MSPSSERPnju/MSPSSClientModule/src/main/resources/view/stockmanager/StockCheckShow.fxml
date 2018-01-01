@@ -137,16 +137,11 @@
                 <Image url="@../../image/stockmanager/库存查看.png" />
             </image>
         </ImageView>
-        <Label layoutX="473.0" layoutY="85.0" prefHeight="36.0" prefWidth="90.0" text="库存信息" textFill="#0f88eb">
-            <font>
-                <Font name="Microsoft YaHei" size="22.0" />
-            </font>
-        </Label>
-        <TableView layoutX="292.0" layoutY="141.0" prefHeight="304.0" prefWidth="450.0">
+        <TableView fx:id="stockCheckTableTableView" layoutX="268.0" layoutY="140.0" prefHeight="341.0" prefWidth="510.0">
             <columns>
-                <TableColumn prefWidth="150.0" text="入库/出库" />
-                <TableColumn prefWidth="150.0" text="数量" />
-                <TableColumn prefWidth="150.0" text="金额" />
+                <TableColumn fx:id="TypeCol" prefWidth="170.0" sortable="false" text="入库/出库" />
+                <TableColumn fx:id="NumberCol" prefWidth="170.0" sortable="false" text="数量" />
+                <TableColumn fx:id="AccountCol" prefWidth="170.0" sortable="false" text="金额" />
             </columns>
         </TableView>
         <Button id="returnButton" fx:id="backButton" layoutX="149.0" layoutY="45.0" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="29.0" prefWidth="64.0" stylesheets="@../../css/stockseller/returnButton.css" text="返回" textFill="#0f88eb">
@@ -158,5 +153,22 @@
                 </ImageView>
             </graphic>
         </Button>
+        <Pane layoutX="337.0" layoutY="45.0" prefHeight="82.0" prefWidth="476.0">
+            <children>
+                <Label layoutX="13.0" layoutY="42.0" text="起始时间">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="startTime" layoutX="77.0" layoutY="40.0" prefHeight="23.0" prefWidth="100.0" />
+                <Label layoutX="195.0" layoutY="42.0" text="截止时间">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="endTime" layoutX="260.0" layoutY="40.0" prefHeight="23.0" prefWidth="100.0" />
+                <Button id="customerManage" fx:id="sureButton" layoutX="371.0" layoutY="40.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="4.0" prefWidth="64.0" stylesheets="@../../css/stockseller/common.css" text="查看" textFill="#f8f4f4" />
+            </children>
+        </Pane>
     </children>
 </Pane>

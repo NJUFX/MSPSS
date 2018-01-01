@@ -101,6 +101,10 @@ public class UserAddViewController implements Initializable {
      */
     @FXML
     public void sureButtonAction(ActionEvent e) {
+        if (idLabel.getText() != null) {
+            dialog.errorInfoDialog("user exist!");
+            return;
+        }
         if (nameField.getText() == null || userCategory.getValue() == null) {
             dialog.errorInfoDialog("Something null, please check your input.");
         } else {
@@ -138,11 +142,15 @@ public class UserAddViewController implements Initializable {
                 }
 
                 UserVO userVo = new UserVO("", nameField.getText(), kind_of_users, "123456");
-                userBLService.addUser(userVo);
-                idLabel.setText(userVo.getID());
+                //userBLService.addUser(userVo);
                 ResultMessage resultMessage = userBLService.addUser(userVo);
+                idLabel.setText(userVo.getID());
                 if (resultMessage == ResultMessage.SUCCESS) {
-                    dialog.infoDialog("Add the user successfully.");
+                    dialog.infoDialog("Add the user successfully, the id of user is " + userVo.getID());
+                } else if (resultMessage == ResultMessage.EXIST) {
+                    dialog.errorInfoDialog("user exist!");
+                } else if (resultMessage == ResultMessage.FAILED) {
+                    dialog.errorInfoDialog("Fail to add a user.");
                 }
             }
         }

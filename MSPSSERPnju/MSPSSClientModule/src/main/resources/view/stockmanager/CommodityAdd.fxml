@@ -133,8 +133,8 @@
                         <Font name="Microsoft YaHei" size="16.0"/>
                     </font>
                 </Label>
-                <TextField id="userName" fx:id="exportPriceField" layoutX="530.0" layoutY="91.0" prefHeight="21.0"
-                           prefWidth="114.0"/>
+                <TextField id="userName" fx:id="exportPriceField" layoutX="530.0" layoutY="91.0" prefHeight="23.0"
+                           prefWidth="120.0"/>
                 <TextField id="userName" fx:id="importPriceField" layoutX="312.0" layoutY="91.0" prefHeight="21.0"
                            prefWidth="114.0"/>
                 <Label layoutX="260.0" layoutY="91.0" text="进价">
@@ -142,8 +142,6 @@
                         <Font name="Microsoft YaHei" size="16.0"/>
                     </font>
                 </Label>
-                <ComboBox id="userCategory" fx:id="classificationBox" layoutX="530.0" layoutY="38.0" prefHeight="23.0"
-                          prefWidth="114.0"/>
                 <TextField id="userName" fx:id="stockNumberField" layoutX="97.0" layoutY="145.0" prefHeight="21.0"
                            prefWidth="114.0"/>
                 <Label layoutX="228.0" layoutY="145.0" text="库存警戒值">
@@ -153,6 +151,11 @@
                 </Label>
                 <TextField id="userName" fx:id="alertField" layoutX="312.0" layoutY="145.0" prefHeight="21.0"
                            prefWidth="114.0"/>
+                <TextField id="userName" fx:id="classificationField" layoutX="530.0" layoutY="38.0" prefHeight="23.0"
+                           prefWidth="94.0"/>
+                <Button fx:id="chooseButton" onAction="#chooseButtonAction" layoutX="624.0" layoutY="38.0"
+                        mnemonicParsing="false" prefHeight="23.0"
+                        prefWidth="21.0" text="Button"/>
             </children>
         </Pane>
         <Button id="cancelButton" fx:id="cancelButton" layoutX="575.0" layoutY="459.0" mnemonicParsing="false"

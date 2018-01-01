@@ -94,14 +94,6 @@ public class BillStatusCheckViewController implements Initializable {
                     }
                 }
             }
-        } else if (statusScreenBox.getValue().equals("已保存")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!data.get(i).getStatus().equals("已保存")) {
-                        data.remove(i);
-                    }
-                }
-            }
         } else if (statusScreenBox.getValue().equals("已审批")) {
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < data.size(); i++) {
@@ -199,9 +191,7 @@ public class BillStatusCheckViewController implements Initializable {
                     if (!empty) {
                         String name = this.getTableView().getItems().get(this.getIndex()).getStatus();
                         this.setText(String.valueOf(name));
-                        if (name.equals("已保存")) {
-                            this.setTextFill(Color.rgb(12, 12, 12));
-                        } else if (name.equals("已提交")) {
+                        if (name.equals("已提交")) {
                             this.setTextFill(Color.rgb(0, 153, 204));
                         } else if (name.equals("审批通过")) {
                             this.setTextFill(Color.rgb(51, 200, 51));
@@ -340,8 +330,8 @@ public class BillStatusCheckViewController implements Initializable {
     @FXML
     public void stockCheckButtonAction(ActionEvent e) throws IOException {
         try {
-            StockCheckViewController controller = (StockCheckViewController) replaceSceneContent(
-                    "/view/stockmanager/StockCheck.fxml");
+            StockCheckShowViewController controller = (StockCheckShowViewController) replaceSceneContent(
+                    "/view/stockmanager/StockCheckShow.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

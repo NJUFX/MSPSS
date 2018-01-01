@@ -95,14 +95,6 @@ public class BillStatusCheckViewController implements Initializable {
                     }
                 }
             }
-        } else if (statusScreenBox.getValue().equals("已保存")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!data.get(i).getStatus().equals("已保存")) {
-                        data.remove(i);
-                    }
-                }
-            }
         } else if (statusScreenBox.getValue().equals("已审批")) {
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < data.size(); i++) {
@@ -208,8 +200,6 @@ public class BillStatusCheckViewController implements Initializable {
                             this.setTextFill(Color.rgb(51, 200, 51));
                         } else if (name.equals("审批未通过")) {
                             this.setTextFill(Color.rgb(230, 18, 6));
-                        } else if (name.equals("已保存")) {
-                            this.setTextFill(Color.rgb(12, 12, 12));
                         }
                     }
                 }

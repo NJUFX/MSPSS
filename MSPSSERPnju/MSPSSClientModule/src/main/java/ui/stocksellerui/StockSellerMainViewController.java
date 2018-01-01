@@ -2,6 +2,7 @@ package ui.stocksellerui;
 
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.mainblservice.MainBLService;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,7 @@ import java.util.ResourceBundle;
 /**
  * author:Jiang_Chen date:2017/12/13
  */
-public class StockSellerMainViewController implements Initializable {
+public class StockSellerMainViewController implements Initializable{
 
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
