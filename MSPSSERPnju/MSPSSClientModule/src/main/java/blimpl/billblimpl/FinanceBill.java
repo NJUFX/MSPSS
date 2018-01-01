@@ -174,6 +174,13 @@ public class FinanceBill {
         return po;
     }
 
+    public ResultMessage HongChong(FinanceBillVO financeBillVO) {
+        return ResultMessage.FAILED;
+    }
+
+    public ResultMessage HongChongAndCopy(FinanceBillVO financeBillVO) {
+        return ResultMessage.FAILED;
+    }
     private FinanceItemPO vo_to_po(FinanceItemVO vo) {
 
         return new FinanceItemPO(vo.getAccountVO().getName(), vo.getPs(), vo.getMoney());
@@ -192,4 +199,5 @@ public class FinanceBill {
         }
         return vos;
     }
+
 }

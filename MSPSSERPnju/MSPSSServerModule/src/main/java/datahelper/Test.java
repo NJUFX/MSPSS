@@ -65,12 +65,27 @@ public class Test {
 
 
     }
+<<<<<<< HEAD
+    */
+    	/*
+=======
 
+>>>>>>> b0241fc71180215d991b910a38b5a691e501c1c5
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
         Metadata metadata = new MetadataSources(serviceRegistry).buildMetadata();
         SchemaExport schemaExport = new SchemaExport();
         schemaExport.create(EnumSet.of(TargetType.DATABASE),metadata);
-       */
+<<<<<<< HEAD
+        */
+    	
+    	 DataHelper<UserPO>  userPODataHelper = new HibernateHelper<>(UserPO.class);
+         UserPO po1 = new UserPO("CM-1991","hxh", Kind_Of_Users.ChiefManager.ordinal(),"161250036");
+         UserPO po2  = new UserPO("CM-1911","xgy",Kind_Of_Users.ChiefManager.ordinal(),"161250164");
+         
+     
+             userPODataHelper.save(po1);
+             userPODataHelper.save(po2);
+
         DataHelper<UserPO>  userPODataHelper = new HibernateHelper<>(UserPO.class);
         UserPO po1 = new UserPO("SS-1991","JiangChen", Kind_Of_Users.StockSeller.ordinal(),"123456");
         UserPO po2  = new UserPO("SM-1911","xgy",Kind_Of_Users.StockManager.ordinal(),"123456");
@@ -81,6 +96,7 @@ public class Test {
         List<UserPO> pos = userPODataHelper.fullMatchQuery("id","SS-1991");
 
         System.out.println(pos.isEmpty());
+
 
         pos = userPODataHelper.prefixMatchQuery("id","SS-1991");
         UserPO po = pos.get(0);

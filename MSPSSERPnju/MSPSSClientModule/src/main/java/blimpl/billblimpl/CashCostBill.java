@@ -168,6 +168,13 @@ public class CashCostBill {
         return vo;
     }
 
+    public ResultMessage HongChong(CashCostBillVO cashCostBillVO) {
+        return ResultMessage.FAILED;
+    }
+
+    public ResultMessage HongChongAndCopy(CashCostBillVO cashCostBillVO) {
+        return ResultMessage.FAILED;
+    }
     private CashCostItemPO vo_to_po(CashCostItemVO vo) {
         return new CashCostItemPO(vo.getName(), vo.getPs(), vo.getMoney());
     }

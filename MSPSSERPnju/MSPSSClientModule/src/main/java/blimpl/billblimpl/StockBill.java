@@ -39,7 +39,13 @@ public class StockBill implements StockBillInfo {
     }
 
 
+    public ResultMessage HongChong(StockBillVO stockBillVO) {
+        return ResultMessage.FAILED;
+    }
 
+    public ResultMessage HongChongAndCopy(StockBillVO stockBillVO) {
+        return ResultMessage.FAILED;
+    }
     /**
      * 添加库存类单据
      *
