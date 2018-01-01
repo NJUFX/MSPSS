@@ -12,7 +12,7 @@ public class UserDataServiceFactory {
 
     public static synchronized UserDataService getUserDataService(){
         if(userDataService==null){
-            userDataService = new UserDataServiceImpl(new HibernateHelper<UserPO>());
+            userDataService = new UserDataServiceImpl(new HibernateHelper<UserPO>(UserPO.class));
         }
         return userDataService;
     }

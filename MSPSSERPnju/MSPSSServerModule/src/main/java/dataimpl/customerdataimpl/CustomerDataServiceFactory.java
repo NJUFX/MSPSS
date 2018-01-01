@@ -11,7 +11,7 @@ public class CustomerDataServiceFactory {
 
     public static synchronized CustomerDataServiceImpl getCustomerDataService(){
         if(customerDataService==null){
-            customerDataService = new CustomerDataServiceImpl(new HibernateHelper<CustomerPO>());
+            customerDataService = new CustomerDataServiceImpl(new HibernateHelper<CustomerPO>(CustomerPO.class));
         }
         return customerDataService;
     }
