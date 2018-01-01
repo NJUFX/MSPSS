@@ -19,8 +19,11 @@ public class User {
      * @return
      */
     public ResultMessage addUser(UserVO user) {
+        if (user.getID()==null){
 
-        return ResultMessage.SUCCESS;
+        }
+        UserPO po = vo_to_po(user);
+        return networkService.addUser(po);
     }
 
     /**

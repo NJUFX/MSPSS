@@ -3,11 +3,12 @@ package blimpl.stockblimpl;
 import blservice.stockbl.StockBLInfo;
 import blservice.stockbl.StockBLService;
 import util.ResultMessage;
+import util.Time;
 import vo.ChangeInfoVO;
 import vo.StockVO;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 /**
  * Description:
@@ -15,9 +16,14 @@ import java.util.Iterator;
  */
 public class StockController implements StockBLService,StockBLInfo {
     private Stock stock;
+
+    public StockController(Stock stock) {
+        this.stock = stock;
+    }
+
     @Override
-    public Iterator<StockVO> viewStock(String startTime, String endTime) {
-        return stock.viewStock(startTime,endTime).iterator();
+    public List<StockVO> viewStock(Time startTime, Time endTime) {
+        return stock.viewStock(startTime.toString(),endTime.toString());
     }
 
     @Override

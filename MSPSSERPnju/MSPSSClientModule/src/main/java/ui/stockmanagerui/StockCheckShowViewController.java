@@ -1,10 +1,8 @@
 package ui.stockmanagerui;
 
-import auxiliary.StockInventory;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.mainblservice.MainBLService;
 import blservice.stockbl.StockBLService;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,13 +18,13 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Time;
 import vo.StockVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -59,11 +57,9 @@ public class StockCheckShowViewController implements Initializable {
     public void showTableView() {
         // ObservableList<Stock> data = commodityTableTable.getItems();
 
-        Iterator<StockVO> iterator = stockBLService.viewStock(startTime, endTime);
-        if (iterator.hasNext()) {
-            while (iterator.hasNext()) {
+        List<StockVO> iterator = stockBLService.viewStock(new Time(startTime), new Time(endTime));
+        if (!iterator.isEmpty()) {
 
-            }
         } else {
             dialog.errorInfoDialog("Nothing in this time quantum.");
         }

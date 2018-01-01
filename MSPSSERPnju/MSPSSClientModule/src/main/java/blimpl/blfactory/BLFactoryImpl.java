@@ -7,11 +7,15 @@ import blimpl.customerblimpl.CustomerBLFactory;
 import blimpl.generalaccountblimpl.GeneralAccountBLFactory;
 import blimpl.logblimpl.LogFactory;
 import blimpl.promotionblimpl.PromotionBLFactory;
+import blimpl.stockblimpl.StockBLFactory;
 import blimpl.tableblimpl.TableBLFactory;
 import blimpl.userblimpl.UserBLFactory;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.accountblservice.AccountBLService;
-import blservice.billblservice.*;
+import blservice.billblservice.FinanceBillBLService;
+import blservice.billblservice.ManagerBillBLService;
+import blservice.billblservice.SalesmanBillBLService;
+import blservice.billblservice.StockManagerBillBLService;
 import blservice.blfactoryservice.BLFactoryService;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
@@ -42,16 +46,6 @@ public class BLFactoryImpl implements BLFactoryService {
     @Override
     public AccountBLInfo getAccountBLInfo() {
         return AccountFactory.getAccountInfo();
-    }
-
-    @Override
-    public BillBLInfo getBillInfoStub() {
-        return null;
-    }
-
-    @Override
-    public BillBLService getBillBLServiceStub() {
-        return null;
     }
 
     @Override
@@ -86,7 +80,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public CustomerBLService getCustomerBLServiceStub() {
-        return null;
+        return CustomerBLFactory.getCustomerBLService();
     }
 
     @Override
@@ -96,7 +90,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public LogBLService getLogBLServiceStub() {
-        return null;
+        return LogFactory.getLogBLService();
     }
 
     @Override
@@ -111,12 +105,12 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public StockBLInfo getStockBLInfoStub() {
-        return null;
+        return StockBLFactory.getStockBLInfo();
     }
 
     @Override
     public StockBLService getStockBLServiceStub() {
-        return null;
+        return StockBLFactory.getStockBLService();
     }
 
     @Override
@@ -131,23 +125,18 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public AccountBLService getAccountBLService() {
-        return null;
-    }
-
-    @Override
-    public BillBLInfo getBillInfo() {
-        return null;
+        return AccountFactory.getAccountBLService();
     }
 
 
     @Override
     public CommodityBLService getCommodityBLService() {
-        return null;
+        return CommodityBLFactory.getCommodityBLService();
     }
 
     @Override
     public CommodityInfoService getCommodityInfoService() {
-        return null;
+        return CommodityBLFactory.getCommodityBLInfo();
     }
 
     @Override
@@ -167,12 +156,12 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public LogBLService getLogBLService() {
-        return LogFactory.getLogBLServiceImpl();
+        return LogFactory.getLogBLService();
     }
 
     @Override
     public LogBLInfo getLogBLInfo() {
-        return LogFactory.getLogBLServiceImpl();
+        return LogFactory.getLogBLInfo();
     }
 
     @Override
@@ -187,17 +176,17 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public StockBLInfo getStockBLInfo() {
-        return null;
+        return StockBLFactory.getStockBLInfo();
     }
 
     @Override
     public StockBLService getStockBLService() {
-        return null;
+        return StockBLFactory.getStockBLService();
     }
 
     @Override
     public UserBLService getUserBLService() {
-        return null;
+        return UserBLFactory.getUserBLService();
     }
 
     @Override

@@ -1,6 +1,8 @@
 package blimpl.stockblimpl;
 
+import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityInfoService;
+import network.StockClientNetworkImpl;
 import network.StockClientNetworkService;
 import po.StockPO;
 import util.ResultMessage;
@@ -15,8 +17,8 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 21:05 2017/11/18/018
  */
 public class Stock {
-    StockClientNetworkService networkService;
-    CommodityInfoService infoService;
+    StockClientNetworkService networkService = new StockClientNetworkImpl();
+    CommodityInfoService infoService = new BLFactoryImpl().getCommodityInfoService();
     public ResultMessage addStock(ArrayList<ChangeInfoVO> change){
         ResultMessage message;
         boolean success = false;

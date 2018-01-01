@@ -32,6 +32,8 @@ public class CashCostBill {
      * @return
      */
     public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO) {
+        //save
+        //String id = vo.getID();
         cashCostBillVO.setStatus(BillStatus.init);
         if (cashCostBillVO.getInit_time() == null) {
             cashCostBillVO.setInit_time(new Time());
