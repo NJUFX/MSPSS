@@ -18,7 +18,7 @@ public class StockPO implements Serializable{
     /**
      * inOrOut 出库还是入库
      */
-   private StockInfo inOrOut;
+   private int inOrOut;
     /**
      * 商品编号
      */
@@ -36,7 +36,7 @@ public class StockPO implements Serializable{
      */
     private double price;
 
-    public StockPO(StockInfo inOrOut, String commodityID, int number, String time, double price) {
+    public StockPO(int inOrOut, String commodityID, int number, String time, double price) {
         this.inOrOut = inOrOut;
         this.commodityID = commodityID;
         this.number = number;
@@ -76,11 +76,11 @@ public class StockPO implements Serializable{
         return price;
     }
 
-    public void setInOrOut(StockInfo inOrOut) {
+    public void setInOrOut(int inOrOut) {
         this.inOrOut = inOrOut;
     }
 
-    public StockInfo getInOrOut() {
+    public int getInOrOut() {
         return inOrOut;
     }
 

@@ -3,6 +3,8 @@ package ui.stocksellerui;
 import auxiliary.BillCheckTable;
 import auxiliary.SalesInBill;
 import auxiliary.SalesOutBill;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.mainblservice.MainBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +18,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 import util.BillStatus;
 import util.SalesInBillType;
 import util.SalesOutBillType;
@@ -35,7 +39,7 @@ import java.util.ResourceBundle;
 public class BillStatusCheckViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();
-
+    Dialog dialog = new Dialog();
     @FXML
     Button customerManageButton;
     @FXML
@@ -87,14 +91,6 @@ public class BillStatusCheckViewController implements Initializable {
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < data.size(); i++) {
                     if (!data.get(i).getStatus().equals("已提交")) {
-                        data.remove(i);
-                    }
-                }
-            }
-        } else if (statusScreenBox.getValue().equals("已保存")) {
-            for (int j = 0; j < size; j++) {
-                for (int i = 0; i < data.size(); i++) {
-                    if (!data.get(i).getStatus().equals("已保存")) {
                         data.remove(i);
                     }
                 }
@@ -204,8 +200,6 @@ public class BillStatusCheckViewController implements Initializable {
                             this.setTextFill(Color.rgb(51, 200, 51));
                         } else if (name.equals("审批未通过")) {
                             this.setTextFill(Color.rgb(230, 18, 6));
-                        } else if (name.equals("已保存")) {
-                            this.setTextFill(Color.rgb(12, 12, 12));
                         }
                     }
                 }
@@ -384,7 +378,15 @@ public class BillStatusCheckViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idOfCurrentUser.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

@@ -13,7 +13,7 @@ public class CommodityDataServiceFactory {
 
     public static synchronized CommodityDataService getCommodityDataService(){
         if(commodityDataService==null){
-            commodityDataService = new CommodityDataServiceImpl(new HibernateHelper<CommodityPO>(), new HibernateHelper<ClassificationPO>());
+            commodityDataService = new CommodityDataServiceImpl(new HibernateHelper<CommodityPO>(CommodityPO.class), new HibernateHelper<ClassificationPO>(ClassificationPO.class));
 
         }
         return commodityDataService;

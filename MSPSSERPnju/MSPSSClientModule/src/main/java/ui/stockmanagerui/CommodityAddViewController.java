@@ -2,6 +2,7 @@ package ui.stockmanagerui;
 
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityBLService;
+import blservice.mainblservice.MainBLService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import ui.stocksellerui.BillCreateViewController;
@@ -39,6 +41,7 @@ import java.util.ResourceBundle;
 public class CommodityAddViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
+    Stage newStage = new Stage();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
 
     @FXML
@@ -50,30 +53,24 @@ public class CommodityAddViewController implements Initializable {
     @FXML
     Button commoditySearchButton;
     @FXML
-    Button cancelButton, sureButton;
+    Button cancelButton, sureButton,chooseButton;
     @FXML
-    TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField;
-    @FXML
-    ComboBox<String> classificationBox;
+    TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField, classificationField;
 
-    /*
-    ArrayList<ClassificationVO> list = commodityBLService.getRootClassifications();
 
-    public void showClassificationBox(ArrayList<ClassificationVO> list) {
-        //ObservableList<String> options = FXCollections.observableArrayList();
-        for (int i = 0; i < list.size(); i++) {
-            if (commodityBLService.getChildrenClassification(list.get(i)).size() == 0) {
-                classificationBox.getItems().add(list.get(i).getName());
-            } else {
-                ArrayList<ClassificationVO> list2 = commodityBLService.getChildrenClassification(list.get(i));
-                showClassificationBox(list2);
-            }
+    public void chooseButtonAction(ActionEvent e){
+        try {
+            SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
+                    "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
+            controller.isSelectClass = false;
+            controller.classificationNameField = classificationField;
+        } catch (Exception e1) {
+            e1.printStackTrace();
         }
-
-    }*/
+    }
 
     public void sureButtonAction(ActionEvent e) {
-        CommodityVO commodityVO = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationBox.getValue(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
+        CommodityVO commodityVO = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationField.getText(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
         commodityVO.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
         commodityVO.setNumberInStock(Integer.parseInt(stockNumberField.getText().trim()));
         ResultMessage resultMessage = commodityBLService.addCommodity(commodityVO);
@@ -153,6 +150,32 @@ public class CommodityAddViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+    /**
+     * @param fxml
+     * @param width
+     * @param height
+     * @return
+     * @throws Exception
+     */
+    private Initializable replaceAnotherSceneContent(String fxml, double width, double height) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, width + 0.0, height);
+        newStage.setTitle("选择");
+        newStage.setScene(scene);
+        newStage.sizeToScene();
+        newStage.setResizable(false);
+        newStage.show();
+        return (Initializable) loader.getController();
+    }
 
     /**
      * 返回登录界面
@@ -162,8 +185,15 @@ public class CommodityAddViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent(
-                    "/view/admin/Login.fxml");
+            MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idOfCurrentUser.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

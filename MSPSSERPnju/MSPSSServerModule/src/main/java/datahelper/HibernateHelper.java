@@ -75,6 +75,7 @@ public class HibernateHelper<T> implements DataHelper<T> {
 
     @Override
     public ResultMessage update(Object o) {
+        //如果传进来的o不是通过new初始化的，则不会成功修改
         try {
             setUpSession();
             session.update(type.getName(), o);
@@ -110,6 +111,7 @@ public class HibernateHelper<T> implements DataHelper<T> {
 
     @Override
     public T exactlyQuery(String field, Object value) {
+        System.out.println("I  arraive");
         ArrayList<T> array = fullMatchQuery(field, value);
         return array.size() == 0 ? null : fullMatchQuery(field, value).get(0);
     }
@@ -117,8 +119,11 @@ public class HibernateHelper<T> implements DataHelper<T> {
 
     @Override
     public ArrayList<T> fullMatchQuery(String field, Object value) {
+        System.out.println("I arrive");
         try {
             Criteria criteria = SetUpCriteria();
+
+            System.out.println("I arrive");
             criteria.add(Restrictions.eq(field, value));
             ArrayList<T> result = (ArrayList<T>) criteria.list();
             session.close();

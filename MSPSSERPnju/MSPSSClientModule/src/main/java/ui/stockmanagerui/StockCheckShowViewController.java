@@ -1,7 +1,9 @@
 package ui.stockmanagerui;
 
-import auxiliary.StockInventory;
+import auxiliary.StockCheckTable;
 import blimpl.blfactory.BLFactoryImpl;
+import blimpl.stockblimpl.Stock;
+import blservice.mainblservice.MainBLService;
 import blservice.stockbl.StockBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,21 +12,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.StockInfo;
+import util.Time;
 import vo.StockVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -35,7 +40,6 @@ public class StockCheckShowViewController implements Initializable {
     StockBLService stockBLService = new BLFactoryImpl().getStockBLService();
     Dialog dialog = new Dialog();
     Stage stage = StageSingleton.getStage();
-    String startTime, endTime;
     @FXML
     Button BackToLogin;
 
@@ -43,27 +47,93 @@ public class StockCheckShowViewController implements Initializable {
     Button billCreateButton;
 
     @FXML
-    Button commodityManageButton;
-
+    Button commodityManageButton, commodityClassifyButton, stockInventoryButton, backButton;
     @FXML
-    Button commodityClassifyButton;
-
+    TableView<StockCheckTable> stockCheckTableTableView;
     @FXML
-    Button stockInventoryButton;
-
+    TableColumn<StockCheckTable, String> TypeCol, NumberCol, AccountCol;
     @FXML
-    Button backButton;
+    DatePicker startTime, endTime;
+
 
     public void showTableView() {
-        // ObservableList<Stock> data = commodityTableTable.getItems();
+        TypeCol.setCellFactory(col -> {
+            TableCell<StockCheckTable, String> cell = new TableCell<StockCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        String id = this.getTableView().getItems().get(this.getIndex()).getType();
+                        this.setText(String.valueOf(id));
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
 
-        Iterator<StockVO> iterator = stockBLService.viewStock(startTime, endTime);
-        if (iterator.hasNext()) {
-            while (iterator.hasNext()) {
+        NumberCol.setCellFactory(col -> {
+            TableCell<StockCheckTable, String> cell = new TableCell<StockCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        String id = this.getTableView().getItems().get(this.getIndex()).getNumber();
+                        this.setText(String.valueOf(id));
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
 
+        AccountCol.setCellFactory(col -> {
+            TableCell<StockCheckTable, String> cell = new TableCell<StockCheckTable, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        String id = this.getTableView().getItems().get(this.getIndex()).getAccount();
+                        this.setText(String.valueOf(id));
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
+
+    }
+
+    @FXML
+    public void sureButtonAction(ActionEvent e) {
+        ObservableList<StockCheckTable> data = stockCheckTableTableView.getItems();
+        data.clear();
+        if (startTime != null && endTime != null) {
+            LocalDate start = startTime.getValue();
+            LocalDate end = endTime.getValue();
+            LocalDate tmp = start;
+            if (start.compareTo(end) > 0) {
+                start = end;
+                end = tmp;
             }
-        } else {
-            dialog.errorInfoDialog("Nothing in this time quantum.");
+            Time startTime = new Time(start.getYear(), start.getMonthValue(), start.getDayOfMonth(), 0, 0, 0);
+            Time endTime = new Time(start.getYear(), start.getMonthValue(), start.getDayOfMonth(), 0, 0, 0);
+            List<StockVO> list = stockBLService.viewStock(startTime, endTime);
+            for (int i = 0; i < list.size(); i++) {
+                StockVO stockVO = list.get(i);
+                String type = "入库";
+                if (stockVO.stockType == StockInfo.Out) {
+                    type = "出库";
+                }
+                StockCheckTable stockCheckTable = new StockCheckTable(type, String.valueOf(stockVO.number), String.valueOf(stockVO.price));
+                data.add(stockCheckTable);
+            }
         }
     }
 
@@ -129,8 +199,8 @@ public class StockCheckShowViewController implements Initializable {
     @FXML
     public void backButtonAction(ActionEvent e) throws IOException {
         try {
-            StockCheckViewController controller = (StockCheckViewController) replaceSceneContent(
-                    "/view/stockmanager/StockCheck.fxml");
+            StockManagerMainViewController controller = (StockManagerMainViewController) replaceSceneContent(
+                    "/view/stockmanager/Main.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -189,7 +259,15 @@ public class StockCheckShowViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idOfCurrentUser.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -204,6 +282,6 @@ public class StockCheckShowViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
+        showTableView();
     }
-
 }
