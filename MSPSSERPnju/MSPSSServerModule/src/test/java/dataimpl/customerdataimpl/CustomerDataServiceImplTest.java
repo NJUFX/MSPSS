@@ -1,8 +1,10 @@
 package dataimpl.customerdataimpl;
 
-import org.junit.Test; 
+import dataservice.CustomerDataService;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+import po.CustomerPO;
 
 /** 
 * CustomerDataServiceImpl Tester. 
@@ -12,9 +14,10 @@ import org.junit.After;
 * @version 1.0 
 */ 
 public class CustomerDataServiceImplTest { 
-
+private CustomerDataService customerDataService;
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    customerDataService = CustomerDataServiceFactory.getCustomerDataService();
 } 
 
 @After
@@ -28,8 +31,10 @@ public void after() throws Exception {
 */ 
 @Test
 public void testAddCustomer() throws Exception { 
-//TODO: Test goes here... 
-} 
+//TODO: Test goes here...
+    CustomerPO customerPO = new CustomerPO(true,"123456",1,1,"123456","123456","123456","12345","1234566",20.14,21.11,20.1,"qwq","12134556");
+    customerDataService.addCustomer(customerPO);
+}
 
 /** 
 * 

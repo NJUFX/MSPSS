@@ -53,7 +53,7 @@ public class GeneralAccount_CommodityList_PO implements Serializable {
     public GeneralAccount_CommodityList_PO() {
     }
 
-    public GeneralAccount_CommodityList_PO(String name, String classificationID, String type, String ID, double importCost, double exportCost, int numberInStock) {
+    public GeneralAccount_CommodityList_PO(String name, String classificationID, String type, String ID, double importCost, double exportCost, int numberInStock,GeneralAccountPO generalAccountPO) {
         this.name = name;
         this.classificationID = classificationID;
         this.type = type;
@@ -61,6 +61,7 @@ public class GeneralAccount_CommodityList_PO implements Serializable {
         this.importCost = importCost;
         this.exportCost = exportCost;
         this.numberInStock = numberInStock;
+        this.generalaccount = generalAccountPO;
     }
 
     public String getKeycolumn() {
