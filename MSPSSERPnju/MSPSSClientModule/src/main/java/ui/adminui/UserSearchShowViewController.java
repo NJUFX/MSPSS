@@ -2,6 +2,7 @@ package ui.adminui;
 
 import auxiliary.UserTable;
 import blimpl.blfactory.BLFactoryImpl;
+import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.common.Dialog;
 import util.Kind_Of_Users;
 import vo.UserVO;
@@ -37,6 +39,7 @@ public class UserSearchShowViewController implements Initializable {
     static String keyType, keyword;
     static Kind_Of_Users kind_of_users;
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
+    MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
     Dialog dialog = new Dialog();
     Stage stage = StageSingleton.getStage();
     Stage newStage = new Stage();
@@ -150,6 +153,7 @@ public class UserSearchShowViewController implements Initializable {
                     UserInfoModifyViewController controller = (UserInfoModifyViewController) replaceAnotherSceneContent("/view/admin/UserInfoModifyView.fxml", 310, 355);
                     controller.idLabel.setText(data.get(i).getId());
                     controller.nameLabel.setText(data.get(i).getName());
+                    controller.categoryBox.setText(getCategory(userBLService.searchUserByID(data.get(i).getId())));
                 } catch (Exception e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
@@ -175,7 +179,14 @@ public class UserSearchShowViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idLabel.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -240,6 +251,21 @@ public class UserSearchShowViewController implements Initializable {
         stage.sizeToScene();
         stage.setResizable(false);
         return (Initializable) loader.getController();
+    }
+
+    public String getCategory(UserVO currentUser) {
+        if (currentUser.getCategory() == Kind_Of_Users.ChiefManager) {
+            return "总经理";
+        } else if (currentUser.getCategory() == Kind_Of_Users.Financer || currentUser.getCategory() == Kind_Of_Users.FinancerManager) {
+            return "财务人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.StockManager) {
+            return "库存管理人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.StockSeller || currentUser.getCategory() == Kind_Of_Users.StockSellerManager) {
+            return "进货销售人员";
+        } else if (currentUser.getCategory() == Kind_Of_Users.SystemManager) {
+            return "系统管理员";
+        }
+        return "";
     }
 
     /**

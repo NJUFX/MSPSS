@@ -1,5 +1,7 @@
 package ui.stocksellerui;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.mainblservice.MainBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +14,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
+import ui.common.Dialog;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +28,7 @@ import java.util.ResourceBundle;
  */
 public class SalesRetCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
-
+    Dialog dialog = new Dialog();
     @FXML
     Button purchaseCreateButton;
     @FXML
@@ -35,6 +39,7 @@ public class SalesRetCreateViewController implements Initializable {
     Button BackToLogin;
     @FXML
     Button cancelButton;
+
     /**
      * 返回上一界面
      *
@@ -51,6 +56,7 @@ public class SalesRetCreateViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * 返回登录界面
      *
@@ -59,12 +65,21 @@ public class SalesRetCreateViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent2("/view/admin/Login.fxml");
+            MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent2("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idOfCurrentUser.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
     }
+
     /**
      * 进货单
      *
@@ -135,7 +150,7 @@ public class SalesRetCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, 900, 730.00);
+        Scene scene = new Scene(page, 900, 700.00);
 
         stage.setScene(scene);
         stage.setResizable(false);
@@ -143,7 +158,7 @@ public class SalesRetCreateViewController implements Initializable {
         stage.setResizable(false);
         return (Initializable) loader.getController();
     }
-    
+
     private Initializable replaceSceneContent2(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         InputStream in = MainApp.class.getResourceAsStream(fxml);

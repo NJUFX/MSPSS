@@ -35,7 +35,8 @@
                 <Font size="16.0"/>
             </font>
         </Button>
-        <Button id="delUserButton" fx:id="delUserButton" layoutY="317.0" mnemonicParsing="false" prefHeight="35.0"
+        <Button id="delUserButton" fx:id="delUserButton" onAction="#delUserButtonAction" layoutY="317.0"
+                mnemonicParsing="false" prefHeight="35.0"
                 prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="删除用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0"/>

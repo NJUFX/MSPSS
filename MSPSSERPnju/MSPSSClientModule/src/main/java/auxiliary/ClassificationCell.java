@@ -1,5 +1,6 @@
 package auxiliary;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -8,23 +9,44 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class ClassificationCell {
     private final SimpleStringProperty Name = new SimpleStringProperty("");
-    private final SimpleStringProperty Father = new SimpleStringProperty("");
+    private final SimpleStringProperty Parent = new SimpleStringProperty("");
+    private final SimpleStringProperty Id = new SimpleStringProperty("");
+    private final SimpleBooleanProperty IsClass = new SimpleBooleanProperty(true);
+
 
     public ClassificationCell() {
-        this("", "");
+        this("", "", "", true);
     }
 
-    public ClassificationCell(String name, String father) {
+    public ClassificationCell(String name, String father, String id, boolean isclass) {
         setName(name);
-        setFather(father);
+        setParent(father);
+        setId(id);
+        setIsClass(isclass);
     }
 
-    public String getFather() {
-        return Father.get();
+    public boolean getIsClass() {
+        return IsClass.get();
     }
 
-    public void setFather(String fName) {
-        Father.set(fName);
+    public void setIsClass(boolean fName) {
+        IsClass.set(fName);
+    }
+
+    public String getId() {
+        return Id.get();
+    }
+
+    public void setId(String fName) {
+        Id.set(fName);
+    }
+
+    public String getParent() {
+        return Parent.get();
+    }
+
+    public void setParent(String fName) {
+        Parent.set(fName);
     }
 
     public String getName() {

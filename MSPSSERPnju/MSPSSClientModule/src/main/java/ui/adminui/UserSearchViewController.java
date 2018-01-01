@@ -2,6 +2,7 @@ package ui.adminui;
 
 import blimpl.blfactory.BLFactoryImpl;
 import blimpl.userblimpl.User;
+import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
+import status.Log_In_Out_Status;
 import ui.common.Dialog;
 import util.Kind_Of_Users;
 import vo.UserVO;
@@ -42,7 +44,7 @@ public class UserSearchViewController implements Initializable {
     }
 
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
-
+    MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
     Dialog dialog = new Dialog();
     private MainApp application;
 
@@ -151,7 +153,14 @@ public class UserSearchViewController implements Initializable {
      */
     public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
         try {
-            LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+            boolean b = dialog.confirmDialog("Do you want to logout?");
+            if (b == true) {
+                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                Log_In_Out_Status log_in_out_status = mainBLService.logout(idLabel.getText());
+                if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
+                    dialog.infoDialog("Logout successfully");
+                }
+            }
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

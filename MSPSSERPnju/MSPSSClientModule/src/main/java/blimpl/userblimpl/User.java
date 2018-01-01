@@ -1,5 +1,6 @@
 package blimpl.userblimpl;
 
+import network.UserClientNetworkImpl;
 import network.UserClientNetworkService;
 import po.UserPO;
 import util.Kind_Of_Users;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 
 public class User {
 
-    private UserClientNetworkService networkService;
+    private UserClientNetworkService networkService = new UserClientNetworkImpl();
 
 
     /**
@@ -18,8 +19,11 @@ public class User {
      * @return
      */
     public ResultMessage addUser(UserVO user) {
+        if (user.getID()==null){
 
-        return ResultMessage.SUCCESS;
+        }
+        UserPO po = vo_to_po(user);
+        return networkService.addUser(po);
     }
 
     /**
