@@ -78,6 +78,12 @@ public class Test {
         userPODataHelper.save(po1);
         userPODataHelper.save(po2);
         userPODataHelper.save(po3);
+        List<UserPO> pos = userPODataHelper.fullMatchQuery("id","SS-1991");
 
+        System.out.println(pos.isEmpty());
+
+        pos = userPODataHelper.prefixMatchQuery("id","SS");
+        UserPO po = pos.get(0);
+        System.out.println(po.getCategory()+" "+po.getID());
     }
 }

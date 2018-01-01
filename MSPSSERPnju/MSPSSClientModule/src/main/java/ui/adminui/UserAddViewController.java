@@ -139,6 +139,7 @@ public class UserAddViewController implements Initializable {
 
                 UserVO userVo = new UserVO("", nameField.getText(), kind_of_users, "123456");
                 userBLService.addUser(userVo);
+                idLabel.setText(userVo.getID());
                 ResultMessage resultMessage = userBLService.addUser(userVo);
                 if (resultMessage == ResultMessage.SUCCESS) {
                     dialog.infoDialog("Add the user successfully.");

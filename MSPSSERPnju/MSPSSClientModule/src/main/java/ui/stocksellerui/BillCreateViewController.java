@@ -64,7 +64,7 @@ public class BillCreateViewController implements Initializable {
             MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
             boolean b = dialog.confirmDialog("Do you want to logout?");
             if (b == true) {
-                LoginController controller = (LoginController) replaceSceneContent("/view/admin/Login.fxml");
+                LoginController controller = (LoginController) replaceSceneContent2("/view/admin/Login.fxml");
                 Log_In_Out_Status log_in_out_status = mainBLService.logout(idOfCurrentUser.getText());
                 if (Log_In_Out_Status.Logout_Sucess == log_in_out_status) {
                     dialog.infoDialog("Logout successfully");

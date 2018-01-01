@@ -1,5 +1,6 @@
 package blimpl.userblimpl;
 
+import network.UserClientNetworkImpl;
 import network.UserClientNetworkService;
 import po.UserPO;
 import status.Log_In_Out_Status;
@@ -9,7 +10,7 @@ import status.Log_In_Out_Status;
  */
 public class UserLog {
 
-    private UserClientNetworkService userClientNetwork;
+    private UserClientNetworkService userClientNetwork = new UserClientNetworkImpl();
 
 
     /**
