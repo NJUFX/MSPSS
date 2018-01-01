@@ -85,8 +85,7 @@ public class Test {
      
              userPODataHelper.save(po1);
              userPODataHelper.save(po2);
-=======
-       */
+
         DataHelper<UserPO>  userPODataHelper = new HibernateHelper<>(UserPO.class);
         UserPO po1 = new UserPO("SS-1991","JiangChen", Kind_Of_Users.StockSeller.ordinal(),"123456");
         UserPO po2  = new UserPO("SM-1911","xgy",Kind_Of_Users.StockManager.ordinal(),"123456");
@@ -97,7 +96,7 @@ public class Test {
         List<UserPO> pos = userPODataHelper.fullMatchQuery("id","SS-1991");
 
         System.out.println(pos.isEmpty());
->>>>>>> b0241fc71180215d991b910a38b5a691e501c1c5
+
 
         pos = userPODataHelper.prefixMatchQuery("id","SS-1991");
         UserPO po = pos.get(0);

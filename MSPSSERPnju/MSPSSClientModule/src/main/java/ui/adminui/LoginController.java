@@ -140,11 +140,10 @@ public class LoginController implements Initializable {
                     }
                 }
             }
-<<<<<<< HEAD
+
             //currentUser = userBLService.searchUserByID(id);
             dialog.infoDialog("Login Successfully.");
-=======
->>>>>>> b0241fc71180215d991b910a38b5a691e501c1c5
+
         } else if (log_in_out_status == Log_In_Out_Status.Login_IdNotExist) {
             dialog.errorInfoDialog("Id not exist, please check your input.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_PasswordWrong) {
