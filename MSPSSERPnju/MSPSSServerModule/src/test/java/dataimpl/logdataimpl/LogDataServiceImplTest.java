@@ -1,8 +1,11 @@
 package dataimpl.logdataimpl;
 
-import org.junit.Test; 
+import dataservice.LogDataService;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+import po.LogPO;
+import util.Time;
 
 /** 
 * LogDataServiceImpl Tester. 
@@ -12,9 +15,10 @@ import org.junit.After;
 * @version 1.0 
 */ 
 public class LogDataServiceImplTest { 
-
+LogDataService logDataService;
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    logDataService = LogDataServiceFactory.getLogDataService();
 } 
 
 @After
@@ -48,7 +52,10 @@ public void testRangeSearch() throws Exception {
 */ 
 @Test
 public void testFullSearch() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    Time time = new Time(2017,1,1,1,1,1);
+    LogPO logPO = new LogPO("徐光耀",time.toString(),"添加账户");
+    logDataService.addLog(logPO);
 } 
 
 /** 

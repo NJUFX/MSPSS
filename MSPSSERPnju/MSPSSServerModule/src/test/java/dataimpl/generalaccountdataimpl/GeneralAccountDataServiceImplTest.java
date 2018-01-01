@@ -1,8 +1,16 @@
 package dataimpl.generalaccountdataimpl;
 
-import org.junit.Test; 
+import dataservice.GeneralAccountDataService;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+import po.GeneralAccountPO;
+import po.GeneralAccount_AccountList_PO;
+import po.GeneralAccount_CommodityList_PO;
+import po.GeneralAccount_CustomerList_PO;
+import util.Time;
+
+import java.util.ArrayList;
 
 /** 
 * GeneralAccountDataServiceImpl Tester. 
@@ -12,9 +20,10 @@ import org.junit.After;
 * @version 1.0 
 */ 
 public class GeneralAccountDataServiceImplTest { 
-
+GeneralAccountDataService generalAccountDataService;
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    generalAccountDataService = GeneralAccountDataServiceFactory.getGeneralAccountDataService();
 } 
 
 @After
@@ -28,7 +37,32 @@ public void after() throws Exception {
 */ 
 @Test
 public void testNewGeneralAccount() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    GeneralAccountPO generalAccountPO = new GeneralAccountPO();
+    ArrayList<GeneralAccount_CommodityList_PO> generalAccount_commodityList_pos = new ArrayList<GeneralAccount_CommodityList_PO>();
+    GeneralAccount_CommodityList_PO generalAccount_commodityList_po = new GeneralAccount_CommodityList_PO("水晶吊灯","123456","吊灯类","123456",12.45,45.58,23,generalAccountPO);
+    generalAccount_commodityList_pos.add(generalAccount_commodityList_po);
+
+    ArrayList<GeneralAccount_AccountList_PO> generalAccount_accountList_pos = new ArrayList<GeneralAccount_AccountList_PO>();
+    GeneralAccount_AccountList_PO generalAccount_accountList_po = new GeneralAccount_AccountList_PO("南京绿光灯泡厂",520.1314,generalAccountPO);
+    generalAccount_accountList_pos.add(generalAccount_accountList_po);
+
+
+    ArrayList<GeneralAccount_CustomerList_PO> generalAccount_customerList_pos = new ArrayList<GeneralAccount_CustomerList_PO>();
+    GeneralAccount_CustomerList_PO generalAccount_customerList_po = new GeneralAccount_CustomerList_PO(true,"123456",1,1,"隔壁王老板","18851826216","南京大学仙林校区","12312","123456@qq.com",123456.12,123.0,45.0,"123456",generalAccountPO);
+    generalAccount_customerList_pos.add(generalAccount_customerList_po);
+
+
+    Time time = new Time(2017,1,1,1,1,1);
+
+    generalAccountPO.setTime(time.toString());
+    generalAccountPO.setName("2017第一季度总账");
+    generalAccountPO.setAccountlist(generalAccount_accountList_pos);
+    generalAccountPO.setCommoditylist(generalAccount_commodityList_pos);
+    generalAccountPO.setCustomerlist(generalAccount_customerList_pos);
+
+    generalAccountDataService.newGeneralAccount(generalAccountPO);
+
 } 
 
 /** 

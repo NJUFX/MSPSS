@@ -1,9 +1,11 @@
 package dataimpl.stockdataimpl;
 
-import org.junit.Test; 
+import dataservice.StockDataService;
+import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 import po.StockPO;
+import util.Time;
 
 /** 
 * StockDataServiceImpl Tester. 
@@ -13,9 +15,10 @@ import po.StockPO;
 * @version 1.0 
 */ 
 public class StockDataServiceImplTest { 
-
+StockDataService stockDataService;
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    stockDataService = StockDataServiceFactory.getStockDataService();
 } 
 
 @After
@@ -40,7 +43,10 @@ public void testRangeSearchStock() throws Exception {
 @Test
 public void testAddStock() throws Exception { 
 //TODO: Test goes here...
-    //StockPO stockPO = new StockPO()
+    Time time = new Time(2017,1,1,1,1,1);
+    StockPO stockPO = new StockPO(1,"123456",12,time.toString(),12.48);
+    stockDataService.addStock(stockPO);
+
 } 
 
 
