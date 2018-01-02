@@ -33,6 +33,7 @@ import vo.ProcessTableFilterFlagsVO;
 import vo.ProcessTableVO;
 import vo.SaleTableFilterFlagsVO;
 import vo.SaleTableVO;
+import vo.UserVO;
 
 public class ChiefManagerSearchListController implements Initializable{
 	@FXML
@@ -75,11 +76,15 @@ public class ChiefManagerSearchListController implements Initializable{
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
 	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {

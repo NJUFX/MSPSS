@@ -26,7 +26,7 @@
         <property name="sumAfterDiscount" column="sum_after_discount" type="double"/>
 
 
-        <list name="salesItemPOS" table ="salesitempo" cascade="all">
+        <list name="salesItemPOS" lazy="false" table ="salesitempo" cascade="all">
             <key column="salesoutbill_id"></key>
 
             <index column ="salesout_index" type ="int"></index>

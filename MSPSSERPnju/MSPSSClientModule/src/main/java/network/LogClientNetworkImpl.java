@@ -33,7 +33,7 @@ public class LogClientNetworkImpl implements  LogClientNetworkService {
 
     public ResultMessage addLog(LogPO logPO){
         try{
-            logServerNetworkService.addLog(logPO);
+           return logServerNetworkService.addLog(logPO);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -42,7 +42,7 @@ public class LogClientNetworkImpl implements  LogClientNetworkService {
 
     public ArrayList<LogPO> rangeSearch(String field, Object min, Object max){
         try{
-           logServerNetworkService.rangeSearch(field, min, max);
+          return logServerNetworkService.rangeSearch(field, min, max);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class LogClientNetworkImpl implements  LogClientNetworkService {
 
     public ArrayList<LogPO> fullSearch(String field,Object value){
         try{
-            logServerNetworkService.fullSearch(field, value);
+           return logServerNetworkService.fullSearch(field, value);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -60,7 +60,7 @@ public class LogClientNetworkImpl implements  LogClientNetworkService {
 
     public ArrayList<LogPO> multiSearchLog(ArrayList<CriteriaClause> criteriaClauses){
         try{
-             logServerNetworkService.multiSearchLog(criteriaClauses);
+           return   logServerNetworkService.multiSearchLog(criteriaClauses);
         }catch (RemoteException e){
             e.printStackTrace();
         }

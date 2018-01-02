@@ -106,17 +106,17 @@
          </graphic></Button>
       <TableView fx:id="BillTable" layoutX="183.0" layoutY="109.0" prefHeight="342.0" prefWidth="680.0">
         <columns>
-          <TableColumn prefWidth="120.0" text="单据编号">
+          <TableColumn prefWidth="100.0" text="单据编号">
             <cellValueFactory>
                <PropertyValueFactory property="billId" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="120.0" text="生成单据时间">
+          <TableColumn prefWidth="100.0" text="生成单据时间">
             <cellValueFactory>
                <PropertyValueFactory property="createTime" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="120.0" text="提交单据时间">
+          <TableColumn prefWidth="100.0" text="提交单据时间">
               <cellValueFactory>
                <PropertyValueFactory property="commitTime" />
               </cellValueFactory>
@@ -126,12 +126,14 @@
                <PropertyValueFactory property="operator" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="120.0" text="单据类型">
+          <TableColumn prefWidth="100.0" text="单据类型">
             <cellValueFactory>
                <PropertyValueFactory property="billType" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn fx:id="ShowDetail" prefWidth="100.0" text="详情" />
+          <TableColumn fx:id="ShowDetail" prefWidth="50.0" text="详情" />
+            <TableColumn fx:id="HongChong" prefWidth="45.0" text="红冲" />
+            <TableColumn fx:id="HongChongAndCopy" prefWidth="90.0" text="红冲并复制" />
         </columns>
       </TableView>
       <Button fx:id="ExportProcessList" layoutX="763.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleExportProcessListButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />

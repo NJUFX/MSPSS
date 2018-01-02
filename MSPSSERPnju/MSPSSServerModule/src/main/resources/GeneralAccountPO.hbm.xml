@@ -14,21 +14,22 @@
           </property>
           <property name="time" column="time" type="string"></property>
 
-          <list name = "accountlist" table ="generalaccount_accountlist" cascade="all">
+          <!-- lazy延迟加载为false才能初始化list，不然需要在session没关闭之前调用get方法，否则报错 -->
+          <list name = "accountlist" lazy="false" table ="generalaccount_accountlist" cascade="all">
               <key column="generalaccount_id"></key>
               <index column="account_index" ></index>
               <one-to-many class ="po.GeneralAccount_AccountList_PO"/>
 
 
           </list>
-
-          <list name="commoditylist" table = "generalaccount_commoditylist" cascade ="all">
+          <!-- lazy延迟加载为false才能初始化list，不然需要在session没关闭之前调用get方法，否则报错 -->
+          <list name="commoditylist" lazy="false" table = "generalaccount_commoditylist" cascade ="all">
               <key column="generalaccount_id"></key>
               <index column ="commodity_index"></index>
               <one-to-many class="po.GeneralAccount_CommodityList_PO"></one-to-many>
           </list>
-
-          <list name="customerlist" table="generalaccount_customerlist" cascade="all">
+          <!-- lazy延迟加载为false才能初始化list，不然需要在session没关闭之前调用get方法，否则报错 -->
+          <list name="customerlist" lazy="false" table="generalaccount_customerlist" cascade="all">
               <key column="generalaccount_id"></key>
               <index column="customer_index"></index>
               <one-to-many class="po.GeneralAccount_CustomerList_PO" ></one-to-many>

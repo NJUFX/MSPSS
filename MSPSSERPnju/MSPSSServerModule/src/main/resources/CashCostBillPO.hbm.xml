@@ -16,7 +16,7 @@
         <property name="approval_time" column="approval_time" type="string"/>
 
 
-        <list name="list" table ="cashcostitempo" cascade="all">
+        <list name="list" lazy="false" table ="cashcostitempo" cascade="all">
             <key column="cashcostbill_id"></key>
 
             <index column ="index_" type ="int"></index>

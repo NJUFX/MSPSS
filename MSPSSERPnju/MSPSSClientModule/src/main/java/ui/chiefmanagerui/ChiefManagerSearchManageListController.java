@@ -27,6 +27,7 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import vo.BusinessTableVO;
+import vo.UserVO;
 
 public class ChiefManagerSearchManageListController implements Initializable{
 	@FXML
@@ -68,11 +69,15 @@ public class ChiefManagerSearchManageListController implements Initializable{
 	Stage stage = StageSingleton.getStage();
 	static BusinessTableVO tableVO;
 	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {

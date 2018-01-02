@@ -20,7 +20,7 @@
         <property name="approval_time" column="approval_time" type="string"/>
         <property name="commentByManager" column="comment_by_manager" type="string"></property>
 
-        <list name="itemPOS" table ="salesitempo" cascade="all">
+        <list name="itemPOS" lazy="false" table ="salesitempo" cascade="all">
             <key column="salesinbill_id"></key>
 
             <index column ="salesin_index" type ="int"></index>

@@ -28,6 +28,7 @@ import vo.BusinessTableVO;
 import vo.SaleTableVO;
 import vo.SalesItemVO;
 import vo.SalesOutBillVO;
+import vo.UserVO;
 
 public class ChiefManagerSearchSalesListController implements Initializable{
 	@FXML
@@ -59,12 +60,16 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	Stage stage = StageSingleton.getStage();
 	static SaleTableVO tableVO;
 	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {

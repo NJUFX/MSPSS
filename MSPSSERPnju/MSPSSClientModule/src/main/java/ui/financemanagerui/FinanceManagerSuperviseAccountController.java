@@ -21,6 +21,7 @@ import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.Time;
 import vo.AccountVO;
+import vo.UserVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -68,6 +69,8 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	Stage stage = StageSingleton.getStage();
 	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
 	ArrayList<AccountVO> testStub = new ArrayList<AccountVO>();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 	
 
 	@Override
@@ -75,7 +78,9 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 		// TODO
 		this.initTable();
 			testStub.add(new AccountVO("testName",100000.0,new Time(2017,12,25,15,40,23)));
-
+			NameTag.setText(currentUser.getName());
+			RoleTag.setText(currentUser.getCategory().toString());
+			IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {

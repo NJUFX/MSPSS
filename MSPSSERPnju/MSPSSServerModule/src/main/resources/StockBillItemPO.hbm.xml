@@ -13,7 +13,7 @@
        <property name="commodityID" column="commodity_id" type="string"></property>
        <property name="number" column ="number" type ="int"></property>
 
-       <many-to-one name="stockBillPO" column = "stockbill_id" class="po.StockBillPO">
+       <many-to-one name="stockBillPO" lazy="false" column = "stockbill_id" class="po.StockBillPO">
 
        </many-to-one>
 

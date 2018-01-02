@@ -22,13 +22,18 @@ public class StockBillItemPO  implements Serializable{
    public int number;
 
     /**
-     *所属的stockBill，不用自己赋值
+     *所属的stockBill
      *
      */
     private StockBillPO stockBillPO;
-   public StockBillItemPO(String commodityID,int number){
+
+    public StockBillItemPO() {
+    }
+
+    public StockBillItemPO(String commodityID, int number){
        this.commodityID = commodityID;
        this.number = number;
+       //this.stockBillPO = stockBillPO;
    }
 
     public String getKeycolumn() {

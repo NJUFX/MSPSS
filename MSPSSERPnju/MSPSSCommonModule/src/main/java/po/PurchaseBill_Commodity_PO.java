@@ -50,6 +50,9 @@ public class PurchaseBill_Commodity_PO implements Serializable{
      */
     private PurchaseBillPO purchasebill;
 
+    public PurchaseBill_Commodity_PO() {
+    }
+
     public String getKeycolumn() {
         return keycolumn;
     }
