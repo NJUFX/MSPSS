@@ -1,10 +1,10 @@
 package blimpl.logblimpl;
 
+import network.LogClientNetworkImpl;
 import network.LogClientNetworkService;
 import po.LogPO;
 import util.*;
 import vo.LogFilterVO;
-import vo.LogListVO;
 import vo.LogVO;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by Harper on 17/11/21
  */
 public class Log {
-    LogClientNetworkService networkService;
+    LogClientNetworkService networkService = new LogClientNetworkImpl();
     public ResultMessage add(LogVO logVO) {
         LogPO po = vo_to_po(logVO);
         return networkService.addLog(po);
@@ -74,7 +74,7 @@ public class Log {
         return vo;
     }
     private LogPO vo_to_po(LogVO logVO){
-        LogPO po  = new LogPO(logVO.id,logVO.operator,logVO.time.toString(),logVO.operate);
+        LogPO po = new LogPO(logVO.operator, logVO.time.toString(), logVO.operate);
         return po;
     }
 
