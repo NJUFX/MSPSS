@@ -130,7 +130,7 @@
                   <Font name="Microsoft YaHei" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="187.0" layoutY="215.0" prefHeight="23.0" prefWidth="114.0">
+            <TextField fx:id="emailField" layoutX="187.0" layoutY="215.0" prefHeight="23.0" prefWidth="114.0">
                <font>
                   <Font size="10.0" />
                </font>

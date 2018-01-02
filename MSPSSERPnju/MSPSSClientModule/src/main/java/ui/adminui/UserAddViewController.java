@@ -58,9 +58,9 @@ public class UserAddViewController implements Initializable {
     public ComboBox<String> userCategory, userLevel;
 
     @FXML
-    Label nameLabel, cateLabel, idLabel, userLevelLabel;
+    Label nameLabel, cateLabel, idLabel;
     @FXML
-    TextField nameField;
+    TextField nameField, emailField;
     @FXML
     Button searchUserButton;
 
@@ -105,7 +105,7 @@ public class UserAddViewController implements Initializable {
             dialog.errorInfoDialog("user exist!");
             return;
         }
-        if (nameField.getText() == null || userCategory.getValue() == null) {
+        if (nameField.getText() == null || nameField.getText().trim().equals("") || userCategory.getValue() == null || userCategory.getValue().equals("") || emailField.getText() == null || emailField.getText().trim().equals("")) {
             dialog.errorInfoDialog("Something null, please check your input.");
         } else {
             boolean isSure = dialog.confirmDialog("Do you confirm to add this user?");
@@ -142,6 +142,8 @@ public class UserAddViewController implements Initializable {
                 }
 
                 UserVO userVo = new UserVO("", nameField.getText(), kind_of_users, "123456");
+                userVo.setIsValid(true);
+                userVo.setMail(emailField.getText().trim());
                 //userBLService.addUser(userVo);
                 ResultMessage resultMessage = userBLService.addUser(userVo);
                 idLabel.setText(userVo.getID());

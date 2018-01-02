@@ -154,6 +154,7 @@ public class UserSearchShowViewController implements Initializable {
                     controller.idLabel.setText(data.get(i).getId());
                     controller.nameLabel.setText(data.get(i).getName());
                     controller.categoryBox.setText(getCategory(userBLService.searchUserByID(data.get(i).getId())));
+                    controller.emailField.setText(userBLService.searchUserByID(data.get(i).getId()).getMail());
                 } catch (Exception e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();

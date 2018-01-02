@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import ui.common.Dialog;
 import util.Kind_Of_Users;
 import util.ResultMessage;
@@ -25,6 +26,8 @@ public class UserInfoModifyViewController implements Initializable {
 
     @FXML
     Label idLabel, nameLabel, powerBoxLabel, categoryBox;
+    @FXML
+    TextField emailField;
     @FXML
     ComboBox<String> powerBox;
     @FXML
@@ -60,9 +63,12 @@ public class UserInfoModifyViewController implements Initializable {
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
-
-        boolean isSure = dialog.confirmDialog("Do you confirm to add this user?");
+        boolean isSure = dialog.confirmDialog("Do you confirm to modify this user?");
         if (isSure == true) {
+            if (emailField.getText() == null || emailField.getText().trim().equals("")) {
+                dialog.errorInfoDialog("You haven't input the email address");
+                return;
+            }
             Kind_Of_Users kind_of_users = Kind_Of_Users.SystemManager;
             switch (categoryBox.getText()) {
                 case "库存管理人员":
@@ -95,8 +101,8 @@ public class UserInfoModifyViewController implements Initializable {
             }
             UserVO userVO = userBLService.searchUserByID(idLabel.getText());
             UserVO userVo = new UserVO(userVO.getID(), userVO.getName(), kind_of_users, userVO.getPassword());
-            userBLService.updateUser(userVo);
-            ResultMessage resultMessage = userBLService.addUser(userVo);
+            userVo.setMail(emailField.getText().trim());
+            ResultMessage resultMessage = userBLService.updateUser(userVo);
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Add the user successfully.");
             }

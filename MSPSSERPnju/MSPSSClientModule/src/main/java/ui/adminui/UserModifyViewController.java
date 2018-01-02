@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -60,6 +61,8 @@ public class UserModifyViewController implements Initializable {
     @FXML
     Label nameLabel, cateLabel, idLabel, userCategory;
     @FXML
+    TextField emailField;
+    @FXML
     Button searchUserButton;
 
     @FXML
@@ -84,6 +87,10 @@ public class UserModifyViewController implements Initializable {
      */
     @FXML
     public void sureButtonAction(ActionEvent e) {
+        if (emailField.getText() == null || emailField.getText().trim().equals("")) {
+            dialog.errorInfoDialog("You haven't input the email address");
+            return;
+        }
         if (userCategory.getText() == null) {
             dialog.errorInfoDialog("Something null, please check your input.");
         } else {
@@ -121,10 +128,12 @@ public class UserModifyViewController implements Initializable {
                 }
 
                 UserVO userVo = new UserVO(user_to_modify.getID(), user_to_modify.getName(), kind_of_users, user_to_modify.getPassword());
-                userBLService.updateUser(userVo);
-                ResultMessage resultMessage = userBLService.addUser(userVo);
+                userVo.setMail(emailField.getText().trim());
+                ResultMessage resultMessage = userBLService.updateUser(userVo);
                 if (resultMessage == ResultMessage.SUCCESS) {
-                    dialog.infoDialog("Add the user successfully.");
+                    dialog.infoDialog("Modify the user successfully.");
+                } else {
+                    dialog.errorInfoDialog("Fail to modify the user's information.");
                 }
             }
         }
@@ -251,7 +260,7 @@ public class UserModifyViewController implements Initializable {
         userId.setText(user_to_modify.getID());
         userName.setText(user_to_modify.getName());
         userCategory.setText(getCategory(user_to_modify));
-
+        emailField.setText(user_to_modify.getMail());
         ObservableList<String> options = FXCollections.observableArrayList();
         userLevel.setItems(options);
         if (userCategory.getText().equals("进货销售人员")) {
