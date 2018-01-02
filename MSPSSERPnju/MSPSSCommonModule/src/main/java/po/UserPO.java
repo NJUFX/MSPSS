@@ -45,12 +45,7 @@ public class UserPO implements Serializable {
      */
     private String mail;
 
-    public UserPO(String ID, String name, int category, String password) {
-        this.ID = ID;
-        this.name = name;
-        this.category = category;
-        this.password = password;
-    }
+
 
 
     public UserPO() {
@@ -112,6 +107,14 @@ public class UserPO implements Serializable {
 
     public void setIsValid(boolean b) {
         this.isValid = b;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     /**
