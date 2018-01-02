@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="hibernate.cfg.xml/Hibernate" uuid="8e1b6fb8-48a1-4a2f-af59-907af5e1a984">
-      <database-info product="MySQL" version="5.7.20" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
-      <user-name>root</user-name>
-      <introspection-schemas>*:mspss</introspection-schemas>
-    </data-source>
-<<<<<<< HEAD
-    <data-source name="mspss@localhost" uuid="167b7c61-c9a9-48a7-be50-31647f2cc1c3">
-=======
-    <data-source name="mspss@localhost" uuid="6b0bc3c5-2540-4948-88e7-9d68f59848f4">
->>>>>>> d09b57fac3dfcc6f497865aeaf4ba4a207c7be66
+    <data-source name="mspss@localhost" uuid="c6c0d4cb-eab0-4bf3-8259-b159e2d6668c">
       <database-info product="MySQL" version="5.7.20" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
