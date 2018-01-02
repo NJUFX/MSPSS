@@ -55,15 +55,14 @@ public class AddClassificationViewController implements Initializable {
             }
             TreeItem<ClassificationCell> newItem = new TreeItem<>(new ClassificationCell(name_of_class, str, "aghogddggag", true), imageView);
             treeItem.getChildren().add(newItem);
-            /*
+
             ClassificationVO father = new ClassificationVO(treeItem.getValue().toString());
             ClassificationVO classificationVO = new ClassificationVO(newItem.getValue().toString(), father);
             ResultMessage resultMessage = commodityBLService.addClassification(classificationVO);
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Add a classification successfully.");
             }
-            */
-            dialog.infoDialog("Add a classification successfully.");
+            //dialog.infoDialog("Add a classification successfully.");
             sureButton.getScene().getWindow().hide();
         } else {
             errorLabel.setVisible(true);

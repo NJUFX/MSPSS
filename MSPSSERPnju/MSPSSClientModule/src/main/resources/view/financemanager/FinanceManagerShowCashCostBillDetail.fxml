@@ -10,24 +10,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.collections.*?>
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.geometry.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.*?>
-<?import javafx.scene.layout.*?>
-<?import auxiliary.stockmanager.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/chiefManager/ChiefManagerExamineBill.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerExamineBillController">
+<Pane fx:id="SalesOutBillPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchManageList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerShowCashCostBillDetailController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
                 <ColorInput height="560.0" paint="#0f88eb" width="145" />
             </effect>
         </Pane>
-        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0">
+        <Pane layoutX="145.0" prefHeight="40.0" prefWidth="755.0" stylesheets="@../../css/chiefManager/ChiefManagerShowBillDetail.css">
             <effect>
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
@@ -47,14 +38,14 @@
                 <Image url="@../../image/查看报表.png" />
             </image>
         </ImageView>
-      <Label fx:id="NameTag" layoutX="20.0" layoutY="200.0" text="姓名：江尘" />
-      <Label fx:id="RoleTag" layoutX="20.0" layoutY="220.0" text="身份：总经理" />
+      <Label fx:id="NameTag" layoutX="20.0" layoutY="200.0" text="姓名：江尘" textFill="WHITE" />
+      <Label fx:id="RoleTag" layoutX="20.0" layoutY="220.0" text="身份：总经理" textFill="WHITE" />
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/头像.png" />
             </image>
       </ImageView>
-      <Label fx:id="IdTag" layoutX="20.0" layoutY="240.0" text="编号：000001" />
+      <Label fx:id="IdTag" layoutX="20.0" layoutY="240.0" text="编号：000001" textFill="WHITE" />
       <Button fx:id="ReadLog" layoutY="350.0" mnemonicParsing="false" onAction="#handleReadLogButtonAction" prefHeight="35.0" prefWidth="145.0" text="查询日志" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
@@ -104,39 +95,25 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <TableView fx:id="BillTable" layoutX="183.0" layoutY="109.0" prefHeight="342.0" prefWidth="680.0">
-        <columns>
-          <TableColumn prefWidth="100.0" text="单据编号">
-            <cellValueFactory>
-               <PropertyValueFactory property="billId" />
-            </cellValueFactory>
-          </TableColumn>
-          <TableColumn prefWidth="100.0" text="生成单据时间">
-            <cellValueFactory>
-               <PropertyValueFactory property="createTime" />
-            </cellValueFactory>
-          </TableColumn>
-          <TableColumn prefWidth="100.0" text="提交单据时间">
-              <cellValueFactory>
-               <PropertyValueFactory property="commitTime" />
-              </cellValueFactory>
-          </TableColumn>
-          <TableColumn prefWidth="100.0" text="创建者">
-            <cellValueFactory>
-               <PropertyValueFactory property="operator" />
-            </cellValueFactory>
-          </TableColumn>
-          <TableColumn prefWidth="100.0" text="单据类型">
-            <cellValueFactory>
-               <PropertyValueFactory property="billType" />
-            </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="ShowDetail" prefWidth="50.0" text="详情" />
-            <TableColumn fx:id="HongChong" prefWidth="45.0" text="红冲" />
-            <TableColumn fx:id="HongChongAndCopy" prefWidth="90.0" text="红冲并复制" />
-        </columns>
-      </TableView>
-      <Button fx:id="ExportProcessList" layoutX="763.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleExportProcessListButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
-      <Button fx:id="BackToSearchList" layoutX="615.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleBackToSearchListButtonAction" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Button fx:id="BackToExamineBill" layoutX="753.0" layoutY="467.0" mnemonicParsing="false" onAction="#handleBackToExamineBillButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
+      <Pane fx:id="FinanceBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="40.0" layoutY="30.0" style="-fx-background-color: white;" text="单据编号" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="60.0" style="-fx-background-color: white;" text="操作员" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="90.0" style="-fx-background-color: white;" text="创建单据时间" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="120.0" style="-fx-background-color: white;" text="提交单据时间" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="150.0" style="-fx-background-color: white;" text="单据类型" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="180.0" style="-fx-background-color: white;" text="金额汇总" textFill="#0f88eb" />
+            <Label layoutX="40.0" layoutY="210.0" style="-fx-background-color: white;" text="单据状态" textFill="#0f88eb" />
+            <TextArea fx:id="FinanceBillItem" layoutX="360.0" layoutY="30.0" prefHeight="287.0" prefWidth="270.0" />
+            <Label fx:id="FinanceBillId" layoutX="170.0" layoutY="30.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillOperator" layoutX="170.0" layoutY="60.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillInitTime" layoutX="170.0" layoutY="90.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillCommitTime" layoutX="170.0" layoutY="120.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillType" layoutX="170.0" layoutY="150.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillSum" layoutX="170.0" layoutY="180.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+            <Label fx:id="FinanceBillStatus" layoutX="170.0" layoutY="210.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="#0f88eb" />
+         </children>
+      </Pane>
     </children>
 </Pane>

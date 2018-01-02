@@ -35,6 +35,7 @@ import vo.AccountVO;
 import vo.CommodityVO;
 import vo.CustomerVO;
 import vo.GeneralAccountVO;
+import vo.UserVO;
 
 public class FinanceManagerCreateGeneralAccountController implements Initializable {
 
@@ -96,10 +97,13 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 	static ArrayList<AccountVO> accountList = new ArrayList<AccountVO>();
 	GeneralAccountBLService generalAccountBLService = new BLFactoryImpl().getGeneralAccountBLService();
 	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
+		/*
 		CommodityVO commodity1 = new CommodityVO("LED灯","12138","IEEE-0001",10,10,100);
 		commodityList.add(commodity1) ;
 		 CustomerVO customer = new CustomerVO("1",Kind_Of_Customers.SUPPLIER,2,"hanqi",
@@ -107,6 +111,10 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 		 customerList.add(customer);
 		  AccountVO accountVO1 = new AccountVO("HuaQi",111,new Time());
 		  accountList.add(accountVO1);
+		  */
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {

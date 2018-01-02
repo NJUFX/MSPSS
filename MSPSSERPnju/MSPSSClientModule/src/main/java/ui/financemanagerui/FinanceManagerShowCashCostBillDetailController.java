@@ -1,5 +1,14 @@
 package ui.financemanagerui;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import auxiliary.Bill;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.accountblservice.AccountBLService;
+import blservice.billblservice.FinanceBillBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,33 +17,30 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
-import ui.chiefmanagerui.ChiefManagerExamineBillController;
-import ui.chiefmanagerui.ChiefManagerReadLogController;
-import ui.chiefmanagerui.ChiefManagerSearchListController;
-import ui.chiefmanagerui.ChiefManagerSetPromotionController;
 import ui.common.Dialog;
+import vo.AccountFilterFlagsVO;
+import vo.CashCostBillVO;
+import vo.FinanceBillVO;
+import vo.SalesInBillVO;
+import vo.SalesOutBillVO;
+import vo.StockBillVO;
 import vo.UserVO;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class FinanceManagerMainViewController implements Initializable {
-
+public class FinanceManagerShowCashCostBillDetailController implements Initializable{
 	@FXML
 	Button SearchList;
 	@FXML
-	Button MakeBill;
+	Button ExamineBill;
 	@FXML
-	Button SuperviseAccount;
+	Button ReadLog;
 	@FXML
-	Button CreateGeneralAccount;
+	Button SetPromotion;
 	@FXML
 	Label NameTag;
 	@FXML
@@ -44,11 +50,39 @@ public class FinanceManagerMainViewController implements Initializable {
 	@FXML
 	Button BackToLogin;
 	
+	@FXML
+	Pane FinanceBillPane;
+	
+	@FXML
+	Label FinanceBillId;
+	@FXML
+	Label FinanceBillOperator;
+	@FXML
+	Label FinanceBillInitTime;
+	@FXML
+	Label FinanceBillCommitTime;
+	@FXML
+	Label FinanceBillType;
+	@FXML
+	Label FinanceBillSum;
+	@FXML
+	Label FinanceBillStatus;
+	@FXML
+	TextArea FinanceBillItem;
+	@FXML
+	Button BackToExamineBill;
+	
+	
+	
+	
+	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
 	LoginController loginController = new LoginController();
 	UserVO currentUser = loginController.getCurrentUser();
+	FinanceBillBLService financeBillBLService = new BLFactoryImpl().getFinanceBillBLService();
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -134,21 +168,6 @@ public class FinanceManagerMainViewController implements Initializable {
 			e1.printStackTrace();
 		}
 	}
-	
-	/**
-	 * 返回登录界面
-	 * @param e
-	 * @throws IOException
-	 */
-	public void handleBackToLoginButtonAction(ActionEvent e) throws IOException {
-		try {
-			LoginController controller = (LoginController) replaceSceneContent(
-					"/view/admin/Login.fxml");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
 
 	/**
 	 * 用来打开fxml文件
@@ -175,6 +194,46 @@ public class FinanceManagerMainViewController implements Initializable {
 		stage.sizeToScene();
 		return (Initializable) loader.getController();
 	}
-
+	
+	
+	
+	/**
+	 * 显示现金费用单据详情
+	 * @param vo
+	 */
+	public void ShowCashCostBillDetail(CashCostBillVO vo) {
+		
+		
+		FinanceBillId.setText(vo.getID());
+		FinanceBillOperator.setText(vo.getOperator().getName());
+		FinanceBillInitTime.setText(vo.getInit_time().toString());
+		FinanceBillCommitTime.setText(vo.getCommit_time().toString());
+		FinanceBillType.setText("现金费用单");
+		FinanceBillSum.setText(Double.toString(vo.getSum()));
+		FinanceBillStatus.setText(vo.getStatus().toString());
+		
+		String BillItem = "";
+		for(int i=0;i<vo.getList().size();i++) {
+			BillItem = BillItem + vo.getList().get(i).name+" "+Double.toString(vo.getList().get(i).money)+" "+vo.getList().get(i).ps+"\n";
+		}
+		FinanceBillItem.setText(BillItem);
+	}
+	
+	/**
+	 * 红冲并复制
+	 * @param vo
+	 */
+	public void HongChongAndCopy(CashCostBillVO vo) {
+		String[] items = FinanceBillItem.getText().split("\n");
+		for(int i=0;i<items.length;i++) {
+			String[] temp= items[i].split(" ");
+			AccountFilterFlagsVO flag = new AccountFilterFlagsVO(temp[0],null,null);
+			//默认只能搜到一个
+			vo.getList().get(i).setName(temp[0]);
+		}
+		financeBillBLService.HongChongAndCopy(vo);
+		
+	}
+	
 
 }

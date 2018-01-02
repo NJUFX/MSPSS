@@ -1,44 +1,48 @@
 package ui.financemanagerui;
 
-import auxiliary.Account;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import auxiliary.Bill;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLService;
-import javafx.collections.ObservableList;
+import blservice.billblservice.FinanceBillBLService;
+import blservice.commodityblservice.CommodityBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import util.Time;
-import vo.AccountVO;
+import vo.AccountFilterFlagsVO;
+import vo.CashCostBillVO;
+import vo.FilterFlagVO;
+import vo.FinanceBillVO;
+import vo.SalesInBillVO;
+import vo.SalesOutBillVO;
+import vo.StockBillVO;
 import vo.UserVO;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-public class FinanceManagerSuperviseAccountController implements Initializable {
-
+public class FinanceManagerShowFinanceBillDetailController implements Initializable{
 	@FXML
 	Button SearchList;
 	@FXML
-	Button MakeBill;
+	Button ExamineBill;
 	@FXML
-	Button SuperviseAccount;
+	Button ReadLog;
 	@FXML
-	Button CreateGeneralAccount;
+	Button SetPromotion;
 	@FXML
 	Label NameTag;
 	@FXML
@@ -47,40 +51,51 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	
 	@FXML
-	TableView AccountTable;
+	Pane FinanceBillPane;
+	
 	@FXML
-	TableColumn<Account,String> DeleteAccount;
+	Label FinanceBillId;
 	@FXML
-	TextField SearchCondition;
+	Label FinanceBillOperator;
 	@FXML
-	Button SearchAccount;
+	Label FinanceBillCustomer;
+	
 	@FXML
-	TextField AddAccountName;
+	Label FinanceBillInitTime;
 	@FXML
-	TextField AddAccountMoney;
+	Label FinanceBillCommitTime;
+	
 	@FXML
-	TextField CurrentAccountName;
+	Label FinanceBillType;
 	@FXML
-	TextField NewAccountName;
+	Label FinanceBillSum;
+	@FXML
+	Label FinanceBillStatus;
+	@FXML
+	TextArea FinanceBillItem;
+	@FXML
+	Button BackToExamineBill;
+	
+	
+	
+	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
-	AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
-	ArrayList<AccountVO> testStub = new ArrayList<AccountVO>();
 	LoginController loginController = new LoginController();
 	UserVO currentUser = loginController.getCurrentUser();
-	
+	FinanceBillBLService financeBillBLService = new BLFactoryImpl().getFinanceBillBLService();
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		this.initTable();
-			testStub.add(new AccountVO("testName",100000.0,new Time(2017,12,25,15,40,23)));
-			NameTag.setText(currentUser.getName());
-			RoleTag.setText(currentUser.getCategory().toString());
-			IdTag.setText(currentUser.getID());
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {
@@ -158,6 +173,7 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	
 	}
 	
 	/**
@@ -201,92 +217,49 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 		return (Initializable) loader.getController();
 	}
 	
-	public void initTable() {
-		DeleteAccount.setCellFactory((col) -> {
-			TableCell<Account, String> cell = new TableCell<Account, String>() {
-				@Override
-				public void updateItem(String item, boolean empty) {
-					super.updateItem(item, empty);
-					this.setText(null);
-					this.setGraphic(null);
-					if (!empty) {
-						Image btnImage = new Image(getClass().getResourceAsStream("/image/删除.png"));
-						Button delBtn = new Button();
-						ImageView iv = new ImageView(btnImage);
-						iv.setFitWidth(15);
-						iv.setFitHeight(15);
-						delBtn.setGraphic(iv);
-						delBtn.setPrefSize(100, 5);
-
-						// delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
-						this.setGraphic(delBtn);
-						delBtn.setOnMouseClicked((me) -> {
-							try {
-								Account currentAccount = this.getTableView().getItems().get(getIndex());
-								accountBLService.deleteAccount(currentAccount.getName());
-								ObservableList<Account> data = AccountTable.getItems();
-								data.remove(currentAccount);
-
-							} catch (Exception e1) {
-								e1.printStackTrace();
-							}
-						});
-					}
-				}
-			};
-			return cell;
-		});
-
+	
+	
+	/**
+	 * 显示财务单据详情
+	 * @param vo
+	 */
+	public void ShowFinanceBillDetail(FinanceBillVO vo) {
+		
+		
+		FinanceBillId.setText(vo.getID());
+		FinanceBillOperator.setText(vo.getOperator().getName());
+		FinanceBillCustomer.setText(vo.getCustomerVO().getName());
+		//FinanceBillExamineManager.setText("");
+		FinanceBillInitTime.setText(vo.getInit_time().toString());
+		FinanceBillCommitTime.setText(vo.getCommit_time().toString());
+		//FinanceBillExamineTime.setText("");
+		FinanceBillType.setText(vo.getType().toString());
+		FinanceBillSum.setText(Double.toString(vo.getSum()));
+		FinanceBillStatus.setText(vo.getStatus().toString());
+		
+		String BillItem = "";
+		for(int i=0;i<vo.getList().size();i++) {
+			BillItem = BillItem + vo.getList().get(i).accountVO.getName()+" "+Double.toString(vo.getList().get(i).money)+" "+vo.getList().get(i).ps+"\n";
+		}
+		FinanceBillItem.setText(BillItem);
+	}
+	
+	/**
+	 * 红冲并复制
+	 * @param vo
+	 */
+	public void HongChongAndCopy(FinanceBillVO vo) {
+		String[] items = FinanceBillItem.getText().split("\n");
+		AccountBLService accountBLService = new BLFactoryImpl().getAccountBLService();
+		for(int i=0;i<items.length;i++) {
+			String[] temp= items[i].split(" ");
+			AccountFilterFlagsVO flag = new AccountFilterFlagsVO(temp[0],null,null);
+			//默认只能搜到一个
+			vo.getList().get(i).setAccountVO(accountBLService.searchAccount(flag).get(0));
+		}
+		financeBillBLService.HongChongAndCopy(vo);
 		
 	}
 	
-	/**
-	 * 监听查找账户按钮
-	 * @param e
-	 * @throws Exception
-	 */
-	public void handleSearchAccountButtonAction(ActionEvent e) throws Exception{
-		ObservableList<Account> data = AccountTable.getItems();
-		data.clear();
-		String condition = SearchCondition.getText();
-		ArrayList<AccountVO> accountList = accountBLService.fuzzSearchAccountByName(condition);
-		//ArrayList<AccountVO> accountList = testStub;
-		for(int i=0;i<accountList.size();i++) {
-			AccountVO temp = accountList.get(i);
-			data.add(new Account(temp.getName(),Double.toString(temp.getMoney())));
-		}
-	}
-	
-	
-	/**
-	 * 监听增加账户按钮
-	 * @param e
-	 * @throws Exception
-	 */
-	public void handleAddAccountButtonAction(ActionEvent e) throws Exception{
-		String AccountName = AddAccountName.getText();
-		String AccountMoney = AddAccountMoney.getText();
-		ObservableList<Account> data = AccountTable.getItems();
-		data.add(new Account(AccountName,AccountMoney));
-		accountBLService.addAccount(new AccountVO(AccountName,Double.parseDouble(AccountName),null));
-	}
-
-
-	/**
-	 * 监听修改账户按钮
-	 * @param e
-	 * @throws Exception
-	 */
-	public void handleUpdateAccountButtonAction(ActionEvent e) throws Exception{
-		ObservableList<Account> data = AccountTable.getItems();
-		for(int i=0;i<data.size();i++) {
-			if(data.get(i).getName().equals(CurrentAccountName.getText())) {
-				Account temp = data.get(i);
-				data.add(new Account(NewAccountName.getText(),temp.getMoney()));
-				data.remove(temp);
-				accountBLService.modifyAccount(CurrentAccountName.getText(), NewAccountName.getText());
-			}
-		}
-	}
 
 }

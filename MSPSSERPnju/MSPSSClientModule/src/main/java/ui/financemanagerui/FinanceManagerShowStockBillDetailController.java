@@ -1,14 +1,14 @@
-package ui.chiefmanagerui;
+package ui.financemanagerui;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import auxiliary.SalesTableBill;
+import auxiliary.Bill;
 import blimpl.blfactory.BLFactoryImpl;
-import blservice.tableblservice.TableBLService;
-import javafx.collections.ObservableList;
+import blservice.billblservice.FinanceBillBLService;
+import blservice.commodityblservice.CommodityBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,20 +17,22 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import vo.BusinessTableVO;
-import vo.SaleTableVO;
-import vo.SalesItemVO;
+import vo.CashCostBillVO;
+import vo.FilterFlagVO;
+import vo.FinanceBillVO;
+import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
+import vo.StockBillVO;
 import vo.UserVO;
 
-public class ChiefManagerSearchSalesListController implements Initializable{
+public class FinanceManagerShowStockBillDetailController implements Initializable{
 	@FXML
 	Button SearchList;
 	@FXML
@@ -48,21 +50,40 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	@FXML
 	Button BackToLogin;
 	@FXML
-	TableView SalesTable;
+	Pane StockBillPane;
+	
 	@FXML
-	Button ExportSalesList;
+	Label StockBillId;
 	@FXML
-	Button BackToSearchList;
+	Label StockBillType;
+	@FXML
+	Label StockBillStatus;
+	@FXML
+	Label StockBillInitTime;
+	@FXML
+	Label StockBillCommitTime;
+	
+	@FXML
+	Label StockBillStockManagerComment;
+	@FXML
+	Label StockBillOperator;
+	
+	@FXML
+	TextArea StockBillItem;
+	
+	@FXML
+	Button BackToExamineBill;
+	
+	
+	
 	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
-	static SaleTableVO tableVO;
-	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
 	LoginController loginController = new LoginController();
 	UserVO currentUser = loginController.getCurrentUser();
-
+	FinanceBillBLService financeBillBLService = new BLFactoryImpl().getFinanceBillBLService();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -93,8 +114,8 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	 */
 	public void handleSearchListButtonAction(ActionEvent e) throws IOException {
 		try {
-			ChiefManagerSearchListController controller = (ChiefManagerSearchListController) replaceSceneContent(
-					"/view/chiefmanager/ChiefManagerSearchList.fxml");
+			FinanceManagerSearchListController controller = (FinanceManagerSearchListController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerSearchList.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -102,15 +123,15 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	}
 
 	/**
-	 * 监听审批单据按钮
+	 * 监听制定单据按钮
 	 * 
 	 * @param e
 	 * @throws IOException
 	 */
-	public void handleExamineBillButtonAction(ActionEvent e) throws IOException {
+	public void handleMakeBillButtonAction(ActionEvent e) throws IOException {
 		try {
-			ChiefManagerExamineBillController controller = (ChiefManagerExamineBillController) replaceSceneContent(
-					"/view/chiefmanager/ChiefManagerExamineBill.fxml");
+			FinanceManagerMakeBillMainController controller = (FinanceManagerMakeBillMainController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerMakeBillMain.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -118,15 +139,15 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	}
 
 	/**
-	 * 监听查询日志按钮
+	 * 监听账户管理按钮
 	 * 
 	 * @param e
 	 * @throws IOException
 	 */
-	public void handleReadLogButtonAction(ActionEvent e) throws IOException {
+	public void handleSuperviseAccountButtonAction(ActionEvent e) throws IOException {
 		try {
-			ChiefManagerReadLogController controller = (ChiefManagerReadLogController) replaceSceneContent(
-					"/view/chiefmanager/ChiefManagerReadLog.fxml");
+			FinanceManagerSuperviseAccountController controller = (FinanceManagerSuperviseAccountController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerSuperviseAccount.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -134,15 +155,15 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	}
 
 	/**
-	 * 监听促销策略按钮
+	 * 监听期初建账按钮
 	 * 
 	 * @param e
 	 * @throws IOException
 	 */
-	public void handleSetPromotionButtonAction(ActionEvent e) throws IOException {
+	public void handleCreateGeneralAccountButtonAction(ActionEvent e) throws IOException {
 		try {
-			ChiefManagerSetPromotionController controller = (ChiefManagerSetPromotionController) replaceSceneContent(
-					"/view/chiefmanager/ChiefManagerSetPromotion.fxml");
+			FinanceManagerCreateGeneralAccountController controller = (FinanceManagerCreateGeneralAccountController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerCreateGeneralAccount.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -191,44 +212,50 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	}
 	
 	/**
-	 * 显示销售明细表
+	 * 显示库存单据详情
 	 * @param vo
 	 */
-	public void ShowSalesList(SaleTableVO vo) {
-		tableVO = vo;
-		ObservableList data = SalesTable.getItems();
-		for(int i=0;i<vo.getSalesOutBills().size();i++) {
-			SalesOutBillVO tempBill = vo.getSalesOutBills().get(i);
-			String time = tempBill.getInit_time().toString();
-			for(int j=0;j<tempBill.getItemVOS().size();j++) {
-				SalesItemVO item = tempBill.getItemVOS().get(j);
-				data.add(new SalesTableBill(time,item.getName(),item.getType(),Integer.toString(item.getNumber()),Double.toString(item.getPrice()),item.getTotal()));
-			}
+	public void ShowStockBillDetail(StockBillVO vo) {
+		
+		
+		
+		StockBillId.setText(vo.id);
+		StockBillType.setText(vo.type.toString());
+		StockBillStatus.setText(vo.status.toString());
+		StockBillInitTime.setText(vo.init_time.toString());
+		StockBillCommitTime.setText(vo.commit_time.toString());
+		StockBillStockManagerComment.setText(vo.commentByStockManager);
+		StockBillOperator.setText(vo.stockManager.getName());
+		String BillItem = "";
+		for(int i=0;i<vo.getItemVOS().size();i++) {
+			BillItem = BillItem + vo.getItemVOS().get(i).getCommodityVO().name+" " +vo.getItemVOS().get(i).number+"\n";
 		}
+		StockBillItem.setText(BillItem);
+		
+		
 	}
 	
-	/**
-	 * 导出销售明细表
-	 * @param e
-	 * @throws Exception
-	 */
-	public void handleExportSalesListButtonAction(ActionEvent e) throws Exception{
-		tableBLService.exportSaleTable(tableVO);
-	}
+	
+	
+	
 	
 	/**
-	 * 返回查看报表主界面
-	 * @param e
-	 * @throws Exception
+	 * 红冲并复制
+	 * @param vo
 	 */
-	public void handleBackToSearchListButtonAction(ActionEvent e) throws Exception{
-		try {
-			ChiefManagerSearchListController controller = (ChiefManagerSearchListController) replaceSceneContent(
-					"/view/chiefmanager/ChiefManagerSearchList.fxml");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+	public void HongChongAndCopy(StockBillVO vo) {
+		String[] items = StockBillItem.getText().split("\n");
+		CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
+		for(int i=0;i<items.length;i++) {
+			String[] temp= items[i].split(" ");
+			FilterFlagVO flag = new FilterFlagVO();
+			flag.setName(temp[0]);
+			//默认只能搜到一个
+			vo.getItemVOS().get(i).setCommodityVO(commodityBLService.searchCommodity(flag).get(0));
+			vo.getItemVOS().get(i).setNumber(Integer.parseInt(temp[1]));
 		}
+		financeBillBLService.HongChongAndCopy(vo);
+		
 	}
 	
 

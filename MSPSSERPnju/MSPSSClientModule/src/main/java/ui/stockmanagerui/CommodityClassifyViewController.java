@@ -79,11 +79,11 @@ public class CommodityClassifyViewController implements Initializable {
         ClassificationCell commodityCell = new ClassificationCell("Root", "Root", "001", true);
         TreeItem<ClassificationCell> root = new TreeItem<>(commodityCell, rootIcon);//根分类
 
-/*
+
         if (commodityBLService.getRootClassifications() != null && commodityBLService.getRootClassifications().size() != 0) {
             addChildren(commodityBLService.getRootClassifications(), root);
-        }*/
-
+        }
+        /*
         for (int i = 0; i < 5; i++) {
             ImageView commodityImageView = new ImageView(
                     new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
@@ -101,6 +101,7 @@ public class CommodityClassifyViewController implements Initializable {
                 child.getChildren().add(new TreeItem<>(commodity, imageView));
             }
         }
+        */
 
         commodityClassification.setRoot(root);
         commodityClassification.setEditable(true);
@@ -112,13 +113,12 @@ public class CommodityClassifyViewController implements Initializable {
             ClassificationVO childrenVO = list.get(i);
             ImageView commodityImageView = new ImageView(
                     new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
-            commodityImageView.setFitWidth(15);
             commodityImageView.setFitHeight(15);
-
+            commodityImageView.setFitWidth(15);
             treeItem.getChildren().add(new TreeItem<>(new ClassificationCell(childrenVO.getName(), treeItem.getValue().getName(), childrenVO.getID(), true), commodityImageView));
-            for (int z = 0; z < treeItem.getChildren().size(); z++) {
-                if (treeItem.getChildren().get(z).getValue().getName().equals(childrenVO.getName())) {
-                    TreeItem<ClassificationCell> childrenItem = treeItem.getChildren().get(z);
+            for (int j = 0; j < treeItem.getChildren().size(); j++) {
+                if (treeItem.getChildren().get(j).getValue().getName().trim().equals(childrenVO.getName())) {
+                    TreeItem<ClassificationCell> childrenItem = treeItem.getChildren().get(j);
                     if (commodityBLService.getChildrenClassification(childrenVO) != null) {
                         addChildren(commodityBLService.getChildrenClassification(childrenVO), childrenItem);
                     } else if (commodityBLService.getChildrenCommodity(childrenVO) != null) {
@@ -136,7 +136,7 @@ public class CommodityClassifyViewController implements Initializable {
                     new Image(getClass().getResourceAsStream("/image/stockmanager/lamp.png")));
             commodityImageView.setFitWidth(15);
             commodityImageView.setFitHeight(15);
-            treeItem.getChildren().add(new TreeItem<>(new ClassificationCell(commodityVO.getName(), treeItem.getValue().getName(), commodityVO.getID(), false), commodityImageView));
+            treeItem.getChildren().add(new TreeItem<>(new ClassificationCell(commodityVO.getName(), treeItem.getValue().getName(), commodityVO.getID().trim(), false), commodityImageView));
         }
     }
 

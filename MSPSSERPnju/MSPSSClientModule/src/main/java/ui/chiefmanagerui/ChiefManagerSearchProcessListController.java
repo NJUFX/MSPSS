@@ -39,6 +39,7 @@ import vo.ProcessTableVO;
 import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
 import vo.StockBillVO;
+import vo.UserVO;
 
 public class ChiefManagerSearchProcessListController implements Initializable {
 	
@@ -73,12 +74,17 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 	String billType;
 	static ProcessTableVO tableVO;
 	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
 		this.initTable();
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {

@@ -6,6 +6,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import auxiliary.Bill;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.FinanceBillBLService;
+import blservice.commodityblservice.CommodityBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,10 +25,13 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import vo.CashCostBillVO;
+import vo.CommodityVO;
+import vo.FilterFlagVO;
 import vo.FinanceBillVO;
 import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
 import vo.StockBillVO;
+import vo.UserVO;
 
 public class ChiefManagerShowSalesInBillDetailController implements Initializable{
 	@FXML
@@ -83,11 +89,17 @@ public class ChiefManagerShowSalesInBillDetailController implements Initializabl
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
+	FinanceBillBLService financeBillBLService = new BLFactoryImpl().getFinanceBillBLService();
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {
@@ -226,9 +238,6 @@ public class ChiefManagerShowSalesInBillDetailController implements Initializabl
 		SalesInBillSumMoney.setText(Double.toString(vo.getSumMoney()));
 		SalesInBillStatus.setText(vo.getStatus().toString());
 		SalesInBillInitTime.setText(vo.getInit_time().toString());
-		//SalesInBillExamineTime.setText("");
-		//SalesInBillExamineManager.setText("");
-		//SalesInBillExamineComment.setText("");
 		SalesInBillCommitTime.setText(vo.getCommit_time().toString());
 		String BillItem = "";
 		for(int i=0;i<vo.getItemVOS().size();i++) {
@@ -254,4 +263,6 @@ public class ChiefManagerShowSalesInBillDetailController implements Initializabl
 		}
 	}
 
+	
+	
 }

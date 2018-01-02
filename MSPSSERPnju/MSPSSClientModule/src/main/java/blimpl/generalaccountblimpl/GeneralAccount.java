@@ -111,18 +111,18 @@ public class GeneralAccount {
         GeneralAccountPO generalAccountPO = new GeneralAccountPO();
         for(int i=0;i<=generalAccountVO.getAccountlist().size()-1;i++){
             AccountVO accountVO= generalAccountVO.getAccountlist().get(i);
-            generalAccountPO.getAccountlist().add(new GeneralAccount_AccountList_PO(accountVO.getName(),accountVO.getMoney()));
+            //generalAccountPO.getAccountlist().add(new GeneralAccount_AccountList_PO(accountVO.getName(),accountVO.getMoney()));
         }
 
         for(int i=0;i<=generalAccountVO.getCustomerlist().size()-1;i++){
             CustomerVO customerVO= generalAccountVO.getCustomerlist().get(i);
             int numOfint = customerVO.getCategory().ordinal();
-            generalAccountPO.getCustomerlist().add(new GeneralAccount_CustomerList_PO(customerVO.getExist(),customerVO.getID(), numOfint,customerVO.getLevel(),customerVO.getName(),customerVO.getPhonenumber(),customerVO.getAddress(),customerVO.getPostcode(),customerVO.getEmail(),customerVO.getInvalue(),customerVO.getIncomemoney(),customerVO.getPaymoney()));
+            //generalAccountPO.getCustomerlist().add(new GeneralAccount_CustomerList_PO(customerVO.getExist(),customerVO.getID(), numOfint,customerVO.getLevel(),customerVO.getName(),customerVO.getPhonenumber(),customerVO.getAddress(),customerVO.getPostcode(),customerVO.getEmail(),customerVO.getInvalue(),customerVO.getIncomemoney(),customerVO.getPaymoney()));
         }
 
         for(int i=0;i<=generalAccountVO.getCommoditylist().size()-1;i++){
             CommodityVO commodityVO = generalAccountVO.getCommoditylist().get(i);
-            generalAccountPO.getCommoditylist().add(new GeneralAccount_CommodityList_PO(commodityVO.getName(),commodityVO.getClassificationName(),commodityVO.getType(),commodityVO.getID(),commodityVO.getImportCost(),commodityVO.getExportCost(),commodityVO.getNumberInStock()));
+            //generalAccountPO.getCommoditylist().add(new GeneralAccount_CommodityList_PO(commodityVO.getName(),commodityVO.getClassificationName(),commodityVO.getType(),commodityVO.getID(),commodityVO.getImportCost(),commodityVO.getExportCost(),commodityVO.getNumberInStock()));
         }
 
         generalAccountPO.setName(generalAccountVO.getName());

@@ -37,6 +37,7 @@ import vo.CustomerPromotionVO;
 import vo.GrossPromotionVO;
 import vo.GroupPromotionVO;
 import vo.PresentationCommodityItemVO;
+import vo.UserVO;
 
 public class ChiefManagerSetPromotionController implements Initializable{
 	@FXML
@@ -94,11 +95,15 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
 	PromotionBLService promotionBLService= new BLFactoryImpl().getPromotionBLServiceStub();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-		
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {
