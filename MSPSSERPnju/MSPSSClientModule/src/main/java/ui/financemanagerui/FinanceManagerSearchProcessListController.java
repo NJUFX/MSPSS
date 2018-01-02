@@ -13,6 +13,7 @@ import auxiliary.SalesInBill;
 import auxiliary.SalesOutBill;
 import auxiliary.StockBill;
 import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.FinanceBillBLService;
 import blservice.tableblservice.TableBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,6 +45,7 @@ import vo.ProcessTableVO;
 import vo.SalesInBillVO;
 import vo.SalesOutBillVO;
 import vo.StockBillVO;
+import vo.UserVO;
 
 public class FinanceManagerSearchProcessListController implements Initializable {
 
@@ -68,6 +70,10 @@ public class FinanceManagerSearchProcessListController implements Initializable 
 	@FXML
 	TableColumn<Bill, String> ShowDetail;
 	@FXML
+	TableColumn<Bill, String> HongChong;
+	@FXML
+	TableColumn<Bill, String> HongChongAndCopy;
+	@FXML
 	Button ExportProcessList;
 	@FXML
 	Button BackToSearchList;
@@ -78,12 +84,18 @@ public class FinanceManagerSearchProcessListController implements Initializable 
 	String billType;
 	static ProcessTableVO tableVO;
 	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+	LoginController loginController = new LoginController();
+	UserVO currentUser = loginController.getCurrentUser();
+	FinanceBillBLService financeBillBLservice = new BLFactoryImpl().getFinanceBillBLService();
 
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
 		this.initTable();
+		NameTag.setText(currentUser.getName());
+		RoleTag.setText(currentUser.getCategory().toString());
+		IdTag.setText(currentUser.getID());
 	}
 
 	public void setApp(MainApp application) {
@@ -276,7 +288,7 @@ public class FinanceManagerSearchProcessListController implements Initializable 
 					this.setGraphic(null);
 					if (!empty) {
 						Button delBtn = new Button("详情");
-						delBtn.setPrefSize(50, 5);
+						delBtn.setPrefSize(20, 5);
 					
 						 //delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
 						this.setGraphic(delBtn);
@@ -287,41 +299,184 @@ public class FinanceManagerSearchProcessListController implements Initializable 
 								case "库存类": {
 									StockBill currentBill = (StockBill) this.getTableView().getItems().get(getIndex());
 									StockBillVO vo = currentBill.myself;
-									ChiefManagerShowStockBillDetailController controller = (ChiefManagerShowStockBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowStockBillDetail.fxml");
+									FinanceManagerShowStockBillDetailController controller = (FinanceManagerShowStockBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowStockBillDetail.fxml");
 									controller.ShowStockBillDetail(vo);
 									break;
 								}
 								case "进货类": {
 									SalesInBill currentBill = (SalesInBill) this.getTableView().getItems().get(getIndex());
 									SalesInBillVO vo = currentBill.myself;
-									ChiefManagerShowSalesInBillDetailController controller = (ChiefManagerShowSalesInBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowSalesInBillDetail.fxml");
+									FinanceManagerShowSalesInBillDetailController controller = (FinanceManagerShowSalesInBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowSalesInBillDetail.fxml");
 									controller.ShowSalesInBillDetail(vo);
 									break;
 								}
 								case "销售类": {
 									SalesOutBill currentBill = (SalesOutBill) this.getTableView().getItems().get(getIndex());
 									SalesOutBillVO vo = currentBill.myself;
-									ChiefManagerShowSalesOutBillDetailController controller = (ChiefManagerShowSalesOutBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowSalesOutBillDetail.fxml");
+									FinanceManagerShowSalesOutBillDetailController controller = (FinanceManagerShowSalesOutBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowSalesOutBillDetail.fxml");
 									controller.ShowSalesOutBillDetail(vo);
 									break;
 								}
 								case "财务类": {
 									FinanceBill currentBill = (FinanceBill) this.getTableView().getItems().get(getIndex());
 									FinanceBillVO vo = currentBill.myself;
-									ChiefManagerShowFinanceBillDetailController controller = (ChiefManagerShowFinanceBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowFinanceBillDetail.fxml");
+									FinanceManagerShowFinanceBillDetailController controller = (FinanceManagerShowFinanceBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowFinanceBillDetail.fxml");
 									controller.ShowFinanceBillDetail(vo);
 									break;
 								}
 								case "现金费用类": {
 									CashCostBill currentBill = (CashCostBill) this.getTableView().getItems().get(getIndex());
 									CashCostBillVO vo = currentBill.myself;
-									ChiefManagerShowCashCostBillDetailController controller = (ChiefManagerShowCashCostBillDetailController) replaceSceneContent(
-											"/view/chiefmanager/ChiefManagerShowCashCostBillDetail.fxml");
+									FinanceManagerShowCashCostBillDetailController controller = (FinanceManagerShowCashCostBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowCashCostBillDetail.fxml");
 									controller.ShowCashCostBillDetail(vo);
+									break;
+								}
+								}
+								
+								//ChiefManagerShowStockBillDetailController controller = (ChiefManagerShowStockBillDetailController) replaceSceneContent(
+										//"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+								
+								// controller.setCommodityTable(OperateCommodity);
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}
+						});
+					}
+				}
+			};
+			return cell;
+		});
+		
+		
+		HongChong.setCellFactory((col) -> {
+			TableCell<Bill, String> cell = new TableCell<Bill, String>() {
+				@Override
+				public void updateItem(String item, boolean empty) {
+					super.updateItem(item, empty);
+					this.setText(null);
+					this.setGraphic(null);
+					if (!empty) {
+						Button delBtn = new Button("详情");
+						delBtn.setPrefSize(20, 5);
+					
+						 //delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
+						this.setGraphic(delBtn);
+						delBtn.setOnMouseClicked((me) -> {
+							try {
+								
+								switch (billType) {
+								case "库存类": {
+									StockBill currentBill = (StockBill) this.getTableView().getItems().get(getIndex());
+									StockBillVO vo = currentBill.myself;
+									 financeBillBLservice.HongChong(vo);
+									break;
+								}
+								case "进货类": {
+									SalesInBill currentBill = (SalesInBill) this.getTableView().getItems().get(getIndex());
+									SalesInBillVO vo = currentBill.myself;
+									 financeBillBLservice.HongChong(vo);
+									break;
+								}
+								case "销售类": {
+									SalesOutBill currentBill = (SalesOutBill) this.getTableView().getItems().get(getIndex());
+									SalesOutBillVO vo = currentBill.myself;
+									 financeBillBLservice.HongChong(vo);
+									break;
+								}
+								case "财务类": {
+									FinanceBill currentBill = (FinanceBill) this.getTableView().getItems().get(getIndex());
+									FinanceBillVO vo = currentBill.myself;
+									 financeBillBLservice.HongChong(vo);
+									break;
+								}
+								case "现金费用类": {
+									CashCostBill currentBill = (CashCostBill) this.getTableView().getItems().get(getIndex());
+									CashCostBillVO vo = currentBill.myself;
+									 financeBillBLservice.HongChong(vo);
+									break;
+								}
+								}
+								
+								//ChiefManagerShowStockBillDetailController controller = (ChiefManagerShowStockBillDetailController) replaceSceneContent(
+										//"/view/chiefmanager/ChiefManagerShowBillDetail.fxml");
+								
+								// controller.setCommodityTable(OperateCommodity);
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}
+						});
+					}
+				}
+			};
+			return cell;
+		});
+		
+		
+		HongChongAndCopy.setCellFactory((col) -> {
+			TableCell<Bill, String> cell = new TableCell<Bill, String>() {
+				@Override
+				public void updateItem(String item, boolean empty) {
+					super.updateItem(item, empty);
+					this.setText(null);
+					this.setGraphic(null);
+					if (!empty) {
+						Button delBtn = new Button("详情");
+						delBtn.setPrefSize(20, 5);
+					
+						 //delBtn.getStylesheets().add("/css/chiefmanager/ChiefManagerExamineBillButton.css");
+						this.setGraphic(delBtn);
+						delBtn.setOnMouseClicked((me) -> {
+							try {
+								
+								switch (billType) {
+								case "库存类": {
+									StockBill currentBill = (StockBill) this.getTableView().getItems().get(getIndex());
+									StockBillVO vo = currentBill.myself;
+									FinanceManagerShowStockBillDetailController controller = (FinanceManagerShowStockBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowStockBillDetail.fxml");
+									controller.ShowStockBillDetail(vo);
+									controller.HongChongAndCopy(vo);
+									break;
+								}
+								case "进货类": {
+									SalesInBill currentBill = (SalesInBill) this.getTableView().getItems().get(getIndex());
+									SalesInBillVO vo = currentBill.myself;
+									FinanceManagerShowSalesInBillDetailController controller = (FinanceManagerShowSalesInBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowSalesInBillDetail.fxml");
+									controller.ShowSalesInBillDetail(vo);
+									controller.HongChongAndCopy(vo);
+									break;
+								}
+								case "销售类": {
+									SalesOutBill currentBill = (SalesOutBill) this.getTableView().getItems().get(getIndex());
+									SalesOutBillVO vo = currentBill.myself;
+									FinanceManagerShowSalesOutBillDetailController controller = (FinanceManagerShowSalesOutBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowSalesOutBillDetail.fxml");
+									controller.ShowSalesOutBillDetail(vo);
+									controller.HongChongAndCopy(vo);
+									break;
+								}
+								case "财务类": {
+									FinanceBill currentBill = (FinanceBill) this.getTableView().getItems().get(getIndex());
+									FinanceBillVO vo = currentBill.myself;
+									FinanceManagerShowFinanceBillDetailController controller = (FinanceManagerShowFinanceBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowFinanceBillDetail.fxml");
+									controller.ShowFinanceBillDetail(vo);
+									controller.HongChongAndCopy(vo);
+									break;
+								}
+								case "现金费用类": {
+									CashCostBill currentBill = (CashCostBill) this.getTableView().getItems().get(getIndex());
+									CashCostBillVO vo = currentBill.myself;
+									FinanceManagerShowCashCostBillDetailController controller = (FinanceManagerShowCashCostBillDetailController) replaceSceneContent(
+											"/view/financemanager/FinanceManagerShowCashCostBillDetail.fxml");
+									controller.ShowCashCostBillDetail(vo);
+									controller.HongChongAndCopy(vo);
 									break;
 								}
 								}
