@@ -49,6 +49,7 @@ public class ChiefManagerMainViewController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
+		System.out.println(currentUser==null);
 		NameTag.setText(currentUser.getName());
 		RoleTag.setText(currentUser.getCategory().toString());
 		IdTag.setText(currentUser.getID());
