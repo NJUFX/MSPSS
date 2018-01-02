@@ -162,7 +162,7 @@
                         <Font name="Microsoft YaHei" size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="id_to_del" layoutX="174.0" layoutY="101.0" opacity="0.83" prefHeight="30.0"
+                <TextField fx:id="idField" layoutX="174.0" layoutY="101.0" opacity="0.83" prefHeight="30.0"
                            prefWidth="159.0" promptText="编号" stylesheets="@../../css/admin/delUser.css">
                     <font>
                         <Font size="14.0"/>

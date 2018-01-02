@@ -73,10 +73,10 @@ public class CommoditySearchViewController implements Initializable {
                 b = false;
             }
             if (b == true) {
+                CommoditySearchShowViewController.keyType = key_type;
+                CommoditySearchShowViewController.keyword = key_word;
                 CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
                         "/view/stockmanager/commoditySearchShow.fxml");
-                controller.setKeyword(key_word);
-                controller.setKeyType(key_type);
             }
         } catch (Exception e1) {
             // TODO Auto-generated catch block

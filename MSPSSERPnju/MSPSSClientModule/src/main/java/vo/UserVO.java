@@ -5,11 +5,11 @@ import util.Kind_Of_Users;
 public class UserVO {
     /**
      * 用户的ID
-     编号开头
-     ss 库存管理人员
-     sm 销售人员
-     fm 财务人员
-     cm 总经理
+     * 编号开头
+     * ss 库存管理人员
+     * sm 销售人员
+     * fm 财务人员
+     * cm 总经理
      */
 
     private String ID;
@@ -82,14 +82,17 @@ public class UserVO {
         this.mail = mail;
     }
 
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     /**
-     *
      * @param ID
      * @param name
      * @param category
      * @param password
      */
-    public UserVO(String ID,String name,Kind_Of_Users category,String password){
+    public UserVO(String ID, String name, Kind_Of_Users category, String password) {
         this.ID = ID;
         this.name = name;
         this.category = category;

@@ -4,6 +4,7 @@ import auxiliary.UserTable;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserBLService;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,14 +71,25 @@ public class UserSearchShowViewController implements Initializable {
         showTableView();
     }
 
+
     public void showTableView() {
         IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         CategoryCol.setCellValueFactory(new PropertyValueFactory<>("Category"));
         PowerCol.setCellValueFactory(new PropertyValueFactory<>("Power"));
-        OperationCol.setCellValueFactory(new PropertyValueFactory<>("Operation"));
+        OperationCol.setCellValueFactory(new PropertyValueFactory<>("radioButton"));
 
         ObservableList<UserTable> data = userTableTableView.getItems();
+        data.clear();
+        arrayList.clear();
+        if (keyType.equals("id")) {
+            if (userBLService.searchUserByID(keyword) != null) {
+                arrayList.add(userBLService.searchUserByID(keyword));
+            }
+        } else {
+            arrayList = userBLService.searchUserByKind(kind_of_users);
+        }
+
         for (int i = 0; i < arrayList.size(); i++) {
             UserVO userVO = arrayList.get(i);
             String str = "";
@@ -102,22 +114,24 @@ public class UserSearchShowViewController implements Initializable {
                 str = "财务人员";
                 power = "普通职员";
             }
-
             UserTable userTable = new UserTable(userVO.getID(), userVO.getName(), str, power);
+            userTable.getRadioButton().setVisible(true);
             data.add(userTable);
         }
     }
 
     @FXML
     public void refreshButtonAction(ActionEvent e) {
+        arrayList.clear();
         if (keyType.equals("id")) {
-            UserVO userVO = userBLService.searchUserByID(keyword);
-            if (userVO != null) {
-                arrayList.add(userVO);
+            if (userBLService.searchUserByID(keyword) != null) {
+                arrayList.add(userBLService.searchUserByID(keyword));
             }
         } else {
             arrayList = userBLService.searchUserByKind(kind_of_users);
         }
+        ObservableList<UserTable> data = userTableTableView.getItems();
+        data.clear();
         showTableView();
     }
 
@@ -128,11 +142,13 @@ public class UserSearchShowViewController implements Initializable {
         if (data.size() != 0) {
             for (int i = 0; i < data.size(); i++) {
                 if (data.get(i).getRadioButton().isSelected()) {
-                    boolean b2 = dialog.infoDialog("Do you want to delete this user?");
+                    boolean b2 = dialog.confirmDialog("Do you want to delete this user?");
                     if (b2 == true) {
+                        userBLService.deleteUser(data.get(i).getId());
                         data.remove(i);
                         b = true;
                         dialog.infoDialog("Delete user successfully.");
+                        break;
                     }
                 }
             }
@@ -150,11 +166,24 @@ public class UserSearchShowViewController implements Initializable {
         for (int i = 0; i < data.size(); i++) {
             if (data.get(i).getRadioButton().isSelected()) {
                 try {
-                    UserInfoModifyViewController controller = (UserInfoModifyViewController) replaceAnotherSceneContent("/view/admin/UserInfoModifyView.fxml", 310, 355);
+                    UserInfoModifyViewController controller = (UserInfoModifyViewController) replaceAnotherSceneContent("/view/admin/UserInfoModifyView.fxml", 265, 350);
                     controller.idLabel.setText(data.get(i).getId());
                     controller.nameLabel.setText(data.get(i).getName());
                     controller.categoryBox.setText(getCategory(userBLService.searchUserByID(data.get(i).getId())));
                     controller.emailField.setText(userBLService.searchUserByID(data.get(i).getId()).getMail());
+                    ObservableList<String> options = FXCollections.observableArrayList();
+                    controller.powerBox.setItems(options);
+                    if (getCategory(userBLService.searchUserByID(data.get(i).getId())).equals("进货销售人员")) {
+                        controller.powerBox.setVisible(true);
+                        controller.powerBox.getItems().add("普通职员");
+                        controller.powerBox.getItems().add("销售经理");
+                    } else if (getCategory(userBLService.searchUserByID(data.get(i).getId())).equals("财务人员")) {
+                        controller.powerBox.setVisible(true);
+                        controller.powerBox.getItems().add("普通职员");
+                        controller.powerBox.getItems().add("财务经理");
+                    } else {
+                        controller.powerBox.setVisible(false);
+                    }
                 } catch (Exception e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();

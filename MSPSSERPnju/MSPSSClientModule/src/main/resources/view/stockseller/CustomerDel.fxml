@@ -102,7 +102,8 @@
                 <Font name="Microsoft YaHei" size="16.0"/>
             </font>
         </Button>
-        <Button id="sureButton" layoutX="586.0" layoutY="448.0" mnemonicParsing="false" prefHeight="30.0"
+        <Button id="sureButton" fx:id="sureButton" onAction="#sureButtonAction" layoutX="586.0" layoutY="448.0"
+                mnemonicParsing="false" prefHeight="30.0"
                 prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认删除" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0"/>
@@ -157,6 +158,11 @@
                 <Font name="Microsoft YaHei" size="20.0"/>
             </font>
         </Label>
-        <TextField layoutX="384.0" layoutY="252.0" prefHeight="40.0" prefWidth="300.0"/>
+        <TextField fx:id="idField" onAction="#sureButtonAction" layoutX="384.0" layoutY="252.0" prefHeight="40.0"
+                   prefWidth="300.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
     </children>
 </Pane>

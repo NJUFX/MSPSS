@@ -37,7 +37,7 @@ public class CustomerModifySecondViewController implements Initializable {
     CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
     Dialog dialog = new Dialog();
-    String id_to_modify;
+    static String id_to_modify;
     @FXML
     Button CustomerAddButton;
     @FXML
@@ -220,8 +220,9 @@ public class CustomerModifySecondViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-
+        System.out.println(id_to_modify);
         CustomerVO customerVO = customerBLInfo.getCustomerByID(id_to_modify);
+        //CustomerVO customerVO = customerBLService.getCustomerInfo(id_to_modify);
         idLabel.setText(customerVO.getID());
         workerField.setText(customerVO.getDAE());
         paymoneyField.setText(String.valueOf(customerVO.getPaymoney()));

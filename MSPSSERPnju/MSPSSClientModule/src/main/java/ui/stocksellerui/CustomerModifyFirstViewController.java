@@ -130,11 +130,12 @@ public class CustomerModifyFirstViewController implements Initializable {
     @FXML
     public void nextOperationButtonAction(ActionEvent e) throws IOException {
         try {
+            if (id_to_modify_field.getText() != null && !id_to_modify_field.getText().trim().equals("")) {
+                CustomerModifySecondViewController.id_to_modify = id_to_modify_field.getText().trim();
+            }
             CustomerModifySecondViewController controller = (CustomerModifySecondViewController) replaceSceneContent(
                     "/view/stockseller/CustomerModifySecond.fxml");
-            if (id_to_modify_field.getText() != null && !id_to_modify_field.getText().trim().equals("")) {
-                controller.id_to_modify = id_to_modify_field.getText().trim();
-            }
+
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

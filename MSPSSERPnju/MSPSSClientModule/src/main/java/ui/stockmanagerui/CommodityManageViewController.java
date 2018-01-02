@@ -203,16 +203,16 @@ public class CommodityManageViewController implements Initializable {
                     b = false;
                     dialog.errorInfoDialog("Please input keyword.");
                 }
-                key_type = (keyTypeComboBox.getTypeSelector());
+                key_type = (keyTypeComboBox.getValue());
             } else {
                 dialog.errorInfoDialog("Please choose key type.");
                 b = false;
             }
             if (b == true) {
+                CommoditySearchShowViewController.keyType = key_type;
+                CommoditySearchShowViewController.keyword = key_word;
                 CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
                         "/view/stockmanager/commoditySearchShow.fxml");
-                controller.setKeyword(key_word);
-                controller.setKeyType(key_type);
             }
         } catch (Exception e1) {
             // TODO Auto-generated catch block

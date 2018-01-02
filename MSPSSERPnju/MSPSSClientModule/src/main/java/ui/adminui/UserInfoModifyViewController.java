@@ -104,7 +104,7 @@ public class UserInfoModifyViewController implements Initializable {
             userVo.setMail(emailField.getText().trim());
             ResultMessage resultMessage = userBLService.updateUser(userVo);
             if (resultMessage == ResultMessage.SUCCESS) {
-                dialog.infoDialog("Add the user successfully.");
+                dialog.infoDialog("Modify the user successfully.");
             }
         }
 
@@ -114,6 +114,5 @@ public class UserInfoModifyViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
-
     }
 }

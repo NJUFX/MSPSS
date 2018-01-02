@@ -13,7 +13,7 @@
 <?import java.util.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0"
-      prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.131"
+      prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.CustomerModifyFirstViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
@@ -26,8 +26,8 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0"/>
             </effect>
         </Pane>
-        <Button id="addUserButton" fx:id="CustomerAddButton" onAction="#customerAddButtonAction" layoutY="282.0"
-                mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
+        <Button id="addUserButton" fx:id="CustomerAddButton" layoutY="282.0" mnemonicParsing="false"
+                onAction="#customerAddButtonAction" prefHeight="35.0" prefWidth="145.0"
                 stylesheets="@../../css/stockseller/common.css" text="增加客户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0"/>
@@ -95,9 +95,9 @@
                 <Font name="Microsoft YaHei" size="22.0"/>
             </font>
         </Label>
-        <Button id="cancelButton" fx:id="cancelButtonl" onAction="#cancelButtonAction" layoutX="323.0" layoutY="448.0"
-                mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css"
-                text="取消" textFill="#0f88eb">
+        <Button id="cancelButton" fx:id="cancelButtonl" layoutX="323.0" layoutY="448.0" mnemonicParsing="false"
+                onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0"
+                stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
             <font>
                 <Font name="Microsoft YaHei" size="16.0"/>
             </font>
@@ -132,8 +132,8 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="existButton" fx:id="BackToLogin" onAction="#handleBackToLoginButtonAction" layoutX="44.0"
-                layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0"
+        <Button id="existButton" fx:id="BackToLogin" layoutX="44.0" layoutY="520.0" mnemonicParsing="false"
+                onAction="#handleBackToLoginButtonAction" prefHeight="36.0" prefWidth="36.0"
                 stylesheets="@../../css/stockseller/common.css">
             <graphic>
                 <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -158,6 +158,12 @@
                 <Font name="Microsoft YaHei" size="20.0"/>
             </font>
         </Label>
-        <TextField layoutX="384.0" layoutY="252.0" prefHeight="40.0" prefWidth="300.0"/>
+        <TextField fx:id="id_to_modify_field" onAction="#nextOperationButtonAction" layoutX="384.0" layoutY="252.0"
+                   prefHeight="40.0"
+                   prefWidth="300.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </TextField>
     </children>
 </Pane>

@@ -38,7 +38,7 @@ public class UserModifyViewController implements Initializable {
     private MainApp application;
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
-    static String id_to_modify;
+    String id_to_modify;
     static UserVO user_to_modify;
 
     public void setApp(MainApp application) {
@@ -256,7 +256,7 @@ public class UserModifyViewController implements Initializable {
         cateLabel.setText("身份：" + LoginController.getCategory());
         idLabel.setText("编号：" + LoginController.getCurrentUser().getID());
 
-        user_to_modify = userBLService.searchUserByID(id_to_modify);
+        user_to_modify = userBLService.searchUserByID(UserModifyFirstViewController.id_to_modify);
         userId.setText(user_to_modify.getID());
         userName.setText(user_to_modify.getName());
         userCategory.setText(getCategory(user_to_modify));

@@ -20,9 +20,10 @@ public class User {
      */
     public ResultMessage addUser(UserVO user) {
         if (user.getID()==null){
-
+                user.setID(new util.Time().toString());
         }
         UserPO po = vo_to_po(user);
+
         return networkService.addUser(po);
     }
 

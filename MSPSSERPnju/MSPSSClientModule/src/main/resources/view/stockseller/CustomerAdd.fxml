@@ -187,7 +187,7 @@
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="sureButton" fx:id="sureButton" layoutX="732.0" layoutY="459.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+        <Button id="sureButton" fx:id="sureButton" layoutX="732.0" layoutY="459.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
