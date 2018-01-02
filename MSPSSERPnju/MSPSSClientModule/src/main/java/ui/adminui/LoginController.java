@@ -20,6 +20,7 @@ import ui.common.Dialog;
 import ui.financemanagerui.FinanceManagerMainViewController;
 import ui.stockmanagerui.StockManagerMainViewController;
 import ui.stocksellerui.StockSellerMainViewController;
+import util.Encryptor;
 import util.Kind_Of_Users;
 import vo.UserVO;
 

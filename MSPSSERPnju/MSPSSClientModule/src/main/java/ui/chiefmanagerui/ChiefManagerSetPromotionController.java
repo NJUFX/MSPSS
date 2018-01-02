@@ -94,7 +94,7 @@ public class ChiefManagerSetPromotionController implements Initializable{
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
-	PromotionBLService promotionBLService= new BLFactoryImpl().getPromotionBLServiceStub();
+	PromotionBLService promotionBLService= new BLFactoryImpl().getPromotionBLService();
 	LoginController loginController = new LoginController();
 	UserVO currentUser = loginController.getCurrentUser();
 

@@ -3,6 +3,7 @@ package blimpl.billblimpl;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.userblservice.UserInfo;
+import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.CashCostBillPO;
 import po.CashCostItemPO;
@@ -22,7 +23,7 @@ import java.util.List;
  * Created by Hanxinhu at 11:33 2017/12/19/019
  */
 public class CashCostBill {
-    private BillClientNetworkService networkService;
+    private BillClientNetworkService networkService = new BillClientNetworkImpl();
     private AccountBLInfo accountBLInfo = new BLFactoryImpl().getAccountBLInfo();
     private UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     /**
@@ -107,6 +108,7 @@ public class CashCostBill {
      */
     public ArrayList<CashCostBillVO> getWaitingCashCostBill() {
         ArrayList<CashCostBillPO> pos = networkService.fullSearchCashCostBill("status", BillStatus.commit.ordinal());
+        System.out.print(pos==null);
         return pos_to_vos(pos);
     }
 
@@ -185,6 +187,7 @@ public class CashCostBill {
 
     private ArrayList<CashCostBillVO> pos_to_vos(ArrayList<CashCostBillPO> pos) {
         ArrayList<CashCostBillVO> vos = new ArrayList<>();
+
         for (int i = 0; i < pos.size(); i++) {
             vos.add(po_to_vo(pos.get(i)));
         }

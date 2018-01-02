@@ -6,6 +6,7 @@ import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.promotionblservice.PromotionBLInfo;
 import blservice.userblservice.UserInfo;
+import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.SalesItemPO;
 import po.SalesOutBillPO;
@@ -25,7 +26,7 @@ import java.util.List;
  */
 public class SalesOutBill {
     //fixme 还有选择的销售策略的问题
-    private static BillClientNetworkService networkService;
+    private static BillClientNetworkService networkService = new BillClientNetworkImpl();
     private static CommodityInfoService commodityinfoService = new BLFactoryImpl().getCommodityInfoService();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();

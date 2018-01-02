@@ -90,14 +90,6 @@ public class CashCostBillPO implements Serializable {
         return operatorID;
     }
 
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-
     public void setOperatorID(String operatorID) {
         this.operatorID = operatorID;
     }
@@ -156,5 +148,13 @@ public class CashCostBillPO implements Serializable {
 
     public void setApproval_time(String approval_time) {
         this.approval_time = approval_time;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 }

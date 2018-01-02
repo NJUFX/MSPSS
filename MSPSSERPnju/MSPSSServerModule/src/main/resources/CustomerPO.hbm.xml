@@ -19,7 +19,7 @@
         <property name="incomemoney" column="income_money" type="double"></property>
         <property name="paymoney" column="pay_money" type="double"/>
         <property name="DAE" column="dae" type="string"/>
-        <property name="accountID" column="account_id" type="string"/>
+
         <property name="voucher" column="voucher" type="int"/>
 
 
