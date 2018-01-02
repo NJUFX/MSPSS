@@ -485,4 +485,10 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         }
         return null;
     }
+
+    public static void main(String [] args){
+        BillClientNetworkService billClientNetworkService = new BillClientNetworkImpl();
+        ArrayList<CashCostBillPO> cashCostBillPOS = billClientNetworkService.fullSearchCashCostBill("operatorID","11111");
+
+    }
 }

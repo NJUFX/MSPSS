@@ -24,6 +24,6 @@ public class LogBLTest {
         System.out.println(message);
         logBLInfo.add(new LogVO("韩新虎", new Time(), "批准了销售单"));
 
-        assertEquals(null, message);
+        assertEquals(ResultMessage.SUCCESS, message);
     }
 }
