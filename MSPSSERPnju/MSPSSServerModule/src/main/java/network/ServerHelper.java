@@ -82,7 +82,7 @@ public class ServerHelper{
 
                 UtilNetworkService utilNetworkService = new UtilNetworkImpl();
 
-               /* Naming.rebind("AccountServerNetworkService", accountServerNetworkService);
+                Naming.rebind("AccountServerNetworkService", accountServerNetworkService);
                 Naming.rebind("BillServerNetworkService", billServerNetworkService);
                 Naming.rebind("CommodityServerNetworkService", commodityServerNetworkService);
                 Naming.rebind("CustomerServerNetworkService", customerServerNetworkService);
@@ -90,8 +90,8 @@ public class ServerHelper{
                 Naming.rebind("LogServerNetworkService", logServerNetworkService);
                 Naming.rebind("StockServerNetworkService", stockServerNetworkService);
                 Naming.rebind("UserServerNetworkService", userServerNetworkService);
-                Naming.rebind("PromotionServerNetworkService",promotionServerNetworkService);*/
-
+                Naming.rebind("PromotionServerNetworkService",promotionServerNetworkService);
+/*
              String host = "rmi://106.14.188.84:1099/";
                 Naming.rebind(host+"AccountServerNetworkService", accountServerNetworkService);
                 Naming.rebind(host+"BillServerNetworkService", billServerNetworkService);
@@ -102,7 +102,7 @@ public class ServerHelper{
                 Naming.rebind(host+"StockServerNetworkService", stockServerNetworkService);
                 Naming.rebind(host+"UserServerNetworkService", userServerNetworkService);
                 Naming.rebind(host+"PromotionServerNetworkService",promotionServerNetworkService);
-                
+               */
                 return serverHelper;
             } catch (RemoteException e) {
                 e.printStackTrace();

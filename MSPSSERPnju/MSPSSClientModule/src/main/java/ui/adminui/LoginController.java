@@ -39,7 +39,7 @@ public class LoginController implements Initializable {
     Stage newStage = new Stage();
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
-    static UserVO currentUser = new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
+    static UserVO currentUser= new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
     @FXML
     public Button loginButton, modPasswordButton;
     @FXML
@@ -105,9 +105,9 @@ public class LoginController implements Initializable {
         Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
         if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
             if (id.equals("admin")) {
-                toAdminMain();
                 currentUser = userBLService.searchUserByID(id);
                 dialog.infoDialog("Login Successfully.");
+                toAdminMain();
             } else {
                 if (id.length() < 2) {
                     dialog.errorInfoDialog("Id is wrong, please check your input.");
@@ -115,29 +115,29 @@ public class LoginController implements Initializable {
                     boolean b = false;
                     switch (id.substring(0, 2).toUpperCase()) {
                         case "SM":
-                            b = true;
+                            currentUser = userBLService.searchUserByID(id);
+                            dialog.infoDialog("Login Successfully.");
                             toStockManagerMain();
                             break;
                         case "FM":
-                            b = true;
+                            currentUser = userBLService.searchUserByID(id);
+                            dialog.infoDialog("Login Successfully.");
                             toFinanceManagerMain();
                             break;
                         case "SS":
-                            b = true;
+                            currentUser = userBLService.searchUserByID(id);
+                            dialog.infoDialog("Login Successfully.");
                             toStockSellerMain();
                             break;
                         case "CM":
-                            b = true;
+                            currentUser = userBLService.searchUserByID(id);
+                            dialog.infoDialog("Login Successfully.");
                             toChiefManagerMain();
                             break;
                         default:
                             b = false;
                             dialog.errorInfoDialog("Id is wrong, please check your input.");
                             break;
-                    }
-                    if (b == true) {
-                        currentUser = userBLService.searchUserByID(id);
-                        dialog.infoDialog("Login Successfully.");
                     }
                 }
             }
