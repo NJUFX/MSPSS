@@ -269,4 +269,6 @@ public class BillServerNetworkImpl  extends UnicastRemoteObject implements BillS
     public String getAlarmID()throws RemoteException{
         return billDataService.getAlarmID();
     }
+
+
 }

@@ -168,7 +168,7 @@ public void testFullSearchCashCostBill() throws Exception {
 //TODO: Test goes here...
 
     ArrayList<CashCostBillPO> cashCostBillPOS = billDataService.fullSearchCashCostBill("operatorID","11111");
-    System.out.print(cashCostBillPOS.get(0).getAccountName());
+    System.out.print(cashCostBillPOS.get(0).getInit_time());
 } 
 
 /** 
