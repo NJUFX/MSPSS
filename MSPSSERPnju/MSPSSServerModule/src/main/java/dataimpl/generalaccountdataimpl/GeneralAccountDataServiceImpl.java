@@ -186,7 +186,7 @@ public class GeneralAccountDataServiceImpl implements GeneralAccountDataService 
      */
     private CustomerPO changeToCustomer(GeneralAccount_CustomerList_PO customer){
         CustomerPO result = new CustomerPO();
-        result.setAccountID(customer.getAccountID());
+
         result.setAddress(customer.getAddress());
         result.setCategory(customer.getCategory());
         result.setDAE("期初建帐");

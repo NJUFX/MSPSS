@@ -1,5 +1,6 @@
 package blimpl.customerblimpl;
 
+import network.CustomerClientNetworkImpl;
 import network.CustomerClientNetworkService;
 import po.CustomerPO;
 import util.Kind_Of_Customers;
@@ -9,7 +10,7 @@ import vo.CustomerVO;
 import java.util.ArrayList;
 
 public class Customer {
-    CustomerClientNetworkService networkService;
+    CustomerClientNetworkService networkService = new CustomerClientNetworkImpl();
 
     /**
      * 通过关键词类型和关键词来查找客户
@@ -106,7 +107,7 @@ public class Customer {
                 vo.getName(),vo.getPhonenumber(),vo.getAddress()
                 ,vo.getPostcode(),vo.getEmail(),vo.getInvalue(),
                 vo.getIncomemoney(),vo.getPaymoney(),
-                vo.getDAE(),vo.getBankaccount().getName());
+                vo.getDAE());
     return po;
     }
     private ArrayList<CustomerVO> pos_to_vos(ArrayList<CustomerPO> pos){

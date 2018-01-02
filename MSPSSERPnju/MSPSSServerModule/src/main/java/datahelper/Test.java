@@ -60,6 +60,16 @@ public class Test {
         schemaExport.create(EnumSet.of(TargetType.DATABASE),metadata);
 <<<<<<< HEAD
         */
+<<<<<<< HEAD
+    	
+    	 DataHelper<UserPO>  userPODataHelper = new HibernateHelper<>(UserPO.class);
+         UserPO po1 = new UserPO("CM-1991","hxh", Kind_Of_Users.ChiefManager.ordinal(),"161250036","hanxinhu521@163.com");
+         UserPO po2  = new UserPO("CM-1911","xgy",Kind_Of_Users.ChiefManager.ordinal(),"161250164","hanxinhu521@163.com");
+         
+     
+             userPODataHelper.save(po1);
+             userPODataHelper.save(po2);
+=======
 
         DataHelper<UserPO> userPODataHelper = new HibernateHelper<>(UserPO.class);
         UserPO po1 = new UserPO("CM-1991", "hxh", Kind_Of_Users.ChiefManager.ordinal(), "161250036");
@@ -76,5 +86,6 @@ public class Test {
         System.out.println(pos.isEmpty());
 
 
+>>>>>>> 60432fce70e99761629a518ce3e1b13243a0f488
     }
 }

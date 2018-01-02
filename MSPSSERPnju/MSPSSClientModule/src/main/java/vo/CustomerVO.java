@@ -56,10 +56,6 @@ public class CustomerVO {
      */
     private String DAE;
     /**
-     * 银行账户
-     */
-    public AccountVO bankaccount;
-    /**
      * 客户分类
      */
     private Kind_Of_Customers kind;
@@ -142,14 +138,6 @@ public class CustomerVO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public AccountVO getBankaccount() {
-        return bankaccount;
-    }
-
-    public void setBankaccount(AccountVO bankaccount) {
-        this.bankaccount = bankaccount;
     }
 
     public String getPhonenumber() {

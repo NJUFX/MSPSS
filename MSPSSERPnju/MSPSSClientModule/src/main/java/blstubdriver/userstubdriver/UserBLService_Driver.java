@@ -13,8 +13,8 @@ public class UserBLService_Driver {
     public void drive() {
 
         //test addUser
-        UserVO user = new UserVO("SS001", "Chen", Kind_Of_Users.StockSeller, "000000");
-        UserVO user2 = new UserVO("CM001", "July", Kind_Of_Users.ChiefManager, "000000");
+        UserVO user = new UserVO("SS001", "Chen", Kind_Of_Users.StockSeller, "000000","hanxinhu521@163.com");
+        UserVO user2 = new UserVO("CM001", "July", Kind_Of_Users.ChiefManager, "000000","hanxinhu521@163.com");
 
         ResultMessage isAdd = userBLService_stub.addUser(user);
         userBLService_stub.addUser(user2);

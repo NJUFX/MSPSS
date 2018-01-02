@@ -63,17 +63,12 @@ public class CustomerPO  implements Serializable{
      * 默认业务员
      */
     private String DAE;
-    /**
-     * 银行账户
-     */
-    private String accountID;
-
 
 
     public CustomerPO() {
     }
 
-    public CustomerPO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney, String DAE, String accountID) {
+    public CustomerPO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney, String DAE) {
         Exist = exist;
         this.ID = ID;
         this.category = category;
@@ -87,7 +82,6 @@ public class CustomerPO  implements Serializable{
         this.incomemoney = incomemoney;
         this.paymoney = paymoney;
         this.DAE = DAE;
-        this.accountID = accountID;
     }
 
     public boolean isExist() {
@@ -192,14 +186,6 @@ public class CustomerPO  implements Serializable{
 
     public void setDAE(String DAE) {
         this.DAE = DAE;
-    }
-
-    public String getAccountID() {
-        return accountID;
-    }
-
-    public void setAccountID(String accountID) {
-        this.accountID = accountID;
     }
 
     public int getVoucher() {
