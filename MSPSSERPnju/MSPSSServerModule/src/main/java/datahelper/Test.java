@@ -62,8 +62,8 @@ public class Test {
         */
     	
     	 DataHelper<UserPO>  userPODataHelper = new HibernateHelper<>(UserPO.class);
-         UserPO po1 = new UserPO("CM-1991","hxh", Kind_Of_Users.ChiefManager.ordinal(),"161250036");
-         UserPO po2  = new UserPO("CM-1911","xgy",Kind_Of_Users.ChiefManager.ordinal(),"161250164");
+         UserPO po1 = new UserPO("CM-1991","hxh", Kind_Of_Users.ChiefManager.ordinal(),"161250036","hanxinhu521@163.com");
+         UserPO po2  = new UserPO("CM-1911","xgy",Kind_Of_Users.ChiefManager.ordinal(),"161250164","hanxinhu521@163.com");
          
      
              userPODataHelper.save(po1);

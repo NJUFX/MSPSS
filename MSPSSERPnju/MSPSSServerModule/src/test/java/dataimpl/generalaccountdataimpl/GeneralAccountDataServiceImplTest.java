@@ -49,7 +49,7 @@ public void testNewGeneralAccount() throws Exception {
 
 
     ArrayList<GeneralAccount_CustomerList_PO> generalAccount_customerList_pos = new ArrayList<GeneralAccount_CustomerList_PO>();
-    GeneralAccount_CustomerList_PO generalAccount_customerList_po = new GeneralAccount_CustomerList_PO(true,"123456",1,1,"隔壁王老板","18851826216","南京大学仙林校区","12312","123456@qq.com",123456.12,123.0,45.0,"123456");
+    GeneralAccount_CustomerList_PO generalAccount_customerList_po = new GeneralAccount_CustomerList_PO(true,"123456",1,1,"隔壁王老板","18851826216","南京大学仙林校区","12312","123456@qq.com",123456.12,123.0,45.0);
     generalAccount_customerList_pos.add(generalAccount_customerList_po);
 
 

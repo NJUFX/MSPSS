@@ -79,12 +79,12 @@ public class User {
     }
 
     private UserVO po_to_vo(UserPO po) {
-        UserVO vo = new UserVO(po.getID(), po.getName(), po.getKind(), po.getPassword());
+        UserVO vo = new UserVO(po.getID(), po.getName(), po.getKind(), po.getPassword(),po.getMail());
         return vo;
     }
 
     private UserPO vo_to_po(UserVO vo) {
-        UserPO po = new UserPO(vo.getID(), vo.getName(), vo.getCategoryForPO(), vo.getPassword());
+        UserPO po = new UserPO(vo.getID(), vo.getName(), vo.getCategoryForPO(), vo.getPassword(),vo.getMail());
         return po;
     }
 

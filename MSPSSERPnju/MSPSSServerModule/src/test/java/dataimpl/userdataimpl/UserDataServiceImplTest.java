@@ -43,7 +43,7 @@ public void testModifyPower() throws Exception {
 @Test
 public void testAddUser() throws Exception { 
 //TODO: Test goes here...
-    UserPO userPO = new UserPO("FM-161250164","徐光耀",4,"161250164");
+    UserPO userPO = new UserPO("FM-161250164","徐光耀",4,"161250164","hanxinhu521@163.com");
     userDataService.addUser(userPO);
 
 } 

@@ -102,7 +102,7 @@ public class ServerHelper{
                 Naming.rebind(host+"StockServerNetworkService", stockServerNetworkService);
                 Naming.rebind(host+"UserServerNetworkService", userServerNetworkService);
                 Naming.rebind(host+"PromotionServerNetworkService",promotionServerNetworkService);
-                
+
                 return serverHelper;
             } catch (RemoteException e) {
                 e.printStackTrace();
