@@ -143,7 +143,7 @@ public class UserAddViewController implements Initializable {
 
                 UserVO userVo = new UserVO("", nameField.getText(), kind_of_users, "123456");
                 userVo.setIsValid(true);
-
+                userVo.setMail(emailField.getText().trim());
                 //userBLService.addUser(userVo);
                 ResultMessage resultMessage = userBLService.addUser(userVo);
                 idLabel.setText(userVo.getID());

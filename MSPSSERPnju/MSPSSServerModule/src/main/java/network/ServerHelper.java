@@ -106,7 +106,6 @@ public class ServerHelper{
 
 =======
                 */
->>>>>>> 60432fce70e99761629a518ce3e1b13243a0f488
                 return serverHelper;
             } catch (RemoteException e) {
                 e.printStackTrace();
