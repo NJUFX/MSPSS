@@ -301,12 +301,9 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			}
 			
 			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
-			if(promotionCommodity.size()==0) {
-				promotionBLService.addCustomerPromotion(new CustomerPromotionVO(level,discount,voucher,start,end));
-			}
-			else {
+
 				promotionBLService.addCustomerPromotion(new CustomerPromotionVO(level,discount,voucher,promotionCommodity,start,end));
-			}
+
 			break;
 		}
 		
@@ -332,12 +329,9 @@ public class ChiefManagerSetPromotionController implements Initializable{
 				voucher = Integer.parseInt(Coupon.getText());
 			}
 			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
-			if(promotionCommodity.size()!=0) {
-				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,promotionCommodity,start ,end));
-			}
-			else {
+
 				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,start,end));
-			}
+			
 			
 			break;
 		}
