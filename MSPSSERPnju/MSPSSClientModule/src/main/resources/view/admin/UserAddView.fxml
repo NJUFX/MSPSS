@@ -24,10 +24,9 @@
                 <ColorInput height="40.0" paint="#0f88eb" width="755.0" />
             </effect>
         </Pane>
-        <Button id="modUserButton" fx:id="searchUserButton" onAction="#searchddUserButtonAction" layoutY="386.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
-                stylesheets="@../../css/admin/addUser.css" text="查找用户" textFill="#f8f4f4">
+        <Button id="modUserButton" fx:id="searchUserButton" layoutY="386.0" mnemonicParsing="false" onAction="#searchddUserButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="查找用户" textFill="#f8f4f4">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Button>
         <Button id="addUserButton" layoutY="282.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/admin/addUser.css" text="增加用户" textFill="#f8f4f4">
@@ -126,6 +125,16 @@
                 </ComboBox>
 
                 <ComboBox id="userPower" fx:id="userLevel" layoutX="186.0" layoutY="165.0" prefHeight="23.0" prefWidth="114.0" />
+            <Label layoutX="118.0" layoutY="215.0" text="邮箱">
+               <font>
+                  <Font name="Microsoft YaHei" size="16.0" />
+               </font>
+            </Label>
+            <TextField layoutX="187.0" layoutY="215.0" prefHeight="23.0" prefWidth="114.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
             </children>
         </Pane>
         <Button id="cancelButton" fx:id="cancelButton" layoutX="372.0" layoutY="463.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
@@ -165,10 +174,9 @@
                 </ImageView>
             </graphic>
         </Button>
-        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="394.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="17.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../image/搜索.png"/>
+                <Image url="@../../image/搜索.png" />
             </image>
         </ImageView>
     </children>

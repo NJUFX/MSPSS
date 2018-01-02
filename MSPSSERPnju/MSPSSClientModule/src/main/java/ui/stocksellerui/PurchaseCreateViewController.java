@@ -2,7 +2,14 @@ package ui.stocksellerui;
 
 import auxiliary.PurchaseBill;
 import blimpl.blfactory.BLFactoryImpl;
+import blimpl.commodityblimpl.Commodity;
+import blservice.billblservice.SalesmanBillBLService;
+import blservice.commodityblservice.CommodityInfoService;
+import blservice.customerblservice.CustomerBLInfo;
 import blservice.mainblservice.MainBLService;
+import blservice.userblservice.UserBLService;
+import blservice.userblservice.UserInfo;
+import com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,10 +28,18 @@ import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import ui.stockmanagerui.SelectClassOrCommodityViewController;
+import util.BillStatus;
+import util.ResultMessage;
+import util.SalesInBillType;
+import vo.CommodityVO;
+import vo.CustomerVO;
+import vo.SalesInBillVO;
+import vo.SalesItemVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -32,9 +47,14 @@ import java.util.ResourceBundle;
  */
 public class PurchaseCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
+    CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
+    UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
-
+    CustomerVO customerVO;
+    ArrayList<SalesItemVO> commodityVOArrayList = new ArrayList<>();
     @FXML
     Button purcRetCreateButton;
     @FXML
@@ -43,27 +63,77 @@ public class PurchaseCreateViewController implements Initializable {
     Button salesRetCreateButton;
     @FXML
     Button cancelButton, delRowButton, addRowButton, sureButton, chooseButton;
-
     @FXML
     TableView<PurchaseBill> purchaseBillTableView;
     @FXML
     TableColumn<PurchaseBill, String> IdCol, NameCol, TypeCol, PriceCol, NumberCol, RemarkCol, TotalCol;
     @FXML
     TableColumn<PurchaseBill, ComboBox> IsSelectCol;
-
     @FXML
-    TextField nameField, idField, remarkField, numberField;
+    TextField nameField, idField, remarkField, numberField, billSupplierField, stockField;
     @FXML
-    Label priceLabel, totalLabel, billTotalMoney;
+    Label priceLabel, totalLabel, billTotalMoney, billIdLabel, DAELabel;
     @FXML
     TextField typeField;
+    @FXML
+    TextArea billRemarkArea;
+
+    public void sureButtonAction(ActionEvent e) {
+        if (commodityVOArrayList != null && commodityVOArrayList.size() != 0) {
+            ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
+            for (int i = 0; i < data.size(); i++) {
+
+                SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
+                commodityVOArrayList.add(salesItemVO);
+            }
+
+            SalesInBillVO salesInBillVO = new SalesInBillVO(null, SalesInBillType.IN, BillStatus.commit);
+
+            salesInBillVO.setDAE(DAELabel.getText());
+            salesInBillVO.setStorage(stockField.getText());
+            salesInBillVO.setProvider(customerVO.getID());
+            salesInBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
+            salesInBillVO.setSumMoney(Double.parseDouble(billTotalMoney.getText()));
+            salesInBillVO.setItemVOS(commodityVOArrayList);
+            if (billRemarkArea.getText() != null && !billRemarkArea.getText().trim().equals("")) {
+                salesInBillVO.setPs(billRemarkArea.getText().trim());
+            } else {
+                salesInBillVO.setPs("无");
+            }
+            ResultMessage resultMessage = salesmanBillBLService.commitSalesInBill(salesInBillVO);
+            if (resultMessage == ResultMessage.SUCCESS) {
+                dialog.infoDialog("Commit list successfully.");
+            } else {
+                dialog.errorInfoDialog("Fail to commit the list.");
+            }
+        } else {
+            dialog.errorInfoDialog("You haven't input the commodity list.");
+        }
+
+    }
+
+
+    public void billSupplierFieldAction(ActionEvent e) {
+        if (billSupplierField.getText() != null && !billSupplierField.getText().trim().equals("")) {
+            customerVO = customerBLInfo.getCustomerByID(billSupplierField.getText().trim());
+            if (customerVO != null) {
+                DAELabel.setText(customerVO.getDAE());
+            } else {
+                dialog.errorInfoDialog("Supplier not exist!");
+            }
+        }
+    }
 
     public void chooseButtonAction(ActionEvent e) {
         try {
             SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
             controller.isSelectClass = true;
-            controller.classificationNameField = nameField;
+            controller.commodityNameField = nameField;
+            controller.commodityIdField = idField;
+            controller.commodityPriceLabel = priceLabel;
+            controller.useType = true;
+            controller.commodityTypeField = typeField;
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -97,7 +167,7 @@ public class PurchaseCreateViewController implements Initializable {
         ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
         if (nameField.getText() != null && !nameField.getText().trim().equals("") && idField.getText() != null && !idField.getText().trim().equals("0") && priceLabel.getText() != null
                 && (numberField.getText().trim() != null && !numberField.getText().trim().equals("0"))) {
-            data.add(new PurchaseBill(numberField.getText(), idField.getText(), typeField.getText().trim(),
+            data.add(new PurchaseBill(nameField.getText(), idField.getText(), typeField.getText().trim(),
                     priceLabel.getText(), numberField.getText(), totalLabel.getText(), remarkField.getText()));
             if (billTotalMoney.getText() != null) {
                 billTotalMoney.setText(String.valueOf(
@@ -111,6 +181,7 @@ public class PurchaseCreateViewController implements Initializable {
             numberField.setText("");
             totalLabel.setText("");
             remarkField.setText("");
+            typeField.setText("");
 
         } else {
             dialog.errorInfoDialog("Something null! Please check your input.");

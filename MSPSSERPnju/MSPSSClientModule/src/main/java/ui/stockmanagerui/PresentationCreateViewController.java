@@ -57,7 +57,7 @@ public class PresentationCreateViewController implements Initializable {
     @FXML
     Button delPresentationButton;// 删除一行的按钮
     @FXML
-    Label idLabel;// 商品编号
+    TextField idField;// 商品编号
     @FXML
     Label priceLabel;// 单价
     @FXML
@@ -95,7 +95,7 @@ public class PresentationCreateViewController implements Initializable {
             controller.isSelectClass = true;
             controller.commodityPriceLabel = priceLabel;
             controller.commodityNameField = nameField;
-            controller.commodityIdLabel = idLabel;
+            controller.commodityIdField = idField;
 
         } catch (Exception e1) {
             e1.printStackTrace();
@@ -108,7 +108,6 @@ public class PresentationCreateViewController implements Initializable {
             double t = Double.parseDouble(priceLabel.getText()) * Integer.parseInt(numberField.getText());
             totalLabel.setText(String.valueOf(t));
         }
-        // totalLabel.setText("100");
     }
 
     /**
@@ -119,12 +118,12 @@ public class PresentationCreateViewController implements Initializable {
     @FXML
     public void addPresentationButtonAction(ActionEvent e) {
         ObservableList<Presentation> data = presentationTable.getItems();
-        if (nameField.getText() != null && idLabel.getText() != null && priceLabel.getText() != null
+        if (nameField.getText() != null && idField.getText() != null && priceLabel.getText() != null
                 && (numberField.getText() != null && !numberField.equals("0")) && totalLabel.getText() != null) {
-            data.add(new Presentation(nameField.getText(), idLabel.getText(), priceLabel.getText(),
+            data.add(new Presentation(nameField.getText(), idField.getText(), priceLabel.getText(),
                     numberField.getText(), totalLabel.getText(), remarkField.getText()));
             nameField.setText("");
-            idLabel.setText("");
+            idField.setText("");
             priceLabel.setText("");
             numberField.setText("");
             totalLabel.setText("");
@@ -184,7 +183,6 @@ public class PresentationCreateViewController implements Initializable {
      */
     @FXML
     public void overflowCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
         try {
             OverflowCreateViewController controller = (OverflowCreateViewController) replaceSceneContent(
                     "/view/stockmanager/OverflowCreate.fxml");
@@ -203,7 +201,6 @@ public class PresentationCreateViewController implements Initializable {
      */
     @FXML
     public void breakageCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
         try {
             BreakageCreateViewController controller = (BreakageCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BreakageCreate.fxml");
@@ -242,8 +239,6 @@ public class PresentationCreateViewController implements Initializable {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
 
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
@@ -318,7 +313,7 @@ public class PresentationCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        idLabel.setText("");
+        idField.setText("");
         nameField.setText("");
         priceLabel.setText("");
         showTableView();

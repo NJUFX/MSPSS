@@ -26,9 +26,14 @@ public class LogPO implements Serializable {
     public LogPO() {
     }
 
+    public LogPO(String id, String operator, String time, String operate) {
+        this.id = id;
+        this.operator = operator;
+        this.time = time;
+        this.operate = operate;
+    }
 
-
-    public LogPO( String operator, String time,String operate ) {
+    public LogPO(String operator, String time, String operate) {
 
         this.operator = operator;
         this.time = time;

@@ -39,7 +39,7 @@ public class LoginController implements Initializable {
     Stage newStage = new Stage();
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
-    static UserVO currentUser ;
+    static UserVO currentUser = new UserVO("001","test",Kind_Of_Users.ChiefManager,"123456");
     @FXML
     public Button loginButton, modPasswordButton;
     @FXML
@@ -83,7 +83,7 @@ public class LoginController implements Initializable {
         if (idText.getText() != null && !idText.getText().trim().equals("") && passwordField.getText() != null && !passwordField.getText().trim().equals("")) {
             String id = idText.getText();
             String password = passwordField.getText();
-            currentUser = userBLService.searchUserByID(id);
+            //currentUser = userBLService.searchUserByID(id);
             userLogin(id, password);
         } else {
             dialog.errorInfoDialog("Something null, please check your input.");
@@ -135,15 +135,13 @@ public class LoginController implements Initializable {
                             break;
                     }
                     if (b == true) {
-                        currentUser = userBLService.searchUserByID(id);
+                        //currentUser = userBLService.searchUserByID(id);
                         dialog.infoDialog("Login Successfully.");
                     }
                 }
             }
 
             //currentUser = userBLService.searchUserByID(id);
-            dialog.infoDialog("Login Successfully.");
-
         } else if (log_in_out_status == Log_In_Out_Status.Login_IdNotExist) {
             dialog.errorInfoDialog("Id not exist, please check your input.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_PasswordWrong) {
