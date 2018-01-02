@@ -4,6 +4,7 @@ import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.userblservice.UserInfo;
+import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.FinanceBillPO;
 import po.FinanceItemPO;
@@ -22,7 +23,7 @@ import java.util.List;
  */
 public class FinanceBill {
     private static AccountBLInfo accountInfo = new BLFactoryImpl().getAccountBLInfo();
-    private static BillClientNetworkService networkService;
+    private static BillClientNetworkService networkService = new BillClientNetworkImpl();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
     /**

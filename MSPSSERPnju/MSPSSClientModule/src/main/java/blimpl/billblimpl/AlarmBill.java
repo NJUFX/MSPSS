@@ -1,5 +1,6 @@
 package blimpl.billblimpl;
 
+import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.AlarmBillPO;
 import util.ResultMessage;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by Hanxinhu at 22:16 2017/12/21/021
  */
 public class AlarmBill {
-    BillClientNetworkService billClientNetworkService;
+    BillClientNetworkService billClientNetworkService = new BillClientNetworkImpl();
     static final String prefix = "KCBJD";
 
     public ResultMessage addAlarmBill(String commodityID, int number) {
