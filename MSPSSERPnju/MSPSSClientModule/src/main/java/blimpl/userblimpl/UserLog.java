@@ -21,6 +21,7 @@ public class UserLog {
      * @return
      */
     public Log_In_Out_Status login(String ID, String password) {
+   		
         if (userClientNetwork.searchUserByID(ID) == null)
             return Log_In_Out_Status.Login_IdNotExist;
         UserPO userPO = userClientNetwork.searchUserByID(ID);
