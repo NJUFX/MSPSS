@@ -165,7 +165,10 @@ public void testMultiSearchCashCostBill() throws Exception {
 */ 
 @Test
 public void testFullSearchCashCostBill() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+
+    ArrayList<CashCostBillPO> cashCostBillPOS = billDataService.fullSearchCashCostBill("init_time","2017-01-01 01:01:01");
+    System.out.print(cashCostBillPOS.get(0).getAccountName());
 } 
 
 /** 

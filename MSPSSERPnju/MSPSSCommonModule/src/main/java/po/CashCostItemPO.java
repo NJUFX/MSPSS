@@ -77,5 +77,4 @@ public class CashCostItemPO implements Serializable {
     public void setCashcostbill(CashCostBillPO cashcostbill) {
         this.cashcostbill = cashcostbill;
     }
-
 }
