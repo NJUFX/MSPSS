@@ -142,7 +142,6 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <ComboBox fx:id="classificationBox" layoutX="248.0" layoutY="27.0" prefHeight="36.0" prefWidth="50.0" />
             </children>
         </Pane>
         <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">

@@ -63,10 +63,15 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
      */
     private GeneralAccountPO generalaccount;
 
+    /**
+     * 银行账户的ID
+     */
+    private String accountID;
+
     public GeneralAccount_CustomerList_PO() {
     }
 
-    public GeneralAccount_CustomerList_PO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney) {
+    public GeneralAccount_CustomerList_PO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney,String accountID,GeneralAccountPO generalAccountPO) {
         Exist = exist;
         this.ID = ID;
         this.category = category;
@@ -79,6 +84,8 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
         Invalue = invalue;
         this.incomemoney = incomemoney;
         this.paymoney = paymoney;
+        this.generalaccount = generalAccountPO;
+        this.accountID = accountID;
     }
 
     public String getKeycolumn() {
@@ -191,5 +198,13 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
 
     public void setPaymoney(double paymoney) {
         this.paymoney = paymoney;
+    }
+
+    public String getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(String accountID) {
+        this.accountID = accountID;
     }
 }

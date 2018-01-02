@@ -339,45 +339,45 @@
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="105" parent="17" name="phonenumber">
-      <Position>6</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="106" parent="17" name="address">
+    <column id="105" parent="17" name="address">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="107" parent="17" name="postcode">
+    <column id="106" parent="17" name="postcode">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="108" parent="17" name="email">
+    <column id="107" parent="17" name="email">
       <Position>9</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="109" parent="17" name="in_value">
+    <column id="108" parent="17" name="in_value">
       <Position>10</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="110" parent="17" name="income_money">
+    <column id="109" parent="17" name="income_money">
       <Position>11</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="111" parent="17" name="pay_money">
+    <column id="110" parent="17" name="pay_money">
       <Position>12</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="112" parent="17" name="DAE">
-      <Position>13</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="113" parent="17" name="account_id">
+    <column id="111" parent="17" name="account_id">
       <Position>14</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="114" parent="17" name="voucher">
+    <column id="112" parent="17" name="voucher">
       <Position>15</Position>
-      <DataType>double|0</DataType>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="113" parent="17" name="phone_number">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="114" parent="17" name="dae">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
     </column>
     <index id="115" parent="17" name="customerpo_id_uindex">
       <ColNames>id</ColNames>

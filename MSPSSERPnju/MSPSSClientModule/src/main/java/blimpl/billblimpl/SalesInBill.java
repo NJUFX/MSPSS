@@ -145,6 +145,13 @@ public class SalesInBill {
         return networkService.updateSalesInBill(vo_to_po(salesInBillVO));
     }
 
+    public ResultMessage HongChong(SalesInBillVO salesInBillVO) {
+        return ResultMessage.FAILED;
+    }
+
+    public ResultMessage HongChongAndCopy(SalesInBillVO salesInBillVO) {
+        return ResultMessage.FAILED;
+    }
     private ArrayList<SalesInBillVO> pos_to_vos(ArrayList<SalesInBillPO> pos) {
         if (pos == null)
             return new ArrayList<>();

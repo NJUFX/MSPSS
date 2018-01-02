@@ -1,6 +1,7 @@
 package ui.stockmanagerui;
 
 import blimpl.blfactory.BLFactoryImpl;
+import blimpl.commodityblimpl.Commodity;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
@@ -36,6 +37,7 @@ import java.util.ResourceBundle;
  */
 public class CommodityModitySecondViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
+    Stage newStage = new Stage();
     Dialog dialog = new Dialog();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
@@ -52,22 +54,20 @@ public class CommodityModitySecondViewController implements Initializable {
     @FXML
     Button backToBeforeButton;
     @FXML
-    Button cancelButton, sureButton;
+    Button cancelButton, sureButton, chooseButton;
     @FXML
-    TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField;
-    @FXML
-    ComboBox<String> classificationBox;
+    TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField, classificationField;
     @FXML
     Label idLabel;
 
-    public void showClassificationBox(ArrayList<ClassificationVO> list) {
-        for (int i = 0; i < list.size(); i++) {
-            if (commodityBLService.getChildrenClassification(list.get(i)).size() == 0) {
-                classificationBox.getItems().add(list.get(i).getName());
-            } else {
-                ArrayList<ClassificationVO> list2 = commodityBLService.getChildrenClassification(list.get(i));
-                showClassificationBox(list2);
-            }
+    public void chooseButtonAction(ActionEvent e) {
+        try {
+            SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
+                    "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
+            controller.isSelectClass = false;
+            controller.classificationNameField = classificationField;
+        } catch (Exception e1) {
+            e1.printStackTrace();
         }
     }
 
@@ -80,7 +80,7 @@ public class CommodityModitySecondViewController implements Initializable {
         if (id_to_modify != null || !id_to_modify.equals("")) {
             CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
             commodityBLService.deleteCommodity(id_to_modify.trim());
-            CommodityVO newcommodity = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationBox.getValue(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
+            CommodityVO newcommodity = new CommodityVO(nameField.getText().trim(), typeField.getText().trim(), classificationField.getText().trim(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
             newcommodity.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
             newcommodity.setID(commodityVO.getID());
             newcommodity.setLatestExportCost(commodityVO.getLatestExportCost());
@@ -227,6 +227,32 @@ public class CommodityModitySecondViewController implements Initializable {
         stage.sizeToScene();
         return (Initializable) loader.getController();
     }
+    /**
+     * @param fxml
+     * @param width
+     * @param height
+     * @return
+     * @throws Exception
+     */
+    private Initializable replaceAnotherSceneContent(String fxml, double width, double height) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, width + 0.0, height);
+        newStage.setTitle("选择");
+        newStage.setScene(scene);
+        newStage.sizeToScene();
+        newStage.setResizable(false);
+        newStage.show();
+        return (Initializable) loader.getController();
+    }
 
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
@@ -237,16 +263,18 @@ public class CommodityModitySecondViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
 
-        showClassificationBox(commodityBLService.getRootClassifications());
+        CommodityVO commodityVO = new CommodityVO("吊灯","大","装饰灯具",235,320);
+        commodityVO.setID("001");
+        commodityVO.setAlertNumber(24);
+        //CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
 
-        CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
         nameField.setText(commodityVO.getName());
         idLabel.setText(commodityVO.getID());
         importPriceField.setText(String.valueOf(commodityVO.getImportCost()));
         exportPriceField.setText(String.valueOf(commodityVO.getExportCost()));
         typeField.setText(commodityVO.getType());
         alertField.setText(String.valueOf(commodityVO.getAlertNumber()));
-        classificationBox.setValue(commodityVO.getClassificationName());
+        classificationField.setText(commodityVO.getClassificationName());
     }
 
 }

@@ -52,18 +52,10 @@ public class CommodityManageViewController implements Initializable {
     @FXML
     Button commoditySearchButton;
     @FXML
-    ComboBox<String> keyTypeComboBox, classificationBox;
+    ComboBox<String> keyTypeComboBox;
     @FXML
     TextField keywordField;
 
-    @FXML
-    public void keyTypeComboBoxAction(ActionEvent e) {
-        if (keyTypeComboBox.getValue().equals("商品分类")) {
-            classificationBox.setVisible(true);
-        } else {
-            classificationBox.setVisible(false);
-        }
-    }
 
     /**
      * 处理单据
@@ -205,22 +197,11 @@ public class CommodityManageViewController implements Initializable {
             String key_word = "", key_type = "";
             boolean b = true;
             if (keyTypeComboBox.getValue() != null && !keyTypeComboBox.getValue().trim().equals("")) {
-                if (keyTypeComboBox.getValue().equals("分类")) {
-                    if (classificationBox.getValue() != null && !classificationBox.getValue().trim().equals("")) {
-                        key_word = classificationBox.getValue().trim();
-                    } else if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
-                        key_word = keywordField.getText().trim();
-                    } else {
-                        dialog.errorInfoDialog("Please input keyword.");
-                        b = false;
-                    }
+                if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
+                    key_word = (keywordField.getText().trim());
                 } else {
-                    if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
-                        key_word = (keywordField.getText().trim());
-                    } else {
-                        dialog.errorInfoDialog("Please input keyword.");
-                        b = false;
-                    }
+                    b = false;
+                    dialog.errorInfoDialog("Please input keyword.");
                 }
                 key_type = (keyTypeComboBox.getTypeSelector());
             } else {

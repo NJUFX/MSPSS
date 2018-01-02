@@ -52,6 +52,114 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
     }
 
     /**
+     * 红冲库存类单据
+     *
+     * @param stockBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChong(StockBillVO stockBillVO) {
+        return stockBill.HongChong(stockBillVO);
+    }
+
+    /**
+     * 红冲并复制
+     *
+     * @param stockBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChongAndCopy(StockBillVO stockBillVO) {
+        return stockBill.HongChongAndCopy(stockBillVO);
+    }
+
+    /**
+     * 红冲进货类单据
+     *
+     * @param salesInBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChong(SalesInBillVO salesInBillVO) {
+        return salesInBill.HongChong(salesInBillVO);
+    }
+
+    /**
+     * 红冲销售类单据
+     *
+     * @param salesInBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChongAndCopy(SalesInBillVO salesInBillVO) {
+        return salesInBill.HongChongAndCopy(salesInBillVO);
+    }
+
+    /**
+     * @param salesOutBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChong(SalesOutBillVO salesOutBillVO) {
+        return salesOutBill.HongChong(salesOutBillVO);
+    }
+
+    /**
+     * 红冲并复制销售类单据
+     *
+     * @param salesOutBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChongAndCopy(SalesOutBillVO salesOutBillVO) {
+        return salesOutBill.HongChongAndCopy(salesOutBillVO);
+    }
+
+    /**
+     * 红冲财务类单据
+     *
+     * @param financeBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChong(FinanceBillVO financeBillVO) {
+        return financeBill.HongChong(financeBillVO);
+    }
+
+    /**
+     * 红冲并复制财务类单据
+     *
+     * @param financeBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChongAndCopy(FinanceBillVO financeBillVO) {
+        return financeBill.HongChongAndCopy(financeBillVO);
+    }
+
+    /**
+     * 红冲并复制财务类单据
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChong(CashCostBillVO cashCostBillVO) {
+        return cashCostBill.HongChong(cashCostBillVO);
+    }
+
+    /**
+     * 红冲并复制财务类单据
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    @Override
+    public ResultMessage HongChongAndCopy(CashCostBillVO cashCostBillVO) {
+        return cashCostBill.HongChong(cashCostBillVO);
+    }
+
+    /**
      * 保存进货单 进货退货单
      *
      * @param vo
