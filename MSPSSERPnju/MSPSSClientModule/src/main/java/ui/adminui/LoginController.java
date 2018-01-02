@@ -39,7 +39,7 @@ public class LoginController implements Initializable {
     Stage newStage = new Stage();
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
-    static UserVO currentUser = new UserVO("001","test",Kind_Of_Users.ChiefManager,"123456");
+    static UserVO currentUser = new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
     @FXML
     public Button loginButton, modPasswordButton;
     @FXML
@@ -100,8 +100,9 @@ public class LoginController implements Initializable {
     public void userLogin(String id, String password) {
         // 判断id是否在系统里
         // 判断密码是否正确
-        Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;
-        //Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
+        //Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;
+        //System.out.println(userBLService.searchUserByID(id).getID());
+        Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
         if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
             if (id.equals("admin")) {
                 toAdminMain();
@@ -135,7 +136,7 @@ public class LoginController implements Initializable {
                             break;
                     }
                     if (b == true) {
-                        //currentUser = userBLService.searchUserByID(id);
+                        currentUser = userBLService.searchUserByID(id);
                         dialog.infoDialog("Login Successfully.");
                     }
                 }
