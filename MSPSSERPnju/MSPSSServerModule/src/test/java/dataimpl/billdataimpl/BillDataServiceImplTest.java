@@ -1,8 +1,16 @@
 package dataimpl.billdataimpl;
 
-import org.junit.Test; 
+import dataservice.BillDataService;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+import po.CashCostBillPO;
+import po.CashCostItemPO;
+import po.StockBillItemPO;
+import po.StockBillPO;
+import util.Time;
+
+import java.util.ArrayList;
 
 /** 
 * BillDataServiceImpl Tester. 
@@ -12,9 +20,10 @@ import org.junit.After;
 * @version 1.0 
 */ 
 public class BillDataServiceImplTest { 
-
+private BillDataService billDataService;
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    billDataService = BillDataServiceFactory.getBillDataService();
 } 
 
 @After
@@ -28,7 +37,14 @@ public void after() throws Exception {
 */ 
 @Test
 public void testAddStockBill() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    ArrayList<StockBillItemPO> stockBillItemPOS = new ArrayList<StockBillItemPO>();
+    StockBillItemPO stockBillItemPO = new StockBillItemPO("123",20);
+    stockBillItemPOS.add(stockBillItemPO);
+    Time time = new Time(2017,1,1,1,1,1);
+    StockBillPO stockBillPO = new StockBillPO("123456",1,1,stockBillItemPOS,time.toString(),time.toString(),time.toString(),"写的很好","写的不错","1234567","2345");
+    billDataService.addStockBill(stockBillPO);
+
 } 
 
 /** 
@@ -78,7 +94,9 @@ public void testMultiSearchStockBill() throws Exception {
 */ 
 @Test
 public void testRangeSearchStockBill() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    ArrayList<StockBillPO> stockBillPOS = billDataService.rangeSearchStockBill("init_time",Time.MIN_TIME,Time.MAX_TIME);
+    System.out.println(stockBillPOS.get(0).getItemPOS().get(0).getCommodityID());
 } 
 
 /** 
@@ -88,7 +106,9 @@ public void testRangeSearchStockBill() throws Exception {
 */ 
 @Test
 public void testGetStockBillID() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+
+
 } 
 
 /** 
@@ -98,8 +118,15 @@ public void testGetStockBillID() throws Exception {
 */ 
 @Test
 public void testAddCashCostBill() throws Exception { 
-//TODO: Test goes here... 
-} 
+//TODO: Test goes here...
+    ArrayList<CashCostItemPO> cashCostItemPOS = new ArrayList<CashCostItemPO>();
+    CashCostItemPO cashCostItemPO = new CashCostItemPO("123","写的很好",123);
+    cashCostItemPOS.add(cashCostItemPO);
+    Time time = new Time(2017,1,1,1,1,1);
+    CashCostBillPO cashCostBillPO = new CashCostBillPO("111222","123456","123321",1,cashCostItemPOS,123,time.toString(),time.toString(),time.toString(),"123");
+    billDataService.addCashCostBill(cashCostBillPO);
+
+}
 
 /** 
 * 

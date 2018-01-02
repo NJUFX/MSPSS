@@ -43,7 +43,7 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
      */
     public ResultMessage addGeneralAcocunt(GeneralAccountPO generalAccountPO){
         try{
-            generalAccountServerNeworkService.addGeneralAcocunt(generalAccountPO);
+           return generalAccountServerNeworkService.addGeneralAcocunt(generalAccountPO);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -59,7 +59,7 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
      */
     public GeneralAccountPO exactlySearchGeneralAccount(String field,String id){
         try{
-            generalAccountServerNeworkService.exactlySearchGeneralAccount(field,id);
+          return  generalAccountServerNeworkService.exactlySearchGeneralAccount(field,id);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
 
     public ArrayList<GeneralAccountPO> fullSearchGeneralAccount(String field, Object value){
         try{
-            generalAccountServerNeworkService.fullSearchGeneralAccount(field, value);
+          return  generalAccountServerNeworkService.fullSearchGeneralAccount(field, value);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -82,7 +82,7 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
      */
     public ArrayList<GeneralAccountPO> fuzzySearchGeneralAccount(String filed,String value){
         try{
-            generalAccountServerNeworkService.fuzzySearchGeneralAccount(filed, value);
+           return generalAccountServerNeworkService.fuzzySearchGeneralAccount(filed, value);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -99,7 +99,7 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
      */
     public ArrayList<GeneralAccountPO> rangeSearchGeneralAccount(String field, Object min, Object max){
         try{
-            generalAccountServerNeworkService.rangeSearchGeneralAccount(field, min, max);
+           return generalAccountServerNeworkService.rangeSearchGeneralAccount(field, min, max);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -114,7 +114,7 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
      */
     public CustomerPO searchCustomer(String name){
         try{
-            generalAccountServerNeworkService.searchCustomer(name);
+          return   generalAccountServerNeworkService.searchCustomer(name);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -128,7 +128,7 @@ public class GeneralAccountClientNetworkImpl implements GeneralAccountClientNetw
      */
     public CommodityPO searchCommodity(String name){
         try{
-            generalAccountServerNeworkService.searchCommodity(name);
+           return generalAccountServerNeworkService.searchCommodity(name);
         }catch (RemoteException e){
             e.printStackTrace();
         }

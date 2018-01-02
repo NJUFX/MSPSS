@@ -1,9 +1,14 @@
 package dataservice;
 
+import po.CustomerPromotionPO;
+import po.GrossPromotionPO;
+import po.GroupPromotionPO;
 import po.PromotionPO;
+import util.CriteriaClause;
 import util.ResultMessage;
 import util.Time;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -11,36 +16,28 @@ import java.util.ArrayList;
  */
 public interface PromotionDataService {
 
-    /**
-     * 增加一条促销策略
-     *
-     * @param promotionPO
-     * @return ResultMessage
-     */
-    public ResultMessage add(PromotionPO promotionPO);
+    public ResultMessage addCustomerPromotion(CustomerPromotionPO po);
 
-    /**
-     * 删除一条促销策略
-     *
-     * @param id
-     * @return ResultMessage
-     */
-    public ResultMessage delete(String id);
+    public ResultMessage updateCustomerPromotion(CustomerPromotionPO po);
 
-    /**
-     * 更新一条促销策略
-     *
-     * @param id
-     * @param promotionPO
-     * @return ResultMessage
-     */
-    public ResultMessage update(PromotionPO promotionPO,String id);
+    public ResultMessage deleteCustomerPromotion(String id);
 
-    /**
-     * 搜索符合条件的促销策略
-     *
-     * @param date
-     * @return ArrayList<PromotionPO>
-     */
-    public ArrayList<PromotionPO> search(Time date);
+    public ArrayList<CustomerPromotionPO> multiSearchCustomerPromotion(ArrayList<CriteriaClause> criteriaClauses);
+
+    public ResultMessage addGroupPromotion(GroupPromotionPO po);
+
+    public ResultMessage updateGroupPromotion(GroupPromotionPO po);
+
+    public ResultMessage deleteGroupPromotion(String id);
+
+    public ArrayList<GroupPromotionPO> multiSearchGroupPromotion(ArrayList<CriteriaClause> criteriaClauses) ;
+
+    public ResultMessage addGrossPromotion(GrossPromotionPO po);
+
+    public ResultMessage updateGrossPromotion(GrossPromotionPO po);
+
+    public ResultMessage deleteGrossPromotion(String id);
+
+    public ArrayList<GrossPromotionPO> multiSearchGrossPromotion(ArrayList<CriteriaClause> criteriaClauses);
+
 }

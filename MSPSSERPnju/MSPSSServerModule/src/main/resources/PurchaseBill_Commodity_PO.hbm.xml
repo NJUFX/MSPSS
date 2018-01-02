@@ -18,7 +18,7 @@
        <property name="exportCost" column ="export_cost" type ="double"></property>
        <property name="numberInStock" column ="number_in_stock" type ="int"></property>
 
-       <many-to-one name="purchasebill" column = "purchasebill_id" class="po.PurchaseBillPO">
+       <many-to-one name="purchasebill" lazy="false" column = "purchasebill_id" class="po.PurchaseBillPO">
 
        </many-to-one>
 

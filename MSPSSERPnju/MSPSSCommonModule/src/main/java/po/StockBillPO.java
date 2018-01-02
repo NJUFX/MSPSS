@@ -65,6 +65,9 @@ public class StockBillPO implements Serializable{
      */
     private String approvalID;
 
+    public StockBillPO() {
+    }
+
     public StockBillPO(String ID, int type, int status, List<StockBillItemPO> itemPOS, String init_time, String commit_time, String approval_time, String commentByStockManager, String commentByManager, String initID, String approvalID) {
         this.ID = ID;
         this.type = type;

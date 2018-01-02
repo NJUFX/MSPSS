@@ -40,16 +40,16 @@ public void testNewGeneralAccount() throws Exception {
 //TODO: Test goes here...
     GeneralAccountPO generalAccountPO = new GeneralAccountPO();
     ArrayList<GeneralAccount_CommodityList_PO> generalAccount_commodityList_pos = new ArrayList<GeneralAccount_CommodityList_PO>();
-    GeneralAccount_CommodityList_PO generalAccount_commodityList_po = new GeneralAccount_CommodityList_PO("水晶吊灯","123456","吊灯类","123456",12.45,45.58,23,generalAccountPO);
+    GeneralAccount_CommodityList_PO generalAccount_commodityList_po = new GeneralAccount_CommodityList_PO("水晶吊灯","123456","吊灯类","123456",12.45,45.58,23);
     generalAccount_commodityList_pos.add(generalAccount_commodityList_po);
 
     ArrayList<GeneralAccount_AccountList_PO> generalAccount_accountList_pos = new ArrayList<GeneralAccount_AccountList_PO>();
-    GeneralAccount_AccountList_PO generalAccount_accountList_po = new GeneralAccount_AccountList_PO("南京绿光灯泡厂",520.1314,generalAccountPO);
+    GeneralAccount_AccountList_PO generalAccount_accountList_po = new GeneralAccount_AccountList_PO("南京绿光灯泡厂",520.1314);
     generalAccount_accountList_pos.add(generalAccount_accountList_po);
 
 
     ArrayList<GeneralAccount_CustomerList_PO> generalAccount_customerList_pos = new ArrayList<GeneralAccount_CustomerList_PO>();
-    GeneralAccount_CustomerList_PO generalAccount_customerList_po = new GeneralAccount_CustomerList_PO(true,"123456",1,1,"隔壁王老板","18851826216","南京大学仙林校区","12312","123456@qq.com",123456.12,123.0,45.0,"123456",generalAccountPO);
+    GeneralAccount_CustomerList_PO generalAccount_customerList_po = new GeneralAccount_CustomerList_PO(true,"123456",1,1,"隔壁王老板","18851826216","南京大学仙林校区","12312","123456@qq.com",123456.12,123.0,45.0,"123456");
     generalAccount_customerList_pos.add(generalAccount_customerList_po);
 
 
@@ -72,8 +72,12 @@ public void testNewGeneralAccount() throws Exception {
 */ 
 @Test
 public void testCheckGeneralAccount() throws Exception { 
-//TODO: Test goes here... 
-} 
+//TODO: Test goes here...
+    ArrayList<GeneralAccountPO> generalAccountPO = generalAccountDataService.checkGeneralAccount("time",Time.MIN_TIME,Time.MAX_TIME);
+
+    System.out.println(generalAccountPO.get(0).getAccountlist().get(0).getName());
+
+}
 
 /** 
 * 

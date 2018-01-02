@@ -14,7 +14,7 @@
        <property name="ps" column ="ps" type ="string"></property>
        <property name="money" column ="money" type ="double"></property>
 
-       <many-to-one name="cashcostbill" column = "cashcostbill_id" class="po.CashCostBillPO">
+       <many-to-one name="cashcostbill" lazy="false" column = "cashcostbill_id" class="po.CashCostBillPO">
 
        </many-to-one>
 

@@ -37,7 +37,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      */
     public ResultMessage modifyPower(UserPO user, String power){
         try{
-            userServerNetworkService.modifyPower(user, power);
+           return userServerNetworkService.modifyPower(user, power);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      */
     public ResultMessage addUser(UserPO user){
         try{
-           userServerNetworkService.addUser(user);
+         return   userServerNetworkService.addUser(user);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -65,7 +65,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      */
     public ResultMessage deleteUser(String userid){
         try{
-            userServerNetworkService.deleteUser(userid);
+          return   userServerNetworkService.deleteUser(userid);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -78,7 +78,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      */
     public ResultMessage updateUser(UserPO user){
         try{
-            userServerNetworkService.updateUser(user);
+          return   userServerNetworkService.updateUser(user);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      */
     public UserPO searchUserByID(String ID){
         try{
-          userServerNetworkService.searchUserByID(ID);
+         return userServerNetworkService.searchUserByID(ID);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -108,7 +108,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      */
     public UserPO exactlySearchUser(String field, Object val){
         try{
-            userServerNetworkService.exactlySearchUser(field,val);
+          return   userServerNetworkService.exactlySearchUser(field,val);
         }catch (RemoteException e){
             e.printStackTrace();
         }
@@ -124,7 +124,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
      */
     public ArrayList<UserPO> fullSearchUser(String field, Object val){
         try{
-            userServerNetworkService.fullSearchUser(field,val);
+          return   userServerNetworkService.fullSearchUser(field,val);
         }catch (RemoteException e){
             e.printStackTrace();
         }

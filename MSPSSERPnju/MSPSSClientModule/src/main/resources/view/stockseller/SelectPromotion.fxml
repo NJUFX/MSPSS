@@ -7,61 +7,56 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="541.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ui.stocksellerui.SelectPromotionViewController">
+<AnchorPane prefHeight="541.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.SelectPromotionViewController">
     <children>
         <Label layoutX="31.0" layoutY="21.0" text="等级折让" textFill="#0f88eb">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label fx:id="noCustomerPromotionLabel" layoutX="217.0" layoutY="43.0" text="无可用价格折让">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Pane fx:id="customerPromotionSelectPane" layoutX="71.0" layoutY="44.0" prefHeight="43.0" prefWidth="389.0">
             <children>
-                <RadioButton fx:id="selectRadio" layoutX="326.0" layoutY="14.0" mnemonicParsing="false" text="选择"/>
+                <RadioButton fx:id="selectRadio" layoutX="326.0" layoutY="14.0" mnemonicParsing="false" text="选择" />
                 <Label fx:id="customerPromotionInfoLabel" layoutX="32.0" layoutY="13.0" text="Label">
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
             </children>
         </Pane>
         <Label layoutX="31.0" layoutY="95.0" text="特价商品包" textFill="#0f88eb">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label layoutX="31.0" layoutY="297.0" text="总价促销" textFill="#0f88eb">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <TableView fx:id="groupView" layoutX="81.0" layoutY="132.0" prefHeight="148.0" prefWidth="389.0">
             <columns>
-                <TableColumn prefWidth="120.0" text="编号"/>
-                <TableColumn prefWidth="120.0" text="折扣率"/>
-                <TableColumn prefWidth="120.0" text="商品详情"/>
-                <TableColumn prefWidth="28.0"/>
+                <TableColumn fx:id="GroupIdCol" prefWidth="120.0" sortable="false" text="编号" />
+                <TableColumn fx:id="GroupDiscountCol" prefWidth="120.0" sortable="false" text="折扣率" />
+                <TableColumn fx:id="GroupOperationCol" prefWidth="120.0" sortable="false" text="商品详情" />
+                <TableColumn fx:id="GroupSelectCol" prefWidth="28.0" sortable="false" />
             </columns>
         </TableView>
         <TableView fx:id="grossView" layoutX="48.0" layoutY="335.0" prefHeight="148.0" prefWidth="450.0">
             <columns>
-                <TableColumn prefWidth="90.0" text="编号"/>
-                <TableColumn prefWidth="130.0" text="满减"/>
-                <TableColumn prefWidth="100.0" text="赠送代金券"/>
-                <TableColumn prefWidth="100.0" text="赠品清单"/>
-                <TableColumn prefWidth="30.0"/>
+                <TableColumn fx:id="GrossIdCol" prefWidth="90.0" sortable="false" text="编号" />
+                <TableColumn fx:id="GrossManJianCol" prefWidth="130.0" sortable="false" text="满减" />
+                <TableColumn fx:id="GrossVoucherCol" prefWidth="100.0" sortable="false" text="赠送代金券" />
+                <TableColumn fx:id="GrossOperationCol" prefWidth="100.0" sortable="false" text="赠品清单" />
+                <TableColumn fx:id="GrossSelectCol" prefWidth="30.0" sortable="false" />
             </columns>
         </TableView>
-        <Button fx:id="sureButton" layoutX="425.0" layoutY="498.0" mnemonicParsing="false" onAction="#sureButtonAction"
-                prefHeight="23.0" prefWidth="58.0" stylesheets="@../../css/stockseller/common.css" text="确定"
-                textFill="WHITE"/>
-        <Button id="cancelButton" fx:id="returnButton" layoutX="336.0" layoutY="497.0" mnemonicParsing="false"
-                onAction="#returnButtonAction" prefHeight="23.0" prefWidth="58.0"
-                stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb"/>
+        <Button fx:id="sureButton" layoutX="425.0" layoutY="498.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="23.0" prefWidth="58.0" stylesheets="@../../css/stockseller/common.css" text="确定" textFill="WHITE" />
+        <Button id="cancelButton" fx:id="returnButton" layoutX="336.0" layoutY="497.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="23.0" prefWidth="58.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb" />
     </children>
 </AnchorPane>

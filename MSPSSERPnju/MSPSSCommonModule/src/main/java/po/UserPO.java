@@ -40,6 +40,10 @@ public class UserPO implements Serializable {
      * 为了防止删除已经使用过的用户后出现系统错误
      */
     private boolean isValid = true;
+    /**
+     * 该用户的邮件地址
+     */
+    private String mail;
 
     public UserPO(String ID, String name, int category, String password) {
         this.ID = ID;
@@ -48,7 +52,16 @@ public class UserPO implements Serializable {
         this.password = password;
     }
 
+
     public UserPO() {
+    }
+
+    public UserPO(String ID, String name, int category, String password, String mail) {
+        this.ID = ID;
+        this.name = name;
+        this.category = category;
+        this.password = password;
+        this.mail = mail;
     }
 
     public String getID() {

@@ -23,8 +23,8 @@
         <property name="Invalue" column ="in_value" type ="double"></property>
         <property name="incomemoney" column ="incomemoney" type ="double"></property>
         <property name="paymoney" column ="paymoney" type ="double"></property>
-
-        <many-to-one name="generalaccount" column = "generalaccount_id" class="po.GeneralAccountPO">
+        <!-- lazy延迟加载为false才能初始化list，不然需要在session没关闭之前调用get方法，否则报错 -->
+        <many-to-one name="generalaccount" lazy="false" column = "generalaccount_id" class="po.GeneralAccountPO">
         </many-to-one>
 
     </class>

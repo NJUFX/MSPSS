@@ -17,10 +17,10 @@ public class GeneralAccount_AccountList_PO implements Serializable  {
 
 
 
-    public GeneralAccount_AccountList_PO(String name, double money, GeneralAccountPO generalaccount) {
+    public GeneralAccount_AccountList_PO(String name, double money) {
         this.name = name;
         this.money = money;
-        this.generalaccount = generalaccount;
+       // this.generalaccount = generalaccount;
     }
 
     public String getKeycolumn() {

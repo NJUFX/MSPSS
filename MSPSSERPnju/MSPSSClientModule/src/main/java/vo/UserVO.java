@@ -33,6 +33,10 @@ public class UserVO {
      * 是否登入
      */
     private boolean isLogin;
+    /**
+     * 用户的邮件地址
+     */
+    private String mail;
 
     public boolean getIsLogin() {
         return isValid;
@@ -103,5 +107,13 @@ public class UserVO {
                 return 0;
         }
 
+    }
+
+    public UserVO(String ID, String name, Kind_Of_Users category, String password, String mail) {
+        this.ID = ID;
+        this.name = name;
+        this.category = category;
+        this.password = password;
+        this.mail = mail;
     }
 }
