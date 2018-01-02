@@ -28,7 +28,11 @@ public class LogVO {
 		this.operate = operate;
 	}
 
-
+	public LogVO(String operator, Time time, String operate) {
+		this.operator = operator;
+		this.time = time;
+		this.operate = operate;
+	}
 
 	//get方法可以根据需要补充
 	public String getId() {

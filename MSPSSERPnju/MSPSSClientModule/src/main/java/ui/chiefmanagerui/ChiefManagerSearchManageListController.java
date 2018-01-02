@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.tableblservice.TableBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,10 +57,17 @@ public class ChiefManagerSearchManageListController implements Initializable{
 	TextField TotalCost;
 	@FXML
 	TextField Profit;
+	@FXML
+	Button ExportManageList;
+	@FXML
+	Button BackToSearchList;
+	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	static BusinessTableVO tableVO;
+	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -184,6 +193,7 @@ public class ChiefManagerSearchManageListController implements Initializable{
 	 * @throws Exception
 	 */
 	public void showManageTable(BusinessTableVO vo) throws Exception{
+		tableVO = vo;//导入表单VO
 		SalesIncome.setText(Double.toString(vo.getSalesIncome()));
 		CommodityIncome.setText(Double.toString(vo.getCommodityIncome()));
 		SalesCost.setText(Double.toString(vo.getSalesCost()));
@@ -194,5 +204,31 @@ public class ChiefManagerSearchManageListController implements Initializable{
 		Profit.setText(Double.toString(profit));
 
 	}
+	
+	
+	/**
+	 * 导出经营情况表
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleExportManageListButtonAction(ActionEvent e) throws Exception{
+		tableBLService.exportBusinessTable(tableVO);
+	}
+	
+	/**
+	 * 返回查看报表主界面
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleBackToSearchListButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerSearchListController controller = (ChiefManagerSearchListController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerSearchList.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 	
 }
