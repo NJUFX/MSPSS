@@ -27,3 +27,7 @@
 #promotionChooseButton.button:hover{
     -fx-underline:true;
 }
+
+.label{
+    -fx-alignment: CENTER;
+}

@@ -129,7 +129,7 @@
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Button>
-                <ComboBox fx:id="keyTypeComboBox" layoutX="-17.0" layoutY="28.0" onAction="#keyTypeComboBoxAction" prefHeight="35.0" prefWidth="102.0" promptText="关键词类型">
+                <ComboBox fx:id="keyTypeComboBox" layoutX="-17.0" layoutY="28.0" prefHeight="35.0" prefWidth="102.0" promptText="关键词类型">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="商品编号" />
@@ -142,7 +142,6 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <ComboBox fx:id="classificationBox" layoutX="248.0" layoutY="27.0" prefHeight="36.0" prefWidth="50.0" />
             </children>
         </Pane>
         <Button layoutX="6.0" layoutY="520.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" stylesheets="@../../css/stockseller/common.css">

@@ -90,41 +90,37 @@
             <Image url="@../../image/发送信息.png" />
          </image>
       </ImageView>
-      <Button layoutX="398.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Button layoutX="546.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
-      <Button layoutX="698.0" layoutY="466.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="退出" textFill="WHITE" />
-      <Pane layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
-         <children>
-            <TableView fx:id="BillTable" prefHeight="347.0" prefWidth="660.0">
-               <columns>
-                  <TableColumn prefWidth="110.0" text="单据编号">
-                     <cellValueFactory>
-                        <PropertyValueFactory property="billId" />
-                     </cellValueFactory>
-                  </TableColumn>
-                  <TableColumn prefWidth="110.0" text="生成单据时间">
-                     <cellValueFactory>
-                        <PropertyValueFactory property="createTime" />
-                     </cellValueFactory>
-                  </TableColumn>
-                  <TableColumn prefWidth="110.0" text="提交单据时间">
-                     <cellValueFactory>
-                        <PropertyValueFactory property="commitTime" />
-                     </cellValueFactory>
-                  </TableColumn>
-                  <TableColumn prefWidth="110.0" text="操作人员编号">
-                     <cellValueFactory>
-                        <PropertyValueFactory property="operator" />
-                     </cellValueFactory>
-                  </TableColumn>
-                  <TableColumn prefWidth="110.0" text="单据类型">
-                     <cellValueFactory>
-                        <PropertyValueFactory property="billType" />
-                     </cellValueFactory>
-                  </TableColumn>
-                  <TableColumn fx:id="ShowDetail" prefWidth="110.0" text="详情" />
-               </columns>
-            </TableView>
-         </children></Pane>
+      <Button fx:id="BackToSearchList" layoutX="625.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleBackToSearchListButtonAction" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
+      <Button fx:id="ExportProcessList" layoutX="773.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleExportProcessListButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
+      <TableView fx:id="BillTable" layoutX="193.0" layoutY="119.0" prefHeight="342.0" prefWidth="680.0">
+         <columns>
+            <TableColumn prefWidth="120.0" text="单据编号">
+               <cellValueFactory>
+                  <PropertyValueFactory property="billId" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="120.0" text="生成单据时间">
+               <cellValueFactory>
+                  <PropertyValueFactory property="createTime" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="120.0" text="提交单据时间">
+               <cellValueFactory>
+                  <PropertyValueFactory property="commitTime" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="创建者">
+               <cellValueFactory>
+                  <PropertyValueFactory property="operator" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="120.0" text="单据类型">
+               <cellValueFactory>
+                  <PropertyValueFactory property="billType" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="ShowDetail" prefWidth="100.0" text="详情" />
+         </columns>
+      </TableView>
     </children>
 </Pane>

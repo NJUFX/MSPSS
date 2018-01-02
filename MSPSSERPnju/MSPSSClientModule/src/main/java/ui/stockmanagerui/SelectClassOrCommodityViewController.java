@@ -34,9 +34,9 @@ public class SelectClassOrCommodityViewController implements Initializable {
     static String commodityId, commodityName, commodityPrice, classificationName, classificationId;
     static CommodityVO commodityVO;
     public ClassificationVO classificationVO;
-    public TextField commodityNameField, classificationNameField;
-    public Label commodityIdLabel, commodityPriceLabel;
-    public boolean isSelectClass;
+    public TextField commodityNameField, classificationNameField, commodityIdField, commodityTypeField;
+    public Label commodityPriceLabel;
+    public boolean isSelectClass, useType = false;
 
     @FXML
     Button returnButton, sureButton;
@@ -60,12 +60,15 @@ public class SelectClassOrCommodityViewController implements Initializable {
                 } else {
                     commodityId = selectItem.getValue().getId();
                     commodityName = selectItem.getValue().getName();
-                    commodityVO = new CommodityVO(selectItem.getValue().getName(), "001", selectItem.getParent().getValue().getName(), 25, 38);
-                    // commodityVO = commodityInfoService.getCommodity(commodityId);
+                    //commodityVO = new CommodityVO(selectItem.getValue().getName(), "001", selectItem.getParent().getValue().getName(), 25, 38);
+                    commodityVO = commodityInfoService.getCommodity(commodityId);
                     commodityPrice = String.valueOf(commodityVO.getExportCost());
-                    commodityIdLabel.setText(commodityId);
+                    commodityIdField.setText(commodityId);
                     commodityNameField.setText(commodityName);
                     commodityPriceLabel.setText(commodityPrice);
+                    if (useType == true) {
+                        commodityTypeField.setText(commodityVO.getType());
+                    }
                     sureButton.getScene().getWindow().hide();
                 }
             } else {
@@ -74,7 +77,7 @@ public class SelectClassOrCommodityViewController implements Initializable {
                 } else {
                     if (selectItem.getChildren() != null && selectItem.getChildren().get(0).getValue().getIsClass() == true) {
                         dialog.errorInfoDialog("Unable to add a commodity in this classification.");
-                    }else {
+                    } else {
                         classificationName = selectItem.getValue().getName();
                         classificationNameField.setText(classificationName);
                         classificationId = selectItem.getValue().getId();

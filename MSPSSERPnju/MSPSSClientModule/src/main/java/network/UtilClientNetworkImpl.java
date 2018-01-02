@@ -9,14 +9,6 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-
-/**
- * Created by Kray on 2016/12/25.
- */
 public class UtilClientNetworkImpl {
 
     /**
@@ -32,6 +24,7 @@ public class UtilClientNetworkImpl {
         if (utilClientNetwork == null) {
             utilClientNetwork = new UtilClientNetworkImpl();
         }
+
         return utilClientNetwork;
     }
 
