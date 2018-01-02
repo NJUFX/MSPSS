@@ -1187,16 +1187,20 @@
       <Position>5</Position>
       <DataType>tinyint(1)|0</DataType>
     </column>
-    <index id="305" parent="36" name="userpo_id_uindex">
+    <column id="305" parent="36" name="mail">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="306" parent="36" name="userpo_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="306" parent="36" name="PRIMARY">
+    <key id="307" parent="36" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="307" parent="36" name="userpo_id_uindex">
+    <key id="308" parent="36" name="userpo_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>userpo_id_uindex</UnderlyingIndexName>
     </key>

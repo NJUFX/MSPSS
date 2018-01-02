@@ -1,7 +1,7 @@
 package po;
 
 import java.io.Serializable;
-
+import po.CashCostBillPO;
 /**
  * Description:
  * Created by Hanxinhu at 19:31 2017/11/28/028

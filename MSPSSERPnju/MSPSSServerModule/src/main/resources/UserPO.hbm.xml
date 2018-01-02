@@ -10,7 +10,7 @@
         <property name="name" column="name" type="string"/>
         <property name="category" column="category" type ="int"/>
         <property name="password" column="password" type="string"/>
-
+        <property name="mail" column="mail" type="string"></property>
         <property name="isValid" column="is_valid" type="java.lang.Boolean"/>
 
     </class>

@@ -111,6 +111,7 @@ public class BillServerNetworkImpl  extends UnicastRemoteObject implements BillS
     }
 
     public ArrayList<CashCostBillPO> fullSearchCashCostBill(String field, Object val)throws RemoteException{
+
         return billDataService.fullSearchCashCostBill(field, val);
     }
 
