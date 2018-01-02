@@ -55,7 +55,8 @@ public class AccountDataServiceImpl  implements AccountDataService{
      */
     public ResultMessage modifyAccount(String oldName,String newName){
         try{
-            AccountPO oldaccount = accountHelper.exactlyQuery("name",oldName);
+            AccountPO oldaccount = new AccountPO();
+                  oldaccount =   accountHelper.exactlyQuery("name",oldName);
 
             oldaccount.setName(newName);
 

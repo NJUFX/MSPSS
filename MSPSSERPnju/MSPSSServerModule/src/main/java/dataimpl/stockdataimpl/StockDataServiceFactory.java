@@ -13,7 +13,7 @@ public class StockDataServiceFactory {
 
     public static synchronized StockDataService getStockDataService(){
         if(stockDataService==null){
-            stockDataService = new StockDataServiceImpl(new HibernateHelper<StockPO>());
+            stockDataService = new StockDataServiceImpl(new HibernateHelper<StockPO>(StockPO.class));
         }
         return stockDataService;
     }

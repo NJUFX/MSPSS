@@ -11,15 +11,16 @@
         <property name="category" column="category" type="int"/>
         <property name="level" column="level" type="int"/>
         <property name="name" column="name" type="string"/>
-        <property name="phonenumber" column="phonenumber" type="string"/>
+        <property name="phonenumber" column="phone_number" type="string"/>
         <property name="address" column="address" type="string"/>
         <property name="postcode" column="postcode" type="string"/>
         <property name="email" column="email" type="string"/>
         <property name="invalue" column="in_value" type="double"/>
+        <property name="incomemoney" column="income_money" type="double"></property>
         <property name="paymoney" column="pay_money" type="double"/>
-        <property name="DAE" column="DAE" type="string"/>
+        <property name="DAE" column="dae" type="string"/>
         <property name="accountID" column="account_id" type="string"/>
-        <property name="voucher" column="voucher" type="double"></property>
+        <property name="voucher" column="voucher" type="int"/>
 
 
     </class>

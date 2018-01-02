@@ -16,7 +16,7 @@ public class GeneralAccountDataServiceFactory {
 
     public static synchronized GeneralAccountDataService getGeneralAccountDataService(){
         if(generalAccountDataService==null) {
-            generalAccountDataService = new GeneralAccountDataServiceImpl(new HibernateHelper<AccountPO>(), new HibernateHelper<CustomerPO>(), new HibernateHelper<CommodityPO>(), new HibernateHelper<GeneralAccountPO>());
+            generalAccountDataService = new GeneralAccountDataServiceImpl(new HibernateHelper<AccountPO>(AccountPO.class), new HibernateHelper<CustomerPO>(CustomerPO.class), new HibernateHelper<CommodityPO>(CommodityPO.class), new HibernateHelper<GeneralAccountPO>(GeneralAccountPO.class));
              }
              return generalAccountDataService;
          }

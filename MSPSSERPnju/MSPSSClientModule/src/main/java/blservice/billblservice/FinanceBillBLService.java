@@ -1,8 +1,7 @@
 package blservice.billblservice;
 
 import util.ResultMessage;
-import vo.CashCostBillVO;
-import vo.FinanceBillVO;
+import vo.*;
 
 import java.util.ArrayList;
 
@@ -94,4 +93,85 @@ public interface FinanceBillBLService {
      * @return
      */
     public ResultMessage withdrawCashCostBill(CashCostBillVO cashCostBillVO);
+
+    /**
+     * 红冲库存类单据
+     *
+     * @param stockBillVO
+     * @return
+     */
+    public ResultMessage HongChong(StockBillVO stockBillVO);
+
+    /**
+     * 红冲并复制
+     *
+     * @param stockBillVO
+     * @return
+     */
+    public ResultMessage HongChongAndCopy(StockBillVO stockBillVO);
+
+    /**
+     * 红冲进货类单据
+     *
+     * @param salesInBillVO
+     * @return
+     */
+    public ResultMessage HongChong(SalesInBillVO salesInBillVO);
+
+    /**
+     * 红冲销售类单据
+     *
+     * @param salesInBillVO
+     * @return
+     */
+    public ResultMessage HongChongAndCopy(SalesInBillVO salesInBillVO);
+
+    /**
+     * @param salesOutBillVO
+     * @return
+     */
+    public ResultMessage HongChong(SalesOutBillVO salesOutBillVO);
+
+    /**
+     * 红冲并复制销售类单据
+     *
+     * @param salesOutBillVO
+     * @return
+     */
+    public ResultMessage HongChongAndCopy(SalesOutBillVO salesOutBillVO);
+
+    /**
+     * 红冲财务类单据
+     *
+     * @param financeBillVO
+     * @return
+     */
+    public ResultMessage HongChong(FinanceBillVO financeBillVO);
+
+    /**
+     * 红冲并复制财务类单据
+     *
+     * @param financeBillVO
+     * @return
+     */
+    public ResultMessage HongChongAndCopy(FinanceBillVO financeBillVO);
+
+    /**
+     * 红冲并复制财务类单据
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    public ResultMessage HongChong(CashCostBillVO cashCostBillVO);
+
+    /**
+     * 红冲并复制财务类单据
+     *
+     * @param cashCostBillVO
+     * @return
+     */
+    public ResultMessage HongChongAndCopy(CashCostBillVO cashCostBillVO);
+
+
+
 }

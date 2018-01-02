@@ -353,5 +353,12 @@ public class SalesOutBill {
         return salesOutBillVO;
     }
 
+    public ResultMessage HongChong(SalesOutBillVO salesOutBillVO) {
+        return ResultMessage.FAILED;
+    }
+
+    public ResultMessage HongChongAndCopy(SalesOutBillVO salesOutBillVO) {
+        return ResultMessage.FAILED;
+    }
 
 }

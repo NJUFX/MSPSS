@@ -34,6 +34,7 @@ public class GeneralAccountDataServiceImpl implements GeneralAccountDataService 
      */
     public ResultMessage newGeneralAccount(GeneralAccountPO generalaccount){
 
+        //如果没有赋值list里的generalaccountr，因为是一对一，就会发生联级错误!!!!
 
             generalAccountHelper.save(generalaccount);
 
@@ -185,7 +186,7 @@ public class GeneralAccountDataServiceImpl implements GeneralAccountDataService 
      */
     private CustomerPO changeToCustomer(GeneralAccount_CustomerList_PO customer){
         CustomerPO result = new CustomerPO();
-        result.setAccountID(customer.getID());
+        result.setAccountID(customer.getAccountID());
         result.setAddress(customer.getAddress());
         result.setCategory(customer.getCategory());
         result.setDAE("期初建帐");
