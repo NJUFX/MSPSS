@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import auxiliary.SalesTableBill;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.tableblservice.TableBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +24,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.BusinessTableVO;
 import vo.SaleTableVO;
 import vo.SalesItemVO;
 import vo.SalesOutBillVO;
@@ -45,10 +48,18 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	Button BackToLogin;
 	@FXML
 	TableView SalesTable;
+	@FXML
+	Button ExportSalesList;
+	@FXML
+	Button BackToSearchList;
+	
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	static SaleTableVO tableVO;
+	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -179,6 +190,7 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	 * @param vo
 	 */
 	public void ShowSalesList(SaleTableVO vo) {
+		tableVO = vo;
 		ObservableList data = SalesTable.getItems();
 		for(int i=0;i<vo.getSalesOutBills().size();i++) {
 			SalesOutBillVO tempBill = vo.getSalesOutBills().get(i);
@@ -189,5 +201,30 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 			}
 		}
 	}
+	
+	/**
+	 * 导出销售明细表
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleExportSalesListButtonAction(ActionEvent e) throws Exception{
+		tableBLService.exportSaleTable(tableVO);
+	}
+	
+	/**
+	 * 返回查看报表主界面
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleBackToSearchListButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerSearchListController controller = (ChiefManagerSearchListController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerSearchList.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 
 }

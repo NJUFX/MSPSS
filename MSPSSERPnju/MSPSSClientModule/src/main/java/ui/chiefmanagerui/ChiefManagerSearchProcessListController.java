@@ -12,6 +12,8 @@ import auxiliary.FinanceBill;
 import auxiliary.SalesInBill;
 import auxiliary.SalesOutBill;
 import auxiliary.StockBill;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.tableblservice.TableBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,6 +32,7 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.BusinessTableVO;
 import vo.CashCostBillVO;
 import vo.FinanceBillVO;
 import vo.ProcessTableVO;
@@ -59,11 +62,18 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 	TableView<Bill> BillTable;
 	@FXML
 	TableColumn<Bill, String> ShowDetail;
+	@FXML
+	Button ExportProcessList;
+	@FXML
+	Button BackToSearchList;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
 	String billType;
+	static ProcessTableVO tableVO;
+	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -199,6 +209,7 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 	 * @throws Exception
 	 */
 	public void showProcessTable(ProcessTableVO vo) throws Exception{
+		tableVO  = vo;
 		ObservableList<Bill> data = BillTable.getItems();
 		switch (billType) {
 		case "库存类": {
@@ -326,5 +337,30 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 			return cell;
 		});
 	}
+	
+	/**
+	 * 导出经营历程表
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleExportProcessListButtonAction(ActionEvent e) throws Exception{
+		tableBLService.exportProcessTable(tableVO);
+	}
+	
+	/**
+	 * 返回查看报表主界面
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleBackToSearchListButtonAction(ActionEvent e) throws Exception{
+		try {
+			ChiefManagerSearchListController controller = (ChiefManagerSearchListController) replaceSceneContent(
+					"/view/chiefmanager/ChiefManagerSearchList.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 
 }

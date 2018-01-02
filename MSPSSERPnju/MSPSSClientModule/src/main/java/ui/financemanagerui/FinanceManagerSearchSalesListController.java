@@ -5,6 +5,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import auxiliary.SalesTableBill;
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.tableblservice.TableBLService;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,12 +17,17 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
+import ui.chiefmanagerui.ChiefManagerSearchListController;
 import ui.common.Dialog;
+import vo.SaleTableVO;
+import vo.SalesItemVO;
+import vo.SalesOutBillVO;
 
 public class FinanceManagerSearchSalesListController implements Initializable {
 
@@ -38,10 +47,19 @@ public class FinanceManagerSearchSalesListController implements Initializable {
 	Label IdTag;
 	@FXML
 	Button BackToLogin;
+	@FXML
+	TableView SalesTable;
+	@FXML
+	Button ExportSalesList;
+	@FXML
+	Button BackToSearchList;
 	
 	Dialog dialog = new Dialog();
 	private MainApp application;
 	Stage stage = StageSingleton.getStage();
+	static SaleTableVO tableVO;
+	TableBLService tableBLService = new BLFactoryImpl().getTableBLService();
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -168,4 +186,45 @@ public class FinanceManagerSearchSalesListController implements Initializable {
 	}
 
 
+	/**
+	 * 显示销售明细表
+	 * @param vo
+	 */
+	public void ShowSalesList(SaleTableVO vo) {
+		tableVO = vo;
+		ObservableList data = SalesTable.getItems();
+		for(int i=0;i<vo.getSalesOutBills().size();i++) {
+			SalesOutBillVO tempBill = vo.getSalesOutBills().get(i);
+			String time = tempBill.getInit_time().toString();
+			for(int j=0;j<tempBill.getItemVOS().size();j++) {
+				SalesItemVO item = tempBill.getItemVOS().get(j);
+				data.add(new SalesTableBill(time,item.getName(),item.getType(),Integer.toString(item.getNumber()),Double.toString(item.getPrice()),item.getTotal()));
+			}
+		}
+	}
+	
+	/**
+	 * 导出销售明细表
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleExportSalesListButtonAction(ActionEvent e) throws Exception{
+		tableBLService.exportSaleTable(tableVO);
+	}
+	
+	/**
+	 * 返回查看报表主界面
+	 * @param e
+	 * @throws Exception
+	 */
+	public void handleBackToSearchListButtonAction(ActionEvent e) throws Exception{
+		try {
+			FinanceManagerSearchListController controller = (FinanceManagerSearchListController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerSearchList.fxml");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
 }
