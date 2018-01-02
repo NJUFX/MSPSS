@@ -43,19 +43,11 @@ public class CommoditySearchViewController implements Initializable {
     @FXML
     Button backButton;
     @FXML
-    ComboBox<String> keyTypeComboBox, classificationBox;
+    ComboBox<String> keyTypeComboBox;
     @FXML
     TextField keywordField;
     @FXML
     Button searchButton;
-
-    public void keyTypeComboBoxAction(ActionEvent e) {
-        if (keyTypeComboBox.getValue().equals("商品分类")) {
-            classificationBox.setVisible(true);
-        } else {
-            classificationBox.setVisible(false);
-        }
-    }
 
     /**
      * 查找
@@ -69,22 +61,11 @@ public class CommoditySearchViewController implements Initializable {
             String key_word = "", key_type = "";
             boolean b = true;
             if (keyTypeComboBox.getValue() != null && !keyTypeComboBox.getValue().trim().equals("")) {
-                if (keyTypeComboBox.getValue().equals("分类")) {
-                    if (classificationBox.getValue() != null && !classificationBox.getValue().trim().equals("")) {
-                        key_word = classificationBox.getValue().trim();
-                    } else if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
-                        key_word = keywordField.getText().trim();
-                    } else {
-                        dialog.errorInfoDialog("Please input keyword.");
-                        b = false;
-                    }
+                if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
+                    key_word = (keywordField.getText().trim());
                 } else {
-                    if (keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
-                        key_word = (keywordField.getText().trim());
-                    } else {
-                        dialog.errorInfoDialog("Please input keyword.");
-                        b = false;
-                    }
+                    dialog.errorInfoDialog("Please input keyword.");
+                    b = false;
                 }
                 key_type = (keyTypeComboBox.getTypeSelector());
             } else {
@@ -244,7 +225,6 @@ public class CommoditySearchViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        classificationBox.setVisible(false);
     }
 
 }
