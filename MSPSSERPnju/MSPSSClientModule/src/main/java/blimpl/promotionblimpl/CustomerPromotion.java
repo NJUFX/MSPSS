@@ -2,6 +2,8 @@ package blimpl.promotionblimpl;
 
 import network.PromotionClientNetworkService;
 import po.CustomerPromotionPO;
+import po.GrossPromotionPO;
+import po.GroupPromotionPO;
 import po.PresentationCommodityItemPO;
 import util.*;
 import vo.CustomerPromotionVO;
@@ -14,7 +16,67 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 10:05 2017/12/13/013
  */
 public class CustomerPromotion {
-    private PromotionClientNetworkService networkService ;
+    private PromotionClientNetworkService networkService  = new PromotionClientNetworkService() {
+        @Override
+        public ResultMessage addCustomerPromotion(CustomerPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage updateCustomerPromotion(CustomerPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage deleteCustomerPromotion(String id) {
+            return null;
+        }
+
+        @Override
+        public ArrayList<CustomerPromotionPO> multiSearchCustomerPromotion(ArrayList<CriteriaClause> criteriaClauses) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage addGroupPromotion(GroupPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage updateGroupPromotion(GroupPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage deleteGroupPromotion(String id) {
+            return null;
+        }
+
+        @Override
+        public ArrayList<GroupPromotionPO> multiSearchGroupPromotion(ArrayList<CriteriaClause> criteriaClauses) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage addGrossPromotion(GrossPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage updateGrossPromotion(GrossPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage deleteGrossPromotion(String id) {
+            return null;
+        }
+
+        @Override
+        public ArrayList<GrossPromotionPO> multiSearchGrossPromotion(ArrayList<CriteriaClause> criteriaClauses) {
+            return null;
+        }
+    };
     /**
      * 得到所有当前时间可用的客户促销策略
      *
@@ -82,6 +144,7 @@ public class CustomerPromotion {
 
     private CustomerPromotionPO vo_to_po(CustomerPromotionVO vo){
         ArrayList<PresentationCommodityItemPO> itemPOS = new ArrayList<>();
+        if (vo.getPresentationCommodityItemVOS()!=null)
         for (PresentationCommodityItemVO presentationCommodityItemVO
                 : vo.getPresentationCommodityItemVOS()) {
             itemPOS.add(presentationCommodityItemVO.to_po());

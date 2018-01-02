@@ -1,6 +1,9 @@
 package blimpl.promotionblimpl;
 
+import network.PromotionClientNetworkImpl;
 import network.PromotionClientNetworkService;
+import po.CustomerPromotionPO;
+import po.GrossPromotionPO;
 import po.GroupPromotionPO;
 import util.*;
 import vo.GroupPromotionVO;
@@ -12,7 +15,8 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 18:39 2017/12/14/014
  */
 public class GroupPromotion {
-    private PromotionClientNetworkService networkService;
+    private PromotionClientNetworkService networkService  = new PromotionClientNetworkImpl();
+
 
     /**
      * 添加特价包促销策略

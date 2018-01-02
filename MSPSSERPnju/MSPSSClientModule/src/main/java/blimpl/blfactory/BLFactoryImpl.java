@@ -50,7 +50,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public ManagerBillBLService getManagerBillBLService() {
-        return BillFactory.getManagerBillBLServiceStub();
+        return BillFactory.getManagerBillBLService();
     }
 
     @Override
@@ -171,7 +171,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public PromotionBLService getPromotionBLService() {
-        return PromotionBLFactory.getPromotionBLServiceStub();
+        return PromotionBLFactory.getPromotionBLService();
     }
 
     @Override

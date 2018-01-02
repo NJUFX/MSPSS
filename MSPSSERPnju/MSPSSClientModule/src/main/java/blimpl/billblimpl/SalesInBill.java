@@ -4,6 +4,7 @@ import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.userblservice.UserInfo;
+import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.SalesInBillPO;
 import po.SalesItemPO;
@@ -26,7 +27,7 @@ public class SalesInBill {
     private static CommodityInfoService commodityInfo = new BLFactoryImpl().getCommodityInfoService();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-    private static BillClientNetworkService networkService;
+    private static BillClientNetworkService networkService = new BillClientNetworkImpl();
     /**
      * 保存进货单 进货退货单
      *

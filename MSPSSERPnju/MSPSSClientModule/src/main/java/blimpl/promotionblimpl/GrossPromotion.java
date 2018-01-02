@@ -1,7 +1,9 @@
 package blimpl.promotionblimpl;
 
 import network.PromotionClientNetworkService;
+import po.CustomerPromotionPO;
 import po.GrossPromotionPO;
+import po.GroupPromotionPO;
 import po.PresentationCommodityItemPO;
 import util.*;
 import vo.GrossPromotionVO;
@@ -14,7 +16,67 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 18:39 2017/12/14/014
  */
 public class GrossPromotion {
-    private PromotionClientNetworkService networkService;
+    private PromotionClientNetworkService networkService = new PromotionClientNetworkService() {
+        @Override
+        public ResultMessage addCustomerPromotion(CustomerPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage updateCustomerPromotion(CustomerPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage deleteCustomerPromotion(String id) {
+            return null;
+        }
+
+        @Override
+        public ArrayList<CustomerPromotionPO> multiSearchCustomerPromotion(ArrayList<CriteriaClause> criteriaClauses) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage addGroupPromotion(GroupPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage updateGroupPromotion(GroupPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage deleteGroupPromotion(String id) {
+            return null;
+        }
+
+        @Override
+        public ArrayList<GroupPromotionPO> multiSearchGroupPromotion(ArrayList<CriteriaClause> criteriaClauses) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage addGrossPromotion(GrossPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage updateGrossPromotion(GrossPromotionPO po) {
+            return null;
+        }
+
+        @Override
+        public ResultMessage deleteGrossPromotion(String id) {
+            return null;
+        }
+
+        @Override
+        public ArrayList<GrossPromotionPO> multiSearchGrossPromotion(ArrayList<CriteriaClause> criteriaClauses) {
+            return null;
+        }
+    };
 
     /**
      * 添加满减特价包促销策略
