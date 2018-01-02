@@ -1,9 +1,9 @@
 package datahelper;
 
+import antlr.collections.List;
 import po.AccountPO;
 import po.UserPO;
 import util.Kind_Of_Users;
-
 
 
 /**
@@ -60,13 +60,21 @@ public class Test {
         schemaExport.create(EnumSet.of(TargetType.DATABASE),metadata);
 <<<<<<< HEAD
         */
-    	
-    	 DataHelper<UserPO>  userPODataHelper = new HibernateHelper<>(UserPO.class);
-         UserPO po1 = new UserPO("CM-1991","hxh", Kind_Of_Users.ChiefManager.ordinal(),"161250036");
-         UserPO po2  = new UserPO("CM-1911","xgy",Kind_Of_Users.ChiefManager.ordinal(),"161250164");
-         
-     
-             userPODataHelper.save(po1);
-             userPODataHelper.save(po2);
+
+        DataHelper<UserPO> userPODataHelper = new HibernateHelper<>(UserPO.class);
+        UserPO po1 = new UserPO("CM-1991", "hxh", Kind_Of_Users.ChiefManager.ordinal(), "161250036");
+        UserPO po2 = new UserPO("CM-1911", "xgy", Kind_Of_Users.ChiefManager.ordinal(), "161250164");
+        UserPO po3 = new UserPO("SS-1991", "JiangChen", Kind_Of_Users.StockSeller.ordinal(), "123456");
+        UserPO po4 = new UserPO("SM-1911", "xgy", Kind_Of_Users.StockManager.ordinal(), "123456");
+        userPODataHelper.save(po1);
+        userPODataHelper.save(po2);
+        userPODataHelper.save(po3);
+        userPODataHelper.save(po4);
+
+        java.util.List<UserPO> pos = userPODataHelper.fullMatchQuery("id", "SS-1991");
+
+        System.out.println(pos.isEmpty());
+
+
     }
 }
