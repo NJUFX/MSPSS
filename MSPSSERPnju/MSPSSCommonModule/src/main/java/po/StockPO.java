@@ -36,6 +36,9 @@ public class StockPO implements Serializable{
      */
     private double price;
 
+    public StockPO() {
+    }
+
     public StockPO(int inOrOut, String commodityID, int number, String time, double price) {
         this.inOrOut = inOrOut;
         this.commodityID = commodityID;

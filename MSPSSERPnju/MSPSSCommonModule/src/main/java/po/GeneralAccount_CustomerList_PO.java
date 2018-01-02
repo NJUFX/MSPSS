@@ -71,7 +71,7 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
     public GeneralAccount_CustomerList_PO() {
     }
 
-    public GeneralAccount_CustomerList_PO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney,String accountID,GeneralAccountPO generalAccountPO) {
+    public GeneralAccount_CustomerList_PO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney,String accountID) {
         Exist = exist;
         this.ID = ID;
         this.category = category;
@@ -84,7 +84,7 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
         Invalue = invalue;
         this.incomemoney = incomemoney;
         this.paymoney = paymoney;
-        this.generalaccount = generalAccountPO;
+       // this.generalaccount = generalAccountPO;
         this.accountID = accountID;
     }
 

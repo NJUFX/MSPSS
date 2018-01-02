@@ -14,7 +14,7 @@
         <property name="remark" column="remark" type="string"/>
 
 
-        <list name="prolist" table ="purchasebill_commoditylist" cascade="all">
+        <list name="prolist" lazy="false" table ="purchasebill_commoditylist" cascade="all">
             <key column="purchasebill_id"></key>
 
             <index column ="index_" type ="int"></index>

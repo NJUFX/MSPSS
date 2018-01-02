@@ -21,7 +21,7 @@
           <property name="initID" column="init_id" type="string"></property>
           <property name="approvalID" column="approval_id" type="string"></property>
 
-          <list name="itemPOS" table ="stockbill_item_po" cascade="all">
+          <list name="itemPOS" lazy="false" table ="stockbill_item_po" cascade="all">
               <key column="commodity_id"></key>
               <index column="item_index" ></index>
               <one-to-many class ="po.StockBillItemPO"/>

@@ -14,6 +14,8 @@ import network.geberalaccountnetwork.GeneralAccountServerNetworkImpl;
 import network.generalaccountnetworkservice.GeneralAccountServerNeworkService;
 import network.lognetwork.LogServerNetworkImpl;
 import network.lognetworkservice.LogServerNetworkService;
+import network.promotionnetwork.PromotionServerNetworkImpl;
+import network.promotionnetworkservice.PromotionServerNetworkService;
 import network.stocknetwork.StockServerNetworkImpl;
 import network.stocknetworkservice.StockServerNetworkService;
 import network.usernetwork.UserServerNetworkImpl;
@@ -60,7 +62,9 @@ public class ServerHelper{
                 //也可以通过命令 ＄java_home/bin/rmiregistry 1099启动
                 //这里用这种方式避免了再打开一个DOS窗口
                 //而且用命令rmiregistry启动注册服务还必须事先用RMIC生成一个stub类为它所用
+
                 registry = LocateRegistry.createRegistry(port);
+               // registry = LocateRegistry.createRegistry(1099);
                 //创建远程对象的一个或多个实例
                 //可以用不同名字注册不同的实例
                 System.out.println("RMI server is ready!");
@@ -74,11 +78,11 @@ public class ServerHelper{
                 GeneralAccountServerNeworkService generalAccountServerNeworkService = new GeneralAccountServerNetworkImpl();
                 LogServerNetworkService logServerNetworkService = new LogServerNetworkImpl();
                 StockServerNetworkService stockServerNetworkService = new StockServerNetworkImpl();
-
+                PromotionServerNetworkService promotionServerNetworkService = new PromotionServerNetworkImpl();
 
                 UtilNetworkService utilNetworkService = new UtilNetworkImpl();
 
-                Naming.rebind("AccountServerNetworkService", accountServerNetworkService);
+               /* Naming.rebind("AccountServerNetworkService", accountServerNetworkService);
                 Naming.rebind("BillServerNetworkService", billServerNetworkService);
                 Naming.rebind("CommodityServerNetworkService", commodityServerNetworkService);
                 Naming.rebind("CustomerServerNetworkService", customerServerNetworkService);
@@ -86,6 +90,19 @@ public class ServerHelper{
                 Naming.rebind("LogServerNetworkService", logServerNetworkService);
                 Naming.rebind("StockServerNetworkService", stockServerNetworkService);
                 Naming.rebind("UserServerNetworkService", userServerNetworkService);
+                Naming.rebind("PromotionServerNetworkService",promotionServerNetworkService);*/
+
+             String host = "rmi://106.14.188.84:1099/";
+                Naming.rebind(host+"AccountServerNetworkService", accountServerNetworkService);
+                Naming.rebind(host+"BillServerNetworkService", billServerNetworkService);
+                Naming.rebind(host+"CommodityServerNetworkService", commodityServerNetworkService);
+                Naming.rebind(host+"CustomerServerNetworkService", customerServerNetworkService);
+                Naming.rebind(host+"GeneralAccountServerNetworkService", generalAccountServerNeworkService);
+                Naming.rebind(host+"LogServerNetworkService", logServerNetworkService);
+                Naming.rebind(host+"StockServerNetworkService", stockServerNetworkService);
+                Naming.rebind(host+"UserServerNetworkService", userServerNetworkService);
+                Naming.rebind(host+"PromotionServerNetworkService",promotionServerNetworkService);
+                
                 return serverHelper;
             } catch (RemoteException e) {
                 e.printStackTrace();

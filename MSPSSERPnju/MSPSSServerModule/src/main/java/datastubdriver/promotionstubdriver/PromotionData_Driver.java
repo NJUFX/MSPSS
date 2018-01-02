@@ -1,3 +1,4 @@
+/*
 package datastubdriver.promotionstubdriver;
 
 import org.junit.Test;
@@ -56,3 +57,4 @@ public class PromotionData_Driver {
 
     }
 }
+*/

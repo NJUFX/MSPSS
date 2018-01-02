@@ -16,7 +16,7 @@
         <property name="approval_time" column="approval_time" type="string"/>
         <property name="customerID" column="customer_id" type="string"></property>
 
-        <list name="list" table ="financeitempo" cascade="all">
+        <list name="list" lazy="false" table ="financeitempo" cascade="all">
             <key column="financebill_id"></key>
 
             <index column ="index_" type ="int"></index>

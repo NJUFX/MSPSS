@@ -14,10 +14,10 @@
         <property name="number" column ="number" type ="int"></property>
 
 
-        <many-to-one name="customerPromotionPOID" column = "customer_promotion_po_id" class="po.CustomerPromotionPO">
+        <many-to-one name="customerPromotionPOID"  lazy="false" column = "customer_promotion_po_id" class="po.CustomerPromotionPO">
         </many-to-one>
 
-        <many-to-one name="grossPromotionPO" column="gross_promotion_po_id" class="po.GrossPromotionPO"></many-to-one>
+        <many-to-one name="grossPromotionPO" lazy="false" column="gross_promotion_po_id" class="po.GrossPromotionPO"></many-to-one>
 
     </class>
 </hibernate-mapping>

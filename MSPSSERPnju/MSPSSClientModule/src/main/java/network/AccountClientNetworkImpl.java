@@ -20,7 +20,7 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     public AccountClientNetworkImpl() {
         try {
-            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("AccountServerNetworkService");
+            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("rmi://106.14.188.84:1099/AccountServerNetworkService");
         } catch (NotBoundException e) {
             System.err.println("Client.network.AccountServerNetworkService: Not bound, trying to connect");
             e.printStackTrace();
@@ -39,7 +39,8 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      */
     public ResultMessage addAccount(AccountPO account) {
         try {
-            accountServerNetworkService.addAccount(account);
+           return accountServerNetworkService.addAccount(account);
+
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -54,7 +55,8 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      */
     public ResultMessage deleteAccount(String name) {
         try {
-            accountServerNetworkService.deleteAccount(name);
+          return   accountServerNetworkService.deleteAccount(name);
+
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -69,7 +71,8 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      */
     public ResultMessage updateAccount(AccountPO po) {
         try {
-            accountServerNetworkService.updateAccount(po);
+           return accountServerNetworkService.updateAccount(po);
+
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -86,7 +89,7 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      */
     public ArrayList<AccountPO> rangeSearchAccount(String field, Object min, Object max) {
         try {
-            accountServerNetworkService.rangeSearchAccount(field, min, max);
+            return accountServerNetworkService.rangeSearchAccount(field, min, max);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -102,7 +105,7 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      */
     public ArrayList<AccountPO> fullSearchAccount(String field, Object value) {
         try {
-            accountServerNetworkService.fullSearchAccount(field, value);
+           return  accountServerNetworkService.fullSearchAccount(field, value);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -133,7 +136,7 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      */
     public AccountPO searchAccountByName(String name) {
         try {
-            accountServerNetworkService.searchAccountByName(name);
+           return  accountServerNetworkService.searchAccountByName(name);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -148,11 +151,17 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
      */
     public ArrayList<AccountPO> multiSearchAccount(ArrayList<CriteriaClause> criteriaClauses) {
         try {
-            accountServerNetworkService.multiSearchAccount(criteriaClauses);
+           return accountServerNetworkService.multiSearchAccount(criteriaClauses);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void main(String[] args){
+        AccountClientNetworkImpl accountClientNetwork = new AccountClientNetworkImpl();
+       AccountPO accountPO =  accountClientNetwork.searchAccountByName("南京绿光灯泡厂");
+       System.out.println(accountPO.getName());
     }
 
 }

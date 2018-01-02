@@ -16,10 +16,10 @@
        <property name="ps" column="ps" type="string"></property>
 
 
-       <many-to-one name="salesInBillPO" column = "salesinbill_id" class="po.SalesInBillPO">
+       <many-to-one name="salesInBillPO" lazy="false" column = "salesinbill_id" class="po.SalesInBillPO">
 
        </many-to-one>
-       <many-to-one name="salesOutBillPO" column="salesoutbill_id" class="po.SalesOutBillPO"></many-to-one>
+       <many-to-one name="salesOutBillPO" lazy="false" column="salesoutbill_id" class="po.SalesOutBillPO"></many-to-one>
 
 
    </class>
