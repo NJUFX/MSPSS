@@ -34,11 +34,7 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.15-beta2</version>
         </dependency>
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>LATEST</version>
-        </dependency>
+
     </dependencies>
 
 </project>
