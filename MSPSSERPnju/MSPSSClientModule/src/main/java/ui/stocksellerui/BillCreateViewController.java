@@ -153,7 +153,7 @@ public class BillCreateViewController implements Initializable {
     @FXML
     public void salesRetCreateButtonAction(ActionEvent e) throws IOException {
         try {
-            SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent("/view/stockseller/SalesRetCreate.fxml");
+            SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent2("/view/stockseller/SalesRetCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

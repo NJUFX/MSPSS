@@ -19,6 +19,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: javax.mail:mail:1.5.0-b01" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.5.0-b01" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>

@@ -2,9 +2,14 @@ package ui.stocksellerui;
 
 import auxiliary.Presentation;
 import auxiliary.PromotionBySales;
+import auxiliary.PurchaseBill;
 import auxiliary.SalesBill;
 import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.SalesmanBillBLService;
+import blservice.commodityblservice.CommodityInfoService;
+import blservice.customerblservice.CustomerBLInfo;
 import blservice.mainblservice.MainBLService;
+import blservice.userblservice.UserInfo;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
@@ -24,10 +29,18 @@ import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import ui.stockmanagerui.SelectClassOrCommodityViewController;
+import util.BillStatus;
+import util.Kind_Of_Users;
+import util.ResultMessage;
+import util.SalesOutBillType;
+import vo.CustomerVO;
+import vo.SalesItemVO;
+import vo.SalesOutBillVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -37,6 +50,15 @@ public class SalesCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
+    SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
+    CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
+    UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    CustomerVO customerVO;
+    static ArrayList<PromotionBySales> promotionBySalesList;
+    ArrayList<SalesItemVO> commodityVOArrayList = new ArrayList<>();
+    SalesOutBillVO salesOutBillVO = new SalesOutBillVO(null, SalesOutBillType.OUT, BillStatus.commit);
+
     @FXML
     Button purchaseCreateButton;
     @FXML
@@ -48,11 +70,9 @@ public class SalesCreateViewController implements Initializable {
     @FXML
     Button cancelButton, sureButton, chooseButton, choosePromotionButton;
     @FXML
-    TextField nameField, idField, typeField, numberField, remarkField, SalesDiscountField, VoucherField;
+    TextField nameField, idField, typeField, numberField, remarkField, SalesDiscountField, VoucherField, customerField, stockField;
     @FXML
-    TextArea salesRemarkArea;
-    @FXML
-    Label rowtotalLabel, priceLabel, TotalBeforeLabel, PromotionDiscountLabel, TotalAfterLabel;
+    Label rowtotalLabel, priceLabel, TotalBeforeLabel, PromotionDiscountLabel, TotalAfterLabel, DAELabel;
     @FXML
     TableView<SalesBill> commodityListView;
     @FXML
@@ -63,20 +83,132 @@ public class SalesCreateViewController implements Initializable {
     TableView<PromotionBySales> promotionBySalesTableView;
     @FXML
     TableColumn<PromotionBySales, String> promotionTypeCol, promotionInfoCol;
-    /*
     @FXML
-    TableView<Information> informationTableView;
-    @FXML
-    TableColumn<Information, Double> TotalBeforeCol, TotalAfterCol, TotalVoucherCol, DiscountBySalesCol, DiscountByPromotionCol;
+    TextArea billRemarkArea;
 
-    public void showInformationTable() {
-        TotalBeforeCol.setCellValueFactory(new PropertyValueFactory<>("TotalBefore"));
-        TotalAfterCol.setCellValueFactory(new PropertyValueFactory<>("TotalAfter"));
-        TotalVoucherCol.setCellValueFactory(new PropertyValueFactory<>("TotalVoucher"));
-        DiscountBySalesCol.setCellValueFactory(new PropertyValueFactory<>("DiscountBySales"));
-        DiscountByPromotionCol.setCellValueFactory(new PropertyValueFactory<>("DiscountByPromotion"));
+    public SalesOutBillVO saveBill() {
+        if (stockField.getText() == null || stockField.getText().trim().equals("") ||
+                customerField.getText() == null || customerField.getText().trim().equals("")) {
+            dialog.errorInfoDialog("Something null, please check your input.");
+            return null;
+        }
+        if (commodityVOArrayList != null && commodityVOArrayList.size() != 0) {
+            ObservableList<SalesBill> data = commodityListView.getItems();
+            for (int i = 0; i < data.size(); i++) {
+                SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
+                commodityVOArrayList.add(salesItemVO);
+            }
+            salesOutBillVO.setDAE(DAELabel.getText());
+            salesOutBillVO.setStorage(stockField.getText());
+            salesOutBillVO.setCustomerVO(customerVO);
+            salesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
+            salesOutBillVO.setSumAfterDiscount(Double.parseDouble(TotalAfterLabel.getText()));
+            salesOutBillVO.setItemVOS(commodityVOArrayList);
+            
+            if (billRemarkArea.getText() != null && !billRemarkArea.getText().trim().equals("")) {
+                salesOutBillVO.setPs(billRemarkArea.getText().trim());
+            } else {
+                salesOutBillVO.setPs("无");
+            }
+            return salesOutBillVO;
+        } else {
+            dialog.errorInfoDialog("You haven't input the commodity list.");
+            return null;
+        }
     }
-    */
+
+    public void sureButtonAction(ActionEvent e) {
+        if (saveBill() != null) {
+            SalesOutBillVO salesOutBillVO = saveBill();
+            ResultMessage resultMessage = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
+            if (resultMessage == ResultMessage.SUCCESS) {
+                dialog.infoDialog("Commit list successfully.");
+            } else {
+                dialog.errorInfoDialog("Fail to commit the list.");
+            }
+        }
+    }
+
+    public void customerFieldAction(ActionEvent e) {
+        if (customerField.getText() != null && !customerField.getText().trim().equals("")) {
+            customerVO = customerBLInfo.getCustomerByID(customerField.getText().trim());
+            if (customerVO != null) {
+                DAELabel.setText(customerVO.getDAE());
+            } else {
+                dialog.errorInfoDialog("Supplier not exist!");
+            }
+        }
+    }
+
+
+    public boolean isNumber(String str) {
+        if (str.length() == 0) {
+            return false;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void VoucherDiscountFieldAction(ActionEvent e) {
+        boolean b1 = false, b2 = false, b3 = false;
+        if (SalesDiscountField.getText() != null && isNumber(SalesDiscountField.getText().trim()) == true) {
+            b1 = true;
+        }
+        if (PromotionDiscountLabel.getText() != null && isNumber(PromotionDiscountLabel.getText().trim())) {
+            b2 = true;
+        }
+        if (VoucherField.getText() != null && isNumber(VoucherField.getText().trim())) {
+            b3 = true;
+        }
+        if (b1 == true) {
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
+        }
+        if (b2 == true) {
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim()))));
+        }
+        if (b3 == true) {
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(VoucherField.getText().trim()))));
+        }
+    }
+
+    public void SalesDiscountFieldAction(ActionEvent e) {
+        boolean b1 = false, b2 = false, b3 = false;
+        if (SalesDiscountField.getText() != null && isNumber(SalesDiscountField.getText().trim()) == true) {
+            b1 = true;
+        }
+        if (PromotionDiscountLabel.getText() != null && isNumber(PromotionDiscountLabel.getText().trim())) {
+            b2 = true;
+        }
+        if (VoucherField.getText() != null && isNumber(VoucherField.getText().trim())) {
+            b3 = true;
+        }
+        if (b1 == true) {
+            if (LoginController.getCurrentUser().getCategory() == Kind_Of_Users.StockSellerManager) {
+                if (Double.parseDouble(SalesDiscountField.getText().trim()) > 5000) {
+                    dialog.errorInfoDialog("Discount beyond operator's limit.");
+                } else {
+                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
+                }
+            } else {
+                if (Double.parseDouble(SalesDiscountField.getText().trim()) > 1000) {
+                    dialog.errorInfoDialog("Discount beyond operator's limit.");
+                } else {
+                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
+                }
+            }
+        }
+        if (b2 == true) {
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim()))));
+        }
+        if (b3 == true) {
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(VoucherField.getText().trim()))));
+        }
+    }
+
 
     public void showPromotionTable() {
         promotionTypeCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
@@ -97,6 +229,10 @@ public class SalesCreateViewController implements Initializable {
     public void choosePromotionButtonAction(ActionEvent e) {
         try {
             SelectPromotionViewController controller = (SelectPromotionViewController) replaceAnotherSceneContent("/view/stockseller/SelectPromotion.fxml", 544, 541);
+            PromotionDiscountLabel.setText("0");
+            controller.PromotionDiscountLabel = PromotionDiscountLabel;
+            controller.TotalAfterLabel = TotalAfterLabel;
+            controller.salesOutBillVO = salesOutBillVO;
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -110,7 +246,7 @@ public class SalesCreateViewController implements Initializable {
                     return;
                 }
             }
-          rowtotalLabel.setText(String.valueOf(Double.parseDouble(priceLabel.getText()) * Integer.parseInt(numberField.getText().trim())));
+            rowtotalLabel.setText(String.valueOf(Double.parseDouble(priceLabel.getText()) * Integer.parseInt(numberField.getText().trim())));
         }
     }
 
@@ -170,6 +306,11 @@ public class SalesCreateViewController implements Initializable {
                 TotalBeforeLabel.setText(String.valueOf(Double.parseDouble(TotalBeforeLabel.getText().trim()) + Double.parseDouble(rowtotalLabel.getText().trim())));
             } else {
                 TotalBeforeLabel.setText(rowtotalLabel.getText().trim());
+            }
+            if (TotalAfterLabel.getText() != null && !TotalAfterLabel.getText().trim().equals("")) {
+                TotalAfterLabel.setText(String.valueOf(Double.parseDouble(TotalBeforeLabel.getText().trim()) + Double.parseDouble(rowtotalLabel.getText().trim())));
+            } else {
+                TotalAfterLabel.setText(rowtotalLabel.getText().trim());
             }
         } else {
             dialog.errorInfoDialog("Something null, please check your input.");
@@ -258,7 +399,7 @@ public class SalesCreateViewController implements Initializable {
     @FXML
     public void salesRetCreateButtonAction(ActionEvent e) throws IOException {
         try {
-            SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent("/view/stockseller/SalesRetCreate.fxml");
+            SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent2("/view/stockseller/SalesRetCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -324,7 +465,7 @@ public class SalesCreateViewController implements Initializable {
         } finally {
             in.close();
         }
-        Scene scene = new Scene(page, width , height);
+        Scene scene = new Scene(page, width, height);
         newStage.setTitle("MSPSS");
         newStage.setScene(scene);
         newStage.sizeToScene();
@@ -346,41 +487,5 @@ public class SalesCreateViewController implements Initializable {
         //showInformationTable();
     }
 
-    public class Information {
-        private final SimpleDoubleProperty TotalBefore = new SimpleDoubleProperty(0);
-        private final SimpleDoubleProperty DiscountBySales = new SimpleDoubleProperty(0);
-        private final SimpleDoubleProperty TotalVoucher = new SimpleDoubleProperty(0);
-        private final SimpleDoubleProperty TotalAfter = new SimpleDoubleProperty(0);
-        private final SimpleDoubleProperty DiscountByPromotion = new SimpleDoubleProperty(0);
-
-        public Information(double be, double dis, double dis2, double vou, double aft) {
-            setTotalBefore(be);
-            setDiscountBySales(dis);
-            setDiscountByPromotion(dis);
-            setTotalVoucher(vou);
-            setTotalAfter(aft);
-        }
-
-        public void setTotalBefore(double f) {
-            TotalBefore.set(f);
-        }
-
-        public void setTotalAfter(double f) {
-            TotalAfter.set(f);
-        }
-
-        public void setTotalVoucher(double f) {
-            TotalVoucher.set(f);
-        }
-
-        public void setDiscountBySales(double f) {
-            DiscountBySales.set(f);
-        }
-
-        public void setDiscountByPromotion(double f) {
-            DiscountByPromotion.set(f);
-        }
-
-    }
 }
 
