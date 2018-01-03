@@ -62,13 +62,13 @@ public class LoginController implements Initializable {
         } else if (currentUser.getCategory() == Kind_Of_Users.FinancerManager) {
             return "财务经理";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockManager) {
-            return "库存管理人员";
+            return "库存管理";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockSeller) {
-            return "进货销售人员";
+            return "进货销售";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockSellerManager) {
             return "销售经理";
         } else if (currentUser.getCategory() == Kind_Of_Users.SystemManager) {
-            return "系统管理员";
+            return "系统管理";
         }
         return "";
     }

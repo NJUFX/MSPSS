@@ -53,12 +53,10 @@ public class AddClassificationViewController implements Initializable {
             } else {
                 str = treeItem.getValue().getId();
             }
-
             ClassificationCell cell = new ClassificationCell(name_of_class, str, "", true);
 
             //ClassificationVO father = new ClassificationVO(treeItem.getValue().getName());
             ClassificationVO classificationVO = new ClassificationVO(name_of_class, commodityBLService.getClassification(str));
-
             ResultMessage resultMessage = commodityBLService.addClassification(classificationVO);
 
             if (resultMessage == ResultMessage.SUCCESS) {
