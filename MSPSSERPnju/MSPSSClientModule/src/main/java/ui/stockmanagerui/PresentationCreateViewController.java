@@ -2,6 +2,8 @@ package ui.stockmanagerui;
 
 import auxiliary.Presentation;
 import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.StockManagerBillBLService;
+import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,6 +21,7 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.StockBillVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +35,9 @@ public class PresentationCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
+    StockManagerBillBLService stockManagerBillBLService = new BLFactoryImpl().getStockManagerBillBLService();
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
+
     @FXML
     Button overflowCreateButton;
     @FXML
