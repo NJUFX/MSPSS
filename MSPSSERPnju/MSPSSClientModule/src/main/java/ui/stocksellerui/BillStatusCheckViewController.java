@@ -255,8 +255,16 @@ public class BillStatusCheckViewController implements Initializable {
     }
 
     public void addPurchaseBillRow() {
+<<<<<<< HEAD
         ArrayList<SalesInBillVO> list = salesmanBillBLService.getMySalesInBill(LoginController.getCurrentUser().getID());
         //ArrayList<SalesInBillVO> list = new ArrayList<>();
+=======
+        ArrayList<SalesInBillVO> list = new ArrayList<>();
+
+        list.add(new SalesInBillVO("JHD01", SalesInBillType.OUT, BillStatus.commit));
+        list.add(new SalesInBillVO("JHD021", SalesInBillType.OUT, BillStatus.approval));
+        list.add(new SalesInBillVO("JHD1001", SalesInBillType.OUT, BillStatus.approval));
+>>>>>>> e568422b96ae0180cdfaec42d2a00aa64fc06c71
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
