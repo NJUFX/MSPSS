@@ -245,7 +245,6 @@ public class BillStatusCheckViewController implements Initializable {
     }
 
     public void addPurchaseBillRow() {
-        // ArrayList<StockBillVO> list = stockManagerBillBLService.getMyStockBill(LoginController.getCurrentUser().getID());
         ArrayList<SalesInBillVO> list = new ArrayList<>();
 
         list.add(new SalesInBillVO("JHD01", SalesInBillType.OUT, BillStatus.commit));

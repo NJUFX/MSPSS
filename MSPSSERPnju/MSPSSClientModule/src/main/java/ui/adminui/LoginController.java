@@ -82,9 +82,9 @@ public class LoginController implements Initializable {
         if (idText.getText() != null && !idText.getText().trim().equals("") && passwordField.getText() != null && !passwordField.getText().trim().equals("")) {
             String id = idText.getText();
             String password = passwordField.getText();
-            currentUser = userBLService.searchUserByID(id);
-            toStockSellerMain();
-            //userLogin(id, password);
+            //currentUser = userBLService.searchUserByID(id);
+            //toStockSellerMain();
+            userLogin(id, password);
         } else {
             dialog.errorInfoDialog("Something null, please check your input.");
         }

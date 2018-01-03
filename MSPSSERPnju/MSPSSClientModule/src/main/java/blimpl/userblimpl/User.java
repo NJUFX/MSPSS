@@ -129,8 +129,7 @@ public class User {
             if (currentUser != null) {
                 logBLInfo.add(currentUser.getID(), "成功登陆");
             }
-            return Log_In_Out_Status.Login_Success;
-           /* switch (userPO.getCategory()) {
+            switch (userPO.getCategory()) {
                     case 1:
                     return Log_In_Out_Status.Login_Success_StockManager;
                 case 2:
@@ -146,7 +145,7 @@ public class User {
 
             }
             return Log_In_Out_Status.Login_Success;
-            */
+
         } else
             return Log_In_Out_Status.Login_PasswordWrong;
     }
