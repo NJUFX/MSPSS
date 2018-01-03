@@ -25,13 +25,13 @@ public class Customer {
 
         switch (keytype){
             case "ID" :
-                 pos = networkService.fuzzSearchCustomer("ID",keyword);
+                 pos = networkService.fullSearchCustomer("ID",Integer.parseInt(keyword));
                  break;
             case "name" :
                     pos = networkService.fuzzSearchCustomer("name",keyword);
                 break;
             case "level" :
-                pos = networkService.fuzzSearchCustomer("level",keyword);
+                pos = networkService.fullSearchCustomer("level",Integer.parseInt(keyword));
                 break;
             case "category" :
                 pos = networkService.fullSearchCustomer("category",keyword);
@@ -95,15 +95,16 @@ public class Customer {
 
     private CustomerVO po_to_vo(CustomerPO po){
         Kind_Of_Customers kind = po.getCategory()==0? Kind_Of_Customers.SALER: Kind_Of_Customers.SUPPLIER;
-        CustomerVO vo = new CustomerVO(po.getID(), kind,po.getLevel(),
+        CustomerVO vo = new CustomerVO(String.format("%05d",po.getID()), kind,po.getLevel(),
                 po.getName(),po.getPhonenumber(),po.getAddress(),po.getPostcode(),
                 po.getEmail(),po.getInvalue(),po.getIncomemoney(),po.getPaymoney(),po.getDAE());
     return vo;
     }
+
     private CustomerPO vo_to_po(CustomerVO vo){
         int category = Kind_Of_Customers.SALER==vo.getKind() ? 0:1;
         CustomerPO po = new CustomerPO(
-                vo.getExist(),vo.getID(),category,vo.getLevel(),
+                vo.getExist(),category,vo.getLevel(),
                 vo.getName(),vo.getPhonenumber(),vo.getAddress()
                 ,vo.getPostcode(),vo.getEmail(),vo.getInvalue(),
                 vo.getIncomemoney(),vo.getPaymoney(),

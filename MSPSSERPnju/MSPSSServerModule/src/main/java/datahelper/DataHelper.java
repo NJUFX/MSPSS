@@ -40,7 +40,7 @@ public interface DataHelper<T> {
      * 不存在指定ID的PO——ResultMessage.NOT_EXIST<br>
      * 底层持久化过程失败——ResultMessage.FAILED
      */
-    public ResultMessage delete(String key, String ID);
+    public ResultMessage delete(String key, Object ID);
 
     /**
      * 按指定字段精确查询PO<br>

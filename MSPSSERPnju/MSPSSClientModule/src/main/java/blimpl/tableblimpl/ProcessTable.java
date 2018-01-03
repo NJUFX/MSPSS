@@ -54,19 +54,19 @@ public class ProcessTable {
         ArrayList<CriteriaClause> stockBillCriteriaClauses = new ArrayList<CriteriaClause>();
 
         if(flags.getBegin()!=null&&flags.getBegin()!=null){
-           cashCostBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           financeBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           salesInBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           stockBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           cashCostBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           financeBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           salesInBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           stockBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
         }
         if(flags.getCustomerName()!=null){
             ArrayList<CustomerPO> customerPOS = customerClientNetworkService.fullSearchCustomer("name",flags.getCustomerName());
             if(customerPOS.size()>=1) {
-                String id = customerPOS.get(0).getID();
-                financeBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customer_id", id,QueryMethod.Full));
+                int id = customerPOS.get(0).getID();
+                financeBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID", id,QueryMethod.Full));
                 salesInBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("provider", id,QueryMethod.Full));
-                salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customer_id", id,QueryMethod.Full));
+                salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID", id,QueryMethod.Full));
 
             }
             }
@@ -76,10 +76,10 @@ public class ProcessTable {
             ArrayList<UserPO> userPOS = userClientNetworkService.fullSearchUser("name",flags.getOperatorName());
             if(userPOS.size()>=1){
                 String id = userPOS.get(0).getID();
-                cashCostBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("operator_id", id,QueryMethod.Full));
-                financeBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customer_id", id,QueryMethod.Full));
-                salesInBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customer_id", id,QueryMethod.Full));
-                salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customer_id", id,QueryMethod.Full));
+                cashCostBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("operatorID", id,QueryMethod.Full));
+                financeBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID", id,QueryMethod.Full));
+                salesInBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID", id,QueryMethod.Full));
+                salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID", id,QueryMethod.Full));
             }
         }
 

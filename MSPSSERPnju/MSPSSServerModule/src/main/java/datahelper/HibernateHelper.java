@@ -92,7 +92,7 @@ public class HibernateHelper<T> implements DataHelper<T> {
 
 
     @Override
-    public ResultMessage delete(String key, String ID) {
+    public ResultMessage delete(String key, Object ID) {
         try {
             Object o = exactlyQuery(key, ID);
             if (o == null) {

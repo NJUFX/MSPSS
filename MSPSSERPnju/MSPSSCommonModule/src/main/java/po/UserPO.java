@@ -12,8 +12,8 @@ public class UserPO implements Serializable {
      * 编号
      * 用户的ID
      * 编号开头
-     * ss 库存管理人员
-     * sm 销售人员
+     * sm 库存管理人员
+     * ss 销售人员
      * fm 财务人员
      * cm 总经理
      */

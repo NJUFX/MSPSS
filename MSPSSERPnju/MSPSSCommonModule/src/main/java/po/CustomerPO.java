@@ -12,7 +12,7 @@ public class CustomerPO  implements Serializable{
     /**
      * 客户编号
      */
-    private String ID;
+    private int ID;
     /**
      * 分类 用1、0来判定，1是供应商，0是销售商
      *
@@ -68,9 +68,9 @@ public class CustomerPO  implements Serializable{
     public CustomerPO() {
     }
 
-    public CustomerPO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney, String DAE) {
+    public CustomerPO(boolean exist, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney, String DAE) {
         Exist = exist;
-        this.ID = ID;
+
         this.category = category;
         this.level = level;
         this.name = name;
@@ -92,11 +92,11 @@ public class CustomerPO  implements Serializable{
         Exist = exist;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
