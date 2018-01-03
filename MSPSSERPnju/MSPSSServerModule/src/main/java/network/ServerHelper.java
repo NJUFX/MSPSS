@@ -104,7 +104,6 @@ public class ServerHelper{
                 Naming.rebind(host+"PromotionServerNetworkService",promotionServerNetworkService);
 
                 */
-
                 return serverHelper;
             } catch (RemoteException e) {
                 e.printStackTrace();

@@ -1,18 +1,20 @@
 package ui.adminui;
 
+import blimpl.blfactory.BLFactoryImpl;
 import blservice.mainblservice.MainBLService;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import main.MainApp;
+import blservice.userblservice.UserBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import main.MainApp;
 import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.chiefmanagerui.ChiefManagerMainViewController;
@@ -20,16 +22,12 @@ import ui.common.Dialog;
 import ui.financemanagerui.FinanceManagerMainViewController;
 import ui.stockmanagerui.StockManagerMainViewController;
 import ui.stocksellerui.StockSellerMainViewController;
-import util.Encryptor;
 import util.Kind_Of_Users;
 import vo.UserVO;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import blimpl.blfactory.BLFactoryImpl;
-import blservice.userblservice.UserBLService;
 
 /**
  * author:Jiang_Chen date:2017/12/12
@@ -40,7 +38,7 @@ public class LoginController implements Initializable {
     Stage newStage = new Stage();
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
-    static UserVO currentUser= new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
+    static UserVO currentUser = new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
     @FXML
     public Button loginButton, modPasswordButton;
     @FXML
@@ -84,8 +82,9 @@ public class LoginController implements Initializable {
         if (idText.getText() != null && !idText.getText().trim().equals("") && passwordField.getText() != null && !passwordField.getText().trim().equals("")) {
             String id = idText.getText();
             String password = passwordField.getText();
-            //currentUser = userBLService.searchUserByID(id);
-            userLogin(id, password);
+            currentUser = userBLService.searchUserByID(id);
+            toStockSellerMain();
+            //userLogin(id, password);
         } else {
             dialog.errorInfoDialog("Something null, please check your input.");
         }
@@ -99,51 +98,28 @@ public class LoginController implements Initializable {
      * @param password
      */
     public void userLogin(String id, String password) {
-        // 判断id是否在系统里
-        // 判断密码是否正确
-        //Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;
-        //System.out.println(userBLService.searchUserByID(id).getID());
-        Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
-        if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
-            if (id.equals("admin")) {
-                currentUser = userBLService.searchUserByID(id);
-                dialog.infoDialog("Login Successfully.");
-                toAdminMain();
-            } else {
-                if (id.length() < 2) {
-                    dialog.errorInfoDialog("Id is wrong, please check your input.");
-                } else {
-                    boolean b = false;
-                    switch (id.substring(0, 2).toUpperCase()) {
-                        case "SM":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toStockManagerMain();
-                            break;
-                        case "FM":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toFinanceManagerMain();
-                            break;
-                        case "SS":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toStockSellerMain();
-                            break;
-                        case "CM":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toChiefManagerMain();
-                            break;
-                        default:
-                            b = false;
-                            dialog.errorInfoDialog("Id is wrong, please check your input.");
-                            break;
-                    }
-                }
-            }
 
-            //currentUser = userBLService.searchUserByID(id);
+        Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
+        if (log_in_out_status == Log_In_Out_Status.Login_Success_Admin) {
+            currentUser = userBLService.searchUserByID(id);
+            toAdminMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_Salesman) {
+            currentUser = userBLService.searchUserByID(id);
+            toStockSellerMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_StockManager) {
+            currentUser = userBLService.searchUserByID(id);
+            toStockManagerMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_Financer) {
+            currentUser = userBLService.searchUserByID(id);
+            toFinanceManagerMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_CheifManager) {
+            currentUser = userBLService.searchUserByID(id);
+            toChiefManagerMain();
+            dialog.infoDialog("Login Successfully.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_IdNotExist) {
             dialog.errorInfoDialog("Id not exist, please check your input.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_PasswordWrong) {

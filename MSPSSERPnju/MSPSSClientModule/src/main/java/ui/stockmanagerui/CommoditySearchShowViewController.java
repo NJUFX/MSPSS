@@ -42,7 +42,7 @@ public class CommoditySearchShowViewController implements Initializable {
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     static ArrayList<CommodityVO> arrayList = new ArrayList<>();
-    private String keyType, keyword;
+    static String keyType, keyword;
     FilterFlagVO filterFlagVO = new FilterFlagVO();
 
     public void setKeyType(String keyType) {
@@ -111,34 +111,39 @@ public class CommoditySearchShowViewController implements Initializable {
 
     public void addRow() {
         ObservableList<CommodityTable> data = commodityTableTable.getItems();
-
-        switch (keyType) {
-            case "分类":
-                filterFlagVO.classificationName = keyword;
-                break;
-            case "编号":
-                filterFlagVO.id = keyword;
-                break;
-            case "名称":
-                filterFlagVO.name = keyword;
-                break;
-            case "进价（向上查找）":
-                filterFlagVO.importCostMin = Double.parseDouble(keyword);
-                break;
-            case "进价（向下查找）":
-                filterFlagVO.importCostMax = Double.parseDouble(keyword);
-                break;
-            case "零售价（向上查找）":
-                filterFlagVO.exportCostMin = Double.parseDouble(keyword);
-                break;
-            case "零售价（向下查找）":
-                filterFlagVO.exportCostMax = Double.parseDouble(keyword);
-                break;
-        }
-        arrayList = commodityInfoService.search(filterFlagVO);
-        for (int i = 0; i < arrayList.size(); i++) {
-            CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
-            data.add(c);
+        if (keyType != null) {
+            switch (keyType) {
+                case "商品分类":
+                    filterFlagVO.classificationName = keyword;
+                    break;
+                case "商品编号":
+                    filterFlagVO.id = keyword;
+                    break;
+                case "商品名称":
+                    filterFlagVO.name = keyword;
+                    break;
+                case "进价（向上查找）":
+                    filterFlagVO.importCostMin = Double.parseDouble(keyword);
+                    break;
+                case "进价（向下查找）":
+                    filterFlagVO.importCostMax = Double.parseDouble(keyword);
+                    break;
+                case "零售价（向上查找）":
+                    filterFlagVO.exportCostMin = Double.parseDouble(keyword);
+                    break;
+                case "零售价（向下查找）":
+                    filterFlagVO.exportCostMax = Double.parseDouble(keyword);
+                    break;
+            }
+            if (commodityInfoService.search(filterFlagVO) != null) {
+                arrayList = commodityInfoService.search(filterFlagVO);
+                for (int i = 0; i < arrayList.size(); i++) {
+                    CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
+                    data.add(c);
+                }
+            }
+        } else {
+            System.out.println("Key type null");
         }
     }
 

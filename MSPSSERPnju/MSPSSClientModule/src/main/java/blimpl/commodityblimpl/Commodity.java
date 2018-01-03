@@ -1,6 +1,7 @@
 package blimpl.commodityblimpl;
 
 import blservice.billblservice.BillBLInfo;
+import network.CommodityClientNetworkImpl;
 import network.CommodityClientNetworkService;
 import po.CommodityPO;
 import util.ResultMessage;
@@ -14,8 +15,8 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 23:13 2017/11/15/015
  */
 public class Commodity {
-    private static CommodityClientNetworkService netService;
-    private static BillBLInfo billBLInfo;
+    private static CommodityClientNetworkService netService = new CommodityClientNetworkImpl();
+    private static BillBLInfo billBLInfo = blimpl.billblimpl.BillFactory.getBillBLInfo();
     /**
      * 添加商品
      * @param commodityVO
@@ -24,6 +25,7 @@ public class Commodity {
     public ResultMessage addCommodity(CommodityVO commodityVO){
         CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationName,commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
         //此时的ID为空
+        po.setID(commodityVO.ID + "\\" + commodityVO.type);
         return netService.addCommodity(po);
     }
 
@@ -34,7 +36,6 @@ public class Commodity {
      */
     public ResultMessage updateCommodity(CommodityVO commodityVO){
         CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationName,commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
-
         return netService.modifyCommodity(po);
     }
 
@@ -60,9 +61,12 @@ public class Commodity {
     public CommodityVO getCommodity(String id){
 
         CommodityPO po = netService.exactlySearchCommodity(id);
-        CommodityVO vo = new CommodityVO(po.getName(),po.getID(),po.getType(),po.getImportCost(),po.getExportCost(),
-                        po.getNumberInStock());
-        return vo;
+        if (po != null) {
+            CommodityVO vo = new CommodityVO(po.getName(), po.getID(), po.getType(), po.getImportCost(), po.getExportCost(),
+                    po.getNumberInStock());
+            return vo;
+        }
+        return null;
     }
 
     /**
@@ -86,7 +90,7 @@ public class Commodity {
                 commodities.addAll(netService.fullSearchCommodity("classificationName",flag.classificationName));
             }
             if (flag.id!=null){
-                commodities.addAll(netService.fullSearchCommodity("ID",flag.id));
+                commodities.addAll(netService.fuzzySearchCommodity("ID", flag.id));
             }
             if (flag.name!=null){
                 commodities.addAll(netService.fuzzySearchCommodity("name",flag.name));

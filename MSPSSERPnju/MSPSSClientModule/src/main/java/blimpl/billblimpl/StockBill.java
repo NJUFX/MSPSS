@@ -46,6 +46,7 @@ public class StockBill implements StockBillInfo {
     public ResultMessage HongChongAndCopy(StockBillVO stockBillVO) {
         return ResultMessage.FAILED;
     }
+
     /**
      * 添加库存类单据
      *
@@ -68,10 +69,13 @@ public class StockBill implements StockBillInfo {
         }
 
         StockBillPO po = vo_to_po(vo);
-        if (isSaved)
+        if (isSaved) {
+            BillLogHelper.update(userInfo.getCurrentUser(), vo.getId());
             return networkService.updateStockBill(po);
-        else
+        } else {
+            BillLogHelper.init(userInfo.getCurrentUser(), vo.getId());
             return networkService.addStockBill(po);
+        }
     }
 
     /**
@@ -84,6 +88,8 @@ public class StockBill implements StockBillInfo {
         vo.setStatus(BillStatus.commit);
         vo.setCommit_time(new Time());
         StockBillPO po = vo_to_po(vo);
+        BillSendMessage.commit(userInfo.getCurrentUser(), vo.getId());
+        BillLogHelper.commit(userInfo.getCurrentUser(), vo.getId());
         return networkService.updateStockBill(po);
     }
 
@@ -97,6 +103,8 @@ public class StockBill implements StockBillInfo {
     public ResultMessage withdrawStockBill(StockBillVO vo) {
         vo.setStatus(BillStatus.init);
         vo.setCommit_time(null);
+        BillSendMessage.withdraw(userInfo.getCurrentUser(), vo.getId());
+        BillLogHelper.withdraw(userInfo.getCurrentUser(), vo.getId());
         StockBillPO po = vo_to_po(vo);
         return networkService.updateStockBill(po);
     }
@@ -126,7 +134,6 @@ public class StockBill implements StockBillInfo {
     }
 
 
-
     public ResultMessage approveStockBill(StockBillVO stockBillVO) {
         stockBillVO.setStatus(BillStatus.approval);
         stockBillVO.setApproval_time(new Time());
@@ -152,7 +159,8 @@ public class StockBill implements StockBillInfo {
             commodityVO.setNumberInStock(commodityVO.getNumberInStock() - itemVOS.get(i).getNumber());
             commodityInfoService.updateCommodity(commodityVO);
         }
-
+        BillSendMessage.approve(stockBillVO.getStockManager(), stockBillVO.getManager(), stockBillVO.getId());
+        BillLogHelper.approval(userInfo.getCurrentUser(), stockBillVO.getId());
         return networkService.updateStockBill(vo_to_po(stockBillVO));
     }
 
@@ -161,18 +169,20 @@ public class StockBill implements StockBillInfo {
         stockBillVO.setStatus(BillStatus.rejected);
         //设置审批时间
         //设置审批状态为拒绝
-
+        BillSendMessage.reject(stockBillVO.getStockManager(), stockBillVO.getManager(), stockBillVO.getId());
+        BillLogHelper.reject(userInfo.getCurrentUser(), stockBillVO.getId());
         return networkService.updateStockBill(vo_to_po(stockBillVO));
     }
 
     public String getID(StockBillType type) {
         return networkService.getStockBillID(type);
     }
-    public StockBillVO po_to_vo(StockBillPO po){
+
+    public StockBillVO po_to_vo(StockBillPO po) {
         ArrayList<StockBillItemVO> itemVOS = new ArrayList<>();
-        for (int i = 0; i <  po.getItemPOS().size(); i++) {
+        for (int i = 0; i < po.getItemPOS().size(); i++) {
             StockBillItemPO itemPO = po.getItemPOS().get(i);
-            StockBillItemVO itemVO = new StockBillItemVO(commodityInfoService.getCommodity(itemPO.getCommodityID()),itemPO.getNumber());
+            StockBillItemVO itemVO = new StockBillItemVO(commodityInfoService.getCommodity(itemPO.getCommodityID()), itemPO.getNumber());
             itemVOS.add(itemVO);
         }
         UserVO operator = userInfo.getUser(po.getInitID());
@@ -184,13 +194,14 @@ public class StockBill implements StockBillInfo {
                 BillStatus.values()[po.getStatus()], itemVOS, new Time(po.getInit_time()),
                 commitTime, approvalTime, po.getCommentByStockManager(), po.getCommentByManager()
                 , operator, approval);
-        return  stockBillVO;
+        return stockBillVO;
     }
-    private StockBillPO vo_to_po(StockBillVO vo){
+
+    private StockBillPO vo_to_po(StockBillVO vo) {
         ArrayList<StockBillItemPO> itemPOS = new ArrayList<>();
-        for (int i = 0; i < vo.getItemVOS().size() ; i++) {
+        for (int i = 0; i < vo.getItemVOS().size(); i++) {
             StockBillItemVO itemVO = vo.getItemVOS().get(i);
-            StockBillItemPO itemPO = new StockBillItemPO(itemVO.commodityVO.ID,itemVO.number);
+            StockBillItemPO itemPO = new StockBillItemPO(itemVO.commodityVO.ID, itemVO.number);
             itemPOS.add(itemPO);
         }
 

@@ -39,22 +39,22 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="sureButton" layoutX="142.0" layoutY="299.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/stockseller/common.css" text="确定" textFill="WHITE" />
-        <Button id="cancelButton" fx:id="cancelButton" layoutX="63.0" layoutY="299.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb" />
-        <Label fx:id="idLabel" layoutX="148.0" layoutY="72.0" prefHeight="22.0" prefWidth="94.0" text="id">
+        <Button fx:id="sureButton" layoutX="152.0" layoutY="299.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/stockseller/common.css" text="确定" textFill="WHITE" />
+        <Button id="cancelButton" fx:id="cancelButton" layoutX="56.0" layoutY="299.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="25.0" prefWidth="60.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb" />
+        <Label fx:id="idLabel" layoutX="144.0" layoutY="72.0" prefHeight="22.0" prefWidth="94.0">
             <font>
-                <Font size="16.0" />
+                <Font size="14.0" />
             </font>
         </Label>
-        <Label fx:id="nameLabel" layoutX="148.0" layoutY="116.0" prefHeight="22.0" prefWidth="94.0" text="name">
+        <Label fx:id="nameLabel" layoutX="144.0" layoutY="116.0" prefHeight="22.0" prefWidth="94.0">
             <font>
-                <Font size="16.0" />
+                <Font size="14.0" />
             </font>
         </Label>
         <ComboBox fx:id="powerBox" layoutX="135.0" layoutY="207.0" prefHeight="22.0" prefWidth="94.0" />
-      <Label fx:id="categoryBox" layoutX="148.0" layoutY="161.0" prefHeight="22.0" prefWidth="94.0" text="category">
+      <Label fx:id="categoryBox" layoutX="144.0" layoutY="161.0" prefHeight="22.0" prefWidth="111.0">
          <font>
-            <Font size="16.0" />
+            <Font size="14.0" />
          </font>
       </Label>
       <Label layoutX="62.0" layoutY="251.0" text="邮箱">
@@ -62,7 +62,7 @@
             <Font name="Microsoft YaHei" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="135.0" layoutY="251.0" prefHeight="23.0" prefWidth="94.0">
+      <TextField fx:id="emailField" layoutX="135.0" layoutY="251.0" prefHeight="23.0" prefWidth="94.0">
          <font>
             <Font size="10.0" />
          </font>

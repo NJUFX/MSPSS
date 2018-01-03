@@ -1,13 +1,11 @@
 package blimpl.commodityblimpl;
 
 
+import network.CommodityClientNetworkImpl;
 import network.CommodityClientNetworkService;
 import po.ClassificationPO;
-import po.CommodityPO;
 import util.ResultMessage;
 import vo.ClassificationVO;
-import vo.CommodityVO;
-import vo.FilterFlagVO;
 
 import java.util.ArrayList;
 
@@ -21,7 +19,7 @@ public class Classification {
      * @param classificationVO
      * @return
      */
-    CommodityClientNetworkService netService;
+    CommodityClientNetworkService netService = new CommodityClientNetworkImpl();
 
     public ResultMessage addClassification(ClassificationVO classificationVO){
         classificationVO.setID(classificationVO.getName());

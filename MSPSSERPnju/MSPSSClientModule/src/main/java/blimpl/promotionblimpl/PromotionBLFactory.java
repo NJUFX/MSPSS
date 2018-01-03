@@ -1,17 +1,17 @@
 package blimpl.promotionblimpl;
-import blstubdriver.promotionstubdriver.Promotion_Stub;
 
 import blservice.promotionblservice.PromotionBLInfo;
 import blservice.promotionblservice.PromotionBLService;
+import blstubdriver.promotionstubdriver.Promotion_Stub;
 
 /**
  * Description:
  * Created by Hanxinhu at 9:47 2017/12/13/013
  */
 public class PromotionBLFactory {
-    private static CustomerPromotion customerPromotion = new CustomerPromotion();
-    private static GroupPromotion groupPromotion = new GroupPromotion();
-    private static GrossPromotion grossPromotion = new GrossPromotion();
+    private static final CustomerPromotion customerPromotion = new CustomerPromotion();
+    private static final GroupPromotion groupPromotion = new GroupPromotion();
+    private static final GrossPromotion grossPromotion = new GrossPromotion();
     private static PromotionBLServiceImpl impl;
 
     public synchronized static PromotionBLInfo getPromotionInfo(){

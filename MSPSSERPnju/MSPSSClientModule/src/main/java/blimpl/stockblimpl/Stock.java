@@ -8,8 +8,7 @@ import po.StockPO;
 import util.ResultMessage;
 import util.StockInfo;
 import util.Time;
-import vo.ChangeInfoVO;
-import vo.StockVO;
+import vo.*;
 
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ import java.util.ArrayList;
  */
 public class Stock {
     StockClientNetworkService networkService = new StockClientNetworkImpl();
-    CommodityInfoService infoService = new BLFactoryImpl().getCommodityInfoService();
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     public ResultMessage addStock(ArrayList<ChangeInfoVO> change){
         ResultMessage message;
         boolean success = false;
@@ -40,9 +39,22 @@ public class Stock {
         ArrayList<StockPO> pos= networkService.rangeSearchStock("time",startTime,endTime);
         ArrayList<StockVO> vos = new ArrayList<>();
         for (StockPO po : pos){
-            StockVO vo = new StockVO(StockInfo.values()[po.getInOrOut()],po.getNumber(),po.getPrice(),new Time(po.getTime()),infoService.getCommodity( po.getCommodityID()));
+            StockVO vo = new StockVO(StockInfo.values()[po.getInOrOut()], po.getNumber(), po.getPrice(), new Time(po.getTime()), commodityInfoService.getCommodity(po.getCommodityID()));
             vos.add(vo);
         }
         return vos;
+    }
+
+    public ArrayList<StockInventoryVO> viewInventory() {
+        FilterFlagVO filterFlagVO = new FilterFlagVO();
+        filterFlagVO.setImportCostMin(0);
+        filterFlagVO.setImportCostMax(Integer.MAX_VALUE);
+        ArrayList<CommodityVO> pos = commodityInfoService.search(filterFlagVO);
+        ArrayList<StockInventoryVO> stockInventoryVOS = new ArrayList<>();
+        for (int i = 0; i < pos.size(); i++) {
+            CommodityVO vo = pos.get(i);
+            stockInventoryVOS.add(new StockInventoryVO(vo.getName(), vo.getNumberInStock(), vo.getImportCost()));
+        }
+        return stockInventoryVOS;
     }
 }

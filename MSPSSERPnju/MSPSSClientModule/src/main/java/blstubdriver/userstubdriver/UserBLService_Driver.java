@@ -44,7 +44,7 @@ public class UserBLService_Driver {
 
         //test login
         Log_In_Out_Status isLogin = userBLService_stub.login("CM001", "000000");
-        if (isLogin == Log_In_Out_Status.Login_Sucess) {
+        if (isLogin == Log_In_Out_Status.Login_Success) {
             System.out.println("Login successfully.");
         } else if (isLogin == Log_In_Out_Status.Login_IdNotExist) {
             System.out.println("Id not exist.");

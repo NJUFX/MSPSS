@@ -97,6 +97,7 @@ public class CustomerSearchShowViewController implements Initializable {
     public void addRow() {
         ArrayList<CustomerVO> list = new ArrayList<>();
         ObservableList<Customer> data = customerTableView.getItems();
+        data.clear();
         //data.add(new Customer("00001", "Jiang Chen", "进货商", "4", "50000", "SS001"));
         //data.add(new Customer("1", "1", "1", "1", "1", "1"));
         data.clear();

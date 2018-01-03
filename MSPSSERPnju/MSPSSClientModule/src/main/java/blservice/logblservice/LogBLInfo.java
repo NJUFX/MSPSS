@@ -1,7 +1,5 @@
 package blservice.logblservice;
 
-import blimpl.logblimpl.Log;
-import po.LogPO;
 import util.ResultMessage;
 import vo.LogVO;
 
@@ -19,4 +17,12 @@ public interface LogBLInfo {
      */
     public ResultMessage add(LogVO logVO);
 
+    /**
+     * 操作的产生者
+     *
+     * @param operateID
+     * @param operate
+     * @return
+     */
+    public ResultMessage add(String operateID, String operate);
 }

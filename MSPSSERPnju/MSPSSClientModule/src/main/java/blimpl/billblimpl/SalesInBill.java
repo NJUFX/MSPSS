@@ -42,8 +42,12 @@ public class SalesInBill {
         if (vo.getID() == null) {
             String salesInBillID = networkService.getSalesInBillID(vo.getType());
             vo.setID(salesInBillID);
+            BillLogHelper.init(userInfo.getCurrentUser(), salesInBillID);
+
             return networkService.addSalesInBill(vo_to_po(vo));
         }
+        BillLogHelper.update(userInfo.getCurrentUser(), vo.getID());
+
         return networkService.updateSalesInBill(vo_to_po(vo));
     }
 
@@ -58,6 +62,8 @@ public class SalesInBill {
     public ResultMessage commitSalesInBill(SalesInBillVO vo) {
         vo.setStatus(BillStatus.commit);
         vo.setCommit_time(new Time());
+        BillLogHelper.commit(vo.getOperator(), vo.getID());
+        BillSendMessage.commit(vo.getOperator(), vo.getID());
         return networkService.updateSalesInBill(vo_to_po(vo));
     }
 
@@ -70,8 +76,10 @@ public class SalesInBill {
      * @return
      */
     public ResultMessage deleteSalesInBill(SalesInBillVO vo) {
-        if (vo.getStatus() == BillStatus.init)
+        if (vo.getStatus() == BillStatus.init) {
+            BillLogHelper.delete(vo.getOperator(), vo.getID());
             return networkService.deleteSalesInBill(vo.ID);
+        }
 
         return ResultMessage.FAILED;
     }
@@ -85,6 +93,8 @@ public class SalesInBill {
     public ResultMessage withdrawSalesInBill(SalesInBillVO vo) {
         vo.setStatus(BillStatus.init);
         vo.setCommit_time(null);
+        BillLogHelper.withdraw(vo.getOperator(), vo.getID());
+        BillSendMessage.withdraw(vo.getOperator(), vo.getID());
         return networkService.updateSalesInBill(vo_to_po(vo));
     }
 
@@ -114,7 +124,8 @@ public class SalesInBill {
         salesInBillVO.setStatus(BillStatus.approval);
         salesInBillVO.setApproval_time(new Time());
         //根据是进货单还是进货退货单决定后面的操作 vo.type
-
+        BillSendMessage.approve(salesInBillVO.getOperator(), userInfo.getCurrentUser(), salesInBillVO.getID());
+        BillLogHelper.approval(userInfo.getCurrentUser(), salesInBillVO.getID());
         //判断是否是进货单
         boolean isIn = salesInBillVO.getType() == SalesInBillType.IN;
         //下面是进货单的操作
@@ -128,6 +139,7 @@ public class SalesInBill {
             for (SalesItemVO item : salesInBillVO.getItemVOS()) {
                 commodityInfo.updateCommodityByIn(item.getId(), item.getNumber(), item.getPrice());
             }
+
             return networkService.updateSalesInBill(vo_to_po(salesInBillVO));
         } else {
             //进货退货单通过审批后 供应商的应付款就增加了
@@ -143,6 +155,10 @@ public class SalesInBill {
     public ResultMessage rejectSalesInBill(SalesInBillVO salesInBillVO) {
         salesInBillVO.setStatus(BillStatus.rejected);
         salesInBillVO.setApproval_time(new Time());
+
+        BillSendMessage.reject(salesInBillVO.getOperator(), userInfo.getCurrentUser(), salesInBillVO.getID());
+        BillLogHelper.reject(userInfo.getCurrentUser(), salesInBillVO.getID());
+
         return networkService.updateSalesInBill(vo_to_po(salesInBillVO));
     }
 

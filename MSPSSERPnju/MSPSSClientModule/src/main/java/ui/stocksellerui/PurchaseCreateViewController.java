@@ -62,7 +62,7 @@ public class PurchaseCreateViewController implements Initializable {
     @FXML
     Button salesRetCreateButton;
     @FXML
-    Button cancelButton, delRowButton, addRowButton, sureButton, chooseButton;
+    Button cancelButton, delRowButton, addRowButton, sureButton, chooseButton, saveButton;
     @FXML
     TableView<PurchaseBill> purchaseBillTableView;
     @FXML
@@ -78,15 +78,18 @@ public class PurchaseCreateViewController implements Initializable {
     @FXML
     TextArea billRemarkArea;
 
-    public void sureButtonAction(ActionEvent e) {
+    public SalesInBillVO saveBill() {
+        if (stockField.getText() == null || stockField.getText().trim().equals("") ||
+                billSupplierField.getText() == null || billSupplierField.getText().trim().equals("")) {
+            dialog.errorInfoDialog("Something null, please check your input.");
+            return null;
+        }
         if (commodityVOArrayList != null && commodityVOArrayList.size() != 0) {
             ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
             for (int i = 0; i < data.size(); i++) {
-
                 SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
                 commodityVOArrayList.add(salesItemVO);
             }
-
             SalesInBillVO salesInBillVO = new SalesInBillVO(null, SalesInBillType.IN, BillStatus.commit);
 
             salesInBillVO.setDAE(DAELabel.getText());
@@ -100,16 +103,35 @@ public class PurchaseCreateViewController implements Initializable {
             } else {
                 salesInBillVO.setPs("无");
             }
+            return salesInBillVO;
+        } else {
+            dialog.errorInfoDialog("You haven't input the commodity list.");
+            return null;
+        }
+    }
+
+    public void saveButtonAction(ActionEvent e) {
+        if (saveBill() != null) {
+            SalesInBillVO salesInBillVO = saveBill();
+            ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
+            if (resultMessage == ResultMessage.SUCCESS) {
+                dialog.infoDialog("Save list successfully.");
+            } else {
+                dialog.errorInfoDialog("Fail to save the list.");
+            }
+        }
+    }
+
+    public void sureButtonAction(ActionEvent e) {
+        if (saveBill() != null) {
+            SalesInBillVO salesInBillVO = saveBill();
             ResultMessage resultMessage = salesmanBillBLService.commitSalesInBill(salesInBillVO);
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
             }
-        } else {
-            dialog.errorInfoDialog("You haven't input the commodity list.");
         }
-
     }
 
 
@@ -302,7 +324,7 @@ public class PurchaseCreateViewController implements Initializable {
     @FXML
     public void salesRetCreateButtonAction(ActionEvent e) throws IOException {
         try {
-            SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent(
+            SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent2(
                     "/view/stockseller/SalesRetCreate.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
@@ -369,9 +391,6 @@ public class PurchaseCreateViewController implements Initializable {
 
     private Initializable replaceSceneContent2(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        // InputStream in =
-        // Thread.currentThread().getContextClassLoader().getResourceAsStream(fxml);
-
         InputStream in = MainApp.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(MainApp.class.getResource(fxml));
@@ -400,5 +419,4 @@ public class PurchaseCreateViewController implements Initializable {
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
     }
-
 }

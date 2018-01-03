@@ -1,5 +1,9 @@
 package blimpl.accountblimpl;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.logblservice.LogBLInfo;
+import blservice.userblservice.UserInfo;
+import network.AccountClientNetworkImpl;
 import network.AccountClientNetworkService;
 import po.AccountPO;
 import util.*;
@@ -12,15 +16,26 @@ import java.util.ArrayList;
  * Created by thinkpad on 2017/11/11.
  */
 public class Account {
-        AccountClientNetworkService networkService;
+    AccountClientNetworkService networkService = new AccountClientNetworkImpl();
+    UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
 
-    public ResultMessage addAccount(AccountVO accountVO){
-       return networkService.addAccount(vo_to_po(accountVO));
+    public ResultMessage addAccount(AccountVO accountVO) {
+        ResultMessage message = networkService.addAccount(vo_to_po(accountVO));
+        if (message == ResultMessage.SUCCESS)
+            if (userInfo.getCurrentUser() != null) {
+                logBLInfo.add(userInfo.getCurrentUser().getID(), "创建了账户" + accountVO.getName());
+            }
+        return message;
     }
 
     public ResultMessage deleteAccount(String name){
-
-        return networkService.deleteAccount(name);
+        ResultMessage message = networkService.deleteAccount(name);
+        if (message == ResultMessage.SUCCESS)
+            if (userInfo.getCurrentUser() != null) {
+                logBLInfo.add(userInfo.getCurrentUser().getID(), "删除了账户 : " + name);
+            }
+        return message;
     }
 
     public ResultMessage modifyAccount(String oldName,String newName){
@@ -29,8 +44,12 @@ public class Account {
         //
         ResultMessage message1 =   networkService.addAccount(new AccountPO(newName,po.getMoney(),po.getCreatetime()));
         ResultMessage message2 =   deleteAccount(oldName);
-        if (message1==message2&&message1.equals(ResultMessage.SUCCESS))
-        return ResultMessage.SUCCESS;
+        if (message1==message2&&message1.equals(ResultMessage.SUCCESS)) {
+            if (userInfo.getCurrentUser() != null) {
+                logBLInfo.add(userInfo.getCurrentUser().getID(), "更新了账户 : " + oldName + " to " + newName);
+            }
+            return ResultMessage.SUCCESS;
+        }
         else
             return ResultMessage.FAILED;
     }
@@ -59,6 +78,7 @@ public class Account {
 
     public void pay(String name,double money){
         AccountPO po = networkService.searchAccountByName(name);
+
         po.setMoney(po.getMoney()-money);
         networkService.updateAccount(po);
     }

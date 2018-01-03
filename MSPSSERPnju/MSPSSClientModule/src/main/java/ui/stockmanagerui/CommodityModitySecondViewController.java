@@ -1,7 +1,6 @@
 package ui.stockmanagerui;
 
 import blimpl.blfactory.BLFactoryImpl;
-import blimpl.commodityblimpl.Commodity;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
@@ -12,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -22,13 +20,11 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import vo.ClassificationVO;
 import vo.CommodityVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -263,10 +259,8 @@ public class CommodityModitySecondViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
 
-        CommodityVO commodityVO = new CommodityVO("吊灯","大","装饰灯具",235,320);
-        commodityVO.setID("001");
-        commodityVO.setAlertNumber(24);
-        //CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
+
+        CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
 
         nameField.setText(commodityVO.getName());
         idLabel.setText(commodityVO.getID());

@@ -1,9 +1,11 @@
 package blimpl.promotionblimpl;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.logblservice.LogBLInfo;
+import blservice.userblservice.UserInfo;
+import network.PromotionClientNetworkImpl;
 import network.PromotionClientNetworkService;
 import po.CustomerPromotionPO;
-import po.GrossPromotionPO;
-import po.GroupPromotionPO;
 import po.PresentationCommodityItemPO;
 import util.*;
 import vo.CustomerPromotionVO;
@@ -16,67 +18,9 @@ import java.util.ArrayList;
  * Created by Hanxinhu at 10:05 2017/12/13/013
  */
 public class CustomerPromotion {
-    private PromotionClientNetworkService networkService  = new PromotionClientNetworkService() {
-        @Override
-        public ResultMessage addCustomerPromotion(CustomerPromotionPO po) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage updateCustomerPromotion(CustomerPromotionPO po) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage deleteCustomerPromotion(String id) {
-            return null;
-        }
-
-        @Override
-        public ArrayList<CustomerPromotionPO> multiSearchCustomerPromotion(ArrayList<CriteriaClause> criteriaClauses) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage addGroupPromotion(GroupPromotionPO po) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage updateGroupPromotion(GroupPromotionPO po) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage deleteGroupPromotion(String id) {
-            return null;
-        }
-
-        @Override
-        public ArrayList<GroupPromotionPO> multiSearchGroupPromotion(ArrayList<CriteriaClause> criteriaClauses) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage addGrossPromotion(GrossPromotionPO po) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage updateGrossPromotion(GrossPromotionPO po) {
-            return null;
-        }
-
-        @Override
-        public ResultMessage deleteGrossPromotion(String id) {
-            return null;
-        }
-
-        @Override
-        public ArrayList<GrossPromotionPO> multiSearchGrossPromotion(ArrayList<CriteriaClause> criteriaClauses) {
-            return null;
-        }
-    };
+    private PromotionClientNetworkService networkService = new PromotionClientNetworkImpl();
+    private UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    private LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
     /**
      * 得到所有当前时间可用的客户促销策略
      *
@@ -101,6 +45,9 @@ public class CustomerPromotion {
      */
     public ResultMessage addCustomerPromotion(CustomerPromotionVO promotionVO) {
         CustomerPromotionPO po = vo_to_po(promotionVO);
+        if (userInfo.getCurrentUser() != null) {
+            logBLInfo.add(userInfo.getCurrentUser().getID(), "新增了客户销售策略" + promotionVO.getId());
+        }
         return networkService.addCustomerPromotion(po);
     }
 
@@ -112,6 +59,8 @@ public class CustomerPromotion {
      */
 
     public ResultMessage updateCustomerPromotion(CustomerPromotionVO promotionVO) {
+        logBLInfo.add(userInfo.getCurrentUser().getID(), "更新了客户销售策略" + promotionVO.getId());
+
         CustomerPromotionPO po = vo_to_po(promotionVO);
         return networkService.updateCustomerPromotion(po);
     }
@@ -124,6 +73,7 @@ public class CustomerPromotion {
      */
 
     public ResultMessage deleteCustomerPromotion(CustomerPromotionVO promotionVO) {
+        logBLInfo.add(userInfo.getCurrentUser().getID(), "删除了客户销售策略" + promotionVO.getId());
 
         return networkService.deleteCustomerPromotion(promotionVO.getId());
     }

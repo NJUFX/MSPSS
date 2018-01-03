@@ -5,7 +5,16 @@ import javafx.beans.property.SimpleStringProperty;
 public class PromotionBySales {
     private final SimpleStringProperty Type = new SimpleStringProperty("");
     private final SimpleStringProperty Information = new SimpleStringProperty("");
-    
+
+    public PromotionBySales(String t, String i) {
+        setInformation(i);
+        setType(t);
+    }
+
+    public PromotionBySales() {
+        this("", "");
+    }
+
     public String getType() {
         return Type.get();
     }

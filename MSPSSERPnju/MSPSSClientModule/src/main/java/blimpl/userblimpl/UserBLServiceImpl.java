@@ -15,11 +15,9 @@ import java.util.ArrayList;
  */
 public class UserBLServiceImpl implements UserBLService, UserInfo, MainBLService {
     private User user;
-    private UserLog userLog;
 
-    public UserBLServiceImpl(User user, UserLog userLog) {
+    public UserBLServiceImpl(User user) {
         this.user = user;
-        this.userLog = userLog;
     }
 
     /**
@@ -71,7 +69,7 @@ public class UserBLServiceImpl implements UserBLService, UserInfo, MainBLService
      */
     @Override
     public ResultMessage updateUser(UserVO userVO) {
-        return user.deleteUser(userVO.getID());
+        return user.updateUser(userVO);
     }
 
     /**
@@ -83,13 +81,13 @@ public class UserBLServiceImpl implements UserBLService, UserInfo, MainBLService
      */
     @Override
     public Log_In_Out_Status login(String ID, String password) {
-        return userLog.login(ID, password);
+        return user.login(ID, password);
     }
 
 
     @Override
     public Log_In_Out_Status logout(String ID) {
-        return userLog.logout(ID);
+        return user.logout(ID);
     }
 
     /**
@@ -101,5 +99,34 @@ public class UserBLServiceImpl implements UserBLService, UserInfo, MainBLService
     @Override
     public UserVO getUser(String id) {
         return user.searchUserByID(id);
+
+    }
+
+    /**
+     * 得到当前的使用者
+     *
+     * @return
+     */
+    @Override
+    public UserVO getCurrentUser() {
+        return user.getCurrentUser();
+    }
+
+    /**
+     * 得到库存管理人员的邮箱地址
+     * 便与通知库存报警信息
+     */
+    @Override
+    public ArrayList<String> getStockManagerMails() {
+        return user.getStockManagerMails();
+    }
+
+    /**
+     * 得到总经理的邮箱
+     * 以提醒总经理审批
+     */
+    @Override
+    public ArrayList<String> getChiefManagerMails() {
+        return user.getChiefManagerMails();
     }
 }
