@@ -93,7 +93,8 @@ public class SalesRetCreateViewController implements Initializable {
 
             SalesOutBillVO.setDAE(DAELabel.getText());
             SalesOutBillVO.setStorage(stockField.getText());
-            SalesOutBillVO.setCustomerVO(customerVO);
+            SalesOutBillVO.setCustomerVO(customerBLInfo.getCustomerByID(billSupplierField.getText()));
+            System.out.println(customerVO.getID()+"bill");
             SalesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             SalesOutBillVO.setSumAfterDiscount(Double.parseDouble(billTotalMoney.getText()));
             SalesOutBillVO.setItemVOS(commodityVOArrayList);

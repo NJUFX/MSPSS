@@ -48,10 +48,12 @@ public class SalesOutBill {
         if (vo.getID() == null) {
             String id = networkService.getSalesOutBillID(vo.getType());
             vo.setID(id);
-            BillLogHelper.init(userInfo.getCurrentUser(), id);
+            System.out.println(vo.getID());
+            System.out.println(id+" 2");
+            BillLogHelper.init(LoginController.getCurrentUser(), id);
             return networkService.addSalesOutBill(vo_to_po(vo));
         }
-        BillLogHelper.update(userInfo.getCurrentUser(), vo.getID());
+        BillLogHelper.update(LoginController.getCurrentUser(), vo.getID());
 
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
@@ -170,7 +172,7 @@ public class SalesOutBill {
         String operatorID = vo.getOperator() != null ? vo.getOperator().getID() : null;
         String managerID = vo.getManager() != null ? vo.getManager().getID() : null;
         String customerID = vo.getCustomerVO() != null ? vo.getCustomerVO().getID() : null;
-
+        System.out.println("vtp"+customerID);
         ArrayList<SalesItemPO> itemPOS = new ArrayList<>();
 
         for (SalesItemVO itemVO : vo.getItemVOS()
