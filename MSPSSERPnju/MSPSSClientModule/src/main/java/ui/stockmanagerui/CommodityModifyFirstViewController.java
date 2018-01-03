@@ -127,9 +127,10 @@ public class CommodityModifyFirstViewController implements Initializable {
     public void nextOperationButtonAction(ActionEvent e) throws IOException {
         try {
             if (id_to_modify_Field.getText() != null && !id_to_modify_Field.getText().equals("")) {
+                CommodityModitySecondViewController.id_to_modify = id_to_modify_Field.getText();
                 CommodityModitySecondViewController controller = (CommodityModitySecondViewController) replaceSceneContent(
                         "/view/stockmanager/commodityModifySecond.fxml");
-                CommodityModitySecondViewController.id_to_modify = id_to_modify_Field.getText();
+
             }
         } catch (Exception e1) {
             // TODO Auto-generated catch block

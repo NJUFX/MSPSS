@@ -2,6 +2,7 @@ package blimpl.billblimpl;
 
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.userblservice.UserInfo;
+import ui.adminui.LoginController;
 import util.ResultMessage;
 import util.SendMailImpl;
 import util.SendMailService;
@@ -22,7 +23,7 @@ public class BillSendMessage {
         ArrayList<String> mails = userInfo.getChiefManagerMails();
         for (int i = 0; i < mails.size(); i++) {
             service.sendMail("总经理", mails.get(i)
-                    , userVO + "提交了" + getName(ID) + "等待您的审批", userInfo.getCurrentUser().getID() + "提交了" + getName(ID) + ":" + ID + "等待您的审批");
+                    , userVO + "提交了" + getName(ID) + "等待您的审批", LoginController.getCurrentUser().getID() + "提交了" + getName(ID) + ":" + ID + "等待您的审批");
         }
         return ResultMessage.SUCCESS;
     }
@@ -31,7 +32,7 @@ public class BillSendMessage {
         ArrayList<String> mails = userInfo.getChiefManagerMails();
         for (int i = 0; i < mails.size(); i++) {
             service.sendMail("总经理", mails.get(i)
-                    , userVO + "撤回了" + getName(ID), userInfo.getCurrentUser().getID() + "撤回了" + getName(ID) + ":" + ID + " 您不用审批了");
+                    , userVO + "撤回了" + getName(ID), LoginController.getCurrentUser().getID() + "撤回了" + getName(ID) + ":" + ID + " 您不用审批了");
         }
         return ResultMessage.SUCCESS;
     }

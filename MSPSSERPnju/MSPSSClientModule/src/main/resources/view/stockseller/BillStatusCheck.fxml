@@ -150,6 +150,7 @@
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="全部状态"/>
+                    <String fx:value="已保存"/>
                     <String fx:value="已提交"/>
                     <String fx:value="已审批"/>
                     <String fx:value="审批通过"/>

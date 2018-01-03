@@ -28,7 +28,8 @@ public class StockBill implements StockBillInfo {
     @Override
     public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list) {
         ArrayList<StockBillItemVO> itemVOS = new ArrayList<>();
-
+        if (list==null)
+            return ResultMessage.FAILED;
         for (PresentationCommodityItemVO pre : list) {
             CommodityVO commodityVO = commodityInfoService.getCommodity(pre.getCommodityID());
             itemVOS.add(new StockBillItemVO(commodityVO, pre.getNumber()));

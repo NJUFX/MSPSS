@@ -28,9 +28,7 @@ import util.BillStatus;
 import util.ResultMessage;
 import util.SalesInBillType;
 import util.SalesOutBillType;
-import vo.CustomerVO;
-import vo.SalesOutBillVO;
-import vo.SalesItemVO;
+import vo.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -84,7 +82,7 @@ public class SalesRetCreateViewController implements Initializable {
             dialog.errorInfoDialog("Something null, please check your input.");
             return null;
         }
-        if (commodityVOArrayList != null && commodityVOArrayList.size() != 0) {
+        if (commodityVOArrayList != null) {
             ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
             for (int i = 0; i < data.size(); i++) {
                 SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
@@ -95,7 +93,8 @@ public class SalesRetCreateViewController implements Initializable {
 
             SalesOutBillVO.setDAE(DAELabel.getText());
             SalesOutBillVO.setStorage(stockField.getText());
-            SalesOutBillVO.setCustomerVO(customerVO);
+            SalesOutBillVO.setCustomerVO(customerBLInfo.getCustomerByID(billSupplierField.getText()));
+            System.out.println(customerVO.getID()+"bill");
             SalesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             SalesOutBillVO.setSumAfterDiscount(Double.parseDouble(billTotalMoney.getText()));
             SalesOutBillVO.setItemVOS(commodityVOArrayList);
@@ -115,19 +114,8 @@ public class SalesRetCreateViewController implements Initializable {
         if (saveBill() != null) {
             SalesOutBillVO salesOutBillVO = saveBill();
             ResultMessage resultMessage = salesmanBillBLService.saveSalesOutBill(salesOutBillVO);
-            if (resultMessage == ResultMessage.SUCCESS) {
-                dialog.infoDialog("Save list successfully.");
-            } else {
-                dialog.errorInfoDialog("Fail to save the list.");
-            }
-        }
-    }
-
-    public void sureButtonAction(ActionEvent e) {
-        if (saveBill() != null) {
-            SalesOutBillVO salesOutBillVO = saveBill();
-            ResultMessage resultMessage = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
-            if (resultMessage == ResultMessage.SUCCESS) {
+            ResultMessage re2 = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
+            if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
@@ -135,6 +123,27 @@ public class SalesRetCreateViewController implements Initializable {
         }
     }
 
+    public void sureButtonAction(ActionEvent e) {
+        if (saveBill() != null) {
+            SalesOutBillVO salesOutBillVO = saveBill();
+            ResultMessage resultMessage = salesmanBillBLService.saveSalesOutBill(salesOutBillVO);
+            ResultMessage re2 = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
+            if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
+                dialog.infoDialog("Commit list successfully.");
+            } else {
+                dialog.errorInfoDialog("Fail to commit the list.");
+            }
+        }
+    }
+
+    @FXML
+    public void idFieldAction(ActionEvent e){
+        CommodityVO commodityVO = commodityInfoService.getCommodity(idField.getText().trim());
+        nameField.setText(commodityVO.getName());
+        priceLabel.setText(String.valueOf(commodityVO.getImportCost()));
+        typeField.setText(commodityVO.getType());
+
+    }
 
     public void billSupplierFieldAction(ActionEvent e) {
         if (billSupplierField.getText() != null && !billSupplierField.getText().trim().equals("")) {
@@ -404,6 +413,7 @@ public class SalesRetCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
+        showTableView();
     }
 }
 

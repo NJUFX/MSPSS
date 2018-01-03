@@ -14,13 +14,13 @@
         <property name="ps" column="ps" type="string"/>
         <property name="managerID" column="manager_id" type ="string"/>
         <property name="status" column="status" type="int"/>
-
+        <property name="customerID" column="customer_id" type="string"></property>
         <property name="init_time" column="init_time" type="string"/>
         <property name="commit_time" column="commit_time" type="string"/>
         <property name="approval_time" column="approval_time" type="string"/>
 
 
-        <property name="allowance" column="allowance" type="int"/>
+        <property name="allowance" column="allowance" type="double"/>
         <property name="voucher" column="voucher" type="int"/>
         <property name="sumBeforeDiscount" column="sum_before_discount" type="double"/>
         <property name="sumAfterDiscount" column="sum_after_discount" type="double"/>

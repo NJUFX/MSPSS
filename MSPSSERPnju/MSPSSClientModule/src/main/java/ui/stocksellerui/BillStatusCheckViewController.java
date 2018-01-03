@@ -4,6 +4,7 @@ import auxiliary.BillCheckTable;
 import auxiliary.SalesInBill;
 import auxiliary.SalesOutBill;
 import blimpl.blfactory.BLFactoryImpl;
+import blservice.billblservice.SalesmanBillBLService;
 import blservice.mainblservice.MainBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,6 +41,7 @@ public class BillStatusCheckViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
+    SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
     @FXML
     Button customerManageButton;
     @FXML
@@ -87,6 +89,14 @@ public class BillStatusCheckViewController implements Initializable {
         int size = data.size();
         if (statusScreenBox.getValue() == null || statusScreenBox.getValue().equals("全部状态")) {
             return;
+        } else if (statusScreenBox.getValue().equals("已保存")) {
+            for (int j = 0; j < size; j++) {
+                for (int i = 0; i < data.size(); i++) {
+                    if (!data.get(i).getStatus().equals("已保存")) {
+                        data.remove(i);
+                    }
+                }
+            }
         } else if (statusScreenBox.getValue().equals("已提交")) {
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < data.size(); i++) {
@@ -245,17 +255,16 @@ public class BillStatusCheckViewController implements Initializable {
     }
 
     public void addPurchaseBillRow() {
-        ArrayList<SalesInBillVO> list = new ArrayList<>();
 
-        list.add(new SalesInBillVO("JHD01", SalesInBillType.OUT, BillStatus.commit));
-        list.add(new SalesInBillVO("JHD021", SalesInBillType.OUT, BillStatus.approval));
-        list.add(new SalesInBillVO("JHD1001", SalesInBillType.OUT, BillStatus.approval));
+        ArrayList<SalesInBillVO> list = salesmanBillBLService.getMySalesInBill(LoginController.getCurrentUser().getID());
+        //ArrayList<SalesInBillVO> list = new ArrayList<>();
+
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
             SalesInBillType salesInBillType = list.get(i).getType();
             String name = "", status = "";
-            if (SalesInBillType.OUT == salesInBillType) {
+            if (SalesInBillType.IN == salesInBillType) {
                 name = "进货单";
                 BillStatus billStatus = list.get(i).getStatus();
                 if (BillStatus.init == billStatus) {
@@ -274,17 +283,13 @@ public class BillStatusCheckViewController implements Initializable {
     }
 
     public void addPurcRetBillRow() {
-        ArrayList<SalesInBillVO> list = new ArrayList<>();
-
-        list.add(new SalesInBillVO("JHTHD0", SalesInBillType.IN, BillStatus.commit));
-        list.add(new SalesInBillVO("JHTHD0006", SalesInBillType.IN, BillStatus.approval));
-        list.add(new SalesInBillVO("JHThD41", SalesInBillType.IN, BillStatus.init));
+        ArrayList<SalesInBillVO> list = salesmanBillBLService.getMySalesInBill(LoginController.getCurrentUser().getID());
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
             SalesInBillType salesInBillType = list.get(i).getType();
             String name = "", status = "";
-            if (SalesInBillType.IN == salesInBillType) {
+            if (SalesInBillType.OUT == salesInBillType) {
                 name = "进货退货单";
                 BillStatus billStatus = list.get(i).getStatus();
                 if (BillStatus.init == billStatus) {
@@ -303,9 +308,7 @@ public class BillStatusCheckViewController implements Initializable {
     }
 
     public void addSalesBillRow() {
-        ArrayList<SalesOutBillVO> list = new ArrayList<>();
-        list.add(new SalesOutBillVO("XSD01", SalesOutBillType.OUT, BillStatus.commit));
-        list.add(new SalesOutBillVO("XSD0121", SalesOutBillType.OUT, BillStatus.rejected));
+        ArrayList<SalesOutBillVO> list = salesmanBillBLService.getMySalesOutBill(LoginController.getCurrentUser().getID());
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
@@ -330,9 +333,7 @@ public class BillStatusCheckViewController implements Initializable {
     }
 
     public void addSalesRetBill() {
-        ArrayList<SalesOutBillVO> list = new ArrayList<>();
-        list.add(new SalesOutBillVO("XSTHD00001", SalesOutBillType.RETURN, BillStatus.rejected));
-        list.add(new SalesOutBillVO("XSTHD01", SalesOutBillType.RETURN, BillStatus.init));
+        ArrayList<SalesOutBillVO> list = salesmanBillBLService.getMySalesOutBill(LoginController.getCurrentUser().getID());
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
