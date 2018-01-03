@@ -3,6 +3,7 @@ package blimpl.billblimpl;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.customerblservice.CustomerBLInfo;
+import blservice.logblservice.LogBLInfo;
 import blservice.userblservice.UserInfo;
 import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
@@ -26,6 +27,7 @@ public class FinanceBill {
     private static BillClientNetworkService networkService = new BillClientNetworkImpl();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
+    private static LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
     /**
      * 添加应收应付单
      *
@@ -41,10 +43,18 @@ public class FinanceBill {
             String ID = networkService.getFinanceBillID(vo.getType());
             vo.setID(ID);
             FinanceBillPO po = vo_to_po(vo);
+            if (userInfo.getCurrentUser() != null) {
+                BillLogHelper.init(userInfo.getCurrentUser(), ID);
+            }
             return networkService.addFinanceBill(po);
         } else
 
+        {
+            if (userInfo.getCurrentUser() != null) {
+                BillLogHelper.update(userInfo.getCurrentUser(), vo.getID());
+            }
             return networkService.updateFinanceBill(vo_to_po(vo));
+        }
     }
 
     /**
@@ -57,7 +67,7 @@ public class FinanceBill {
         vo.setStatus(BillStatus.commit);
         vo.setCommit_time(new Time());
 
-
+        BillLogHelper.commit(userInfo.getCurrentUser(), vo.getID());
         return networkService.updateFinanceBill(vo_to_po(vo));
     }
 
@@ -68,6 +78,7 @@ public class FinanceBill {
      * @return
      */
     public ResultMessage deleteFinanceBill(FinanceBillVO vo) {
+        BillLogHelper.delete(userInfo.getCurrentUser(), vo.getID());
 
         return networkService.deleteFinanceBill(vo.getID());
     }
@@ -94,7 +105,8 @@ public class FinanceBill {
     public ResultMessage withdrawFinanceBill(FinanceBillVO vo) {
         vo.setStatus(BillStatus.rejected);
         vo.setApproval_time(new Time());
-
+        BillLogHelper.withdraw(userInfo.getCurrentUser(), vo.getID());
+        BillSendMessage.withdraw(userInfo.getCurrentUser(), vo.getID());
         return networkService.updateFinanceBill(vo_to_po(vo));
     }
 
@@ -128,13 +140,16 @@ public class FinanceBill {
             //付款后 客户的应收减少
             customerBLInfo.changeYingShou(financeBillVO.getCustomerVO().getID(), financeBillVO.getSum());
         }
+        BillLogHelper.approval(userInfo.getCurrentUser(), financeBillVO.getID());
+        BillSendMessage.approve(financeBillVO.getOperator(), financeBillVO.getManagerVO(), financeBillVO.getID());
         return networkService.updateFinanceBill(vo_to_po(financeBillVO));
     }
 
     public ResultMessage rejectFinanceBill(FinanceBillVO financeBillVO) {
         financeBillVO.setApproval_time(new Time());
         financeBillVO.setStatus(BillStatus.rejected);
-
+        BillLogHelper.reject(userInfo.getCurrentUser(), financeBillVO.getID());
+        BillSendMessage.reject(financeBillVO.getOperator(), financeBillVO.getManagerVO(), financeBillVO.getID());
         return networkService.updateFinanceBill(vo_to_po(financeBillVO));
     }
 

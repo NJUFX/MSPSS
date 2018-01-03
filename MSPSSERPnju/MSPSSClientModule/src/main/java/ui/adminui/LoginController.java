@@ -1,18 +1,20 @@
 package ui.adminui;
 
+import blimpl.blfactory.BLFactoryImpl;
 import blservice.mainblservice.MainBLService;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import main.MainApp;
+import blservice.userblservice.UserBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import main.MainApp;
 import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.chiefmanagerui.ChiefManagerMainViewController;
@@ -20,16 +22,12 @@ import ui.common.Dialog;
 import ui.financemanagerui.FinanceManagerMainViewController;
 import ui.stockmanagerui.StockManagerMainViewController;
 import ui.stocksellerui.StockSellerMainViewController;
-import util.Encryptor;
 import util.Kind_Of_Users;
 import vo.UserVO;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import blimpl.blfactory.BLFactoryImpl;
-import blservice.userblservice.UserBLService;
 
 /**
  * author:Jiang_Chen date:2017/12/12
@@ -101,10 +99,10 @@ public class LoginController implements Initializable {
     public void userLogin(String id, String password) {
         // 判断id是否在系统里
         // 判断密码是否正确
-        //Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Sucess;
+        //Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Success;
         //System.out.println(userBLService.searchUserByID(id).getID());
         Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
-        if (log_in_out_status == Log_In_Out_Status.Login_Sucess) {
+        if (log_in_out_status == Log_In_Out_Status.Login_Success) {
             if (id.equals("admin")) {
                 currentUser = userBLService.searchUserByID(id);
                 dialog.infoDialog("Login Successfully.");

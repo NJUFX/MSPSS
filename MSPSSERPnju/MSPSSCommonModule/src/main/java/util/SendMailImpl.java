@@ -1,5 +1,7 @@
 package util;
-import javax.mail.*;
+
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
@@ -88,7 +90,7 @@ public class SendMailImpl implements SendMailService {
      * @return
      * @throws Exception
      */
-    public static MimeMessage createMimeMessage(Session session,String receiverName, String receiverAddress,String subject, String content) throws Exception {
+    private static MimeMessage createMimeMessage(Session session, String receiverName, String receiverAddress, String subject, String content) throws Exception {
         // 1. 创建一封邮件
         MimeMessage message = new MimeMessage(session);
 
@@ -110,5 +112,14 @@ public class SendMailImpl implements SendMailService {
         message.saveChanges();
 
         return message;
+    }
+
+    private static SendMailImpl sendMail;
+
+    public static SendMailService getInstance() {
+        if (sendMail == null) {
+            sendMail = new SendMailImpl();
+        }
+        return sendMail;
     }
 }

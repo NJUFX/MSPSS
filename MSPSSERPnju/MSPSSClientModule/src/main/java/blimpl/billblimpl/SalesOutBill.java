@@ -47,8 +47,11 @@ public class SalesOutBill {
         if (vo.getID() == null) {
             String id = networkService.getSalesOutBillID(vo.getType());
             vo.setID(id);
+            BillLogHelper.init(userInfo.getCurrentUser(), id);
             return networkService.addSalesOutBill(vo_to_po(vo));
         }
+        BillLogHelper.update(userInfo.getCurrentUser(), vo.getID());
+
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
 
@@ -65,7 +68,8 @@ public class SalesOutBill {
         vo.setStatus(BillStatus.commit);
         ArrayList<PresentationCommodityItemVO> list = vo.getPresentations();
         stockBillInfo.addStockPresentationBill(list);
-
+        BillLogHelper.commit(userInfo.getCurrentUser(), vo.getID());
+        BillSendMessage.commit(userInfo.getCurrentUser(), vo.getID());
         //开始将单据赠送出去
 
         return networkService.updateSalesOutBill(vo_to_po(vo));
@@ -80,8 +84,10 @@ public class SalesOutBill {
      * @return
      */
     public ResultMessage deleteSalesOutBill(SalesOutBillVO vo) {
-        if (vo.getStatus() == BillStatus.init)
+        if (vo.getStatus() == BillStatus.init) {
+            BillLogHelper.delete(userInfo.getCurrentUser(), vo.getID());
             return networkService.deleteSalesOutBill(vo.getID());
+        }
         return ResultMessage.FAILED;
     }
 
@@ -107,6 +113,8 @@ public class SalesOutBill {
     public ResultMessage withdrawSalesOutBill(SalesOutBillVO vo) {
         vo.setStatus(BillStatus.init);
         vo.setCommit_time(null);
+        BillSendMessage.withdraw(userInfo.getCurrentUser(), vo.getID());
+        BillLogHelper.withdraw(userInfo.getCurrentUser(), vo.getID());
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
 
@@ -119,12 +127,16 @@ public class SalesOutBill {
     public ResultMessage approveSalesOutBill(SalesOutBillVO salesOutBillVO) {
         salesOutBillVO.setStatus(BillStatus.approval);
         salesOutBillVO.setApproval_time(new Time());
+        BillSendMessage.approve(salesOutBillVO.getOperator(), userInfo.getCurrentUser(), salesOutBillVO.getID());
+        BillLogHelper.approval(userInfo.getCurrentUser(), salesOutBillVO.getID());
         return networkService.updateSalesOutBill(vo_to_po(salesOutBillVO));
     }
 
     public ResultMessage rejectSalesOutBill(SalesOutBillVO salesOutBillVO) {
         salesOutBillVO.setApproval_time(new Time());
         salesOutBillVO.setStatus(BillStatus.rejected);
+        BillSendMessage.reject(salesOutBillVO.getOperator(), userInfo.getCurrentUser(), salesOutBillVO.getID());
+        BillLogHelper.reject(userInfo.getCurrentUser(), salesOutBillVO.getID());
         return networkService.updateSalesOutBill(vo_to_po(salesOutBillVO));
     }
 
