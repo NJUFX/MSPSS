@@ -2,6 +2,7 @@ package auxiliary;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.RadioButton;
 
 public class UserTable {
     private final SimpleStringProperty Name = new SimpleStringProperty("");

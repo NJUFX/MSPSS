@@ -114,11 +114,11 @@ public class StockCheckShowViewController implements Initializable {
     public void sureButtonAction(ActionEvent e) {
         ObservableList<StockCheckTable> data = stockCheckTableTableView.getItems();
         data.clear();
-        if (startTime != null && endTime != null) {
+        if (startTime != null && endTime != null && startTime.getValue() != null && endTime.getValue() != null) {
             LocalDate start = startTime.getValue();
             LocalDate end = endTime.getValue();
             LocalDate tmp = start;
-            if (start.compareTo(end) > 0) {
+            if (start.isAfter(end)) {
                 start = end;
                 end = tmp;
             }
@@ -134,6 +134,8 @@ public class StockCheckShowViewController implements Initializable {
                 StockCheckTable stockCheckTable = new StockCheckTable(type, String.valueOf(stockVO.number), String.valueOf(stockVO.price));
                 data.add(stockCheckTable);
             }
+        }else{
+            dialog.errorInfoDialog("Something null, please check your input.");
         }
     }
 

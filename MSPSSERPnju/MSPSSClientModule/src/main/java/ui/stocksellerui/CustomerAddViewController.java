@@ -57,7 +57,7 @@ public class CustomerAddViewController implements Initializable {
     ComboBox<String> categoryBox, levelBox;
 
     @FXML
-    Label idLabel, workerLabel,incomemoneyField, paymoneyField;
+    Label idLabel, workerLabel, incomemoneyField, paymoneyField;
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
@@ -78,10 +78,12 @@ public class CustomerAddViewController implements Initializable {
                     inValueField.getText() != null && !inValueField.getText().trim().equals("") &&
                     incomemoneyField.getText() != null && !incomemoneyField.getText().equals("") &&
                     paymoneyField.getText() != null && !paymoneyField.getText().trim().equals("")) {
-                CustomerVO customerVO = new CustomerVO("", kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
+                CustomerVO customerVO = new CustomerVO(null, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
                         addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
                         Double.parseDouble(paymoneyField.getText().trim()), workerLabel.getText().trim());
+                System.out.println("SUCC");
                 ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
+                System.out.println("SUCC2");
                 if (resultMessage == ResultMessage.SUCCESS) {
                     dialog.infoDialog("Add a customer successfully.");
                 } else {

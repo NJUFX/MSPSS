@@ -69,7 +69,7 @@ public class UserBLServiceImpl implements UserBLService, UserInfo, MainBLService
      */
     @Override
     public ResultMessage updateUser(UserVO userVO) {
-        return user.deleteUser(userVO.getID());
+        return user.updateUser(userVO);
     }
 
     /**

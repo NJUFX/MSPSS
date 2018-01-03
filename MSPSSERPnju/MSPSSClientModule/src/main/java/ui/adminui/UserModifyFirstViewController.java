@@ -64,7 +64,6 @@ public class UserModifyFirstViewController implements Initializable {
                 dialog.errorInfoDialog("Please input the id of user your want to modify.");
             } else {
                 id_to_modify = idField.getText().trim();
-                UserModifyViewController.id_to_modify = id_to_modify;
                 UserModifyViewController controller = (UserModifyViewController) replaceSceneContent("/view/admin/UserModifyView.fxml");
             }
         } catch (Exception e1) {
