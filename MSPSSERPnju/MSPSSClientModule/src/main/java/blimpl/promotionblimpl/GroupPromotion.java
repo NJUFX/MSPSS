@@ -1,9 +1,10 @@
 package blimpl.promotionblimpl;
 
+import blimpl.blfactory.BLFactoryImpl;
+import blservice.logblservice.LogBLInfo;
+import blservice.userblservice.UserInfo;
 import network.PromotionClientNetworkImpl;
 import network.PromotionClientNetworkService;
-import po.CustomerPromotionPO;
-import po.GrossPromotionPO;
 import po.GroupPromotionPO;
 import util.*;
 import vo.GroupPromotionVO;
@@ -16,7 +17,8 @@ import java.util.ArrayList;
  */
 public class GroupPromotion {
     private PromotionClientNetworkService networkService  = new PromotionClientNetworkImpl();
-
+    private UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    private LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
 
     /**
      * 添加特价包促销策略
@@ -26,6 +28,7 @@ public class GroupPromotion {
      */
 
     public ResultMessage addGroupPromotion(GroupPromotionVO groupPromotionVO) {
+        logBLInfo.add(userInfo.getCurrentUser().getID(), "增加了特价包销售策略" + groupPromotionVO.getId());
         return networkService.addGroupPromotion(vo_to_po(groupPromotionVO));
     }
 
@@ -36,8 +39,9 @@ public class GroupPromotion {
      * @return
      */
 
-    public ResultMessage updateGroupPromotion(GroupPromotionVO groupPromotionVO)
-    {
+    public ResultMessage updateGroupPromotion(GroupPromotionVO groupPromotionVO) {
+        logBLInfo.add(userInfo.getCurrentUser().getID(), "更新了特价包销售策略" + groupPromotionVO.getId());
+
         return networkService.updateGroupPromotion(vo_to_po(groupPromotionVO));
     }
 
@@ -49,6 +53,8 @@ public class GroupPromotion {
      */
 
     public ResultMessage deleteGroupPromotion(GroupPromotionVO groupPromotionVO) {
+        logBLInfo.add(userInfo.getCurrentUser().getID(), "删除了特价包销售策略" + groupPromotionVO.getId());
+
         return networkService.deleteCustomerPromotion(groupPromotionVO.getId());
     }
 

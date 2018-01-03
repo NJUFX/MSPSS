@@ -42,9 +42,17 @@ public class CashCostBill {
         if (cashCostBillVO.getID() == null) {
             String ID = networkService.getCashCostBillID();
             cashCostBillVO.setID(ID);
+            if (userInfo.getCurrentUser() != null) {
+                BillLogHelper.init(userInfo.getCurrentUser(), ID);
+            }
             return networkService.addCashCostBill(vo_to_po(cashCostBillVO));
-        } else
+        } else {
+            if (userInfo.getCurrentUser() != null) {
+                BillLogHelper.update(userInfo.getCurrentUser(), cashCostBillVO.getID());
+
+            }
             return networkService.updateCashCostBill(vo_to_po(cashCostBillVO));
+        }
     }
 
 
@@ -58,6 +66,10 @@ public class CashCostBill {
     public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO) {
         cashCostBillVO.setStatus(BillStatus.commit);
         cashCostBillVO.setCommit_time(new Time());
+        if (userInfo.getCurrentUser() != null) {
+            BillLogHelper.commit(userInfo.getCurrentUser(), cashCostBillVO.getID());
+            BillSendMessage.commit(userInfo.getCurrentUser(), cashCostBillVO.getID());
+        }
         return networkService.updateCashCostBill(vo_to_po(cashCostBillVO));
     }
 
@@ -70,10 +82,12 @@ public class CashCostBill {
      * @return
      */
     public ResultMessage deleteCashCostBill(CashCostBillVO cashCostBillVO) {
+        BillLogHelper.delete(userInfo.getCurrentUser(), cashCostBillVO.getID());
+
         return networkService.deleteCashCostBill(cashCostBillVO.getID());
     }
 
-    ;
+
 
     /**
      * 得到某操作员创建的所有现金费用单
@@ -97,7 +111,10 @@ public class CashCostBill {
     public ResultMessage withdrawCashCostBill(CashCostBillVO cashCostBillVO) {
         cashCostBillVO.setStatus(BillStatus.init);
         cashCostBillVO.setCommit_time(null);
-
+        if (userInfo.getCurrentUser() != null) {
+            BillLogHelper.withdraw(userInfo.getCurrentUser(), cashCostBillVO.getID());
+            BillSendMessage.withdraw(userInfo.getCurrentUser(), cashCostBillVO.getID());
+        }
         return networkService.updateCashCostBill(vo_to_po(cashCostBillVO));
     }
 
@@ -122,14 +139,22 @@ public class CashCostBill {
         vo.setApproval_time(new Time());
         vo.setStatus(BillStatus.approval);
         //完成账户余额的改变
+
         accountBLInfo.pay(vo.accountVO.getName(), vo.getSum());
+        if (userInfo.getCurrentUser() != null) {
+            BillLogHelper.approval(userInfo.getCurrentUser(), vo.getID());
+            BillSendMessage.approve(vo.getOperator(), vo.getManager(), vo.getID());
+        }
         return networkService.updateCashCostBill(vo_to_po(vo));
     }
 
     public ResultMessage rejectCashCostBill(CashCostBillVO vo) {
         vo.setApproval_time(new Time());
         vo.setStatus(BillStatus.rejected);
-
+        if (userInfo.getCurrentUser() != null) {
+            BillSendMessage.reject(vo.getOperator(), vo.getManager(), vo.getID());
+            BillLogHelper.reject(vo.manager, vo.getID());
+        }
         return networkService.updateCashCostBill(vo_to_po(vo));
     }
 

@@ -98,7 +98,7 @@ public class UserBLService_Stub implements UserBLService {
                     if (!user.getPassword().equals(password)) {//输入密码不正确
                         return Log_In_Out_Status.Login_PasswordWrong;
                     }
-                    return Log_In_Out_Status.Login_Sucess;//登陆成功
+                    return Log_In_Out_Status.Login_Success;//登陆成功
                 }
             }
         }

@@ -45,4 +45,16 @@ public class LogBLServiceImpl implements LogBLService,LogBLInfo{
     public ArrayList<LogVO> multiSearch(LogFilterVO filterVO) {
         return log.multiSearchLog(filterVO);
     }
+
+    /**
+     * 操作的产生者
+     *
+     * @param operateID
+     * @param operate
+     * @return
+     */
+    @Override
+    public ResultMessage add(String operateID, String operate) {
+        return log.add(new LogVO(operateID, new Time(), operate));
+    }
 }
