@@ -1,10 +1,11 @@
 package blservice.stockbl;
 
+import util.Time;
+import vo.StockInventoryVO;
 import vo.StockVO;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import util.Time;
 /**
  * Project_Name ERPnju
  * Author: HanXinHu
@@ -19,6 +20,13 @@ public interface StockBLService {
      * @param endTime
      */
     public List<StockVO> viewStock(Time startTime, Time endTime);
+
+    /**
+     * 库存盘点
+     *
+     * @return
+     */
+    public ArrayList<StockInventoryVO> viewInventory();
 
 
 }

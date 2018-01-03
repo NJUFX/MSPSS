@@ -3,6 +3,7 @@ package ui.stockmanagerui;
 import auxiliary.StockInventory;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.mainblservice.MainBLService;
+import blservice.stockbl.StockBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +32,7 @@ import java.util.ResourceBundle;
 public class StockInventoryViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
-
+    StockBLService stockBLService = new BLFactoryImpl().getStockBLService();
 
     @FXML
     Button BackToLogin;
@@ -89,7 +90,8 @@ public class StockInventoryViewController implements Initializable {
      */
     public void addRow() {
         ObservableList<StockInventory> data = stockInventoryTable.getItems();
-        StockInventory stockInventory = new StockInventory("lamp", "000000", "450");
+        //stockBLService.
+        StockInventory stockInventory = new StockInventory();
         data.add(stockInventory);
     }
 

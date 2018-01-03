@@ -17,13 +17,19 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
    private Commodity commodity;
    private Classification classification;
 
-    CommodityBLImpl(Commodity commodity, Classification classification) {
+    public CommodityBLImpl() {
+        commodity = new Commodity();
+        classification = new Classification();
+    }
+
+    public CommodityBLImpl(Commodity commodity, Classification classification) {
         this.commodity = commodity;
         this.classification = classification;
     }
 
     @Override
     public ResultMessage addCommodity(CommodityVO cvo) {
+
         return commodity.addCommodity(cvo);
     }
 
