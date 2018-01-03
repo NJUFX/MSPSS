@@ -146,7 +146,7 @@ public class BLFactoryImpl implements BLFactoryService {
 
     @Override
     public GeneralAccountBLService getGeneralAccountBLService() {
-        return null;
+        return GeneralAccountBLFactory.getGeneralAccountBLService();
     }
 
     @Override

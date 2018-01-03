@@ -5,6 +5,7 @@ import blservice.stockbl.StockBLService;
 import util.ResultMessage;
 import util.Time;
 import vo.ChangeInfoVO;
+import vo.StockInventoryVO;
 import vo.StockVO;
 
 import java.util.ArrayList;
@@ -29,5 +30,15 @@ public class StockController implements StockBLService,StockBLInfo {
     @Override
     public ResultMessage updateStock(ArrayList<ChangeInfoVO> change) {
         return stock.addStock(change);
+    }
+
+    /**
+     * 库存盘点
+     *
+     * @return
+     */
+    @Override
+    public ArrayList<StockInventoryVO> viewInventory() {
+        return stock.viewInventory();
     }
 }

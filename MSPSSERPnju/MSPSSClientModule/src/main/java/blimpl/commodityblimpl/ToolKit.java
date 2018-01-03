@@ -6,6 +6,7 @@ package blimpl.commodityblimpl;
  */
 public class ToolKit {
     public static String generateID(String id,int num){
+
         return null;
     }
 }

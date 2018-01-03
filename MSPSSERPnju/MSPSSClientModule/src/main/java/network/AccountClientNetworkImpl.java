@@ -20,7 +20,7 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     public AccountClientNetworkImpl() {
         try {
-            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("rmi://106.14.188.84:1099/AccountServerNetworkService");
+            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("AccountServerNetworkService");
         } catch (NotBoundException e) {
             System.err.println("Client.network.AccountServerNetworkService: Not bound, trying to connect");
             e.printStackTrace();

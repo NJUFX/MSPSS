@@ -1,9 +1,6 @@
 package blimpl.billblimpl;
 
-import blservice.billblservice.FinanceBillBLService;
-import blservice.billblservice.ManagerBillBLService;
-import blservice.billblservice.SalesmanBillBLService;
-import blservice.billblservice.StockManagerBillBLService;
+import blservice.billblservice.*;
 import blstubdriver.billstubdriver.ManagerBLServiceStub;
 
 /**
@@ -40,6 +37,13 @@ public class BillFactory {
     }
 
     public synchronized static FinanceBillBLService getFinanceBillBLService() {
+        if (impl == null) {
+            impl = new BillBLServiceImpl(stockBill, salesOutBill, salesInBill, financeBill, cashCostBill, alarmBill);
+        }
+        return impl;
+    }
+
+    public synchronized static BillBLInfo getBillBLInfo() {
         if (impl == null) {
             impl = new BillBLServiceImpl(stockBill, salesOutBill, salesInBill, financeBill, cashCostBill, alarmBill);
         }
