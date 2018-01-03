@@ -4,7 +4,8 @@
 <!-- Generated 2014-4-30 15:39:33 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="po.CustomerPO" table="customerpo">
-        <id name="ID" column="id" type="string">
+        <id name="ID" column="id" type="int">
+            <generator class="increment"></generator>
 
     </id>
         <property name="exist" column="exist" type="boolean"/>

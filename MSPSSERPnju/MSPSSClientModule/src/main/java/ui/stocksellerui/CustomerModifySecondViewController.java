@@ -37,7 +37,7 @@ public class CustomerModifySecondViewController implements Initializable {
     CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
     Dialog dialog = new Dialog();
-    String id_to_modify;
+    static String id_to_modify;
     @FXML
     Button CustomerAddButton;
     @FXML

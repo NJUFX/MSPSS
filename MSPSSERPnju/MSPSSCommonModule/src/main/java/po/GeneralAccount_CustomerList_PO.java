@@ -17,7 +17,7 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
     /**
      * 客户编号
      */
-    private String ID;
+    private int ID;
     /**
      * 分类
      */
@@ -68,7 +68,7 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
     public GeneralAccount_CustomerList_PO() {
     }
 
-    public GeneralAccount_CustomerList_PO(boolean exist, String ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney) {
+    public GeneralAccount_CustomerList_PO(boolean exist, int ID, int category, int level, String name, String phonenumber, String address, String postcode, String email, double invalue, double incomemoney, double paymoney) {
         Exist = exist;
         this.ID = ID;
         this.category = category;
@@ -109,11 +109,11 @@ public class GeneralAccount_CustomerList_PO implements Serializable{
         Exist = exist;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 

@@ -490,5 +490,6 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         BillClientNetworkService billClientNetworkService = new BillClientNetworkImpl();
         ArrayList<FinanceBillPO> cashCostBillPOS = billClientNetworkService.fullSearchFinanceBill("operatorID","123456");
         System.out.println(cashCostBillPOS.size());
+        System.out.println(cashCostBillPOS.get(0).getList().get(0).getAccountID());
     }
 }

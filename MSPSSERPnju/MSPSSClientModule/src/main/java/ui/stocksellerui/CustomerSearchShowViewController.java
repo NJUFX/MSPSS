@@ -77,9 +77,11 @@ public class CustomerSearchShowViewController implements Initializable {
                         this.setGraphic(delBtn);
                         delBtn.setOnMouseClicked((me) -> {
                             try {
+                                CustomerInfoShowViewController.id_to_show = this.getTableView().getItems().get(this.getIndex()).getId();
+                                CustomerInfoShowViewController.customerVO = customerBLService.getCustomerInfo(this.getTableView().getItems().get(this.getIndex()).getId());
                                 CustomerInfoShowViewController controller = (CustomerInfoShowViewController) replaceSceneContent(
                                         "/view/stockseller/CustomerInfoShow.fxml");
-                                controller.id_to_show = this.getTableView().getItems().get(this.getIndex()).getId();
+
                             } catch (Exception e1) {
                                 e1.printStackTrace();
                             }
@@ -97,6 +99,7 @@ public class CustomerSearchShowViewController implements Initializable {
         ObservableList<Customer> data = customerTableView.getItems();
         //data.add(new Customer("00001", "Jiang Chen", "进货商", "4", "50000", "SS001"));
         //data.add(new Customer("1", "1", "1", "1", "1", "1"));
+        data.clear();
         CustomerSearchFlag customerSearchFlag = CustomerSearchFlag.ID;
         if (keyType != null && keyword != null) {
             if (keyType.equals("姓名")) {
@@ -124,10 +127,16 @@ public class CustomerSearchShowViewController implements Initializable {
         }
     }
 
+
+    public void refreshButtonAction() {
+        addRow();
+    }
+
     @FXML
     public void refreshButtonAction(ActionEvent e) {
         addRow();
     }
+
 
     /**
      * 返回登录界面
@@ -256,6 +265,7 @@ public class CustomerSearchShowViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
+        refreshButtonAction();
     }
 
 }

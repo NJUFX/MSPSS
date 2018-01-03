@@ -44,26 +44,26 @@ public class SaleTable {
 
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<CriteriaClause>();
         if(flags.getBegin()!=null&&flags.getEnd()!=null){
-            criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+            criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
         }
         if(flags.getCommodityName()!=null){
             ArrayList<CommodityPO> commodityPOS = commodityClientNetworkService.fullSearchCommodity("name",flags.getCommodityName());
             if(commodityPOS.size()>=0){
-                criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customer_id",commodityPOS.get(0).getID(),QueryMethod.Full));
+                criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID",commodityPOS.get(0).getID(),QueryMethod.Full));
             }
         }
 
         if(flags.getOperatorName()!=null){
             ArrayList<UserPO> userPOS = userClientNetworkService.fullSearchUser("name",flags.getOperatorName());
             if(userPOS.size()>=0){
-                criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("operator_id",userPOS.get(0).getID(),QueryMethod.Full));
+                criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("operatorID",userPOS.get(0).getID(),QueryMethod.Full));
             }
         }
 
         if(flags.getCustomerName()!=null){
             ArrayList<CustomerPO> customerPOS = customerClientNetworkService.fullSearchCustomer("name",flags.getCustomerName());
             if(customerPOS.size()>=0){
-                criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customer_id",customerPOS.get(0).getID(),QueryMethod.Full));
+                criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID",customerPOS.get(0).getID(),QueryMethod.Full));
             }
         }
 

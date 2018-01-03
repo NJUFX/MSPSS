@@ -55,7 +55,7 @@ public class CustomerDataServiceImpl implements CustomerDataService{
      */
     public ResultMessage deleteCustomer(String id){
         try{
-            customerHelper.delete("id",id);
+            customerHelper.delete("ID",Integer.parseInt(id));
             return ResultMessage.SUCCESS;
         }catch (Exception e){
             System.out.println("delete customer fail");
@@ -100,6 +100,7 @@ public class CustomerDataServiceImpl implements CustomerDataService{
      * @return
      */
     public CustomerPO searchCustomerByID(String ID){
-        return customerHelper.exactlyQuery("id",ID);
+
+        return customerHelper.exactlyQuery("ID",Integer.parseInt(ID));
     }
 }
