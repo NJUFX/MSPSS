@@ -78,7 +78,9 @@ public class HibernateHelper<T> implements DataHelper<T> {
         //如果传进来的o不是通过new初始化的，则不会成功修改
         try {
             setUpSession();
+
             session.update(type.getName(), o);
+
             commitAndClose();
         } catch (OptimisticLockException e) {
             e.printStackTrace();

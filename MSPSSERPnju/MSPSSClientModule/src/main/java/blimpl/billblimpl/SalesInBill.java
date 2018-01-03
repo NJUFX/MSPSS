@@ -60,6 +60,7 @@ public class SalesInBill {
      * @return
      */
     public ResultMessage commitSalesInBill(SalesInBillVO vo) {
+
         vo.setStatus(BillStatus.commit);
         vo.setCommit_time(new Time());
         BillLogHelper.commit(vo.getOperator(), vo.getID());
@@ -105,7 +106,7 @@ public class SalesInBill {
      * @return
      */
     public ArrayList<SalesInBillVO> getMySalesInBill(String operatorID) {
-        ArrayList<SalesInBillPO> pos = networkService.fullSearchSalesInBill("operator_id", operatorID);
+        ArrayList<SalesInBillPO> pos = networkService.fullSearchSalesInBill("operatorID", operatorID);
 
         return pos_to_vos(pos);
     }

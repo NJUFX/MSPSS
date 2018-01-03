@@ -84,7 +84,7 @@ public class PurchaseCreateViewController implements Initializable {
             dialog.errorInfoDialog("Something null, please check your input.");
             return null;
         }
-        if (commodityVOArrayList != null && commodityVOArrayList.size() != 0) {
+        if (commodityVOArrayList != null) {
             ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
             for (int i = 0; i < data.size(); i++) {
                 SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
@@ -125,8 +125,9 @@ public class PurchaseCreateViewController implements Initializable {
     public void sureButtonAction(ActionEvent e) {
         if (saveBill() != null) {
             SalesInBillVO salesInBillVO = saveBill();
-            ResultMessage resultMessage = salesmanBillBLService.commitSalesInBill(salesInBillVO);
-            if (resultMessage == ResultMessage.SUCCESS) {
+            ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
+            ResultMessage re2 = salesmanBillBLService.commitSalesInBill(salesInBillVO);
+            if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
@@ -177,6 +178,15 @@ public class PurchaseCreateViewController implements Initializable {
     public void numberFieldAction(ActionEvent e) {
         totalLabel.setText(
                 String.valueOf(Double.parseDouble(priceLabel.getText()) * Double.parseDouble(numberField.getText())));
+    }
+
+    @FXML
+    public void idFieldAction(ActionEvent e){
+        CommodityVO commodityVO = commodityInfoService.getCommodity(idField.getText().trim());
+        nameField.setText(commodityVO.getName());
+        priceLabel.setText(String.valueOf(commodityVO.getImportCost()));
+        typeField.setText(commodityVO.getType());
+
     }
 
     /**

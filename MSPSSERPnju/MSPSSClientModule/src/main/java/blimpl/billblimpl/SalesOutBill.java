@@ -10,6 +10,7 @@ import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.SalesItemPO;
 import po.SalesOutBillPO;
+import ui.adminui.LoginController;
 import util.BillStatus;
 import util.ResultMessage;
 import util.SalesOutBillType;
@@ -68,8 +69,8 @@ public class SalesOutBill {
         vo.setStatus(BillStatus.commit);
         ArrayList<PresentationCommodityItemVO> list = vo.getPresentations();
         stockBillInfo.addStockPresentationBill(list);
-        BillLogHelper.commit(userInfo.getCurrentUser(), vo.getID());
-        BillSendMessage.commit(userInfo.getCurrentUser(), vo.getID());
+        BillLogHelper.commit(LoginController.getCurrentUser(), vo.getID());
+        BillSendMessage.commit(LoginController.getCurrentUser(), vo.getID());
         //开始将单据赠送出去
 
         return networkService.updateSalesOutBill(vo_to_po(vo));

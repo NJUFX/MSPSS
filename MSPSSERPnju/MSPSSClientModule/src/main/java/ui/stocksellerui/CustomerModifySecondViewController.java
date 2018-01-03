@@ -22,6 +22,8 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Kind_Of_Customers;
+import util.ResultMessage;
 import vo.CustomerVO;
 
 import java.io.IOException;
@@ -68,11 +70,46 @@ public class CustomerModifySecondViewController implements Initializable {
      */
     @FXML
     public void sureButtonAction(ActionEvent e) throws IOException {
-        try {
-
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+        Kind_Of_Customers kind_of_customers;
+        if (categoryBox.getValue() != null && !categoryBox.getValue().trim().equals("")) {
+            String kind = categoryBox.getValue();
+            if (kind.equals("进货商")) {
+                kind_of_customers = Kind_Of_Customers.SUPPLIER;
+            } else {
+                kind_of_customers = Kind_Of_Customers.SALER;
+            }
+            if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
+                    nameField.getText() != null && !nameField.getText().trim().equals("") &&
+                    phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
+                    addressField.getText() != null && !addressField.getText().trim().equals("") &&
+                    postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
+                    emailField.getText() != null && !emailField.getText().trim().equals("") &&
+                    inValueField.getText() != null && !inValueField.getText().trim().equals("") &&
+                    incomemoneyField.getText() != null && !incomemoneyField.getText().equals("") &&
+                    paymoneyField.getText() != null && !paymoneyField.getText().trim().equals("")) {
+                CustomerVO customerVO = new CustomerVO(id_to_modify, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
+                        addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
+                        Double.parseDouble(paymoneyField.getText().trim()), workerField.getText().trim());
+                System.out.println("SUCC");
+                ResultMessage resultMessage = customerBLService.modifyCustomer(customerVO);
+                System.out.println("SUCC2");
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Modify a customer successfully.");
+                    try {
+                        CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                                "/view/stockseller/CustomerManage.fxml");
+                    } catch (Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                } else {
+                    dialog.infoDialog("Fail to add the customer");
+                }
+            } else {
+                dialog.errorInfoDialog("Something null, please check your input.");
+            }
+        } else {
+            dialog.errorInfoDialog("Please choose category.");
         }
     }
 
@@ -223,9 +260,24 @@ public class CustomerModifySecondViewController implements Initializable {
         System.out.println(id_to_modify);
         CustomerVO customerVO = customerBLInfo.getCustomerByID(id_to_modify);
         //CustomerVO customerVO = customerBLService.getCustomerInfo(id_to_modify);
-        idLabel.setText(customerVO.getID());
+        System.out.println(customerVO.getID());
+
         workerField.setText(customerVO.getDAE());
-        paymoneyField.setText(String.valueOf(customerVO.getPaymoney()));
+        idLabel.setText(customerVO.getID());
+        nameField.setText(customerVO.getName());
+        phoneField.setText(customerVO.getPhonenumber());
+        addressField.setText(customerVO.getAddress());
+        postcodeField.setText(customerVO.getPostcode());
+        emailField.setText(customerVO.getEmail());
+        inValueField.setText(String.valueOf(customerVO.getInvalue()));
         incomemoneyField.setText(String.valueOf(customerVO.getIncomemoney()));
+        paymoneyField.setText(String.valueOf(customerVO.getPaymoney()));
+        String category = "进货商";
+        if (customerVO.getCategory() == Kind_Of_Customers.SALER) {
+            category = "销售商";
+        }
+        categoryBox.setValue(category);
+        levelBox.setValue(String.valueOf(customerVO.getLevel()));
+        workerField.setText(customerVO.getDAE());
     }
 }

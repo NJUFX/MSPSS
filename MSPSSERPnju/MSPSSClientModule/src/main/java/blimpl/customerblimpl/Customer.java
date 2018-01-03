@@ -90,6 +90,7 @@ public class Customer {
      */
     public ResultMessage modifyCustomer(CustomerVO customer) {
         CustomerPO po = vo_to_po(customer);
+        po.setID(Integer.parseInt(customer.getID()));
         return networkService.updateCustomer(po);
     }
 

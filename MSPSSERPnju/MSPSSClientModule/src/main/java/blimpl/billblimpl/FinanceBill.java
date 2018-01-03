@@ -91,7 +91,7 @@ public class FinanceBill {
      */
     public ArrayList<FinanceBillVO> getMyFinanceBill(String operatorID) {
 
-        ArrayList<FinanceBillPO> pos = networkService.fullSearchFinanceBill("operator_id"
+        ArrayList<FinanceBillPO> pos = networkService.fullSearchFinanceBill("operatorID"
                 , operatorID);
         return pos_to_vos(pos);
     }
