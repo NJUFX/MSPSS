@@ -171,7 +171,7 @@ public class BreakageCreateViewController implements Initializable {
         try {
             SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
-            controller.isSelectClass = true;
+            controller.isSelectClass = false;
             controller.commodityPriceLabel = priceLabel;
             controller.commodityNameField = nameField;
             controller.commodityIdField = idField;
