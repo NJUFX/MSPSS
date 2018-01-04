@@ -331,7 +331,7 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 
 				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,start,end));
-			
+
 			
 			break;
 		}

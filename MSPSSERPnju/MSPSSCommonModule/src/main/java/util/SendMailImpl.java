@@ -122,4 +122,8 @@ public class SendMailImpl implements SendMailService {
         }
         return sendMail;
     }
+
+    public static void main(String[] args) {
+        SendMailImpl.getInstance().sendMail("x","hanxinhu521@163.com","test","test");
+    }
 }

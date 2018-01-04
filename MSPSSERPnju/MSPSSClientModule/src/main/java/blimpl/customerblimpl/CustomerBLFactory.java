@@ -7,8 +7,9 @@ public class CustomerBLFactory {
 
     private static CustomerBLServiceImpl impl;
 
+
     public synchronized static CustomerBLService getCustomerBLService() {
-        if (impl ==null){
+        if (impl == null) {
 
             impl = new CustomerBLServiceImpl(new Customer());
         }

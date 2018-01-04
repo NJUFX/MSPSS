@@ -2,12 +2,14 @@ package user;
 
 import blimpl.userblimpl.User;
 import org.junit.Test;
+import po.UserPO;
 import status.Log_In_Out_Status;
 import util.Kind_Of_Users;
 import util.ResultMessage;
 import vo.UserVO;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Description:
@@ -49,5 +51,9 @@ public class UserBLTest {
         assertEquals(ResultMessage.SUCCESS, message);
     }
 
-
+     @Test
+    public  void test5(){
+       UserVO vo = user.searchUserByID("FM001");
+    assertNotNull(vo);
+    }
 }

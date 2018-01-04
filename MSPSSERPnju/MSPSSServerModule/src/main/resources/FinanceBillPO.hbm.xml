@@ -15,7 +15,7 @@
         <property name="commit_time" column="commit_time" type="string"/>
         <property name="approval_time" column="approval_time" type="string"/>
         <property name="customerID" column="customer_id" type="string"></property>
-
+        <property name="type" column="type" type="int"></property>
         <list name="list" lazy="false" table ="financeitempo" cascade="all">
             <key column="financebill_id"></key>
 

@@ -287,12 +287,12 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      */
     public String getFinanceBillID(FinanceBillType type){
     try{
-    billServerNetworkService.getFinanceBillID(type);
+    return billServerNetworkService.getFinanceBillID(type);
 
     }catch (RemoteException e){
         e.printStackTrace();
     }
-    return null;
+    return "123";
 }
 
     public ResultMessage addSalesInBill(SalesInBillPO salesInBillPO){
@@ -439,7 +439,7 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
 
     public String getSalesOutBillID(SalesOutBillType type) {
         try {
-            billServerNetworkService.getSalesOutBillID(type);
+            return billServerNetworkService.getSalesOutBillID(type);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

@@ -364,6 +364,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Approve);
+						            break;
 								}
 								case"进货类":{
 									SalesInBill Approve = (SalesInBill) this.getTableView().getItems().get(getIndex());
@@ -373,6 +374,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Approve);
+						            break;
 								}
 								case"销售类":{
 									SalesOutBill Approve = (SalesOutBill) this.getTableView().getItems().get(getIndex());
@@ -382,6 +384,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Approve);
+						            break;
 								}
 								case"财务类":{
 									FinanceBill Approve = (FinanceBill) this.getTableView().getItems().get(getIndex());
@@ -391,6 +394,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Approve);
+						            break;
 								}
 								case"现金费用类":{
 									CashCostBill Approve = (CashCostBill) this.getTableView().getItems().get(getIndex());
@@ -400,6 +404,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Approve);
+						            break;
 								}
 								}
 								
@@ -437,6 +442,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Reject);
+						            break;
 								}
 								case"进货类":{
 									SalesInBill Reject = (SalesInBill) this.getTableView().getItems().get(getIndex());
@@ -446,6 +452,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Reject);
+						            break;
 								}
 								case"销售类":{
 									SalesOutBill Reject = (SalesOutBill) this.getTableView().getItems().get(getIndex());
@@ -455,6 +462,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Reject);
+						            break;
 								}
 								case"财务类":{
 									FinanceBill Reject = (FinanceBill) this.getTableView().getItems().get(getIndex());
@@ -464,6 +472,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Reject);
+						            break;
 								}
 								case"现金费用类":{
 									CashCostBill Reject = (CashCostBill) this.getTableView().getItems().get(getIndex());
@@ -473,6 +482,7 @@ public class ChiefManagerExamineBillController implements Initializable {
 						            //删除已被审批的行
 						            ObservableList<Bill> data = BillTable.getItems();
 						            data.remove(Reject);
+						            break;
 								}
 								}
 								

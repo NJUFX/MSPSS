@@ -98,6 +98,9 @@ public class UserBLServiceImpl implements UserBLService, UserInfo, MainBLService
      */
     @Override
     public UserVO getUser(String id) {
+        if (id==null)
+            return null;
+
         return user.searchUserByID(id);
 
     }

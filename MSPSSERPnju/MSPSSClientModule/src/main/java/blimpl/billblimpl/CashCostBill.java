@@ -179,7 +179,12 @@ public class CashCostBill {
         //谨慎 谨慎 再谨慎
         Time commitTime = po.getCommit_time() != null ? new Time(po.getCommit_time()) : null;
         Time approvalTime = po.getApproval_time() != null ? new Time(po.getApproval_time()) : null;
-        UserVO managerVO = po.getManagerID() != null ? userInfo.getUser(po.getManagerID()) : null;
+        UserVO managerVO = null;
+        System.out.println("!"+po.getManagerID());
+        if (po.getManagerID()!=null)
+        if (!po.getManagerID().equals(""))
+        managerVO = userInfo.getUser(po.getManagerID());
+
         UserVO operatorVO = userInfo.getUser(po.getOperatorID());
         BillStatus status = BillStatus.values()[po.getStatus()];
         AccountVO accountVO = accountBLInfo.getAccountVO(po.getAccountName());
@@ -217,6 +222,23 @@ public class CashCostBill {
             vos.add(po_to_vo(pos.get(i)));
         }
         return vos;
+    }
+
+    public static void main(String[] args) {
+        CashCostBill cashCostBill = new CashCostBill();
+
+   // List<CashCostBillPO> po =    cashCostBill.networkService.fullSearchCashCostBill("operatorID","11111");
+       CashCostBillPO cashCostBillPO = new CashCostBillPO();
+            cashCostBillPO.setID("xjfyd"+new Time().getTimeStringWithoutSplit()+"000001");
+            cashCostBillPO.setOperatorID("123");
+            cashCostBillPO.setInit_time("123");
+        cashCostBillPO.setApproval_time(new Time().toString());
+        cashCostBill.networkService.addCashCostBill(cashCostBillPO);
+        ArrayList<CashCostBillPO> pos
+                = cashCostBill.networkService.fullSearchCashCostBill("operatorID","123");
+        System.out.println(pos.size());
+   // po = cashCostBill.networkService.fullSearchCashCostBill("status",1);
+     //   System.out.println(po.size());
     }
 
 }

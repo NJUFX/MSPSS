@@ -31,6 +31,7 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.FinanceBillType;
+import util.Time;
 import vo.AccountFilterFlagsVO;
 import vo.AccountVO;
 import vo.CashCostBillVO;
@@ -88,18 +89,19 @@ public class FinanceManagerAddCashCostBillController implements Initializable {
 	FinanceBillBLService billBLService = new BLFactoryImpl().getFinanceBillBLService();
 	LoginController loginController = new LoginController();
 	UserVO currentUser = loginController.getCurrentUser();
+	static CashCostBillVO vo;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
-/*
-		ArrayList<AccountVO> accountList = accountBLService.searchAccount(new AccountFilterFlagsVO("",null,null));
+
+		ArrayList<AccountVO> accountList = accountBLService.searchAccount(new AccountFilterFlagsVO("", null,null));
 		ObservableList<String> account = AccountField.getItems();
 		for(int i = 0;i<accountList.size();i++) {
 			account.add(accountList.get(i).getName());
 			//account.add(accountList.get(i));
 		}
-		*/
+
 		NameTag.setText(currentUser.getName());
 		RoleTag.setText(currentUser.getCategory().toString());
 		IdTag.setText(currentUser.getID());
@@ -283,7 +285,8 @@ public class FinanceManagerAddCashCostBillController implements Initializable {
 			cashCostItems.add(new CashCostItemVO(temp.getName(),Double.parseDouble(temp.getSum()),temp.getPs()));
 		}
 		AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(AccountField.getValue().toString(),null,null)).get(0);
-		billBLService.saveCashCostBill(new CashCostBillVO(currentUser,accountVO,cashCostItems,sum));
+		vo = new CashCostBillVO(currentUser,accountVO,cashCostItems,sum);
+		billBLService.saveCashCostBill(vo);
 		
 	}
 	
@@ -293,6 +296,7 @@ public class FinanceManagerAddCashCostBillController implements Initializable {
 	  * @throws Exception
 	  */
     public void handleCommitCashCostBillButtonAction(ActionEvent e) throws Exception{
+    	/*
        	Double sum = Double.parseDouble(AmountField.getText());
 		ArrayList<CashCostItemVO> cashCostItems = new ArrayList<CashCostItemVO>();
 		ObservableList<CashCostItem> data = CashCostItemTable.getItems();
@@ -302,6 +306,8 @@ public class FinanceManagerAddCashCostBillController implements Initializable {
 		}
 		AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(AccountField.getValue().toString(),null,null)).get(0);
 		billBLService.commitCashCostBill(new CashCostBillVO(currentUser,accountVO,cashCostItems,sum));
+		*/
+    	billBLService.commitCashCostBill(vo);
 		
 	}
 
