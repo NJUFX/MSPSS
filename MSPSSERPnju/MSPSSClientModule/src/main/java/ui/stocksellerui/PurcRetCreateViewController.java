@@ -117,6 +117,13 @@ public class PurcRetCreateViewController implements Initializable {
             ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Save list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to save the list.");
             }
@@ -130,6 +137,13 @@ public class PurcRetCreateViewController implements Initializable {
             ResultMessage re2 = salesmanBillBLService.commitSalesInBill(salesInBillVO);
             if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
             }

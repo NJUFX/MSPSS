@@ -54,7 +54,7 @@ public class SelectClassOrCommodityViewController implements Initializable {
     public void sureButtonAction(ActionEvent e) {
         if (commodityClassification.getSelectionModel().getSelectedItem() != null) {
             TreeItem<ClassificationCell> selectItem = commodityClassification.getSelectionModel().getSelectedItem();
-            if (isSelectClass == true) {
+            if (isSelectClass == false) {
                 if (selectItem.getValue().getIsClass()) {
                     dialog.errorInfoDialog("This is not a commodity.");
                 } else {
@@ -75,14 +75,17 @@ public class SelectClassOrCommodityViewController implements Initializable {
                 if (selectItem.getValue().getIsClass() == false) {
                     dialog.errorInfoDialog("This is not a classification.");
                 } else {
-                    if (selectItem.getChildren() != null && selectItem.getChildren().get(0).getValue().getIsClass() == true) {
-                        dialog.errorInfoDialog("Unable to add a commodity in this classification.");
-                    } else {
+                    if (selectItem.getChildren() != null ){
+                        if(selectItem.getChildren().size()!=0 && selectItem.getChildren().get(0).getValue().getIsClass() == true) {
+                            dialog.errorInfoDialog("Unable to add a commodity in this classification.");
+                        }
+                    else {
                         classificationName = selectItem.getValue().getName();
                         classificationNameField.setText(classificationName);
                         classificationId = selectItem.getValue().getId();
                         //classificationVO = commodityBLService.getClassification(classificationId);
                         sureButton.getScene().getWindow().hide();
+                    }
                     }
                 }
             }
@@ -102,14 +105,13 @@ public class SelectClassOrCommodityViewController implements Initializable {
         ClassificationCell commodityCell = new ClassificationCell("Root", "Root", "001", true);
         TreeItem<ClassificationCell> root = new TreeItem<>(commodityCell, rootIcon);//根分类
 
-/*
+
         if (commodityBLService.getRootClassifications() != null && commodityBLService.getRootClassifications().size() != 0) {
             addChildren(commodityBLService.getRootClassifications(), root);
-        }*/
+        }
 
-        /**
-         * 测试用
-         */
+        /*测试用
+
         for (int i = 0; i < 5; i++) {
             ImageView commodityImageView = new ImageView(
                     new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
@@ -126,7 +128,7 @@ public class SelectClassOrCommodityViewController implements Initializable {
                 imageView.setFitHeight(15);
                 child.getChildren().add(new TreeItem<>(commodity, imageView));
             }
-        }
+        }*/
 
         commodityClassification.setRoot(root);
         commodityClassification.setEditable(true);

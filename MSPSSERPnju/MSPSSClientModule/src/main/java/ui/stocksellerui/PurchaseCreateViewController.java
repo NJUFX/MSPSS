@@ -2,15 +2,11 @@ package ui.stocksellerui;
 
 import auxiliary.PurchaseBill;
 import blimpl.blfactory.BLFactoryImpl;
-import blimpl.commodityblimpl.Commodity;
 import blservice.billblservice.SalesmanBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.mainblservice.MainBLService;
-import blservice.userblservice.UserBLService;
 import blservice.userblservice.UserInfo;
-import com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -116,6 +112,13 @@ public class PurchaseCreateViewController implements Initializable {
             ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Save list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to save the list.");
             }
@@ -129,6 +132,13 @@ public class PurchaseCreateViewController implements Initializable {
             ResultMessage re2 = salesmanBillBLService.commitSalesInBill(salesInBillVO);
             if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
             }

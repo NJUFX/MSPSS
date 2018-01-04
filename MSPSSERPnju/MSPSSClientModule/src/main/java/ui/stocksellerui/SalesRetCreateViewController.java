@@ -93,7 +93,8 @@ public class SalesRetCreateViewController implements Initializable {
 
             SalesOutBillVO.setDAE(DAELabel.getText());
             SalesOutBillVO.setStorage(stockField.getText());
-            SalesOutBillVO.setCustomerVO(customerVO);
+            SalesOutBillVO.setCustomerVO(customerBLInfo.getCustomerByID(billSupplierField.getText()));
+            System.out.println(customerVO.getID()+"bill");
             SalesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             SalesOutBillVO.setSumAfterDiscount(Double.parseDouble(billTotalMoney.getText()));
             SalesOutBillVO.setItemVOS(commodityVOArrayList);
@@ -116,6 +117,13 @@ public class SalesRetCreateViewController implements Initializable {
             ResultMessage re2 = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
             if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
             }
@@ -129,6 +137,13 @@ public class SalesRetCreateViewController implements Initializable {
             ResultMessage re2 = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
             if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
             }

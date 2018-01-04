@@ -25,7 +25,8 @@ public class Commodity {
     public ResultMessage addCommodity(CommodityVO commodityVO){
         CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationName,commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
         //此时的ID为空
-        po.setID(commodityVO.ID + "\\" + commodityVO.type);
+        po.setID(commodityVO.getID() + "\\" + commodityVO.getID());
+        commodityVO.setID(po.getID());
         return netService.addCommodity(po);
     }
 
@@ -87,7 +88,7 @@ public class Commodity {
     public ArrayList<CommodityVO> searchCommodity(FilterFlagVO flag){
             ArrayList<CommodityPO> commodities = new ArrayList<>();
             if (flag.classificationName !=null){
-                commodities.addAll(netService.fullSearchCommodity("classificationName",flag.classificationName));
+                commodities.addAll(netService.fullSearchCommodity("classificationID", flag.classificationName));
             }
             if (flag.id!=null){
                 commodities.addAll(netService.fuzzySearchCommodity("ID", flag.id));
