@@ -24,6 +24,7 @@ public class AddCommodityViewController implements Initializable {
     Dialog dialog = new Dialog();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
     static String name_of_commodity;
+    static String name_Of_class;
     TreeItem<ClassificationCell> treeItem;
     @FXML
     Button returnButton, sureButton;
@@ -60,8 +61,8 @@ public class AddCommodityViewController implements Initializable {
             commodityVO.setLatestExportCost(Double.parseDouble(recentOutPrice.getText().trim()));
             commodityVO.setAlertNumber(Integer.parseInt(alertNumber.getText().trim()));
             commodityVO.setClassificationName(treeItem.getValue().getId());
+            System.out.println(treeItem.getValue().getId());
             ResultMessage resultMessage = commodityBLService.addCommodity(commodityVO);
-            System.out.println(commodityVO.getID());
             if (resultMessage == ResultMessage.SUCCESS) {
                 TreeItem<ClassificationCell> newItem = new TreeItem<>(new ClassificationCell(name_of_commodity, str, commodityVO.getID(), false), imageView);
                 treeItem.getChildren().add(newItem);
@@ -76,6 +77,7 @@ public class AddCommodityViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        category.setText(name_Of_class);
         errorLabel.setVisible(false);
     }
 }

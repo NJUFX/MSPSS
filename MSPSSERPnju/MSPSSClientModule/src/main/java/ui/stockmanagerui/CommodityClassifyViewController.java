@@ -102,9 +102,7 @@ public class CommodityClassifyViewController implements Initializable {
                         addChildren(commodityBLService.getChildrenClassification(childrenVO), childrenItem);
                     }
                     //System.out.println(commodityBLService.getChildrenCommodity(childrenVO).size());
-                    if (commodityBLService.getChildrenCommodity(childrenVO) != null && commodityBLService.getChildrenCommodity(childrenVO).size() != 0)
-                        ;
-                    {
+                    if (commodityBLService.getChildrenCommodity(childrenVO) != null && commodityBLService.getChildrenCommodity(childrenVO).size() != 0) {
                         addCommodity(commodityBLService.getChildrenCommodity(childrenVO), childrenItem);
                     }
                 }
@@ -435,7 +433,9 @@ public class CommodityClassifyViewController implements Initializable {
                             newCommodityVO.setNumberInStock(Integer.parseInt(stockField.getText().trim()));
                             newCommodityVO.setLatestExportCost(Double.parseDouble(outPriceField.getText().trim()));
                             newCommodityVO.setLatestImportCost(Double.parseDouble(inPriceField.getText().trim()));
-
+                            newCommodityVO.setClassificationName(item.getParent().getValue().getName());
+                            System.out.println(newCommodityVO.getClassificationName());
+                            newCommodityVO.setType(typeField.getText());
                             ResultMessage resultMessage = commodityBLService.updateCommodity(commodityVO);
 
                             if (resultMessage == ResultMessage.SUCCESS) {
@@ -496,6 +496,7 @@ public class CommodityClassifyViewController implements Initializable {
                 TreeItem<ClassificationCell> item = getTreeView().getSelectionModel().getSelectedItem();
                 if (item.getValue().getIsClass() == true) {
                     try {
+                        AddCommodityViewController.name_Of_class = getTreeItem().getValue().getName();
                         AddCommodityViewController controller = (AddCommodityViewController) replaceAnotherSceneContent(
                                 "/view/stockmanager/AddCommodity.fxml", 266, 375);
                         controller.treeItem = getTreeItem();

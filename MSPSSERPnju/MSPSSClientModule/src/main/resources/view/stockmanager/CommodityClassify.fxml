@@ -159,8 +159,8 @@
                         <Font size="9.0" />
                     </font>
                 </TextField>
-                <Label fx:id="classIdLabel" layoutX="82.0" layoutY="72.0" prefHeight="15.0" prefWidth="89.0" text="Label" />
-                <Label fx:id="classParentLabel" layoutX="82.0" layoutY="101.0" prefHeight="15.0" prefWidth="89.0" text="Label" />
+                <Label fx:id="classIdLabel" layoutX="82.0" layoutY="72.0" prefHeight="15.0" prefWidth="89.0" />
+                <Label fx:id="classParentLabel" layoutX="82.0" layoutY="101.0" prefHeight="15.0" prefWidth="89.0" />
                 <Button id="classificationButton" fx:id="delClassificationButton" layoutX="243.0" layoutY="92.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="52.0" stylesheets="@../../css/stockmanager/common.css" text="删除" textFill="RED">
                     <font>
                         <Font size="14.0" />
@@ -240,7 +240,7 @@
                         <Font size="9.0" />
                     </font>
                 </TextField>
-                <Label fx:id="idLabel" layoutX="116.0" layoutY="69.0" prefHeight="15.0" prefWidth="89.0" text="Label" />
+                <Label fx:id="idLabel" layoutX="116.0" layoutY="69.0" prefHeight="15.0" prefWidth="89.0" />
                 <Button id="classificationButton" fx:id="modCommodityButton" layoutX="243.0" layoutY="178.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="52.0" stylesheets="@../../css/stockmanager/common.css" text="修改">
                     <font>
                         <Font size="14.0" />
