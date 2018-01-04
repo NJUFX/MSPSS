@@ -2,15 +2,11 @@ package ui.stocksellerui;
 
 import auxiliary.PurchaseBill;
 import blimpl.blfactory.BLFactoryImpl;
-import blimpl.commodityblimpl.Commodity;
 import blservice.billblservice.SalesmanBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.mainblservice.MainBLService;
-import blservice.userblservice.UserBLService;
 import blservice.userblservice.UserInfo;
-import com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
