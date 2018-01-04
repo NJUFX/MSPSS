@@ -62,7 +62,7 @@ public class CommodityAddViewController implements Initializable {
         try {
             SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
-            controller.isSelectClass = false;
+            controller.isSelectClass = true;
             controller.classificationNameField = classificationField;
         } catch (Exception e1) {
             e1.printStackTrace();

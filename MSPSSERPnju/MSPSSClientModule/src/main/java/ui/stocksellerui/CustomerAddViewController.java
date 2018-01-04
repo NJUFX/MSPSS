@@ -86,6 +86,13 @@ public class CustomerAddViewController implements Initializable {
                 System.out.println("SUCC2");
                 if (resultMessage == ResultMessage.SUCCESS) {
                     dialog.infoDialog("Add a customer successfully.");
+                    try {
+                        CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                                "/view/stockseller/CustomerManage.fxml");
+                    } catch (Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
                 } else {
                     dialog.infoDialog("Fail to add the customer");
                 }

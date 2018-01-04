@@ -51,6 +51,13 @@ public class CustomerDelViewController implements Initializable {
             ResultMessage resultMessage = customerBLService.delCustomer(idField.getText().trim());
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Delete a customer successfully.");
+                try {
+                    CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                            "/view/stockseller/CustomerManage.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.infoDialog("Fail to delete the customer");
             }

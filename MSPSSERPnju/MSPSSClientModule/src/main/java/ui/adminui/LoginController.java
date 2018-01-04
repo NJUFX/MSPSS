@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
     Stage newStage = new Stage();
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
-    static UserVO currentUser= new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
+    static UserVO currentUser = new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
     @FXML
     public Button loginButton, modPasswordButton;
     @FXML
@@ -62,13 +62,13 @@ public class LoginController implements Initializable {
         } else if (currentUser.getCategory() == Kind_Of_Users.FinancerManager) {
             return "财务经理";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockManager) {
-            return "库存管理人员";
+            return "库存管理";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockSeller) {
-            return "进货销售人员";
+            return "进货销售";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockSellerManager) {
             return "销售经理";
         } else if (currentUser.getCategory() == Kind_Of_Users.SystemManager) {
-            return "系统管理员";
+            return "系统管理";
         }
         return "";
     }
@@ -83,6 +83,7 @@ public class LoginController implements Initializable {
             String id = idText.getText();
             String password = passwordField.getText();
             //currentUser = userBLService.searchUserByID(id);
+            //toStockSellerMain();
             userLogin(id, password);
         } else {
             dialog.errorInfoDialog("Something null, please check your input.");
@@ -97,51 +98,28 @@ public class LoginController implements Initializable {
      * @param password
      */
     public void userLogin(String id, String password) {
-        // 判断id是否在系统里
-        // 判断密码是否正确
-        //Log_In_Out_Status log_in_out_status = Log_In_Out_Status.Login_Success;
-        //System.out.println(userBLService.searchUserByID(id).getID());
-        Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
-        if (log_in_out_status == Log_In_Out_Status.Login_Success) {
-            if (id.equals("admin")) {
-                currentUser = userBLService.searchUserByID(id);
-                dialog.infoDialog("Login Successfully.");
-                toAdminMain();
-            } else {
-                if (id.length() < 2) {
-                    dialog.errorInfoDialog("Id is wrong, please check your input.");
-                } else {
-                    boolean b = false;
-                    switch (id.substring(0, 2).toUpperCase()) {
-                        case "SM":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toStockManagerMain();
-                            break;
-                        case "FM":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toFinanceManagerMain();
-                            break;
-                        case "SS":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toStockSellerMain();
-                            break;
-                        case "CM":
-                            currentUser = userBLService.searchUserByID(id);
-                            dialog.infoDialog("Login Successfully.");
-                            toChiefManagerMain();
-                            break;
-                        default:
-                            b = false;
-                            dialog.errorInfoDialog("Id is wrong, please check your input.");
-                            break;
-                    }
-                }
-            }
 
-            //currentUser = userBLService.searchUserByID(id);
+        Log_In_Out_Status log_in_out_status = mainBLService.login(id, password);
+        if (log_in_out_status == Log_In_Out_Status.Login_Success_Admin) {
+            currentUser = userBLService.searchUserByID(id);
+            toAdminMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_Salesman) {
+            currentUser = userBLService.searchUserByID(id);
+            toStockSellerMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_StockManager) {
+            currentUser = userBLService.searchUserByID(id);
+            toStockManagerMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_Financer) {
+            currentUser = userBLService.searchUserByID(id);
+            toFinanceManagerMain();
+            dialog.infoDialog("Login Successfully.");
+        } else if (log_in_out_status == Log_In_Out_Status.Login_Success_CheifManager) {
+            currentUser = userBLService.searchUserByID(id);
+            toChiefManagerMain();
+            dialog.infoDialog("Login Successfully.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_IdNotExist) {
             dialog.errorInfoDialog("Id not exist, please check your input.");
         } else if (log_in_out_status == Log_In_Out_Status.Login_PasswordWrong) {

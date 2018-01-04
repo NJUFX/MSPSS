@@ -38,9 +38,9 @@ public class CustomerInfoShowViewController implements Initializable {
     Stage newStage = new Stage();
     CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-
-    String id_to_show;
-    CustomerVO customerVO = customerBLInfo.getCustomerByID(id_to_show);
+     //fixme
+    static String id_to_show;
+    static CustomerVO customerVO;
     @FXML
     Button CustomerAddButton;
     @FXML

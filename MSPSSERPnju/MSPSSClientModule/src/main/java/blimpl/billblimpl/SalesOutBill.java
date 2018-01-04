@@ -10,6 +10,7 @@ import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import po.SalesItemPO;
 import po.SalesOutBillPO;
+import ui.adminui.LoginController;
 import util.BillStatus;
 import util.ResultMessage;
 import util.SalesOutBillType;
@@ -47,10 +48,12 @@ public class SalesOutBill {
         if (vo.getID() == null) {
             String id = networkService.getSalesOutBillID(vo.getType());
             vo.setID(id);
-            BillLogHelper.init(userInfo.getCurrentUser(), id);
+            System.out.println(vo.getID());
+            System.out.println(id+" 2");
+            BillLogHelper.init(LoginController.getCurrentUser(), id);
             return networkService.addSalesOutBill(vo_to_po(vo));
         }
-        BillLogHelper.update(userInfo.getCurrentUser(), vo.getID());
+        BillLogHelper.update(LoginController.getCurrentUser(), vo.getID());
 
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
@@ -68,8 +71,8 @@ public class SalesOutBill {
         vo.setStatus(BillStatus.commit);
         ArrayList<PresentationCommodityItemVO> list = vo.getPresentations();
         stockBillInfo.addStockPresentationBill(list);
-        BillLogHelper.commit(userInfo.getCurrentUser(), vo.getID());
-        BillSendMessage.commit(userInfo.getCurrentUser(), vo.getID());
+        BillLogHelper.commit(LoginController.getCurrentUser(), vo.getID());
+        BillSendMessage.commit(LoginController.getCurrentUser(), vo.getID());
         //开始将单据赠送出去
 
         return networkService.updateSalesOutBill(vo_to_po(vo));
@@ -169,7 +172,7 @@ public class SalesOutBill {
         String operatorID = vo.getOperator() != null ? vo.getOperator().getID() : null;
         String managerID = vo.getManager() != null ? vo.getManager().getID() : null;
         String customerID = vo.getCustomerVO() != null ? vo.getCustomerVO().getID() : null;
-
+        System.out.println("vtp"+customerID);
         ArrayList<SalesItemPO> itemPOS = new ArrayList<>();
 
         for (SalesItemVO itemVO : vo.getItemVOS()

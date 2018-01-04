@@ -287,7 +287,7 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
      */
     public String getFinanceBillID(FinanceBillType type){
     try{
-    billServerNetworkService.getFinanceBillID(type);
+     return billServerNetworkService.getFinanceBillID(type);
 
     }catch (RemoteException e){
         e.printStackTrace();
@@ -439,7 +439,7 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
 
     public String getSalesOutBillID(SalesOutBillType type) {
         try {
-            billServerNetworkService.getSalesOutBillID(type);
+           return billServerNetworkService.getSalesOutBillID(type);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -490,5 +490,6 @@ public class BillClientNetworkImpl implements BillClientNetworkService{
         BillClientNetworkService billClientNetworkService = new BillClientNetworkImpl();
         ArrayList<FinanceBillPO> cashCostBillPOS = billClientNetworkService.fullSearchFinanceBill("operatorID","123456");
         System.out.println(cashCostBillPOS.size());
+        System.out.println(cashCostBillPOS.get(0).getList().get(0).getAccountID());
     }
 }

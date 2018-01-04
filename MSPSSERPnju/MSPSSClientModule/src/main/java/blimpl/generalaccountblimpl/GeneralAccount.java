@@ -91,7 +91,7 @@ public class GeneralAccount {
      */
     public CustomerVO searchCustomer(String name){
        CustomerPO customerPO =  generalAccountClientNetworkService.searchCustomer(name);
-       CustomerVO customerVO = new CustomerVO(customerPO.getID(),Kind_Of_Customers.values()[customerPO.getCategory()],customerPO.getLevel(), customerPO.getName(), customerPO.getPhonenumber(), customerPO.getAddress(), customerPO.getPostcode(), customerPO.getEmail(), customerPO.getInvalue(),customerPO.getIncomemoney(), customerPO.getPaymoney(), "期初建账");
+       CustomerVO customerVO = new CustomerVO(String.format("%05d",customerPO.getID()),Kind_Of_Customers.values()[customerPO.getCategory()],customerPO.getLevel(), customerPO.getName(), customerPO.getPhonenumber(), customerPO.getAddress(), customerPO.getPostcode(), customerPO.getEmail(), customerPO.getInvalue(),customerPO.getIncomemoney(), customerPO.getPaymoney(), "期初建账");
        return customerVO;
     }
 
@@ -141,7 +141,7 @@ public class GeneralAccount {
 
         for(int i=0;i<=generalAccountPO.getCustomerlist().size()-1;i++){
             GeneralAccount_CustomerList_PO generalAccount_customerList_po= generalAccountPO.getCustomerlist().get(i);
-            generalAccountVO.getCustomerlist().add(new CustomerVO(generalAccount_customerList_po.getID(), Kind_Of_Customers.values()[generalAccount_customerList_po.getCategory()],generalAccount_customerList_po.getLevel(),generalAccount_customerList_po.getName(),generalAccount_customerList_po.getPhonenumber(),generalAccount_customerList_po.getAddress(),generalAccount_customerList_po.getPostcode(),generalAccount_customerList_po.getEmail(),generalAccount_customerList_po.getInvalue(),generalAccount_customerList_po.getIncomemoney(),generalAccount_customerList_po.getPaymoney(),"期初建账创建"));
+            generalAccountVO.getCustomerlist().add(new CustomerVO(String.format("%05d",generalAccount_customerList_po.getID()), Kind_Of_Customers.values()[generalAccount_customerList_po.getCategory()],generalAccount_customerList_po.getLevel(),generalAccount_customerList_po.getName(),generalAccount_customerList_po.getPhonenumber(),generalAccount_customerList_po.getAddress(),generalAccount_customerList_po.getPostcode(),generalAccount_customerList_po.getEmail(),generalAccount_customerList_po.getInvalue(),generalAccount_customerList_po.getIncomemoney(),generalAccount_customerList_po.getPaymoney(),"期初建账创建"));
         }
 
         for(int i=0;i<=generalAccountPO.getCommoditylist().size()-1;i++){

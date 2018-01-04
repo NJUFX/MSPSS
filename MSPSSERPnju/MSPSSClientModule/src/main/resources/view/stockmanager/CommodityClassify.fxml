@@ -241,7 +241,6 @@
                     </font>
                 </TextField>
                 <Label fx:id="idLabel" layoutX="116.0" layoutY="69.0" prefHeight="15.0" prefWidth="89.0" text="Label" />
-                <ComboBox fx:id="typeBox" layoutX="114.0" layoutY="95.0" prefHeight="19.0" prefWidth="89.0" />
                 <Button id="classificationButton" fx:id="modCommodityButton" layoutX="243.0" layoutY="178.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="52.0" stylesheets="@../../css/stockmanager/common.css" text="修改">
                     <font>
                         <Font size="14.0" />
@@ -252,6 +251,11 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
+            <TextField fx:id="typeField" layoutX="114.0" layoutY="98.0" prefHeight="5.0" prefWidth="89.0">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </TextField>
             </children>
         </Pane>
     </children>

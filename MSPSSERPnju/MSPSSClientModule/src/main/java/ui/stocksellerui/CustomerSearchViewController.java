@@ -52,6 +52,7 @@ public class CustomerSearchViewController implements Initializable {
         try {
             if (keyTypeBox.getValue() != null && !keyTypeBox.getValue().trim().equals("") &&
                     keywordField.getText() != null && !keywordField.getText().trim().equals("")) {
+
                 CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
                         "/view/stockseller/CustomerSearchShow.fxml");
                 controller.keyType = keyTypeBox.getValue();

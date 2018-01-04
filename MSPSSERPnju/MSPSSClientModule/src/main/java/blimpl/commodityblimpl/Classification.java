@@ -22,7 +22,8 @@ public class Classification {
     CommodityClientNetworkService netService = new CommodityClientNetworkImpl();
 
     public ResultMessage addClassification(ClassificationVO classificationVO){
-            ClassificationPO po = vo_to_po(classificationVO);
+        classificationVO.setID(classificationVO.getName());
+        ClassificationPO po = vo_to_po(classificationVO);
          return netService.addClassification(po);
     }
 

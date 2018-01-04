@@ -9,14 +9,15 @@ import blstubdriver.billstubdriver.ManagerBLServiceStub;
  */
 public class BillFactory {
     private static BillBLServiceImpl impl;
-    private static StockBill stockBill = new StockBill();
-    private static FinanceBill financeBill  = new FinanceBill();
-    private static SalesInBill salesInBill = new SalesInBill();
-    private static SalesOutBill salesOutBill = new SalesOutBill();
-    private static CashCostBill cashCostBill = new CashCostBill();
-    private static AlarmBill alarmBill = new AlarmBill();
+
     public synchronized static ManagerBillBLService getManagerBillBLService(){
         if (impl==null){
+            StockBill stockBill = new StockBill();
+            FinanceBill financeBill  = new FinanceBill();
+            SalesInBill salesInBill = new SalesInBill();
+            SalesOutBill salesOutBill = new SalesOutBill();
+            CashCostBill cashCostBill = new CashCostBill();
+            AlarmBill alarmBill = new AlarmBill();
             impl = new BillBLServiceImpl(stockBill, salesOutBill, salesInBill, financeBill, cashCostBill, alarmBill);
         }
         return impl;
@@ -24,6 +25,12 @@ public class BillFactory {
 
     public synchronized static SalesmanBillBLService getSalesmanBillBLService() {
         if (impl == null) {
+            StockBill stockBill = new StockBill();
+            FinanceBill financeBill  = new FinanceBill();
+            SalesInBill salesInBill = new SalesInBill();
+            SalesOutBill salesOutBill = new SalesOutBill();
+            CashCostBill cashCostBill = new CashCostBill();
+            AlarmBill alarmBill = new AlarmBill();
             impl = new BillBLServiceImpl(stockBill, salesOutBill, salesInBill, financeBill, cashCostBill, alarmBill);
         }
         return impl;
@@ -31,6 +38,12 @@ public class BillFactory {
 
     public synchronized static StockManagerBillBLService getStockManagerBillBLService() {
         if (impl == null) {
+            StockBill stockBill = new StockBill();
+            FinanceBill financeBill  = new FinanceBill();
+            SalesInBill salesInBill = new SalesInBill();
+            SalesOutBill salesOutBill = new SalesOutBill();
+            CashCostBill cashCostBill = new CashCostBill();
+            AlarmBill alarmBill = new AlarmBill();
             impl = new BillBLServiceImpl(stockBill, salesOutBill, salesInBill, financeBill, cashCostBill, alarmBill);
         }
         return impl;
@@ -38,6 +51,12 @@ public class BillFactory {
 
     public synchronized static FinanceBillBLService getFinanceBillBLService() {
         if (impl == null) {
+            StockBill stockBill = new StockBill();
+            FinanceBill financeBill  = new FinanceBill();
+            SalesInBill salesInBill = new SalesInBill();
+            SalesOutBill salesOutBill = new SalesOutBill();
+            CashCostBill cashCostBill = new CashCostBill();
+            AlarmBill alarmBill = new AlarmBill();
             impl = new BillBLServiceImpl(stockBill, salesOutBill, salesInBill, financeBill, cashCostBill, alarmBill);
         }
         return impl;
@@ -45,6 +64,12 @@ public class BillFactory {
 
     public synchronized static BillBLInfo getBillBLInfo() {
         if (impl == null) {
+            StockBill stockBill = new StockBill();
+            FinanceBill financeBill  = new FinanceBill();
+            SalesInBill salesInBill = new SalesInBill();
+            SalesOutBill salesOutBill = new SalesOutBill();
+            CashCostBill cashCostBill = new CashCostBill();
+            AlarmBill alarmBill = new AlarmBill();
             impl = new BillBLServiceImpl(stockBill, salesOutBill, salesInBill, financeBill, cashCostBill, alarmBill);
         }
         return impl;

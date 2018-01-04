@@ -86,6 +86,14 @@ public class BillStatusCheckViewController implements Initializable {
         int size = data.size();
         if (statusScreenBox.getValue() == null || statusScreenBox.getValue().equals("全部状态")) {
             return;
+        }  else if (statusScreenBox.getValue().equals("已保存")) {
+            for (int j = 0; j < size; j++) {
+                for (int i = 0; i < data.size(); i++) {
+                    if (!data.get(i).getStatus().equals("已保存")) {
+                        data.remove(i);
+                    }
+                }
+            }
         } else if (statusScreenBox.getValue().equals("已提交")) {
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < data.size(); i++) {

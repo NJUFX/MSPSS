@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.collections.*?>
-<?import java.util.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="727.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.SalesCreateViewController">
+<Pane maxHeight="727.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.SalesCreateViewController">
     <children>
         <Pane id="Navbar" prefHeight="700.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;" />
         <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0f88eb;" />
@@ -125,17 +124,12 @@
                         <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <TextField id="userName" layoutX="238.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
+                <TextField id="userName" fx:id="customerField" layoutX="238.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
                     <font>
                         <Font size="10.0" />
                     </font>
                 </TextField>
-                <TextField id="userName" layoutX="402.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
-                    <font>
-                        <Font size="10.0" />
-                    </font>
-                </TextField>
-                <TextField id="userName" layoutX="566.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
+                <TextField id="userName" fx:id="stockField" layoutX="566.0" layoutY="25.0" prefHeight="22.0" prefWidth="96.0">
                     <font>
                         <Font size="10.0" />
                     </font>
@@ -209,52 +203,53 @@
                         <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <TextArea fx:id="salesRemarkArea" layoutX="72.0" layoutY="475.0" prefHeight="98.0" prefWidth="617.0" />
-            <TextField fx:id="idField" layoutX="124.0" layoutY="217.0" prefHeight="23.0" prefWidth="73.0">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="typeField" layoutX="200.0" layoutY="217.0" prefHeight="23.0" prefWidth="73.0">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </TextField>
-            <ImageView fitHeight="65.0" fitWidth="679.0" layoutX="18.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/stockseller/info.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="56.0" layoutY="413.0" text="折让前总额">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="197.0" layoutY="413.0" text="销售折让">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="330.0" layoutY="413.0" text="促销折让">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="469.0" layoutY="413.0" text="代金券">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="584.0" layoutY="413.0" text="折让后总额">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="VoucherField" layoutX="424.0" layoutY="435.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-radius: 0;" />
-            <TextField fx:id="SalesDiscountField" layoutX="158.0" layoutY="435.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-radius: 0;" />
-            <Label fx:id="TotalBeforeLabel" layoutX="25.0" layoutY="436.0" prefHeight="25.0" prefWidth="132.0" stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true" />
-            <Label fx:id="PromotionDiscountLabel" layoutX="292.0" layoutY="436.0" prefHeight="25.0" prefWidth="132.0" stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true" />
-            <Label fx:id="TotalAfterLabel" layoutX="557.0" layoutY="435.0" prefHeight="25.0" prefWidth="132.0" stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true" />
+                <TextArea fx:id="billRemarkArea" layoutX="72.0" layoutY="475.0" prefHeight="98.0" prefWidth="617.0" />
+                <TextField fx:id="idField" layoutX="124.0" layoutY="217.0" prefHeight="23.0" prefWidth="73.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="typeField" layoutX="200.0" layoutY="217.0" prefHeight="23.0" prefWidth="73.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+                <ImageView fitHeight="65.0" fitWidth="679.0" layoutX="18.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/stockseller/info.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="56.0" layoutY="413.0" text="折让前总额">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="197.0" layoutY="413.0" text="销售折让">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="330.0" layoutY="413.0" text="促销折让">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="469.0" layoutY="413.0" text="代金券">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="584.0" layoutY="413.0" text="折让后总额">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="VoucherField" layoutX="424.0" layoutY="435.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-radius: 0;" />
+                <TextField fx:id="SalesDiscountField" layoutX="158.0" layoutY="435.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-radius: 0;" />
+                <Label fx:id="TotalBeforeLabel" layoutX="25.0" layoutY="436.0" prefHeight="25.0" prefWidth="132.0" stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true" />
+                <Label fx:id="PromotionDiscountLabel" layoutX="292.0" layoutY="436.0" prefHeight="25.0" prefWidth="132.0" stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true" />
+                <Label fx:id="TotalAfterLabel" layoutX="557.0" layoutY="435.0" prefHeight="25.0" prefWidth="132.0" stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true" />
+            <Label fx:id="DAELabel" layoutX="403.0" layoutY="25.0" prefHeight="24.0" prefWidth="96.0" />
                 <!--              <TableView fx:id="informationTableView" layoutX="24.0" layoutY="406.0" prefHeight="56.0"
                                          prefWidth="668.0">
                                   <columns>
