@@ -201,11 +201,36 @@ public class CashCostBill {
     }
 
     public ResultMessage HongChong(CashCostBillVO cashCostBillVO) {
-        return ResultMessage.FAILED;
+        String ID = cashCostBillVO.getID() + "HC";
+        //fixme 存疑 不知道是否应该在原单据编号后面直接加上HC还是重新生成一个编号
+        cashCostBillVO.setSum(cashCostBillVO.getSum() * -1);
+        cashCostBillVO.setID(ID);
+        cashCostBillVO.setStatus(BillStatus.approval);
+        cashCostBillVO.setInit_time(new Time());
+        cashCostBillVO.setCommit_time(new Time());
+        cashCostBillVO.setApproval_time(new Time());
+        accountBLInfo.pay(cashCostBillVO.accountVO.getName(), cashCostBillVO.getSum());
+        if (userInfo.getCurrentUser() != null) {
+            BillLogHelper.approval(userInfo.getCurrentUser(), cashCostBillVO.getID());
+            BillSendMessage.approve(cashCostBillVO.getOperator(), cashCostBillVO.getManager(), cashCostBillVO.getID());
+        }
+        return networkService.addCashCostBill(vo_to_po(cashCostBillVO));
     }
 
     public ResultMessage HongChongAndCopy(CashCostBillVO cashCostBillVO) {
-        return ResultMessage.FAILED;
+        String ID = cashCostBillVO.getID() + "HCCopy";
+        //fixme 存疑 不知道是否应该在原单据编号后面直接加上HC还是重新生成一个编号
+        cashCostBillVO.setID(ID);
+        cashCostBillVO.setStatus(BillStatus.approval);
+        cashCostBillVO.setInit_time(new Time());
+        cashCostBillVO.setCommit_time(new Time());
+        cashCostBillVO.setApproval_time(new Time());
+        accountBLInfo.pay(cashCostBillVO.accountVO.getName(), cashCostBillVO.getSum());
+        if (userInfo.getCurrentUser() != null) {
+            BillLogHelper.approval(userInfo.getCurrentUser(), cashCostBillVO.getID());
+            BillSendMessage.approve(cashCostBillVO.getOperator(), cashCostBillVO.getManager(), cashCostBillVO.getID());
+        }
+        return networkService.addCashCostBill(vo_to_po(cashCostBillVO));
     }
     private CashCostItemPO vo_to_po(CashCostItemVO vo) {
         return new CashCostItemPO(vo.getName(), vo.getPs(), vo.getMoney());
@@ -224,21 +249,6 @@ public class CashCostBill {
         return vos;
     }
 
-    public static void main(String[] args) {
-        CashCostBill cashCostBill = new CashCostBill();
 
-   // List<CashCostBillPO> po =    cashCostBill.networkService.fullSearchCashCostBill("operatorID","11111");
-       CashCostBillPO cashCostBillPO = new CashCostBillPO();
-            cashCostBillPO.setID("xjfyd"+new Time().getTimeStringWithoutSplit()+"000001");
-            cashCostBillPO.setOperatorID("123");
-            cashCostBillPO.setInit_time("123");
-        cashCostBillPO.setApproval_time(new Time().toString());
-        cashCostBill.networkService.addCashCostBill(cashCostBillPO);
-        ArrayList<CashCostBillPO> pos
-                = cashCostBill.networkService.fullSearchCashCostBill("operatorID","123");
-        System.out.println(pos.size());
-   // po = cashCostBill.networkService.fullSearchCashCostBill("status",1);
-     //   System.out.println(po.size());
-    }
 
 }

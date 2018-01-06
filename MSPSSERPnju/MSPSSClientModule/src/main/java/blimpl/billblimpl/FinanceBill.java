@@ -3,7 +3,6 @@ package blimpl.billblimpl;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.customerblservice.CustomerBLInfo;
-import blservice.logblservice.LogBLInfo;
 import blservice.userblservice.UserInfo;
 import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
@@ -27,7 +26,6 @@ public class FinanceBill {
     public static BillClientNetworkService networkService = new BillClientNetworkImpl();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-    private static LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
     /**
      * 添加应收应付单
      *
