@@ -176,7 +176,7 @@ public class CustomerVO {
      * 客户属性构造方法
      *
      * @param ID
-     * @param kind
+     * @param category
      * @param level
      * @param name
      * @param phonenumber
@@ -188,9 +188,9 @@ public class CustomerVO {
      * @param paymoney    应付
      * @param DAE         默认业务员
      */
-    public CustomerVO(String ID, Kind_Of_Customers kind, int level, String name, String phonenumber, String address, String postcode, String email, double InValue, double incomemoney, double paymoney, String DAE) {
+    public CustomerVO(String ID, Kind_Of_Customers category, int level, String name, String phonenumber, String address, String postcode, String email, double InValue, double incomemoney, double paymoney, String DAE) {
         this.ID = ID;
-        this.kind = kind;
+        this.category = category;
         this.level = level;
         this.name = name;
         this.phonenumber = phonenumber;

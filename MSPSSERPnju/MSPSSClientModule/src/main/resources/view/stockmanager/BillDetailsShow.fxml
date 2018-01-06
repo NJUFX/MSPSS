@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="605.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BillDetailsShowViewController">
+   <children>
+      <TableView fx:id="breakageTableView" layoutX="47.0" layoutY="63.0" prefHeight="330.0" prefWidth="635.0">
+         <columns>
+            <TableColumn fx:id="NameCol" prefWidth="120.0" text="名称" />
+            <TableColumn fx:id="IdCol" prefWidth="90.0" text="编号" />
+            <TableColumn fx:id="SystemNumberCol" prefWidth="90.0" text="系统库存" />
+            <TableColumn fx:id="RealNumberCol" prefWidth="100.0" text="实际库存" />
+            <TableColumn fx:id="RemarkCol" prefWidth="234.0" text="备注" />
+         </columns>
+      </TableView>
+      <Label fx:id="billName" layoutX="47.0" layoutY="22.0" text="库存报损单" textFill="#0f88eb">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="billStatus" layoutX="610.0" layoutY="22.0" text="单据状态">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="402.0" text="审批者">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="chiefName" layoutX="101.0" layoutY="402.0" text="name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="440.0" text="审批备注">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="remarkArea" layoutX="122.0" layoutY="440.0" prefHeight="90.0" prefWidth="557.0" />
+      <Button id="sureButton" fx:id="returnButton" layoutX="585.0" layoutY="548.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="返回" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="196.0" layoutY="402.0" text="审批时间">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="time" layoutX="263.0" layoutY="402.0" text="time">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="345.0" layoutY="402.0" text="提交时间">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="commitTime" layoutX="413.0" layoutY="402.0" text="time">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

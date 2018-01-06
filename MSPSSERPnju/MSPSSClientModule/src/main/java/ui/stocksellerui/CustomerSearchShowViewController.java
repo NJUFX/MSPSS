@@ -99,9 +99,6 @@ public class CustomerSearchShowViewController implements Initializable {
         ArrayList<CustomerVO> list = new ArrayList<>();
         ObservableList<Customer> data = customerTableView.getItems();
         data.clear();
-        //data.add(new Customer("00001", "Jiang Chen", "进货商", "4", "50000", "SS001"));
-        //data.add(new Customer("1", "1", "1", "1", "1", "1"));
-        //data.clear();
         CustomerSearchFlag customerSearchFlag = CustomerSearchFlag.ID;
         if (keyType != null && keyword != null) {
             if (keyType.equals("姓名")) {
@@ -119,14 +116,11 @@ public class CustomerSearchShowViewController implements Initializable {
             }
             list = customerBLService.searchCustomer(customerSearchFlag, keyword);
         }
+
         for (int i = 0; i < list.size(); i++) {
             CustomerVO customerVO = list.get(i);
-            String category = "进货商";
-            if (customerVO.getCategory() == Kind_Of_Customers.SALER)
-                category = "销售商";
-            System.out.println(category);
-            Customer customer = new Customer(customerVO.getID(), customerVO.getName(), category, String.valueOf(customerVO.getLevel()), String.valueOf(customerVO.getIncomemoney()), customerVO.getDAE());
-            customer.setType(category);
+            String str = customerVO.getCategory().toString();
+            Customer customer = new Customer(customerVO.getID(), customerVO.getName(), str, String.valueOf(customerVO.getLevel()), String.valueOf(customerVO.getIncomemoney()), customerVO.getDAE());
             data.add(customer);
         }
     }

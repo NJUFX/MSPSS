@@ -35,8 +35,8 @@ public class SelectClassOrCommodityViewController implements Initializable {
     static CommodityVO commodityVO;
     public ClassificationVO classificationVO;
     public TextField commodityNameField, classificationNameField, commodityIdField, commodityTypeField;
-    public Label commodityPriceLabel;
-    public boolean isSelectClass, useType = false;
+    public Label commodityPriceLabel, systemStockLabel;
+    public boolean isSelectClass, useType = false, isStockBill = false;
 
     @FXML
     Button returnButton, sureButton;
@@ -70,6 +70,9 @@ public class SelectClassOrCommodityViewController implements Initializable {
                         commodityTypeField.setText(commodityVO.getType());
                     }
                     sureButton.getScene().getWindow().hide();
+                    if (isStockBill == true) {
+                        systemStockLabel.setText(String.valueOf(commodityVO.getNumberInStock()));
+                    }
                 }
             } else {
                 if (selectItem.getValue().getIsClass() == false) {
@@ -82,7 +85,7 @@ public class SelectClassOrCommodityViewController implements Initializable {
                             classificationName = selectItem.getValue().getName();
                             classificationNameField.setText(classificationName);
                             classificationId = selectItem.getValue().getId();
-                            //classificationVO = commodityBLService.getClassification(classificationId);
+                            classificationVO = commodityBLService.getClassification(classificationId);
                             sureButton.getScene().getWindow().hide();
                         }
                     }

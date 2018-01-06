@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleStringProperty;
 public class Customer {
 	private final SimpleStringProperty Name = new SimpleStringProperty("");
 	private final SimpleStringProperty Id = new SimpleStringProperty("");
-	private final SimpleStringProperty Type = new SimpleStringProperty("");
 	private final SimpleStringProperty Category = new SimpleStringProperty("");
 	private final SimpleStringProperty Level = new SimpleStringProperty("");
 	private final SimpleStringProperty DAE = new SimpleStringProperty("");
@@ -18,10 +17,6 @@ public class Customer {
 		setLevel(level);
 		setDAE(DAE);
 		setReceivableLimit(receivableLimit);
-	}
-
-	public void setType(String fName) {
-		Type.set(fName);
 	}
 
 	public Customer() {

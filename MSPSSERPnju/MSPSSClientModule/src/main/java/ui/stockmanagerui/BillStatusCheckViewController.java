@@ -37,6 +37,7 @@ public class BillStatusCheckViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     StockManagerBillBLService stockManagerBillBLService = new BLFactoryImpl().getStockManagerBillBLService();
     Dialog dialog = new Dialog();
+    Stage newStage = new Stage();
 
     @FXML
     Button BackToLogin;
@@ -86,7 +87,7 @@ public class BillStatusCheckViewController implements Initializable {
         int size = data.size();
         if (statusScreenBox.getValue() == null || statusScreenBox.getValue().equals("全部状态")) {
             return;
-        }  else if (statusScreenBox.getValue().equals("已保存")) {
+        } else if (statusScreenBox.getValue().equals("已保存")) {
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < data.size(); i++) {
                     if (!data.get(i).getStatus().equals("已保存")) {
@@ -227,12 +228,18 @@ public class BillStatusCheckViewController implements Initializable {
                         this.setGraphic(delBtn);
                         delBtn.setOnMouseClicked((me) -> {
                             try {
-                                /*
-                                CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
-                                        "/view/stockmanager/CommodityInfoShow.fxml");
-                                controller.id_to_modify = this.getTableView().getItems().get(this.getIndex()).getId();
-                                //controller.setCommodityTable(OperateCommodity);
-                                */
+                                if (getTableView().getItems().get(this.getIndex()).getStatus().equals("已保存")) {
+                                    if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBYD")) {
+
+                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBSD")) {
+
+                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBJD")) {
+
+                                    }
+                                } else {
+                                    BillDetailsShowViewController.stockBillVO = getTableView().getItems().get(this.getIndex()).getStockBillVO();
+                                    BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockmanager/BillDetailsShow.fxml", 605, 729);
+                                }
                             } catch (Exception e1) {
                                 e1.printStackTrace();
                             }
@@ -248,14 +255,7 @@ public class BillStatusCheckViewController implements Initializable {
     }
 
     public void addRow() {
-        // ArrayList<StockBillVO> list = stockManagerBillBLService.getMyStockBill(LoginController.getCurrentUser().getID());
-        ArrayList<StockBillVO> list = new ArrayList<>();
-        list.add(new StockBillVO("KCBYD0006", StockBillType.More, BillStatus.commit));
-        list.add(new StockBillVO("KCZSDD04321", StockBillType.Presentation, BillStatus.approval));
-        list.add(new StockBillVO("KCBSD0331", StockBillType.Less, BillStatus.rejected));
-        list.add(new StockBillVO("KCZSD031", StockBillType.Presentation, BillStatus.rejected));
-        list.add(new StockBillVO("KCBSD01", StockBillType.Less, BillStatus.init));
-
+        ArrayList<StockBillVO> list = stockManagerBillBLService.getMyStockBill(LoginController.getCurrentUser().getID());
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
             StockBillType stockBillType = list.get(i).getType();
@@ -279,6 +279,7 @@ public class BillStatusCheckViewController implements Initializable {
             }
 
             BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getId(), name, status);
+            billCheckTable.setStockBillVO(list.get(i));
             data.add(billCheckTable);
         }
 
@@ -385,6 +386,26 @@ public class BillStatusCheckViewController implements Initializable {
         Scene scene = new Scene(page, 900, 560);
         stage.setScene(scene);
         stage.sizeToScene();
+        return (Initializable) loader.getController();
+    }
+
+    private Initializable replaceAnotherSceneContent(String fxml, double width, double height) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, width, height);
+        newStage.setTitle("单据详情");
+        newStage.setScene(scene);
+        newStage.sizeToScene();
+        newStage.setResizable(false);
+        newStage.show();
         return (Initializable) loader.getController();
     }
 
