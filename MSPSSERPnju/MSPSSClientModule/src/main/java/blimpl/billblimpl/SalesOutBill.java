@@ -132,6 +132,28 @@ public class SalesOutBill {
         salesOutBillVO.setApproval_time(new Time());
         BillSendMessage.approve(salesOutBillVO.getOperator(), userInfo.getCurrentUser(), salesOutBillVO.getID());
         BillLogHelper.approval(userInfo.getCurrentUser(), salesOutBillVO.getID());
+        boolean isOut = salesOutBillVO.getType() == SalesOutBillType.OUT;
+
+
+        if (isOut) {
+            customerBLInfo.changeYingFu(salesOutBillVO.getCustomerVO().getID(), salesOutBillVO.getSumAfterDiscount() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesOutBillVO.getItemVOS()) {
+                commodityinfoService.updateCommodityByOut(item.getId(), item.getNumber(), item.getPrice());
+            }
+        } else {
+            customerBLInfo.changeYingShou(salesOutBillVO.getCustomerVO().getID(), salesOutBillVO.getSumAfterDiscount() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesOutBillVO.getItemVOS()) {
+                commodityinfoService.updateCommodityByIn(item.getId(), item.getNumber(), item.getPrice());
+            }
+        }
         return networkService.updateSalesOutBill(vo_to_po(salesOutBillVO));
     }
 
@@ -370,11 +392,69 @@ public class SalesOutBill {
     }
 
     public ResultMessage HongChong(SalesOutBillVO salesOutBillVO) {
-        return ResultMessage.FAILED;
+        String ID = salesOutBillVO.getID() + "HC";
+        salesOutBillVO.setID(ID);
+        salesOutBillVO.setInit_time(new Time());
+        salesOutBillVO.setCommit_time(new Time());
+        salesOutBillVO.setApproval_time(new Time());
+        for (SalesItemVO item : salesOutBillVO.getItemVOS()) {
+            item.setNumber(item.getNumber() * -1);
+        }
+        boolean isOut = salesOutBillVO.getType() == SalesOutBillType.OUT;
+
+
+        if (isOut) {
+            customerBLInfo.changeYingFu(salesOutBillVO.getCustomerVO().getID(), salesOutBillVO.getSumAfterDiscount() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesOutBillVO.getItemVOS()) {
+                commodityinfoService.updateCommodityByOut(item.getId(), item.getNumber(), item.getPrice());
+            }
+        } else {
+            customerBLInfo.changeYingShou(salesOutBillVO.getCustomerVO().getID(), salesOutBillVO.getSumAfterDiscount() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesOutBillVO.getItemVOS()) {
+                commodityinfoService.updateCommodityByIn(item.getId(), item.getNumber(), item.getPrice());
+            }
+        }
+        return networkService.addSalesOutBill(vo_to_po(salesOutBillVO));
     }
 
     public ResultMessage HongChongAndCopy(SalesOutBillVO salesOutBillVO) {
-        return ResultMessage.FAILED;
+        String ID = salesOutBillVO.getID() + "HCCopy";
+        salesOutBillVO.setID(ID);
+        salesOutBillVO.setInit_time(new Time());
+        salesOutBillVO.setCommit_time(new Time());
+        salesOutBillVO.setApproval_time(new Time());
+        boolean isOut = salesOutBillVO.getType() == SalesOutBillType.OUT;
+
+
+        if (isOut) {
+            customerBLInfo.changeYingFu(salesOutBillVO.getCustomerVO().getID(), salesOutBillVO.getSumAfterDiscount() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesOutBillVO.getItemVOS()) {
+                commodityinfoService.updateCommodityByOut(item.getId(), item.getNumber(), item.getPrice());
+            }
+        } else {
+            customerBLInfo.changeYingShou(salesOutBillVO.getCustomerVO().getID(), salesOutBillVO.getSumAfterDiscount() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesOutBillVO.getItemVOS()) {
+                commodityinfoService.updateCommodityByIn(item.getId(), item.getNumber(), item.getPrice());
+            }
+        }
+
+        return networkService.addSalesOutBill(vo_to_po(salesOutBillVO));
     }
 
 }

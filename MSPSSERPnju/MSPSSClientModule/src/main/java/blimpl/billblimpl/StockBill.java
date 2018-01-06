@@ -41,11 +41,63 @@ public class StockBill implements StockBillInfo {
 
 
     public ResultMessage HongChong(StockBillVO stockBillVO) {
-        return ResultMessage.FAILED;
+        String ID = stockBillVO.getId() + "HC";
+        stockBillVO.setInit_time(new Time());
+        stockBillVO.setCommit_time(new Time());
+        stockBillVO.setApproval_time(new Time());
+        for (StockBillItemVO item : stockBillVO.getItemVOS()) {
+            int number = item.getNumber() * -1;
+        }
+        ArrayList<StockBillItemVO> itemVOS = stockBillVO.getItemVOS();
+        ArrayList<ChangeInfoVO> changeInfoVOS = new ArrayList<>();
+        StockInfo info = (stockBillVO.type == StockBillType.More) ? StockInfo.Out : StockInfo.In;
+        for (int i = 0; i < itemVOS.size(); i++) {
+            StockBillItemVO itemVO = itemVOS.get(i);
+            ChangeInfoVO changeInfoVO;
+            if (info == StockInfo.In) {
+                changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID, itemVO.number, info, stockBillVO.approval_time.toString(), itemVO.commodityVO.importCost * itemVO.number);
+            } else {
+                changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID, itemVO.number, info, stockBillVO.approval_time.toString(), itemVO.commodityVO.exportCost * itemVO.number);
+            }
+            changeInfoVOS.add(changeInfoVO);
+        }
+        stockBLInfo.updateStock(changeInfoVOS);
+        //更新每一个商品的库存
+        for (int i = 0; i < itemVOS.size(); i++) {
+            CommodityVO commodityVO = itemVOS.get(i).commodityVO;
+            commodityVO.setNumberInStock(commodityVO.getNumberInStock() - itemVOS.get(i).getNumber());
+            commodityInfoService.updateCommodity(commodityVO);
+        }
+        return networkService.addStockBill(vo_to_po(stockBillVO));
     }
 
     public ResultMessage HongChongAndCopy(StockBillVO stockBillVO) {
-        return ResultMessage.FAILED;
+        String ID = stockBillVO.getId() + "HCCopy";
+        stockBillVO.setInit_time(new Time());
+        stockBillVO.setCommit_time(new Time());
+        stockBillVO.setApproval_time(new Time());
+
+        ArrayList<StockBillItemVO> itemVOS = stockBillVO.getItemVOS();
+        ArrayList<ChangeInfoVO> changeInfoVOS = new ArrayList<>();
+        StockInfo info = (stockBillVO.type == StockBillType.More) ? StockInfo.Out : StockInfo.In;
+        for (int i = 0; i < itemVOS.size(); i++) {
+            StockBillItemVO itemVO = itemVOS.get(i);
+            ChangeInfoVO changeInfoVO;
+            if (info == StockInfo.In) {
+                changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID, itemVO.number, info, stockBillVO.approval_time.toString(), itemVO.commodityVO.importCost * itemVO.number);
+            } else {
+                changeInfoVO = new ChangeInfoVO(itemVO.commodityVO.ID, itemVO.number, info, stockBillVO.approval_time.toString(), itemVO.commodityVO.exportCost * itemVO.number);
+            }
+            changeInfoVOS.add(changeInfoVO);
+        }
+        stockBLInfo.updateStock(changeInfoVOS);
+        //更新每一个商品的库存
+        for (int i = 0; i < itemVOS.size(); i++) {
+            CommodityVO commodityVO = itemVOS.get(i).commodityVO;
+            commodityVO.setNumberInStock(commodityVO.getNumberInStock() - itemVOS.get(i).getNumber());
+            commodityInfoService.updateCommodity(commodityVO);
+        }
+        return networkService.addStockBill(vo_to_po(stockBillVO));
     }
 
     /**

@@ -164,11 +164,68 @@ public class SalesInBill {
     }
 
     public ResultMessage HongChong(SalesInBillVO salesInBillVO) {
-        return ResultMessage.FAILED;
+        String ID = salesInBillVO.getID() + "HC";
+        salesInBillVO.setID(ID);
+        salesInBillVO.setInit_time(new Time());
+        salesInBillVO.setCommit_time(new Time());
+        salesInBillVO.setApproval_time(new Time());
+        for (SalesItemVO itemVO : salesInBillVO.getItemVOS()) {
+            int num = itemVO.getNumber() * -1;
+            itemVO.setNumber(num);
+        }
+        double sum = salesInBillVO.getSumMoney() * -1;
+        salesInBillVO.setSumMoney(sum);
+        //判断是否是进货单
+        boolean isIn = salesInBillVO.getType() == SalesInBillType.IN;
+        //下面是进货单的操作
+        if (isIn) {
+            //进货单通过审批后 供应商的应收款就增加了
+            customerBLInfo.changeYingShou(salesInBillVO.getProvider(), salesInBillVO.getSumMoney() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesInBillVO.getItemVOS()) {
+                commodityInfo.updateCommodityByIn(item.getId(), item.getNumber(), item.getPrice());
+            }
+        } else {
+            //进货退货单通过审批后 供应商的应付款就增加了
+            customerBLInfo.changeYingFu(salesInBillVO.getProvider(), salesInBillVO.getSumMoney() * -1);
+            for (SalesItemVO item : salesInBillVO.getItemVOS()) {
+                commodityInfo.updateCommodityByOut(item.getId(), item.getNumber(), item.getPrice());
+            }
+        }
+
+        return networkService.addSalesInBill(vo_to_po(salesInBillVO));
     }
 
     public ResultMessage HongChongAndCopy(SalesInBillVO salesInBillVO) {
-        return ResultMessage.FAILED;
+        String ID = salesInBillVO.getID() + "HC";
+        salesInBillVO.setID(ID);
+        salesInBillVO.setInit_time(new Time());
+        salesInBillVO.setCommit_time(new Time());
+        salesInBillVO.setApproval_time(new Time());
+        boolean isIn = salesInBillVO.getType() == SalesInBillType.IN;
+        //下面是进货单的操作
+        if (isIn) {
+            //进货单通过审批后 供应商的应收款就增加了
+            customerBLInfo.changeYingShou(salesInBillVO.getProvider(), salesInBillVO.getSumMoney() * -1);
+
+            //库存数量一次增加 同时更新最近一次进货额 以及均价
+            //写到这里我决定在 commodityInfo里增加接口 不把这么复杂的事情放在这里处理
+            //接口写好了
+            for (SalesItemVO item : salesInBillVO.getItemVOS()) {
+                commodityInfo.updateCommodityByIn(item.getId(), item.getNumber(), item.getPrice());
+            }
+        } else {
+            //进货退货单通过审批后 供应商的应付款就增加了
+
+            customerBLInfo.changeYingFu(salesInBillVO.getProvider(), salesInBillVO.getSumMoney() * -1);
+            for (SalesItemVO item : salesInBillVO.getItemVOS()) {
+                commodityInfo.updateCommodityByOut(item.getId(), item.getNumber(), item.getPrice());
+            }
+        }
+        return networkService.addSalesInBill(vo_to_po(salesInBillVO));
     }
     private ArrayList<SalesInBillVO> pos_to_vos(ArrayList<SalesInBillPO> pos) {
         if (pos == null)
