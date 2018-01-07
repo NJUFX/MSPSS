@@ -35,6 +35,10 @@ public class AccountVO {
         return createTime;
     }
 
+    public void setCreateTime(Time time){
+        this.createTime = time;
+    }
+
 
 
 }

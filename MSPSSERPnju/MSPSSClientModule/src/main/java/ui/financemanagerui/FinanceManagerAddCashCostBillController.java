@@ -287,6 +287,9 @@ public class FinanceManagerAddCashCostBillController implements Initializable {
 		AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(AccountField.getValue().toString(),null,null)).get(0);
 		vo = new CashCostBillVO(currentUser,accountVO,cashCostItems,sum);
 		billBLService.saveCashCostBill(vo);
+		Dialog d = new Dialog();
+		d.confirmDialog("保存现金费用单成功！");
+
 		
 	}
 	
@@ -308,7 +311,14 @@ public class FinanceManagerAddCashCostBillController implements Initializable {
 		billBLService.commitCashCostBill(new CashCostBillVO(currentUser,accountVO,cashCostItems,sum));
 		*/
     	billBLService.commitCashCostBill(vo);
-		
+		Dialog d = new Dialog();
+		d.confirmDialog("提交现金费用单成功！");
+		ObservableList<CashCostItem> data = CashCostItemTable.getItems();
+		data.clear();
+		NameField.setText("");
+		SumField.setText("");
+		PsField.setText("");
+		AmountField.setText("");
 	}
 
 
