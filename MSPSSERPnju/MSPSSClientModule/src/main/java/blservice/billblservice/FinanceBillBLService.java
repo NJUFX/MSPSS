@@ -1,5 +1,6 @@
 package blservice.billblservice;
 
+import exception.initclassexception.KeyColumnLostException;
 import util.ResultMessage;
 import vo.*;
 
@@ -21,7 +22,7 @@ public interface FinanceBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage saveFinanceBill(FinanceBillVO vo);
+    public ResultMessage saveFinanceBill(FinanceBillVO vo) throws KeyColumnLostException;
 
     /**
      * 更新应收应付单
@@ -29,7 +30,7 @@ public interface FinanceBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage commitFinanceBill(FinanceBillVO vo);
+    public ResultMessage commitFinanceBill(FinanceBillVO vo) throws KeyColumnLostException;
 
     /**
      * 删除应收应付单
@@ -60,7 +61,7 @@ public interface FinanceBillBLService {
      * @param cashCostBillVO
      * @return
      */
-    public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO);
+    public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO)throws KeyColumnLostException;
 
     /**
      * 更新现金费用单
@@ -68,7 +69,7 @@ public interface FinanceBillBLService {
      * @param cashCostBillVO
      * @return
      */
-    public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO);
+    public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO)throws KeyColumnLostException;
 
     /**
      * 删除现金费用单

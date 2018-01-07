@@ -2,6 +2,7 @@ package blimpl.accountblimpl;
 
 import blservice.accountblservice.AccountBLInfo;
 import blservice.accountblservice.AccountBLService;
+import exception.dataexception.NegativeException;
 import util.ResultMessage;
 import util.Time;
 import vo.AccountFilterFlagsVO;
@@ -38,7 +39,10 @@ public class AccountBLBLServiceImpl implements AccountBLService,AccountBLInfo {
     }
 
     @Override
-    public ResultMessage addAccount(AccountVO account){
+    public ResultMessage addAccount(AccountVO account) throws NegativeException{
+        if(account.getMoney()<0){
+            throw new NegativeException();
+        }
         return this.account.addAccount(account);
     }
     @Override
