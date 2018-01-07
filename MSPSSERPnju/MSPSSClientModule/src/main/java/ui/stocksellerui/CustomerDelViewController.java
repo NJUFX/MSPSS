@@ -1,5 +1,6 @@
 package ui.stocksellerui;
 
+import auxiliary.Customer;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.customerblservice.CustomerBLService;
 import blservice.mainblservice.MainBLService;
@@ -20,6 +21,7 @@ import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.ResultMessage;
+import vo.CustomerVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,22 +50,34 @@ public class CustomerDelViewController implements Initializable {
 
     public void sureButtonAction(ActionEvent e) {
         if (idField.getText() != null || !idField.getText().trim().equals("")) {
-            ResultMessage resultMessage = customerBLService.delCustomer(idField.getText().trim());
-            if (resultMessage == ResultMessage.SUCCESS) {
-                dialog.infoDialog("Delete a customer successfully.");
-                try {
-                    CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
-                            "/view/stockseller/CustomerManage.fxml");
-                } catch (Exception e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
+            if (customerBLService.getCustomerInfo(idField.getText()) != null) {
+                boolean b = true;
+                CustomerVO customerVO = customerBLService.getCustomerInfo(idField.getText());
+                if (customerVO.getIncomemoney() != 0 || customerVO.getPaymoney() != 0) {
+                    b = dialog.confirmDialog("该客户的应收为" + customerVO.getIncomemoney() + '\n' + "该客户的应付为" + customerVO.getPaymoney() + '\n' + "是否坚持删除该用户？");
+                }
+                if (b == true) {
+                    ResultMessage resultMessage = customerBLService.delCustomer(idField.getText().trim());
+                    if (resultMessage == ResultMessage.SUCCESS) {
+                        dialog.infoDialog("Delete a customer successfully.");
+                        try {
+                            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                                    "/view/stockseller/CustomerManage.fxml");
+                        } catch (Exception e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                    } else {
+                        dialog.infoDialog("Fail to delete the customer");
+                    }
                 }
             } else {
-                dialog.infoDialog("Fail to delete the customer");
+                dialog.errorInfoDialog("Customer not exist!");
             }
         } else {
             dialog.errorInfoDialog("You haven't input id.");
         }
+
     }
 
     /**

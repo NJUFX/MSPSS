@@ -104,7 +104,8 @@ public class Customer {
     }
 
     private CustomerPO vo_to_po(CustomerVO vo){
-        int category = Kind_Of_Customers.SALER==vo.getKind() ? 0:1;
+
+        int category = Kind_Of_Customers.SALER==vo.getCategory() ? 0 :1;
         CustomerPO po = new CustomerPO(
                 vo.getExist(),category,vo.getLevel(),
                 vo.getName(),vo.getPhonenumber(),vo.getAddress()

@@ -5,7 +5,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mspss</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mspss?characterEncoding=UTF-8</property>
 
 
 

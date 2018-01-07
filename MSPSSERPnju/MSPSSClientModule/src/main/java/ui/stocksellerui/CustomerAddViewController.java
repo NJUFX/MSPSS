@@ -63,7 +63,7 @@ public class CustomerAddViewController implements Initializable {
     public void sureButtonAction(ActionEvent e) {
         Kind_Of_Customers kind_of_customers;
         if (categoryBox.getValue() != null && !categoryBox.getValue().trim().equals("")) {
-            String kind = categoryBox.getValue();
+            String kind = categoryBox.getValue().toString();
             if (kind.equals("进货商")) {
                 kind_of_customers = Kind_Of_Customers.SUPPLIER;
             } else {

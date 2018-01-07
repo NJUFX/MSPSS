@@ -14,10 +14,7 @@
 | 徐光耀  | 2017-11-06 | 添加财务人员展示层分解        | v1.2.3 |
 | 伏家兴  | 2017-11-08 | 添加admin模块的展示层分解    | V1.2.4 |
 | FX全组 | 2017-11-10 | 重构业务逻辑层            | V1.3   |
-|      |            |                    |        |
-|      |            |                    |        |
-|      |            |                    |        |
-|      |            |                    |        |
+| FX全组 | 2017-12-29 | 根据实际项目调整文档         | V1.4   |
 
 ## 1. 引言
 
@@ -60,9 +57,7 @@
 
 (1)整体结构
 
-展示层的控制器为树状委托结构，StockManagerViewController负责对客户界面的整体跳转，StockManagerNavBarController负责实现导航栏界面，StockManagerCommodityViewController,StockManagerBillViewController,StockManagerStockViewController,StockManagerInventoryController分别实现库存管理人员导航栏的商品管理，制定库存报损报溢单，库存查看，库存盘点界面的跳转
-
-stockmanager界面各个类的职责如下
+展示层的控制器为树状委托结构，StockManagerMainViewController负责对客户界面的整体跳转AddClassificationViewController,AddCommodityViewController,stockmanager界面各个类的职责如下
 
 | 模块                                 | 职责               |
 | ---------------------------------- | ---------------- |
