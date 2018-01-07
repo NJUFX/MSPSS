@@ -3,7 +3,6 @@ package blimpl.billblimpl;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLInfo;
 import blservice.customerblservice.CustomerBLInfo;
-import blservice.logblservice.LogBLInfo;
 import blservice.userblservice.UserInfo;
 import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
@@ -24,10 +23,9 @@ import java.util.List;
  */
 public class FinanceBill {
     private static AccountBLInfo accountInfo = new BLFactoryImpl().getAccountBLInfo();
-    private static BillClientNetworkService networkService = new BillClientNetworkImpl();
+    public static BillClientNetworkService networkService = new BillClientNetworkImpl();
     private static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     private static CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-    private static LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
     /**
      * 添加应收应付单
      *
@@ -41,14 +39,15 @@ public class FinanceBill {
         }
         if (vo.getID() == null) {
             String ID = networkService.getFinanceBillID(vo.getType());
+            System.out.println(ID);
             vo.setID(ID);
+
             FinanceBillPO po = vo_to_po(vo);
             if (userInfo.getCurrentUser() != null) {
                 BillLogHelper.init(userInfo.getCurrentUser(), ID);
             }
             return networkService.addFinanceBill(po);
         } else
-
         {
             if (userInfo.getCurrentUser() != null) {
                 BillLogHelper.update(userInfo.getCurrentUser(), vo.getID());
@@ -180,6 +179,7 @@ public class FinanceBill {
         String commit_time = vo.getCommit_time() != null ? vo.getCommit_time().toString() : null;
         String approval_time = vo.getApproval_time() != null ? vo.getApproval_time().toString() : null;
         String operatorID = vo.getOperator().getID();
+        System.out.println(operatorID);
         String managerID = vo.getManagerVO() != null ? vo.getManagerVO().getID() : null;
         String customerID = vo.getCustomerVO().getID();
         int status = vo.getStatus().ordinal();
@@ -203,6 +203,7 @@ public class FinanceBill {
     }
 
     private FinanceItemVO po_to_vo(FinanceItemPO po) {
+        System.out.println(po.getAccountID()+new Time().toString());
         AccountVO accountVO = accountInfo.getAccountVO(po.getAccountID());
         FinanceItemVO vo = new FinanceItemVO(accountVO, po.getPs(), po.getMoney());
         return vo;

@@ -24,6 +24,7 @@ public class AddCommodityViewController implements Initializable {
     Dialog dialog = new Dialog();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
     static String name_of_commodity;
+    static String name_Of_class;
     TreeItem<ClassificationCell> treeItem;
     @FXML
     Button returnButton, sureButton;
@@ -55,26 +56,28 @@ public class AddCommodityViewController implements Initializable {
 
             name_of_commodity = name.getText().trim();
             String str = treeItem.getValue().getName();
-            TreeItem<ClassificationCell> newItem = new TreeItem<>(new ClassificationCell(name_of_commodity, str, "00000001", false), imageView);
-            treeItem.getChildren().add(newItem);
-
-            CommodityVO commodityVO = new CommodityVO(name.getText().trim(), str, type.getText().trim(), Double.parseDouble(inPrice.getText().trim()), Double.parseDouble(outPrice.getText().trim()), Integer.parseInt(stockNumber.getText().trim()));
+            CommodityVO commodityVO = new CommodityVO(name.getText().trim(), null, type.getText().trim(), Double.parseDouble(inPrice.getText().trim()), Double.parseDouble(outPrice.getText().trim()), Integer.parseInt(stockNumber.getText().trim()));
             commodityVO.setLatestImportCost(Double.parseDouble(recentInPrice.getText().trim()));
             commodityVO.setLatestExportCost(Double.parseDouble(recentOutPrice.getText().trim()));
             commodityVO.setAlertNumber(Integer.parseInt(alertNumber.getText().trim()));
-
+            commodityVO.setClassificationName(treeItem.getValue().getId());
+            System.out.println(treeItem.getValue().getId());
             ResultMessage resultMessage = commodityBLService.addCommodity(commodityVO);
             if (resultMessage == ResultMessage.SUCCESS) {
+                TreeItem<ClassificationCell> newItem = new TreeItem<>(new ClassificationCell(name_of_commodity, str, commodityVO.getID(), false), imageView);
+                treeItem.getChildren().add(newItem);
                 dialog.infoDialog("Add a commodity successfully.");
+
             }
-            dialog.infoDialog("Add a commodity successfully.");
             sureButton.getScene().getWindow().hide();
         } else {
             errorLabel.setVisible(true);
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        category.setText(name_Of_class);
         errorLabel.setVisible(false);
     }
 }

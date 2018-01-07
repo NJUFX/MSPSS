@@ -62,11 +62,9 @@ public class CommodityClassifyViewController implements Initializable {
     @FXML
     TreeView<ClassificationCell> commodityClassification;// 商品分类
     @FXML
-    TextField classNameField, nameField, stockField, alertField, inPriceField, outPriceField;
+    TextField classNameField, nameField, stockField, alertField, inPriceField, outPriceField, typeField;
     @FXML
     Label idLabel, classIdLabel, classParentLabel;
-    @FXML
-    ComboBox<String> typeBox;
     @FXML
     Pane classPane, commodityPane;
 
@@ -83,26 +81,7 @@ public class CommodityClassifyViewController implements Initializable {
         if (commodityBLService.getRootClassifications() != null && commodityBLService.getRootClassifications().size() != 0) {
             addChildren(commodityBLService.getRootClassifications(), root);
         }
-        /*
-        for (int i = 0; i < 5; i++) {
-            ImageView commodityImageView = new ImageView(
-                    new Image(getClass().getResourceAsStream("/image/stockmanager/商品分类root.png")));
-            commodityImageView.setFitWidth(15);
-            commodityImageView.setFitHeight(15);
-            ClassificationCell cell = new ClassificationCell("class" + (i + 1), root.getValue().getName(), "001" + (i + 1), true);
-            root.getChildren().add(new TreeItem<>(cell, commodityImageView));
-            TreeItem<ClassificationCell> child = root.getChildren().get(i);
-            for (int j = 0; j < 5; j++) {
-                ClassificationCell commodity = new ClassificationCell("Commodity" + (i + 1) + "." + (j + 1), child.getValue().getName(), "001" + (i + 1) + (j + 1), false);
-                ImageView imageView = new ImageView(
-                        new Image(getClass().getResourceAsStream("/image/stockmanager/lamp.png")));
-                imageView.setFitWidth(15);
-                imageView.setFitHeight(15);
-                child.getChildren().add(new TreeItem<>(commodity, imageView));
-            }
-        }
-        */
-
+        System.out.println(commodityBLService.getChildrenCommodity(commodityBLService.getClassification("4")).size());
         commodityClassification.setRoot(root);
         commodityClassification.setEditable(true);
         commodityClassification.setCellFactory((TreeView<ClassificationCell> p) -> new TextFieldTreeCellImpl());
@@ -119,9 +98,11 @@ public class CommodityClassifyViewController implements Initializable {
             for (int j = 0; j < treeItem.getChildren().size(); j++) {
                 if (treeItem.getChildren().get(j).getValue().getName().trim().equals(childrenVO.getName())) {
                     TreeItem<ClassificationCell> childrenItem = treeItem.getChildren().get(j);
-                    if (commodityBLService.getChildrenClassification(childrenVO) != null) {
+                    if (commodityBLService.getChildrenClassification(childrenVO) != null && commodityBLService.getChildrenClassification(childrenVO).size() != 0) {
                         addChildren(commodityBLService.getChildrenClassification(childrenVO), childrenItem);
-                    } else if (commodityBLService.getChildrenCommodity(childrenVO) != null) {
+                    }
+                    //System.out.println(commodityBLService.getChildrenCommodity(childrenVO).size());
+                    if (commodityBLService.getChildrenCommodity(childrenVO) != null && commodityBLService.getChildrenCommodity(childrenVO).size() != 0) {
                         addCommodity(commodityBLService.getChildrenCommodity(childrenVO), childrenItem);
                     }
                 }
@@ -392,13 +373,14 @@ public class CommodityClassifyViewController implements Initializable {
                         boolean b = dialog.confirmDialog("Confirm to modify the classification?");
                         if (b == true) {
                             ClassificationCell cell = item.getValue();
-                            item.getValue().setName(classNameField.getText().trim());
-                            //ResultMessage resultMessage = ResultMessage.SUCCESS;
-                            System.out.println(item.getValue().getId());
                             ClassificationVO classificationVO = commodityBLService.getClassification(item.getValue().getId());
-                            //TODO
-                            ResultMessage resultMessage = commodityBLService.updateClassification(new ClassificationVO(cell.getName(), classificationVO.ID, classificationVO.parent, classificationVO.isLeaf()));
+                            classificationVO.setName(classNameField.getText().trim());
+                            if (!getTreeView().getSelectionModel().getSelectedItem().getValue().getParent().equals("Root")) {
+                                classificationVO.setParent(commodityBLService.getClassification(item.getParent().getValue().getId()));
+                            }
+                            ResultMessage resultMessage = commodityBLService.updateClassification(classificationVO);
                             if (resultMessage == ResultMessage.SUCCESS) {
+                                item.getValue().setName(classNameField.getText().trim());
                                 dialog.infoDialog("Modify the classification successfully.");
                             } else {
                                 dialog.errorInfoDialog("Fail to modify the classification.");
@@ -409,8 +391,14 @@ public class CommodityClassifyViewController implements Initializable {
                 } else {
                     commodityPane.setVisible(true);
                     classPane.setVisible(false);
-                    //CommodityVO commodityVO = commodityInfoService.getCommodity(item.getValue().getId());
+                    idLabel.setText(item.getValue().getId());
+                    CommodityVO commodityVO = commodityInfoService.getCommodity(idLabel.getText());
                     nameField.setText(item.getValue().getName());
+                    stockField.setText(String.valueOf(commodityVO.getNumberInStock()));
+                    typeField.setText(commodityVO.getType());
+                    alertField.setText(String.valueOf(commodityVO.getAlertNumber()));
+                    inPriceField.setText(String.valueOf(commodityVO.importCost));
+                    outPriceField.setText(String.valueOf(commodityVO.exportCost));
 
                     /**
                      * 删除商品
@@ -439,13 +427,15 @@ public class CommodityClassifyViewController implements Initializable {
                             //ResultMessage resultMessage = ResultMessage.SUCCESS;
                             //TODO
 
-                            CommodityVO commodityVO = commodityInfoService.getCommodity(item.getValue().getId());
-                            commodityVO.setName(nameField.getText().trim());
-                            commodityVO.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
-                            commodityVO.setNumberInStock(Integer.parseInt(stockField.getText().trim()));
-                            commodityVO.setLatestExportCost(Double.parseDouble(outPriceField.getText().trim()));
-                            commodityVO.setLatestImportCost(Double.parseDouble(inPriceField.getText().trim()));
-
+                            CommodityVO newCommodityVO = commodityInfoService.getCommodity(item.getValue().getId());
+                            newCommodityVO.setName(nameField.getText().trim());
+                            newCommodityVO.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
+                            newCommodityVO.setNumberInStock(Integer.parseInt(stockField.getText().trim()));
+                            newCommodityVO.setLatestExportCost(Double.parseDouble(outPriceField.getText().trim()));
+                            newCommodityVO.setLatestImportCost(Double.parseDouble(inPriceField.getText().trim()));
+                            newCommodityVO.setClassificationName(item.getParent().getValue().getName());
+                            System.out.println(newCommodityVO.getClassificationName());
+                            newCommodityVO.setType(typeField.getText());
                             ResultMessage resultMessage = commodityBLService.updateCommodity(commodityVO);
 
                             if (resultMessage == ResultMessage.SUCCESS) {
@@ -483,12 +473,7 @@ public class CommodityClassifyViewController implements Initializable {
                 if (item.getValue().getIsClass() != true) {
                     dialog.errorInfoDialog("This isn't a classification.");
                 } else {
-                    String id = getTreeItem().getValue().getId();
-                    String fatherID = getTreeItem().getParent().getValue().getId();
                     startEdit();
-                    commodityBLService.deleteClassification(id);
-                    ClassificationVO children = new ClassificationVO(getTreeItem().getValue().getId(), commodityBLService.getClassification(fatherID));
-                    ResultMessage resultMessage = commodityBLService.addClassification(children);
                 }
             });
 
@@ -511,6 +496,7 @@ public class CommodityClassifyViewController implements Initializable {
                 TreeItem<ClassificationCell> item = getTreeView().getSelectionModel().getSelectedItem();
                 if (item.getValue().getIsClass() == true) {
                     try {
+                        AddCommodityViewController.name_Of_class = getTreeItem().getValue().getName();
                         AddCommodityViewController controller = (AddCommodityViewController) replaceAnotherSceneContent(
                                 "/view/stockmanager/AddCommodity.fxml", 266, 375);
                         controller.treeItem = getTreeItem();
@@ -525,9 +511,10 @@ public class CommodityClassifyViewController implements Initializable {
             delComMenuItem.setOnAction(e -> {
                 boolean b = dialog.confirmDialog("Confirm to delete the commodity?");
                 if (b == true) {
-                    TreeItem selectItem = getTreeView().getSelectionModel().getSelectedItem();
-                    selectItem.getParent().getChildren().remove(selectItem);
-                    if (commodityBLService.deleteClassification(selectItem.getValue().toString()) == ResultMessage.SUCCESS) {
+                    TreeItem<ClassificationCell> selectItem = getTreeView().getSelectionModel().getSelectedItem();
+                    ResultMessage resultMessage = commodityBLService.deleteCommodity(selectItem.getValue().getId());
+                    if (resultMessage == ResultMessage.SUCCESS) {
+                        selectItem.getParent().getChildren().remove(selectItem);
                         dialog.infoDialog("Delete a commodity successfully.");
                     }
                 }
@@ -569,11 +556,8 @@ public class CommodityClassifyViewController implements Initializable {
                 } else {
                     setText(getString());
                     setGraphic(getTreeItem().getGraphic());
-                    //if (!getTreeItem().isLeaf()) {
-                    //&& getTreeItem().getParent() != null
                     setContextMenu(Menu);
                     menuEdit(getTreeItem());
-                    // }
                 }
             }
         }
@@ -582,7 +566,16 @@ public class CommodityClassifyViewController implements Initializable {
             textField = new TextField(getString());
             textField.setOnKeyReleased((javafx.scene.input.KeyEvent t) -> {
                 if (t.getCode() == KeyCode.ENTER) {
-                    commitEdit(new ClassificationCell(textField.getText(), getItem().getParent(), "0000001", true));
+                    ClassificationVO classificationVO = commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getValue().getId());
+                    classificationVO.setName(textField.getText().trim());
+                    if (!getTreeView().getSelectionModel().getSelectedItem().getValue().getParent().equals("Root")) {
+                        classificationVO.setParent(commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId()));
+                    }
+                    ResultMessage resultMessage = commodityBLService.updateClassification(classificationVO);
+                    if (resultMessage == ResultMessage.SUCCESS) {
+                        dialog.infoDialog("Modify classification successfully.");
+                        commitEdit(new ClassificationCell(textField.getText().trim(), getItem().getParent(), classificationVO.getID(), true));
+                    }
                 } else if (t.getCode() == KeyCode.ESCAPE) {
                     cancelEdit();
                 }

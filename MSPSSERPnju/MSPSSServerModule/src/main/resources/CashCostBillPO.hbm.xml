@@ -14,7 +14,7 @@
         <property name="init_time" column="init_time" type="string"/>
         <property name="commit_time" column="commit_time" type="string"/>
         <property name="approval_time" column="approval_time" type="string"/>
-
+       <property name="accountName" column="account_name" type="string"></property>
 
         <list name="list" lazy="false" table ="cashcostitempo" cascade="all">
             <key column="cashcostbill_id"></key>

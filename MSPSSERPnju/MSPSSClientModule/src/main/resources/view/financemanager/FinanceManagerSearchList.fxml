@@ -98,6 +98,7 @@
                      <String fx:value="进货类单据" />
                      <String fx:value="财务类单据" />
                      <String fx:value="库存类单据" />
+                      <String fx:value="现金费用单" />
                   </FXCollections>
                </items>
             </ComboBox>

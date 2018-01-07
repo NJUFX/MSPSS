@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
     Stage newStage = new Stage();
     UserBLService userBLService = new BLFactoryImpl().getUserBLService();
     MainBLService mainBLService = new BLFactoryImpl().getMainBLService();
-    static UserVO currentUser = new UserVO("001", "test", Kind_Of_Users.ChiefManager, "123456");
+    static UserVO currentUser ;
     @FXML
     public Button loginButton, modPasswordButton;
     @FXML
@@ -62,13 +62,13 @@ public class LoginController implements Initializable {
         } else if (currentUser.getCategory() == Kind_Of_Users.FinancerManager) {
             return "财务经理";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockManager) {
-            return "库存管理人员";
+            return "库存管理";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockSeller) {
-            return "进货销售人员";
+            return "进货销售";
         } else if (currentUser.getCategory() == Kind_Of_Users.StockSellerManager) {
             return "销售经理";
         } else if (currentUser.getCategory() == Kind_Of_Users.SystemManager) {
-            return "系统管理员";
+            return "系统管理";
         }
         return "";
     }
@@ -82,7 +82,7 @@ public class LoginController implements Initializable {
         if (idText.getText() != null && !idText.getText().trim().equals("") && passwordField.getText() != null && !passwordField.getText().trim().equals("")) {
             String id = idText.getText();
             String password = passwordField.getText();
-            //currentUser = userBLService.searchUserByID(id);
+          //  currentUser = userBLService.searchUserByID(id);
             //toStockSellerMain();
             userLogin(id, password);
         } else {

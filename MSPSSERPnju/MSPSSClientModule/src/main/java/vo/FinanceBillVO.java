@@ -71,12 +71,13 @@ public class FinanceBillVO {
 		this.type = type;
 	}
 
-	public FinanceBillVO( UserVO opearator, CustomerVO customer, FinanceBillType type,
-			ArrayList<FinanceItemVO> list) {
+	public FinanceBillVO( UserVO operator, CustomerVO customer, FinanceBillType type,
+			ArrayList<FinanceItemVO> list,double sum) {
 		this.operator = operator;
 		this.customerVO = customer;
 		this.type = type;
 		this.list = list;
+		this.sum = sum;
 
 	}
 

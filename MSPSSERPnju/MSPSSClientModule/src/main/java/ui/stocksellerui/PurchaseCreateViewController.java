@@ -2,15 +2,11 @@ package ui.stocksellerui;
 
 import auxiliary.PurchaseBill;
 import blimpl.blfactory.BLFactoryImpl;
-import blimpl.commodityblimpl.Commodity;
 import blservice.billblservice.SalesmanBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.mainblservice.MainBLService;
-import blservice.userblservice.UserBLService;
 import blservice.userblservice.UserInfo;
-import com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,6 +42,9 @@ import java.util.ResourceBundle;
  * author:Jiang_Chen date:2017/12/13
  */
 public class PurchaseCreateViewController implements Initializable {
+    static boolean isSaved = false;
+    static SalesInBillVO savedSalesInBill;
+
     Stage stage = StageSingleton.getStage();
     SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
@@ -79,6 +78,7 @@ public class PurchaseCreateViewController implements Initializable {
     TextArea billRemarkArea;
 
     public SalesInBillVO saveBill() {
+        commodityVOArrayList.clear();
         if (stockField.getText() == null || stockField.getText().trim().equals("") ||
                 billSupplierField.getText() == null || billSupplierField.getText().trim().equals("")) {
             dialog.errorInfoDialog("Something null, please check your input.");
@@ -91,9 +91,12 @@ public class PurchaseCreateViewController implements Initializable {
                 commodityVOArrayList.add(salesItemVO);
             }
             SalesInBillVO salesInBillVO = new SalesInBillVO(null, SalesInBillType.IN, BillStatus.commit);
-
+            if (isSaved == true) {
+                salesInBillVO.setID(billIdLabel.getText());
+            }
             salesInBillVO.setDAE(DAELabel.getText());
             salesInBillVO.setStorage(stockField.getText());
+            customerVO = customerBLInfo.getCustomerByID(billSupplierField.getText().trim());
             salesInBillVO.setProvider(customerVO.getID());
             salesInBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             salesInBillVO.setSumMoney(Double.parseDouble(billTotalMoney.getText()));
@@ -116,6 +119,13 @@ public class PurchaseCreateViewController implements Initializable {
             ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
             if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Save list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to save the list.");
             }
@@ -127,8 +137,15 @@ public class PurchaseCreateViewController implements Initializable {
             SalesInBillVO salesInBillVO = saveBill();
             ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
             ResultMessage re2 = salesmanBillBLService.commitSalesInBill(salesInBillVO);
-            if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
+            if (resultMessage == ResultMessage.SUCCESS && re2 == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");
             }
@@ -151,7 +168,7 @@ public class PurchaseCreateViewController implements Initializable {
         try {
             SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
-            controller.isSelectClass = true;
+            controller.isSelectClass = false;
             controller.commodityNameField = nameField;
             controller.commodityIdField = idField;
             controller.commodityPriceLabel = priceLabel;
@@ -181,7 +198,7 @@ public class PurchaseCreateViewController implements Initializable {
     }
 
     @FXML
-    public void idFieldAction(ActionEvent e){
+    public void idFieldAction(ActionEvent e) {
         CommodityVO commodityVO = commodityInfoService.getCommodity(idField.getText().trim());
         nameField.setText(commodityVO.getName());
         priceLabel.setText(String.valueOf(commodityVO.getImportCost()));
@@ -419,6 +436,30 @@ public class PurchaseCreateViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    public void init() {
+        showTableView();
+        if (isSaved == true) {
+            billIdLabel.setText(savedSalesInBill.getID());
+            billSupplierField.setText(savedSalesInBill.getProvider());
+            DAELabel.setText(LoginController.getCurrentUser().getID());
+            stockField.setText(savedSalesInBill.getStorage());
+            billTotalMoney.setText(String.valueOf(savedSalesInBill.getSumMoney()));
+            /**
+             billRemarkArea.setText("");
+             */
+            ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
+            if (savedSalesInBill.getItemVOS() != null) {
+                ArrayList<SalesItemVO> list = savedSalesInBill.getItemVOS();
+                for (int i = 0; i < list.size(); i++) {
+                    SalesItemVO salesItemVO = list.get(i);
+                    PurchaseBill purchaseBill = new PurchaseBill(salesItemVO.getName(), salesItemVO.getId(), salesItemVO.getType(), String.valueOf(salesItemVO.getPrice()), String.valueOf(salesItemVO.getNumber()), String.valueOf(salesItemVO.getTotal()), "");
+                    data.add(purchaseBill);
+                }
+            }
+
+        }
+    }
+
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
 
@@ -427,6 +468,6 @@ public class PurchaseCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        showTableView();
+        init();
     }
 }

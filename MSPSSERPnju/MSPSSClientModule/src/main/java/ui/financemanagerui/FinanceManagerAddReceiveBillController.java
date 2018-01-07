@@ -87,6 +87,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	FinanceBillBLService billBLService = new BLFactoryImpl().getFinanceBillBLService();
 	LoginController loginController = new LoginController();
 	UserVO currentUser = loginController.getCurrentUser();
+	static FinanceBillVO vo;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -279,11 +280,13 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
 		for(int i=0;i<data.size();i++) {
 			FinanceItem temp = data.get(i);
+
 			AccountVO accountVO = accountBLService.searchAccount(new AccountFilterFlagsVO(temp.getAccount(),null,null)).get(0);
 			financeItems.add(new FinanceItemVO(accountVO,temp.getPs(),Double.parseDouble(temp.getSum())));
 	}
-		billBLService.saveFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.IN,financeItems));
-		
+		 vo =new FinanceBillVO(currentUser,customerVO,FinanceBillType.IN,financeItems,sum);
+		billBLService.saveFinanceBill(vo);
+		//System.out.print(vo.ID);
 	}
 	
 	 /**
@@ -292,6 +295,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	  * @throws Exception
 	  */
     public void handleCommitReceiveBillButtonAction(ActionEvent e) throws Exception{
+    	/*
     	String customerName = CustomerName.getText();
 		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
 		CustomerVO customerVO= customerList.get(0);
@@ -304,6 +308,8 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 			financeItems.add(new FinanceItemVO(accountVO,temp.getPs(),Double.parseDouble(temp.getSum())));
 	}
 		billBLService.commitFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.IN,financeItems));
+		*/
+    	billBLService.commitFinanceBill(vo);
 		
 	}
 

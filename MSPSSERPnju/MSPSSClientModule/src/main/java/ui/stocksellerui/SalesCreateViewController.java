@@ -104,7 +104,7 @@ public class SalesCreateViewController implements Initializable {
             salesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             salesOutBillVO.setSumAfterDiscount(Double.parseDouble(TotalAfterLabel.getText()));
             salesOutBillVO.setItemVOS(commodityVOArrayList);
-            
+
             if (billRemarkArea.getText() != null && !billRemarkArea.getText().trim().equals("")) {
                 salesOutBillVO.setPs(billRemarkArea.getText().trim());
             } else {
@@ -122,6 +122,13 @@ public class SalesCreateViewController implements Initializable {
             SalesOutBillVO salesOutBillVO = saveBill();
             ResultMessage resultMessage = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
             if (resultMessage == ResultMessage.SUCCESS) {
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                            "/view/stockseller/BillCreate.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
                 dialog.infoDialog("Commit list successfully.");
             } else {
                 dialog.errorInfoDialog("Fail to commit the list.");

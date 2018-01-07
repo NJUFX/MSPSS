@@ -39,6 +39,8 @@ import java.util.ResourceBundle;
  * date:2017/12/12
  */
 public class BreakageCreateViewController implements Initializable {
+    static boolean isSaved = false;
+    static StockBillVO savedStockBillVO;
     Stage stage = StageSingleton.getStage();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
@@ -102,6 +104,11 @@ public class BreakageCreateViewController implements Initializable {
         ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
         if (ResultMessage.SUCCESS == resultMessage) {
             dialog.infoDialog("Save bill successfully.");
+            try {
+                BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockmanager/BillCreate.fxml");
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
 
     }
@@ -109,14 +116,24 @@ public class BreakageCreateViewController implements Initializable {
     @FXML
     public void sureButtonAction(ActionEvent e) {
         ArrayList<StockBillItemVO> list = new ArrayList<>();
+        String remark = "";
         ObservableList<Breakage> data = breakageTableView.getItems();
         for (int i = 0; i < data.size(); i++) {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
+            remark += data.get(i).getRemark() + '\n';
         }
+
         StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
+        vo.setCommentByManager(remark);
+        ResultMessage re1 = stockManagerBillBLService.saveStockBill(vo);
         ResultMessage resultMessage = stockManagerBillBLService.commitStockBill(vo);
-        if (ResultMessage.SUCCESS == resultMessage) {
+        if (ResultMessage.SUCCESS == resultMessage && ResultMessage.SUCCESS == re1) {
             dialog.infoDialog("Commit bill successfully.");
+            try {
+                BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockmanager/BillCreate.fxml");
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
@@ -171,13 +188,14 @@ public class BreakageCreateViewController implements Initializable {
         try {
             SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
-            controller.isSelectClass = true;
+            controller.isSelectClass = false;
+            controller.isStockBill = true;
             controller.commodityPriceLabel = priceLabel;
             controller.commodityNameField = nameField;
             controller.commodityIdField = idField;
-            if (idField.getText() != null) {
-                systemStockLabel.setText(String.valueOf(commodityInfoService.getCommodity(idField.getText()).getNumberInStock()));
-            }
+            controller.systemStockLabel = systemStockLabel;
+            //    systemStockLabel.setText(String.valueOf(commodityInfoService.getCommodity(idField.getText()).getNumberInStock()));
+
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -327,6 +345,18 @@ public class BreakageCreateViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    public void init() {
+        showTableView();
+        if (isSaved == true) {
+            ObservableList<Breakage> data = breakageTableView.getItems();
+            ArrayList<StockBillItemVO> vos = savedStockBillVO.itemVOS;
+            for (int i = 0; i < vos.size(); i++) {
+                StockBillItemVO s = vos.get(i);
+                Breakage breakage = new Breakage(s.commodityVO.getID(), s.commodityVO.getName(), String.valueOf(s.commodityVO.getNumberInStock()), String.valueOf(s.number), "");
+                data.add(breakage);
+            }
+        }
+    }
 
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
@@ -336,7 +366,7 @@ public class BreakageCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        showTableView();
+        init();
     }
 
 }

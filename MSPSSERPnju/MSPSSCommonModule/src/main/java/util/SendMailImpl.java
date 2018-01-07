@@ -124,6 +124,6 @@ public class SendMailImpl implements SendMailService {
     }
 
     public static void main(String[] args) {
-        SendMailImpl.getInstance().sendMail("hanx","hanxinhu521@163.com","adw","daw");
+        SendMailImpl.getInstance().sendMail("x","hanxinhu521@163.com","test","test");
     }
 }

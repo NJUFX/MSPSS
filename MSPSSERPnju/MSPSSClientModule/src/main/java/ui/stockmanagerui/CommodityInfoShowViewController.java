@@ -38,6 +38,7 @@ public class CommodityInfoShowViewController implements Initializable {
     Dialog dialog = new Dialog();
     Stage newStage = new Stage();
     String id_to_modify;
+    static String keyType,keyword;
     private CommodityTable commodityTable;
 
     public void setCommodityTable(CommodityTable commodityTable) {
@@ -75,7 +76,6 @@ public class CommodityInfoShowViewController implements Initializable {
     @FXML
     public void delButtonAction(ActionEvent e) {
         try {
-
             ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_modify);
             if (resultMessage == ResultMessage.SUCCESS) {
                 CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
@@ -113,8 +113,11 @@ public class CommodityInfoShowViewController implements Initializable {
     @FXML
     public void backButtonAction(ActionEvent e) throws IOException {
         try {
+            CommoditySearchShowViewController.keyword = keyword;
+            CommoditySearchShowViewController.keyType = keyType;
             CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
                     "/view/stockmanager/commoditySearchShow.fxml");
+
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

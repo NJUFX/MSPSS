@@ -20,34 +20,51 @@ public class BillSendMessage {
     static UserInfo userInfo = new BLFactoryImpl().getUserInfo();
 
     public static ResultMessage commit(UserVO userVO, String ID) {
-        ArrayList<String> mails = userInfo.getChiefManagerMails();
-        for (int i = 0; i < mails.size(); i++) {
-            service.sendMail("总经理", mails.get(i)
-                    , userVO + "提交了" + getName(ID) + "等待您的审批", LoginController.getCurrentUser().getID() + "提交了" + getName(ID) + ":" + ID + "等待您的审批");
-        }
+       try {
+           ArrayList<String> mails = userInfo.getChiefManagerMails();
+
+           for (int i = 0; i < mails.size(); i++) {
+               service.sendMail("总经理", mails.get(i)
+                       , userVO + "提交了" + getName(ID) + "等待您的审批", LoginController.getCurrentUser().getID() + "提交了" + getName(ID) + ":" + ID + "等待您的审批");
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
         return ResultMessage.SUCCESS;
     }
 
     public static ResultMessage withdraw(UserVO userVO, String ID) {
-        ArrayList<String> mails = userInfo.getChiefManagerMails();
-        for (int i = 0; i < mails.size(); i++) {
-            service.sendMail("总经理", mails.get(i)
-                    , userVO + "撤回了" + getName(ID), LoginController.getCurrentUser().getID() + "撤回了" + getName(ID) + ":" + ID + " 您不用审批了");
-        }
+       try {
+           ArrayList<String> mails = userInfo.getChiefManagerMails();
+           for (int i = 0; i < mails.size(); i++) {
+               service.sendMail("总经理", mails.get(i)
+                       , userVO + "撤回了" + getName(ID), LoginController.getCurrentUser().getID() + "撤回了" + getName(ID) + ":" + ID + " 您不用审批了");
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
         return ResultMessage.SUCCESS;
     }
 
     public static ResultMessage approve(UserVO operator, UserVO approval, String ID) {
-        service.sendMail(operator.getName(), operator.getMail()
-                , getName(ID) + ID + "审批通过", approval.getName() + "(ID:" + approval.getID() + ")" + new Time().toString() + "通过了您的单据" + getName(ID) + ID
-        );
+      try{
+          service.sendMail(operator.getName(), operator.getMail()
+                  , getName(ID) + ID + "审批通过", approval.getName() + "(ID:" + approval.getID() + ")" + new Time().toString() + "通过了您的单据" + getName(ID) + ID
+          );
+      }catch (Exception e){
+          e.printStackTrace();
+      }
         return ResultMessage.SUCCESS;
     }
 
     public static ResultMessage reject(UserVO operator, UserVO approval, String ID) {
-        service.sendMail(operator.getName(), operator.getMail()
-                , getName(ID) + ID + "审批拒绝", approval.getName() + "(ID:" + approval.getID() + ")" + new Time().toString() + "拒绝了您的单据" + getName(ID) + ID
-        );
+      try {
+          service.sendMail(operator.getName(), operator.getMail()
+                  , getName(ID) + ID + "审批拒绝", approval.getName() + "(ID:" + approval.getID() + ")" + new Time().toString() + "拒绝了您的单据" + getName(ID) + ID
+          );
+      }catch (Exception e){
+          e.printStackTrace();
+      }
         return ResultMessage.SUCCESS;
     }
 

@@ -93,6 +93,8 @@ public class CommoditySearchShowViewController implements Initializable {
                         delBtn.setOnMouseClicked((me) -> {
                             //OperateCommodity = this.getTableView().getItems().get(this.getIndex());
                             try {
+                                CommodityInfoShowViewController.keyType = keyType;
+                                CommodityInfoShowViewController.keyword = keyword;
                                 CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
                                         "/view/stockmanager/CommodityInfoShow.fxml");
                                 controller.id_to_modify = this.getTableView().getItems().get(this.getIndex()).getId();

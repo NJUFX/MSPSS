@@ -125,7 +125,7 @@
             <columns>
                 <TableColumn fx:id="IdCol" prefWidth="90.0" text="编号" />
                 <TableColumn fx:id="NameCol" prefWidth="90.0" text="姓名" />
-                <TableColumn fx:id="CategoryCol" prefWidth="90.0" text="分类" />
+            <TableColumn fx:id="CategoryCol" prefWidth="90.0" text="分类" />
                 <TableColumn fx:id="LevelCol" prefWidth="90.0" text="级别" />
                 <TableColumn fx:id="ReceivableCol" prefWidth="90.0" text="应收额度" />
                 <TableColumn fx:id="DAECol" prefWidth="90.0" text="业务员" />

@@ -15,4 +15,11 @@ public enum  FinanceBillType implements Serializable {
      * 付款单
      */
     OUT;
+
+    @Override
+    public String toString() {
+        if (this==IN)
+            return "收款单";
+        return "付款单";
+    }
 }

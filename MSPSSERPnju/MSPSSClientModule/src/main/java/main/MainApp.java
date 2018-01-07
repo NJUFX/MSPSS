@@ -1,6 +1,5 @@
 package main;
 
-import ui.adminui.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,10 +7,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import ui.chiefmanagerui.ChiefManagerMainViewController;
-import ui.financemanagerui.FinanceManagerMainViewController;
-import ui.stockmanagerui.StockManagerMainViewController;
-import ui.stocksellerui.StockSellerMainViewController;
+import ui.adminui.LoginController;
 
 import java.io.InputStream;
 

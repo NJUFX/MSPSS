@@ -179,7 +179,12 @@ public class CashCostBill {
         //谨慎 谨慎 再谨慎
         Time commitTime = po.getCommit_time() != null ? new Time(po.getCommit_time()) : null;
         Time approvalTime = po.getApproval_time() != null ? new Time(po.getApproval_time()) : null;
-        UserVO managerVO = po.getManagerID() != null ? userInfo.getUser(po.getManagerID()) : null;
+        UserVO managerVO = null;
+        System.out.println("!"+po.getManagerID());
+        if (po.getManagerID()!=null)
+        if (!po.getManagerID().equals(""))
+        managerVO = userInfo.getUser(po.getManagerID());
+
         UserVO operatorVO = userInfo.getUser(po.getOperatorID());
         BillStatus status = BillStatus.values()[po.getStatus()];
         AccountVO accountVO = accountBLInfo.getAccountVO(po.getAccountName());
@@ -196,11 +201,36 @@ public class CashCostBill {
     }
 
     public ResultMessage HongChong(CashCostBillVO cashCostBillVO) {
-        return ResultMessage.FAILED;
+        String ID = cashCostBillVO.getID() + "HC";
+        //fixme 存疑 不知道是否应该在原单据编号后面直接加上HC还是重新生成一个编号
+        cashCostBillVO.setSum(cashCostBillVO.getSum() * -1);
+        cashCostBillVO.setID(ID);
+        cashCostBillVO.setStatus(BillStatus.approval);
+        cashCostBillVO.setInit_time(new Time());
+        cashCostBillVO.setCommit_time(new Time());
+        cashCostBillVO.setApproval_time(new Time());
+        accountBLInfo.pay(cashCostBillVO.accountVO.getName(), cashCostBillVO.getSum());
+        if (userInfo.getCurrentUser() != null) {
+            BillLogHelper.approval(userInfo.getCurrentUser(), cashCostBillVO.getID());
+            BillSendMessage.approve(cashCostBillVO.getOperator(), cashCostBillVO.getManager(), cashCostBillVO.getID());
+        }
+        return networkService.addCashCostBill(vo_to_po(cashCostBillVO));
     }
 
     public ResultMessage HongChongAndCopy(CashCostBillVO cashCostBillVO) {
-        return ResultMessage.FAILED;
+        String ID = cashCostBillVO.getID() + "HCCopy";
+        //fixme 存疑 不知道是否应该在原单据编号后面直接加上HC还是重新生成一个编号
+        cashCostBillVO.setID(ID);
+        cashCostBillVO.setStatus(BillStatus.approval);
+        cashCostBillVO.setInit_time(new Time());
+        cashCostBillVO.setCommit_time(new Time());
+        cashCostBillVO.setApproval_time(new Time());
+        accountBLInfo.pay(cashCostBillVO.accountVO.getName(), cashCostBillVO.getSum());
+        if (userInfo.getCurrentUser() != null) {
+            BillLogHelper.approval(userInfo.getCurrentUser(), cashCostBillVO.getID());
+            BillSendMessage.approve(cashCostBillVO.getOperator(), cashCostBillVO.getManager(), cashCostBillVO.getID());
+        }
+        return networkService.addCashCostBill(vo_to_po(cashCostBillVO));
     }
     private CashCostItemPO vo_to_po(CashCostItemVO vo) {
         return new CashCostItemPO(vo.getName(), vo.getPs(), vo.getMoney());
@@ -218,5 +248,7 @@ public class CashCostBill {
         }
         return vos;
     }
+
+
 
 }

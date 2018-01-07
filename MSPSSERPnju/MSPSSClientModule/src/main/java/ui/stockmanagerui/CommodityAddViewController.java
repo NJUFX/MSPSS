@@ -42,6 +42,7 @@ public class CommodityAddViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     Stage newStage = new Stage();
+
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
 
     @FXML

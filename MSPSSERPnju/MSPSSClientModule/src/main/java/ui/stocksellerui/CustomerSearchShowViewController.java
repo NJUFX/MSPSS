@@ -92,14 +92,12 @@ public class CustomerSearchShowViewController implements Initializable {
             return cell;
         });
         addRow();
+        refreshButtonAction();
     }
 
     public void addRow() {
         ArrayList<CustomerVO> list = new ArrayList<>();
         ObservableList<Customer> data = customerTableView.getItems();
-        data.clear();
-        //data.add(new Customer("00001", "Jiang Chen", "进货商", "4", "50000", "SS001"));
-        //data.add(new Customer("1", "1", "1", "1", "1", "1"));
         data.clear();
         CustomerSearchFlag customerSearchFlag = CustomerSearchFlag.ID;
         if (keyType != null && keyword != null) {
@@ -118,12 +116,11 @@ public class CustomerSearchShowViewController implements Initializable {
             }
             list = customerBLService.searchCustomer(customerSearchFlag, keyword);
         }
+
         for (int i = 0; i < list.size(); i++) {
             CustomerVO customerVO = list.get(i);
-            String category = "进货商";
-            if (customerVO.getCategory() == Kind_Of_Customers.SALER)
-                category = "销售商";
-            Customer customer = new Customer(customerVO.getID(), customerVO.getName(), category, String.valueOf(customerVO.getLevel()), String.valueOf(customerVO.getIncomemoney()), customerVO.getDAE());
+            String str = customerVO.getCategory().toString();
+            Customer customer = new Customer(customerVO.getID(), customerVO.getName(), str, String.valueOf(customerVO.getLevel()), String.valueOf(customerVO.getIncomemoney()), customerVO.getDAE());
             data.add(customer);
         }
     }
@@ -266,6 +263,7 @@ public class CustomerSearchShowViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
+        refreshButtonAction();
         refreshButtonAction();
     }
 

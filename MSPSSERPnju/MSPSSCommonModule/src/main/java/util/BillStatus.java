@@ -25,7 +25,7 @@ public enum BillStatus implements Serializable {
     rejected;
 
     public static void main(String[] args) {
-        System.out.println(BillStatus.values()[0].ordinal());
+        System.out.println(BillStatus.values()[1].toString());
 
     }
 

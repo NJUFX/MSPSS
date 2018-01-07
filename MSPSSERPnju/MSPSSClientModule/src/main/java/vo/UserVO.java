@@ -113,6 +113,8 @@ public class UserVO {
                 return 3;
             case ChiefManager:
                 return 6;
+            case SystemManager:
+                return 7;
             default:
                 return 0;
         }
