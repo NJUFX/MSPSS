@@ -21,10 +21,27 @@ public class Classification {
      */
     CommodityClientNetworkService netService = new CommodityClientNetworkImpl();
 
+    /***
+     *  在分类
+     * @param classificationVO
+     * @return
+     */
     public ResultMessage addClassification(ClassificationVO classificationVO){
-        classificationVO.setID(classificationVO.getName());
+        String id = classificationVO.getParent().getID();
+        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("ID", id);
+
+        String newID;
+        if (pos.size() < 26) {
+            newID = id + (char) (pos.size() + 'A');
+        } else {
+            int prefix = pos.size() / 26;
+            int postfix = pos.size() % 26;
+            newID = id + (char) (prefix + 'a') + "" + (char) (postfix + 'A');
+        }
+        classificationVO.setID(newID);
+
         ClassificationPO po = vo_to_po(classificationVO);
-         return netService.addClassification(po);
+        return netService.addClassification(po);
     }
 
     /**
@@ -78,7 +95,7 @@ public class Classification {
      */
     public ArrayList<ClassificationVO> getRootClassifications(){
         ArrayList<ClassificationVO> vos = new ArrayList<>();
-       ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID","null");
+        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID", null);
        for (int i = 0 ; i < pos.size() ;i++){
            ClassificationVO vo = po_to_vo(pos.get(i));
            vos.add(vo);
