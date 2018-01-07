@@ -6,11 +6,11 @@
 
 
 
-##Introduction
+## Introduction
 
 MSPSS is a purchase-selling-stock system for lighting company by Team FX.
 
-##Features
+## Features
 
 • Completed development document for future maintenance & reuse.
 
@@ -24,7 +24,7 @@ MSPSS is a purchase-selling-stock system for lighting company by Team FX.
 
 More…
 
-#Statement
+## Statement
 
 src : source code of project
 
@@ -40,7 +40,7 @@ Yaxin Liu ,Njuid:161250080
 
 Guangyao Xu ,Njuid:161250164
 
-#Copyright declaration
+## Copyright declaration
 
 MSPSS System is an open-sourse project for all developers to folk and clone if for non-commercial use. Merge and commit will be strictly inspected. License for commercial use will be announced in early 2018.
 
