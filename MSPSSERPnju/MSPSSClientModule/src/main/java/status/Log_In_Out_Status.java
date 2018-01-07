@@ -7,6 +7,7 @@ public enum Log_In_Out_Status {
     Login_Success_Admin,
     Login_Success_Financer,
     Login_Success_CheifManager,
+    Login_Success_SystemManager,
     Login_IdNotExist,
     Login_PasswordWrong,
     Login_islogin,
