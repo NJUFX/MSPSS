@@ -65,7 +65,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	@FXML
 	TextField PsField;
 	@FXML
-	TextField CustomerName;
+	ComboBox CustomerName;
 	@FXML
 	TextField SumAmount;
 	@FXML
@@ -97,12 +97,17 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 		ObservableList<String> account = AccountField.getItems();
 		for(int i = 0;i<accountList.size();i++) {
 			account.add(accountList.get(i).getName());
-			//account.add(accountList.get(i));
 		}
 		
 		NameTag.setText(currentUser.getName());
 		RoleTag.setText(currentUser.getCategory().toString());
 		IdTag.setText(currentUser.getID());
+
+		ArrayList<CustomerVO> cusotmerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME,"");
+		ObservableList<String> cusotmer = CustomerName.getItems();
+		for (int i = 0;i<cusotmerList.size();i++){
+			cusotmer.add(cusotmerList.get(i).getName());
+		}
 	}
 
 	public void setApp(MainApp application) {
@@ -247,7 +252,6 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 		data.clear();
 		SumField.setText("");
 		PsField.setText("");
-		CustomerName.setText("");
 		SumAmount.setText("");
 		
 	}
@@ -272,7 +276,7 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	 * @throws Exception
 	 */
 	public void handleSaveReceiveBillButtonAction(ActionEvent e) throws Exception{
-		String customerName = CustomerName.getText();
+		String customerName = CustomerName.getValue().toString();
 		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
 		CustomerVO customerVO= customerList.get(0);
 		Double sum = Double.parseDouble(SumAmount.getText());
@@ -286,7 +290,9 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 	}
 		 vo =new FinanceBillVO(currentUser,customerVO,FinanceBillType.IN,financeItems,sum);
 		billBLService.saveFinanceBill(vo);
-		//System.out.print(vo.ID);
+		Dialog d = new Dialog();
+		d.confirmDialog("保存收款单成功！");
+
 	}
 	
 	 /**
@@ -310,6 +316,13 @@ public class FinanceManagerAddReceiveBillController implements Initializable {
 		billBLService.commitFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.IN,financeItems));
 		*/
     	billBLService.commitFinanceBill(vo);
+    	Dialog d = new Dialog();
+    	d.confirmDialog("提交收款单成功！");
+		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
+		data.clear();
+		SumField.setText("");
+		PsField.setText("");
+		SumAmount.setText("");
 		
 	}
 

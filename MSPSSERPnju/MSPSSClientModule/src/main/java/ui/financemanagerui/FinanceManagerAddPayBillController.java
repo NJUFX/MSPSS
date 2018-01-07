@@ -67,7 +67,7 @@ public class FinanceManagerAddPayBillController implements Initializable {
 	@FXML
 	TextField PsField;
 	@FXML
-	TextField CustomerName;
+	ComboBox CustomerName;
 	@FXML
 	TextField SumAmount;
 	@FXML 
@@ -103,6 +103,13 @@ public class FinanceManagerAddPayBillController implements Initializable {
 		NameTag.setText(currentUser.getName());
 		RoleTag.setText(currentUser.getCategory().toString());
 		IdTag.setText(currentUser.getID());
+
+
+		ArrayList<CustomerVO> cusotmerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME,"");
+		ObservableList<String> cusotmer = CustomerName.getItems();
+		for (int i = 0;i<cusotmerList.size();i++){
+			cusotmer.add(cusotmerList.get(i).getName());
+		}
 	}
 
 	public void setApp(MainApp application) {
@@ -246,7 +253,7 @@ public class FinanceManagerAddPayBillController implements Initializable {
 		data.clear();
 		SumField.setText("");
 		PsField.setText("");
-		CustomerName.setText("");
+
 		SumAmount.setText("");
 		
 	}
@@ -273,7 +280,7 @@ public class FinanceManagerAddPayBillController implements Initializable {
 	 * @throws Exception
 	 */
 	public void handleSavePayBillButtonAction(ActionEvent e) throws Exception{
-		String customerName = CustomerName.getText();
+		String customerName = CustomerName.getValue().toString();
 		ArrayList<CustomerVO> customerList = customerBLService.searchCustomer(CustomerSearchFlag.NAME, customerName);
 		CustomerVO customerVO= customerList.get(0);
 		Double sum = Double.parseDouble(SumAmount.getText());
@@ -286,6 +293,9 @@ public class FinanceManagerAddPayBillController implements Initializable {
 		}
 		vo = new FinanceBillVO(currentUser,customerVO,FinanceBillType.OUT,financeItems,sum);
 		billBLService.saveFinanceBill(vo);
+		Dialog d = new Dialog();
+		d.confirmDialog("保存付款单成功！");
+
 		
 	}
 	
@@ -310,6 +320,13 @@ public class FinanceManagerAddPayBillController implements Initializable {
 		billBLService.commitFinanceBill(new FinanceBillVO(currentUser,customerVO,FinanceBillType.OUT,financeItems));
 		*/
     	billBLService.commitFinanceBill(vo);
+		Dialog d = new Dialog();
+		d.confirmDialog("提交付款单成功！");
+		ObservableList<FinanceItem> data = FinanceItemTable.getItems();
+		data.clear();
+		SumField.setText("");
+		PsField.setText("");
+		SumAmount.setText("");
 	}
     
    

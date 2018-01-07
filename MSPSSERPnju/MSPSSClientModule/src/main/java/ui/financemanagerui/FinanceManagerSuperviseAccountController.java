@@ -20,6 +20,7 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.Time;
+import vo.AccountFilterFlagsVO;
 import vo.AccountVO;
 import vo.UserVO;
 
@@ -81,6 +82,16 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 			NameTag.setText(currentUser.getName());
 			RoleTag.setText(currentUser.getCategory().toString());
 			IdTag.setText(currentUser.getID());
+
+		ArrayList<AccountVO> accountList = accountBLService.searchAccount(new AccountFilterFlagsVO(null,new Time(Time.MIN_TIME)
+				,new Time(Time.MAX_TIME)));
+		ObservableList<Account> data = AccountTable.getItems();
+		for(int i=0;i<accountList.size();i++) {
+			AccountVO temp = accountList.get(i);
+			data.add(new Account(temp.getName(),Double.toString(temp.getMoney())));
+		}
+
+
 	}
 
 	public void setApp(MainApp application) {
@@ -268,7 +279,9 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 		String AccountMoney = AddAccountMoney.getText();
 		ObservableList<Account> data = AccountTable.getItems();
 		data.add(new Account(AccountName,AccountMoney));
-		accountBLService.addAccount(new AccountVO(AccountName,Double.parseDouble(AccountName),null));
+		accountBLService.addAccount(new AccountVO(AccountName,Double.parseDouble(AccountMoney),null));
+		AddAccountName.setText("");
+		AddAccountMoney.setText("");
 	}
 
 
@@ -287,6 +300,9 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 				accountBLService.modifyAccount(CurrentAccountName.getText(), NewAccountName.getText());
 			}
 		}
+		CurrentAccountName.setText("");
+		NewAccountName.setText("");
+
 	}
 
 }
