@@ -62,86 +62,49 @@ public class CustomerAddViewController implements Initializable {
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
-<<<<<<< HEAD
-
-        try {
-            Kind_Of_Customers kind_of_customers;
-            if (categoryBox.getValue() != null && !categoryBox.getValue().trim().equals("")) {
-                String kind = categoryBox.getValue();
-                if (kind.equals("进货商")) {
-                    kind_of_customers = Kind_Of_Customers.SUPPLIER;
-                } else {
-                    kind_of_customers = Kind_Of_Customers.SALER;
-                }
-                if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
-                        nameField.getText() != null && !nameField.getText().trim().equals("") &&
-                        phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
-                        addressField.getText() != null && !addressField.getText().trim().equals("") &&
-                        postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
-                        emailField.getText() != null && !emailField.getText().trim().equals("") &&
-                        inValueField.getText() != null && !inValueField.getText().trim().equals("") &&
-                        incomemoneyField.getText() != null && !incomemoneyField.getText().equals("") &&
-                        paymoneyField.getText() != null && !paymoneyField.getText().trim().equals("")) {
-                    CustomerVO customerVO = new CustomerVO(null, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
-                            addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
-                            Double.parseDouble(paymoneyField.getText().trim()), workerLabel.getText().trim());
-                    System.out.println("SUCC");
-                    ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
-                    System.out.println("SUCC2");
-                    if (resultMessage == ResultMessage.SUCCESS) {
-                        dialog.infoDialog("Add a customer successfully.");
-                        try {
-                            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
-                                    "/view/stockseller/CustomerManage.fxml");
-                        } catch (Exception e1) {
-                            // TODO Auto-generated catch block
-                            e1.printStackTrace();
-                        }
-                    } else {
-                        dialog.infoDialog("Fail to add the customer");
-=======
-        Kind_Of_Customers kind_of_customers;
-        if (categoryBox.getValue() != null && !categoryBox.getValue().trim().equals("")) {
-            String kind = categoryBox.getValue().toString();
-            if (kind.equals("进货商")) {
-                kind_of_customers = Kind_Of_Customers.SUPPLIER;
-            } else {
-                kind_of_customers = Kind_Of_Customers.SALER;
-            }
-            if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
-                    nameField.getText() != null && !nameField.getText().trim().equals("") &&
-                    phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
-                    addressField.getText() != null && !addressField.getText().trim().equals("") &&
-                    postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
-                    emailField.getText() != null && !emailField.getText().trim().equals("") &&
-                    inValueField.getText() != null && !inValueField.getText().trim().equals("") &&
-                    incomemoneyField.getText() != null && !incomemoneyField.getText().equals("") &&
-                    paymoneyField.getText() != null && !paymoneyField.getText().trim().equals("")) {
-                CustomerVO customerVO = new CustomerVO(null, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
-                        addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
-                        Double.parseDouble(paymoneyField.getText().trim()), workerLabel.getText().trim());
-                System.out.println("SUCC");
-                ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
-                System.out.println("SUCC2");
-                if (resultMessage == ResultMessage.SUCCESS) {
-                    dialog.infoDialog("Add a customer successfully.");
-                    try {
-                        CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
-                                "/view/stockseller/CustomerManage.fxml");
-                    } catch (Exception e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
->>>>>>> 11d7bf0e74b3c0b76bfc15e1f4ac0406dd406d26
-                    }
-                } else {
-                    dialog.errorInfoDialog("Something null, please check your input.");
-                }
-            } else {
-                dialog.errorInfoDialog("Please choose category.");
-            }
-        }catch (IntOverFlowException E){
-            System.out.print(E.toString());
-        }
+      try {
+          Kind_Of_Customers kind_of_customers;
+          if (categoryBox.getValue() != null && !categoryBox.getValue().trim().equals("")) {
+              String kind = categoryBox.getValue().toString();
+              if (kind.equals("进货商")) {
+                  kind_of_customers = Kind_Of_Customers.SUPPLIER;
+              } else {
+                  kind_of_customers = Kind_Of_Customers.SALER;
+              }
+              if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
+                      nameField.getText() != null && !nameField.getText().trim().equals("") &&
+                      phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
+                      addressField.getText() != null && !addressField.getText().trim().equals("") &&
+                      postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
+                      emailField.getText() != null && !emailField.getText().trim().equals("") &&
+                      inValueField.getText() != null && !inValueField.getText().trim().equals("") &&
+                      incomemoneyField.getText() != null && !incomemoneyField.getText().equals("") &&
+                      paymoneyField.getText() != null && !paymoneyField.getText().trim().equals("")) {
+                  CustomerVO customerVO = new CustomerVO(null, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
+                          addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
+                          Double.parseDouble(paymoneyField.getText().trim()), workerLabel.getText().trim());
+                  System.out.println("SUCC");
+                  ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
+                  System.out.println("SUCC2");
+                  if (resultMessage == ResultMessage.SUCCESS) {
+                      dialog.infoDialog("Add a customer successfully.");
+                      try {
+                          CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                                  "/view/stockseller/CustomerManage.fxml");
+                      } catch (Exception e1) {
+                          // TODO Auto-generated catch block
+                          e1.printStackTrace();
+                      }
+                  } else {
+                      dialog.errorInfoDialog("Something null, please check your input.");
+                  }
+              } else {
+                  dialog.errorInfoDialog("Please choose category.");
+              }
+          }
+      }catch (IntOverFlowException E){
+          System.out.print(E.toString());
+      }
     }
 
     /**
