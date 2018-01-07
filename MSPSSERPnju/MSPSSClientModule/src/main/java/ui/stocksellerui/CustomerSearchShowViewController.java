@@ -37,7 +37,7 @@ public class CustomerSearchShowViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     ui.common.Dialog dialog = new Dialog();
-    String keyType, keyword;
+    static String keyType, keyword;
     @FXML
     Button CustomerAddButton;
     @FXML
@@ -91,8 +91,6 @@ public class CustomerSearchShowViewController implements Initializable {
             };
             return cell;
         });
-        addRow();
-        refreshButtonAction();
     }
 
     public void addRow() {
@@ -134,7 +132,6 @@ public class CustomerSearchShowViewController implements Initializable {
     public void refreshButtonAction(ActionEvent e) {
         addRow();
     }
-
 
     /**
      * 返回登录界面
@@ -263,7 +260,7 @@ public class CustomerSearchShowViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
-        refreshButtonAction();
+        addRow();
         refreshButtonAction();
     }
 

@@ -211,6 +211,8 @@ public class BillStatusCheckViewController implements Initializable {
                             this.setTextFill(Color.rgb(51, 200, 51));
                         } else if (name.equals("审批未通过")) {
                             this.setTextFill(Color.rgb(230, 18, 6));
+                        } else if(name.equals("已保存")){
+                            this.setTextFill(Color.rgb(0,0,0));
                         }
                     }
                 }
