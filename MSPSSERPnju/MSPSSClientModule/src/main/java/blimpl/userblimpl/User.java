@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class User {
 
     private UserClientNetworkService networkService = new UserClientNetworkImpl();
-    private static UserVO currentUser;
+    private UserVO currentUser;
     private LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
     /**
      * @param user
@@ -142,6 +142,8 @@ public class User {
                     return Log_In_Out_Status.Login_Success_Financer;
                 case 6:
                     return Log_In_Out_Status.Login_Success_CheifManager;
+                case 7:
+                    return Log_In_Out_Status.Login_Success_SystemManager;
 
             }
             return Log_In_Out_Status.Login_Success;

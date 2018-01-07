@@ -147,6 +147,8 @@ public class UserPO implements Serializable {
             case 6:
                 kind = Kind_Of_Users.ChiefManager;
                 break;
+            case 7:
+                kind = Kind_Of_Users.SystemManager;
             default:
                 kind = Kind_Of_Users.ChiefManager;
         }
