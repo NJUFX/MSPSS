@@ -68,7 +68,7 @@ public class BillDetailsShowViewController implements Initializable {
         ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
 
         if (isSalesIn == true) {
-            ArrayList<SalesItemVO> vos = new ArrayList<>();//salesInBillVO.getItemVOS();
+            ArrayList<SalesItemVO> vos = salesInBillVO.getItemVOS();
             for (int i = 0; i < vos.size(); i++) {
                 SalesItemVO salesItemVO = vos.get(i);
                 PurchaseBill purchaseBill = new PurchaseBill(salesItemVO.getName(), salesItemVO.getId(), salesItemVO.getType(), String.valueOf(salesItemVO.getPrice()), String.valueOf(salesItemVO.getNumber()), String.valueOf(salesItemVO.getTotal()), "");
@@ -111,7 +111,7 @@ public class BillDetailsShowViewController implements Initializable {
                 chiefName.setText("null");
             }
         } else {
-            ArrayList<SalesItemVO> vos = new ArrayList<>();//salesOutBillVO.getItemVOS();
+            ArrayList<SalesItemVO> vos = salesOutBillVO.getItemVOS();
             for (int i = 0; i < vos.size(); i++) {
                 SalesItemVO salesItemVO = vos.get(i);
                 PurchaseBill purchaseBill = new PurchaseBill(salesItemVO.getName(), salesItemVO.getId(), salesItemVO.getType(), String.valueOf(salesItemVO.getPrice()), String.valueOf(salesItemVO.getNumber()), String.valueOf(salesItemVO.getTotal()), "");

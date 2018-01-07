@@ -91,28 +91,28 @@
         </Label>
         <Pane layoutX="260.0" layoutY="109.0" prefHeight="313.0" prefWidth="522.0" style="-fx-background-color: #FFFFFF;">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="352.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="174.0" fitWidth="135.0" layoutX="324.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/admin/头像.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="118.0" layoutY="57.0" text="姓名">
+                <Label layoutX="86.0" layoutY="80.0" text="姓名">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="118.0" layoutY="110.0" text="身份">
+                <Label layoutX="86.0" layoutY="129.0" text="身份">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="118.0" layoutY="165.0" text="权限">
+                <Label layoutX="86.0" layoutY="178.0" text="权限">
                     <font>
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <TextField id="userName" fx:id="nameField" layoutX="187.0" layoutY="56.0" prefHeight="21.0" prefWidth="114.0" />
-                <ComboBox id="userCategory" fx:id="userCategory" layoutX="187.0" layoutY="110.0" onAction="#userCategoryAction" prefHeight="23.0" prefWidth="114.0">
+                <TextField id="userName" fx:id="nameField" layoutX="154.0" layoutY="79.0" prefHeight="21.0" prefWidth="114.0" />
+                <ComboBox id="userCategory" fx:id="userCategory" layoutX="154.0" layoutY="128.0" onAction="#userCategoryAction" prefHeight="23.0" prefWidth="114.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="总经理" />
@@ -124,17 +124,23 @@
                     </items>
                 </ComboBox>
 
-                <ComboBox id="userPower" fx:id="userLevel" layoutX="186.0" layoutY="165.0" prefHeight="23.0" prefWidth="114.0" />
-            <Label layoutX="118.0" layoutY="215.0" text="邮箱">
+                <ComboBox id="userPower" fx:id="userLevel" layoutX="154.0" layoutY="177.0" prefHeight="23.0" prefWidth="114.0" />
+            <Label layoutX="86.0" layoutY="227.0" text="邮箱">
                <font>
                   <Font name="Microsoft YaHei" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="emailField" layoutX="187.0" layoutY="215.0" prefHeight="23.0" prefWidth="114.0">
+            <TextField fx:id="emailField" layoutX="154.0" layoutY="226.0" prefHeight="23.0" prefWidth="114.0">
                <font>
                   <Font size="10.0" />
                </font>
             </TextField>
+            <Label layoutX="86.0" layoutY="31.0" text="编号">
+               <font>
+                  <Font name="Microsoft YaHei" size="16.0" />
+               </font>
+            </Label>
+            <TextField id="userName" fx:id="idField" layoutX="154.0" layoutY="30.0" prefHeight="21.0" prefWidth="114.0" />
             </children>
         </Pane>
         <Button id="cancelButton" fx:id="cancelButton" layoutX="372.0" layoutY="463.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
@@ -142,7 +148,7 @@
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
-        <Button id="sureButton" fx:id="sureButton" layoutX="558.0" layoutY="463.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
+        <Button id="sureButton" fx:id="sureButton" layoutX="564.0" layoutY="464.0" mnemonicParsing="false" onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="确认" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>

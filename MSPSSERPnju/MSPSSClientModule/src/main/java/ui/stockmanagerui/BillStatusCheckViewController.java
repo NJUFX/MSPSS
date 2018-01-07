@@ -200,7 +200,9 @@ public class BillStatusCheckViewController implements Initializable {
                     if (!empty) {
                         String name = this.getTableView().getItems().get(this.getIndex()).getStatus();
                         this.setText(String.valueOf(name));
-                        if (name.equals("已提交")) {
+                        if (name.equals("已保存")) {
+                            this.setTextFill(Color.rgb(0, 0, 0));
+                        } else if (name.equals("已提交")) {
                             this.setTextFill(Color.rgb(0, 153, 204));
                         } else if (name.equals("审批通过")) {
                             this.setTextFill(Color.rgb(51, 200, 51));
@@ -230,11 +232,13 @@ public class BillStatusCheckViewController implements Initializable {
                             try {
                                 if (getTableView().getItems().get(this.getIndex()).getStatus().equals("已保存")) {
                                     if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBYD")) {
-
+                                        BreakageCreateViewController.isSaved = true;
+                                        BreakageCreateViewController.savedStockBillVO = getTableView().getItems().get(this.getIndex()).getStockBillVO();
+                                        BreakageCreateViewController controller = (BreakageCreateViewController) replaceSceneContent("/view/stockmanager/BreakageCreate.fxml");
                                     } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBSD")) {
-
+                                        //TODO
                                     } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBJD")) {
-
+                                        //TODO
                                     }
                                 } else {
                                     BillDetailsShowViewController.stockBillVO = getTableView().getItems().get(this.getIndex()).getStockBillVO();

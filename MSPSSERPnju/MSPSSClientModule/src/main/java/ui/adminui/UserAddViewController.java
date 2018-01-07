@@ -60,7 +60,7 @@ public class UserAddViewController implements Initializable {
     @FXML
     Label nameLabel, cateLabel, idLabel;
     @FXML
-    TextField nameField, emailField;
+    TextField nameField, emailField, idField;
     @FXML
     Button searchUserButton;
 
@@ -101,7 +101,7 @@ public class UserAddViewController implements Initializable {
      */
     @FXML
     public void sureButtonAction(ActionEvent e) {
-        if (nameField.getText() == null || nameField.getText().trim().equals("") || userCategory.getValue() == null || userCategory.getValue().equals("") || emailField.getText() == null || emailField.getText().trim().equals("")) {
+        if (idField.getText() == null || idField.getText().trim().equals("") || nameField.getText() == null || nameField.getText().trim().equals("") || userCategory.getValue() == null || userCategory.getValue().equals("") || emailField.getText() == null || emailField.getText().trim().equals("")) {
             dialog.errorInfoDialog("Something null, please check your input.");
         } else {
             boolean isSure = dialog.confirmDialog("Do you confirm to add this user?");
@@ -137,13 +137,13 @@ public class UserAddViewController implements Initializable {
                         break;
                 }
 
-                UserVO userVo = new UserVO("", nameField.getText(), kind_of_users, "123456");
+                UserVO userVo = new UserVO(idField.getText().trim(), nameField.getText().trim(), kind_of_users, "123456");
                 userVo.setIsValid(true);
                 userVo.setMail(emailField.getText().trim());
                 //userBLService.addUser(userVo);
                 ResultMessage resultMessage = userBLService.addUser(userVo);
                 if (resultMessage == ResultMessage.SUCCESS) {
-                    dialog.infoDialog("Add the user successfully, the id of user is " + userVo.getID());
+                    dialog.infoDialog("Add the user successfully.");
                 } else if (resultMessage == ResultMessage.EXIST) {
                     dialog.errorInfoDialog("user exist!");
                 } else if (resultMessage == ResultMessage.FAILED) {
