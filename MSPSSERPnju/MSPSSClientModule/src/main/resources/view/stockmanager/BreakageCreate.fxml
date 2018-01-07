@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.collections.*?>
-<?import java.util.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BreakageCreateViewController">
     <children>
@@ -117,12 +110,12 @@
                 </TableView>
                 <TextField fx:id="realStockField" layoutX="334.0" layoutY="365.0" prefHeight="23.0" prefWidth="87.0" />
                 <TextField fx:id="remarkField" layoutX="426.0" layoutY="365.0" prefHeight="23.0" prefWidth="239.0" />
-                <Button id="sureButton" fx:id="addRowButton" layoutX="570.0" layoutY="392.0" mnemonicParsing="false" onAction="#addRowButtonAction" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
+                <Button id="sureButton" fx:id="addRowButton" layoutX="595.0" layoutY="393.0" mnemonicParsing="false" onAction="#addRowButtonAction" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="添加" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei" size="12.0" />
                     </font>
                 </Button>
-                <Button id="cancelButton" fx:id="delSelectedButton" layoutX="486.0" layoutY="392.0" mnemonicParsing="false" onAction="#dealSelectedButtonAction" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="#0f88eb">
+                <Button id="cancelButton" fx:id="delSelectedButton" layoutX="503.0" layoutY="392.0" mnemonicParsing="false" onAction="#dealSelectedButtonAction" prefHeight="23.0" prefWidth="70.0" stylesheets="@../../css/admin/addUser.css" text="删除" textFill="#0f88eb">
                     <font>
                         <Font name="Microsoft YaHei" size="12.0" />
                     </font>

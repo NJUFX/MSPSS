@@ -77,7 +77,7 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
 		this.initTable();
-			testStub.add(new AccountVO("testName",100000.0,new Time(2017,12,25,15,40,23)));
+			//testStub.add(new AccountVO("testName",100000.0,new Time(2017,12,25,15,40,23)));
 			NameTag.setText(currentUser.getName());
 			RoleTag.setText(currentUser.getCategory().toString());
 			IdTag.setText(currentUser.getID());

@@ -42,6 +42,9 @@ import java.util.ResourceBundle;
  * author:Jiang_Chen date:2017/12/13
  */
 public class PurcRetCreateViewController implements Initializable {
+    static boolean isSaved = false;
+    static SalesInBillVO savedSalesInBill;
+
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
@@ -425,6 +428,31 @@ public class PurcRetCreateViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    public void init() {
+        showTableView();
+        if (isSaved == true) {
+            billIdLabel.setText(savedSalesInBill.getID());
+            billSupplierField.setText(savedSalesInBill.getProvider());
+            DAELabel.setText(LoginController.getCurrentUser().getID());
+            stockField.setText(savedSalesInBill.getStorage());
+            billTotalMoney.setText(String.valueOf(savedSalesInBill.getSumMoney()));
+            /**
+             billRemarkArea.setText("");
+             */
+            ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
+            if (savedSalesInBill.getItemVOS() != null) {
+                ArrayList<SalesItemVO> list = savedSalesInBill.getItemVOS();
+                for (int i = 0; i < list.size(); i++) {
+                    SalesItemVO salesItemVO = list.get(i);
+                    PurchaseBill purchaseBill = new PurchaseBill(salesItemVO.getName(), salesItemVO.getId(), salesItemVO.getType(), String.valueOf(salesItemVO.getPrice()), String.valueOf(salesItemVO.getNumber()), String.valueOf(salesItemVO.getTotal()), "");
+                    data.add(purchaseBill);
+                }
+            }
+
+        }
+    }
+
+
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
 
@@ -433,6 +461,6 @@ public class PurcRetCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        showTableView();
+        init();
     }
 }

@@ -40,6 +40,9 @@ import java.util.ResourceBundle;
  * author:Jiang_Chen date:2017/12/13
  */
 public class SalesRetCreateViewController implements Initializable {
+    static boolean isSaved = false;
+    static SalesOutBillVO savedSalesOutBill;
+
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
@@ -94,7 +97,7 @@ public class SalesRetCreateViewController implements Initializable {
             SalesOutBillVO.setDAE(DAELabel.getText());
             SalesOutBillVO.setStorage(stockField.getText());
             SalesOutBillVO.setCustomerVO(customerBLInfo.getCustomerByID(billSupplierField.getText()));
-            System.out.println(customerVO.getID()+"bill");
+            System.out.println(customerVO.getID() + "bill");
             SalesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             SalesOutBillVO.setSumAfterDiscount(Double.parseDouble(billTotalMoney.getText()));
             SalesOutBillVO.setItemVOS(commodityVOArrayList);
@@ -114,8 +117,7 @@ public class SalesRetCreateViewController implements Initializable {
         if (saveBill() != null) {
             SalesOutBillVO salesOutBillVO = saveBill();
             ResultMessage resultMessage = salesmanBillBLService.saveSalesOutBill(salesOutBillVO);
-            ResultMessage re2 = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
-            if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
+            if (resultMessage == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
                 try {
                     BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
@@ -134,8 +136,8 @@ public class SalesRetCreateViewController implements Initializable {
         if (saveBill() != null) {
             SalesOutBillVO salesOutBillVO = saveBill();
             ResultMessage resultMessage = salesmanBillBLService.saveSalesOutBill(salesOutBillVO);
-            ResultMessage re2 = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
-            if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
+            ResultMessage re = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
+            if (resultMessage == ResultMessage.SUCCESS && re == ResultMessage.SUCCESS) {
                 dialog.infoDialog("Commit list successfully.");
                 try {
                     BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
@@ -151,7 +153,7 @@ public class SalesRetCreateViewController implements Initializable {
     }
 
     @FXML
-    public void idFieldAction(ActionEvent e){
+    public void idFieldAction(ActionEvent e) {
         CommodityVO commodityVO = commodityInfoService.getCommodity(idField.getText().trim());
         nameField.setText(commodityVO.getName());
         priceLabel.setText(String.valueOf(commodityVO.getImportCost()));
@@ -419,6 +421,30 @@ public class SalesRetCreateViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    public void init() {
+        showTableView();
+        if (isSaved == true) {
+            billIdLabel.setText(savedSalesOutBill.getID());
+            billSupplierField.setText(savedSalesOutBill.getCustomerVO().getID());
+            DAELabel.setText(LoginController.getCurrentUser().getID());
+            stockField.setText(savedSalesOutBill.getStorage());
+            billTotalMoney.setText(String.valueOf(savedSalesOutBill.getSumAfterDiscount()));
+            /**
+             billRemarkArea.setText("");
+             */
+            ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
+            if (savedSalesOutBill.getItemVOS() != null) {
+                ArrayList<SalesItemVO> list = savedSalesOutBill.getItemVOS();
+                for (int i = 0; i < list.size(); i++) {
+                    SalesItemVO salesItemVO = list.get(i);
+                    PurchaseBill purchaseBill = new PurchaseBill(salesItemVO.getName(), salesItemVO.getId(), salesItemVO.getType(), String.valueOf(salesItemVO.getPrice()), String.valueOf(salesItemVO.getNumber()), String.valueOf(salesItemVO.getTotal()), "");
+                    data.add(purchaseBill);
+                }
+            }
+
+        }
+    }
+
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
 
@@ -427,7 +453,7 @@ public class SalesRetCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        showTableView();
+        init();
     }
 }
 

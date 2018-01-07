@@ -40,6 +40,7 @@ import java.util.ResourceBundle;
 public class BillStatusCheckViewController implements Initializable {
 
     Stage stage = StageSingleton.getStage();
+    Stage newStage = new Stage();
     Dialog dialog = new Dialog();
     SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
     @FXML
@@ -232,12 +233,31 @@ public class BillStatusCheckViewController implements Initializable {
                         this.setGraphic(Btn);
                         Btn.setOnMouseClicked((me) -> {
                             try {
-                                /**
-                                 CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
-                                 "/view/stockmanager/CommodityInfoShow.fxml");
-                                 controller.id_to_modify = this.getTableView().getItems().get(this.getIndex()).getId();
-                                 //controller.setCommodityTable(OperateCommodity);
-                                 */
+                                if (getTableView().getItems().get(this.getIndex()).getStatus().equals("已保存")) {
+                                    if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 3).equals("JHD")) {
+                                        PurchaseCreateViewController.isSaved = true;
+                                        PurchaseCreateViewController.savedSalesInBill = getTableView().getItems().get(this.getIndex()).getSalesInBillVO();
+                                        PurchaseCreateViewController controller = (PurchaseCreateViewController) replaceSceneContent("/view/stockseller/PurchaseCreate.fxml");
+                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 3).equals("JHT")) {
+                                        PurchaseCreateViewController.isSaved = true;
+                                        PurchaseCreateViewController.savedSalesInBill = getTableView().getItems().get(this.getIndex()).getSalesInBillVO();
+                                        PurchaseCreateViewController controller = (PurchaseCreateViewController) replaceSceneContent("/view/stockseller/PurchaseCreate.fxml");
+                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 3).equals("XST")) {
+                                        SalesRetCreateViewController.isSaved = false;
+                                        SalesRetCreateViewController.savedSalesOutBill = getTableView().getItems().get(this.getIndex()).getSalesOutBillVO();
+                                        SalesRetCreateViewController controller = (SalesRetCreateViewController) replaceSceneContent("/view/stockseller/SalesRetCreate");
+                                    }
+                                } else {
+                                    if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 2).equals("JH")) {
+                                        BillDetailsShowViewController.isSalesIn = true;
+                                        BillDetailsShowViewController.salesInBillVO = getTableView().getItems().get(this.getIndex()).getSalesInBillVO();
+                                        BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/BillDetailsShow.fxml", 741, 590);
+                                    } else {
+                                        BillDetailsShowViewController.isSalesIn = false;
+                                        BillDetailsShowViewController.salesOutBillVO = getTableView().getItems().get(this.getIndex()).getSalesOutBillVO();
+                                        BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/BillDetailsShow.fxml", 741, 590);
+                                    }
+                                }
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
@@ -257,8 +277,6 @@ public class BillStatusCheckViewController implements Initializable {
     public void addPurchaseBillRow() {
 
         ArrayList<SalesInBillVO> list = salesmanBillBLService.getMySalesInBill(LoginController.getCurrentUser().getID());
-        //ArrayList<SalesInBillVO> list = new ArrayList<>();
-
 
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         for (int i = 0; i < list.size(); i++) {
@@ -277,6 +295,7 @@ public class BillStatusCheckViewController implements Initializable {
                     status = "审批未通过";//红
                 }
                 BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
+                billCheckTable.setSalesInBillVO(list.get(i));
                 data.add(billCheckTable);
             }
         }
@@ -302,6 +321,7 @@ public class BillStatusCheckViewController implements Initializable {
                     status = "审批未通过";//红
                 }
                 BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
+                billCheckTable.setSalesInBillVO(list.get(i));
                 data.add(billCheckTable);
             }
         }
@@ -327,6 +347,7 @@ public class BillStatusCheckViewController implements Initializable {
                     status = "审批未通过";//红
                 }
                 BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
+                billCheckTable.setSalesOutBillVO(list.get(i));
                 data.add(billCheckTable);
             }
         }
@@ -352,6 +373,7 @@ public class BillStatusCheckViewController implements Initializable {
                     status = "审批未通过";//红
                 }
                 BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getID(), name, status);
+                billCheckTable.setSalesOutBillVO(list.get(i));
                 data.add(billCheckTable);
             }
         }
@@ -425,6 +447,26 @@ public class BillStatusCheckViewController implements Initializable {
         Scene scene = new Scene(page, 900, 560);
         stage.setScene(scene);
         stage.sizeToScene();
+        return (Initializable) loader.getController();
+    }
+
+    private Initializable replaceAnotherSceneContent(String fxml, double width, double height) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = MainApp.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(MainApp.class.getResource(fxml));
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, width + 0.0, height);
+        newStage.setTitle("单据详情");
+        newStage.setScene(scene);
+        newStage.sizeToScene();
+        newStage.setResizable(false);
+        newStage.show();
         return (Initializable) loader.getController();
     }
 
