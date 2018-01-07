@@ -1,5 +1,6 @@
 package blservice.billblservice;
 
+import exception.initclassexception.KeyColumnLostException;
 import util.ResultMessage;
 import util.Time;
 import vo.AlarmBillVO;
@@ -18,7 +19,7 @@ public interface StockManagerBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage saveStockBill(StockBillVO vo);
+    public ResultMessage saveStockBill(StockBillVO vo)throws KeyColumnLostException;
 
     /**
      * 更新库存类单据
@@ -26,7 +27,7 @@ public interface StockManagerBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage commitStockBill(StockBillVO vo);
+    public ResultMessage commitStockBill(StockBillVO vo)throws KeyColumnLostException;
 
     /**
      * 删除库存类单据

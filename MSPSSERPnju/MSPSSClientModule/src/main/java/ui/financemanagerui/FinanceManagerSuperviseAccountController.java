@@ -3,6 +3,7 @@ package ui.financemanagerui;
 import auxiliary.Account;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.accountblservice.AccountBLService;
+import exception.dataexception.NegativeException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -268,8 +269,13 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 		String AccountMoney = AddAccountMoney.getText();
 		ObservableList<Account> data = AccountTable.getItems();
 		data.add(new Account(AccountName,AccountMoney));
-		accountBLService.addAccount(new AccountVO(AccountName,Double.parseDouble(AccountName),null));
-	}
+		try {
+			accountBLService.addAccount(new AccountVO(AccountName, Double.parseDouble(AccountName), null));
+		}catch (NegativeException E){
+			System.out.print(E);
+		}
+
+		}
 
 
 	/**

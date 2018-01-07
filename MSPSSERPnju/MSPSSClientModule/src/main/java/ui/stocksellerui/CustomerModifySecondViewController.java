@@ -5,6 +5,7 @@ import blimpl.customerblimpl.Customer;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
 import blservice.mainblservice.MainBLService;
+import exception.dataexception.IntOverFlowException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,46 +71,51 @@ public class CustomerModifySecondViewController implements Initializable {
      */
     @FXML
     public void sureButtonAction(ActionEvent e) throws IOException {
-        Kind_Of_Customers kind_of_customers;
-        if (categoryBox.getValue() != null && !categoryBox.getValue().trim().equals("")) {
-            String kind = categoryBox.getValue();
-            if (kind.equals("进货商")) {
-                kind_of_customers = Kind_Of_Customers.SUPPLIER;
-            } else {
-                kind_of_customers = Kind_Of_Customers.SALER;
-            }
-            if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
-                    nameField.getText() != null && !nameField.getText().trim().equals("") &&
-                    phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
-                    addressField.getText() != null && !addressField.getText().trim().equals("") &&
-                    postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
-                    emailField.getText() != null && !emailField.getText().trim().equals("") &&
-                    inValueField.getText() != null && !inValueField.getText().trim().equals("") &&
-                    incomemoneyField.getText() != null && !incomemoneyField.getText().equals("") &&
-                    paymoneyField.getText() != null && !paymoneyField.getText().trim().equals("")) {
-                CustomerVO customerVO = new CustomerVO(id_to_modify, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
-                        addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
-                        Double.parseDouble(paymoneyField.getText().trim()), workerField.getText().trim());
-                System.out.println("SUCC");
-                ResultMessage resultMessage = customerBLService.modifyCustomer(customerVO);
-                System.out.println("SUCC2");
-                if (resultMessage == ResultMessage.SUCCESS) {
-                    dialog.infoDialog("Modify a customer successfully.");
-                    try {
-                        CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
-                                "/view/stockseller/CustomerManage.fxml");
-                    } catch (Exception e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
+        try {
+            Kind_Of_Customers kind_of_customers;
+            if (categoryBox.getValue() != null && !categoryBox.getValue().trim().equals("")) {
+                String kind = categoryBox.getValue();
+                if (kind.equals("进货商")) {
+                    kind_of_customers = Kind_Of_Customers.SUPPLIER;
+                } else {
+                    kind_of_customers = Kind_Of_Customers.SALER;
+                }
+                if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
+                        nameField.getText() != null && !nameField.getText().trim().equals("") &&
+                        phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
+                        addressField.getText() != null && !addressField.getText().trim().equals("") &&
+                        postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
+                        emailField.getText() != null && !emailField.getText().trim().equals("") &&
+                        inValueField.getText() != null && !inValueField.getText().trim().equals("") &&
+                        incomemoneyField.getText() != null && !incomemoneyField.getText().equals("") &&
+                        paymoneyField.getText() != null && !paymoneyField.getText().trim().equals("")) {
+                    CustomerVO customerVO = new CustomerVO(id_to_modify, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
+                            addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
+                            Double.parseDouble(paymoneyField.getText().trim()), workerField.getText().trim());
+                    System.out.println("SUCC");
+
+                    ResultMessage resultMessage = customerBLService.modifyCustomer(customerVO);
+                    System.out.println("SUCC2");
+                    if (resultMessage == ResultMessage.SUCCESS) {
+                        dialog.infoDialog("Modify a customer successfully.");
+                        try {
+                            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                                    "/view/stockseller/CustomerManage.fxml");
+                        } catch (Exception e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
+                    } else {
+                        dialog.infoDialog("Fail to add the customer");
                     }
                 } else {
-                    dialog.infoDialog("Fail to add the customer");
+                    dialog.errorInfoDialog("Something null, please check your input.");
                 }
             } else {
-                dialog.errorInfoDialog("Something null, please check your input.");
+                dialog.errorInfoDialog("Please choose category.");
             }
-        } else {
-            dialog.errorInfoDialog("Please choose category.");
+        }catch (IntOverFlowException E){
+            System.out.println(E.toString());
         }
     }
 

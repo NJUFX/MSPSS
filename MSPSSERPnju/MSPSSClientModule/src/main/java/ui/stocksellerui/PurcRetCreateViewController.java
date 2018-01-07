@@ -7,6 +7,7 @@ import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserInfo;
+import exception.initclassexception.KeyColumnLostException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -117,18 +118,22 @@ public class PurcRetCreateViewController implements Initializable {
     public void saveButtonAction(ActionEvent e) {
         if (saveBill() != null) {
             SalesInBillVO salesInBillVO = saveBill();
-            ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
-            if (resultMessage == ResultMessage.SUCCESS) {
-                dialog.infoDialog("Save list successfully.");
-                try {
-                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
-                            "/view/stockseller/BillCreate.fxml");
-                } catch (Exception e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
+            try {
+                ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Save list successfully.");
+                    try {
+                        BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                                "/view/stockseller/BillCreate.fxml");
+                    } catch (Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                } else {
+                    dialog.errorInfoDialog("Fail to save the list.");
                 }
-            } else {
-                dialog.errorInfoDialog("Fail to save the list.");
+            }catch (KeyColumnLostException E){
+                System.out.print(E.getMessage());
             }
         }
     }
@@ -136,19 +141,23 @@ public class PurcRetCreateViewController implements Initializable {
     public void sureButtonAction(ActionEvent e) {
         if (saveBill() != null) {
             SalesInBillVO salesInBillVO = saveBill();
-            ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
-            ResultMessage re2 = salesmanBillBLService.commitSalesInBill(salesInBillVO);
-            if (resultMessage == ResultMessage.SUCCESS&&re2==ResultMessage.SUCCESS) {
-                dialog.infoDialog("Commit list successfully.");
-                try {
-                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
-                            "/view/stockseller/BillCreate.fxml");
-                } catch (Exception e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
+            try {
+                ResultMessage resultMessage = salesmanBillBLService.saveSalesInBill(salesInBillVO);
+                ResultMessage re2 = salesmanBillBLService.commitSalesInBill(salesInBillVO);
+                if (resultMessage == ResultMessage.SUCCESS && re2 == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Commit list successfully.");
+                    try {
+                        BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
+                                "/view/stockseller/BillCreate.fxml");
+                    } catch (Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                } else {
+                    dialog.errorInfoDialog("Fail to commit the list.");
                 }
-            } else {
-                dialog.errorInfoDialog("Fail to commit the list.");
+            }catch (KeyColumnLostException E){
+                System.out.print(E.getMessage());
             }
         }
     }

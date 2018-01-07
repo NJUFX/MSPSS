@@ -3,6 +3,7 @@ package customer;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
+import exception.dataexception.IntOverFlowException;
 import org.junit.Test;
 import util.Kind_Of_Customers;
 import util.ResultMessage;
@@ -21,22 +22,34 @@ public class CustomerTest {
     CustomerBLInfo info = new BLFactoryImpl().getCustomerBLInfo();
     @Test
     public void test1() {
-        ResultMessage message = service.addCustomer(Intel);
-        assertEquals(ResultMessage.SUCCESS, message);
+        try {
+            ResultMessage message = service.addCustomer(Intel);
+            assertEquals(ResultMessage.SUCCESS, message);
+        }catch (IntOverFlowException E){
+            System.out.print(E.toString());
+        }
     }
 
     @Test
     public void test2() {
-        ResultMessage message = service.addCustomer(songtuan);
-        assertEquals(ResultMessage.SUCCESS, message);
+        try {
+            ResultMessage message = service.addCustomer(songtuan);
+            assertEquals(ResultMessage.SUCCESS, message);
+        }catch (IntOverFlowException E){
+            System.out.print(E.toString());
+        }
     }
 
     @Test
     public void test3() {
         Intel.setName("Micro");
-        ResultMessage message = service.modifyCustomer(Intel);
-        //     Intel.setName("Intel");
-        assertEquals(ResultMessage.SUCCESS, message);
+        try {
+            ResultMessage message = service.modifyCustomer(Intel);
+            //     Intel.setName("Intel");
+            assertEquals(ResultMessage.SUCCESS, message);
+        }catch (IntOverFlowException E){
+            System.out.print(E.toString());
+        }
     }
 
     @Test
