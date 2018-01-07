@@ -6,24 +6,50 @@
 
 
 
+Introduction
 
-# 组员：韩新虎，伏家兴，刘雅歆，徐光耀。
-# 项目开始日期：2017.9.13
+MSPSS is a purchase-selling-stock system for lighting company by Team FX.
 
-# 项目分工：#
+Features
 
-## 库存管理人员：韩新虎
+• Completed development document for future maintenance & reuse.
 
-## 进货销售人员：伏家兴
+• Maven for dependency management, auto build and test.
 
-## 财务人员：徐光耀
+• GitLab provides supporting for continuous integration.
 
-## 总经理：刘雅歆
+• Java8+JavaFx+mySQL+JavaRMI
 
-# 文件内容说明：
+• JFoneix to be added.
 
-### src为源代码 doc为文档和图片  doc/md是文档 doc/img是图 doc/md/dev开发过程中为开发过程中的中间文档<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+More…
+
+Statement
+
+src : source code of project
+
+doc/md : document & images
+
+Contributors
+
+Xinhu Han ,Njuid:161250025
+
+JiaXing Fu ,Njuid:161250036
+
+Yaxin Liu ,Njuid:161250080
+
+Guangyao Xu ,Njuid:161250164
+
+Copyright declaration
+
+MSPSS System is an open-sourse project for all developers to folk and clone if for non-commercial use. Merge and commit will be strictly inspected. License for commercial use will be announced in early 2018.
+
+All Rights Reserved.
 
 
 
-​    
+
+
+
+
+
