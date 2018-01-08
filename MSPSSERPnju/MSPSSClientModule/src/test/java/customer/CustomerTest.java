@@ -3,12 +3,16 @@ package customer;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
+import filterflags.CustomerSearchFlag;
 import org.junit.Test;
 import util.Kind_Of_Customers;
 import util.ResultMessage;
 import vo.CustomerVO;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Description:
@@ -49,6 +53,14 @@ public class CustomerTest {
     public void test6() {
         CustomerVO vo = info.getCustomerByID("123456");
         assertEquals("123456", vo.getID());
+    }
+
+    @Test
+    public void test7() {
+
+        ArrayList<CustomerVO> vos = service.searchCustomer(CustomerSearchFlag.LEVEL, "1");
+
+        assertNotNull(vos.get(0).getCategory());
     }
 }
 
