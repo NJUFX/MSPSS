@@ -1,6 +1,7 @@
 package blimpl.billblimpl;
 
 import blservice.billblservice.*;
+import exception.initclassexception.KeyColumnLostException;
 import util.ResultMessage;
 import util.Time;
 import vo.*;
@@ -222,7 +223,8 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage saveSalesOutBill(SalesOutBillVO vo) {
+    public ResultMessage saveSalesOutBill(SalesOutBillVO vo)  {
+
         return salesOutBill.saveSalesOutBill(vo);
     }
 
@@ -387,7 +389,12 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage saveStockBill(StockBillVO vo) {
+    public ResultMessage saveStockBill(StockBillVO vo) throws KeyColumnLostException{
+
+        if(vo.getId()==null&&vo.getInit_time()==null&&vo.getType()==null){
+            throw new KeyColumnLostException("关键成员变量id,type,initTime 没有初始化");
+        }
+
         return stockBill.saveStockBill(vo);
     }
 
@@ -398,7 +405,13 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage commitStockBill(StockBillVO vo) {
+    public ResultMessage commitStockBill(StockBillVO vo)throws KeyColumnLostException {
+
+        if(vo.getId()==null&&vo.getInit_time()==null&&vo.getType()==null){
+            throw new KeyColumnLostException("关键成员变量id,type,initTime 没有初始化");
+        }
+
+
         return stockBill.commitStockBill(vo);
     }
 
@@ -421,7 +434,11 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage saveFinanceBill(FinanceBillVO vo) {
+    public ResultMessage saveFinanceBill(FinanceBillVO vo) throws KeyColumnLostException{
+
+        if(vo.getID()==null&&vo.getInit_time()==null&&vo.getType()==null){
+            throw new KeyColumnLostException("关键成员变量id,type,initTime 没有初始化");
+        }
 
         return financeBill.saveFinanceBill(vo);
     }
@@ -433,7 +450,11 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage commitFinanceBill(FinanceBillVO vo) {
+    public ResultMessage commitFinanceBill(FinanceBillVO vo) throws KeyColumnLostException{
+
+        if(vo.getID()==null&&vo.getInit_time()==null&&vo.getType()==null){
+            throw new KeyColumnLostException("关键成员变量id,type,initTime 没有初始化");
+        }
 
         return financeBill.commitFinanceBill(vo);
     }
@@ -467,7 +488,12 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO) {
+    public ResultMessage saveCashCostBill(CashCostBillVO cashCostBillVO) throws KeyColumnLostException {
+
+        if(cashCostBillVO.getID()==null&&cashCostBillVO.getInit_time()==null&&cashCostBillVO.getOperator()==null){
+            throw new KeyColumnLostException("关键成员变量id,type,initTime 没有初始化");
+        }
+
         return cashCostBill.saveCashCostBill(cashCostBillVO);
     }
 
@@ -478,7 +504,12 @@ public class BillBLServiceImpl implements ManagerBillBLService, StockManagerBill
      * @return
      */
     @Override
-    public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO) {
+    public ResultMessage commitCashCostBill(CashCostBillVO cashCostBillVO) throws KeyColumnLostException{
+
+        if(cashCostBillVO.getID()==null&&cashCostBillVO.getInit_time()==null&&cashCostBillVO.getOperator()==null){
+            throw new KeyColumnLostException("关键成员变量id,type,initTime 没有初始化");
+        }
+
         return cashCostBill.commitCashCostBill(cashCostBillVO);
     }
 

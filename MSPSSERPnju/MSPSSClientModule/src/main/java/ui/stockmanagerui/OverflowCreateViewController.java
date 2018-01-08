@@ -6,6 +6,7 @@ import blservice.billblservice.StockManagerBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserBLService;
+import exception.initclassexception.KeyColumnLostException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -96,9 +97,15 @@ public class OverflowCreateViewController implements Initializable {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
         }
         StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
-        ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
+        try {
+            ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
+
         if (ResultMessage.SUCCESS == resultMessage) {
             dialog.infoDialog("Save bill successfully.");
+        }
+
+        }catch (KeyColumnLostException E){
+            System.out.print(E.getMessage());
         }
 
     }
@@ -111,9 +118,13 @@ public class OverflowCreateViewController implements Initializable {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
         }
         StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
-        ResultMessage resultMessage = stockManagerBillBLService.commitStockBill(vo);
-        if (ResultMessage.SUCCESS == resultMessage) {
-            dialog.infoDialog("Commit bill successfully.");
+        try {
+            ResultMessage resultMessage = stockManagerBillBLService.commitStockBill(vo);
+            if (ResultMessage.SUCCESS == resultMessage) {
+                dialog.infoDialog("Commit bill successfully.");
+            }
+        }catch (KeyColumnLostException E){
+            System.out.print(E.getMessage());
         }
     }
 
