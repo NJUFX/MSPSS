@@ -125,7 +125,6 @@
                   <Image url="@../../image/总额区间.png" />
                </image>
             </ImageView>
-            <TextField fx:id="CustomerName" layoutX="297.0" layoutY="28.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
             <TextField fx:id="SumAmount" layoutX="297.0" layoutY="71.0" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
             <TableView fx:id="FinanceItemTable" layoutX="47.0" layoutY="111.0" prefHeight="192.0" prefWidth="543.0">
                <columns>
@@ -150,6 +149,7 @@
             <TextField fx:id="PsField" layoutX="336.0" layoutY="315.0" prefHeight="29.0" prefWidth="125.0" promptText="备注" style="-fx-background-radius: 0; -fx-border-color: #0f88eb;" />
             <Button fx:id="AddFinanceItem" layoutX="480.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleAddFinanceItemButtonAction" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0f88eb;" text="增加" textFill="WHITE" />
             <ComboBox fx:id="AccountField" layoutX="47.0" layoutY="316.0" prefHeight="27.0" prefWidth="125.0" promptText="银行账户" style="-fx-background-color: white; -fx-border-color: #0f88eb;" />
+            <ComboBox fx:id="CustomerName" layoutX="297.0" layoutY="29.0" prefHeight="27.0" prefWidth="169.0" promptText="客户名称" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-color: #0f88eb;" />
          </children>
       </Pane>
     </children>

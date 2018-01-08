@@ -1,5 +1,6 @@
 package blservice.billblservice;
 
+import exception.initclassexception.KeyColumnLostException;
 import util.ResultMessage;
 import vo.*;
 
@@ -16,7 +17,7 @@ public interface SalesmanBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage saveSalesInBill(SalesInBillVO vo);
+    public ResultMessage saveSalesInBill(SalesInBillVO vo)throws KeyColumnLostException;
 
     /**
      * 提交进货单 进货退货单
@@ -24,7 +25,7 @@ public interface SalesmanBillBLService {
      * @param vo
      * @return
      */
-    public ResultMessage commitSalesInBill(SalesInBillVO vo);
+    public ResultMessage commitSalesInBill(SalesInBillVO vo)throws KeyColumnLostException;
 
     /**
      * 删除进货单 进货退货单

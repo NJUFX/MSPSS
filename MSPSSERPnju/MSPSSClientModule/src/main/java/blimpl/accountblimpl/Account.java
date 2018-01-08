@@ -21,6 +21,7 @@ public class Account {
     LogBLInfo logBLInfo = new BLFactoryImpl().getLogBLInfo();
 
     public ResultMessage addAccount(AccountVO accountVO) {
+        accountVO.setCreateTime(new Time());
         ResultMessage message = networkService.addAccount(vo_to_po(accountVO));
         if (message == ResultMessage.SUCCESS)
             if (userInfo.getCurrentUser() != null) {
@@ -66,7 +67,7 @@ public class Account {
                 criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("name", vo.getName(), QueryMethod.Full));
         }
         if (vo.getMinTime()!=null&&vo.getMaxTime()!=null){
-            criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("createtime",vo.getMinTime(),vo.getMaxTime(),QueryMethod.Range));
+            criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("createtime",vo.getMinTime().toString(),vo.getMaxTime().toString(),QueryMethod.Range));
         }
         return pos_to_vos(networkService.multiSearchAccount(criteriaClauses));
     }

@@ -1,6 +1,7 @@
 package blservice.accountblservice;
 
 import blimpl.accountblimpl.Account;
+import exception.dataexception.NegativeException;
 import util.ResultMessage;
 import util.Time;
 import vo.AccountFilterFlagsVO;
@@ -18,7 +19,7 @@ public interface AccountBLService {
      * @param account
      * @return 添加成功与否
      */
-    public ResultMessage addAccount(AccountVO account);
+    public ResultMessage addAccount(AccountVO account) throws NegativeException;
     /**
      * 删除账户
      *

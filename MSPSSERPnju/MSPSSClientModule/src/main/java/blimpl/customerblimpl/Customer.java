@@ -95,16 +95,17 @@ public class Customer {
     }
 
     private CustomerVO po_to_vo(CustomerPO po){
-        Kind_Of_Customers kind = po.getCategory()==0? Kind_Of_Customers.SALER: Kind_Of_Customers.SUPPLIER;
-        System.out.println(kind.toString());
+        Kind_Of_Customers kind = po.getCategory() == 0 ? Kind_Of_Customers.SALER : Kind_Of_Customers.SUPPLIER;
         CustomerVO vo = new CustomerVO(String.format("%05d",po.getID()), kind,po.getLevel(),
                 po.getName(),po.getPhonenumber(),po.getAddress(),po.getPostcode(),
                 po.getEmail(),po.getInvalue(),po.getIncomemoney(),po.getPaymoney(),po.getDAE());
+        System.out.println(vo.getCategory() == null);
     return vo;
     }
 
     private CustomerPO vo_to_po(CustomerVO vo){
-        int category = Kind_Of_Customers.SALER==vo.getKind() ? 0:1;
+
+        int category = Kind_Of_Customers.SALER==vo.getCategory() ? 0 :1;
         CustomerPO po = new CustomerPO(
                 vo.getExist(),category,vo.getLevel(),
                 vo.getName(),vo.getPhonenumber(),vo.getAddress()

@@ -1,5 +1,7 @@
 package blservice.customerblservice;
 
+import exception.dataexception.IntOverFlowException;
+import exception.dataexception.NegativeException;
 import filterflags.CustomerSearchFlag;
 import util.ResultMessage;
 import vo.CustomerVO;
@@ -28,7 +30,7 @@ public interface CustomerBLService {
      * @param customer
      * @return
      */
-    public ResultMessage addCustomer(CustomerVO customer);
+    public ResultMessage addCustomer(CustomerVO customer) throws IntOverFlowException;
 
     /**
      * 删除客户
@@ -42,6 +44,6 @@ public interface CustomerBLService {
      * @param customer
      * @return
      */
-    public ResultMessage modifyCustomer(CustomerVO customer);
+    public ResultMessage modifyCustomer(CustomerVO customer)throws IntOverFlowException;
 
 }

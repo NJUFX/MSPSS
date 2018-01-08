@@ -2,6 +2,9 @@ package blimpl.commodityblimpl;
 
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
+import exception.dataexception.NegativeException;
+import exception.timeexception.TimeFormatException;
+import exception.timeexception.TimeRangeException;
 import util.ResultMessage;
 import vo.ClassificationVO;
 import vo.CommodityVO;
@@ -28,7 +31,9 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
     }
 
     @Override
-    public ResultMessage addCommodity(CommodityVO cvo) {
+    public ResultMessage addCommodity(CommodityVO cvo){
+
+
 
         return commodity.addCommodity(cvo);
     }
@@ -79,7 +84,7 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
     }
 
     @Override
-    public ResultMessage addClassification(ClassificationVO cvo) {
+    public ResultMessage addClassification(ClassificationVO cvo)  {
         return classification.addClassification(cvo);
     }
 

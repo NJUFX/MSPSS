@@ -55,10 +55,6 @@ public class CustomerVO {
      * 默认业务员
      */
     private String DAE;
-    /**
-     * 客户分类
-     */
-    private Kind_Of_Customers kind;
 
     public Kind_Of_Customers getCategory() {
         return category;
@@ -154,14 +150,6 @@ public class CustomerVO {
 
     public void setPostcode(String postcode) {
         this.postcode = postcode;
-    }
-
-    public Kind_Of_Customers getKind() {
-        return kind;
-    }
-
-    public void setKind(Kind_Of_Customers kind) {
-        this.kind = kind;
     }
 
     public boolean getExist() {

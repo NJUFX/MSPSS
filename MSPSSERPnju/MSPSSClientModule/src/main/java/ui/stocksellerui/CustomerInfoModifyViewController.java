@@ -3,6 +3,7 @@ package ui.stocksellerui;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
+import exception.dataexception.IntOverFlowException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,36 +54,41 @@ public class CustomerInfoModifyViewController implements Initializable {
 
     @FXML
     public void sureButtonAction(ActionEvent e) {
-        //sureButton.getScene().getWindow().hide();
-        Kind_Of_Customers kind_of_customers = Kind_Of_Customers.SUPPLIER;
-        if (categoryBox.getValue().equals("销售商")) {
-            kind_of_customers = Kind_Of_Customers.SALER;
-        }
-        if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
-                nameField.getText() != null && !nameField.getText().trim().equals("") &&
-                phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
-                addressField.getText() != null && !addressField.getText().trim().equals("") &&
-                postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
-                emailField.getText() != null && !emailField.getText().trim().equals("") &&
-                inValueField.getText() != null && !inValueField.getText().trim().equals("")) {
-            CustomerVO newCustomer = new CustomerVO(customerVO.getID(), kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
-                    addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), customerVO.getIncomemoney(),
-                    customerVO.getPaymoney(), workerLabel.getText().trim());
-            ResultMessage resultMessage = customerBLService.modifyCustomer(newCustomer);
 
-            if (resultMessage == ResultMessage.SUCCESS) {
-                dialog.infoDialog("Modify the customer successfully");
-                sureButton.getScene().getWindow().hide();
-                try {
-                    CustomerInfoShowViewController controller = (CustomerInfoShowViewController) replaceSceneContent(
-                            "/view/stockseller/CustomerInfoShow.fxml");
-                    controller.id_to_show = id_to_show;
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
+        try {
+            //sureButton.getScene().getWindow().hide();
+            Kind_Of_Customers kind_of_customers = Kind_Of_Customers.SUPPLIER;
+            if (categoryBox.getValue().equals("销售商")) {
+                kind_of_customers = Kind_Of_Customers.SALER;
             }
-        } else {
-            dialog.errorInfoDialog("Something null, please check your input.");
+            if (levelBox.getValue() != null && !levelBox.getValue().trim().equals("") &&
+                    nameField.getText() != null && !nameField.getText().trim().equals("") &&
+                    phoneField.getText() != null && !phoneField.getText().trim().equals("") &&
+                    addressField.getText() != null && !addressField.getText().trim().equals("") &&
+                    postcodeField.getText() != null && !postcodeField.getText().trim().equals("") &&
+                    emailField.getText() != null && !emailField.getText().trim().equals("") &&
+                    inValueField.getText() != null && !inValueField.getText().trim().equals("")) {
+                CustomerVO newCustomer = new CustomerVO(customerVO.getID(), kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
+                        addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), customerVO.getIncomemoney(),
+                        customerVO.getPaymoney(), workerLabel.getText().trim());
+                ResultMessage resultMessage = customerBLService.modifyCustomer(newCustomer);
+
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Modify the customer successfully");
+                    sureButton.getScene().getWindow().hide();
+                    try {
+                        CustomerInfoShowViewController controller = (CustomerInfoShowViewController) replaceSceneContent(
+                                "/view/stockseller/CustomerInfoShow.fxml");
+                        controller.id_to_show = id_to_show;
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                }
+            } else {
+                dialog.errorInfoDialog("Something null, please check your input.");
+            }
+        }catch (IntOverFlowException E){
+            System.out.println(E.toString());
         }
 
     }

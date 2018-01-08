@@ -2,6 +2,7 @@ package blimpl.customerblimpl;
 
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
+import exception.dataexception.IntOverFlowException;
 import filterflags.CustomerSearchFlag;
 import util.ResultMessage;
 import vo.CustomerVO;
@@ -46,7 +47,11 @@ public class CustomerBLServiceImpl implements CustomerBLService,CustomerBLInfo {
      * @return
      */
     @Override
-    public ResultMessage addCustomer(CustomerVO customerVO) {
+    public ResultMessage addCustomer(CustomerVO customerVO) throws IntOverFlowException {
+
+        if(customerVO.getLevel()<0&&customerVO.getIncomemoney()>Integer.MAX_VALUE){
+            throw new IntOverFlowException(customerVO.getLevel());
+        }
         return customer.addCustomer(customerVO) ;
     }
 
@@ -66,7 +71,12 @@ public class CustomerBLServiceImpl implements CustomerBLService,CustomerBLInfo {
      * @return
      */
     @Override
-    public ResultMessage modifyCustomer(CustomerVO customerVO) {
+    public ResultMessage modifyCustomer(CustomerVO customerVO) throws IntOverFlowException {
+
+
+        if(customerVO.getLevel()<0&&customerVO.getIncomemoney()>Integer.MAX_VALUE){
+            throw new IntOverFlowException(customerVO.getLevel());
+        }
         return customer.modifyCustomer(customerVO);
     }
 
