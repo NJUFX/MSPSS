@@ -201,4 +201,5 @@ public class CommodityPO implements Serializable{
     public void setLatestExportCost(double latestExportCost) {
         this.latestExportCost = latestExportCost;
     }
+
 }

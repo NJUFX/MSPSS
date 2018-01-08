@@ -38,6 +38,8 @@ import java.util.ResourceBundle;
  * date:2017/12/12
  */
 public class OverflowCreateViewController implements Initializable {
+    static boolean isSaved;
+    static StockBillVO savedStockBillVO;
     Stage stage = StageSingleton.getStage();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
@@ -60,7 +62,7 @@ public class OverflowCreateViewController implements Initializable {
     @FXML
     TableView<Breakage> breakageTableView;
     @FXML
-    TableColumn<Breakage, String> IdCol, NameCol, SystemNumberCol, RealNumberCol;
+    TableColumn<Breakage, String> IdCol, NameCol, SystemNumberCol, RealNumberCol, RemarkCol;
     @FXML
     TableColumn<Breakage, CheckBox> SelectCol;// 删除一行的按钮
     @FXML
@@ -85,6 +87,7 @@ public class OverflowCreateViewController implements Initializable {
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         SystemNumberCol.setCellValueFactory(new PropertyValueFactory<>("SystemNumber"));
         RealNumberCol.setCellValueFactory(new PropertyValueFactory<>("RealNumber"));
+        RemarkCol.setCellValueFactory(new PropertyValueFactory<>("Remark"));
         SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
     }
 
@@ -95,10 +98,17 @@ public class OverflowCreateViewController implements Initializable {
         for (int i = 0; i < data.size(); i++) {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
         }
-        StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
+        StockBillVO vo = new StockBillVO(StockBillType.More, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
+        vo.setItemVOS(list);
         ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
+        vo.setItemVOS(list);
         if (ResultMessage.SUCCESS == resultMessage) {
             dialog.infoDialog("Save bill successfully.");
+            try {
+                BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockmanager/BillCreate.fxml");
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
 
     }
@@ -106,14 +116,24 @@ public class OverflowCreateViewController implements Initializable {
     @FXML
     public void sureButtonAction(ActionEvent e) {
         ArrayList<StockBillItemVO> list = new ArrayList<>();
+        String remark = "";
         ObservableList<Breakage> data = breakageTableView.getItems();
         for (int i = 0; i < data.size(); i++) {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
+            remark += data.get(i).getRemark() + '\n';
         }
-        StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
+
+        StockBillVO vo = new StockBillVO(StockBillType.More, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
+        vo.setCommentByManager(remark);
+        ResultMessage re1 = stockManagerBillBLService.saveStockBill(vo);
         ResultMessage resultMessage = stockManagerBillBLService.commitStockBill(vo);
-        if (ResultMessage.SUCCESS == resultMessage) {
+        if (ResultMessage.SUCCESS == resultMessage && ResultMessage.SUCCESS == re1) {
             dialog.infoDialog("Commit bill successfully.");
+            try {
+                BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockmanager/BillCreate.fxml");
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
@@ -126,9 +146,8 @@ public class OverflowCreateViewController implements Initializable {
             controller.commodityPriceLabel = priceLabel;
             controller.commodityNameField = nameField;
             controller.commodityIdField = idField;
-            if (idField.getText() != null) {
-                systemStockLabel.setText(String.valueOf(commodityInfoService.getCommodity(idField.getText()).getNumberInStock()));
-            }
+            controller.isStockBill = true;
+            controller.systemStockLabel = systemStockLabel;
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -168,7 +187,10 @@ public class OverflowCreateViewController implements Initializable {
     public void addRowButtonAction(ActionEvent e) {
         ObservableList<Breakage> data = breakageTableView.getItems();
         if (nameField.getText() != null && idField.getText() != null && systemStockLabel.getText() != null) {
-            data.add(new Breakage(nameField.getText(), idField.getText(), systemStockLabel.getText(), realStockField.getText(),
+            if (remarkField.getText() == null) {
+                remarkField.setText("");
+            }
+            data.add(new Breakage(idField.getText(), nameField.getText(), systemStockLabel.getText(), realStockField.getText(),
                     remarkField.getText()));
             nameField.setText("");
             idField.setText("");
@@ -326,6 +348,19 @@ public class OverflowCreateViewController implements Initializable {
         return (Initializable) loader.getController();
     }
 
+    public void init() {
+        showTableView();
+        if (isSaved == true) {
+            ObservableList<Breakage> data = breakageTableView.getItems();
+            ArrayList<StockBillItemVO> vos = savedStockBillVO.itemVOS;
+            for (int i = 0; i < vos.size(); i++) {
+                StockBillItemVO s = vos.get(i);
+                Breakage breakage = new Breakage(s.commodityVO.getID(), s.commodityVO.getName(), String.valueOf(s.commodityVO.getNumberInStock()), String.valueOf(s.number), "");
+                data.add(breakage);
+            }
+        }
+    }
+
 
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
@@ -335,6 +370,7 @@ public class OverflowCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
+        init();
     }
 
 

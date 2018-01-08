@@ -20,10 +20,12 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.StockInventoryVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -82,6 +84,7 @@ public class StockInventoryViewController implements Initializable {
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         AveragePriceCol.setCellValueFactory(new PropertyValueFactory<>("AveragePrice"));
+
         addRow();
     }
 
@@ -90,9 +93,11 @@ public class StockInventoryViewController implements Initializable {
      */
     public void addRow() {
         ObservableList<StockInventory> data = stockInventoryTable.getItems();
-        //stockBLService.
-        StockInventory stockInventory = new StockInventory();
-        data.add(stockInventory);
+        ArrayList<StockInventoryVO> list = stockBLService.viewInventory();
+        for (int i = 0; i < list.size(); i++) {
+            StockInventory stockInventory = new StockInventory(list.get(i).getName(), String.valueOf(list.get(i).getNumber()), String.valueOf(list.get(i).getPrice()));
+            data.add(stockInventory);
+        }
     }
 
 
@@ -104,7 +109,6 @@ public class StockInventoryViewController implements Initializable {
      */
     @FXML
     public void billCreateButtonAction(ActionEvent e) throws IOException {
-        // System.out.println("SUSS");
         try {
             BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BillCreate.fxml");

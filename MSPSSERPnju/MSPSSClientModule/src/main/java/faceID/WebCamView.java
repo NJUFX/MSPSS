@@ -2,7 +2,7 @@ package faceID;
 
 /**
  * Created by thinkpad on 2018/1/7.
- */
+ *
 import com.github.sarxos.webcam.Webcam;
 import javafx.collections.XComboBox;
 import javafx.application.Platform;
@@ -164,3 +164,4 @@ public class WebCamView extends VBox {
         closeCamera();
     }
 }
+ */

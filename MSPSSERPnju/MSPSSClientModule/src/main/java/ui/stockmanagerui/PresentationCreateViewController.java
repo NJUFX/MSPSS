@@ -1,5 +1,6 @@
 package ui.stockmanagerui;
 
+import auxiliary.Breakage;
 import auxiliary.Presentation;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.StockManagerBillBLService;
@@ -21,17 +22,21 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import vo.StockBillItemVO;
 import vo.StockBillVO;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
  * author:Jiang_Chen date:2017/12/11
  */
 public class PresentationCreateViewController implements Initializable {
+    static boolean isSaved;
+    static StockBillVO savedStockBillVO;
     Stage stage = StageSingleton.getStage();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
@@ -311,6 +316,20 @@ public class PresentationCreateViewController implements Initializable {
         }
     }
 
+    public void init() {
+        showTableView();
+        if (isSaved == true) {
+            ObservableList<Presentation> data = presentationTable.getItems();
+            ArrayList<StockBillItemVO> vos = savedStockBillVO.itemVOS;
+            for (int i = 0; i < vos.size(); i++) {
+                StockBillItemVO s = vos.get(i);
+               // Presentation breakage = new Presentation(dd);
+                //data.add(breakage);
+            }
+        }
+    }
+
+
     @FXML
     Label idOfCurrentUser, nameOfCurrentUser, categoryOfCurrentUser;
 
@@ -322,7 +341,7 @@ public class PresentationCreateViewController implements Initializable {
         idField.setText("");
         nameField.setText("");
         priceLabel.setText("");
-        showTableView();
+        init();
     }
 
 }

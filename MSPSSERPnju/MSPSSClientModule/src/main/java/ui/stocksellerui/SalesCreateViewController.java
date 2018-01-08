@@ -1,9 +1,6 @@
 package ui.stocksellerui;
 
-import auxiliary.Presentation;
-import auxiliary.PromotionBySales;
-import auxiliary.PurchaseBill;
-import auxiliary.SalesBill;
+import auxiliary.*;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.SalesmanBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
@@ -92,7 +89,8 @@ public class SalesCreateViewController implements Initializable {
             dialog.errorInfoDialog("Something null, please check your input.");
             return null;
         }
-        if (commodityVOArrayList != null && commodityVOArrayList.size() != 0) {
+
+        if (commodityVOArrayList != null) {
             ObservableList<SalesBill> data = commodityListView.getItems();
             for (int i = 0; i < data.size(); i++) {
                 SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
@@ -120,8 +118,9 @@ public class SalesCreateViewController implements Initializable {
     public void sureButtonAction(ActionEvent e) {
         if (saveBill() != null) {
             SalesOutBillVO salesOutBillVO = saveBill();
+            ResultMessage re = salesmanBillBLService.saveSalesOutBill(salesOutBillVO);
             ResultMessage resultMessage = salesmanBillBLService.commitSalesOutBill(salesOutBillVO);
-            if (resultMessage == ResultMessage.SUCCESS) {
+            if (re == ResultMessage.SUCCESS && resultMessage == ResultMessage.SUCCESS) {
                 try {
                     BillCreateViewController controller = (BillCreateViewController) replaceSceneContent2(
                             "/view/stockseller/BillCreate.fxml");
@@ -161,28 +160,7 @@ public class SalesCreateViewController implements Initializable {
     }
 
     public void VoucherDiscountFieldAction(ActionEvent e) {
-        boolean b1 = false, b2 = false, b3 = false;
-        if (SalesDiscountField.getText() != null && isNumber(SalesDiscountField.getText().trim()) == true) {
-            b1 = true;
-        }
-        if (PromotionDiscountLabel.getText() != null && isNumber(PromotionDiscountLabel.getText().trim())) {
-            b2 = true;
-        }
-        if (VoucherField.getText() != null && isNumber(VoucherField.getText().trim())) {
-            b3 = true;
-        }
-        if (b1 == true) {
-            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
-        }
-        if (b2 == true) {
-            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim()))));
-        }
-        if (b3 == true) {
-            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(VoucherField.getText().trim()))));
-        }
-    }
-
-    public void SalesDiscountFieldAction(ActionEvent e) {
+        TotalAfterLabel.setText(TotalBeforeLabel.getText());
         boolean b1 = false, b2 = false, b3 = false;
         if (SalesDiscountField.getText() != null && isNumber(SalesDiscountField.getText().trim()) == true) {
             b1 = true;
@@ -198,21 +176,56 @@ public class SalesCreateViewController implements Initializable {
                 if (Double.parseDouble(SalesDiscountField.getText().trim()) > 5000) {
                     dialog.errorInfoDialog("Discount beyond operator's limit.");
                 } else {
-                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
+                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
                 }
             } else {
                 if (Double.parseDouble(SalesDiscountField.getText().trim()) > 1000) {
                     dialog.errorInfoDialog("Discount beyond operator's limit.");
                 } else {
-                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
+                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
                 }
             }
         }
         if (b2 == true) {
-            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim()))));
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim()))));
         }
         if (b3 == true) {
-            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalBeforeLabel.getText().trim()) - Double.parseDouble(VoucherField.getText().trim()))));
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(VoucherField.getText().trim()))));
+        }
+    }
+
+    public void SalesDiscountFieldAction(ActionEvent e) {
+        boolean b1 = false, b2 = false, b3 = false;
+        TotalAfterLabel.setText(TotalBeforeLabel.getText());
+        if (SalesDiscountField.getText() != null && isNumber(SalesDiscountField.getText().trim()) == true) {
+            b1 = true;
+        }
+        if (PromotionDiscountLabel.getText() != null && isNumber(PromotionDiscountLabel.getText().trim())) {
+            b2 = true;
+        }
+        if (VoucherField.getText() != null && isNumber(VoucherField.getText().trim())) {
+            b3 = true;
+        }
+        if (b1 == true) {
+            if (LoginController.getCurrentUser().getCategory() == Kind_Of_Users.StockSellerManager) {
+                if (Double.parseDouble(SalesDiscountField.getText().trim()) > 5000) {
+                    dialog.errorInfoDialog("Discount beyond operator's limit.");
+                } else {
+                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
+                }
+            } else {
+                if (Double.parseDouble(SalesDiscountField.getText().trim()) > 1000) {
+                    dialog.errorInfoDialog("Discount beyond operator's limit.");
+                } else {
+                    TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(SalesDiscountField.getText().trim()))));
+                }
+            }
+        }
+        if (b2 == true) {
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim()))));
+        }
+        if (b3 == true) {
+            TotalAfterLabel.setText(String.valueOf(Math.max(0, Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(VoucherField.getText().trim()))));
         }
     }
 
@@ -261,10 +274,12 @@ public class SalesCreateViewController implements Initializable {
         try {
             SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
-            controller.isSelectClass = true;
+            controller.isSelectClass = false;
             controller.commodityNameField = nameField;
             controller.commodityIdField = idField;
             controller.commodityPriceLabel = priceLabel;
+            controller.useType = true;
+            controller.commodityTypeField = typeField;
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -307,6 +322,10 @@ public class SalesCreateViewController implements Initializable {
             String re = "";
             if (remarkField.getText() == null || remarkField.getText().trim().equals("")) {
                 re = "无";
+            }
+            if (Integer.parseInt(numberField.getText().trim()) > commodityInfoService.getCommodity(idField.getText().trim()).getNumberInStock()) {
+                dialog.errorInfoDialog("该商品系统库存为" + commodityInfoService.getCommodity(idField.getText().trim()).getNumberInStock() + '\n' + "所输入商品数量超出系统库存，请核对您的输入");
+                return;
             }
             data.add(new SalesBill(nameField.getText().trim(), idField.getText().trim(), typeField.getText().trim(), priceLabel.getText().trim(), numberField.getText().trim(), rowtotalLabel.getText().trim(), re));
             if (TotalBeforeLabel.getText() != null && !TotalBeforeLabel.getText().trim().equals("")) {

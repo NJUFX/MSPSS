@@ -81,11 +81,9 @@ public class CustomerAddViewController implements Initializable {
                 CustomerVO customerVO = new CustomerVO(null, kind_of_customers, Integer.valueOf(levelBox.getValue()), nameField.getText().trim(), phoneField.getText().trim(),
                         addressField.getText().trim(), postcodeField.getText().trim(), emailField.getText().trim(), Double.parseDouble(inValueField.getText().trim()), Double.parseDouble(incomemoneyField.getText().trim()),
                         Double.parseDouble(paymoneyField.getText().trim()), workerLabel.getText().trim());
-                System.out.println("SUCC");
                 ResultMessage resultMessage = customerBLService.addCustomer(customerVO);
-                System.out.println("SUCC2");
                 if (resultMessage == ResultMessage.SUCCESS) {
-                    dialog.infoDialog("Add a customer successfully.");
+                    dialog.infoDialog("Add a customer successfully, the customer's id is " + customerVO.getID());
                     try {
                         CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
                                 "/view/stockseller/CustomerManage.fxml");

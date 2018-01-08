@@ -101,6 +101,7 @@ public class BreakageCreateViewController implements Initializable {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
         }
         StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
+        vo.setItemVOS(list);
         ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
         if (ResultMessage.SUCCESS == resultMessage) {
             dialog.infoDialog("Save bill successfully.");
@@ -120,11 +121,13 @@ public class BreakageCreateViewController implements Initializable {
         ObservableList<Breakage> data = breakageTableView.getItems();
         for (int i = 0; i < data.size(); i++) {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
+            System.out.println("UI"+list.get(i).getCommodityVO().getID());
             remark += data.get(i).getRemark() + '\n';
         }
-
+        System.out.println(data.size());
         StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
         vo.setCommentByManager(remark);
+        vo.setItemVOS(list);
         ResultMessage re1 = stockManagerBillBLService.saveStockBill(vo);
         ResultMessage resultMessage = stockManagerBillBLService.commitStockBill(vo);
         if (ResultMessage.SUCCESS == resultMessage && ResultMessage.SUCCESS == re1) {
@@ -171,7 +174,7 @@ public class BreakageCreateViewController implements Initializable {
     public void addRowButtonAction(ActionEvent e) {
         ObservableList<Breakage> data = breakageTableView.getItems();
         if (nameField.getText() != null && idField.getText() != null && systemStockLabel.getText() != null) {
-            data.add(new Breakage(nameField.getText(), idField.getText(), systemStockLabel.getText(), realStockField.getText(),
+            data.add(new Breakage(idField.getText(), nameField.getText(), systemStockLabel.getText(), realStockField.getText(),
                     remarkField.getText()));
             nameField.setText("");
             idField.setText("");

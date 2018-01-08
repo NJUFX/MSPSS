@@ -54,15 +54,16 @@ public class CustomerDelViewController implements Initializable {
                 boolean b = true;
                 CustomerVO customerVO = customerBLService.getCustomerInfo(idField.getText());
                 if (customerVO.getIncomemoney() != 0 || customerVO.getPaymoney() != 0) {
-                    b = dialog.confirmDialog("该客户的应收为" + customerVO.getIncomemoney() + '\n' + "该客户的应付为" + customerVO.getPaymoney() + '\n' + "是否坚持删除该用户？");
+                    b = false;
+                    dialog.errorInfoDialog("该客户的应收为" + customerVO.getIncomemoney() + '\n' + "该客户的应付为" + customerVO.getPaymoney() + '\n' + "该用户不可被删除");
                 }
                 if (b == true) {
                     ResultMessage resultMessage = customerBLService.delCustomer(idField.getText().trim());
                     if (resultMessage == ResultMessage.SUCCESS) {
                         dialog.infoDialog("Delete a customer successfully.");
                         try {
-                            CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
-                                    "/view/stockseller/CustomerManage.fxml");
+                            CustomerInfoShowViewController controller = (CustomerInfoShowViewController) replaceSceneContent(
+                                    "/view/stockseller/CustomerInfoShow.fxml");
                         } catch (Exception e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();

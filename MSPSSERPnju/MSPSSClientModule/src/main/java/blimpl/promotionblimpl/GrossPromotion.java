@@ -70,7 +70,7 @@ public class GrossPromotion {
 
     public ArrayList<GrossPromotionVO> getAllGrossPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
-        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,Time.MAX_TIME, QueryMethod.Range);
+        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,Time.MAX_TIME, QueryMethod.Range);
         criteriaClauses.add(criteriaClause1);
         ArrayList<GrossPromotionPO> pos = networkService.multiSearchGrossPromotion(criteriaClauses);
         return pos_to_vos(pos);
@@ -85,8 +85,8 @@ public class GrossPromotion {
     public ArrayList<GrossPromotionVO> getAvailableGrossPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
         Time time = new Time();
-        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,time.toString(), QueryMethod.Range);
-        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("end_time",time.toString(),Time.MAX_TIME,QueryMethod.Range);
+        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,time.toString(), QueryMethod.Range);
+        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("endTime",time.toString(),Time.MAX_TIME,QueryMethod.Range);
         criteriaClauses.add(criteriaClause1);
         criteriaClauses.add(criteriaClause2);
         ArrayList<GrossPromotionPO> pos = networkService.multiSearchGrossPromotion(criteriaClauses);

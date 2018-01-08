@@ -111,7 +111,7 @@
                         <Font name="Microsoft YaHei" size="16.0" />
                     </font>
                 </Label>
-                <Label id="userId" fx:id="idLabel" layoutX="97.0" layoutY="38.0" prefHeight="22.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;" text="Label" />
+                <Label id="userId" fx:id="idLabel" layoutX="97.0" layoutY="38.0" prefHeight="22.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;" />
                 <ComboBox id="userCategory" fx:id="categoryBox" layoutX="312.0" layoutY="38.0" prefHeight="23.0" prefWidth="114.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">

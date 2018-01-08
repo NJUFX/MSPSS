@@ -1,11 +1,15 @@
 package bill;
 
+import javafx.collections.ArrayChangeListener;
 import network.BillClientNetworkImpl;
 import network.BillClientNetworkService;
 import org.junit.Test;
 import po.FinanceBillPO;
+import po.StockBillPO;
 import util.FinanceBillType;
 import util.ResultMessage;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -22,6 +26,9 @@ public class BillTest {
   po.setID("String ");
 ResultMessage message = billClientNetworkService.addFinanceBill(po);
  assertNotNull(message);
+ }
+ @Test
+ public void test3(){
  }
 
 }
