@@ -1,149 +1,35 @@
-//<<<<<<< HEAD
-////package blimpl.logblimpl;
-////
-////import po.LogPO;
-////import util.ResultMessage;
-////import util.Time;
-////import vo.LogListVO;
-////import vo.LogVO;
-////
-////import java.util.ArrayList;
-////
-/////**
-//// * Created by Harper on 17/11/21
-//// */
-////public class MockLog extends Log{
-////
-////    /**
-////     *增加一条日志记录
-////     *
-////     * @param logPO
-////     * @return ResultMessage
-////     */
-////    public ResultMessage add(LogPO logPO){
-////        loglist.add(logPO);
-////        return ResultMessage.SUCCESS;
-////    }
-////
-////    /**
-////     * 搜索日志记录
-////     *
-////     * @param date
-////     * @return ArrayList<LogPO>
-////     */
-////    public ArrayList<LogPO> timeSearchLog(Time date){
-////        String time = date.getYear()+"/"+date.getMonth()+"/"+date.getDay();
-////        ArrayList<LogPO> searchList = new ArrayList<LogPO>();
-////        for(int i=0;i<loglist.size();i++){
-////            if(time.equals(loglist.get(i).getTime())){
-////                searchList.add(loglist.get(i));
-////            }
-////        }
-////        return searchList;
-////    }
-////
-////    /**
-////     * 显示日志列表
-////     *
-////     * @param logList
-////     * @return LogListVO
-////     */
-////    public LogListVO showLogList(ArrayList<LogPO> logList){
-////        LogListVO result = new LogListVO(0,logList);
-////        return result;
-////    }
-////
-////    /**
-////     * 显示日志详情
-////     *
-////     * @param id
-////     * @return LogVO
-////     */
-////    public LogVO showLogDetail(String id){
-////        for(int i=0;i<loglist.size();i++){
-////            if(loglist.get(i).getId().equals(id)){
-////                LogPO temp =  loglist.get(i);
-////                LogVO result = new LogVO(temp.getId(),temp.getOperator(),temp.getTime(),temp.getKind(),temp.getCommodity(),temp.getMoney(),temp.getStock());
-////           return result;
-////            }
-////
-////        }
-////        return null;
-////    }
-////
-////}
-//=======
-//package blimpl.logblimpl;
-//
-//import po.LogPO;
-//import util.ResultMessage;
-//import util.Time;
-//import vo.LogListVO;
-//import vo.LogVO;
-//
-//import java.util.ArrayList;
-//
-///**
-// * Created by Harper on 17/11/21
-// */
-//public class MockLog extends Log{
-//
-//    /**
-//     *增加一条日志记录
-//     *
-//     * @param logPO
-//     * @return ResultMessage
-//     */
-//    public ResultMessage add(LogPO logPO){
-//        loglist.add(logPO);
-//        return ResultMessage.SUCCESS;
-//    }
-//
-//    /**
-//     * 搜索日志记录
-//     *
-//     * @param date
-//     * @return ArrayList<LogPO>
-//     */
-//    public ArrayList<LogPO> timeSearchLog(Time date){
-//        String time = date.getYear()+"/"+date.getMonth()+"/"+date.getDay();
-//        ArrayList<LogPO> searchList = new ArrayList<LogPO>();
-//        for(int i=0;i<loglist.size();i++){
-//            if(time.equals(loglist.get(i).getTime())){
-//                searchList.add(loglist.get(i));
-//            }
-//        }
-//        return searchList;
-//    }
-//
-//    /**
-//     * 显示日志列表
-//     *
-//     * @param logList
-//     * @return LogListVO
-//     */
-//    public LogListVO showLogList(ArrayList<LogPO> logList){
-//        LogListVO result = new LogListVO(0,logList);
-//        return result;
-//    }
-//
-//    /**
-//     * 显示日志详情
-//     *
-//     * @param id
-//     * @return LogVO
-//     */
-//    public LogVO showLogDetail(String id){
-//        for(int i=0;i<loglist.size();i++){
-//            if(loglist.get(i).getId().equals(id)){
-//                LogPO temp =  loglist.get(i);
-//                LogVO result = new LogVO(temp.getId(),temp.getOperator(),temp.getTime(),temp.getKind());
-//           return result;
-//            }
-//
-//        }
-//        return null;
-//    }
-//
-//}
-//>>>>>>> 52215b8994f21d122f1b54eacc239124ed9f9a53
+package blimpl.logblimpl;
+
+import util.ResultMessage;
+import util.Time;
+import vo.LogFilterVO;
+import vo.LogVO;
+
+import java.util.ArrayList;
+
+public class MockLog extends Log {
+    @Override
+    public ResultMessage add(LogVO logVO) {
+        return ResultMessage.SUCCESS;
+    }
+
+    @Override
+    public ArrayList<LogVO> operatorSearchLog(String operator) {
+        return super.operatorSearchLog(operator);
+    }
+
+    @Override
+    public ArrayList<LogVO> operateSearchLog(String operate) {
+        return super.operateSearchLog(operate);
+    }
+
+    @Override
+    public ArrayList<LogVO> timeSearchLog(Time start, Time end) {
+        return super.timeSearchLog(start, end);
+    }
+
+    @Override
+    public ArrayList<LogVO> multiSearchLog(LogFilterVO filterVO) {
+        return super.multiSearchLog(filterVO);
+    }
+}

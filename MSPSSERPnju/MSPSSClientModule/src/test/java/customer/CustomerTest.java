@@ -3,13 +3,16 @@ package customer;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.customerblservice.CustomerBLInfo;
 import blservice.customerblservice.CustomerBLService;
-import exception.dataexception.IntOverFlowException;
+import filterflags.CustomerSearchFlag;
 import org.junit.Test;
 import util.Kind_Of_Customers;
 import util.ResultMessage;
 import vo.CustomerVO;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Description:
@@ -22,34 +25,22 @@ public class CustomerTest {
     CustomerBLInfo info = new BLFactoryImpl().getCustomerBLInfo();
     @Test
     public void test1() {
-        try {
-            ResultMessage message = service.addCustomer(Intel);
-            assertEquals(ResultMessage.SUCCESS, message);
-        }catch (IntOverFlowException E){
-            System.out.print(E.toString());
-        }
+        ResultMessage message = service.addCustomer(Intel);
+        assertEquals(ResultMessage.SUCCESS, message);
     }
 
     @Test
     public void test2() {
-        try {
-            ResultMessage message = service.addCustomer(songtuan);
-            assertEquals(ResultMessage.SUCCESS, message);
-        }catch (IntOverFlowException E){
-            System.out.print(E.toString());
-        }
+        ResultMessage message = service.addCustomer(songtuan);
+        assertEquals(ResultMessage.SUCCESS, message);
     }
 
     @Test
     public void test3() {
         Intel.setName("Micro");
-        try {
-            ResultMessage message = service.modifyCustomer(Intel);
-            //     Intel.setName("Intel");
-            assertEquals(ResultMessage.SUCCESS, message);
-        }catch (IntOverFlowException E){
-            System.out.print(E.toString());
-        }
+        ResultMessage message = service.modifyCustomer(Intel);
+        //     Intel.setName("Intel");
+        assertEquals(ResultMessage.SUCCESS, message);
     }
 
     @Test
@@ -62,6 +53,14 @@ public class CustomerTest {
     public void test6() {
         CustomerVO vo = info.getCustomerByID("123456");
         assertEquals("123456", vo.getID());
+    }
+
+    @Test
+    public void test7() {
+
+        ArrayList<CustomerVO> vos = service.searchCustomer(CustomerSearchFlag.LEVEL, "1");
+
+        assertNotNull(vos.get(0).getCategory());
     }
 }
 

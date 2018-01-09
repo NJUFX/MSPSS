@@ -1,6 +1,7 @@
 package ui.stocksellerui;
 
 import auxiliary.BillCheckTable;
+import auxiliary.SalesBill;
 import auxiliary.SalesInBill;
 import auxiliary.SalesOutBill;
 import blimpl.blfactory.BLFactoryImpl;
@@ -211,8 +212,8 @@ public class BillStatusCheckViewController implements Initializable {
                             this.setTextFill(Color.rgb(51, 200, 51));
                         } else if (name.equals("审批未通过")) {
                             this.setTextFill(Color.rgb(230, 18, 6));
-                        } else if(name.equals("已保存")){
-                            this.setTextFill(Color.rgb(0,0,0));
+                        } else if (name.equals("已保存")) {
+                            this.setTextFill(Color.rgb(0, 0, 0));
                         }
                     }
                 }
@@ -254,10 +255,13 @@ public class BillStatusCheckViewController implements Initializable {
                                         BillDetailsShowViewController.isSalesIn = true;
                                         BillDetailsShowViewController.salesInBillVO = getTableView().getItems().get(this.getIndex()).getSalesInBillVO();
                                         BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/BillDetailsShow.fxml", 741, 590);
-                                    } else {
+                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 3).equals("XST")) {
                                         BillDetailsShowViewController.isSalesIn = false;
                                         BillDetailsShowViewController.salesOutBillVO = getTableView().getItems().get(this.getIndex()).getSalesOutBillVO();
                                         BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/BillDetailsShow.fxml", 741, 590);
+                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 3).equals("XSD")) {
+                                        SalesBillDetailsShowViewController.salesOutBillVO = getTableView().getItems().get(this.getIndex()).getSalesOutBillVO();
+                                        SalesBillDetailsShowViewController controller = (SalesBillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/SalesBillDetailsShow.fxml", 741, 710);
                                     }
                                 }
                             } catch (Exception e2) {

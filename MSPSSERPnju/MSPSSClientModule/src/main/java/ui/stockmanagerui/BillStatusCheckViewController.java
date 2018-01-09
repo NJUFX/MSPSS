@@ -232,17 +232,17 @@ public class BillStatusCheckViewController implements Initializable {
                             try {
                                 if (getTableView().getItems().get(this.getIndex()).getStatus().equals("已保存")) {
                                     if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBYD")) {
+                                        OverflowCreateViewController.isSaved = true;
+                                        OverflowCreateViewController.savedStockBillVO = getTableView().getItems().get(this.getIndex()).getStockBillVO();
+                                        OverflowCreateViewController controller = (OverflowCreateViewController) replaceSceneContent("/view/stockmanager/OverflowCreate.fxml");
+                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBSD")) {
                                         BreakageCreateViewController.isSaved = true;
                                         BreakageCreateViewController.savedStockBillVO = getTableView().getItems().get(this.getIndex()).getStockBillVO();
-                                        BreakageCreateViewController controller = (BreakageCreateViewController) replaceSceneContent("/view/stockmanager/BreakageCreate.fxml");
-                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBSD")) {
-                                        //TODO
-                                    } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 5).equals("KCBJD")) {
-                                        //TODO
+                                        BreakageCreateViewController controller = (BreakageCreateViewController) replaceSceneContent("/view/stockmanager/OverflowCreate.fxml");
                                     }
                                 } else {
                                     BillDetailsShowViewController.stockBillVO = getTableView().getItems().get(this.getIndex()).getStockBillVO();
-                                    BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockmanager/BillDetailsShow.fxml", 605, 729);
+                                    BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockmanager/BillDetailsShow.fxml", 729, 605);
                                 }
                             } catch (Exception e1) {
                                 e1.printStackTrace();
@@ -254,7 +254,6 @@ public class BillStatusCheckViewController implements Initializable {
             cell.setStyle("-fx-alignment:CENTER;");
             return cell;
         });
-
         addRow();
     }
 
@@ -281,7 +280,6 @@ public class BillStatusCheckViewController implements Initializable {
             } else if (BillStatus.rejected == billStatus) {
                 status = "审批未通过";//红
             }
-
             BillCheckTable billCheckTable = new BillCheckTable(list.get(i).getId(), name, status);
             billCheckTable.setStockBillVO(list.get(i));
             data.add(billCheckTable);

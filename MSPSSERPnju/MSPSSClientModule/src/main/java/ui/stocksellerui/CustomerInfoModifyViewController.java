@@ -33,8 +33,8 @@ public class CustomerInfoModifyViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-    CustomerVO customerVO;
-    String id_to_show = customerVO.getID();
+    static CustomerVO customerVO;
+    static String id_to_show;
 
     @FXML
     Button sureButton;
