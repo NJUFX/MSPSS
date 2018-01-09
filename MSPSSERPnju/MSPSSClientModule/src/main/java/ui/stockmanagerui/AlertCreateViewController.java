@@ -3,6 +3,8 @@ package ui.stockmanagerui;
 import auxiliary.Alert;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.StockManagerBillBLService;
+import blservice.commodityblservice.CommodityBLService;
+import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +22,9 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Time;
+import vo.AlarmBillVO;
+import vo.CommodityVO;
 import vo.StockBillVO;
 
 import java.io.IOException;
@@ -35,7 +40,7 @@ public class AlertCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     StockManagerBillBLService stockManagerBillBLService = new BLFactoryImpl().getStockManagerBillBLService();
-
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     @FXML
     Button overflowCreateButton;
     @FXML
@@ -63,13 +68,15 @@ public class AlertCreateViewController implements Initializable {
         AlertNumberCol.setCellValueFactory(new PropertyValueFactory<>("AlertNumber"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
-/*
-        ArrayList<StockBillVO> arrayList = stockManagerBillBLService.getAllAlarmBill();
+        ObservableList<Alert> data = alertTable.getItems();
+        ArrayList<AlarmBillVO> arrayList = stockManagerBillBLService.getAllAlarmBill(Time.getInstance());
         if (arrayList != null || arrayList.size() != 0) {
             for (int i = 0; i < arrayList.size(); i++) {
-            //    Alert alert = new Alert(arrayList.get(i).id,"","");
+                CommodityVO commodityVO = commodityInfoService.getCommodity(arrayList.get(i).getCommodityID());
+                Alert alert = new Alert(commodityVO.getID(), commodityVO.getName(), String.valueOf(commodityVO.getAlertNumber()), String.valueOf(arrayList.get(i).getNumber()));
+                data.add(alert);
             }
-        }*/
+        }
     }
 
     /**
@@ -91,13 +98,16 @@ public class AlertCreateViewController implements Initializable {
             for (int i = 0; i < count; i++) {
                 for (int j = 0; j < data.size(); j++) {
                     if (data.get(j).getIsSelected().isSelected()) {
+                        CommodityVO commodityVO = commodityInfoService.getCommodity(data.get(i).getId());
+                        commodityVO.numberInStock = commodityVO.getAlertNumber();
+                        commodityInfoService.updateCommodity(commodityVO);
                         data.remove(j);
                     }
                 }
             }
-            dialog.infoDialog("Delete all selected successfully!");
+            dialog.infoDialog("Handle all selected successfully!");
         } else {
-            dialog.errorInfoDialog("Nothing need dealing.");
+            dialog.errorInfoDialog("Nothing need handling.");
         }
     }
 
@@ -110,10 +120,15 @@ public class AlertCreateViewController implements Initializable {
     public void dealAllButtonAction(ActionEvent e) {
         if (alertTable != null) {
             ObservableList<Alert> data = alertTable.getItems();
+            for (int i = 0; i < data.size(); i++) {
+                CommodityVO commodityVO = commodityInfoService.getCommodity(data.get(i).getId());
+                commodityVO.numberInStock = commodityVO.getAlertNumber();
+                commodityInfoService.updateCommodity(commodityVO);
+            }
             data.clear();
-            dialog.infoDialog("Delete all successfully!");
+            dialog.infoDialog("Handle all successfully!");
         } else {
-            dialog.errorInfoDialog("Nothing need dealing.");
+            dialog.errorInfoDialog("Nothing need handling.");
         }
     }
 

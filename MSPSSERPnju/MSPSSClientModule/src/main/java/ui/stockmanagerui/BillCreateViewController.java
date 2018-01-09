@@ -182,8 +182,8 @@ public class BillCreateViewController implements Initializable {
     @FXML
     public void stockCheckButtonAction(ActionEvent e) throws IOException {
         try {
-            StockCheckViewController controller = (StockCheckViewController) replaceSceneContent(
-                    "/view/stockmanager/StockCheck.fxml");
+            StockCheckShowViewController controller = (StockCheckShowViewController) replaceSceneContent(
+                    "/view/stockmanager/StockCheckShow.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
