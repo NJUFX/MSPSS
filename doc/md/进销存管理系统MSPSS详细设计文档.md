@@ -2002,16 +2002,16 @@ AdminMainViewController的接口规范
 | AdminMainViewController.addUserButtonAction | 语法   | public void addUserButtonAction(ActionEvent e); |
 |                                          | 前置条件 | 点击导航栏增加用户                                |
 |                                          | 后置条件 | 显示增加用户界面                                 |
-| AdminViewController.delUserButtonAction  | 语法   | public void delUserButtonAction(ActionEvent e) |
+| AdminmMainViewController.delUserButtonAction | 语法   | public void delUserButtonAction(ActionEvent e) |
 |                                          | 前置条件 | 点击导航栏删除用户                                |
 |                                          | 后置条件 | 显示删除用户界面                                 |
-| AdminViewController.modUserButtonAction  | 语法   | public void modUserButtonAction(ActionEvent e) |
+| AdminMainViewController.modUserButtonAction | 语法   | public void modUserButtonAction(ActionEvent e) |
 |                                          | 前置条件 | 点击导航栏修改用户                                |
 |                                          | 后置条件 | 显示修改用户界面                                 |
-| AdminViewController.searchUserButtonAction | 语法   | public void searchUserButtonAction(ActionEvent e) |
+| AdminMainViewController.searchUserButtonAction | 语法   | public void searchUserButtonAction(ActionEvent e) |
 |                                          | 前置条件 | 点击查找按钮                                   |
 |                                          | 后置条件 | 显示查找用户结果界面                               |
-| AdminViewController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonAction(ActionEvent e) |
+| AdminMainViewController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonAction(ActionEvent e) |
 |                                          | 前置条件 | 点击登出按钮                                   |
 |                                          | 后置条件 | 跳转登陆界面                                   |
 
@@ -2060,74 +2060,71 @@ LoginController的接口规范
 
 
 
-表4.1.4(2)-3 UserAddViewController的接口规范
+UserAddViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                           | 服务   | 服务                                  |
-| ----------------------------- | ---- | ----------------------------------- |
-| UserAddViewController.back    | 语法   | public boolean back()               |
-|                               | 前置条件 | 点击返回按钮                              |
-|                               | 后置条件 | 返回上一界面                              |
-| UserAddViewController.addUser | 语法   | public boolean addUser(UserVO user) |
-|                               | 前置条件 | 点击确定按钮                              |
-|                               | 后置条件 | 系统更新数据                              |
-| UserAddViewController.show    | 语法   | public boolean show()               |
-|                               | 前置条件 | 无                                   |
-|                               | 后置条件 | 显示增加用户界面                            |
+| 服务名                                    | 服务   | 服务                                       |
+| -------------------------------------- | ---- | ---------------------------------------- |
+| UserAddViewController.cancelButton     | 语法   | public void cancelButttonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击取消按钮                                   |
+|                                        | 后置条件 | 返回上一界面                                   |
+| UserAddViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击确定按钮                                   |
+|                                        | 后置条件 | 增加用户                                     |
 
 需要的服务（需接口）
 
-| 服务名                      | 服务       |
-| ------------------------ | -------- |
-| AdminViewController.show | 显示用户管理界面 |
-|                          |          |
+| 服务名                   | 服务   |
+| --------------------- | ---- |
+| UserBLService.addUser | 增加用户 |
+|                       |      |
 
-表4.1.4(2)-4 UserDelViewController的接口规范
+UserDelViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                           | 服务   | 服务                                |
-| ----------------------------- | ---- | --------------------------------- |
-| UserDelViewController.back    | 语法   | public boolean back()             |
-|                               | 前置条件 | 点击返回按钮                            |
-|                               | 后置条件 | 返回上一界面                            |
-| UserDelViewController.delUser | 语法   | public boolean delUser(String id) |
-|                               | 前置条件 | 点击确定按钮                            |
-|                               | 后置条件 | 系统更新数据                            |
-| UserDelViewController.show    | 语法   | public boolean show()             |
-|                               | 前置条件 | 无                                 |
-|                               | 后置条件 | 显示删除用户界面                          |
+| 服务名                                    | 服务   | 服务                                       |
+| -------------------------------------- | ---- | ---------------------------------------- |
+| UserDelViewController.cancelButton     | 语法   | public void cancelButttonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击取消按钮                                   |
+|                                        | 后置条件 | 返回上一界面                                   |
+| UserDelViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击确定按钮                                   |
+|                                        | 后置条件 | 删除用户                                     |
 
 需要的服务（需接口）
 
-| 服务名                      | 服务       |
-| ------------------------ | -------- |
-| AdminViewController.show | 显示用户管理界面 |
-|                          |          |
+| 服务名                   | 服务   |
+| --------------------- | ---- |
+| UserBLService.delUser | 删除用户 |
+|                       |      |
 
-表4.1.4(2)-5 UserModifyViewController的接口规范
+表4.1.4(2)-5 UserSearchShowViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                                  | 服务   | 服务                                     |
-| ------------------------------------ | ---- | -------------------------------------- |
-| UserModifyViewController.back        | 语法   | public boolean back()                  |
-|                                      | 前置条件 | 点击返回按钮                                 |
-|                                      | 后置条件 | 返回上一界面                                 |
-| UserModifyViewController.addCustomer | 语法   | public boolean modifyUser(UserVO user) |
-|                                      | 前置条件 | 点击确定按钮                                 |
-|                                      | 后置条件 | 系统更新数据                                 |
-| UserModifyViewController.show        | 语法   | public boolean show()                  |
-|                                      | 前置条件 | 无                                      |
-|                                      | 后置条件 | 显示修改用户界面                               |
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| UserSearchShowViewController.returnButtonAction | 语法   | public void ButttonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| UserSearchShowViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 增加用户                                     |
+| UserSearchShowViewController.refreshButtonAction | 语法   | public void refreshButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击刷新按钮                                   |
+|                                          | 后置条件 | 刷新列表                                     |
+| UserSearchShowViewController.showTableView | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 列表初始化                                    |
 
 需要的服务（需接口）
 
-| 服务名                      | 服务       |
-| ------------------------ | -------- |
-| AdminViewController.show | 显示用户管理界面 |
-|                          |          |
+| 服务名                            | 服务          |
+| ------------------------------ | ----------- |
+| UserBLService.searchUserByID   | 通过id查找用户    |
+| UserBLService.searchUserByKind | 通过关键词类型查找用户 |
 
 ### 
 
