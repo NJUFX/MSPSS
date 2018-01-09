@@ -61,7 +61,7 @@ public class CustomerInfoShowViewController implements Initializable {
             incomemoneyLabel, paymoneyLabel, categoryLabel, levelLabel, idLabel, workerLabel;
 
     /**
-     * 删除当前的商品，返回商品列表
+     * 删除客户
      *
      * @param e
      */
@@ -97,7 +97,7 @@ public class CustomerInfoShowViewController implements Initializable {
     }
 
     /**
-     * 修改商品按钮跳转
+     * 修改客户
      *
      * @param e
      */

@@ -124,7 +124,7 @@ public class CustomerSearchShowViewController implements Initializable {
     }
 
 
-    public void refreshButtonAction() {
+    public void refresh() {
         addRow();
     }
 
@@ -261,7 +261,7 @@ public class CustomerSearchShowViewController implements Initializable {
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showTableView();
         addRow();
-        refreshButtonAction();
+        refresh();
     }
 
 }
