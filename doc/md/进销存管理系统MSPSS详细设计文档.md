@@ -1292,43 +1292,110 @@ finance各个类的职责如表4.1.3(1)-1所示<br>
 | billBLService.saveFinanceBill    | 保存财务类单据  |
 | billBLService.commitFinanceBill  | 提交财务类单据  |
 
-表4.1.3(2)-10 TableViewController的接口规范
+表4.1.3(2)-10 FinanceManagerSearchListController的接口规范
 
-| 提供的接口(供接口)                 |      |                                          |
-| -------------------------- | ---- | ---------------------------------------- |
-| 服务名                        |      | 服务                                       |
-| TableViewController.search | 语法   | public ArrayList<Bill> search(BillFilter filter) |
-|                            | 前置条件 | 点击搜索button                               |
-|                            | 后置条件 | 返回匹配的单据                                  |
-| TableViewController.show   | 语法   | public void show()                       |
-|                            | 前置条件 | 无                                        |
-|                            | 后置条件 | 显示界面                                     |
-
-| 需要的接口(需接口)                       |         |
-| -------------------------------- | ------- |
-| 服务名                              | 服务      |
-| FinanceInfoController.searchBill | 返回匹配的单据 |
-
-表4.1.3(2)-11CheckGeneralAccountController的接口规范
-
-| 提供的接口(供接口)                               |      |                                          |
+| 提供的服务(供接口)                               |      |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
 | 服务名                                      |      | 服务                                       |
-| CheckGeneralAccountController.showSearchView | 语法   | public void showSearchView()             |
+| FinanceManagerSearchListController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
 |                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 显示期初建账的搜索界面                              |
-| CheckGeneralAccountController.search     | 语法   | public void search()                     |
-|                                          | 前置条件 | 用户点击搜索button                             |
-|                                          | 后置条件 | 显示符合条件的总账列表                              |
-| CheckGeneralAccountController.add        | 语法   | public ResultMessage add(GeneralAccount account) |
-|                                          | 前置条件 | 用户点击增加button                             |
-|                                          | 后置条件 | 返回增加账户状态                                 |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerSearchListController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerSearchListController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerSearchListController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerSearchListController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerSearchListController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerSearchListController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerAddReceiveBillController.ChooseTableType | 语法   | public void ChooseTableType(ActionEvent e); |
+|                                          | 前置条件 | 选择一个报表类型                                 |
+|                                          | 后置条件 | 设置界面组件是否可以填写                          |
+| FinanceManagerAddReceiveBillController.handleClearButtonAction | 语法   | public void handleClearButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空当前界面的筛选条件                        |
+| FinanceManagerAddReceiveBillController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击搜索报表按钮                                 |
+|                                          | 后置条件 | 跳转到报表界面显示报表                             |
+| FinanceManagerAddReceiveBillController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击搜索报表按钮                                 |
+|                                          | 后置条件 | 跳转到报表界面显示报表                             |
 
-| 需要的服务(需接口)                               |           |
-| ---------------------------------------- | --------- |
-| 服务名                                      | 服务        |
-| FinanceInfoController.searchGeneralAccount | 搜索符合条件的单据 |
-| CreateGeneralAccountController.show      | 显示增加账户界面  |
+
+
+| 需要的服务(需接口)                       |          |
+| -------------------------------- | -------- |
+| 服务名                              | 服务       |
+| loginController.getCurrentUser   | 获取当前登录用户 |
+| tableBLService.checkSaleTable   | 查看销售明细表   |
+| tableBLService.checkBusinessTable  | 查看经营情况表   |
+| tableBLService.checkProcessTable     | 查看经营历程表  |
+
+
+
+表4.1.3(2)-11 FinanceManagerCreateGeneralAccountController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerCreateGeneralAccountController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerCreateGeneralAccountController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerCreateGeneralAccountController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerCreateGeneralAccountController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerAddReceiveBillController.handleClearInfomationButtonAction | 语法   | public void handleClearInfomationButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空当前用户填写的信息                          |
+| FinanceManagerAddReceiveBillController.handleAddCommodityButtonAction | 语法   | public void handleAddCommodityButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加商品按钮                                 |
+|                                          | 后置条件 | 商品列表中增加一个商品                        |
+| FinanceManagerAddReceiveBillController.handleAddCustomerButtonAction | 语法   | public void handleAddCustomerButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加客户按钮                                 |
+|                                          | 后置条件 | 客户列表中增加一个客户                      |
+| FinanceManagerAddReceiveBillController.handleAddAccountButtonAction | 语法   | public void handleAddAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加账户按钮                                 |
+|                                          | 后置条件 | 账户列表中增加一个账户                      |
+| FinanceManagerAddReceiveBillController.handleCommitGeneralAccountButtonAction | 语法   | public void handleCommitGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击提交账目按钮                                 |
+|                                          | 后置条件 | 期初建账数据中增加一条记录                      |
+
+
+
+| 需要的服务(需接口)                       |          |
+| -------------------------------- | -------- |
+| 服务名                              | 服务       |
+| loginController.getCurrentUser   | 获取当前登录用户 |
+| generalAccountBLService.searchCommodity  | 搜索商品   |
+| generalAccountBLService.searchCusotmer  | 搜索对应的客户   |
+| generalAccountBLService.searchAccount      | 搜索对应的账户  |
+| generalAccountBLService.addGeneralAcocunt| 添加期初账户|
+
 
 表4.1.3(2)-12 CreateGeneralAccountController的接口规范
 
@@ -1864,17 +1931,18 @@ billbl模块的职责及接口参见软件系统结构描述文档
 
 (2)整体结构
 
-根据体系结构的设计，我们将系统分成了展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，比如展示层和逻辑层之间我们添加billblservice接口。业务逻辑层和数据层之间添加billdataservice接口，为了隔离业务逻辑职责和业务控制职责，我们增加了billController，这样billController会将对单据信息的逻辑处理委托给stockbill,salesinbill,salesoutbill,financebill对象，stockbillpo是作为库存类单据的持久化对象被添加到设计模型中，salesInbillpo是作为进货类单据的持久化对象被添加到设计模型中，salesoutbillpo是作为销售类单据的持久化对象被添加到设计模型中，financebillpo是作为财务类单据的持久化对象被添加到设计模型中，
+根据体系结构的设计，我们将系统分成了展示层、业务逻辑层、数据层。每一层之间为了增加灵活性，比如展示层和逻辑层之间我们添加billblservice接口。业务逻辑层和数据层之间添加billdataservice接口，为了隔离业务逻辑职责和业务控制职责，我们增加了billController，这样billController会将对单据信息的逻辑处理委托给stockbill,salesinbill,salesoutbill,financebill对象，stockbillpo是作为库存类单据的持久化对象被添加到设计模型中，salesInbillpo是作为进货类单据的持久化对象被添加到设计模型中，salesoutbillpo是作为销售类单据的持久化对象被添加到设计模型中，financebillpo是作为财务类单据的持久化对象被添加到设计模型中，cashcostbillpo是作为现金费用单据的持久化对象被添加到设计模型中
 
 bill模块的设计如图所示
 
 | 模块             | 职责                         |
 | -------------- | -------------------------- |
 | billController | 负责管理bill各个类的任务，负责与其他模块进行交互 |
-| stockbill      | 完成对库存类报表的增改查               |
-| salesinbill    | 完成对进货类报表的增改查               |
-| salesoutbill   | 完成对销售类报表的增改查               |
-| financebill    | 完成对财务类报表的增改查               |
+| stockbill      | 完成对库存类报表的保存提交撤回审批查看        |
+| salesinbill    | 完成对进货类报表的保存提交撤回审批查看        |
+| salesoutbill   | 完成对销售类报表的保存提交撤回审批查看        |
+| financebill    | 完成对财务类报表的保存提交撤回审批查看        |
+| cashcostbill   | 完成对现金费用单的保存提交撤回审批查看        |
 
 (3) 模块内部类的接口规范
 
@@ -1882,77 +1950,87 @@ bill模块的设计如图所示
 
 提供的服务 供接口
 
-| 服务名                               | 服务   |                                          |
-| --------------------------------- | ---- | ---------------------------------------- |
-| BillController.addstockbill       | 语法   | public ResultMessage addstockbill(StockBillVO stockBillVO) |
-|                                   | 前置条件 | 添加库存单                                    |
-|                                   | 后置条件 | 返回添加是否成功                                 |
-| BillController.updatestockbill    | 语法   | public ResultMessage updatestockbill(StockBillVO stockBillVO) |
-|                                   | 前置条件 | 更新库存单                                    |
-|                                   | 后置条件 | 返回更新是否成功                                 |
-| BillController.searchstockbill    | 语法   | public ArrayList< StockBillVO> searchstockbill(FilterFlag flag) |
-|                                   | 前置条件 | 搜索库存单                                    |
-|                                   | 后置条件 | 返回符合条件的库存单                               |
-| BillController.addsalesinbill     | 语法   | public ResultMessage addsalesinbill(SalesInBillVO salesinbillVO) |
-|                                   | 前置条件 | 添加进货单                                    |
-|                                   | 后置条件 | 返回是否添加成功                                 |
-| BillController.updatesalesinbill  | 语法   | public ResultMessage updatesalesinbill(SalesInBillVO salesinbillVO) |
-|                                   | 前置条件 | 更新进货单                                    |
-|                                   | 后置条件 | 返回是否更新成功                                 |
-| BillController.searchsalesinbill  | 语法   | public ArrayList< SalesInVO> searchsalesinbill(FilterFlag flag) |
-|                                   | 前置条件 | 搜索进货单                                    |
-|                                   | 后置条件 | 返回符合条件的进货单                               |
-| BillController.addsalesoutbill    | 语法   | public ResultMessage addsalesoutbill(SalesOutBillVO salesoutbillVO) |
-|                                   | 前置条件 | 添加售货单                                    |
-|                                   | 后置条件 | 返回添加成功与否                                 |
-| BillController.updatesalesoutbill | 语法   | public ResultMessage updatesalesoutbill(SalesOutBillVO salesoutbillVO) |
-|                                   | 前置条件 | 更新售货单                                    |
-|                                   | 后置条件 | 返回更新成功与否                                 |
-| BillController.searchsalesoutbill | 语法   | public ArrayList< SalesOutBillVO >searchsalesoutbill(FilterFlag flag) |
-|                                   | 前置条件 | 搜索符合条件的售货单                               |
-|                                   | 后置条件 | 返回符合条件的售货单                               |
-| BillController.addfinancebill     | 语法   | public ResultMessage addfinancebill(FinanceBillVO financebillVO) |
-|                                   | 前置条件 | 添加财务单                                    |
-|                                   | 后置条件 | 返回添加成功与否                                 |
-| BillController.updatefinancebill  | 语法   | public ResultMessage updatefinancebill(FinanceBillVO financebillVO) |
-|                                   | 前置条件 | 更新财务单                                    |
-|                                   | 后置条件 | 返回更新成功与否                                 |
-| BillController.searchfinancebill  | 语法   | searchfinancebill(FilterFlag flag)       |
-|                                   | 前置条件 | 搜索符合条件的财务单                               |
-|                                   | 后置条件 | 返回符合条件的财务单                               |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| BillController.savestockbill             | 语法   | public ResultMessage savestockbill(StockBillVO stockBillVO) |
+|                                          | 前置条件 | 保存库存单                                    |
+|                                          | 后置条件 | 返回添加是否成功                                 |
+| BillController.commitstockbill           | 语法   | public ResultMessage commitstockbill(StockBillVO stockBillVO) |
+|                                          | 前置条件 | 提交库存单                                    |
+|                                          | 后置条件 | 返回更新是否成功                                 |
+| BillController.getMyStockBill            | 语法   | public ArrayList< StockBillVO> getMyStockBill(String operatorID) |
+|                                          | 前置条件 | 搜索某人创建的库存单                               |
+|                                          | 后置条件 | 返回符合条件的库存单                               |
+| BillController.getWaitingStockBill       | 语法   | public ArrayList< StockBillVO> getWaitingStockBill(String operatorID) |
+|                                          | 前置条件 | 总经理想要查看待审批的单据                            |
+|                                          | 后置条件 | 返回需要审批的库存类单据                             |
+| BillController.approveStockBill          | 语法   | public ResultMessage approveStockBill(StockBillVO stockBillVO) |
+|                                          | 前置条件 | 总经理要审批通过单据                               |
+|                                          | 后置条件 | 返回是否成功通过并更新相关信息                          |
+| BillController.rejectStockBill           | 语法   | public ResultMessage rejectStockBill(StockBillVO stockBillVO) |
+|                                          | 前置条件 | 总经理要拒绝某单据的通过                             |
+|                                          | 后置条件 | 返回是否通过                                   |
+| BillController.savesalesinbill           | 语法   | public ResultMessage savesalesinbill(SalesInBillVO salesinbillVO) |
+|                                          | 前置条件 | 保存进货单                                    |
+|                                          | 后置条件 | 返回是否保存成功                                 |
+| BillController.commitsalesinbill         | 语法   | public ResultMessage commitsalesinbill(SalesInBillVO salesinbillVO) |
+|                                          | 前置条件 | 更新进货单                                    |
+|                                          | 后置条件 | 返回是否更新成功                                 |
+| BillController.getMysalesinbill          | 语法   | public ArrayList< SalesInBillVO> getMySalesInBill(String operatorID) |
+|                                          | 前置条件 | 得到某人创建的单据                                |
+|                                          | 后置条件 | 返回某人创建的单据                                |
+| BillController.getWaitingSalesInbill     | 语法   | public ArrayList< SalesInBillVO> getWaitingSalesInBill() |
+|                                          | 前置条件 | 得到等待审批的单据                                |
+|                                          | 后置条件 | 返回所有待审批的单据                               |
+| BillController.approveSalesInbill        | 语法   | public ResultMessage approveSalesInBill(SalesInBillVO vo) |
+|                                          | 前置条件 | 审批通过进货类单据                                |
+|                                          | 后置条件 | 返回审批通过是否成功                               |
+| BillController.rejectSalesInbill         | 语法   | public ResultMessage rejectSalesInBill(SalesInBillVO vo) |
+|                                          | 前置条件 | 审批拒绝进货类单据                                |
+|                                          | 后置条件 | 拒绝通过是否成功                                 |
+| finiancebill,cashcostbill,salesoutbill形如以上接口不一一列举 |      |                                          |
+
 
 需要的服务 需接口
 
-| 服务名                             | 服务      |
-| ------------------------------- | ------- |
-| stockbill.addstockbill          | 添加库存类单据 |
-| stockbill.updatestockbill       | 更新库存类单据 |
-| stockbill.searchstockbill       | 搜索库存类单据 |
-| salesinbill.addsaleinbill       | 添加进货类单据 |
-| salesinbill.updatesaleinbill    | 更新进货类单据 |
-| salesinbill.searchsaleinbill    | 搜索进货类单据 |
-| salesoutbill.addsalesoutbill    | 添加销售类单据 |
-| salesoutbill.updatesalesoutbill | 更新销售类单据 |
-| salesoutbill.searchsalesoutbill | 搜索销售类单据 |
-| financebill.addfinancebill      | 添加财务类单据 |
-| financebill.updatefinancebill   | 更新财务类单据 |
-| financebill.searchfinancebill   | 搜索财务类单据 |
+| 服务名                                 | 服务             |
+| ----------------------------------- | -------------- |
+| stockbill.savestockbill             | 添加库存类单据        |
+| stockbill.commitstockbill           | 更新库存类单据        |
+| stockbill.getMystockbill            | 得到某人创建的所有单据    |
+| stockbill.getWaitingStockBill       | 得到等待审批的库存类单据   |
+| stockbill.approveStockBill          | 审批通过库存类单据      |
+| StockBill.rejectStockBill           | 审批拒绝库存类单据      |
+| salesinbill.savesalesinbill         | 添加进货类类单据       |
+| salesinbill.commitsalesinbill       | 更新进货类单据        |
+| salesinbill.getMysalesinbill        | 得到某人创建的所有进货类单据 |
+| salesinbill.getWaitingsalesinbill   | 得到等待审批的进货类单据   |
+| salesinbill.approvesalesinbill      | 审批通过进货类单据      |
+| salesinbill.rejectsalesinbill       | 审批拒绝进货类单据      |
+| salesoutbill.savesalesoutbill       | 添加销售类单据        |
+| salesoutbill.commitsalesoutbill     | 更新销售类单据        |
+| salesoutbill.getMysalesoutbill      | 得到某人创建的所有单据    |
+| salesoutbill.getWaitingsalesoutbill | 得到等待审批的销售类单据   |
+| salesoutbill.approvesalesoutbill    | 审批通过销售类单据      |
+| salesoutbill.rejectsalesoutbill     | 审批拒绝销售类单据      |
+| financebill.savefinancebill         | 添加财务类单据        |
+| financebill.commitfinancebill       | 更新财务类单据        |
+| financebill.getMyfinancebill        | 得到某人创建的所有单据    |
+| financebill.getWaitingfinancebilll  | 得到等待审批的财务类单据   |
+| financebill.approvefinancebill      | 审批通过财务类单据      |
+| financebill.rejectfinancebill       | 审批拒绝财务类单据      |
+| cashcostbill.savecashcostbilll      | 添加现金费用单据       |
+| cashcostbill.commitcashcostbilll    | 更新现金费用单据       |
+| cashcostbill.getMycashcostbill      | 得到某人创建的所有单据    |
+| cashcostbill.getWaitingcashcostbill | 得到等待审批的现金费用类单据 |
+| cashcostbill.approvecashcostbill    | 审批通过现金费用类单据    |
+| cashcostbill.rejectcashcostbill     | 审批拒绝现金费用类单据    |
 
 表二stockbill
 
-| 服务名                       | 服务   |                                          |
-| ------------------------- | ---- | ---------------------------------------- |
-| stockbill.addstockbill    | 语法   | public ResultMessage addstockbill(StockBillVO stockBillVO) |
-|                           | 前置条件 | 添加库存单                                    |
-|                           | 后置条件 | 返回添加成功与否                                 |
-| stockbill.updatestockbill | 语法   | public ResultMessage updatestockbill(StockBillVO stockBillVO) |
-|                           | 前置条件 | 更新库存单                                    |
-|                           | 后置条件 | 返回更新成功与否                                 |
-| stockbill.searchstockbill | 语法   | public ArrayList< StockBillVO> searchstockbill(FilterFlag flag) |
-|                           | 前置条件 | 搜索符合条件的库存单                               |
-|                           | 后置条件 | 返回符合条件的库存单                               |
-|                           |      |                                          |
-|                           |      |                                          |
+提供的服务 供接口
+
+参见billcontroller stockbill部分需接口
 
 需要的服务 需接口
 
@@ -1961,32 +2039,22 @@ bill模块的设计如图所示
 | stockdataservice.addstockbill    | 添加库存单据 |
 | stockdataservice.updatestockbill | 更新库存单据 |
 | stockdataservice.searchstockbill | 搜索库存单据 |
+| stockdataservice.deletestockbill | 删除库存单据 |
 
 表三 salesinbill
 
 提供的服务 供接口
 
-| 服务名                          | 服务   |                                          |
-| ---------------------------- | ---- | ---------------------------------------- |
-| salesinbill.addsaleinbill    | 语法   | public ResultMessage addsaleinbill(SalesInBillVO salesinbillVO) |
-|                              | 前置条件 | 添加进货单                                    |
-|                              | 后置条件 | 返回添加成功与否                                 |
-| salesinbill.updatesaleinbill | 语法   | public ResultMessage updatesaleinbill(SalesInBillVO salesinbillVO) |
-|                              | 前置条件 | 更新进货单                                    |
-|                              | 后置条件 | 返回更新成功与否                                 |
-| salesinbill.searchsaleinbill | 语法   | public ArrayList< SaleInBillVO> searchsalesinbill(FilterFlagers) |
-|                              | 前置条件 | 搜索符合条件的进货单                               |
-|                              | 后置条件 | 返回更新成功与否                                 |
-|                              |      |                                          |
-|                              |      |                                          |
+参见billcontroller salesinbill需接口
 
 需要的服务 需接口
 
-| 服务名                               | 服务    |
-| --------------------------------- | ----- |
-| billdataservice.addsaleinbill     | 添加进货单 |
-| billdataservice.updatesalesinbill | 更新进货单 |
-| billdataservice.searchsalesinbill | 搜索进货单 |
+| 服务名                                     | 服务    |
+| --------------------------------------- | ----- |
+| billdataservice.addsaleinbill           | 添加进货单 |
+| billdataservice.updatesalesinbill       | 更新进货单 |
+| billdataservice.searchsalesinbill       | 搜索进货单 |
+| billdataservice.delelesearchsalesinbill | 删除进货单 |
 
 
 
@@ -1994,19 +2062,7 @@ bill模块的设计如图所示
 
 提供的服务 供接口
 
-| 服务名                            | 服务   |                                          |
-| ------------------------------ | ---- | ---------------------------------------- |
-| salesoutbill.addsaleoutbill    | 语法   | public ResultMessage addsaleoutbill(SaleOutBillVO saleoutbillVO) |
-|                                | 前置条件 | 添加售货单                                    |
-|                                | 后置条件 | 返回添加成功与否                                 |
-| salesoutbill.updatesaleoutbill | 语法   | public ResultMessage updatesaleoutbill(SaleOutBillVO saleoutbillVO) |
-|                                | 前置条件 | 更新售货单                                    |
-|                                | 后置条件 | 返回更新成功与否                                 |
-| salesoutbill.searchsaleoutbill | 语法   | public ArrayList< SaleOutBillVO>searchsaleoutbill |
-|                                | 前置条件 | 搜索售货单                                    |
-|                                | 后置条件 | 返回符合条件的售货单                               |
-|                                |      |                                          |
-|                                |      |                                          |
+参见billcontroller salesout需接口部分
 
 需要的服务 需接口
 
@@ -2015,24 +2071,13 @@ bill模块的设计如图所示
 | billdataservice.addsaleoutbill     | 添加售货单 |
 | billdataservice.updatesalesoutbill | 更新售货单 |
 | billdataservice.searchsalesoutbill | 搜素售货单 |
+| billdataservice.deletesalesoutbill | 删除售货单 |
 
 表五 financebill
 
 提供的服务 供接口
 
-| 服务名                           | 服务   |                                          |
-| ----------------------------- | ---- | ---------------------------------------- |
-| financebill.addfinancebill    | 语法   | public ResultMessage addfinancebill(FinanceBillVO financebillVO) |
-|                               | 前置条件 | 添加财务类单据                                  |
-|                               | 后置条件 | 返回更新成功与否                                 |
-| financebill.updatefinancebill | 语法   | public ResultMessage updatefinancebill(FinanceBillVO financebillVO) |
-|                               | 前置条件 | 更新财务类单据                                  |
-|                               | 后置条件 | 返回更新成功与否                                 |
-| financebill.searchfinancebill | 语法   | public ArrayList< FinanceBillVO>searchfinancebill(FilterFlagers) |
-|                               | 前置条件 | 搜索财务类单据                                  |
-|                               | 后置条件 |                                          |
-|                               |      |                                          |
-|                               |      |                                          |
+参见billcontroller financebill需接口
 
 需要的服务 需接口
 
@@ -2041,6 +2086,24 @@ bill模块的设计如图所示
 | billdataservice.addfinancebill    | 添加财务类单据 |
 | billdataservice.updatefinancebill | 更新财务类单据 |
 | billdataservice.searchfinancebill | 搜索财务类单据 |
+| billdataservice.deletefinancebill | 删除财务类单据 |
+
+表六 cashcostbill
+
+参见billcontroller cashcostbill需接口
+
+需要的服务 需接口
+
+| 服务名                                | 服务        |
+| ---------------------------------- | --------- |
+| billdataservice.addcashcostbill    | 添加现金费用类单据 |
+| billdataservice.updatecashcostbill | 更新现金费用类单据 |
+| billdataservice.searchcashcostbill | 搜索现金费用类单据 |
+| billdataservice.deletecashcostbill | 删除现金费用类单据 |
+
+
+
+
 
 ## StockBL
 

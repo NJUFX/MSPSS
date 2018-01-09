@@ -20,7 +20,9 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     public AccountClientNetworkImpl() {
         try {
-            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("AccountServerNetworkService");
+            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("rmi://106.14.188.84:8888/AccountServerNetworkService");
+
+            System.out.println("arrive");
         } catch (NotBoundException e) {
             System.err.println("Client.network.AccountServerNetworkService: Not bound, trying to connect");
             e.printStackTrace();
@@ -160,8 +162,9 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     public static void main(String[] args){
         AccountClientNetworkImpl accountClientNetwork = new AccountClientNetworkImpl();
-       AccountPO accountPO =  accountClientNetwork.searchAccountByName("南京绿光灯泡厂");
-       System.out.println(accountPO.getName());
+        System.out.println(accountClientNetwork==null);
+       ResultMessage message =  accountClientNetwork.addAccount(new AccountPO("hxh",999,new util.Time().toString()));
+        System.out.println(message);
     }
 
 }

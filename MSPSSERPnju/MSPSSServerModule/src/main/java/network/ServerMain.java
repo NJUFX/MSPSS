@@ -5,6 +5,6 @@ package network;
  */
 public class ServerMain {
     public static void main(String[] args){
-        ServerHelper.getServerHelper(1099);
+        ServerHelper.getServerHelper(8888);
     }
 }
