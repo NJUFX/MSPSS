@@ -1280,43 +1280,110 @@ finance各个类的职责如表4.1.3(1)-1所示<br>
 | billBLService.saveFinanceBill    | 保存财务类单据  |
 | billBLService.commitFinanceBill  | 提交财务类单据  |
 
-表4.1.3(2)-10 TableViewController的接口规范
+表4.1.3(2)-10 FinanceManagerSearchListController的接口规范
 
-| 提供的接口(供接口)                 |      |                                          |
-| -------------------------- | ---- | ---------------------------------------- |
-| 服务名                        |      | 服务                                       |
-| TableViewController.search | 语法   | public ArrayList<Bill> search(BillFilter filter) |
-|                            | 前置条件 | 点击搜索button                               |
-|                            | 后置条件 | 返回匹配的单据                                  |
-| TableViewController.show   | 语法   | public void show()                       |
-|                            | 前置条件 | 无                                        |
-|                            | 后置条件 | 显示界面                                     |
-
-| 需要的接口(需接口)                       |         |
-| -------------------------------- | ------- |
-| 服务名                              | 服务      |
-| FinanceInfoController.searchBill | 返回匹配的单据 |
-
-表4.1.3(2)-11CheckGeneralAccountController的接口规范
-
-| 提供的接口(供接口)                               |      |                                          |
+| 提供的服务(供接口)                               |      |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
 | 服务名                                      |      | 服务                                       |
-| CheckGeneralAccountController.showSearchView | 语法   | public void showSearchView()             |
+| FinanceManagerSearchListController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
 |                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 显示期初建账的搜索界面                              |
-| CheckGeneralAccountController.search     | 语法   | public void search()                     |
-|                                          | 前置条件 | 用户点击搜索button                             |
-|                                          | 后置条件 | 显示符合条件的总账列表                              |
-| CheckGeneralAccountController.add        | 语法   | public ResultMessage add(GeneralAccount account) |
-|                                          | 前置条件 | 用户点击增加button                             |
-|                                          | 后置条件 | 返回增加账户状态                                 |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerSearchListController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerSearchListController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerSearchListController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerSearchListController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerSearchListController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerSearchListController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerAddReceiveBillController.ChooseTableType | 语法   | public void ChooseTableType(ActionEvent e); |
+|                                          | 前置条件 | 选择一个报表类型                                 |
+|                                          | 后置条件 | 设置界面组件是否可以填写                          |
+| FinanceManagerAddReceiveBillController.handleClearButtonAction | 语法   | public void handleClearButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空当前界面的筛选条件                        |
+| FinanceManagerAddReceiveBillController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击搜索报表按钮                                 |
+|                                          | 后置条件 | 跳转到报表界面显示报表                             |
+| FinanceManagerAddReceiveBillController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击搜索报表按钮                                 |
+|                                          | 后置条件 | 跳转到报表界面显示报表                             |
 
-| 需要的服务(需接口)                               |           |
-| ---------------------------------------- | --------- |
-| 服务名                                      | 服务        |
-| FinanceInfoController.searchGeneralAccount | 搜索符合条件的单据 |
-| CreateGeneralAccountController.show      | 显示增加账户界面  |
+
+
+| 需要的服务(需接口)                       |          |
+| -------------------------------- | -------- |
+| 服务名                              | 服务       |
+| loginController.getCurrentUser   | 获取当前登录用户 |
+| tableBLService.checkSaleTable   | 查看销售明细表   |
+| tableBLService.checkBusinessTable  | 查看经营情况表   |
+| tableBLService.checkProcessTable     | 查看经营历程表  |
+
+
+
+表4.1.3(2)-11 FinanceManagerCreateGeneralAccountController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerCreateGeneralAccountController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerCreateGeneralAccountController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerCreateGeneralAccountController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerCreateGeneralAccountController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerAddReceiveBillController.handleClearInfomationButtonAction | 语法   | public void handleClearInfomationButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空当前用户填写的信息                          |
+| FinanceManagerAddReceiveBillController.handleAddCommodityButtonAction | 语法   | public void handleAddCommodityButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加商品按钮                                 |
+|                                          | 后置条件 | 商品列表中增加一个商品                        |
+| FinanceManagerAddReceiveBillController.handleAddCustomerButtonAction | 语法   | public void handleAddCustomerButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加客户按钮                                 |
+|                                          | 后置条件 | 客户列表中增加一个客户                      |
+| FinanceManagerAddReceiveBillController.handleAddAccountButtonAction | 语法   | public void handleAddAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加账户按钮                                 |
+|                                          | 后置条件 | 账户列表中增加一个账户                      |
+| FinanceManagerAddReceiveBillController.handleCommitGeneralAccountButtonAction | 语法   | public void handleCommitGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击提交账目按钮                                 |
+|                                          | 后置条件 | 期初建账数据中增加一条记录                      |
+
+
+
+| 需要的服务(需接口)                       |          |
+| -------------------------------- | -------- |
+| 服务名                              | 服务       |
+| loginController.getCurrentUser   | 获取当前登录用户 |
+| generalAccountBLService.searchCommodity  | 搜索商品   |
+| generalAccountBLService.searchCusotmer  | 搜索对应的客户   |
+| generalAccountBLService.searchAccount      | 搜索对应的账户  |
+| generalAccountBLService.addGeneralAcocunt| 添加期初账户|
+
 
 表4.1.3(2)-12 CreateGeneralAccountController的接口规范
 

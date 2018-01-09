@@ -303,6 +303,7 @@ public class FinanceManagerCreateGeneralAccountController implements Initializab
 		LocalDate Time = CreateTime.getValue();
 		Time createTime = new Time(Time.getYear(),Time.getMonthValue(),Time.getDayOfMonth(),0,0,0);
 		GeneralAccountVO generalAccountVO = new GeneralAccountVO(name,createTime,commodityList,customerList,accountList);
+		generalAccountBLService.addGeneralAcocunt(generalAccountVO);
 		commodityList.clear();
 		customerList.clear();
 		accountList.clear();
