@@ -23,24 +23,37 @@ public class CustomerTest {
     CustomerVO songtuan = new CustomerVO("00000002", Kind_Of_Customers.SALER, 5, "songtuan", "88488888", "南京市栖霞区仙林街道168号", "222243", "songtuan@163.com", 5000, 3400, 0, "001");
     CustomerBLService service = new BLFactoryImpl().getCustomerBLService();
     CustomerBLInfo info = new BLFactoryImpl().getCustomerBLInfo();
+
     @Test
     public void test1() {
-        ResultMessage message = service.addCustomer(Intel);
-        assertEquals(ResultMessage.SUCCESS, message);
+        try {
+            ResultMessage message = service.addCustomer(Intel);
+            assertEquals(ResultMessage.SUCCESS, message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void test2() {
-        ResultMessage message = service.addCustomer(songtuan);
-        assertEquals(ResultMessage.SUCCESS, message);
+        try {
+            ResultMessage message = service.addCustomer(songtuan);
+            assertEquals(ResultMessage.SUCCESS, message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void test3() {
         Intel.setName("Micro");
-        ResultMessage message = service.modifyCustomer(Intel);
-        //     Intel.setName("Intel");
-        assertEquals(ResultMessage.SUCCESS, message);
+        try {
+            ResultMessage message = service.modifyCustomer(Intel);
+            //     Intel.setName("Intel");
+            assertEquals(ResultMessage.SUCCESS, message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

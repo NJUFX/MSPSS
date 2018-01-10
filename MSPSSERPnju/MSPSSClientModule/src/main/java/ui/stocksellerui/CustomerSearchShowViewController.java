@@ -114,12 +114,15 @@ public class CustomerSearchShowViewController implements Initializable {
             }
             list = customerBLService.searchCustomer(customerSearchFlag, keyword);
         }
-
-        for (int i = 0; i < list.size(); i++) {
-            CustomerVO customerVO = list.get(i);
-            String str = customerVO.getCategory().toString();
-            Customer customer = new Customer(customerVO.getID(), customerVO.getName(), str, String.valueOf(customerVO.getLevel()), String.valueOf(customerVO.getIncomemoney()), customerVO.getDAE());
-            data.add(customer);
+        if (list.size() == 0) {
+            dialog.infoDialog("No customer matches conditions.");
+        } else {
+            for (int i = 0; i < list.size(); i++) {
+                CustomerVO customerVO = list.get(i);
+                String str = customerVO.getCategory().toString();
+                Customer customer = new Customer(customerVO.getID(), customerVO.getName(), str, String.valueOf(customerVO.getLevel()), String.valueOf(customerVO.getIncomemoney()), customerVO.getDAE());
+                data.add(customer);
+            }
         }
     }
 

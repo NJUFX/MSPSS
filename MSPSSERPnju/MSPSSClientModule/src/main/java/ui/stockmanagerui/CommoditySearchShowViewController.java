@@ -139,9 +139,13 @@ public class CommoditySearchShowViewController implements Initializable {
             }
             if (commodityInfoService.search(filterFlagVO) != null) {
                 arrayList = commodityInfoService.search(filterFlagVO);
-                for (int i = 0; i < arrayList.size(); i++) {
-                    CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
-                    data.add(c);
+                if (arrayList.size() == 0) {
+                    dialog.infoDialog("No commodity matches conditions.");
+                } else {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
+                        data.add(c);
+                    }
                 }
             }
         } else {

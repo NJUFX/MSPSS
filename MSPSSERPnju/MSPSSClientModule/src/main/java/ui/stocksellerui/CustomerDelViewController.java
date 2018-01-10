@@ -73,7 +73,7 @@ public class CustomerDelViewController implements Initializable {
                     }
                 }
             } else {
-                dialog.errorInfoDialog("Customer not exist!");
+                dialog.errorInfoDialog("Customer not found, id is wrong.");
             }
         } else {
             dialog.errorInfoDialog("You haven't input id.");

@@ -95,7 +95,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="BackToExamineBill" layoutX="753.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleBackToExamineBillButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: white;" text="返回" textFill="#0f88eb" />
+      <Button id="cancelButton" fx:id="BackToExamineBill" layoutX="753.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleBackToExamineBillButtonAction" prefHeight="23.0" prefWidth="100.0" stylesheets="@../../css/admin/addUser.css" text="返回" textFill="#0f88eb" />
       <Pane fx:id="FinanceBillPane" layoutX="193.0" layoutY="84.0" prefHeight="347.0" prefWidth="660.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Label layoutX="40.0" layoutY="30.0" style="-fx-background-color: white;" text="单据编号" textFill="#0f88eb" />
