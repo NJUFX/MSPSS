@@ -137,7 +137,7 @@
             <TextField id="userName" fx:id="classificationField" layoutX="528.0" layoutY="38.0" prefHeight="23.0" prefWidth="94.0" />
             </children>
         </Pane>
-        <Button id="cancelButton" fx:id="cancelButton" layoutX="375.0" layoutY="459.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
+        <Button id="cancelButton"  fx:id="cancelButton" layoutX="375.0" layoutY="459.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="取消" textFill="#0f88eb">
             <font>
                 <Font name="Microsoft YaHei" size="16.0" />
             </font>

@@ -52,7 +52,7 @@ public class PresentationCreateViewController implements Initializable {
     @FXML
     Button BackToLogin;
     @FXML
-    Button cancelButton, sureButton, saveButton;
+    Button backButton, sureButton, saveButton;
     @FXML
     TableView<Presentation> presentationTable;
     @FXML
@@ -86,88 +86,9 @@ public class PresentationCreateViewController implements Initializable {
         TotalCol.setCellValueFactory(new PropertyValueFactory<>("Total"));
         RemarkCol.setCellValueFactory(new PropertyValueFactory<>("Remark"));
         IsSelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
+        //TODO
     }
 
-    @FXML
-    public void saveButtonAction() {
-
-    }
-
-    @FXML
-    public void sureButtonAction() {
-
-    }
-
-    @FXML
-    public void chooseCommodityButton(ActionEvent e) {
-        try {
-            SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
-                    "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
-            controller.isSelectClass = false;
-            controller.commodityPriceLabel = priceLabel;
-            controller.commodityNameField = nameField;
-            controller.commodityIdField = idField;
-
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void totalLabelAction(ActionEvent e) {
-        if (priceLabel.getText() != null && numberField.getText() != null) {
-            double t = Double.parseDouble(priceLabel.getText()) * Integer.parseInt(numberField.getText());
-            totalLabel.setText(String.valueOf(t));
-        }
-    }
-
-    /**
-     * 向库存赠送单列表添加一条信息
-     *
-     * @param e
-     */
-    @FXML
-    public void addPresentationButtonAction(ActionEvent e) {
-        ObservableList<Presentation> data = presentationTable.getItems();
-        if (nameField.getText() != null && idField.getText() != null && priceLabel.getText() != null
-                && (numberField.getText() != null && !numberField.equals("0")) && totalLabel.getText() != null) {
-            data.add(new Presentation(nameField.getText(), idField.getText(), priceLabel.getText(),
-                    numberField.getText(), totalLabel.getText(), remarkField.getText()));
-            nameField.setText("");
-            idField.setText("");
-            priceLabel.setText("");
-            numberField.setText("");
-            totalLabel.setText("");
-            remarkField.setText("");
-        } else {
-            dialog.errorInfoDialog("Something null! Please check your input.");
-        }
-    }
-
-    /**
-     * 删除选中行元素
-     *
-     * @param e
-     */
-    @FXML
-    public void delPresentationButtonAction(ActionEvent e) {
-        ObservableList<Presentation> data = presentationTable.getItems();
-        // System.out.println("test");
-        int count = 0;
-        for (int i = 0; i < data.size(); i++) {
-            if (data.get(i).getIsSelected().isSelected()) {
-                count++;
-            }
-        }
-        for (int i = 0; i < count; i++) {
-            for (int j = 0; j < data.size(); j++) {
-                if (data.get(j).getIsSelected().isSelected()) {
-                    data.remove(j);
-                }
-            }
-        }
-        dialog.infoDialog("Delete all selected successfully!");
-    }
 
     /**
      * 返回上一界面（处理单据界面）
@@ -176,7 +97,7 @@ public class PresentationCreateViewController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void cancelButtonAction(ActionEvent e) throws IOException {
+    public void backButtonAction(ActionEvent e) throws IOException {
         try {
             BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BillCreate.fxml");
@@ -323,7 +244,7 @@ public class PresentationCreateViewController implements Initializable {
             ArrayList<StockBillItemVO> vos = savedStockBillVO.itemVOS;
             for (int i = 0; i < vos.size(); i++) {
                 StockBillItemVO s = vos.get(i);
-               // Presentation breakage = new Presentation(dd);
+                // Presentation breakage = new Presentation(dd);
                 //data.add(breakage);
             }
         }
@@ -338,9 +259,6 @@ public class PresentationCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        idField.setText("");
-        nameField.setText("");
-        priceLabel.setText("");
         init();
     }
 

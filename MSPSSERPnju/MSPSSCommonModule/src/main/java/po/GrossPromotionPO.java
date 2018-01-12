@@ -2,6 +2,7 @@ package po;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description:总额满减 赠送 折扣促销策略
@@ -25,7 +26,7 @@ public class GrossPromotionPO implements Serializable {
     /**
      * 达到该金额后赠送的商品
      */
-    private ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS;
+    private List<PresentationCommodityItemPO> presentationCommodityItemPOS;
     /**
      *  起始时间
      */
@@ -78,13 +79,14 @@ public class GrossPromotionPO implements Serializable {
         this.voucher = voucher;
     }
 
-    public ArrayList<PresentationCommodityItemPO> getPresentationCommodityItemPOS() {
+    public List<PresentationCommodityItemPO> getPresentationCommodityItemPOS() {
         return presentationCommodityItemPOS;
     }
 
-    public void setPresentationCommodityItemPOS(ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS) {
+    public void setPresentationCommodityItemPOS(List<PresentationCommodityItemPO> presentationCommodityItemPOS) {
         this.presentationCommodityItemPOS = presentationCommodityItemPOS;
     }
+
 
     public String getId() {
         return id;

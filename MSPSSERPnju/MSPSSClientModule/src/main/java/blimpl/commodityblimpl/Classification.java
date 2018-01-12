@@ -28,9 +28,10 @@ public class Classification {
      */
     public ResultMessage addClassification(ClassificationVO classificationVO){
         String id = classificationVO.getParent() != null && classificationVO.getParent().getID() != null
-                ? classificationVO.getParent().getID() : "";
-        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("ID", id);
-
+                ? classificationVO.getParent().getID() : "null";
+        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID", id);
+            if(id.equals("null"))
+                id = "";
         String newID;
         if (pos.size() < 26) {
             newID = id + (char) (pos.size() + 'A');
@@ -96,7 +97,7 @@ public class Classification {
      */
     public ArrayList<ClassificationVO> getRootClassifications(){
         ArrayList<ClassificationVO> vos = new ArrayList<>();
-        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID", null);
+        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID","null" );
        for (int i = 0 ; i < pos.size() ;i++){
            ClassificationVO vo = po_to_vo(pos.get(i));
            vos.add(vo);
