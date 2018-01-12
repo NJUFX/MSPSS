@@ -97,6 +97,7 @@ public class GrossPromotion {
     }
     private GrossPromotionPO vo_to_po(GrossPromotionVO vo){
         ArrayList<PresentationCommodityItemPO> itemPOS = new ArrayList<>();
+        if (vo.getPresentationCommodityItemVOS()!=null)
         for (PresentationCommodityItemVO presentationCommodityItemVO
                 : vo.getPresentationCommodityItemVOS()) {
             itemPOS.add(presentationCommodityItemVO.to_po());
@@ -117,6 +118,7 @@ public class GrossPromotion {
     }
     private ArrayList<GrossPromotionVO> pos_to_vos(ArrayList<GrossPromotionPO> pos){
         ArrayList<GrossPromotionVO> vos = new ArrayList<>();
+        if (pos!=null)
         for(GrossPromotionPO po : pos){
             vos.add(po_to_vo(po));
         }

@@ -94,7 +94,9 @@ public class GroupPromotion {
      * @return
      */
     private GroupPromotionVO po_to_vo(GroupPromotionPO po){
-        GroupPromotionVO vo = new GroupPromotionVO(po.getDiscountRate(), (ArrayList) po.getCommodityIDs(), new Time(po.getInitTime()), new Time(po.getEndTime()));
+        ArrayList<String> commoditys  = new ArrayList<>();
+        commoditys.addAll(po.getCommodityIDs());
+        GroupPromotionVO vo = new GroupPromotionVO(po.getDiscountRate(), commoditys, new Time(po.getInitTime()), new Time(po.getEndTime()));
         return vo;
     }
     private GroupPromotionPO vo_to_po(GroupPromotionVO vo){
