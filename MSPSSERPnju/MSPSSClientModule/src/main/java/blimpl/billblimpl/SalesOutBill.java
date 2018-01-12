@@ -70,7 +70,11 @@ public class SalesOutBill {
         vo.setCommit_time(new Time());
         vo.setStatus(BillStatus.commit);
         ArrayList<PresentationCommodityItemVO> list = vo.getPresentations();
-        stockBillInfo.addStockPresentationBill(list);
+        if (vo.getOperator() == null) {
+            vo.setOperator(LoginController.getCurrentUser());
+        }
+        String ps = getInfo(vo);
+        stockBillInfo.addStockPresentationBill(list, ps);
         BillLogHelper.commit(LoginController.getCurrentUser(), vo.getID());
         BillSendMessage.commit(LoginController.getCurrentUser(), vo.getID());
         //开始将单据赠送出去
@@ -78,6 +82,12 @@ public class SalesOutBill {
         return networkService.updateSalesOutBill(vo_to_po(vo));
     }
 
+    public String getInfo(SalesOutBillVO vo) {
+        String ps = "由销售人员" + vo.getOperator().getName() + "制定的销售单产生" + "时间为" + new Time().toString()
+                + "客户信息如下" + vo.getCustomerVO().toString();
+
+        return ps;
+    }
 
 
     /**

@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class MockStockBill extends StockBill {
     @Override
-    public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list) {
-        return super.addStockPresentationBill(list);
+    public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list, String ps) {
+        return super.addStockPresentationBill(list, ps);
     }
 
     /**

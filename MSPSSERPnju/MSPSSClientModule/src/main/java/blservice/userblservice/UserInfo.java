@@ -34,4 +34,11 @@ public interface UserInfo {
      * 以提醒总经理审批
      */
     public ArrayList<String> getChiefManagerMails();
+
+    /**
+     * 随机得到一个库存管理人员来进行分配库存赠送单
+     *
+     * @return
+     */
+    public UserVO getStockManager();
 }

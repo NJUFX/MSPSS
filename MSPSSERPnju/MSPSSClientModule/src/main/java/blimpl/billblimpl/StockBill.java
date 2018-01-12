@@ -26,7 +26,7 @@ public class StockBill implements StockBillInfo {
     private StockBLInfo stockBLInfo = new BLFactoryImpl().getStockBLInfo();
 
     @Override
-    public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list) {
+    public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list, String ps) {
         ArrayList<StockBillItemVO> itemVOS = new ArrayList<>();
         if (list==null)
             return ResultMessage.FAILED;
@@ -34,8 +34,10 @@ public class StockBill implements StockBillInfo {
             CommodityVO commodityVO = commodityInfoService.getCommodity(pre.getCommodityID());
             itemVOS.add(new StockBillItemVO(commodityVO, pre.getNumber()));
         }
-        StockBillVO vo = new StockBillVO(StockBillType.Presentation, itemVOS, "由销售策略产生赠送单而产生", null);
+        StockBillVO vo = new StockBillVO(StockBillType.Presentation, itemVOS, "由销售策略产生赠送单而产生" + ps, userInfo.getStockManager());
+
         saveStockBill(vo);
+
         return commitStockBill(vo);
     }
 
