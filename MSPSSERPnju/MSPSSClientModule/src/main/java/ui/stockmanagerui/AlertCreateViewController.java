@@ -50,24 +50,17 @@ public class AlertCreateViewController implements Initializable {
     @FXML
     Button BackToLogin;
     @FXML
-    Button cancelButton;
+    Button backButton;
     @FXML
     TableView<Alert> alertTable;
     @FXML
     TableColumn<Alert, String> IdCol, NameCol, AlertNumberCol, StockNumberCol;
-    @FXML
-    TableColumn<Alert, CheckBox> SelectCol;// 删除一行的按钮
-    @FXML
-    Button dealAllButton;// 一键处理全部的按钮
-    @FXML
-    Button dealSelectedButton;// 处理选中行
 
     public void showTableView() {
         IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         AlertNumberCol.setCellValueFactory(new PropertyValueFactory<>("AlertNumber"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
-        SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
         ObservableList<Alert> data = alertTable.getItems();
         ArrayList<AlarmBillVO> arrayList = stockManagerBillBLService.getAllAlarmBill(Time.getInstance());
         if (arrayList != null || arrayList.size() != 0) {
@@ -80,66 +73,13 @@ public class AlertCreateViewController implements Initializable {
     }
 
     /**
-     * 处理选中行
-     *
-     * @param e
-     */
-    @FXML
-    public void dealSelectedButtonAction(ActionEvent e) {
-        if (alertTable != null) {
-            ObservableList<Alert> data = alertTable.getItems();
-            // System.out.println("test");
-            int count = 0;
-            for (int i = 0; i < data.size(); i++) {
-                if (data.get(i).getIsSelected().isSelected()) {
-                    count++;
-                }
-            }
-            for (int i = 0; i < count; i++) {
-                for (int j = 0; j < data.size(); j++) {
-                    if (data.get(j).getIsSelected().isSelected()) {
-                        CommodityVO commodityVO = commodityInfoService.getCommodity(data.get(i).getId());
-                        commodityVO.numberInStock = commodityVO.getAlertNumber();
-                        commodityInfoService.updateCommodity(commodityVO);
-                        data.remove(j);
-                    }
-                }
-            }
-            dialog.infoDialog("Handle all selected successfully!");
-        } else {
-            dialog.errorInfoDialog("Nothing need handling.");
-        }
-    }
-
-    /**
-     * 处理全部报警单
-     *
-     * @param e
-     */
-    @FXML
-    public void dealAllButtonAction(ActionEvent e) {
-        if (alertTable != null) {
-            ObservableList<Alert> data = alertTable.getItems();
-            for (int i = 0; i < data.size(); i++) {
-                CommodityVO commodityVO = commodityInfoService.getCommodity(data.get(i).getId());
-                commodityVO.numberInStock = commodityVO.getAlertNumber();
-                commodityInfoService.updateCommodity(commodityVO);
-            }
-            data.clear();
-            dialog.infoDialog("Handle all successfully!");
-        } else {
-            dialog.errorInfoDialog("Nothing need handling.");
-        }
-    }
-
-    /**
      * 返回上一界面（处理单据界面）
      *
      * @param e
      * @throws IOException
      */
     @FXML
-    public void cancelButtonAction(ActionEvent e) throws IOException {
+    public void backButtonAction(ActionEvent e) throws IOException {
         try {
             BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BillCreate.fxml");
