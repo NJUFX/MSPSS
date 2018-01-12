@@ -14,7 +14,7 @@
 >
 > ##### &emsp;小组成员对于多IDE编程的强烈！！需要(eclipse与Intellij IDEA)
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/1.png)
 
 ### 2、采用分层模式
 
