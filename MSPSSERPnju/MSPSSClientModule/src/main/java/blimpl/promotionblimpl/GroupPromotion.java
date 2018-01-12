@@ -97,6 +97,7 @@ public class GroupPromotion {
         ArrayList<String> commoditys  = new ArrayList<>();
         commoditys.addAll(po.getCommodityIDs());
         GroupPromotionVO vo = new GroupPromotionVO(po.getDiscountRate(), commoditys, new Time(po.getInitTime()), new Time(po.getEndTime()));
+        vo.setId(po.getId());
         return vo;
     }
     private GroupPromotionPO vo_to_po(GroupPromotionVO vo){

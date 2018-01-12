@@ -109,17 +109,19 @@
                   <PropertyValueFactory property="commitTime" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="100.0" text="创建者">
+            <TableColumn prefWidth="72.0" text="创建者">
                <cellValueFactory>
                   <PropertyValueFactory property="operator" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="120.0" text="单据类型">
+            <TableColumn prefWidth="74.0" text="单据类型">
                <cellValueFactory>
                   <PropertyValueFactory property="billType" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="ShowDetail" prefWidth="100.0" text="详情" />
+            <TableColumn fx:id="ShowDetail" prefWidth="46.0" text="详情" />
+            <TableColumn fx:id="HongChong" prefWidth="52.0" text="红冲" />
+            <TableColumn fx:id="HongChongAndCopy" prefWidth="75.0" text="红冲并复制" />
          </columns>
       </TableView>
     </children>

@@ -45,8 +45,8 @@ public class SelectPromotionViewController implements Initializable {
     TableView<PromotionBySales> tableView;
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
-    int level = 4;
-    double total = 0;
+    static int level = 0;
+    double total = 1000000000;
     double sum = 0;
 
     @FXML
@@ -81,8 +81,6 @@ public class SelectPromotionViewController implements Initializable {
         if (selectRadio.isSelected()) {
             PromotionBySales a = new PromotionBySales("等级促销", customerPromotionInfoLabel.getText());
             PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) + sum));
-            System.out.println(customerPromotionVO.getId());
-            System.out.println(salesOutBillVO.getStatus().toString());
             salesmanBillBLService.setCustomerPromotion(customerPromotionVO, salesOutBillVO);
             a.customerPromotionVO = customerPromotionVO;
             list.add(a);
