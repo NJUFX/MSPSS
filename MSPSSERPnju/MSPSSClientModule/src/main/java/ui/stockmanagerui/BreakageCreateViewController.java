@@ -102,19 +102,20 @@ public class BreakageCreateViewController implements Initializable {
             list.add(new StockBillItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getRealNumber())));
         }
         StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
-       try {
-           ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
-           if (ResultMessage.SUCCESS == resultMessage) {
-               dialog.infoDialog("Save bill successfully.");
-               try {
-                   BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockmanager/BillCreate.fxml");
-               } catch (Exception e1) {
-                   e1.printStackTrace();
-               }
-           }
-       }catch (KeyColumnLostException E){
-           System.out.print(E.getMessage());
-       }
+        vo.setItemVOS(list);
+        try {
+            ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
+            if (ResultMessage.SUCCESS == resultMessage) {
+                dialog.infoDialog("Save bill successfully.");
+                try {
+                    BillCreateViewController controller = (BillCreateViewController) replaceSceneContent("/view/stockmanager/BillCreate.fxml");
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+        } catch (KeyColumnLostException E) {
+            System.out.print(E.getMessage());
+        }
 
     }
 
@@ -130,6 +131,7 @@ public class BreakageCreateViewController implements Initializable {
 
         StockBillVO vo = new StockBillVO(StockBillType.Less, list, null, userBLService.searchUserByID(LoginController.getCurrentUser().getID()));
         vo.setCommentByManager(remark);
+        vo.setItemVOS(list);
         try {
             ResultMessage re1 = stockManagerBillBLService.saveStockBill(vo);
             ResultMessage resultMessage = stockManagerBillBLService.commitStockBill(vo);
@@ -141,7 +143,7 @@ public class BreakageCreateViewController implements Initializable {
                     e1.printStackTrace();
                 }
             }
-        }catch (KeyColumnLostException E){
+        } catch (KeyColumnLostException E) {
             System.out.print(E.getMessage());
         }
     }
@@ -180,7 +182,7 @@ public class BreakageCreateViewController implements Initializable {
     public void addRowButtonAction(ActionEvent e) {
         ObservableList<Breakage> data = breakageTableView.getItems();
         if (nameField.getText() != null && idField.getText() != null && systemStockLabel.getText() != null) {
-            data.add(new Breakage(nameField.getText(), idField.getText(), systemStockLabel.getText(), realStockField.getText(),
+            data.add(new Breakage(idField.getText(), nameField.getText(), systemStockLabel.getText(), realStockField.getText(),
                     remarkField.getText()));
             nameField.setText("");
             idField.setText("");

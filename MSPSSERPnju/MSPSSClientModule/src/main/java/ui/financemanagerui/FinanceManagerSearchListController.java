@@ -302,7 +302,7 @@ public class FinanceManagerSearchListController implements Initializable {
 			BusinessTableVO vo = tableBLService.checkBusinessTable(start, end);
 			FinanceManagerSearchManageListController controller = (FinanceManagerSearchManageListController) replaceSceneContent(
 						"/view/financemanager/FinanceManagerSearchManageList.fxml");
-			
+			controller.showManageTable(vo);
 			break;
 		}
 		

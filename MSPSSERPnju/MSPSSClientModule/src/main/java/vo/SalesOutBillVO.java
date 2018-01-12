@@ -93,7 +93,9 @@ public class SalesOutBillVO {
      *折让后总额
      */
     public double sumAfterDiscount;
-
+    /**
+     * 销售人员的备注
+     */
     public String ps;
 
     public SalesOutBillVO(String ID, SalesOutBillType type, BillStatus status) {

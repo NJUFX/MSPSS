@@ -29,7 +29,10 @@ public class GrossPromotion {
      */
 
     public ResultMessage addGrossPromotion(GrossPromotionVO grossPromotionVO) {
-        logBLInfo.add(userInfo.getCurrentUser().getID(), "新增了满减销售策略" + grossPromotionVO.getId());
+        grossPromotionVO.setId(new Time().getTimeID());
+        if (userInfo.getCurrentUser() != null)
+            logBLInfo.add(userInfo.getCurrentUser().getID(), "新增了满减销售策略" + grossPromotionVO.getId());
+
 
         GrossPromotionPO po = vo_to_po(grossPromotionVO);
         return networkService.addGrossPromotion(po);
@@ -70,7 +73,7 @@ public class GrossPromotion {
 
     public ArrayList<GrossPromotionVO> getAllGrossPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
-        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,Time.MAX_TIME, QueryMethod.Range);
+        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,Time.MAX_TIME, QueryMethod.Range);
         criteriaClauses.add(criteriaClause1);
         ArrayList<GrossPromotionPO> pos = networkService.multiSearchGrossPromotion(criteriaClauses);
         return pos_to_vos(pos);
@@ -85,8 +88,8 @@ public class GrossPromotion {
     public ArrayList<GrossPromotionVO> getAvailableGrossPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
         Time time = new Time();
-        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,time.toString(), QueryMethod.Range);
-        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("end_time",time.toString(),Time.MAX_TIME,QueryMethod.Range);
+        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,time.toString(), QueryMethod.Range);
+        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("endTime",time.toString(),Time.MAX_TIME,QueryMethod.Range);
         criteriaClauses.add(criteriaClause1);
         criteriaClauses.add(criteriaClause2);
         ArrayList<GrossPromotionPO> pos = networkService.multiSearchGrossPromotion(criteriaClauses);
@@ -99,6 +102,7 @@ public class GrossPromotion {
             itemPOS.add(presentationCommodityItemVO.to_po());
         }
         GrossPromotionPO po = new GrossPromotionPO(vo.getTotal(),vo.getVoucher(),itemPOS,vo.getInitTime().toString(),vo.getEndTime().toString());
+        po.setId(vo.getId());
         return po;
     }
     private GrossPromotionVO po_to_vo(GrossPromotionPO po){

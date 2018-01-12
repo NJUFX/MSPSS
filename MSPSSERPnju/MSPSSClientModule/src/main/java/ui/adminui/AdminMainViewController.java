@@ -92,7 +92,7 @@ public class AdminMainViewController implements Initializable {
     }
 
     @FXML
-    public void searchddUserButtonAction(ActionEvent e) throws IOException {
+    public void searchUserButtonAction(ActionEvent e) throws IOException {
         try {
             UserSearchViewController controller = (UserSearchViewController) replaceSceneContent(
                     "/view/admin/UserSearchView.fxml");

@@ -9,7 +9,6 @@ import vo.AccountVO;
 
 import java.util.ArrayList;
 
-import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
 /**
@@ -21,20 +20,48 @@ public class AccountBLTest {
     AccountBLInfo blInfo = new BLFactoryImpl().getAccountBLInfo();
     @Test
     public void test1(){
-    AccountFilterFlagsVO filterFlagsVO = new AccountFilterFlagsVO("121",null,null);
+        AccountFilterFlagsVO filterFlagsVO = new AccountFilterFlagsVO("NJU", null, null);
         //AccountFilterFlagsVO filterFlagsVO = new AccountFilterFlagsVO("",null,null);
-
         ArrayList<AccountVO> accountVOS = blService.searchAccount(filterFlagsVO);
-
-        assertEquals(1,accountVOS.size());
+        assertNotNull(accountVOS);
     }
     @Test
     public void test2(){
-       AccountVO accountVO = blInfo.getAccountVO("121");
-        System.out.println(accountVO.getName()+""+accountVO.getMoney()+""+accountVO.getCreateTime().toString());
-       assertNotNull(accountVO);
+
+
+        try {
+            blService.addAccount(new AccountVO("NJU", 100000));
+            AccountVO accountVO = blInfo.getAccountVO("NJU");
+            assertNotNull(accountVO);
+        } catch (Exception e) {
+            blService.deleteAccount("NJU");
+        }
+
     }
 
+    @Test
+    public void test3() {
+        try {
+            blService.addAccount(new AccountVO("NJU", 100000));
+            AccountVO accountVO = blService.exactlySearchAccountByName("NJU");
+            assertNotNull(accountVO);
+        } catch (Exception e) {
+            blService.deleteAccount("NJU");
+        }
+
+    }
+
+    @Test
+    public void test4() {
+        try {
+            blService.addAccount(new AccountVO("NJU", 100000));
+            ArrayList<AccountVO> accountVO = blService.fuzzSearchAccountByName("NJ");
+            assertNotNull(accountVO);
+        } catch (Exception e) {
+            blService.deleteAccount("NJU");
+        }
+
+    }
 
 
 }

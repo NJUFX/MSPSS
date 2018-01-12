@@ -2,6 +2,7 @@ package ui.stockmanagerui;
 
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityBLService;
+import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.ResultMessage;
+import vo.CommodityVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,6 +36,7 @@ public class CommodityDelViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     @FXML
     Button BackToLogin;
     @FXML
@@ -49,10 +52,23 @@ public class CommodityDelViewController implements Initializable {
 
     public void delButtonAction(ActionEvent e) {
         if (id_to_del.getText() != null && !id_to_del.getText().equals("")) {
-            ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_del.getText().trim());
-            if (resultMessage == ResultMessage.SUCCESS) {
-                dialog.infoDialog("Delete a commodity successfully.");
+            CommodityVO com = commodityInfoService.getCommodity(id_to_del.getText().trim());
+            if (com == null) {
+                dialog.errorInfoDialog("Commodity not found, id is wrong.");
+                return;
             }
+            boolean b = false;
+            if (com.numberInStock > 0) {
+                b = dialog.confirmDialog("该商品的库存是" + com.getNumberInStock() + ", 是否确定将其删除？");
+            }
+            if (b = true) {
+                ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_del.getText().trim());
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Delete a commodity successfully.");
+                }
+            }
+        } else {
+            dialog.errorInfoDialog("You haven't input the id.");
         }
     }
 

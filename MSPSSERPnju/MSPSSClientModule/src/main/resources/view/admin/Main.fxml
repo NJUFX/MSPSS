@@ -21,7 +21,7 @@
                 <ColorInput height="560.0" paint="#0f88eb" width="145"/>
             </effect>
         </Pane>
-        <Button id="modUserButton" fx:id="searchUserButton" onAction="#searchddUserButtonAction" layoutY="386.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
+        <Button id="modUserButton" fx:id="searchUserButton" onAction="#searchUserButtonAction" layoutY="386.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0"
                 stylesheets="@../../css/admin/addUser.css" text="查找用户" textFill="#f8f4f4">
             <font>
                 <Font size="16.0"/>

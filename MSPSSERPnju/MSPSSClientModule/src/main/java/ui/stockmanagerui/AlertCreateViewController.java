@@ -3,6 +3,8 @@ package ui.stockmanagerui;
 import auxiliary.Alert;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.StockManagerBillBLService;
+import blservice.commodityblservice.CommodityBLService;
+import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +22,9 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.Time;
+import vo.AlarmBillVO;
+import vo.CommodityVO;
 import vo.StockBillVO;
 
 import java.io.IOException;
@@ -35,7 +40,7 @@ public class AlertCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Dialog dialog = new Dialog();
     StockManagerBillBLService stockManagerBillBLService = new BLFactoryImpl().getStockManagerBillBLService();
-
+    CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     @FXML
     Button overflowCreateButton;
     @FXML
@@ -45,75 +50,25 @@ public class AlertCreateViewController implements Initializable {
     @FXML
     Button BackToLogin;
     @FXML
-    Button cancelButton;
+    Button backButton;
     @FXML
     TableView<Alert> alertTable;
     @FXML
     TableColumn<Alert, String> IdCol, NameCol, AlertNumberCol, StockNumberCol;
-    @FXML
-    TableColumn<Alert, CheckBox> SelectCol;// 删除一行的按钮
-    @FXML
-    Button dealAllButton;// 一键处理全部的按钮
-    @FXML
-    Button dealSelectedButton;// 处理选中行
 
     public void showTableView() {
         IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         AlertNumberCol.setCellValueFactory(new PropertyValueFactory<>("AlertNumber"));
         StockNumberCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
-        SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
-/*
-        ArrayList<StockBillVO> arrayList = stockManagerBillBLService.getAllAlarmBill();
+        ObservableList<Alert> data = alertTable.getItems();
+        ArrayList<AlarmBillVO> arrayList = stockManagerBillBLService.getAllAlarmBill(Time.getInstance());
         if (arrayList != null || arrayList.size() != 0) {
             for (int i = 0; i < arrayList.size(); i++) {
-            //    Alert alert = new Alert(arrayList.get(i).id,"","");
+                CommodityVO commodityVO = commodityInfoService.getCommodity(arrayList.get(i).getCommodityID());
+                Alert alert = new Alert(commodityVO.getID(), commodityVO.getName(), String.valueOf(commodityVO.getAlertNumber()), String.valueOf(arrayList.get(i).getNumber()));
+                data.add(alert);
             }
-        }*/
-    }
-
-    /**
-     * 处理选中行
-     *
-     * @param e
-     */
-    @FXML
-    public void dealSelectedButtonAction(ActionEvent e) {
-        if (alertTable != null) {
-            ObservableList<Alert> data = alertTable.getItems();
-            // System.out.println("test");
-            int count = 0;
-            for (int i = 0; i < data.size(); i++) {
-                if (data.get(i).getIsSelected().isSelected()) {
-                    count++;
-                }
-            }
-            for (int i = 0; i < count; i++) {
-                for (int j = 0; j < data.size(); j++) {
-                    if (data.get(j).getIsSelected().isSelected()) {
-                        data.remove(j);
-                    }
-                }
-            }
-            dialog.infoDialog("Delete all selected successfully!");
-        } else {
-            dialog.errorInfoDialog("Nothing need dealing.");
-        }
-    }
-
-    /**
-     * 处理全部报警单
-     *
-     * @param e
-     */
-    @FXML
-    public void dealAllButtonAction(ActionEvent e) {
-        if (alertTable != null) {
-            ObservableList<Alert> data = alertTable.getItems();
-            data.clear();
-            dialog.infoDialog("Delete all successfully!");
-        } else {
-            dialog.errorInfoDialog("Nothing need dealing.");
         }
     }
 
@@ -124,7 +79,7 @@ public class AlertCreateViewController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void cancelButtonAction(ActionEvent e) throws IOException {
+    public void backButtonAction(ActionEvent e) throws IOException {
         try {
             BillCreateViewController controller = (BillCreateViewController) replaceSceneContent(
                     "/view/stockmanager/BillCreate.fxml");

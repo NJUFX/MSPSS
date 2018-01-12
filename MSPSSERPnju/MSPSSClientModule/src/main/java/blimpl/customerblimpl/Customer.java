@@ -95,11 +95,11 @@ public class Customer {
     }
 
     private CustomerVO po_to_vo(CustomerPO po){
-        Kind_Of_Customers kind = po.getCategory()==0? Kind_Of_Customers.SALER: Kind_Of_Customers.SUPPLIER;
-        System.out.println(kind.toString());
+        Kind_Of_Customers kind = po.getCategory() == 0 ? Kind_Of_Customers.SALER : Kind_Of_Customers.SUPPLIER;
         CustomerVO vo = new CustomerVO(String.format("%05d",po.getID()), kind,po.getLevel(),
                 po.getName(),po.getPhonenumber(),po.getAddress(),po.getPostcode(),
                 po.getEmail(),po.getInvalue(),po.getIncomemoney(),po.getPaymoney(),po.getDAE());
+        System.out.println(vo.getCategory() == null);
     return vo;
     }
 

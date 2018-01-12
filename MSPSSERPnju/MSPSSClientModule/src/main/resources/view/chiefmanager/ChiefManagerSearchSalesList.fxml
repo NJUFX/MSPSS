@@ -96,7 +96,7 @@
             </ImageView>
          </graphic></Button>
       <Button fx:id="BackToSearchList" layoutX="602.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleBackToSearchListButtonAction" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
-      <Button fx:id="ExportSalesList" layoutX="750.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleExportSalesListButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
+      <Button id="cancelButton" fx:id="ExportSalesList" layoutX="750.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleExportSalesListButtonAction" prefHeight="23.0" prefWidth="100.0" stylesheets="@../../css/admin/addUser.css" text="导出" textFill="#0d5ae1" />
       <Pane layoutX="190.0" layoutY="110.0" prefHeight="321.0" prefWidth="660.0" style="-fx-background-color: #f8f8f8;">
          <children>
             <TableView fx:id="SalesTable" prefHeight="321.0" prefWidth="660.0">

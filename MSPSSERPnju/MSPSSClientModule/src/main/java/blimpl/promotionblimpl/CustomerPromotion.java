@@ -30,8 +30,8 @@ public class CustomerPromotion {
     public ArrayList<CustomerPromotionVO> getAvailableCustomerPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
         Time time = new Time();
-        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,time.toString(), QueryMethod.Range);
-        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("end_time",time.toString(),Time.MAX_TIME,QueryMethod.Range);
+        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,time.toString(), QueryMethod.Range);
+        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("endTime",time.toString(),Time.MAX_TIME,QueryMethod.Range);
         criteriaClauses.add(criteriaClause1);
         criteriaClauses.add(criteriaClause2);
         ArrayList<CustomerPromotionPO> pos = networkService.multiSearchCustomerPromotion(criteriaClauses);
@@ -44,6 +44,7 @@ public class CustomerPromotion {
      * @return
      */
     public ResultMessage addCustomerPromotion(CustomerPromotionVO promotionVO) {
+        promotionVO.setId(new Time().getTimeID());
         CustomerPromotionPO po = vo_to_po(promotionVO);
         if (userInfo.getCurrentUser() != null) {
             logBLInfo.add(userInfo.getCurrentUser().getID(), "新增了客户销售策略" + promotionVO.getId());
@@ -86,7 +87,7 @@ public class CustomerPromotion {
 
     public ArrayList<CustomerPromotionVO> getAllCustomerPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
-        criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,Time.MAX_TIME,QueryMethod.Range));
+        criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,Time.MAX_TIME,QueryMethod.Range));
         ArrayList<CustomerPromotionPO> pos = networkService.multiSearchCustomerPromotion(criteriaClauses);
 
         return pos_to_vos(pos);
@@ -99,7 +100,9 @@ public class CustomerPromotion {
                 : vo.getPresentationCommodityItemVOS()) {
             itemPOS.add(presentationCommodityItemVO.to_po());
         }
-     return new CustomerPromotionPO(vo.getLevel(),vo.getDiscount(),vo.getVoucher(),itemPOS,vo.getInitTime().toString(),vo.getEndTime().toString());
+        CustomerPromotionPO po = new CustomerPromotionPO(vo.getLevel(), vo.getDiscount(), vo.getVoucher(), itemPOS, vo.getInitTime().toString(), vo.getEndTime().toString());
+        po.setId(vo.getId());
+        return po;
     }
     private CustomerPromotionVO po_to_vo(CustomerPromotionPO po){
         ArrayList<PresentationCommodityItemVO> itemVOS = new ArrayList<>();

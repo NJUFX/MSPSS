@@ -170,13 +170,13 @@ public class StockBill implements StockBillInfo {
      */
 
     public ArrayList<StockBillVO> getMyStockBill(String operatorID) {
-        ArrayList<StockBillPO> pos = networkService.fullSearchStockBill("operatorID", operatorID);
+        ArrayList<StockBillPO> pos = networkService.fullSearchStockBill("initID", operatorID);
 
         return pos_to_vos(pos);
     }
 
     public ArrayList<StockBillVO> getWaitingStockBill() {
-        ArrayList<StockBillPO> pos = networkService.fullSearchStockBill("status", BillStatus.commit);
+        ArrayList<StockBillPO> pos = networkService.fullSearchStockBill("status", BillStatus.commit.ordinal());
 
         return pos_to_vos(pos);
     }
@@ -235,10 +235,11 @@ public class StockBill implements StockBillInfo {
         ArrayList<StockBillItemVO> itemVOS = new ArrayList<>();
         for (int i = 0; i < po.getItemPOS().size(); i++) {
             StockBillItemPO itemPO = po.getItemPOS().get(i);
+            System.out.println(itemPO.getCommodityID());
             StockBillItemVO itemVO = new StockBillItemVO(commodityInfoService.getCommodity(itemPO.getCommodityID()), itemPO.getNumber());
             itemVOS.add(itemVO);
         }
-        UserVO operator = userInfo.getUser(po.getInitID());
+        UserVO operator = po.getInitID()!=null ?  userInfo.getUser(po.getInitID()) : null;
         UserVO approval = po.getApprovalID() != null ? userInfo.getUser(po.getApprovalID()) : null;
         Time commitTime = po.getCommit_time() != null ? new Time(po.getCommit_time()) : null;
         Time approvalTime = po.getApproval_time() != null ? new Time(po.getApproval_time()) : null;
@@ -254,12 +255,21 @@ public class StockBill implements StockBillInfo {
         ArrayList<StockBillItemPO> itemPOS = new ArrayList<>();
         for (int i = 0; i < vo.getItemVOS().size(); i++) {
             StockBillItemVO itemVO = vo.getItemVOS().get(i);
-            StockBillItemPO itemPO = new StockBillItemPO(itemVO.commodityVO.ID, itemVO.number);
+            System.out.println("1"+itemVO.getCommodityVO().getID());
+            StockBillItemPO itemPO = new StockBillItemPO(itemVO.commodityVO.getID(), itemVO.number);
+            System.out.println("2"+itemPO.getCommodityID());
             itemPOS.add(itemPO);
         }
-
-        StockBillPO po = new StockBillPO(vo.getId(), vo.getType().ordinal(), vo.getStatus().ordinal(), itemPOS, vo.init_time.toString(), vo.commit_time.toString(), vo.approval_time.toString()
-                , vo.commentByStockManager, vo.commentByManager, vo.stockManager.getID(), vo.getManager().getID());
+        String stockmanagerID = vo.getStockManager() != null ? vo.getStockManager().getID() : null;
+        String managerID = vo.getManager() !=null ? vo.getManager().getID() : null;
+        String initTime = vo.getInit_time()!=null ? vo.getInit_time().toString() : null;
+        String commitTime = vo.getCommit_time() !=null ? vo.getCommit_time().toString() :null;
+        String approvalTime = vo.getApproval_time() != null ? vo.getApproval_time().toString() : null;
+        StockBillPO po = new StockBillPO(vo.getId(), vo.getType().ordinal(), vo.getStatus().ordinal(), itemPOS, initTime, commitTime, approvalTime
+                , vo.commentByStockManager, vo.commentByManager, stockmanagerID, managerID);
+        for (int i = 0; i < itemPOS.size() ; i++) {
+            itemPOS.get(i).setStockBillPO(po);
+        }
         return po;
     }
 

@@ -41,6 +41,7 @@ public class SelectPromotionViewController implements Initializable {
     CustomerPromotionVO customerPromotionVO;
     ArrayList<GrossPromotionVO> grossPromotionVOList;
     ArrayList<GroupPromotionVO> groupPromotionVOList;
+    TableView<PromotionBySales> tableView;
     Stage newStage = new Stage();
     int level = 4;
     double total = 0;
@@ -94,7 +95,13 @@ public class SelectPromotionViewController implements Initializable {
             salesmanBillBLService.setGrossPromotion(grossData.get(i).getGrossPromotionVO(), salesOutBillVO);
             list.add(c);
         }
+
         SalesCreateViewController.promotionBySalesList = list;
+        ObservableList<PromotionBySales> data = tableView.getItems();
+        for (int i = 0; i < list.size(); i++) {
+            data.add(list.get(i));
+        }
+
         TotalAfterLabel.setText(String.valueOf(Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim())));
         sureButton.getScene().getWindow().hide();
     }

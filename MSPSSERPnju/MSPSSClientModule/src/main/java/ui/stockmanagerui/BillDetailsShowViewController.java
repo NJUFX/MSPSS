@@ -46,7 +46,8 @@ public class BillDetailsShowViewController implements Initializable {
 
         ObservableList<Breakage> data = breakageTableView.getItems();
 
-        ArrayList<StockBillItemVO> vos = stockBillVO.itemVOS;
+        ArrayList<StockBillItemVO> vos = stockBillVO.getItemVOS();
+        System.out.println(vos.size());
         for (int i = 0; i < vos.size(); i++) {
             StockBillItemVO s = vos.get(i);
             Breakage breakage = new Breakage(s.commodityVO.getID(), s.commodityVO.getName(), String.valueOf(s.commodityVO.getNumberInStock()), String.valueOf(s.number), "");

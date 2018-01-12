@@ -77,11 +77,10 @@ public class CommodityClassifyViewController implements Initializable {
         ClassificationCell commodityCell = new ClassificationCell("Root", "Root", "001", true);
         TreeItem<ClassificationCell> root = new TreeItem<>(commodityCell, rootIcon);//根分类
 
-
+        System.out.println("RootSize "+commodityBLService.getRootClassifications().size());
         if (commodityBLService.getRootClassifications() != null && commodityBLService.getRootClassifications().size() != 0) {
             addChildren(commodityBLService.getRootClassifications(), root);
         }
-        System.out.println(commodityBLService.getChildrenCommodity(commodityBLService.getClassification("4")).size());
         commodityClassification.setRoot(root);
         commodityClassification.setEditable(true);
         commodityClassification.setCellFactory((TreeView<ClassificationCell> p) -> new TextFieldTreeCellImpl());
@@ -569,7 +568,8 @@ public class CommodityClassifyViewController implements Initializable {
                     ClassificationVO classificationVO = commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getValue().getId());
                     classificationVO.setName(textField.getText().trim());
                     if (!getTreeView().getSelectionModel().getSelectedItem().getValue().getParent().equals("Root")) {
-                        classificationVO.setParent(commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId()));
+                        classificationVO.setParent(commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId())==null
+                                ?null:commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId()));
                     }
                     ResultMessage resultMessage = commodityBLService.updateClassification(classificationVO);
                     if (resultMessage == ResultMessage.SUCCESS) {

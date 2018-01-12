@@ -19,7 +19,8 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
     public UserClientNetworkImpl(){
         try {
             userServerNetworkService = (UserServerNetworkService) Naming.lookup("UserServerNetworkService");
-        } catch (NotBoundException e) {
+            System.out.println("succeed");
+            } catch (NotBoundException e) {
             System.err.println("Client.network.UserServerNetworkService: Not bound, trying to connect");
             e.printStackTrace();
         } catch (MalformedURLException e) {

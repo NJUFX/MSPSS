@@ -66,4 +66,10 @@ public class LogClientNetworkImpl implements  LogClientNetworkService {
         }
         return null;
     }
+
+    public static void main(String[] args) {
+        LogClientNetworkService logClientNetworkService = new LogClientNetworkImpl();
+        System.out.println(logClientNetworkService.toString());
+        logClientNetworkService.addLog(new LogPO("89","21","12","13"));
+    }
 }

@@ -22,6 +22,7 @@ import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.Kind_Of_Customers;
+import util.ResultMessage;
 import vo.CustomerVO;
 
 import java.io.IOException;
@@ -38,7 +39,7 @@ public class CustomerInfoShowViewController implements Initializable {
     Stage newStage = new Stage();
     CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
-     //fixme
+    //fixme
     static String id_to_show;
     static CustomerVO customerVO;
     @FXML
@@ -60,13 +61,33 @@ public class CustomerInfoShowViewController implements Initializable {
             incomemoneyLabel, paymoneyLabel, categoryLabel, levelLabel, idLabel, workerLabel;
 
     /**
-     * 删除当前的商品，返回商品列表
+     * 删除客户
      *
      * @param e
      */
     @FXML
     public void delButtonAction(ActionEvent e) {
         try {
+            boolean b = true;
+            if (customerVO.getIncomemoney() != 0 || customerVO.getPaymoney() != 0) {
+                b = false;
+                dialog.errorInfoDialog("该客户的应收为" + customerVO.getIncomemoney() + '\n' + "该客户的应付为" + customerVO.getPaymoney() + '\n' + "该用户不可被删除");
+            }
+            if (b == true) {
+                ResultMessage resultMessage = customerBLService.delCustomer(customerVO.getID());
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    dialog.infoDialog("Delete a customer successfully.");
+                    try {
+                        CustomerManageViewController controller = (CustomerManageViewController) replaceSceneContent(
+                                "/view/stockseller/CustomerManage.fxml");
+                    } catch (Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                } else {
+                    dialog.infoDialog("Fail to delete the customer");
+                }
+            }
             CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
                     "/view/stockseller/CustomerSearchShow.fxml");
         } catch (Exception e1) {
@@ -76,17 +97,17 @@ public class CustomerInfoShowViewController implements Initializable {
     }
 
     /**
-     * 修改商品按钮跳转
+     * 修改客户
      *
      * @param e
      */
     @FXML
     public void modButtonAction(ActionEvent e) {
         try {
-            System.out.println("test");
+            CustomerInfoModifyViewController.customerVO = customerVO;
+            CustomerInfoModifyViewController.id_to_show = customerVO.getID();
             CustomerInfoModifyViewController controller = (CustomerInfoModifyViewController) replaceAnotherSceneContent(
                     "/view/stockseller/CustomerInfoModify.fxml", 415, 421);
-            controller.customerVO = customerVO;
         } catch (Exception e1) {
             e1.printStackTrace();
         }

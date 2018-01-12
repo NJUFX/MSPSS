@@ -85,8 +85,13 @@ public class SelectClassOrCommodityViewController implements Initializable {
                             classificationName = selectItem.getValue().getName();
                             classificationNameField.setText(classificationName);
                             classificationId = selectItem.getValue().getId();
-                            classificationVO = commodityBLService.getClassification(classificationId);
-                            sureButton.getScene().getWindow().hide();
+                            if(classificationName.equals("Root")){
+                                dialog.errorInfoDialog("Can not add a commodity in this class.");
+                            }else {
+                                classificationVO = commodityBLService.getClassification(classificationId);
+                                sureButton.getScene().getWindow().hide();
+                            }
+
                         }
                     }
                 }

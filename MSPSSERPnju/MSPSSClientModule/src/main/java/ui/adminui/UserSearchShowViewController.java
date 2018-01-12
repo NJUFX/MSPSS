@@ -324,6 +324,4 @@ public class UserSearchShowViewController implements Initializable {
         newStage.show();
         return (Initializable) loader.getController();
     }
-
-
 }

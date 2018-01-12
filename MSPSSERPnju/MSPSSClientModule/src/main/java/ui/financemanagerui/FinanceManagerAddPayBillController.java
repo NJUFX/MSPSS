@@ -8,9 +8,7 @@ import java.util.ResourceBundle;
 
 import auxiliary.FinanceItem;
 import blimpl.blfactory.BLFactoryImpl;
-import blimpl.customerblimpl.CustomerBLFactory;
 import blservice.accountblservice.AccountBLService;
-import blservice.billblservice.BillBLService;
 import blservice.billblservice.FinanceBillBLService;
 import blservice.customerblservice.CustomerBLService;
 import filterflags.CustomerSearchFlag;

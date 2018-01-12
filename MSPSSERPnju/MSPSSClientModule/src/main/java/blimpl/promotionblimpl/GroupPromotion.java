@@ -28,6 +28,7 @@ public class GroupPromotion {
      */
 
     public ResultMessage addGroupPromotion(GroupPromotionVO groupPromotionVO) {
+        groupPromotionVO.setId(new Time().getTimeID());
         logBLInfo.add(userInfo.getCurrentUser().getID(), "增加了特价包销售策略" + groupPromotionVO.getId());
         return networkService.addGroupPromotion(vo_to_po(groupPromotionVO));
     }
@@ -66,7 +67,7 @@ public class GroupPromotion {
 
     public ArrayList<GroupPromotionVO> getAllGroupPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
-        criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,Time.MAX_TIME, QueryMethod.Range));
+        criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,Time.MAX_TIME, QueryMethod.Range));
         ArrayList<GroupPromotionPO> pos = networkService.multiSearchGroupPromotion(criteriaClauses);
         return pos_to_vos(pos);
     }
@@ -79,8 +80,8 @@ public class GroupPromotion {
     public ArrayList<GroupPromotionVO> getAvailableGroupPromotion() {
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<>();
         Time time = new Time();
-        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("init_time",Time.MIN_TIME,time.toString(), QueryMethod.Range);
-        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("end_time",time.toString(),Time.MAX_TIME,QueryMethod.Range);
+        CriteriaClause criteriaClause1 = CriteriaClauseImpl.createRangeValueQuery("initTime",Time.MIN_TIME,time.toString(), QueryMethod.Range);
+        CriteriaClause criteriaClause2 = CriteriaClauseImpl.createRangeValueQuery("endTime",time.toString(),Time.MAX_TIME,QueryMethod.Range);
         criteriaClauses.add(criteriaClause1);
         criteriaClauses.add(criteriaClause2);
         ArrayList<GroupPromotionPO> pos = networkService.multiSearchGroupPromotion(criteriaClauses);
@@ -92,11 +93,12 @@ public class GroupPromotion {
      * @return
      */
     private GroupPromotionVO po_to_vo(GroupPromotionPO po){
-        GroupPromotionVO vo = new GroupPromotionVO(po.getDiscountRate(),po.getCommodityIDs(),new Time(po.getInitTime()),new Time(po.getEndTime()));
+        GroupPromotionVO vo = new GroupPromotionVO(po.getDiscountRate(), (ArrayList) po.getCommodityIDs(), new Time(po.getInitTime()), new Time(po.getEndTime()));
         return vo;
     }
     private GroupPromotionPO vo_to_po(GroupPromotionVO vo){
         GroupPromotionPO po = new GroupPromotionPO(vo.getId(),vo.getDiscountRate(),vo.getCommodityIDs(),vo.getInitTime().toString(),vo.getEndTime().toString());
+
         return po;
     }
     private ArrayList<GroupPromotionVO> pos_to_vos(ArrayList<GroupPromotionPO> pos){

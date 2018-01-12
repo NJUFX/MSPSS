@@ -136,7 +136,7 @@
             <TableColumn fx:id="HongChongAndCopy" prefWidth="90.0" text="红冲并复制" />
         </columns>
       </TableView>
-      <Button fx:id="ExportProcessList" layoutX="763.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleExportProcessListButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-border-color: #0F88eb; -fx-background-color: #FFFFFF;" text="导出" textFill="#0d5ae1" />
+      <Button id="cancelButton" fx:id="ExportProcessList" layoutX="763.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleExportProcessListButtonAction" prefHeight="23.0" prefWidth="100.0" stylesheets="@../../css/admin/addUser.css" text="导出" textFill="#0d5ae1" />
       <Button fx:id="BackToSearchList" layoutX="615.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleBackToSearchListButtonAction" prefHeight="23.0" prefWidth="100.0" text="返回" textFill="WHITE" />
     </children>
 </Pane>

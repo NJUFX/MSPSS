@@ -13,7 +13,7 @@
         <property name="exportCost" column="export_cost" type="double"/>
         <property name="numberInStock" column="number_in_stock" type="int"/>
         <property name="classificationID" column="classification_id" type="string"/>
-
+        <property name = "alertNumber" column="alert_number" type="int"/>
 
     </class>
 </hibernate-mapping>

@@ -194,32 +194,32 @@
                         <PropertyValueFactory property="endTime" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="81.0" text="客户等级">
+                  <TableColumn prefWidth="81.0" sortable="false" text="客户等级">
                     <cellValueFactory>
                         <PropertyValueFactory property="customerLevel" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="81.0" text="折让金额">
+                  <TableColumn prefWidth="81.0" sortable="false" text="折让金额">
                     <cellValueFactory>
                         <PropertyValueFactory property="discount" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="81.0" text="代金券金额">
+                  <TableColumn prefWidth="81.0" sortable="false" text="代金券金额">
                     <cellValueFactory>
                         <PropertyValueFactory property="voucher" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="81.0" text="赠送商品">
+                  <TableColumn prefWidth="81.0" sortable="false" text="赠送商品">
                     <cellValueFactory>
                         <PropertyValueFactory property="giftItems" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="81.0" text="赠送数量">
+                  <TableColumn prefWidth="81.0" sortable="false" text="赠送数量">
                     <cellValueFactory>
                         <PropertyValueFactory property="giftNum" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="CustomerTableDelete" prefWidth="40.0" text="—" />
+                  <TableColumn fx:id="CustomerTableDelete" prefWidth="39.0" sortable="false" text="—" />
               </columns>
             </TableView>
          </children></Pane>
