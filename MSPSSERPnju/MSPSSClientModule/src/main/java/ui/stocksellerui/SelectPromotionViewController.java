@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
+import ui.common.Dialog;
 import util.BillStatus;
 import util.SalesOutBillType;
 import vo.CustomerPromotionVO;
@@ -37,12 +38,13 @@ public class SelectPromotionViewController implements Initializable {
     PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
     PromotionBLInfo promotionBLInfo = new BLFactoryImpl().getPromotionBLInfo();
     SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
-    SalesOutBillVO salesOutBillVO;
-    CustomerPromotionVO customerPromotionVO;
-    ArrayList<GrossPromotionVO> grossPromotionVOList;
-    ArrayList<GroupPromotionVO> groupPromotionVOList;
+    static SalesOutBillVO salesOutBillVO;
+    CustomerPromotionVO customerPromotionVO = new CustomerPromotionVO();
+    ArrayList<GrossPromotionVO> grossPromotionVOList = new ArrayList<>();
+    ArrayList<GroupPromotionVO> groupPromotionVOList = new ArrayList<>();
     TableView<PromotionBySales> tableView;
     Stage newStage = new Stage();
+    Dialog dialog = new Dialog();
     int level = 4;
     double total = 0;
     double sum = 0;
@@ -79,30 +81,51 @@ public class SelectPromotionViewController implements Initializable {
         if (selectRadio.isSelected()) {
             PromotionBySales a = new PromotionBySales("等级促销", customerPromotionInfoLabel.getText());
             PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) + sum));
+            System.out.println(customerPromotionVO.getId());
+            System.out.println(salesOutBillVO.getStatus().toString());
             salesmanBillBLService.setCustomerPromotion(customerPromotionVO, salesOutBillVO);
+            a.customerPromotionVO = customerPromotionVO;
             list.add(a);
         }
         ObservableList<GroupBySales> groupData = groupView.getItems();
         for (int i = 0; i < groupData.size(); i++) {
-            PromotionBySales b = new PromotionBySales("特价包", "编号" + groupData.get(i).getId() + " 折扣" + groupData.get(i).getDiscount());
-            salesmanBillBLService.setGroupPromotion(groupData.get(i).getGroupPromotionVO(), salesOutBillVO);
-            list.add(b);
+            if (groupData.get(i).getIsSelected().isSelected()) {
+                PromotionBySales b = new PromotionBySales("特价包", "编号" + groupData.get(i).getGroupPromotionVO().getId() + " 折扣" + groupData.get(i).getDiscount());
+                salesmanBillBLService.setGroupPromotion(groupData.get(i).getGroupPromotionVO(), salesOutBillVO);
+                b.groupPromotionVO = groupData.get(i).getGroupPromotionVO();
+                list.add(b);
+            }
         }
         ObservableList<GrossBySales> grossData = grossView.getItems();
         for (int i = 0; i < grossData.size(); i++) {
-            PromotionBySales c = new PromotionBySales("满减", "编号" + grossData.get(i).getId() + " " + grossData.get(i).getManJianInfo() + " 赠送代金券" + grossData.get(i).getVoucher());
-            PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) + grossData.get(i).getVoucher()));
-            salesmanBillBLService.setGrossPromotion(grossData.get(i).getGrossPromotionVO(), salesOutBillVO);
-            list.add(c);
+            if (grossData.get(i).getIsSelected().isSelected()) {
+                PromotionBySales c = new PromotionBySales("满减", "编号" + grossData.get(i).getGrossPromotionVO().getId() + " " + grossData.get(i).getManJianInfo() + " 赠送代金券" + grossData.get(i).getVoucher());
+                PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) + grossData.get(i).getVoucher()));
+                salesmanBillBLService.setGrossPromotion(grossData.get(i).getGrossPromotionVO(), salesOutBillVO);
+                c.grossPromotionVO = grossData.get(i).getGrossPromotionVO();
+                list.add(c);
+            }
         }
 
         SalesCreateViewController.promotionBySalesList = list;
         ObservableList<PromotionBySales> data = tableView.getItems();
+        boolean isSec = false;
         for (int i = 0; i < list.size(); i++) {
-            data.add(list.get(i));
+            if (list.get(i).getType().equals("等級促銷")) {
+                for (int j = 0; j < data.size(); j++) {
+                    if (data.get(j).getType().equals("等级促销")) {
+                        isSec = true;
+                        dialog.errorInfoDialog("You have choose it.");
+                        break;
+                    }
+                }
+            }
+            if (isSec == false)
+                data.add(list.get(i));
         }
-
-        TotalAfterLabel.setText(String.valueOf(Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim())));
+        if (!TotalAfterLabel.getText().trim().equals("") && !PromotionDiscountLabel.getText().trim().equals("")) {
+            TotalAfterLabel.setText(String.valueOf(Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim())));
+        }
         sureButton.getScene().getWindow().hide();
     }
 
@@ -159,6 +182,7 @@ public class SelectPromotionViewController implements Initializable {
                     }
                 }
             };
+            cell.setStyle("-fx-alignment:CENTER;");
             return cell;
         });
         ObservableList<GrossBySales> data = grossView.getItems();

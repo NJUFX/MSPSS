@@ -132,8 +132,8 @@
             </Label>
             <TableView layoutX="26.0" layoutY="252.0" prefHeight="110.0" prefWidth="668.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="200.0" text="类型" />
+                <TableColumn minWidth="0.0" prefWidth="467.0" text="详情" />
               </columns>
             </TableView>
             <Label layoutX="218.0" layoutY="371.0" text="总折让">
