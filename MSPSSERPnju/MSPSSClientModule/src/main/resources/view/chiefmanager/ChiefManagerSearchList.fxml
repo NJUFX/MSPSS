@@ -96,7 +96,7 @@
             </ImageView>
          </graphic></Button>
       <Button fx:id="Search" layoutX="754.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="23.0" prefWidth="100.0" text="查找" textFill="WHITE" />
-      <Button fx:id="Clear" layoutX="592.0" layoutY="467.0" mnemonicParsing="false" onAction="#handleClearButtonAction" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0F88eb;" text="清空" textFill="#0f88eb" />
+      <Button id="cancelButton" fx:id="Clear" layoutX="592.0" layoutY="467.0" mnemonicParsing="false" onAction="#handleClearButtonAction" prefHeight="23.0" prefWidth="100.0" stylesheets="@../../css/admin/addUser.css" text="清空" textFill="#0f88eb" />
       <Pane layoutX="195.0" layoutY="89.0" prefHeight="347.0" prefWidth="659.0" style="-fx-background-color: #f8f8f8;">
          <children>
             <ComboBox fx:id="BillType" layoutX="367.0" layoutY="277.0" prefHeight="20.0" prefWidth="195.0" promptText="单据类型">

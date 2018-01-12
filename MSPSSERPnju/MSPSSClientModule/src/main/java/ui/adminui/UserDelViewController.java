@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import util.ResultMessage;
+import vo.UserVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -103,6 +104,11 @@ public class UserDelViewController implements Initializable {
         } else {
             boolean b = dialog.confirmDialog("Do you confirm to delete this user?");
             if (b == true) {
+                UserVO userVO = userBLService.searchUserByID(id_to_del.getText().trim());
+                if (userVO == null) {
+                    dialog.errorInfoDialog("User not found, id is wrong.");
+                    return;
+                }
                 ResultMessage resultMessage = userBLService.deleteUser(id_to_del.getText().trim());
                 if (resultMessage == ResultMessage.SUCCESS) {
                     dialog.infoDialog("Delete the user successfully.");

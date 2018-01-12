@@ -82,7 +82,7 @@ public class SelectClassOrCommodityViewController implements Initializable {
                         if (selectItem.getChildren().size() != 0 && selectItem.getChildren().get(0).getValue().getIsClass() == true) {
                             dialog.errorInfoDialog("Unable to add a commodity in this classification.");
                         } else {
-                            classificationName = selectItem.getValue().getName();
+                            classificationName = selectItem.getValue().getId();
                             classificationNameField.setText(classificationName);
                             classificationId = selectItem.getValue().getId();
                             classificationVO = commodityBLService.getClassification(classificationId);

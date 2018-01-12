@@ -6,6 +6,7 @@ import blservice.billblservice.StockManagerBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserBLService;
+import exception.initclassexception.KeyColumnLostException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -102,7 +103,6 @@ public class OverflowCreateViewController implements Initializable {
         vo.setItemVOS(list);
         try {
             ResultMessage resultMessage = stockManagerBillBLService.saveStockBill(vo);
-
             vo.setItemVOS(list);
             if (ResultMessage.SUCCESS == resultMessage) {
                 dialog.infoDialog("Save bill successfully.");
@@ -112,9 +112,10 @@ public class OverflowCreateViewController implements Initializable {
                     e1.printStackTrace();
                 }
             }
-        } catch (Exception es) {
-            es.printStackTrace();
+        } catch (KeyColumnLostException E) {
+            System.out.print(E.getMessage());
         }
+
     }
 
     @FXML
@@ -140,8 +141,8 @@ public class OverflowCreateViewController implements Initializable {
                     e1.printStackTrace();
                 }
             }
-        } catch (Exception e1) {
-            e1.printStackTrace();
+        } catch (KeyColumnLostException E) {
+            System.out.print(E.getMessage());
         }
     }
 

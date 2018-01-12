@@ -60,7 +60,7 @@ public class AddCommodityViewController implements Initializable {
             commodityVO.setLatestImportCost(Double.parseDouble(recentInPrice.getText().trim()));
             commodityVO.setLatestExportCost(Double.parseDouble(recentOutPrice.getText().trim()));
             commodityVO.setAlertNumber(Integer.parseInt(alertNumber.getText().trim()));
-            commodityVO.setClassificationName(treeItem.getValue().getName());
+            commodityVO.setClassificationName(treeItem.getValue().getId());
             System.out.println(treeItem.getValue().getId());
             ResultMessage resultMessage = commodityBLService.addCommodity(commodityVO);
             if (resultMessage == ResultMessage.SUCCESS) {

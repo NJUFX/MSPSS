@@ -55,282 +55,272 @@
 
 #### 4.1.1 stockmanger模块 
 
-(1)整体结构
+##### （1）整体结构
 
-展示层的控制器为树状委托结构，StockManagerMainViewController负责对客户界面的整体跳转，AddClassificationViewController,AddCommodityViewController,AlertCreateViewController,BillCreateViewController,BillDetailsShowViewController,BillStatusCheckViewController,BreakageCreateViewController,CommodityAddViewController,CommodityClassifyViewCotroller,CommodityDelViewCotroller,CommodityInfoModityViewCotroller,CommodityInfoShowViewCotroller,CommodityManageViewCotroller,CommodityModifyFirstViewController,CommodityModitySecondViewCotroller,CommoditySearchShowViewController,CommoditySearchViewController,OverflowCreateViewController,PresentationCreateViewController,SelectClassOrCommodityViewController,StockCheckShowViewCotroller,StockCheckViewCotroller,StockInventoryViewCotroller,分别负责添加商品分类,添加商品，创建库存报警单，创建单据主界面，stockmanager界面各个类的职责如下
+展示层的控制器为树状委托结构，StockManagerMainViewController负责对客户界面的整体跳转，AddClassificationViewController,AddCommodityViewController,AlertCreateViewController,BillCreateViewController,BillDetailsShowViewController,BillStatusCheckViewController,BreakageCreateViewController,CommodityAddViewController,CommodityClassifyViewCotroller,CommodityDelViewCotroller,CommodityInfoModityViewCotroller,CommodityInfoShowViewCotroller,CommodityManageViewCotroller,CommodityModifyFirstViewController,CommodityModitySecondViewCotroller,CommoditySearchShowViewController,CommoditySearchViewController,OverflowCreateViewController,PresentationCreateViewController,SelectClassOrCommodityViewController,StockCheckShowViewCotroller,StockInventoryViewCotroller。分别负责商品分类、商品管理、处理单据、库存盘点和库存查看里的各个功能。stockmanager界面各个类的职责如下：
 
-| 模块                                 | 职责               |
-| ---------------------------------- | ---------------- |
-| StockManagerViewController         | 负责实现对库存管理人员界面的调整 |
-| StockManagerNavBarController       | 负责实现客户导航栏        |
-| CommodityInfoViewController        | 负责实现商品信息管理界面     |
-| ClassificationInfoViewController   | 负责实现商品分类信息管理界面   |
-| CommodityAllListViewController     | 负责实现全部商品列表界面     |
-| ClassificationAllViewController    | 负责实现所有商品分类界面     |
-| CommodityAddViewController         | 负责添加商品界面         |
-| ClassificationAddViewController    | 负责实现添加商品分类界面     |
-| CommodityUpdateViewController      | 负责实现更新商品信息界面     |
-| ClassificationUpdateViewController | 负责实现更新商品分类信息界面   |
-| StockViewController                | 负责实现库存查看界面       |
-| InventoryViewController            | 负责实现库存盘点界面       |
-| CreateMoreBillController           | 负责实现制定库存报溢单界面    |
-| CreateLessBillController           | 负责实现制定库存报损单界面    |
-| CreatePrensentationBillController  | 负责实现制定库存赠送单界面    |
-| BillViewController                 | 负责实现查看自己制定的单据界面  |
-| AlertBillViewController            | 负责查看产生的库存报警单界面   |
+| 模块                                   | 职责               |
+| ------------------------------------ | ---------------- |
+| StockManagerMainViewController       | 负责实现对库存管理人员界面的调整 |
+| AddClassificationViewController      | 负责实现增加分类弹出界面     |
+| AddCommodityViewController           | 负责实现增加商品弹出界面     |
+| CommodityManageViewCotroller         | 负责实现商品管理主界面      |
+| ClassificationAllViewController      | 负责实现所有商品分类界面     |
+| CommodityAddViewController           | 负责添加商品界面         |
+| CommodityDelViewController           | 负责删除商品界面         |
+| CommodityModifyFirstViewController   | 负责输入需要修改的商品编号界面  |
+| CommodityModifySecondViewController  | 负责实现修改商品属性界面     |
+| CommodityInfoShowViewController      | 负责实现商品信息展示界面     |
+| CommodityInfoModifyViewController    | 负责实现修改商品属性界面     |
+| CommoditySearchViewController        | 负责实现查找商品界面       |
+| CommoditySearchShowViewController    | 负责实现查找商品结果列表显示界面 |
+| CommodityClassifyViewCotroller       | 负责实现商品分类管理界面     |
+| StockCheckShowViewController         | 负责实现库存查看界面       |
+| StockInventoryViewController         | 负责实现库存盘点界面       |
+| OverflowCreateViewController         | 负责实现制定库存报溢单界面    |
+| BreakageCreateViewController         | 负责实现制定库存报损单界面    |
+| PresentationCreateViewController     | 负责实现制定库存赠送单界面    |
+| BillCreateViewController             | 负责实现处理单据主界面      |
+| BillStatusCheckViewController        | 负责实现查看已制定单据列表界面  |
+| BillDetailsShowViewController        | 负责实现查看单据详情的界面    |
+| AlertCreateViewController            | 负责查看产生的库存报警单界面   |
+| SelectClassOrCommodityViewController | 负责实现选择分类或商品的弹出界面 |
 
-（2）模块内部的的接口
+##### （2）模块内部的的接口规范
 
-表一StockManagerViewController的接口规范
+StockManagerMainViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                                      | 服务   |                                        |
-| ---------------------------------------- | ---- | -------------------------------------- |
-| StockManagerViewController.showCommodityInfoView | 语法   | public void showCommodityInfoView      |
-|                                          | 前置条件 | 点击导航栏 商品信息                             |
-|                                          | 后置条件 | 显示商品信息界面                               |
-| StockManagerViewController.showClassificationInfoView | 语法   | public void showClassificationInfoView |
-|                                          | 前置条件 | 点击导航栏商品分类信息                            |
-|                                          | 后置条件 | 显示商品分类信息界面                             |
-| StockManagerViewController.showBillList  | 语法   | public void showBillList               |
-|                                          | 前置条件 | 点击导航栏 单据列表                             |
-|                                          | 后置条件 | 显示单据列表界面                               |
-| StockManagerViewController.showAlertBillList | 语法   | public void showAlertBillList          |
-|                                          | 前置条件 | 点击查看库存报警单                              |
-|                                          | 后置条件 | 显示导航栏库存报警单查看                           |
-| StockManagerViewController.showStockView | 语法   | public void showStockView              |
-|                                          | 前置条件 | 点击库存查看                                 |
-|                                          | 后置条件 | 显示库存查看界面                               |
-| StockManagerViewController.showInventoryCheck | 语法   | public void showInventoryCheck         |
-|                                          | 前置条件 | 点击库存盘点                                 |
-|                                          | 后置条件 | 显示库存盘点界面                               |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| StockManagerViewController.commodityManageButtonAction | 语法   | public void commodityManageButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击商品管理按钮                                 |
+|                                          | 后置条件 | 跳转商品管理主界面                                |
+| StockManagerViewController.commodityClassifyButtonAction | 语法   | public void commodityClassifyButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击商品分类按钮                                 |
+|                                          | 后置条件 | 跳转商品分类界面                                 |
+| StockManagerViewController.billCreateButtonAction | 语法   | public void billCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击处理单据按钮                                 |
+|                                          | 后置条件 | 跳转处理单据主界面                                |
+| StockManagerViewController.stockCheckButtonAction | 语法   | public void stockCheckButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击库存查看按钮                                 |
+|                                          | 后置条件 | 显示库存查看界面                                 |
+| StockManagerViewController.stockInventoryButtonAction | 语法   | public void stockInventoryButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击库存盘点按钮                                 |
+|                                          | 后置条件 | 显示库存盘点界面                                 |
+| StockManagerViewController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击登出按钮                                   |
+|                                          | 前置条件 | 跳转登陆界面                                   |
 
 需要的服务(需接口)
 
-| 服务名                                      | 服务       |
-| ---------------------------------------- | -------- |
-| CommodityInfoViewController.showCommodityInfoView | 商品信息管理界面 |
-| ClassificationInfoViewController.showClassificationInfoView | 商品分类管理界面 |
-| BillViewController.showBillList          | 单据列表     |
-| AlertBillViewController.showAlertBillList | 报警单据列表   |
-| StockViewController.showStockView        | 库存查看界面   |
-| InventoryViewController.showInventoryCheck | 库存盘点界面   |
 
-表二StockManagerNavBarController的接口规范
 
-提供的服务 供接口
+BillCreateViewController的接口规范
 
-| 服务名  | 服务   |      |
-| ---- | ---- | ---- |
-|      |      |      |
-
-需要的服务  需接口
-
-| 服务名                                      | 服务          |
-| ---------------------------------------- | ----------- |
-| StockManagerViewController.showCommodityInfoView | 显示商品信息界面    |
-| StockManagerViewController.showClassificationInfoView | 显示商品分类界面    |
-| StockManagerViewController.showBillList  | 显示单据信息界面    |
-| StockManagerViewController.showAlertBillList | 显示查看库存报警单界面 |
-| StockManagerViewController.showStockView | 显示库存盘点界面    |
-| StockManagerViewController.showInventoryCheck | 显示库存盘点界面    |
-
-表3CommodityInfoViewController的接口规范
-
-| 服务名                                      | 服务   |                                         |
-| ---------------------------------------- | ---- | --------------------------------------- |
-| CommodityInfoViewController.back         | 语法   | public void back()                      |
-|                                          | 前置条件 | 无                                       |
-|                                          | 后置条件 | 返回上一界面                                  |
-| CommodityInfoViewController.showAllCommodityInfoView | 语法   | public void showAllCommodityInfoView()s |
-|                                          | 前置条件 | 无                                       |
-|                                          | 后置条件 | 显示所有商品信息界面                              |
-| CommodityInfoViewController.showAddCommodityView | 语法   | public void showAddCommodityView()      |
-|                                          | 前置条件 | 无                                       |
-|                                          | 后置条件 | 跳转到添加商品信息界面                             |
-| CommodityInfoViewController.showUpdateCommodityView | 语法   | public void showUpdateCommodityView()   |
-|                                          | 前置条件 | 无                                       |
-|                                          | 后置条件 | 跳转到更新商品信息界面                             |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| BillCreateViewController.billCheckButtonAction | 语法   | public void billCheckButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击查看单据详情按钮                               |
+|                                          | 后置条件 | 跳转显已制定单据列表的界面                            |
+| BillCreateViewController.overflowCreateButtonAction | 语法   | public void overflowCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定库存报溢单按钮                              |
+|                                          | 后置条件 | 跳转制定库存报溢单界面                              |
+| BillCreateViewController.breakageCreateButtonAction | 语法   | public void breakageCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定库存报损单按钮                              |
+|                                          | 后置条件 | 跳转到制定库存报损单界面                             |
+| BillCreateViewController.presentationCreateButtonAction | 语法   | public void presentationCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击查看库存赠送单按钮                              |
+|                                          | 后置条件 | 跳转到更新商品信息界面                              |
+| BillCreateViewController.alertCreateButtonAction | 语法   | public void alertCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击处理库存报警单按钮                              |
+|                                          | 后置条件 | 跳转处理库存报警单界面                              |
+| BillCreateViewController.commodityManageButtonAction | 语法   | public void commodityManageButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击商品管理按钮                                 |
+|                                          | 后置条件 | 跳转商品管理主界面                                |
+| BillCreateViewController.commodityClassifyButtonAction | 语法   | public void commodityClassifyButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击商品分类按钮                                 |
+|                                          | 后置条件 | 跳转商品分类界面                                 |
+| BillCreateViewController.stockCheckButtonAction | 语法   | public void stockCheckButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击库存查看按钮                                 |
+|                                          | 后置条件 | 显示库存查看界面                                 |
+| BillCreateViewController.stockInventoryButtonAction | 语法   | public void stockInventoryButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击库存盘点按钮                                 |
+|                                          | 后置条件 | 显示库存盘点界面                                 |
+|                                          |      |                                          |
+|                                          |      |                                          |
 
 需要的服务(需接口)
 
-| 服务名                                      | 服务           |
-| ---------------------------------------- | ------------ |
-| CommodityAllListViewController.showCommodityListView | 展示商品信息界面     |
-| CommodityAddViewController.showAddView   | 展示添加商品信息界面   |
-| CommodityUpdateViewController.showUpdateView | 展示添加更新商品信息界面 |
+CommodifyClassifyViewController的接口规范 
 
-表4 ClassificationInfoViewController的接口规范 
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                             |
+| ---------------------------------------- | ---- | --------------------------- |
+| CommodifyClassifyViewController.showTableView | 语法   | public void showTableView() |
+|                                          | 前置条件 | 无                           |
+|                                          | 后置条件 | 展示分类树                       |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务            |
+| ---------------------------------------- | ------------- |
+| CommodityBLService.getChildrenClassification(ClassificationVO vo) | 得到一个分类下所有的子分类 |
+| CommodityBLService.getChildrenCommodity(ClassificationVO vo) | 得到一个分类下所有的商品  |
+| CommodityBLService.updateClassification(ClassificationVO vo) | 更新分类信息        |
+| CommodityBLService.deleteClassification(String id) | 删除分类          |
+| CommodityInfoService.getCommodity(String id) | 得到商品          |
+| CommodityBLService.deleteCommodity(String id) | 删除商品          |
+|                                          |               |
+
+CommodityManageViewController的接口规范
 
 提供的服务 供接口 
 
 | 服务名                                      | 服务   |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| ClassificationInfoViewController.back    | 语法   | public void back()                       |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回上一界面                                   |
-| ClassificationInfoViewController.showAllClassificationInfoView | 语法   | public void showAllClassificationInfoView() |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 显示所有商品信息界面                               |
-| ClassificationInfoViewController.showAddClassificationView | 语法   | public void showAddClassificationView()  |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 跳转到添加商品信息界面                              |
-| ClassificationInfoViewController.showUpdateClassificationView | 语法   | public void showUpdateClassificationView() |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 跳转到更新商品分类信息界面                            |
+| CommodityManageViewController.commodityDelButtonAction | 语法   | public void commodityDelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除商品按钮                                 |
+|                                          | 后置条件 | 跳转删除商品界面                                 |
+| CommodityManageViewController.commodityAddButtonAction | 语法   | public void commodityAddButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击增加商品按钮                                 |
+|                                          | 后置条件 | 跳转增加商品界面                                 |
+| CommodityManageViewController.commodityModlButtonAction |      | public void commodityModButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击修改商品按钮                                 |
+|                                          | 后置条件 | 跳转输入需要修改的商品编号界面                          |
+| CommodityManageViewController.commoditySearchButtonAction |      | public void commoditySearchButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击查找商品按钮                                 |
+|                                          | 后置条件 | 跳转显示查找结果显示界面                             |
+|                                          |      |                                          |
 
 需要的服务(需接口)
 
-| 服务名                                      | 服务             |
-| ---------------------------------------- | -------------- |
-| ClassificationAllListViewController.showCommodityListView | 展示商品分类信息界面     |
-| ClassificationAddViewController.showAddView | 展示添加商品分类信息界面   |
-| ClassificationUpdateViewController.showUpdateView | 展示添加更新商品分类信息界面 |
 
-表5 CommodityAllListViewController的接口规范
+
+CommodityAddViewController 的接口规范 
 
 提供的服务 供接口 
 
-| 服务名                                 | 服务   |                                    |
-| ----------------------------------- | ---- | ---------------------------------- |
-| CommodityAllListViewController.back | 语法   | public void back()                 |
-|                                     | 前置条件 | 无                                  |
-|                                     | 后置条件 | 返回上一界面                             |
-| CommodityAllListViewController      | 语法   | public void showAllCommodityView() |
-|                                     | 前置条件 | 无                                  |
-|                                     | 后置条件 | 显示所有商品信息                           |
-
-需要的服务(需接口)
-
-| 服务名                                | 服务   |
-| ---------------------------------- | ---- |
-| CommodityBLService.searchCommodity | 得到商品 |
-|                                    |      |
-|                                    |      |
-
-表6 ClassificationAllViewController  的接口规范
-
-提供的服务 供接口 
-
-| 服务名                                      | 服务   |                                         |
-| ---------------------------------------- | ---- | --------------------------------------- |
-| ClassificationAllListViewController.back | 语法   | public void back()                      |
-|                                          | 前置条件 | 无                                       |
-|                                          | 后置条件 | 返回上一界面                                  |
-| ClassificationAllListViewController      | 语法   | public void showAllClassificationView() |
-|                                          | 前置条件 | 无                                       |
-|                                          | 后置条件 | 显示所有商品信息                                |
-
-需要的服务(需接口)
-
-| 服务名                                     | 服务         |
-| --------------------------------------- | ---------- |
-| CommodityBLService.getAllClassification | 得到所有商品分类信息 |
-| CommodityBLService.searchClassification | 搜索商品分类信息   |
-|                                         |            |
-
-表7 CommodityAddViewController 的接口规范 
-
-
-
-提供的服务 供接口 
-
-| 服务名                                    | 服务   |                           |
-| -------------------------------------- | ---- | ------------------------- |
-| CommodityAddViewController.back        | 语法   | public void back()        |
-|                                        | 前置条件 | 无                         |
-|                                        | 后置条件 | 返回上一界面                    |
-| CommodityAddViewController.showAddView | 语法   | public void showAddView() |
-|                                        | 前置条件 | 无                         |
-|                                        | 后置条件 | 显示更新界面                    |
-|                                        |      |                           |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CommodityAddViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 增加商品                                     |
+| CommodityAddViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回商品管理界面                                 |
+|                                          |      |                                          |
 
 需要的服务(需接口)
 
 | 服务名                             | 服务   |
 | ------------------------------- | ---- |
-| CommodityBLService.addCommodity | 更新商品 |
+| CommodityBLService.addCommodity | 增加商品 |
 |                                 |      |
 
-表8 ClassificationAddViewController 的接口规范 
+
+
+CommodityDelViewController 的接口规范 
 
 提供的服务 供接口 
 
-| 服务名                                      | 服务   |                              |
-| ---------------------------------------- | ---- | ---------------------------- |
-| ClassificationAddViewController.back     | 语法   | public void back()           |
-|                                          | 前置条件 | 无                            |
-|                                          | 后置条件 | 返回上一界面                       |
-| ClassificationAddViewController.showAddView | 语法   | public void showUpdateView() |
-|                                          | 前置条件 | 无                            |
-|                                          | 后置条件 | 显示更新界面                       |
-|                                          |      |                              |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CommodityDelViewController.delButtonAction | 语法   | public void delButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定删除按钮                                 |
+|                                          | 后置条件 | 删除商品                                     |
+| CommodityDelViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回商品管理界面                                 |
+|                                          |      |                                          |
 
 需要的服务(需接口)
 
 | 服务名                                | 服务   |
 | ---------------------------------- | ---- |
-| CommodityBLService.updateCommodity | 更新商品 |
+| CommodityBLService.deleteCommodity | 删除商品 |
 |                                    |      |
 
-表9  CommodityUpdateViewController  的接口规范
+
+
+CommoditySearchViewController 的接口规范 
 
 提供的服务 供接口 
 
-| 服务名                                      | 服务   |                              |
-| ---------------------------------------- | ---- | ---------------------------- |
-| CommodityUpdateViewController.back       | 语法   | public void back()           |
-|                                          | 前置条件 | 无                            |
-|                                          | 后置条件 | 返回上一界面                       |
-| CommodityUpdateViewController.showUpdateView | 语法   | public void showUpdateView() |
-|                                          | 前置条件 | 无                            |
-|                                          | 后置条件 | 显示更新界面                       |
-|                                          |      |                              |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CommoditySearchViewController.commoditySearchButtonAction | 语法   | public void commoditySearchButtonAction(Action Event e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 查找商品                                     |
+| CommoditySearchViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回商品管理界面                                 |
+|                                          |      |                                          |
 
 需要的服务(需接口)
 
-| 服务名                                | 服务   |
-| ---------------------------------- | ---- |
-| CommodityBLService.updateCommodity | 更新商品 |
-|                                    |      |
-
-表10  ClassificationUpdateViewController的接口规范
+CommoditySearchShowViewController 的接口规范 
 
 提供的服务 供接口 
 
-| 服务名                                      | 服务   |                              |
-| ---------------------------------------- | ---- | ---------------------------- |
-| ClassificationUpdateViewController.back  | 语法   | public void back()           |
-|                                          | 前置条件 | 无                            |
-|                                          | 后置条件 | 返回上一界面                       |
-| ClassificationUpdateViewController.showUpdateView | 语法   | public void showUpdateView() |
-|                                          | 前置条件 | 无                            |
-|                                          | 后置条件 | 显示更新界面                       |
-|                                          |      |                              |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CommoditySearchShowViewController.showTableView | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 |                                          |
+| CommoditySearchShowViewController.backButtonAction | 语法   | public void backButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回查找商品界面                                 |
+| CommoditySearchShowViewController.refreshButtonAction | 语法   | public void refreshButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击刷新按钮                                   |
+|                                          | 后置条件 |                                          |
 
 需要的服务(需接口)
 
-| 服务名                                     | 服务     |
-| --------------------------------------- | ------ |
-| CommodityBLService.updateClassification | 更新商品分类 |
-|                                         |        |
+| 服务名                                      | 服务   |
+| ---------------------------------------- | ---- |
+| CommodityInfoService.search(FilterFlagVO vo) | 查找商品 |
+|                                          |      |
 
-表11  StockViewController的接口规范
+
+
+CommodityModifySecondViewController 的接口规范 
 
 提供的服务 供接口 
 
-| 服务名                               | 服务   |                           |
-| --------------------------------- | ---- | ------------------------- |
-| StockViewController.back          | 语法   | public void back()        |
-|                                   | 前置条件 | 无                         |
-|                                   | 后置条件 | 返回上一界面                    |
-| StockViewController.showInitView  | 语法   | public void showInitView  |
-|                                   | 前置条件 | 无                         |
-|                                   | 后置条件 | 显示库存查看的初始界面               |
-| StockViewController.showStockView | 语法   | public void showStockView |
-|                                   | 前置条件 | 无                         |
-|                                   | 后置条件 | 显示库存查看的具体界面               |
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CommodityModifySecondViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 修改商品属性                                   |
+| CommodityModifySecondViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回商品管理界面                                 |
+|                                          |      |                                          |
+
+需要的服务(需接口)
+
+| 服务名                                 | 服务     |
+| ----------------------------------- | ------ |
+| CommodityBLService.updatedCommodity | 更新商品属性 |
+|                                     |        |
+
+
+
+StockCheckShowViewController的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| StockCheckShowViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击查看按钮                                   |
+|                                          | 后置条件 | 显示库存查看结果                                 |
+| StockViewController.showTableView        | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示库存查看的初始界面                              |
 
 需要的服务(需接口)
 
@@ -340,140 +330,214 @@
 |                          |      |
 |                          |      |
 
-表12  InventoryViewController  的接口规范
 
-提供的服务 供接口 
 
-| 服务名                                   | 服务   |                             |
-| ------------------------------------- | ---- | --------------------------- |
-| InventoryViewController.back          | 语法   | public void back()          |
-|                                       | 前置条件 | 无                           |
-|                                       | 后置条件 | 返回上一界面                      |
-| InventoryViewController.showInventory | 语法   | public void showInventory() |
-|                                       | 前置条件 | 无                           |
-|                                       | 后置条件 | 展示库存盘点界面                    |
-|                                       |      |                             |
-|                                       |      |                             |
-|                                       |      |                             |
-
-需要的服务(需接口)
-
-| 服务名                             | 服务     |
-| ------------------------------- | ------ |
-| StockBillService.checkInventory | 库存盘点界面 |
-|                                 |        |
-|                                 |        |
-
-表13  CreateMoreBillController  的接口规范
+StockInventoryViewController  的接口规范
 
 提供的服务 供接口 
 
 | 服务名                                      | 服务   |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| CreateMoreBillController.back            | 语法   | public void back()                       |
+| InventoryViewController.exportToExcelButtonAction | 语法   | public void exportToExcelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击导出按钮                                   |
+|                                          | 后置条件 | 导出Excel                                  |
+| InventoryViewController.showTableView    | 语法   | public void showTableView()              |
 |                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回上一界面                                   |
-| CreateMoreBillController.showCreateBillView | 语法   | CreateMoreBillController. showCreateBillView |
+|                                          | 后置条件 | 展示库存盘点界面                                 |
+|                                          |      |                                          |
+|                                          |      |                                          |
+|                                          |      |                                          |
+
+需要的服务(需接口)
+
+| 服务名                            | 服务     |
+| ------------------------------ | ------ |
+| StockBillService.viewInventory | 库存盘点界面 |
+|                                |        |
+|                                |        |
+
+
+
+BillStatusCheckViewController
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| BillStatusCheckViewController.showTableView | 语法   | public void showTableView()              |
 |                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 展示已制定单据的初始界面                             |
+| BillStatusCheckViewController.statusScreen | 语法   | public void statusScreen()               |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 单据状态筛选                                   |
+| BillStatusCheckViewController.typeScreen | 语法   | public void typeScreen()                 |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 单据类型筛选                                   |
+| BillStatusCheckViewController.screenBoxAction | 语法   | public void screenBoxAction(ActionEvent e) |
+|                                          | 前置条件 | 选择筛选条件                                   |
+|                                          | 后置条件 | 通过筛选条件来筛选单据                              |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务           |
+| ---------------------------------------- | ------------ |
+| StockManagerBillBLService.getMyStockBill | 得到当前业务员制定的单据 |
+|                                          |              |
+
+BillDetailsShowViewController
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| BillDetailsShowViewController.showTableView | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 展示单据详情                                   |
+| BillDetailsShowViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回处理单据的主界面                               |
+
+需要的服务(需接口)
+
+
+
+OverflowCreateViewController  的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| OverflowCreateViewController.saveButtonAction | 语法   | public void saveButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击保存按钮                                   |
+|                                          | 后置条件 | 保存单据                                     |
+| OverflowCreateViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击提交按钮                                   |
+|                                          | 后置条件 | 展示制定库存报溢单的界面                             |
+| OverflowCreateViewController.chooseCommodityButtonAction | 语法   | public void chooseCommodityButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击选择商品按钮                                 |
+|                                          | 后置条件 | 弹出选择商品的界面                                |
+| OverflowCreateViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回处理单据主界面                                |
+| OverflowCreateViewController.addRowButtonAction | 语法   | public void addRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击增加按钮                                   |
+|                                          | 后置条件 | 向商品列表添加一列商品                              |
+| OverflowCreateViewController.dealSelectedButtonAction | 语法   | public void dealSelectedButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除按钮                                   |
+|                                          | 后置条件 | 删除选中行商品                                  |
+
+需要的服务(需接口)
+
+| 服务名                                      | 服务     |
+| ---------------------------------------- | ------ |
+| StockManagerBillBLService.saveStockBill  | 保存单据   |
+| StockManagerBillBLService.commitStockBill | 提交单据   |
+| CommodityInfoService.getCommodity        | 获得商品属性 |
+|                                          |        |
+
+BreakageCreateViewController  的接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| BreakageCreateViewController.saveButtonAction | 语法   | public void saveButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击保存按钮                                   |
+|                                          | 后置条件 | 保存单据                                     |
+| BreakageCreateViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击提交按钮                                   |
 |                                          | 后置条件 | 展示制定库存报损单的界面                             |
+| BreakageCreateViewController.chooseCommodityButtonAction | 语法   | public void chooseCommodityButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击选择商品按钮                                 |
+|                                          | 后置条件 | 弹出选择商品的界面                                |
+| BreakageCreateViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回处理单据主界面                                |
+| BreakageCreateViewController.addRowButtonAction | 语法   | public void addRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击增加按钮                                   |
+|                                          | 后置条件 | 向商品列表添加一列商品                              |
+| BreakageCreateViewController.dealSelectedButtonAction | 语法   | public void dealSelectedButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除按钮                                   |
+|                                          | 后置条件 | 删除选中行商品                                  |
 
 需要的服务(需接口)
 
-| 服务名                          | 服务      |
-| ---------------------------- | ------- |
-| BillBLService.CreateMoreBill | 制定库存报溢单 |
-|                              |         |
+| 服务名                                      | 服务     |
+| ---------------------------------------- | ------ |
+| StockManagerBillBLService.saveStockBill  | 保存单据   |
+| StockManagerBillBLService.commitStockBill | 提交单据   |
+| CommodityInfoService.getCommodity        | 获得商品属性 |
+|                                          |        |
 
-表14  CreateLessBillController 的接口规范
+
+
+表17  AlertCreateViewController  的接口规范
+
+提供的服务 供接口 
+
+
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| AlertCreatelViewController.showTableView | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 展示报警单的初始界面                               |
+| AlertCreateViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| AlertCreateViewController.dealAllButtonAction | 语法   | public void dealAllButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击全部处理按钮                                 |
+|                                          | 后置条件 | 处理所有的报警单                                 |
+| AlertCreateViewController.dealSelectedButtonAction | 语法   | public void dealSelectedButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击处理按钮                                   |
+|                                          | 后置条件 | 处理选中的报警单                                 |
+
+需要的服务(需接口)
+
+| 服务名                               | 服务      |
+| --------------------------------- | ------- |
+| BillBLService.getAllAlarmBill     | 得到库存报警单 |
+| CommodityInfoService.getCommodity | 获得商品属性  |
+
+AddClassificationViewController
 
 提供的服务 供接口 
 
 | 服务名                                      | 服务   |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| CreateLessBillController.back            | 语法   | public void back()                       |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回上一界面                                   |
-| CreateLessBillController.showCreateBillView | 语法   | CreateLessBillController. showCreateBillView |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 展示制定库存报损单的界面                             |
+| AddClassificationViewController.sureButton | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 增加分类                                     |
+| AddClassificationViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 关闭增加分类界面                                 |
 
 需要的服务(需接口)
 
-| 服务名                          | 服务      |
-| ---------------------------- | ------- |
-| BillBLService.CreateLessBill | 制定库存报损单 |
-|                              |         |
+| 服务名                                  | 服务   |
+| ------------------------------------ | ---- |
+| CommodityBLService.addClassification | 增加分类 |
 
-表15  CreatePrensentationBillController 的接口规范
+
+
+AddCommodityViewController
 
 提供的服务 供接口 
 
 | 服务名                                      | 服务   |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| CreatePrensentationBillController.back   | 语法   | public void back()                       |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回上一界面                                   |
-| CreatePrensentationBillController.showCreateBillView | 语法   | CreatePrensentationBillController. showCreateBillView |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 展示制定库存赠送单的界面                             |
+| AddCommodityViewController.sureButton    | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 增加商品                                     |
+| AddCommodityViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 关闭增加商品界面                                 |
 
 需要的服务(需接口)
 
-| 服务名                                   | 服务      |
-| ------------------------------------- | ------- |
-| BillBLService.CreatePrensentationBill | 制定库存赠送单 |
-|                                       |         |
-
-表16  BillViewController的接口规范
-
-提供的服务 供接口 
-
-| 服务名                               | 服务   |                            |
-| --------------------------------- | ---- | -------------------------- |
-| BillViewController.back           | 语法   | public void back()         |
-|                                   | 前置条件 | 无                          |
-|                                   | 后置条件 | 返回上一界面                     |
-| BillViewController.showBillList   | 语法   | public void showBillList   |
-|                                   | 前置条件 | 无                          |
-|                                   | 后置条件 | 展示所有的单据信息                  |
-| BillViewController.showBillDetail | 语法   | public void showBillDetail |
-|                                   | 前置条件 | 无                          |
-|                                   | 后置条件 | 展示单据的具体信息                  |
-
-需要的服务(需接口)
-
-| 服务名                      | 服务        |
-| ------------------------ | --------- |
-| BillBLService.searchBill | 搜索订单      |
-| BillBLService.getBill    | 得到订单的具体信息 |
-|                          |           |
-|                          |           |
-
-表17  AlertBillViewController  的接口规范
-
-提供的服务 供接口 
-
-
-
-| 服务名                                   | 服务   |                             |
-| ------------------------------------- | ---- | --------------------------- |
-| AlertBillViewController.back          | 语法   | public void back()          |
-|                                       | 前置条件 | 无                           |
-|                                       | 后置条件 | 返回上一界面                      |
-| AlertBillViewController.showAlertBill | 语法   | public void showAlertBill() |
-|                                       | 前置条件 | 无                           |
-|                                       | 后置条件 | 显示库存报警单                     |
-
-
-
-需要的服务(需接口)
-
-| 服务名                           | 服务      |
-| ----------------------------- | ------- |
-| BillBLService.searchAlertBill | 得到库存报警单 |
-|                               |         |
-|                               |         |
-|                               |         |
+| 服务名                             | 服务   |
+| ------------------------------- | ---- |
+| CommodityBLService.addCommodity | 增加商品 |
 
 
 
@@ -481,338 +545,400 @@
 
 ##### （1）整体结构
 
-展示层的控制器为树状委托式结构，StockSellerViewController负责对进货销售人员界面的整体跳转，StockSellerNavBarController负责实现导航栏界面，CustomerManagerViewController、BillCreateViewController分别实现进货销售人员导航栏的客户管理和制定单据的跳转
+展示层的控制器为树状委托式结构，StockSellerMainViewController负责对进货销售人员界面的整体跳转，StockSellerNavBarController负责实现导航栏界面，CustomerManagerViewController、BillCreateViewController分别实现进货销售人员导航栏的客户管理和制定单据的跳转
 
 StockSeller界面各类的职责如表4.1.2(1)-1所示
 
 表4.1.2(1)-1 StockSeller界面各类的职责
 
-| 模块                              | 职责                 |
-| ------------------------------- | ------------------ |
-| StockSellerViewController       | 负责实现对进货销售人员界面的整体跳转 |
-| StockSellerNavBarController     | 负责实现进货销售人员导航栏      |
-| CustomerManageViewController    | 负责进货销售人员客户管理界面     |
-| BillCreateViewController        | 负责进货销售人员制定单据理界面    |
-| CustomerAddViewController       | 负责进货销售人员增加客户界面     |
-| CustomerDelViewController       | 负责进货销售人员删除客户界面     |
-| CustomerModifyViewController    | 负责进货销售人员修改客户属性界面   |
-| CustomerSearchViewController    | 负责进货销售人员查找客户界面     |
-| CustomerShowViewController      | 负责进货销售人员展示客户属性界面   |
-| PurchaseCreateViewController    | 负责进货销售人员制定进货单界面    |
-| SalesCreateViewController       | 负责进货销售人员制定进货退货单界面  |
-| PurchaseRetCreateViewController | 负责进货销售人员制定销售单界面    |
-| SalesRetCreateViewController    | 负责进货销售人员制定销售退货单界面  |
+| 模块                                 | 职责                 |
+| ---------------------------------- | ------------------ |
+| StockSellerMainViewController      | 负责实现对进货销售人员界面的整体跳转 |
+| CustomerManageViewController       | 负责客户管理界面           |
+| BillCreateViewController           | 负责制定单据理界面          |
+| BillStatusCheckViewController      | 负责实现查看已制定单据状态界面    |
+| BillDetailsShowViewController      | 负责实现查看单据详情界面       |
+| CustomerAddViewController          | 负责增加客户界面           |
+| CustomerDelViewController          | 负责删除客户界面           |
+| CustomerModifyFirstViewController  | 负责实现输入需要修改的客户编号界面  |
+| CustomerModifySecondViewController | 负责修改客户属性界面         |
+| CustomerSearchViewController       | 负责查找客户界面           |
+| CustomerSearchShowViewController   | 负责实现查找客户结果列表显示界面   |
+| CustomerInfoShowViewController     | 负责展示客户属性界面         |
+| CustomerInfoModifyViewController   | 负责实现修改客户属性界面       |
+| PurchaseCreateViewController       | 负责制定进货单界面          |
+| SalesCreateViewController          | 负责制定进货退货单界面        |
+| PurcRetCreateViewController        | 负责制定销售单界面          |
+| SalesRetCreateViewController       | 负责制定销售退货单界面        |
+| SalesBillDetailsShowViewController | 负责实现查看销售类单据详情界面    |
+| SelectPromotionViewController      | 负责实现选择促销策略界面       |
 
 ##### （2）模块内部类的接口规范
 
-表4.1.2(2)-1 StockSellerViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                      | 服务   | 服务                                   |
-| ---------------------------------------- | ---- | ------------------------------------ |
-| StockSellerViewController.showCustomerManage | 语法   | public boolean showCustomerManage(); |
-|                                          | 前置条件 | 点击导航栏客户管理                            |
-|                                          | 后置条件 | 显示客户管理界面                             |
-| StockSellerViewController.showBillCreate | 语法   | public boolean showBillCreate();     |
-|                                          | 前置条件 | 点击导航栏制定单据                            |
-|                                          | 后置条件 | 显示制定单据界面                             |
-|                                          |      |                                      |
-
-需要的服务（需接口）
-
-| 服务名                               | 服务       |
-| --------------------------------- | -------- |
-| CustomerManageViewController.show | 显示客户管理界面 |
-| BillCreateViewController.show     | 显示制定单据界面 |
-|                                   |          |
-
-表4.1.2(2)-2 StockSellerNavBarController的接口规范
-
-提供的服务（供接口）
-
-无
-
-需要的服务（需接口）
-
-| 服务名                               | 服务       |
-| --------------------------------- | -------- |
-| CustomerManageViewController.show | 显示客户管理界面 |
-| BillCreateViewController.show     | 显示制定单据界面 |
-|                                   |          |
-
-表4.1.2(2)-3 CustomerManageViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                      | 服务   | 服务                                  |
-| ---------------------------------------- | ---- | ----------------------------------- |
-| CustomerManageViewController.showAddCustomer | 语法   | public boolean showAddCustomer()    |
-|                                          | 前置条件 | 点击增加客户按钮                            |
-|                                          | 后置条件 | 显示增加客户界面                            |
-| CustomerManageViewController.showDelCustomer | 语法   | public boolean showDelCustomer()    |
-|                                          | 前置条件 | 点击删除客户按钮                            |
-|                                          | 后置条件 | 显示删除客户界面                            |
-| CustomerManageViewController.showModityCustomer | 语法   | public boolean showModifyCustomer() |
-|                                          | 前置条件 | 点击修改客户属性按钮                          |
-|                                          | 后置条件 | 显示修改客户属性界面                          |
-| CustomerManageViewController.showSearchCustomer | 语法   | public boolean showSearchCustomer() |
-|                                          | 前置条件 | 点击查找客户按钮                            |
-|                                          | 后置条件 | 显示查找客户界面                            |
-| CustomerManageViewController.show        | 语法   | public boolean show()               |
-|                                          | 前置条件 | 无                                   |
-|                                          | 后置条件 | 显示客户管理界面                            |
-
-需要的服务（需接口）
-
-| 服务名                               | 服务         |
-| --------------------------------- | ---------- |
-| CustomerAddViewController.show    | 显示增加客户界面   |
-| CustomerDelViewController.show    | 显示删除客户界面   |
-| CustomerModifyViewController.show | 显示修改客户属性界面 |
-| CustomerSearchViewController.show | 显示查找客户界面   |
-|                                   |            |
-
-表4.1.2(2)-4 BillCreateViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                      | 服务   | 服务                                     |
-| ---------------------------------------- | ---- | -------------------------------------- |
-| BillCreateViewController.showSalseCreate | 语法   | public boolean showSalseCreate()       |
-|                                          | 前置条件 | 点击制定销售单按钮                              |
-|                                          | 后置条件 | 显示制定销售单界面                              |
-| BillCreateViewController.showSalesRetCreate | 语法   | public boolean showSalseRetCreate()    |
-|                                          | 前置条件 | 点击制定销售退货单按钮                            |
-|                                          | 后置条件 | 显示制定销售退货单界面                            |
-| BillCreateViewController.showPurchaseCreate | 语法   | public boolean showPurchaseCreate()    |
-|                                          | 前置条件 | 点击制定进货单按钮                              |
-|                                          | 后置条件 | 显示制定进货单界面                              |
-| BillCreateViewController.showPurchaseRetCreate | 语法   | public boolean showPurchaseRetCreate() |
-|                                          | 前置条件 | 点击制定进货退货单按钮                            |
-|                                          | 后置条件 | 显示制定进货退货单界面                            |
-| BillCreateViewController.show            | 语法   | public boolean show()                  |
-|                                          | 前置条件 | 无                                      |
-|                                          | 后置条件 | 显示制定的单据界面                              |
-
-需要的服务（需接口）
-
-| 服务名                                  | 服务          |
-| ------------------------------------ | ----------- |
-| PurchaseCreateViewController.show    | 显示制定进货单界面   |
-| PurchaseRetCreateViewController.show | 显示制定进货退货单界面 |
-| SalesCreateViewController.show       | 显示制定销售单界面   |
-| SalesRetCreateViewController.show    | 显示制定销售退货单界面 |
-
-表4.1.2(2)-5 CustomerAddViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                   | 服务   | 服务                                       |
-| ------------------------------------- | ---- | ---------------------------------------- |
-| CustomerAddViewController.back        | 语法   | public boolean back()                    |
-|                                       | 前置条件 | 点击返回按钮                                   |
-|                                       | 后置条件 | 返回上一界面                                   |
-| CustomerAddViewController.addCustomer | 语法   | public boolean addCustomer(CustomerVO customer) |
-|                                       | 前置条件 | 点击确定按钮                                   |
-|                                       | 后置条件 | 系统更新数据                                   |
-| CustomerAddViewController.show        | 语法   | public boolean show()                    |
-|                                       | 前置条件 | 无                                        |
-|                                       | 后置条件 | 显示增加客户界面                                 |
-
-需要的服务（需接口）
-
-| 服务名                               | 服务       |
-| --------------------------------- | -------- |
-| CustomerManageViewController.show | 显示客户管理界面 |
-| StockSellerBLService.addCustomer  | 增加客户     |
-
-表4.1.2(2)-6 CustomerDelViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                   | 服务   | 服务                                    |
-| ------------------------------------- | ---- | ------------------------------------- |
-| CustomerDelViewController.back        | 语法   | public boolean back()                 |
-|                                       | 前置条件 | 点击返回按钮                                |
-|                                       | 后置条件 | 返回上一界面                                |
-| CustomerDelViewController.delCustomer | 语法   | public boolean delCustomer(String ID) |
-|                                       | 前置条件 | 点击确定按钮                                |
-|                                       | 后置条件 | 系统更新数据                                |
-| CustomerDelViewController.show        | 语法   | public boolean show()                 |
-|                                       | 前置条件 | 无                                     |
-|                                       | 后置条件 | 显示删除客户界面                              |
-
-需要的服务（需接口）
-
-| 服务名                               | 服务       |
-| --------------------------------- | -------- |
-| CustomerManageViewController.show | 显示客户管理界面 |
-| StockSellerBLService.delCustomer  | 删除客户     |
-
-表4.1.2(2)-7 CustomerModifyViewController的接口规范
+StockSellerMainViewController的接口规范
 
 提供的服务（供接口）
 
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| CustomerModifyViewController.back        | 语法   | public boolean back()                    |
-|                                          | 前置条件 | 点击返回按钮                                   |
-|                                          | 后置条件 | 返回上一界面                                   |
-| CustomerModifyViewController.modifyCustomer | 语法   | public boolean modifyCustomer(CustomerVO customer) |
-|                                          | 前置条件 | 点击确定按钮                                   |
-|                                          | 后置条件 | 系统更新数据                                   |
-| CustomerModifyViewController.show        | 语法   | public boolean show()                    |
-|                                          | 前置条件 | 无                                        |
+| StockSellerViewController.customerManageButtonAction | 语法   | public void customerManageButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击客户管理                                   |
+|                                          | 后置条件 | 显示客户管理界面                                 |
+| StockSellerViewController.billCreateButtonAction | 语法   | public void billCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定单据                                   |
+|                                          | 后置条件 | 显示制定单据界面                                 |
+|                                          |      |                                          |
+
+需要的服务（需接口）
+
+
+
+CustomerManageViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CustomerManageViewController.customerAddButtonAction | 语法   | public void customerAddButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击增加客户按钮                                 |
+|                                          | 后置条件 | 显示增加客户界面                                 |
+| CustomerManageViewController.customerDelButtonAction | 语法   | public void customerDelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除客户按钮                                 |
+|                                          | 后置条件 | 显示删除客户界面                                 |
+| CustomerManageViewController.customerModifyButtonAction | 语法   | public void customerModifyButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击修改客户属性按钮                               |
 |                                          | 后置条件 | 显示修改客户属性界面                               |
+| CustomerManageViewController.customerSearchShowButtonAction | 语法   | public void customerSearchShowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击查找按钮                                   |
+|                                          | 后置条件 | 显示查找客户界面                                 |
+| CustomerManageViewController.billCreateButtonAction | 语法   | public void billCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 跳转制定单据界面                                 |
+| CustomerManageViewController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击登出按钮                                   |
+|                                          | 后置条件 | 跳转登陆界面                                   |
 
 需要的服务（需接口）
 
-| 服务名                                 | 服务       |
-| ----------------------------------- | -------- |
-| CustomerManageViewController.show   | 显示客户管理界面 |
-| StockSellerBLService.modifyCustomer | 修改客户属性   |
 
-表4.1.2(2)-8 CustomerSearchViewController的接口规范
+
+BillCreateViewController的接口规范
 
 提供的服务（供接口）
 
 | 服务名                                      | 服务   | 服务                                       |
 | ---------------------------------------- | ---- | ---------------------------------------- |
-| CustomerSearchViewController.back        | 语法   | public boolean back()                    |
-|                                          | 前置条件 | 点击返回按钮                                   |
-|                                          | 后置条件 | 返回上一界面                                   |
-| CustomerSearchViewController.searchCustomer | 语法   | public ArrayList< CustomerVO > searchCustomer(String keyType, String keyword) |
-|                                          | 前置条件 | 点击确定按钮                                   |
-|                                          | 后置条件 | 返回符合关键词的客户属性列表                           |
-| CustomerSearchViewController.show        | 语法   | public boolean show()                    |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 显示查找客户属性界面                               |
-| CustomerSearchViewController.showCustomer | 语法   | public boolean showCustomer(String ID)   |
-|                                          | 前置条件 | 点击查看客户属性按钮                               |
-|                                          | 后置条件 | 显示显示客户属性界面                               |
-
-需要的服务（需接口）
-
-| 服务名                                 | 服务       |
-| ----------------------------------- | -------- |
-| CustomerManageViewController.show   | 显示客户管理界面 |
-| CustomerShowViewController.show     | 显示客户属性   |
-| StockSellerBLService.searchCustomer | 查找客户     |
-|                                     |          |
-
-表4.1.2(2)-9 CustomerShowViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                             | 服务   | 服务                             |
-| ------------------------------- | ---- | ------------------------------ |
-| CustomerShowViewController.back | 语法   | public boolean back()          |
-|                                 | 前置条件 | 点击返回按钮                         |
-|                                 | 后置条件 | 返回上一界面                         |
-| CustomerShowViewController.show | 语法   | public boolean show(String ID) |
-|                                 | 前置条件 | 无                              |
-|                                 | 后置条件 | 显示客户属性                         |
-
-需要的服务（需接口）
-
-| 服务名                                  | 服务       |
-| ------------------------------------ | -------- |
-| CustomerManageViewController.show    | 显示客户管理界面 |
-| StockSellerBLService.getCustomerInfo | 查找客户     |
-|                                      |          |
-
-表4.1.2(2)-10 PurchaseCreateViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                      | 服务   | 服务                                       |
-| ---------------------------------------- | ---- | ---------------------------------------- |
-| PurchaseCreateViewController.show        | 语法   | public boolean show()                    |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 显示制定进货单界面                                |
-| PurchaseCreateViewController.back        | 语法   | public boolean back()                    |
-|                                          | 前置条件 | 点击返回按钮                                   |
-|                                          | 后置条件 | 返回上一界面                                   |
-| PurchaseCreateViewController.createPurchase | 语法   | public boolean createPurchase(PurchaseVO purchase) |
-|                                          | 前置条件 | 点击确认按钮                                   |
-|                                          | 后置条件 | 创建进货单                                    |
-
-需要的服务（需接口）
-
-| 服务名                                 | 服务       |
-| ----------------------------------- | -------- |
-| BillCreateViewController.show       | 显示制定单据界面 |
-| StockSellerBLService.createPurchase | 创建进货单    |
-
-表4.1.2(2)-11 PurchaseRetCreateViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                      | 服务   | 服务                                       |
-| ---------------------------------------- | ---- | ---------------------------------------- |
-| PurchaseRetCreateViewController.show     | 语法   | public boolean show()                    |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 显示制定进货退货单界面                              |
-| PurchaseRetCreateViewController.back     | 语法   | public boolean back()                    |
-|                                          | 前置条件 | 点击返回按钮                                   |
-|                                          | 后置条件 | 返回上一界面                                   |
-| PurchaseRetCreateViewController.createPurchaseRet | 语法   | public boolean createPurchaseRet(PurchaseVO puret) |
-|                                          | 前置条件 | 点击确认按钮                                   |
-|                                          | 后置条件 | 创建进货退货单                                  |
-
-需要的服务（需接口）
-
-| 服务名                                    | 服务       |
-| -------------------------------------- | -------- |
-| BillCreateViewController.show          | 显示制定单据界面 |
-| StockSellerBLService.createPurchaseRet | 创建进货退货单  |
-
-表4.1.2(2)-12 SalesCreateViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                   | 服务   | 服务                                       |
-| ------------------------------------- | ---- | ---------------------------------------- |
-| SalesCreateViewController.show        | 语法   | public boolean show()                    |
-|                                       | 前置条件 | 无                                        |
-|                                       | 后置条件 | 显示制定销售单界面                                |
-| SalesCreateViewController.back        | 语法   | public boolean back()                    |
-|                                       | 前置条件 | 点击返回按钮                                   |
-|                                       | 后置条件 | 返回上一界面                                   |
-| SalesCreateViewController.createSales | 语法   | public boolean createSales(SalesVO sales) |
-|                                       | 前置条件 | 点击确认按钮                                   |
-|                                       | 后置条件 | 创建销售单                                    |
-
-需要的服务（需接口）
-
-| 服务名                              | 服务       |
-| -------------------------------- | -------- |
-| BillCreateViewController.show    | 显示制定单据界面 |
-| StockSellerBLService.createSales | 创建销售单    |
-
-表4.1.2(2)-13 SalesRetCreateViewController的接口规范
-
-提供的服务（供接口）
-
-| 服务名                                      | 服务   | 服务                                       |
-| ---------------------------------------- | ---- | ---------------------------------------- |
-| SalesRetCreateViewController.show        | 语法   | public boolean show()                    |
-|                                          | 前置条件 | 无                                        |
+| BillCreateViewController.salesCreateButtonAction | 语法   | public void salesCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定销售单按钮                                |
+|                                          | 后置条件 | 显示制定销售单界面                                |
+| BillCreateViewController.salesRetCreateButtonAction | 语法   | public void salesRetCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定销售退货单按钮                              |
 |                                          | 后置条件 | 显示制定销售退货单界面                              |
-| SalesRetCreateViewController.back        | 语法   | public boolean back()                    |
-|                                          | 前置条件 | 点击返回按钮                                   |
-|                                          | 后置条件 | 返回上一界面                                   |
-| SalesRetCreateViewController.createSalesRet | 语法   | public boolean createSalesRet(SalesVO saleret) |
-|                                          | 前置条件 | 点击确认按钮                                   |
-|                                          | 后置条件 | 创建销售退货单                                  |
+| BillCreateViewController.purchaseCreateButtonAction | 语法   | public void purchaseCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定进货单按钮                                |
+|                                          | 后置条件 | 显示制定进货单界面                                |
+| BillCreateViewController.purcRetCreateButtonAction | 语法   | public void purcRetCreateButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击制定进货退货单按钮                              |
+|                                          | 后置条件 | 显示制定进货退货单界面                              |
+| BillCreateViewController.billCheckButtonAction | 语法   | public void billCheckButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击查看单据详情按钮                               |
+|                                          | 后置条件 | 显示已制定单据列表界面                              |
 
 需要的服务（需接口）
 
-| 服务名                                 | 服务       |
-| ----------------------------------- | -------- |
-| BillCreateViewController.show       | 显示制定单据界面 |
-| StockSellerBLService.createSalesRet | 创建销售退货单  |
+
+
+CustomerAddViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CustomerAddViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| CustomerAddViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 增加客户                                     |
+
+需要的服务（需接口）
+
+| 服务名                           | 服务   |
+| ----------------------------- | ---- |
+| CustomerBLService.addCustomer | 增加客户 |
+|                               |      |
+
+
+
+CustomerDelViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CustomerDelViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| CustomerDelViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 删除客户                                     |
+
+
+
+需要的服务（需接口）
+
+| 服务名                           | 服务   |
+| ----------------------------- | ---- |
+| CustomerBLService.delCustomer | 服务   |
+
+表4.1.2(2)-7 CustomerModifySecondViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CustomerModifySecondViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| CustomerModifySecondViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 修改客户属性                                   |
+
+需要的服务（需接口）
+
+| 服务名                              | 服务     |
+| -------------------------------- | ------ |
+| CustomerBLService.modifyCustomer | 修改客户属性 |
+
+
+
+CustomerSearchShowViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CustomerSearchShowViewController.backButtonAction | 语法   | public boolean backButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| CustomerSearchShowViewController.showTableView | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 查找列表的初始界面                                |
+| CustomerSearchShowViewController.refresh | 语法   | public void refresh()                    |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 刷新列表                                     |
+| CustomerSearchShowViewController.refreshButtonAction | 语法   | public void refreshButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击刷新按钮                                   |
+|                                          | 后置条件 | 刷新列表                                     |
+
+需要的服务（需接口）
+
+| 服务名                               | 服务   |
+| --------------------------------- | ---- |
+| CustomerBLService.searchCustomer  | 查找客户 |
+| CustomerBLService.getCustomerInfo | 获取客户 |
+
+表4.1.2(2)-9 CustomerInfoShowViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| CustomerInfoShowViewController.delButtonAction | 语法   | public void delButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除按钮                                   |
+|                                          | 后置条件 | 删除当前显示的客户                                |
+| CustomerInfoShowViewController.modButtonAction | 语法   | public void modButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击修改按钮                                   |
+|                                          | 后置条件 | 跳转修改属性界面                                 |
+| CustomerInfoShowViewController.backButtonAction | 语法   | public void backButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+
+需要的服务（需接口）
+
+| 服务名                               | 服务   |
+| --------------------------------- | ---- |
+| CustomerBLService.delCustomer     | 删除客户 |
+| CustomerBLService.getCustomerInfo | 获取客户 |
+|                                   |      |
+
+
+
+PurchaseCreateViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| PurchaseCreateViewController.showTableView | 语法   | public void showTableView                |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示制定进货单初始界面                              |
+| PurchaseCreateViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| PurchaseCreateViewController.saveBill    | 语法   | public void saveBill                     |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 保存单据                                     |
+| PurchaseCreateViewController.saveButtonAction | 语法   | public void saveButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击保存按钮                                   |
+|                                          | 后置条件 | 保存单据至系统                                  |
+| PurchaseCreateViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击提交按钮                                   |
+|                                          | 后置条件 | 提交单据至系统                                  |
+| PurchaseCreateViewController.chooseButtonAction | 语法   | public void chooseButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击选择商品按钮                                 |
+|                                          | 后置条件 | 选择商品                                     |
+| PurchaseCreateViewController.addRowButtonAction | 语法   | public void addRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击增加按钮                                   |
+|                                          | 后置条件 | 增加一列商品到列表                                |
+| PurchaseCreateViewController.delRowButtonAction | 语法   | public void delRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除按钮                                   |
+|                                          | 后置条件 | 列表中删除选中的商品                               |
+
+需要的服务（需接口）
+
+| 服务名                                     | 服务    |
+| --------------------------------------- | ----- |
+| SalesmanBillBLService.saveSalesInBill   | 保存进货单 |
+| SalesmanBillBLService.commitSalesInBill | 提交进货单 |
+| CommodityInfoService.getCommodity       | 获取商品  |
+| CustomerBLInfo.getCustomerByID          | 获取客户  |
+
+PurcRetCreateViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| PurcRetCreateViewController.showTableView | 语法   | public void showTableView                |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示制定进货退货单初始界面                            |
+| PurcRetCreateViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| PurcRetCreateViewController.saveBill     | 语法   | public void saveBill                     |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 保存单据                                     |
+| PurcRetCreateViewController.saveButtonAction | 语法   | public void saveButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击保存按钮                                   |
+|                                          | 后置条件 | 保存进货退货单至系统                               |
+| PurcRetCreateViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击提交按钮                                   |
+|                                          | 后置条件 | 提交进货退货单至系统                               |
+| PurcRetCreateViewController.chooseButtonAction | 语法   | public void chooseButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击选择商品按钮                                 |
+|                                          | 后置条件 | 选择商品                                     |
+| PurcRetCreateViewController.addRowButtonAction | 语法   | public void addRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击增加按钮                                   |
+|                                          | 后置条件 | 增加一列商品到列表                                |
+| PurcRetCreateViewController.delRowButtonAction | 语法   | public void delRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除按钮                                   |
+|                                          | 后置条件 | 列表中删除选中的商品                               |
+
+需要的服务（需接口）
+
+| 服务名                                     | 服务      |
+| --------------------------------------- | ------- |
+| SalesmanBillBLService.saveSalesInBill   | 保存进货退货单 |
+| SalesmanBillBLService.commitSalesInBill | 提交进货退货单 |
+| CommodityInfoService.getCommodity       | 获取商品    |
+| CustomerBLInfo.getCustomerByID          | 获取客户    |
+
+
+
+SalesCreateViewController的接口规范
+
+提供的服务（供接口）
+
+需要的服务（需接口）
+
+
+
+SalesRetCreateViewController的接口规范
+
+提供的服务（供接口）
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| SalesRetCreateViewController.showTableView | 语法   | public void showTableView                |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示制定销售退货单初始界面                            |
+| SalesRetCreateViewController.cancelButtonAction | 语法   | public void cancelButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| SalesRetCreateViewController.saveBill    | 语法   | public void saveBill                     |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 保存单据                                     |
+| SalesRetCreateViewController.saveButtonAction | 语法   | public void saveButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击保存按钮                                   |
+|                                          | 后置条件 | 保存单据至系统                                  |
+| SalesRetCreateViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击提交按钮                                   |
+|                                          | 后置条件 | 提交销售退货单至系统                               |
+| SalesRetCreateViewController.chooseButtonAction | 语法   | public void chooseButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击选择商品按钮                                 |
+|                                          | 后置条件 | 选择商品                                     |
+| SalesRetCreateViewController.addRowButtonAction | 语法   | public void addRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击增加按钮                                   |
+|                                          | 后置条件 | 增加一列商品到列表                                |
+| SalesRetCreateViewController.delRowButtonAction | 语法   | public void delRowButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击删除按钮                                   |
+|                                          | 后置条件 | 列表中删除选中的商品                               |
+
+需要的服务（需接口）
+
+| 服务名                                      | 服务      |
+| ---------------------------------------- | ------- |
+| SalesmanBillBLService.saveSalesOutBill   | 保存销售退货单 |
+| SalesmanBillBLService.commitSalesOutBill | 提交销售退货单 |
+| CommodityInfoService.getCommodity        | 获取商品    |
+| CustomerBLInfo.getCustomerByID           | 获取客户    |
+
+
+
+SelectPromotionViewController接口规范
+
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| SelectPromotionViewController.showCustomerPromotion | 语法   | public void showCustomerPromotion()      |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示客户等级折让内容                               |
+| SelectPromotionViewController.returnButtonAction | 语法   | public void ButtonAction(ActionEvent e)  |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| SelectPromotionViewController.showGrossPromotion | 语法   | public void showGrossPromotion()         |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示总额折让内容                                 |
+| SelectPromotionViewController.showGroupPromotion | 语法   | public void showGroupPromotion()         |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 显示特价包内容                                  |
+| SelectPromotionViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 选择促销策略                                   |
+
+需要的服务（需接口）
+
+| 服务名                                      | 服务            |
+| ---------------------------------------- | ------------- |
+| PromotionBLInfo.getAvailableCustomerPromotion | 获取可用的客户等级折让策略 |
+| PromotionBLInfo.getAvailableGrossPromotion | 获取可用的总额折让策略   |
+| PromotionBLInfo.getAvailableGroupPromotion | 获取可用的特价包折让策略  |
+| SalesmanBillBLService.setCustomerPromotion | 选择客户等级折让      |
+| SalesmanBillBLService.setGroupPromotion  | 选择特价包折让       |
+| SalesmanBillBLService.setGrossPromotion  | 选择总额折让        |
+
+BillDetailsShowViewController接口规范
+
+提供的服务 供接口 
+
+| 服务名                                      | 服务   |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| BillDetailsShowViewController.showTableView | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 展示单据详情                                   |
+| BillDetailsShowViewController.returnButtonAction | 语法   | public void returnButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击返回按钮                                   |
+|                                          | 后置条件 | 返回处理单据的主界面                               |
 
 
 
@@ -1280,185 +1406,432 @@ finance各个类的职责如表4.1.3(1)-1所示<br>
 | billBLService.saveFinanceBill    | 保存财务类单据  |
 | billBLService.commitFinanceBill  | 提交财务类单据  |
 
-表4.1.3(2)-10 TableViewController的接口规范
-
-| 提供的接口(供接口)                 |      |                                          |
-| -------------------------- | ---- | ---------------------------------------- |
-| 服务名                        |      | 服务                                       |
-| TableViewController.search | 语法   | public ArrayList<Bill> search(BillFilter filter) |
-|                            | 前置条件 | 点击搜索button                               |
-|                            | 后置条件 | 返回匹配的单据                                  |
-| TableViewController.show   | 语法   | public void show()                       |
-|                            | 前置条件 | 无                                        |
-|                            | 后置条件 | 显示界面                                     |
-
-| 需要的接口(需接口)                       |         |
-| -------------------------------- | ------- |
-| 服务名                              | 服务      |
-| FinanceInfoController.searchBill | 返回匹配的单据 |
-
-表4.1.3(2)-11CheckGeneralAccountController的接口规范
-
-| 提供的接口(供接口)                               |      |                                          |
-| ---------------------------------------- | ---- | ---------------------------------------- |
-| 服务名                                      |      | 服务                                       |
-| CheckGeneralAccountController.showSearchView | 语法   | public void showSearchView()             |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 显示期初建账的搜索界面                              |
-| CheckGeneralAccountController.search     | 语法   | public void search()                     |
-|                                          | 前置条件 | 用户点击搜索button                             |
-|                                          | 后置条件 | 显示符合条件的总账列表                              |
-| CheckGeneralAccountController.add        | 语法   | public ResultMessage add(GeneralAccount account) |
-|                                          | 前置条件 | 用户点击增加button                             |
-|                                          | 后置条件 | 返回增加账户状态                                 |
-
-| 需要的服务(需接口)                               |           |
-| ---------------------------------------- | --------- |
-| 服务名                                      | 服务        |
-| FinanceInfoController.searchGeneralAccount | 搜索符合条件的单据 |
-| CreateGeneralAccountController.show      | 显示增加账户界面  |
-
-表4.1.3(2)-12 CreateGeneralAccountController的接口规范
-
-| 提供的服务(供接口)                            |      |                                          |
-| ------------------------------------- | ---- | ---------------------------------------- |
-| 服务名                                   |      | 服务                                       |
-| CreateGeneralAccountController.show   | 语法   | public void show()                       |
-|                                       | 前置条件 | 无                                        |
-|                                       | 后置条件 | 显示期初建账界面                                 |
-| CreateGeneralAccountController.commit | 语法   | public void commit(GeneralAccount account) |
-|                                       | 前置条件 | 点击提交按钮                                   |
-|                                       | 后置条件 | 返回提交状态                                   |
-
-| 需要的服务(需接口)                               |      |
-| ---------------------------------------- | ---- |
-| 服务名                                      | 服务   |
-| FinanceInfoController.commitGeneralAccount | 提交账户 |
-
-表4.1.3(2)-13 FinanceInfoController的接口规范
+表4.1.3(2)-10 FinanceManagerSearchListController的接口规范
 
 | 提供的服务(供接口)                               |      |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
 | 服务名                                      |      | 服务                                       |
-| FinanceInfoController.commitGeneralAccount | 语法   | public void commitGeneralAccount(GeneralAccount account) |
+| FinanceManagerSearchListController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
 |                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 无                                        |
-| FinanceInfoController.searchGeneralAccount | 语法   | public ArrayList<GeneralAccount> searchGeneralAccount(GeneralAccountFilter filter) |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回符合条件的总账                                |
-| FinanceInfoController.commitPayBill      | 语法   | public void commitPayBill()              |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 无                                        |
-| FinanceInfoController.commitReceiptBill  | 语法   | public void commitReceiptBill()          |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 无                                        |
-| FinanceInfoController.commitCashBill     | 语法   | public void commitCashBill()             |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 无                                        |
-| FinanceInfoController.addAccount         | 语法   | public ResultMessage addAccount(Account account) |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回添加状态                                   |
-| FinanceInfoController.deleteAccount      | 语法   | public ResultMessage deleteAccount(String id) |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回删除状态                                   |
-| FinanceInfoController.modifyAccount      | 语法   | public ResultMessage modifyAccount(Account account ,String id) |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回修改状态                                   |
-| FinanceInfoController.searchAccount      | 语法   | public ArrayList<Account> searchAccount(AccountFilter filter) |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回符合条件的账户列表                              |
-| FinanceInfoController.searchBill         | 语法   | public ArrayList<Bill> searchBill(BillFilter filter) |
-|                                          | 前置条件 | 无                                        |
-|                                          | 后置条件 | 返回符合条件的单据列表                              |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerSearchListController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerSearchListController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerSearchListController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerSearchListController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerSearchListController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerSearchListController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerAddReceiveBillController.ChooseTableType | 语法   | public void ChooseTableType(ActionEvent e); |
+|                                          | 前置条件 | 选择一个报表类型                                 |
+|                                          | 后置条件 | 设置界面组件是否可以填写                             |
+| FinanceManagerAddReceiveBillController.handleClearButtonAction | 语法   | public void handleClearButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空当前界面的筛选条件                              |
+| FinanceManagerAddReceiveBillController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击搜索报表按钮                                 |
+|                                          | 后置条件 | 跳转到报表界面显示报表                              |
+| FinanceManagerAddReceiveBillController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击搜索报表按钮                                 |
+|                                          | 后置条件 | 跳转到报表界面显示报表                              |
 
-| 需要的服务(需接口)                            |           |
-| ------------------------------------- | --------- |
-| 服务名                                   | 服务        |
-| FinanceBLService.commitGeneralAccount | 提交单据      |
-| FinanceBLService.searchGeneralAccount | 搜索匹配的期初账户 |
-| FinanceBLServicer.commitPayBill       | 提交付款单     |
-| FinanceBLService.commitReceiptBill    | 提交收款单     |
-| FinanceBLService.commitCashBill       | 提交现金费用单   |
-| FinanceBLService.addAccount           | 增加账户      |
-| FinanceBLService.deleteAccount        | 删除账户      |
-| FinanceBLService.modifyAccount        | 修改账户      |
-| FinanceBLService.searchAccount        | 查找账户      |
-| FinanceBLService.searchBill           | 查找单据      |
+
+
+| 需要的服务(需接口)                        |          |
+| --------------------------------- | -------- |
+| 服务名                               | 服务       |
+| loginController.getCurrentUser    | 获取当前登录用户 |
+| tableBLService.checkSaleTable     | 查看销售明细表  |
+| tableBLService.checkBusinessTable | 查看经营情况表  |
+| tableBLService.checkProcessTable  | 查看经营历程表  |
+
+
+
+表4.1.3(2)-11 FinanceManagerCreateGeneralAccountController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerCreateGeneralAccountController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerCreateGeneralAccountController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerCreateGeneralAccountController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerCreateGeneralAccountController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerCreateGeneralAccountController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerAddReceiveBillController.handleClearInfomationButtonAction | 语法   | public void handleClearInfomationButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空当前用户填写的信息                              |
+| FinanceManagerAddReceiveBillController.handleAddCommodityButtonAction | 语法   | public void handleAddCommodityButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加商品按钮                                 |
+|                                          | 后置条件 | 商品列表中增加一个商品                              |
+| FinanceManagerAddReceiveBillController.handleAddCustomerButtonAction | 语法   | public void handleAddCustomerButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加客户按钮                                 |
+|                                          | 后置条件 | 客户列表中增加一个客户                              |
+| FinanceManagerAddReceiveBillController.handleAddAccountButtonAction | 语法   | public void handleAddAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加账户按钮                                 |
+|                                          | 后置条件 | 账户列表中增加一个账户                              |
+| FinanceManagerAddReceiveBillController.handleCommitGeneralAccountButtonAction | 语法   | public void handleCommitGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击提交账目按钮                                 |
+|                                          | 后置条件 | 期初建账数据中增加一条记录                            |
+
+
+
+| 需要的服务(需接口)                               |          |
+| ---------------------------------------- | -------- |
+| 服务名                                      | 服务       |
+| loginController.getCurrentUser           | 获取当前登录用户 |
+| generalAccountBLService.searchCommodity  | 搜索商品     |
+| generalAccountBLService.searchCusotmer   | 搜索对应的客户  |
+| generalAccountBLService.searchAccount    | 搜索对应的账户  |
+| generalAccountBLService.addGeneralAcocunt | 添加期初账户   |
+
+
+表4.1.3(2)-12 FinanceManagerShowCashCostBillDetailController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerShowCashCostBillDetailController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerShowCashCostBillDetailController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerShowCashCostBillDetailController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerShowCashCostBillDetailController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerShowCashCostBillDetailController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerShowCashCostBillDetailController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerShowCashCostBillDetailController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerShowCashCostBillDetailController.ShowCashCostBillDetail | 语法   | public void ShowCashCostBillDetail(CashCostBillVO vo); |
+|                                          | 前置条件 | 点击现金费用单详情按钮                              |
+|                                          | 后置条件 | 显示当前现金费用单详情                              |
+| FinanceManagerShowCashCostBillDetailController.HongChongAndCopy | 语法   | public void HongChongAndCopy(CashCostBillVO vo); |
+|                                          | 前置条件 | 点击红冲并复制按钮                                |
+|                                          | 后置条件 | 提示用户红冲操作完成                               |
+
+
+
+
+| 需要的服务(需接口)                            |            |
+| ------------------------------------- | ---------- |
+| 服务名                                   | 服务         |
+| loginController.getCurrentUser        | 获取当前登录用户   |
+| financeBillBLService.HongChongAndCopy | 对当前单据红冲并复制 |
+
+
+
+表4.1.3(2)-13 FinanceManagerShowFinanceBillDetailController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerShowFinanceBillDetailController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerShowFinanceBillDetailController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerShowFinanceBillDetailController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerShowFinanceBillDetailController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerShowFinanceBillDetailController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerShowFinanceBillDetailController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerShowFinanceBillDetailController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerShowFinanceBillDetailController.ShowFinanceBillDetail | 语法   | public void ShowFinanceBillDetail(FinanceBill vo); |
+|                                          | 前置条件 | 点击财务类单据详情按钮                              |
+|                                          | 后置条件 | 显示当前财务类单据详情                              |
+| FinanceManagerShowFinanceBillDetailController.HongChongAndCopy | 语法   | public void HongChongAndCopy(FinanceBillVO vo); |
+|                                          | 前置条件 | 点击红冲并复制按钮                                |
+|                                          | 后置条件 | 提示用户红冲操作完成                               |
+
+
+
+
+| 需要的服务(需接口)                            |            |
+| ------------------------------------- | ---------- |
+| 服务名                                   | 服务         |
+| loginController.getCurrentUser        | 获取当前登录用户   |
+| financeBillBLService.HongChongAndCopy | 对当前单据红冲并复制 |
+
+表4.1.3(2)-14 FinanceManagerShowSalesInBillDetailController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerShowSalesInBillDetailController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerShowSalesInBillDetailController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerShowSalesInBillDetailController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerShowSalesInBillDetailController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerShowSalesInBillDetailController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerShowSalesInBillDetailController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerShowSalesInBillDetailController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerShowSalesInBillDetailController.ShowSalesInBillDetail | 语法   | public void ShowSalesInBillDetail(SalesInBill vo); |
+|                                          | 前置条件 | 点击进货单单据详情按钮                              |
+|                                          | 后置条件 | 显示当前进货单据详情                               |
+| FinanceManagerShowSalesInBillDetailController.HongChongAndCopy | 语法   | public void HongChongAndCopy(SalesInBillVO vo); |
+|                                          | 前置条件 | 点击红冲并复制按钮                                |
+|                                          | 后置条件 | 提示用户红冲操作完成                               |
+
+
+
+
+| 需要的服务(需接口)                            |            |
+| ------------------------------------- | ---------- |
+| 服务名                                   | 服务         |
+| loginController.getCurrentUser        | 获取当前登录用户   |
+| financeBillBLService.HongChongAndCopy | 对当前单据红冲并复制 |
+
+表4.1.3(2)-15 FinanceManagerShowSalesOutBillDetailController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerShowSalesOutBillDetailController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerShowSalesOutBillDetailController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerShowSalesOutBillDetailController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerShowSalesOutBillDetailController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerShowSalesOutBillDetailController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerShowSalesOutBillDetailController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerShowSalesOutBillDetailController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerShowSalesOutBillDetailController.ShowSalesOutBillDetail | 语法   | public void ShowSalesOutBillDetail(SalesOutBill vo); |
+|                                          | 前置条件 | 点击进货单单据详情按钮                              |
+|                                          | 后置条件 | 显示当前进货单据详情                               |
+| FinanceManagerShowSalesIOutBillDetailController.HongChongAndCopy | 语法   | public void HongChongAndCopy(SalesOutBillVO vo); |
+|                                          | 前置条件 | 点击红冲并复制按钮                                |
+|                                          | 后置条件 | 提示用户红冲操作完成                               |
+
+
+
+
+| 需要的服务(需接口)                            |            |
+| ------------------------------------- | ---------- |
+| 服务名                                   | 服务         |
+| loginController.getCurrentUser        | 获取当前登录用户   |
+| financeBillBLService.HongChongAndCopy | 对当前单据红冲并复制 |
+
+表4.1.3(2)-16 FinanceManagerShowStockBillDetailController的接口规范
+
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| FinanceManagerShowStockBillDetailController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| FinanceManagerShowStockBillDetailController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| FinanceManagerShowStockBillDetailController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| FinanceManagerShowStockBillDetailController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| FinanceManagerShowStockBillDetailController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| FinanceManagerShowStockBillDetailController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| FinanceManagerShowStockBillDetailController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| FinanceManagerShowStockBillDetailController.ShowStockBillDetail | 语法   | public void ShowStockBillDetail(StockBillVO vo); |
+|                                          | 前置条件 | 点击进货单单据详情按钮                              |
+|                                          | 后置条件 | 显示当前进货单据详情                               |
+| FinanceManagerShowStockBillDetailController.HongChongAndCopy | 语法   | public void HongChongAndCopy(StockBillVO vo); |
+|                                          | 前置条件 | 点击红冲并复制按钮                                |
+|                                          | 后置条件 | 提示用户红冲操作完成                               |
+
+
+
+
+| 需要的服务(需接口)                            |            |
+| ------------------------------------- | ---------- |
+| 服务名                                   | 服务         |
+| loginController.getCurrentUser        | 获取当前登录用户   |
+| financeBillBLService.HongChongAndCopy | 对当前单据红冲并复制 |
 
 #### 4.1.4 chiefmanger模块
 
 ##### （1）整体结构
 
-展示层的控制器为树状委托式结构，ChiefManagerViewController负责总经理界面的整体跳转，ChiefManagerNavBarController负责实现导航栏界面，ChiefManagerSearchListController负责实现查看报表界面，ChiefManagerSalesListController负责实现查看销售明细表界面，ChiefManagerManageListController负责实现查看经营情况表界面，ChiefManagerExamineBillController负责实现审批单据界面,ChiefManagerShowBillDetailController负责实现显示单据详情界面，ChiefManagerReadLogController负责实现查询日志界面，ChiefManagerShowLogDetail负责实现显示日志详情界面，ChiefManagerSetPromotionController负责实现制定销售策略界面。
+展示层的控制器为树状委托式结构，ChiefManagerMainViewController负责总经理界面的整体跳转，ChiefManagerSearchListController负责实现查看报表界面，ChiefManagerSearchSalesListController负责实现查看销售明细表界面，ChiefManagerSearchManageListController负责实现查看经营情况表界面，ChiefManagerSearchProcessListController负责实现查看经营情况表界面,ChiefManagerExamineBillController负责实现审批单据界面,ChiefManagerReadLogController负责实现查询日志界面，ChiefManagerSetPromotionController负责实现制定销售策略界面，ChiefManagerSearchPromotionListController负责实现查询促销策略界面,ChiefManagerShowCashCostBillDetail负责实现查看现金费用单详情界面，ChiefManagerShowFinanceBillDetail负责实现查看财务单详情界面，ChiefManagerShowSalesInBillDetail负责实现查看进货单详情界面，ChiefManagerShowSalesOutBillDetail负责实现查看销售单详情界面，ChiefManagerShowStockBillDetail负责实现查看库存类单据详情界面，
 
 chiefManager界面各个类的职责如下表所示
 
-| 模块                                   | 职责             |
-| ------------------------------------ | -------------- |
-| ChiefManagerViewController           | 负责实现总经理界面的整体跳转 |
-| ChiefManagerNavBarController         | 负责实现导航栏界面      |
-| ChiefManagerSearchListController     | 负责实现查看报表界面     |
-| ChiefManagerSalesListController      | 负责实现查看销售明细表界面  |
-| ChiefManagerManageListController     | 负责实现查看经营情况表界面  |
-| ChiefManagerExamineBillController    | 负责实现审批单据界面     |
-| ChiefManagerShowBillDetailController | 负责实现显示单据详情界面   |
-| ChiefManagerReadLogController        | 负责实现查询日志界面     |
-| ChiefManagerShowLogDetail            | 负责实现显示日志详情界面   |
-| ChiefManagerSetPromotionController   | 负责实现制定销售策略界面   |
+| 模块                                       | 职责              |
+| ---------------------------------------- | --------------- |
+| ChiefManagerMainViewController           | 负责实现总经理界面的整体跳转  |
+| ChiefManagerSearchListController         | 负责实现查看报表界面      |
+| ChiefManagerSearchSalesListController    | 负责实现查看销售明细表界面   |
+| ChiefManagerSearchManageListController   | 负责实现查看经营情况表界面   |
+| ChiefManagerSearchProcessListController  | 负责实现查看经营历程表界面   |
+| ChiefManagerExamineBillController        | 负责实现审批单据界面      |
+| ChiefManagerReadLogController            | 负责实现查询日志界面      |
+| ChiefManagerSetPromotionController       | 负责实现制定销售策略界面    |
+| ChiefManagerSearchPromotionListController | 负责实现查询促销策略界面    |
+| ChiefManagerShowCashCostBillDetail       | 负责实现查看现金费用单详情界面 |
+| ChiefManagerShowFinanceBillDetail        | 负责实现查看财务单详情界面   |
+| ChiefManagerShowSalesInBillDetail        | 负责实现查看进货单详情界面   |
+| ChiefManagerShowSalesOutBillDetail       | 负责实现查看销售单详情界面   |
+| ChiefManagerShowStockBillDetail          | 负责实现查看库存类单据详情界面 |
+
 
 ##### （2）模块内部类的接口规范
 
-ChiefManagerViewController的接口规范
+4.1.4(2)-1 ChiefManagerMainViewController的接口规范
 
-| 提供的服务（供接口）                               |           |                                 |
-| ---------------------------------------- | --------- | ------------------------------- |
-| 服务名                                      | 服务        |                                 |
-| ChiefManagerViewController.showSearchList | 语法        | public void showSearchList();   |
-| 前置条件                                     | 点击导航栏查看报表 |                                 |
-| 后置条件                                     | 显示查看报表界面  |                                 |
-| ChiefManagerViewController.showExamineBill | 语法        | public void showExamineBill();  |
-| 前置条件                                     | 点击导航栏审批单据 |                                 |
-| 后置条件                                     | 显示审批单据界面  |                                 |
-| ChiefManagerViewController.showReadLog   | 语法        | public void showReadLog();      |
-| 前置条件                                     | 点击导航栏查询日志 |                                 |
-| 后置条件                                     | 显示查询日志界面  |                                 |
-| ChiefManagerViewController.showSetPromotion | 语法        | public void showSetPromotion(); |
-| 前置条件                                     | 点击导航栏促销策略 |                                 |
-| 后置条件                                     | 显示促销策略界面  |                                 |
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| ChiefManagerMainViewController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| ChiefManagerMainViewController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| ChiefManagerMainViewController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| ChiefManagerMainViewController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| ChiefManagerMainViewController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| ChiefManagerMainViewController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| ChiefManagerMainViewController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+
+
 | 需要的服务（需接口）                               |           |                                 |
 | 无                                        |           |                                 |
 
-ChiefManagerNavBarController的接口规范
 
-| 提供的服务（供接口）                               |            |
-| ---------------------------------------- | ---------- |
-| 服务名                                      | 服务         |
-| 无                                        |            |
-| 需要的服务（需接口）                               |            |
-| 服务名                                      | 服务         |
-| ChiefManagerViewController.showSearchList | 显示查看报表界面   |
-| ChiefManagerViewController.showExamineBill | 显示审批单据界面   |
-| ChiefManagerViewController.showReadLog   | 显示查询日志界面   |
-| ChiefManagerViewController.showSetPromotion | 显示制定促销策略界面 |
 
-ChiefManagerSearchListController的接口规范
+4.1.4(2)-2 ChiefManagerSearchListController的接口规范
 
-| 提供的服务（供接口）                               |                |                         |
-| ---------------------------------------- | -------------- | ----------------------- |
-| 服务名                                      | 服务             |                         |
-| ChiefManagerSearchListController.showList | 语法             | public void showList(); |
-| 前置条件                                     | 点击查看报表界面的确认按钮  |                         |
-| 后置条件                                     | 输出符合用户条件的报表    |                         |
-| ChiefManagerSearchListController.empty   | 语法             | public void empty();    |
-| 前置条件                                     | 点击查看报表界面的清空按钮  |                         |
-| 后置条件                                     | 清空查询条件         |                         |
-| ChiefManagerSearchListController.exit    | 语法             | public void exit();     |
-| 前置条件                                     | 点击查看报表界面的退出按钮  |                         |
-| 后置条件                                     | 退出查询功能返回总经理主界面 |                         |
-| 需要的服务（需接口）                               |                |                         |
-| 服务名                                      | 服务             |                         |
-| ChiefManagerBLServiceImpl.makeSalesList  | 制作符合条件的销售明细表   |                         |
-| ChiefManagerBLServiceImpl.makeManageList | 制作符合条件的经营情况表   |                         |
+| 提供的服务(供接口)                               |      |                                          |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| 服务名                                      |      | 服务                                       |
+| ChiefManagerSearchListController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 初始化界面                                    |
+| ChiefManagerSearchListController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示查看报表主界面                                |
+| ChiefManagerSearchListController.handleMakeBillButtonAction | 语法   | public void handleMakeBillButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定单据按钮                                 |
+|                                          | 后置条件 | 显示制定报表界面                                 |
+| ChiefManagerSearchListController.handleSuperviseAccountButtonAction | 语法   | public void handleSuperviseAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击账户管理按钮                                 |
+|                                          | 后置条件 | 显示账户管理界面                                 |
+| ChiefManagerSearchListController.handleCreateGeneralAccountButtonAction | 语法   | public void handleCreateGeneralAccountButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击期初建账按钮                                 |
+|                                          | 后置条件 | 显示期初建账界面                                 |
+| ChiefManagerSearchListController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonActio(ActionEvent e); |
+|                                          | 前置条件 | 点击返回登录界面按钮                               |
+|                                          | 后置条件 | 显示登录界面                                   |
+| ChiefManagerSearchListController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
+|                                          | 前置条件 | 点击按钮                                     |
+|                                          | 后置条件 | 显示跳转的界面                                  |
+| ChiefManagerSearchListController.ChooseTableType | 语法   | public void ChooseTableType(ActionEvent e); |
+|                                          | 前置条件 | 点击报表类型选择框                                |
+|                                          | 后置条件 | 设置当前报表类型                                 |
+| ChiefManagerSearchListController.handleClearButtonAction | 语法   | public void handleClearButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空用户填写的条件                                |
+| ChiefManagerSearchListController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查看报表按钮                                 |
+|                                          | 后置条件 | 显示报表内容                                   |
+
+
+
+
+
+
+| 需要的服务(需接口)                        |          |
+| --------------------------------- | -------- |
+| 服务名                               | 服务       |
+| loginController.getCurrentUser    | 获取当前登录用户 |
+| tableBLService.checkSaleTable     | 查看销售明细表  |
+| tableBLService.checkBusinessTable | 查看经营情况表  |
+| tableBLService.checkProcessTable  | 查看经营历程表  |
 
 ChiefManagerSalesListController的接口规范
 
@@ -1593,7 +1966,7 @@ ChiefManagerSetPromotionController的接口规范
 
 
 
-#### 4.1.4 admin模块
+#### 4.1.5 admin模块
 
 ##### （1）整体结构
 
@@ -1603,125 +1976,155 @@ Admin界面各类的职责如表4.2.1(1)-1所示
 
 表4.2.1(1)-1 Admin界面各类的职责
 
-| 模块                       | 职责              |
-| ------------------------ | --------------- |
-| AdminViewController      | 负责对系统管理员界面的整体跳转 |
-| AdminNavBarController    | 负责实现导航栏界面       |
-| UserAddViewController    | 负责实现增加用户界面的跳转   |
-| UserDelViewController    | 负责实现删除用户界面的跳转   |
-| UserModifyViewController | 负责实现修改用户界面的跳转   |
+| 模块                            | 职责                   |
+| ----------------------------- | -------------------- |
+| AdminMainViewController       | 负责对系统管理员界面的整体跳转      |
+| LoginController               | 负责实现登陆界面             |
+| ModifyPasswordViewController  | 负责实现修改密码界面的跳转        |
+| UserAddViewController         | 负责实现增加用户界面的跳转        |
+| UserDelViewController         | 负责实现删除用户界面的跳转        |
+| UserModifyViewController      | 负责实现修改用户界面的跳转        |
+| UserModifyFirstViewController | 负责实现输入需要修改的用户编号界面的跳转 |
+| UserSearchShowViewController  | 负责显示查找用户的结果显示界面      |
+| UserSearchViewController      | 负责实现查找用户             |
+| UserInfoModifyViewController  | 负责实现修改用户的弹出界面跳转      |
+|                               |                      |
+|                               |                      |
 
 ##### （2）模块内部类的接口规范
 
-表4.1.4(2)-1 AdminViewController的接口规范
+AdminMainViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                                | 服务   | 服务                            |
-| ---------------------------------- | ---- | ----------------------------- |
-| AdminViewController.showUserAdd    | 语法   | public boolean showUserAdd(); |
-|                                    | 前置条件 | 点击导航栏增加用户                     |
-|                                    | 后置条件 | 显示增加用户界面                      |
-| AdminViewController.showUserDel    | 语法   | public boolean showUserDel(); |
-|                                    | 前置条件 | 点击导航栏删除用户                     |
-|                                    | 后置条件 | 显示删除用户界面                      |
-| AdminViewController.showUserModify | 语法   | public boolean showUserAdd(); |
-|                                    | 前置条件 | 点击导航栏修改用户                     |
-|                                    | 后置条件 | 显示修改用户界面                      |
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| AdminMainViewController.addUserButtonAction | 语法   | public void addUserButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击导航栏增加用户                                |
+|                                          | 后置条件 | 显示增加用户界面                                 |
+| AdminmMainViewController.delUserButtonAction | 语法   | public void delUserButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击导航栏删除用户                                |
+|                                          | 后置条件 | 显示删除用户界面                                 |
+| AdminMainViewController.modUserButtonAction | 语法   | public void modUserButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击导航栏修改用户                                |
+|                                          | 后置条件 | 显示修改用户界面                                 |
+| AdminMainViewController.searchUserButtonAction | 语法   | public void searchUserButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击查找按钮                                   |
+|                                          | 后置条件 | 显示查找用户结果界面                               |
+| AdminMainViewController.handleBackToLoginButtonAction | 语法   | public void handleBackToLoginButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击登出按钮                                   |
+|                                          | 后置条件 | 跳转登陆界面                                   |
 
 需要的服务（需接口）
 
-| 服务名                           | 服务       |
-| ----------------------------- | -------- |
-| UserAddViewController.show    | 显示增加用户界面 |
-| UserDelViewController.show    | 显示删除用户界面 |
-| UserModifyViewController.show | 显示修改用户界面 |
-
-表4.1.4(2)-2 AdminNavBarController的接口规范
+LoginController的接口规范
 
 提供的服务（供接口）
 
-无
+| 服务名                                     | 服务   | 服务                                       |
+| --------------------------------------- | ---- | ---------------------------------------- |
+| LoginController.modPasswordButtonAction | 语法   | public void  modPasswordButtonAction(ActionEvent e) |
+|                                         | 前置条件 | 点击修改密码按钮                                 |
+|                                         | 后置条件 | 显示修改界面                                   |
+| LoginController.getCurrentUser          | 语法   | public static UserVO getCurrentUser()    |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 返回当前的登陆用户                                |
+| LoginController.loginButtonAction       | 语法   | public void loginButtonAction(ActionEvent e) |
+|                                         | 前置条件 | 点击登陆按钮                                   |
+|                                         | 后置条件 | 登陆，跳转相应的主界面                              |
+| LoginController.toStockSellerMain       | 语法   | public void toStockSellerMain()          |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 跳转进货销售人员主界面                              |
+| LoginController.toStockManagerMain      | 语法   | public void toStockManagerMain()         |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 跳转库存管理人员主界面                              |
+| LoginController.toFinanceManagerMain    | 语法   | public void ttoFinanceManagerMain()      |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 跳转财务人员主界面                                |
+| LoginController.toChiefManagerMain      | 语法   | public void toChiefManagerMain()         |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 跳转总经理主界面                                 |
+| LoginController.toAdminMain             | 语法   | public void toAdminMain()                |
+|                                         | 前置条件 | 无                                        |
+|                                         | 后置条件 | 跳转系统管理员主界面                               |
+
+
 
 需要的服务（需接口）
 
-| 服务名                           | 服务       |
-| ----------------------------- | -------- |
-| UserAddViewController.show    | 显示增加用户界面 |
-| UserDelViewController.show    | 显示删除用户界面 |
-| UserModifyViewController.show | 显示修改用户界面 |
-|                               |          |
+| 服务名                          | 服务   |
+| ---------------------------- | ---- |
+| MainBLService.login          | 登陆   |
+| UserBLService.searchUserByID | 获取用户 |
+|                              |      |
 
 
 
-表4.1.4(2)-3 UserAddViewController的接口规范
+UserAddViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                           | 服务   | 服务                                  |
-| ----------------------------- | ---- | ----------------------------------- |
-| UserAddViewController.back    | 语法   | public boolean back()               |
-|                               | 前置条件 | 点击返回按钮                              |
-|                               | 后置条件 | 返回上一界面                              |
-| UserAddViewController.addUser | 语法   | public boolean addUser(UserVO user) |
-|                               | 前置条件 | 点击确定按钮                              |
-|                               | 后置条件 | 系统更新数据                              |
-| UserAddViewController.show    | 语法   | public boolean show()               |
-|                               | 前置条件 | 无                                   |
-|                               | 后置条件 | 显示增加用户界面                            |
+| 服务名                                    | 服务   | 服务                                       |
+| -------------------------------------- | ---- | ---------------------------------------- |
+| UserAddViewController.cancelButton     | 语法   | public void cancelButttonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击取消按钮                                   |
+|                                        | 后置条件 | 返回上一界面                                   |
+| UserAddViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击确定按钮                                   |
+|                                        | 后置条件 | 增加用户                                     |
 
 需要的服务（需接口）
 
-| 服务名                      | 服务       |
-| ------------------------ | -------- |
-| AdminViewController.show | 显示用户管理界面 |
-|                          |          |
+| 服务名                   | 服务   |
+| --------------------- | ---- |
+| UserBLService.addUser | 增加用户 |
+|                       |      |
 
-表4.1.4(2)-4 UserDelViewController的接口规范
+UserDelViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                           | 服务   | 服务                                |
-| ----------------------------- | ---- | --------------------------------- |
-| UserDelViewController.back    | 语法   | public boolean back()             |
-|                               | 前置条件 | 点击返回按钮                            |
-|                               | 后置条件 | 返回上一界面                            |
-| UserDelViewController.delUser | 语法   | public boolean delUser(String id) |
-|                               | 前置条件 | 点击确定按钮                            |
-|                               | 后置条件 | 系统更新数据                            |
-| UserDelViewController.show    | 语法   | public boolean show()             |
-|                               | 前置条件 | 无                                 |
-|                               | 后置条件 | 显示删除用户界面                          |
+| 服务名                                    | 服务   | 服务                                       |
+| -------------------------------------- | ---- | ---------------------------------------- |
+| UserDelViewController.cancelButton     | 语法   | public void cancelButttonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击取消按钮                                   |
+|                                        | 后置条件 | 返回上一界面                                   |
+| UserDelViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                        | 前置条件 | 点击确定按钮                                   |
+|                                        | 后置条件 | 删除用户                                     |
 
 需要的服务（需接口）
 
-| 服务名                      | 服务       |
-| ------------------------ | -------- |
-| AdminViewController.show | 显示用户管理界面 |
-|                          |          |
+| 服务名                   | 服务   |
+| --------------------- | ---- |
+| UserBLService.delUser | 删除用户 |
+|                       |      |
 
-表4.1.4(2)-5 UserModifyViewController的接口规范
+表4.1.4(2)-5 UserSearchShowViewController的接口规范
 
 提供的服务（供接口）
 
-| 服务名                                  | 服务   | 服务                                     |
-| ------------------------------------ | ---- | -------------------------------------- |
-| UserModifyViewController.back        | 语法   | public boolean back()                  |
-|                                      | 前置条件 | 点击返回按钮                                 |
-|                                      | 后置条件 | 返回上一界面                                 |
-| UserModifyViewController.addCustomer | 语法   | public boolean modifyUser(UserVO user) |
-|                                      | 前置条件 | 点击确定按钮                                 |
-|                                      | 后置条件 | 系统更新数据                                 |
-| UserModifyViewController.show        | 语法   | public boolean show()                  |
-|                                      | 前置条件 | 无                                      |
-|                                      | 后置条件 | 显示修改用户界面                               |
+| 服务名                                      | 服务   | 服务                                       |
+| ---------------------------------------- | ---- | ---------------------------------------- |
+| UserSearchShowViewController.returnButtonAction | 语法   | public void ButttonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击取消按钮                                   |
+|                                          | 后置条件 | 返回上一界面                                   |
+| UserSearchShowViewController.sureButtonAction | 语法   | public void sureButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击确定按钮                                   |
+|                                          | 后置条件 | 增加用户                                     |
+| UserSearchShowViewController.refreshButtonAction | 语法   | public void refreshButtonAction(ActionEvent e) |
+|                                          | 前置条件 | 点击刷新按钮                                   |
+|                                          | 后置条件 | 刷新列表                                     |
+| UserSearchShowViewController.showTableView | 语法   | public void showTableView()              |
+|                                          | 前置条件 | 无                                        |
+|                                          | 后置条件 | 列表初始化                                    |
 
 需要的服务（需接口）
 
-| 服务名                      | 服务       |
-| ------------------------ | -------- |
-| AdminViewController.show | 显示用户管理界面 |
-|                          |          |
+| 服务名                            | 服务          |
+| ------------------------------ | ----------- |
+| UserBLService.searchUserByID   | 通过id查找用户    |
+| UserBLService.searchUserByKind | 通过关键词类型查找用户 |
 
 ### 
 
