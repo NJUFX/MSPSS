@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
@@ -13,7 +20,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BillStatusCheckViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanagerui.BillStatusCheckViewController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -150,7 +157,7 @@
                 <TableColumn fx:id="OperationCol" prefWidth="150.0" sortable="false" text="操作" />
             </columns>
         </TableView>
-        <ComboBox fx:id="typeScreenBox" layoutX="622.0" layoutY="63.0" onAction="#screenBoxAction" prefHeight="23.0" prefWidth="80.0">
+        <ComboBox fx:id="typeScreenBox" layoutX="622.0" layoutY="63.0" onAction="#screenBoxAction" prefHeight="23.0" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="全部单据" />
@@ -160,7 +167,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="statusScreenBox" layoutX="750.0" layoutY="63.0" onAction="#screenBoxAction" prefHeight="23.0" prefWidth="80.0">
+        <ComboBox fx:id="statusScreenBox" layoutX="750.0" layoutY="63.0" onAction="#screenBoxAction" prefHeight="23.0" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #0f88eb;">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="全部状态" />

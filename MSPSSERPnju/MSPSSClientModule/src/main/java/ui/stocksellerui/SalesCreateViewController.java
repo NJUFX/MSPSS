@@ -54,6 +54,7 @@ public class SalesCreateViewController implements Initializable {
     CustomerVO customerVO;
     static ArrayList<PromotionBySales> promotionBySalesList;
     ArrayList<SalesItemVO> commodityVOArrayList = new ArrayList<>();
+
     SalesOutBillVO salesOutBillVO = new SalesOutBillVO(null, SalesOutBillType.OUT, BillStatus.commit);
 
     @FXML
@@ -253,6 +254,7 @@ public class SalesCreateViewController implements Initializable {
             controller.PromotionDiscountLabel = PromotionDiscountLabel;
             controller.TotalAfterLabel = TotalAfterLabel;
             controller.salesOutBillVO = salesOutBillVO;
+            controller.tableView = promotionBySalesTableView;
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -510,6 +512,7 @@ public class SalesCreateViewController implements Initializable {
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
         showPromotionTable();
         showCommodityTable();
+
         //showInformationTable();
     }
 
