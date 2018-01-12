@@ -29,7 +29,7 @@
 > &emsp;同一个人的出BUG的地方大致相同，不会产生特别奇怪的玄学BUG
 >
 > &emsp;Stub与mock完美的发挥的作用
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/2.png)
 1.2 缺点
 
 > &emsp;修改文档的工作量真的好大！！！
@@ -41,8 +41,7 @@
 
 
 3、 考虑多线程并发
-
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/3.png)
 
 4、 丰富的设计模式（虽然不一定很标准，但是精髓有体现）
 
@@ -81,7 +80,7 @@ public class PromotionBLFactory {
 }
 
 ```
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/4.png)
 4.1.2 设计模式的优点
 
 > &emsp;可扩展性比较好
@@ -111,7 +110,8 @@ public class PromotionBLFactory {
 > &emsp;建造者模式将一个复杂对象的构建与表示分离，使得同样的构建过程可以创建不同的表示。
 >
 > &emsp;主要体现在期初建造
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/5.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/12.png)
 4.3.2 代码示例
 
 ```
@@ -158,7 +158,7 @@ public interface GeneralAccountDataService {
 >
 > &emsp;避免复杂的数据库查询语句
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/6.png)
 
 5.2 示例代码
 
@@ -289,7 +289,7 @@ public interface DataHelper<T> {
 
 6.1.1 代码广泛覆盖try,catch
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/7.png)
 
 6.1.2 采用枚举类ResultMessage作为返回值代替String，自定义Time类代替字符串提高安全性
 
@@ -354,7 +354,8 @@ getInstance()、PO_To_VO方法等
 
 后缀搜索，前缀搜索，模糊搜索，范围查找，精确匹配，多条件查找
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/8.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/9.png)
 
 6.1.4 加密算法MD5
 
@@ -401,7 +402,7 @@ getInstance()、PO_To_VO方法等
 
 7、自定义Exception来处理异常
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/10.png)
 
 8、注释详细，风格统一，没有无用注释
 
@@ -409,7 +410,7 @@ getInstance()、PO_To_VO方法等
 >
 > &emsp;注释风格统一，一目了然
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/11.png)
 
 9、 代码命名
 
@@ -467,6 +468,8 @@ public class HibernateHelper<T> implements DataHelper<T> {
 > &emsp;同时底层对上层信息隐藏，封闭修改
 >
 > &emsp;工厂模式，对多种初始化的实现方式开放
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/13.png)
+
 
 11.2 行为与职责“在一起”
 
@@ -478,7 +481,7 @@ public class HibernateHelper<T> implements DataHelper<T> {
 
 12、采用controller与逻辑控制相结合的控制器风格
 
-
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/14.png)
 
 13、接口设计合理，并且通过接口调用
 
@@ -498,4 +501,6 @@ public class HibernateHelper<T> implements DataHelper<T> {
 
 
 
-14.2 方法数量采用倒三角形式，权限采用正三角形式
+14.2 方法数量采用倒三角形式，
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/15.png)
+![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93/16.png)
