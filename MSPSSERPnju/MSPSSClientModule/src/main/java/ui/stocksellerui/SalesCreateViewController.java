@@ -249,6 +249,7 @@ public class SalesCreateViewController implements Initializable {
 
     public void choosePromotionButtonAction(ActionEvent e) {
         try {
+            SelectPromotionViewController.level=1;//customerBLInfo.getCustomerByID(customerField.getId()).getLevel();
             SelectPromotionViewController controller = (SelectPromotionViewController) replaceAnotherSceneContent("/view/stockseller/SelectPromotion.fxml", 544, 541);
             PromotionDiscountLabel.setText("0");
             controller.PromotionDiscountLabel = PromotionDiscountLabel;

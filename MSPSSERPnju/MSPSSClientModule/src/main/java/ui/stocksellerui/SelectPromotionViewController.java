@@ -43,8 +43,8 @@ public class SelectPromotionViewController implements Initializable {
     ArrayList<GroupPromotionVO> groupPromotionVOList;
     TableView<PromotionBySales> tableView;
     Stage newStage = new Stage();
-    int level = 4;
-    double total = 0;
+    static int level = 0;
+    double total = 1000000000;
     double sum = 0;
 
     @FXML
@@ -112,6 +112,8 @@ public class SelectPromotionViewController implements Initializable {
     void showCustomerPromotion() {
         if (promotionBLInfo.getAvailableCustomerPromotion() != null && promotionBLInfo.getAvailableCustomerPromotion().size() != 0) {
             ArrayList<CustomerPromotionVO> list = promotionBLInfo.getAvailableCustomerPromotion();
+            System.out.println("Custoer"+list.size());
+            System.out.println(list.get(0).getLevel()+list.get(0).getDiscount());
             for (int i = 0; i < list.size(); i++) {
                 if (level >= list.get(i).getLevel()) {
                     sum = Math.max(sum, list.get(i).getDiscount());
@@ -164,6 +166,7 @@ public class SelectPromotionViewController implements Initializable {
         ObservableList<GrossBySales> data = grossView.getItems();
         if (promotionBLInfo.getAvailableGrossPromotion() != null && promotionBLInfo.getAvailableGrossPromotion().size() != 0) {
             ArrayList<GrossPromotionVO> list = promotionBLInfo.getAvailableGrossPromotion();
+            System.out.println("gross  "+list.get(0).getId());
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i).getTotal() <= total) {
                     String id = list.get(i).getId();
@@ -212,10 +215,12 @@ public class SelectPromotionViewController implements Initializable {
         ObservableList<GroupBySales> data = groupView.getItems();
         if (promotionBLInfo.getAvailableGroupPromotion() != null && promotionBLInfo.getAvailableGroupPromotion().size() != 0) {
             ArrayList<GroupPromotionVO> list = promotionBLInfo.getAvailableGroupPromotion();
+            System.out.println("Prom Goup  "+list.size());
+            System.out.println(list.get(0).getDiscountRate());
             for (int i = 0; i < list.size(); i++) {
-                String id = list.get(i).getId();
+               // String id = list.get(i).getId();
                 double discount = list.get(i).getDiscountRate();
-                GroupBySales groupBySales = new GroupBySales(id, discount);
+                GroupBySales groupBySales = new GroupBySales("test", discount);
                 groupBySales.setGroupPromotionVO(list.get(i));
                 data.add(groupBySales);
             }
