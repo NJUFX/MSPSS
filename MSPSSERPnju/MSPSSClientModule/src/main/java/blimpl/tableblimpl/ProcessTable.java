@@ -54,11 +54,11 @@ public class ProcessTable {
         ArrayList<CriteriaClause> stockBillCriteriaClauses = new ArrayList<CriteriaClause>();
 
         if(flags.getBegin()!=null&&flags.getBegin()!=null){
-           cashCostBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           financeBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           salesInBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
-           stockBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           cashCostBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           financeBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           salesInBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+           stockBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
         }
         if(flags.getCustomerName()!=null){
             ArrayList<CustomerPO> customerPOS = customerClientNetworkService.fullSearchCustomer("name",flags.getCustomerName());

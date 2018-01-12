@@ -14,18 +14,31 @@ public class PromotionBLFactory {
     private static final GrossPromotion grossPromotion = new GrossPromotion();
     private static PromotionBLServiceImpl impl;
 
+    /**
+     * 返回一个PromotionBLServiceImpl的一个静态对象
+     * @return PromotionBLInfpo
+     */
     public synchronized static PromotionBLInfo getPromotionInfo(){
         if (impl==null){
             impl = new PromotionBLServiceImpl(customerPromotion,grossPromotion,groupPromotion);
         }
        return impl;
     }
+    /**
+     * 返回一个PromotionBLServiceImpl的一个静态对象
+     * @return PromotionBLService
+     */
    public synchronized static PromotionBLService getPromotionBLService(){
         if (impl==null){
             impl = new PromotionBLServiceImpl(customerPromotion,grossPromotion,groupPromotion);
         }
         return impl;
     }
+
+    /**
+     * 返回一个PromotionBLService的一个桩
+     * @return PromotionBLService
+     */
     public synchronized static PromotionBLService getPromotionBLServiceStub(){
 
         return new Promotion_Stub();

@@ -55,6 +55,10 @@ public class LoginController implements Initializable {
         }
     }
 
+    /**
+     * 获得Category的类别
+     * @return String
+     */
     public static String getCategory() {
         if (currentUser.getCategory() == Kind_Of_Users.ChiefManager) {
             return "总经理";
