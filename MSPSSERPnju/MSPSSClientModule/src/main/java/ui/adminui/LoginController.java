@@ -22,6 +22,7 @@ import ui.common.Dialog;
 import ui.financemanagerui.FinanceManagerMainViewController;
 import ui.stockmanagerui.StockManagerMainViewController;
 import ui.stocksellerui.StockSellerMainViewController;
+import util.Encryptor;
 import util.Kind_Of_Users;
 import vo.UserVO;
 
@@ -81,7 +82,7 @@ public class LoginController implements Initializable {
     public void loginButtonAction(ActionEvent e) {
         if (idText.getText() != null && !idText.getText().trim().equals("") && passwordField.getText() != null && !passwordField.getText().trim().equals("")) {
             String id = idText.getText();
-            String password = passwordField.getText();
+            String password = Encryptor.encrypt(passwordField.getText());
           //  currentUser = userBLService.searchUserByID(id);
             //toStockSellerMain();
             userLogin(id, password);

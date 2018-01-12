@@ -44,7 +44,7 @@ public class CommodityAddViewController implements Initializable {
     Stage newStage = new Stage();
 
     CommodityBLService commodityBLService = new BLFactoryImpl().getCommodityBLService();
-
+    static String id_of_class;
     @FXML
     Button BackToLogin;
     @FXML
@@ -54,12 +54,12 @@ public class CommodityAddViewController implements Initializable {
     @FXML
     Button commoditySearchButton;
     @FXML
-    Button cancelButton, sureButton,chooseButton;
+    Button cancelButton, sureButton, chooseButton;
     @FXML
     TextField nameField, importPriceField, exportPriceField, typeField, alertField, stockNumberField, classificationField;
 
 
-    public void chooseButtonAction(ActionEvent e){
+    public void chooseButtonAction(ActionEvent e) {
         try {
             SelectClassOrCommodityViewController controller = (SelectClassOrCommodityViewController) replaceAnotherSceneContent(
                     "/view/stockmanager/SelectClassOrCommodity.fxml", 491, 376);
@@ -71,12 +71,20 @@ public class CommodityAddViewController implements Initializable {
     }
 
     public void sureButtonAction(ActionEvent e) {
-        CommodityVO commodityVO = new CommodityVO(nameField.getText().trim(), typeField.getText(), classificationField.getText(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
+        String[] str = classificationField.getText().trim().split(" ");
+        CommodityVO commodityVO = new CommodityVO(nameField.getText().trim(), typeField.getText(), str[1], Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
         commodityVO.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
         commodityVO.setNumberInStock(Integer.parseInt(stockNumberField.getText().trim()));
         ResultMessage resultMessage = commodityBLService.addCommodity(commodityVO);
         if (ResultMessage.SUCCESS == resultMessage) {
             dialog.infoDialog("Add a commodity successfully.");
+            try {
+                CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                        "/view/stockmanager/commodityManage.fxml");
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
         } else if (ResultMessage.EXIST == resultMessage) {
             dialog.errorInfoDialog("This commodity exists!");
         } else if (ResultMessage.FAILED == resultMessage) {
@@ -151,6 +159,7 @@ public class CommodityAddViewController implements Initializable {
             e1.printStackTrace();
         }
     }
+
     /**
      * @param fxml
      * @param width

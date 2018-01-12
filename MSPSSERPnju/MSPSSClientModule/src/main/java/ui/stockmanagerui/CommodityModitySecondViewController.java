@@ -20,6 +20,7 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.ResultMessage;
 import vo.CommodityVO;
 
 import java.io.IOException;
@@ -76,14 +77,25 @@ public class CommodityModitySecondViewController implements Initializable {
         if (id_to_modify != null || !id_to_modify.equals("")) {
             CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify.trim());
             commodityBLService.deleteCommodity(id_to_modify.trim());
-            CommodityVO newcommodity = new CommodityVO(nameField.getText().trim(), typeField.getText().trim(), classificationField.getText().trim(), Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
+            String[] str = classificationField.getText().trim().split(" ");
+            CommodityVO newcommodity = new CommodityVO(nameField.getText().trim(), typeField.getText().trim(), str[1], Double.parseDouble(importPriceField.getText().trim()), Double.parseDouble((exportPriceField.getText().trim())));
             newcommodity.setAlertNumber(Integer.parseInt(alertField.getText().trim()));
             newcommodity.setID(commodityVO.getID());
             newcommodity.setLatestExportCost(commodityVO.getLatestExportCost());
             newcommodity.setLatestImportCost(commodityVO.getLatestImportCost());
             newcommodity.setNumberInStock(Integer.parseInt(stockNumberField.getText().trim()));
             commodityBLService.addCommodity(newcommodity);
-
+            ResultMessage resultMessage = commodityBLService.updateCommodity(newcommodity);
+            if (resultMessage == ResultMessage.SUCCESS) {
+                dialog.infoDialog("Modify the commodity successfully.");
+                try {
+                    CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                            "/view/stockmanager/commodityManage.fxml");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
         }
     }
 
@@ -223,6 +235,7 @@ public class CommodityModitySecondViewController implements Initializable {
         stage.sizeToScene();
         return (Initializable) loader.getController();
     }
+
     /**
      * @param fxml
      * @param width
@@ -268,7 +281,7 @@ public class CommodityModitySecondViewController implements Initializable {
         exportPriceField.setText(String.valueOf(commodityVO.getExportCost()));
         typeField.setText(commodityVO.getType());
         alertField.setText(String.valueOf(commodityVO.getAlertNumber()));
-        classificationField.setText(commodityVO.getClassificationName());
+        classificationField.setText(commodityBLService.getClassification(commodityVO.getClassificationName()).getName() + " " + commodityVO.getClassificationName());
     }
 
 }

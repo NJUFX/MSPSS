@@ -63,6 +63,13 @@ public class CommodityDelViewController implements Initializable {
                 ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_del.getText().trim());
                 if (resultMessage == ResultMessage.SUCCESS) {
                     dialog.infoDialog("Delete a commodity successfully.");
+                    try {
+                        CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                                "/view/stockmanager/commodityManage.fxml");
+                    } catch (Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
                 }
             }
         } else {

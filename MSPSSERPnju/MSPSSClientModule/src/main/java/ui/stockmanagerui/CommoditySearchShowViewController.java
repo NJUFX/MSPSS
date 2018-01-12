@@ -95,6 +95,7 @@ public class CommoditySearchShowViewController implements Initializable {
                             try {
                                 CommodityInfoShowViewController.keyType = keyType;
                                 CommodityInfoShowViewController.keyword = keyword;
+                                CommodityInfoShowViewController.commodityVO = commodityInfoService.getCommodity(this.getTableView().getItems().get(this.getIndex()).getId());
                                 CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
                                         "/view/stockmanager/CommodityInfoShow.fxml");
                                 controller.id_to_modify = this.getTableView().getItems().get(this.getIndex()).getId();
