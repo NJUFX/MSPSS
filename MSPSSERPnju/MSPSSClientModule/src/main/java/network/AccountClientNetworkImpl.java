@@ -20,7 +20,7 @@ public class AccountClientNetworkImpl implements AccountClientNetworkService {
 
     public AccountClientNetworkImpl() {
         try {
-            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("rmi://106.14.188.84:8888/AccountServerNetworkService");
+            accountServerNetworkService = (AccountServerNetworkService) Naming.lookup("AccountServerNetworkService");
 
             System.out.println("arrive");
         } catch (NotBoundException e) {

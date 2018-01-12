@@ -1,7 +1,6 @@
 package network;
 
 
-
 import network.accountnetwork.AccountServerNetworkImpl;
 import network.accountnetworkservice.AccountServerNetworkService;
 import network.billnetwork.BillServerNetworkImpl;
@@ -28,7 +27,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.rmi.Remote;
 /**
  * Created by thinkpad on 2017/12/28.
  */
@@ -82,7 +80,7 @@ public class ServerHelper{
 
                 UtilNetworkService utilNetworkService = new UtilNetworkImpl();
 
-               /*Naming.rebind("AccountServerNetworkService", accountServerNetworkService);
+                Naming.rebind("AccountServerNetworkService", accountServerNetworkService);
                 Naming.rebind("BillServerNetworkService", billServerNetworkService);
                 Naming.rebind("CommodityServerNetworkService", commodityServerNetworkService);
                 Naming.rebind("CustomerServerNetworkService", customerServerNetworkService);
@@ -91,7 +89,7 @@ public class ServerHelper{
                 Naming.rebind("StockServerNetworkService", stockServerNetworkService);
                 Naming.rebind("UserServerNetworkService", userServerNetworkService);
                 Naming.rebind("PromotionServerNetworkService",promotionServerNetworkService);
-*/
+ /*
              String host = "rmi://172.19.110.49:8888/";
                 Naming.rebind(host+"AccountServerNetworkService", accountServerNetworkService);
                 Naming.rebind(host+"BillServerNetworkService", billServerNetworkService);
@@ -103,7 +101,7 @@ public class ServerHelper{
                 Naming.rebind(host+"UserServerNetworkService", userServerNetworkService);
                 Naming.rebind(host+"PromotionServerNetworkService",promotionServerNetworkService);
                 System.out.println("connect succeed");
-
+*/
                 return serverHelper;
             } catch (RemoteException e) {
                 e.printStackTrace();

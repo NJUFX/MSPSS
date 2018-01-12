@@ -18,7 +18,7 @@ public class UserClientNetworkImpl implements UserClientNetworkService {
 
     public UserClientNetworkImpl(){
         try {
-            userServerNetworkService = (UserServerNetworkService) Naming.lookup("rmi://106.14.188.84:8888/UserServerNetworkService");
+            userServerNetworkService = (UserServerNetworkService) Naming.lookup("UserServerNetworkService");
             System.out.println("succeed");
             } catch (NotBoundException e) {
             System.err.println("Client.network.UserServerNetworkService: Not bound, trying to connect");

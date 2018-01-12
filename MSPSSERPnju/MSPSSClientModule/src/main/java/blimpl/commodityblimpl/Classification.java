@@ -27,7 +27,8 @@ public class Classification {
      * @return
      */
     public ResultMessage addClassification(ClassificationVO classificationVO){
-        String id = classificationVO.getParent().getID();
+        String id = classificationVO.getParent() != null && classificationVO.getParent().getID() != null
+                ? classificationVO.getParent().getID() : "";
         ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("ID", id);
 
         String newID;
