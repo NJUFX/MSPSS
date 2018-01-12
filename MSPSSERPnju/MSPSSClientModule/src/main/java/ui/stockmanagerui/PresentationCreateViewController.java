@@ -259,9 +259,6 @@ public class PresentationCreateViewController implements Initializable {
         idOfCurrentUser.setText("编号：" + LoginController.getCurrentUser().getID());
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
-        idField.setText("");
-        nameField.setText("");
-        priceLabel.setText("");
         init();
     }
 

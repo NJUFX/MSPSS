@@ -3,16 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="87702c57-78de-491a-8662-4c385adc8fe9" name="Default" comment="..">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AlertCreateViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AlertCreateViewController.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/Classification.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/Classification.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddClassificationViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddClassificationViewController.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java" />
       <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/PresentationCreateViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/PresentationCreateViewController.java" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesCreateViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesCreateViewController.java" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SelectPromotionViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SelectPromotionViewController.java" />
+      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/SelectClassOrCommodityViewController.java" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/SelectClassOrCommodityViewController.java" />
       <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/AlertCreate.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/AlertCreate.fxml" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillCreate.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillCreate.fxml" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillStatusCheck.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillStatusCheck.fxml" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/CommodityModifySecond.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/CommodityModifySecond.fxml" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/PresentationCreate.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/PresentationCreate.fxml" />
-      <change beforePath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/BillStatusCheck.fxml" afterPath="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/BillStatusCheck.fxml" />
+      <change beforePath="$PROJECT_DIR$/MSPSSServerModule/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/MSPSSServerModule/src/main/resources/hibernate.cfg.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,120 +37,120 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="mspss@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mspss@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mspss@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mspss: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManageListVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/ManageListVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
+      <file leaf-file-name="commoditypo" pinned="false" current-in-tab="false">
+        <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.commoditypo">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PresentationCreateViewController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/PresentationCreateViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1265">
-              <caret line="84" column="2" lean-forward="false" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
-              <folding />
+      <file leaf-file-name="customerpo" pinned="false" current-in-tab="false">
+        <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.customerpo">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BillCreate.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillCreate.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BillDetailsShow.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillDetailsShow.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommodityModifySecond.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/CommodityModifySecond.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3197">
-              <caret line="139" column="34" lean-forward="false" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/main/MainApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+      <file leaf-file-name="gross_promotion_po" pinned="false" current-in-tab="false">
+        <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.gross_promotion_po">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SalesCreateViewController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesCreateViewController.java">
+      <file leaf-file-name="AddClassificationViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddClassificationViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4669">
-              <caret line="241" column="48" lean-forward="false" selection-start-line="241" selection-start-column="48" selection-end-line="241" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SalesmanBillBLService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blservice/billblservice/SalesmanBillBLService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1449">
-              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectPromotionViewController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SelectPromotionViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="119" column="13" lean-forward="true" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
+            <state relative-caret-position="181">
+              <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
               <folding>
-                <element signature="e#5995#7209#0" expanded="true" />
-                <element signature="e#7208#7209#0" expanded="true" />
-                <element signature="e#8578#9427#0" expanded="true" />
-                <element signature="e#9426#9427#0" expanded="true" />
+                <element signature="e#2877#2878#0" expanded="true" />
+                <element signature="e#2921#2922#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockBillVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/StockBillVO.java">
+      <file leaf-file-name="classificationpo" pinned="false" current-in-tab="false">
+        <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.classificationpo">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommodityClassifyViewController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="874">
-              <caret line="43" column="7" lean-forward="false" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+            <state relative-caret-position="1208">
+              <caret line="419" column="23" lean-forward="true" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectClassOrCommodityViewController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/SelectClassOrCommodityViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="84" column="35" lean-forward="true" selection-start-line="84" selection-start-column="35" selection-end-line="84" selection-end-column="35" />
+              <folding>
+                <element signature="e#8753#8754#0" expanded="true" />
+                <element signature="e#8783#8784#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cashcostitempo" pinned="false" current-in-tab="false">
+        <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.cashcostitempo">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommodityBLImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/CommodityBLImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+              <folding>
+                <element signature="e#3461#3462#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Classification.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/Classification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -210,9 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockseller/CustomerSearchShow.fxml" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/auxiliary/Customer.java" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerManageViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerSearchViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserAddViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/BillDetailsShowViewController.java" />
@@ -233,7 +227,6 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/vo/SalesOutBillVO.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/test/java/bill/BillTest.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/BillDetailsShowViewController.java" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddClassificationViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/resources/StockBillItemPO.hbm.xml" />
         <option value="$PROJECT_DIR$/MSPSSCommonModule/src/main/java/po/CommodityPO.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/BreakageCreateViewController.java" />
@@ -247,7 +240,6 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/admin/Main.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserSearchShowViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddCommodityViewController.java" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/SelectClassOrCommodityViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerDelViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerSearchShowViewController.java" />
@@ -255,12 +247,17 @@
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockInventoryViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityDelViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/test/java/customer/CustomerTest.java" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AlertCreateViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/AlertCreate.fxml" />
-        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/PresentationCreateViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/CommodityModifySecond.fxml" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesCreateViewController.java" />
         <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SelectPromotionViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSServerModule/src/main/resources/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AlertCreateViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/PresentationCreateViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddClassificationViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/SelectClassOrCommodityViewController.java" />
+        <option value="$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/Classification.java" />
       </list>
     </option>
   </component>
@@ -276,10 +273,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="4" />
-    <option name="y" value="39" />
-    <option name="width" value="1378" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-83" />
+    <option name="y" value="13" />
+    <option name="width" value="1370" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectView">
@@ -297,7 +294,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
@@ -351,6 +347,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="blimpl" type="462c0819:PsiDirectoryNode" />
               <item name="billblimpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
+              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="commodityblimpl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
@@ -530,16 +536,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="stockmanager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ERPnju" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MSPSSERPnju" type="462c0819:PsiDirectoryNode" />
-              <item name="MSPSSClientModule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="stockseller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -624,6 +620,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -646,7 +643,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.MainApp">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -772,8 +769,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.ServerMain" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MainApp" />
+        <item index="0" class="java.lang.String" itemvalue="Application.MainApp" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ServerMain" />
       </list>
     </recent_temporary>
   </component>
@@ -802,6 +799,7 @@
       <workItem from="1515570772421" duration="3553000" />
       <workItem from="1515734114074" duration="5414000" />
       <workItem from="1515742698036" duration="67000" />
+      <workItem from="1515742956819" duration="3775000" />
     </task>
     <task id="LOCAL-00001" summary="完善打开保存、提交、审批等状态的界面">
       <created>1515260536272</created>
@@ -821,7 +819,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93964000" />
+    <option name="totallyTimeSpent" value="97739000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,34 +834,34 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6386139" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18683812" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4528302" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7821782" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18667643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11043873" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5471698" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19838946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19985358" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24752475" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08085809" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4528302" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16251831" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11043873" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24752475" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32838285" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -890,118 +888,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/PurchaseCreateViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2967">
-          <caret line="166" column="55" lean-forward="false" selection-start-line="166" selection-start-column="25" selection-end-line="166" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SalesRetCreateViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="47" column="48" lean-forward="false" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/BillDetailsShowViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="115" column="25" lean-forward="false" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserSearchShowViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="321" column="31" lean-forward="true" selection-start-line="321" selection-start-column="31" selection-end-line="321" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.classificationpo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.commoditypo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddCommodityViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityAddViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/SelectClassOrCommodityViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-575">
-          <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/datahelper/HibernateHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-514">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/adminui/UserDelViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerDelViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="75" column="72" lean-forward="false" selection-start-line="75" selection-start-column="72" selection-end-line="75" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/CustomerSearchShowViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="116" column="8" lean-forward="true" selection-start-line="116" selection-start-column="8" selection-end-line="118" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommoditySearchShowViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="143" column="24" lean-forward="true" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/StockCheckShowViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="119" column="34" lean-forward="true" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/StockInventory.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -1092,14 +978,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AlertCreateViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/PresentationListShowViewController.java">
@@ -1202,14 +1080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/PresentationCreateViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1265">
-          <caret line="84" column="2" lean-forward="false" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillCreate.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1223,7 +1093,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/resources/view/stockmanager/BillDetailsShow.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
+        <state relative-caret-position="0">
           <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
           <folding />
         </state>
@@ -1275,16 +1145,161 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SelectPromotionViewController.java">
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/network/ServerMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="119" column="13" lean-forward="true" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSServerModule/src/main/java/network/ServerHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AlertCreateViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="63" column="48" lean-forward="false" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/PresentationCreateViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stocksellerui/SelectPromotionViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="167" column="17" lean-forward="true" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
           <folding>
-            <element signature="e#5995#7209#0" expanded="true" />
-            <element signature="e#7208#7209#0" expanded="true" />
-            <element signature="e#8578#9427#0" expanded="true" />
-            <element signature="e#9426#9427#0" expanded="true" />
+            <element signature="e#5995#7209#0" expanded="false" />
+            <element signature="e#7208#7209#0" expanded="false" />
+            <element signature="e#8578#9427#0" expanded="false" />
+            <element signature="e#9426#9427#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/chiefmanagerui/ChiefManagerSetPromotionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="277" column="0" lean-forward="false" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.group_promotion_po">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.accountpo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/CommodityBLImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <element signature="e#3461#3462#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.cashcostitempo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.customerpo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.commoditypo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.gross_promotion_po">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/AddClassificationViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+          <folding>
+            <element signature="e#2877#2878#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/blimpl/commodityblimpl/Classification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/31ea9852/68ca9f34-13bf-4932-9577-bc263e33c55e/mspss.classificationpo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/SelectClassOrCommodityViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="84" column="35" lean-forward="true" selection-start-line="84" selection-start-column="35" selection-end-line="84" selection-end-column="35" />
+          <folding>
+            <element signature="e#8753#8754#0" expanded="true" />
+            <element signature="e#8783#8784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSPSSClientModule/src/main/java/ui/stockmanagerui/CommodityClassifyViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1208">
+          <caret line="419" column="23" lean-forward="true" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
