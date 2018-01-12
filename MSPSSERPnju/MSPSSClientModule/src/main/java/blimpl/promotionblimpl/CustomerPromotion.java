@@ -44,6 +44,7 @@ public class CustomerPromotion {
      * @return
      */
     public ResultMessage addCustomerPromotion(CustomerPromotionVO promotionVO) {
+        promotionVO.setId(new Time().getTimeID());
         CustomerPromotionPO po = vo_to_po(promotionVO);
         if (userInfo.getCurrentUser() != null) {
             logBLInfo.add(userInfo.getCurrentUser().getID(), "新增了客户销售策略" + promotionVO.getId());
@@ -99,7 +100,9 @@ public class CustomerPromotion {
                 : vo.getPresentationCommodityItemVOS()) {
             itemPOS.add(presentationCommodityItemVO.to_po());
         }
-     return new CustomerPromotionPO(vo.getLevel(),vo.getDiscount(),vo.getVoucher(),itemPOS,vo.getInitTime().toString(),vo.getEndTime().toString());
+        CustomerPromotionPO po = new CustomerPromotionPO(vo.getLevel(), vo.getDiscount(), vo.getVoucher(), itemPOS, vo.getInitTime().toString(), vo.getEndTime().toString());
+        po.setId(vo.getId());
+        return po;
     }
     private CustomerPromotionVO po_to_vo(CustomerPromotionPO po){
         ArrayList<PresentationCommodityItemVO> itemVOS = new ArrayList<>();

@@ -2,6 +2,7 @@ package po;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description: 特价包 组合商品实现一定的折扣 为了方便 我用折扣率来实现
@@ -19,7 +20,7 @@ public class GroupPromotionPO implements Serializable{
     /**
      * 该组合里的商品 graph
      */
-    private ArrayList<String> commodityIDs;
+    private List<String> commodityIDs;
     /**
      * 促销策略起始时间
      */
@@ -55,11 +56,11 @@ public class GroupPromotionPO implements Serializable{
         this.discountRate = discountRate;
     }
 
-    public ArrayList<String> getCommodityIDs() {
+    public List<String> getCommodityIDs() {
         return commodityIDs;
     }
 
-    public void setCommodityIDs(ArrayList<String> commodityIDs) {
+    public void setCommodityIDs(List<String> commodityIDs) {
         this.commodityIDs = commodityIDs;
     }
 

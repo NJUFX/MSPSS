@@ -2,6 +2,7 @@ package po;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description:用于针对 客户等级的特价包
@@ -27,7 +28,7 @@ public class CustomerPromotionPO implements Serializable {
     /**
      * 赠品列表 清单
      */
-    private ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS;
+    private List<PresentationCommodityItemPO> presentationCommodityItemPOS;
     /**
      *  开始时间
      */
@@ -109,11 +110,11 @@ public class CustomerPromotionPO implements Serializable {
         this.id = id;
     }
 
-    public ArrayList<PresentationCommodityItemPO> getPresentationCommodityItemPOS() {
+    public List<PresentationCommodityItemPO> getPresentationCommodityItemPOS() {
         return presentationCommodityItemPOS;
     }
 
-    public void setPresentationCommodityItemPOS(ArrayList<PresentationCommodityItemPO> presentationCommodityItemPOS) {
+    public void setPresentationCommodityItemPOS(List<PresentationCommodityItemPO> presentationCommodityItemPOS) {
         this.presentationCommodityItemPOS = presentationCommodityItemPOS;
     }
 }

@@ -81,4 +81,10 @@ public class CommodityTest {
         commodityBLService.addCommodity(commodityVO);
         assertEquals(true, classificationVO.getID() != null);
     }
+
+    @Test
+    public void test7() {
+        System.out.println(commodityBLService.getRootClassifications().size());
+    }
+
 }

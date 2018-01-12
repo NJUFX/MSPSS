@@ -34,6 +34,7 @@ public class Classification {
         String newID;
         if (pos.size() < 26) {
             newID = id + (char) (pos.size() + 'A');
+            
         } else {
             int prefix = pos.size() / 26;
             int postfix = pos.size() % 26;
@@ -96,7 +97,7 @@ public class Classification {
      */
     public ArrayList<ClassificationVO> getRootClassifications(){
         ArrayList<ClassificationVO> vos = new ArrayList<>();
-        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID", null);
+        ArrayList<ClassificationPO> pos = netService.fullSearchClassificationPO("parentID", "null");
        for (int i = 0 ; i < pos.size() ;i++){
            ClassificationVO vo = po_to_vo(pos.get(i));
            vos.add(vo);

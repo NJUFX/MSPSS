@@ -29,7 +29,10 @@ public class GrossPromotion {
      */
 
     public ResultMessage addGrossPromotion(GrossPromotionVO grossPromotionVO) {
-        logBLInfo.add(userInfo.getCurrentUser().getID(), "新增了满减销售策略" + grossPromotionVO.getId());
+        grossPromotionVO.setId(new Time().getTimeID());
+        if (userInfo.getCurrentUser() != null)
+            logBLInfo.add(userInfo.getCurrentUser().getID(), "新增了满减销售策略" + grossPromotionVO.getId());
+
 
         GrossPromotionPO po = vo_to_po(grossPromotionVO);
         return networkService.addGrossPromotion(po);
@@ -99,6 +102,7 @@ public class GrossPromotion {
             itemPOS.add(presentationCommodityItemVO.to_po());
         }
         GrossPromotionPO po = new GrossPromotionPO(vo.getTotal(),vo.getVoucher(),itemPOS,vo.getInitTime().toString(),vo.getEndTime().toString());
+        po.setId(vo.getId());
         return po;
     }
     private GrossPromotionVO po_to_vo(GrossPromotionPO po){
