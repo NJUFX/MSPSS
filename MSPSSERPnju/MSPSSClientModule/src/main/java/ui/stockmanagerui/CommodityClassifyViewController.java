@@ -77,7 +77,7 @@ public class CommodityClassifyViewController implements Initializable {
         ClassificationCell commodityCell = new ClassificationCell("Root", "Root", "001", true);
         TreeItem<ClassificationCell> root = new TreeItem<>(commodityCell, rootIcon);//根分类
 
-        System.out.println("RootSize "+commodityBLService.getRootClassifications().size());
+        System.out.println("RootSize " + commodityBLService.getRootClassifications().size());
         if (commodityBLService.getRootClassifications() != null && commodityBLService.getRootClassifications().size() != 0) {
             addChildren(commodityBLService.getRootClassifications(), root);
         }
@@ -100,7 +100,7 @@ public class CommodityClassifyViewController implements Initializable {
                     if (commodityBLService.getChildrenClassification(childrenVO) != null && commodityBLService.getChildrenClassification(childrenVO).size() != 0) {
                         addChildren(commodityBLService.getChildrenClassification(childrenVO), childrenItem);
                     }
-                    System.out.println("Child ComList"+commodityBLService.getChildrenCommodity(childrenVO).size());
+                    System.out.println("Child ComList" + commodityBLService.getChildrenCommodity(childrenVO).size());
                     if (commodityBLService.getChildrenCommodity(childrenVO) != null && commodityBLService.getChildrenCommodity(childrenVO).size() != 0) {
                         addCommodity(commodityBLService.getChildrenCommodity(childrenVO), childrenItem);
                     }
@@ -356,11 +356,16 @@ public class CommodityClassifyViewController implements Initializable {
                         boolean b = dialog.confirmDialog("Confirm to delete the classification?");
                         if (b == true) {
                             item.getParent().getChildren().remove(item);
-                            ResultMessage resultMessage = commodityBLService.deleteClassification(item.getValue().getId());
-                            if (resultMessage == ResultMessage.SUCCESS) {
-                                dialog.infoDialog("Delete the classification successfully.");
+                            if (commodityBLService.getChildrenCommodity(commodityBLService.getClassification(item.getValue().getId())).size() > 0
+                                    || commodityBLService.getChildrenClassification(commodityBLService.getClassification(item.getValue().getId())).size() > 0) {
+                                dialog.errorInfoDialog("Unable to delete this classification.");
                             } else {
-                                dialog.errorInfoDialog("Fail to delete the classification.");
+                                ResultMessage resultMessage = commodityBLService.deleteClassification(item.getValue().getId());
+                                if (resultMessage == ResultMessage.SUCCESS) {
+                                    dialog.infoDialog("Delete the classification successfully.");
+                                } else {
+                                    dialog.errorInfoDialog("Fail to delete the classification.");
+                                }
                             }
                         }
                     });
@@ -405,12 +410,17 @@ public class CommodityClassifyViewController implements Initializable {
                     delCommodityButton.setOnAction((ActionEvent at) -> {
                         boolean b = dialog.confirmDialog("Confirm to delete the commodity?");
                         if (b == true) {
-                            item.getParent().getChildren().remove(item);
-                            ResultMessage resultMessage = commodityBLService.deleteCommodity(item.getValue().getId());
-                            if (resultMessage == ResultMessage.SUCCESS) {
-                                dialog.infoDialog("Delete the commodity successfully.");
+                            int stock = commodityInfoService.getCommodity(item.getValue().getId()).getNumberInStock();
+                            if (stock > 0) {
+                                dialog.errorInfoDialog("该商品库存为" + stock + ", 你不能删除该商品");
                             } else {
-                                dialog.errorInfoDialog("Fail to delete the commodity.");
+                                ResultMessage resultMessage = commodityBLService.deleteCommodity(item.getValue().getId());
+                                if (resultMessage == ResultMessage.SUCCESS) {
+                                    item.getParent().getChildren().remove(item);
+                                    dialog.infoDialog("Delete the commodity successfully.");
+                                } else {
+                                    dialog.errorInfoDialog("Fail to delete the commodity.");
+                                }
                             }
                         }
                     });
@@ -480,9 +490,14 @@ public class CommodityClassifyViewController implements Initializable {
                 boolean b = dialog.confirmDialog("Confirm to delete the classification?");
                 if (b == true) {
                     TreeItem<ClassificationCell> selectItem = getTreeView().getSelectionModel().getSelectedItem();
-                    if (commodityBLService.deleteClassification(selectItem.getValue().getId()) == ResultMessage.SUCCESS) {
-                        selectItem.getParent().getChildren().remove(selectItem);
-                        dialog.infoDialog("Delete a classification successfully.");
+                    if (commodityBLService.getChildrenCommodity(commodityBLService.getClassification(selectItem.getValue().getId())).size() > 0
+                            || commodityBLService.getChildrenClassification(commodityBLService.getClassification(selectItem.getValue().getId())).size() > 0) {
+                        dialog.errorInfoDialog("Unable to delete this classification.");
+                    } else {
+                        if (commodityBLService.deleteClassification(selectItem.getValue().getId()) == ResultMessage.SUCCESS) {
+                            selectItem.getParent().getChildren().remove(selectItem);
+                            dialog.infoDialog("Delete a classification successfully.");
+                        }
                     }
                 }
             });
@@ -511,10 +526,15 @@ public class CommodityClassifyViewController implements Initializable {
                 boolean b = dialog.confirmDialog("Confirm to delete the commodity?");
                 if (b == true) {
                     TreeItem<ClassificationCell> selectItem = getTreeView().getSelectionModel().getSelectedItem();
-                    ResultMessage resultMessage = commodityBLService.deleteCommodity(selectItem.getValue().getId());
-                    if (resultMessage == ResultMessage.SUCCESS) {
-                        selectItem.getParent().getChildren().remove(selectItem);
-                        dialog.infoDialog("Delete a commodity successfully.");
+                    int stock = commodityInfoService.getCommodity(selectItem.getValue().getId()).getNumberInStock();
+                    if (stock > 0) {
+                        dialog.errorInfoDialog("该商品库存为" + stock + ", 你不能删除该商品");
+                    } else {
+                        ResultMessage resultMessage = commodityBLService.deleteCommodity(selectItem.getValue().getId());
+                        if (resultMessage == ResultMessage.SUCCESS) {
+                            selectItem.getParent().getChildren().remove(selectItem);
+                            dialog.infoDialog("Delete a commodity successfully.");
+                        }
                     }
                 }
             });
@@ -568,8 +588,8 @@ public class CommodityClassifyViewController implements Initializable {
                     ClassificationVO classificationVO = commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getValue().getId());
                     classificationVO.setName(textField.getText().trim());
                     if (!getTreeView().getSelectionModel().getSelectedItem().getValue().getParent().equals("Root")) {
-                        classificationVO.setParent(commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId())==null
-                                ?null:commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId()));
+                        classificationVO.setParent(commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId()) == null
+                                ? null : commodityBLService.getClassification(getTreeView().getSelectionModel().getSelectedItem().getParent().getValue().getId()));
                     }
                     ResultMessage resultMessage = commodityBLService.updateClassification(classificationVO);
                     if (resultMessage == ResultMessage.SUCCESS) {
