@@ -28,7 +28,7 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button fx:id="MakeBill" layoutY="315.0" mnemonicParsing="false" onAction="#handleMakeBillButtonAction" prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
+        <Button fx:id="MakeBill" layoutY="315.0" mnemonicParsing="false" onAction="#handleMakeBillButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="制定单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
@@ -91,9 +91,9 @@
       </ImageView>
       <Pane layoutX="215.0" layoutY="94.0" prefHeight="382.0" prefWidth="609.0" style="-fx-background-color: white;">
          <children>
-            <Button fx:id="AddReceiveBill" layoutX="220.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleAddReceiveBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="收款单" textFill="#0f88eb" />
-            <Button fx:id="AddPayBill" layoutX="220.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleAddPayBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="付款单" textFill="#0f88eb" />
-            <Button fx:id="AddCashCostBill" layoutX="220.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddCashCostBillButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-color: white; -fx-border-color: #0f88eb;" text="现金费用单" textFill="#0f88eb" />
+            <Button id="cancelButton2" fx:id="AddReceiveBill" layoutX="220.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleAddReceiveBillButtonAction" prefHeight="35.0" prefWidth="300.0" stylesheets="@../../css/admin/addUser.css" text="收款单" textFill="#0f88eb" />
+            <Button id="cancelButton2" fx:id="AddPayBill" layoutX="220.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleAddPayBillButtonAction" prefHeight="35.0" prefWidth="300.0" stylesheets="@../../css/admin/addUser.css" text="付款单" textFill="#0f88eb" />
+            <Button id="cancelButton2" fx:id="AddCashCostBill" layoutX="220.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleAddCashCostBillButtonAction" prefHeight="35.0" prefWidth="300.0" stylesheets="@../../css/admin/addUser.css" text="现金费用单" textFill="#0f88eb" />
             <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="60.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/收款单.png" />

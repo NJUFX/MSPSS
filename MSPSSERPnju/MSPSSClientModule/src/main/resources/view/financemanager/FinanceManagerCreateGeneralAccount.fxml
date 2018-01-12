@@ -61,7 +61,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="CreateGeneralAccount" layoutY="385.0" mnemonicParsing="false" onAction="#handleCreateGeneralAccountButtonAction" prefHeight="35.0" prefWidth="145.0" text="期初建账" textFill="#f8f4f4">
+      <Button fx:id="CreateGeneralAccount" layoutY="385.0" mnemonicParsing="false" onAction="#handleCreateGeneralAccountButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="期初建账" textFill="#f8f4f4">
          <font>
             <Font size="16.0" />
          </font>
