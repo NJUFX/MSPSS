@@ -20,7 +20,7 @@ public class LogClientNetworkImpl implements  LogClientNetworkService {
 
     public LogClientNetworkImpl(){
         try {
-            logServerNetworkService = (LogServerNetworkService) Naming.lookup("rmi://106.14.188.84:8888/LogServerNetworkService");
+            logServerNetworkService = (LogServerNetworkService) Naming.lookup("LogServerNetworkService");
         } catch (NotBoundException e) {
             System.err.println("Client.network.LogServerNetworkService: Not bound, trying to connect");
             e.printStackTrace();
