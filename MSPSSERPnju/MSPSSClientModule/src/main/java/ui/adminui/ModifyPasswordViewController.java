@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import ui.common.Dialog;
+import util.Encryptor;
 import util.ResultMessage;
 import vo.UserVO;
 
@@ -39,8 +40,8 @@ public class ModifyPasswordViewController implements Initializable {
                 newPasswordField.getText() != null && !newPasswordField.getText().trim().equals("")) {
             if (userBLService.searchUserByID(idField.getText().trim()) != null) {
                 UserVO userVO = userBLService.searchUserByID(idField.getText().trim());
-                if (userVO.getPassword().equals(oldPasswordField.getText().trim())) {
-                    userVO.setPassword(newPasswordField.getText().trim());
+                if (Encryptor.encrypt(userVO.getPassword()).equals(oldPasswordField.getText().trim())) {
+                    userVO.setPassword(Encryptor.encrypt(newPasswordField.getText().trim()));
                     ResultMessage resultMessage = userBLService.updateUser(userVO);
                     if (resultMessage == ResultMessage.SUCCESS) {
                         dialog.infoDialog("Modify password successfully.");

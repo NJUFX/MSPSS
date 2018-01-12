@@ -1,5 +1,6 @@
 package blservice.stockbl;
 
+import util.ResultMessage;
 import util.Time;
 import vo.StockInventoryVO;
 import vo.StockVO;
@@ -28,5 +29,5 @@ public interface StockBLService {
      */
     public ArrayList<StockInventoryVO> viewInventory();
 
-
+    public ResultMessage exportToExcel(ArrayList<StockInventoryVO> stockInventoryVOS);
 }

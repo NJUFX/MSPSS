@@ -57,14 +57,19 @@ public class CommodityDelViewController implements Initializable {
                 dialog.errorInfoDialog("Commodity not found, id is wrong.");
                 return;
             }
-            boolean b = false;
             if (com.numberInStock > 0) {
-                b = dialog.confirmDialog("该商品的库存是" + com.getNumberInStock() + ", 是否确定将其删除？");
-            }
-            if (b = true) {
+                dialog.errorInfoDialog("该商品的库存是" + com.getNumberInStock() + ", 你不能删除该商品");
+            } else {
                 ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_del.getText().trim());
                 if (resultMessage == ResultMessage.SUCCESS) {
                     dialog.infoDialog("Delete a commodity successfully.");
+                    try {
+                        CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
+                                "/view/stockmanager/commodityManage.fxml");
+                    } catch (Exception e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
                 }
             }
         } else {

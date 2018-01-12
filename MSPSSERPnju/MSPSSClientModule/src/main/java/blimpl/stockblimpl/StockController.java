@@ -17,9 +17,10 @@ import java.util.List;
  */
 public class StockController implements StockBLService,StockBLInfo {
     private Stock stock;
-
+    private ExportHelper exportHelper;
     public StockController(Stock stock) {
         this.stock = stock;
+        exportHelper = new ExportHelper();
     }
 
     @Override
@@ -40,5 +41,11 @@ public class StockController implements StockBLService,StockBLInfo {
     @Override
     public ArrayList<StockInventoryVO> viewInventory() {
         return stock.viewInventory();
+    }
+
+    @Override
+    public ResultMessage exportToExcel(ArrayList<StockInventoryVO> stockInventoryVOS) {
+        exportHelper.ExportStockList(stockInventoryVOS);
+        return ResultMessage.SUCCESS;
     }
 }

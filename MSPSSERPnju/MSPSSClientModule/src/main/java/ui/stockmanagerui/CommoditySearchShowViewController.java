@@ -95,6 +95,7 @@ public class CommoditySearchShowViewController implements Initializable {
                             try {
                                 CommodityInfoShowViewController.keyType = keyType;
                                 CommodityInfoShowViewController.keyword = keyword;
+                                CommodityInfoShowViewController.commodityVO = commodityInfoService.getCommodity(this.getTableView().getItems().get(this.getIndex()).getId());
                                 CommodityInfoShowViewController controller = (CommodityInfoShowViewController) replaceSceneContent(
                                         "/view/stockmanager/CommodityInfoShow.fxml");
                                 controller.id_to_modify = this.getTableView().getItems().get(this.getIndex()).getId();
@@ -141,12 +142,12 @@ public class CommoditySearchShowViewController implements Initializable {
                 arrayList = commodityInfoService.search(filterFlagVO);
                 if (arrayList.size() == 0) {
                     dialog.infoDialog("No commodity matches conditions.");
-                } else {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
-                        data.add(c);
-                    }
                 }
+                for (int i = 0; i < arrayList.size(); i++) {
+                    CommodityTable c = new CommodityTable(arrayList.get(i).getName(), arrayList.get(i).getID(), arrayList.get(i).getClassificationName(), String.valueOf(arrayList.get(i).getImportCost()), String.valueOf(arrayList.get(i).getExportCost()));
+                    data.add(c);
+                }
+
             }
         } else {
             System.out.println("Key type null");

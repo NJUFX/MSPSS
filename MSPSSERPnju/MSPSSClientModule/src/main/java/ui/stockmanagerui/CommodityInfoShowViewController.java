@@ -38,7 +38,8 @@ public class CommodityInfoShowViewController implements Initializable {
     Dialog dialog = new Dialog();
     Stage newStage = new Stage();
     String id_to_modify;
-    static String keyType,keyword;
+    static String keyType, keyword;
+    static CommodityVO commodityVO;
     private CommodityTable commodityTable;
 
     public void setCommodityTable(CommodityTable commodityTable) {
@@ -76,12 +77,17 @@ public class CommodityInfoShowViewController implements Initializable {
     @FXML
     public void delButtonAction(ActionEvent e) {
         try {
-            ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_modify);
-            if (resultMessage == ResultMessage.SUCCESS) {
-                CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
-                        "/view/stockmanager/CommoditySearchShow.fxml");
-                controller.refreshButtonAction();
-                dialog.infoDialog("Delete the commodity successfully.");
+            int stock = commodityInfoService.getCommodity(id_to_modify).getNumberInStock();
+            if (stock > 0) {
+                dialog.errorInfoDialog("该商品的库存是" + stock + ", 你不能删除该商品");
+            } else {
+                ResultMessage resultMessage = commodityBLService.deleteCommodity(id_to_modify);
+                if (resultMessage == ResultMessage.SUCCESS) {
+                    CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
+                            "/view/stockmanager/CommoditySearchShow.fxml");
+                    controller.refreshButtonAction();
+                    dialog.infoDialog("Delete the commodity successfully.");
+                }
             }
         } catch (Exception e1) {
             e1.printStackTrace();
@@ -278,11 +284,11 @@ public class CommodityInfoShowViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
 
-        CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify);
         id.setText(commodityVO.getID());
         name.setText(commodityVO.getName());
         type.setText(commodityVO.getType());
         category.setText(commodityVO.getClassificationName());
+        System.out.println("eee"+ commodityVO.getClassificationName());
         purchasingPrice.setText(String.valueOf(commodityVO.getImportCost()));
         sellingPrice.setText(String.valueOf(commodityVO.getExportCost()));
         stockAlertNumber.setText(String.valueOf(commodityVO.getAlertNumber()));

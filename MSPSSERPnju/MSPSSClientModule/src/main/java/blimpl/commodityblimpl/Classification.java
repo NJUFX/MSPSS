@@ -33,8 +33,19 @@ public class Classification {
             if(id.equals("null"))
                 id = "";
         String newID;
+
         if (pos.size() < 26) {
-            newID = id + (char) (pos.size() + 'A');
+            char max = 0;
+            for (int i = 0; i < pos.size(); i++) {
+                String d = pos.get(i).getID();
+                if (d.charAt(d.length() - 1) > max) {
+                    max = d.charAt(d.length() - 1);
+                }
+            }
+            if (max < 'Z')
+                newID = id + (char) (max + 1);
+            else
+                newID = id + "aA";
         } else {
             int prefix = pos.size() / 26;
             int postfix = pos.size() % 26;

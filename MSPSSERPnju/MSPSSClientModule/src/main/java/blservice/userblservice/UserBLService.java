@@ -48,4 +48,5 @@ public interface UserBLService {
      */
     public ResultMessage updateUser(UserVO user);
 
+
 }

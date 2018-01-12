@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.common.Dialog;
+import util.Encryptor;
 import util.Kind_Of_Users;
 import util.ResultMessage;
 import vo.UserVO;
@@ -137,7 +138,7 @@ public class UserAddViewController implements Initializable {
                         break;
                 }
 
-                UserVO userVo = new UserVO(idField.getText().trim(), nameField.getText().trim(), kind_of_users, "123456");
+                UserVO userVo = new UserVO(idField.getText().trim(), nameField.getText().trim(), kind_of_users, Encryptor.encrypt("123456"));
                 userVo.setIsValid(true);
                 userVo.setMail(emailField.getText().trim());
                 //userBLService.addUser(userVo);

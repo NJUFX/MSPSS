@@ -10,5 +10,5 @@ import java.util.List;
  * Created by Hanxinhu at 13:55 2017/12/28/028
  */
 public interface StockBillInfo {
-    public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list);
+    public ResultMessage addStockPresentationBill(List<PresentationCommodityItemVO> list, String ps);
 }

@@ -23,11 +23,19 @@ public class Commodity {
      * @return
      */
     public ResultMessage addCommodity(CommodityVO commodityVO){
-        CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationName,commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
         //此时的ID为空
+        CommodityPO po = vo_to_po(commodityVO);
 
         ArrayList<CommodityPO> pos = netService.fullSearchCommodity("classificationID", commodityVO.classificationName);
-        String ID = commodityVO.getClassificationName() + pos.size();
+        int max = 0;
+        for (int i = 0; i < pos.size(); i++) {
+            String[] strings = pos.get(i).getID().split("-");
+            int x = Integer.parseInt(strings[1]);
+            if (x > max) {
+                max = x;
+            }
+        }
+        String ID = commodityVO.getClassificationName() + "-" + (max + 1);
         po.setID(ID);
         commodityVO.setID(po.getID());
 
@@ -40,7 +48,7 @@ public class Commodity {
      * @return
      */
     public ResultMessage updateCommodity(CommodityVO commodityVO){
-        CommodityPO po = new CommodityPO(commodityVO.name,commodityVO.classificationName,commodityVO.type,commodityVO.ID,commodityVO.importCost,commodityVO.exportCost,commodityVO.numberInStock);
+        CommodityPO po = vo_to_po(commodityVO);
         return netService.modifyCommodity(po);
     }
 
@@ -67,13 +75,21 @@ public class Commodity {
 
         CommodityPO po = netService.exactlySearchCommodity(id);
         if (po != null) {
-            CommodityVO vo = new CommodityVO(po.getName(), po.getID(), po.getType(), po.getImportCost(), po.getExportCost(),
-                    po.getNumberInStock());
+            CommodityVO vo = po_to_vo(po);
             return vo;
         }
         return null;
     }
 
+    /**
+     * @param vo
+     * @return
+     */
+    public CommodityPO vo_to_po(CommodityVO vo) {
+
+        return new CommodityPO(vo.getName(), vo.getClassificationName(), vo.getType(), vo.getID(), vo.getImportCost()
+                , vo.getExportCost(), vo.getLatestImportCost(), vo.getLatestExportCost(), vo.getNumberInStock(), vo.getAlertNumber());
+    }
     /**
      * 将商品的PO转化为VO
      * @param po
@@ -82,6 +98,7 @@ public class Commodity {
     public CommodityVO po_to_vo(CommodityPO po){
         CommodityVO vo = new CommodityVO(po.getName(),po.getID(),po.getType(),po.getImportCost(),po.getExportCost(),
                 po.getNumberInStock());
+        vo.setAlertNumber(po.getAlertNumber());
         return vo;
     }
     /**
@@ -213,4 +230,6 @@ public class Commodity {
 
         return netService.modifyCommodity(po);
     }
+
+
 }

@@ -29,7 +29,8 @@ public class GroupPromotion {
 
     public ResultMessage addGroupPromotion(GroupPromotionVO groupPromotionVO) {
         groupPromotionVO.setId(new Time().getTimeID());
-        logBLInfo.add(userInfo.getCurrentUser().getID(), "增加了特价包销售策略" + groupPromotionVO.getId());
+        if (userInfo.getCurrentUser() != null)
+            logBLInfo.add(userInfo.getCurrentUser().getID(), "增加了特价包销售策略" + groupPromotionVO.getId());
         return networkService.addGroupPromotion(vo_to_po(groupPromotionVO));
     }
 
@@ -93,7 +94,9 @@ public class GroupPromotion {
      * @return
      */
     private GroupPromotionVO po_to_vo(GroupPromotionPO po){
-        GroupPromotionVO vo = new GroupPromotionVO(po.getDiscountRate(), (ArrayList) po.getCommodityIDs(), new Time(po.getInitTime()), new Time(po.getEndTime()));
+        ArrayList<String> commoditys  = new ArrayList<>();
+        commoditys.addAll(po.getCommodityIDs());
+        GroupPromotionVO vo = new GroupPromotionVO(po.getDiscountRate(), commoditys, new Time(po.getInitTime()), new Time(po.getEndTime()));
         return vo;
     }
     private GroupPromotionPO vo_to_po(GroupPromotionVO vo){

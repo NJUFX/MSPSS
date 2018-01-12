@@ -17,7 +17,7 @@
           <property name="endTime" column="end_time" type="string"></property>
 
           <list name = "presentationCommodityItemPOS" lazy="false" table ="presentation_commodity_item_po" cascade="all">
-              <key column="gross_promotion_id"></key>
+              <key column="gross_promotion_po_id"></key>
               <index column="gross_index" ></index>
               <one-to-many class ="po.PresentationCommodityItemPO"/>
 

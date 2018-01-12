@@ -8,6 +8,7 @@ import util.ResultMessage;
 import util.Time;
 import vo.CustomerPromotionVO;
 import vo.GrossPromotionVO;
+import vo.GroupPromotionVO;
 
 import java.util.ArrayList;
 
@@ -39,4 +40,29 @@ public class PromotionBLTest {
         assertEquals(ResultMessage.SUCCESS, message);
     }
 
+    @Test
+    public void test3() {
+        GroupPromotionVO promotionVO = new GroupPromotionVO(new Time().getTimeID(), 0.8, new ArrayList<>(), new Time(), new Time());
+        ResultMessage message = promotionBLService.addGroupPromotion(promotionVO);
+        assertEquals(ResultMessage.SUCCESS, message);
+
+    }
+
+    @Test
+    public void test4() {
+        ArrayList<GrossPromotionVO> promotionVOS = promotionBLService.getAllGrossPromotion();
+        assertEquals(true, promotionVOS.size() != 0);
+    }
+
+    @Test
+    public void test5() {
+        ArrayList<GroupPromotionVO> promotionVOS = promotionBLService.getAllGroupPromotion();
+        assertEquals(true, promotionVOS.size() != 0);
+    }
+
+    @Test
+    public void test6() {
+        ArrayList<CustomerPromotionVO> promotionVOS = promotionBLService.getAllCustomerPromotion();
+        assertEquals(true, promotionVOS.size() != 0);
+    }
 }
