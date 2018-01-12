@@ -106,7 +106,7 @@ public class CommodityBLImpl implements CommodityBLService,CommodityInfoService 
     @Override
     public ArrayList<CommodityVO> getChildrenCommodity(ClassificationVO classificationVO) {
         FilterFlagVO filterFlagVO = new FilterFlagVO();
-        filterFlagVO.setClassificationName(classificationVO.name);
+        filterFlagVO.setClassificationName(classificationVO.getID());
         return commodity.searchCommodity(filterFlagVO);
     }
 

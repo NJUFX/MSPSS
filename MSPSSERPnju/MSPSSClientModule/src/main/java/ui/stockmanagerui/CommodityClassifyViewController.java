@@ -100,7 +100,7 @@ public class CommodityClassifyViewController implements Initializable {
                     if (commodityBLService.getChildrenClassification(childrenVO) != null && commodityBLService.getChildrenClassification(childrenVO).size() != 0) {
                         addChildren(commodityBLService.getChildrenClassification(childrenVO), childrenItem);
                     }
-                    //System.out.println(commodityBLService.getChildrenCommodity(childrenVO).size());
+                    System.out.println("Child ComList"+commodityBLService.getChildrenCommodity(childrenVO).size());
                     if (commodityBLService.getChildrenCommodity(childrenVO) != null && commodityBLService.getChildrenCommodity(childrenVO).size() != 0) {
                         addCommodity(commodityBLService.getChildrenCommodity(childrenVO), childrenItem);
                     }
