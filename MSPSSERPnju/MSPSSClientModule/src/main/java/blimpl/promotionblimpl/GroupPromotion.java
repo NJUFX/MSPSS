@@ -29,7 +29,8 @@ public class GroupPromotion {
 
     public ResultMessage addGroupPromotion(GroupPromotionVO groupPromotionVO) {
         groupPromotionVO.setId(new Time().getTimeID());
-        logBLInfo.add(userInfo.getCurrentUser().getID(), "增加了特价包销售策略" + groupPromotionVO.getId());
+        if (userInfo.getCurrentUser() != null)
+            logBLInfo.add(userInfo.getCurrentUser().getID(), "增加了特价包销售策略" + groupPromotionVO.getId());
         return networkService.addGroupPromotion(vo_to_po(groupPromotionVO));
     }
 

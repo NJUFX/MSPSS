@@ -41,4 +41,9 @@ public class StockController implements StockBLService,StockBLInfo {
     public ArrayList<StockInventoryVO> viewInventory() {
         return stock.viewInventory();
     }
+
+    @Override
+    public ResultMessage exportToExcel(ArrayList<StockInventoryVO> stockInventoryVOS) {
+        return null;
+    }
 }

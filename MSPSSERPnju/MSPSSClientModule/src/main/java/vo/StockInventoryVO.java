@@ -5,8 +5,17 @@ package vo;
  * Created by Hanxinhu at 17:07 2018/1/3/003
  */
 public class StockInventoryVO {
+    /**
+     * 商品名
+     */
     String name;
+    /**
+     * 库存数量
+     */
     int number;
+    /**
+     * 库存均价
+     */
     double price;
 
     public StockInventoryVO(String name, int number, double price) {
