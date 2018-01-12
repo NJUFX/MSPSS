@@ -2,7 +2,6 @@ package user;
 
 import blimpl.userblimpl.User;
 import org.junit.Test;
-import po.UserPO;
 import status.Log_In_Out_Status;
 import util.Kind_Of_Users;
 import util.ResultMessage;
@@ -22,7 +21,7 @@ public class UserBLTest {
     public void test1() {
         UserVO userVO = new UserVO("hxh", "韩新虎", Kind_Of_Users.StockManager, "123456", "hanxinhu521@163.com");
         ResultMessage message = user.addUser(userVO);
-        assertEquals(ResultMessage.EXIST, message);
+        assertEquals(ResultMessage.SUCCESS, message);
     }
 
     @Test
@@ -53,7 +52,9 @@ public class UserBLTest {
 
      @Test
     public  void test5(){
-       UserVO vo = user.searchUserByID("FM001");
-    assertNotNull(vo);
+         UserVO userVO2 = new UserVO("hxh3", "韩新虎", Kind_Of_Users.StockManager, "123458", "hanxinhu521@163.com");
+         user.addUser(userVO2);
+         UserVO vo = user.searchUserByID("hxh3");
+         assertNotNull(vo);
     }
 }

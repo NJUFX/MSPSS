@@ -48,4 +48,21 @@ public class PromotionBLTest {
 
     }
 
+    @Test
+    public void test4() {
+        ArrayList<GrossPromotionVO> promotionVOS = promotionBLService.getAllGrossPromotion();
+        assertEquals(true, promotionVOS.size() != 0);
+    }
+
+    @Test
+    public void test5() {
+        ArrayList<GroupPromotionVO> promotionVOS = promotionBLService.getAllGroupPromotion();
+        assertEquals(true, promotionVOS.size() != 0);
+    }
+
+    @Test
+    public void test6() {
+        ArrayList<CustomerPromotionVO> promotionVOS = promotionBLService.getAllCustomerPromotion();
+        assertEquals(true, promotionVOS.size() != 0);
+    }
 }
