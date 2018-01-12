@@ -288,6 +288,7 @@ public class SalesCreateViewController implements Initializable {
                 salesmanBillBLService.saveSalesOutBill(salesOutBillVO);
 
                 SelectPromotionViewController.salesOutBillVO = salesOutBillVO;
+                SelectPromotionViewController.level = salesOutBillVO.getCustomerVO().getLevel();
                 SelectPromotionViewController controller = (SelectPromotionViewController) replaceAnotherSceneContent("/view/stockseller/SelectPromotion.fxml", 544, 541);
                 PromotionDiscountLabel.setText("0");
                 controller.PromotionDiscountLabel = PromotionDiscountLabel;

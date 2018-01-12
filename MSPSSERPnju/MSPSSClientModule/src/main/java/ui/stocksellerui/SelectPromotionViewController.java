@@ -137,6 +137,9 @@ public class SelectPromotionViewController implements Initializable {
                 if (level >= list.get(i).getLevel()) {
                     sum = Math.max(sum, list.get(i).getDiscount());
                     customerPromotionVO = list.get(i);
+                    if (list.get(i).getPresentationCommodityItemVOS() == null) {
+                        customerPromotionVO.setPresentationCommodityItemVOS(new ArrayList<>());
+                    }
                 }
             }
             customerPromotionSelectPane.setVisible(true);
@@ -152,7 +155,7 @@ public class SelectPromotionViewController implements Initializable {
      * 满减
      */
     void showGrossPromotion() {
-        GrossManJianCol.setCellValueFactory(new PropertyValueFactory<>("ManJian"));
+        GrossManJianCol.setCellValueFactory(new PropertyValueFactory<>("ManJianInfo"));
         GrossIdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         GrossSelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
         GrossVoucherCol.setCellValueFactory(new PropertyValueFactory<>("Voucher"));
@@ -172,7 +175,7 @@ public class SelectPromotionViewController implements Initializable {
                         Btn.setOnMouseClicked((me) -> {
                             try {
                                 PresentationListShowViewController.presentationList = getTableView().getItems().get(this.getIndex()).getPresentationCommodityItemVOS();
-                                PresentationListShowViewController controller = (PresentationListShowViewController) replaceAnotherSceneContent("/view/stockseller/PresentationListShow", 292, 326);
+                                PresentationListShowViewController controller = (PresentationListShowViewController) replaceAnotherSceneContent("/view/stockseller/PresentationListShow.fxml", 292, 326);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
@@ -221,6 +224,9 @@ public class SelectPromotionViewController implements Initializable {
                         this.setGraphic(Btn);
                         Btn.setOnMouseClicked((me) -> {
                             try {
+                                //TODO
+                                PresentationListShowViewController.idList = this.getTableView().getItems().get(this.getIndex()).getGroupPromotionVO().getCommodityIDs();
+                                PresentationListShowViewController controller = (PresentationListShowViewController) replaceAnotherSceneContent("/view/stockseller/PresentationListShow.fxml", 292, 326);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
@@ -228,6 +234,7 @@ public class SelectPromotionViewController implements Initializable {
                     }
                 }
             };
+            cell.setStyle("-fx-alignment:CENTER;");
             return cell;
         });
         GroupSelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
