@@ -27,7 +27,15 @@ public class Commodity {
         CommodityPO po = vo_to_po(commodityVO);
 
         ArrayList<CommodityPO> pos = netService.fullSearchCommodity("classificationID", commodityVO.classificationName);
-        String ID = commodityVO.getClassificationName() + pos.size();
+        int max = 0;
+        for (int i = 0; i < pos.size(); i++) {
+            String[] strings = pos.get(i).getID().split("-");
+            int x = Integer.parseInt(strings[1]);
+            if (x > max) {
+                max = x;
+            }
+        }
+        String ID = commodityVO.getClassificationName() + "-" + (max + 1);
         po.setID(ID);
         commodityVO.setID(po.getID());
 
@@ -222,4 +230,6 @@ public class Commodity {
 
         return netService.modifyCommodity(po);
     }
+
+
 }
