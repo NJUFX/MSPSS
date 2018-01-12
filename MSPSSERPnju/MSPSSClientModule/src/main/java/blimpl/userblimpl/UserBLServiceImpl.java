@@ -132,4 +132,14 @@ public class UserBLServiceImpl implements UserBLService, UserInfo, MainBLService
     public ArrayList<String> getChiefManagerMails() {
         return user.getChiefManagerMails();
     }
+
+    /**
+     * 随机得到一个库存管理人员来进行分配库存赠送单
+     *
+     * @return
+     */
+    @Override
+    public UserVO getStockManager() {
+        return user.getStockManager();
+    }
 }

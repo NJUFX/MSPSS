@@ -219,4 +219,10 @@ public class User {
         return mails;
 
     }
+
+    public UserVO getStockManager() {
+        ArrayList<UserVO> userVOS = searchUserByKind(Kind_Of_Users.ChiefManager);
+        int random = (int) (userVOS.size() * Math.random());
+        return userVOS.get(random);
+    }
 }
