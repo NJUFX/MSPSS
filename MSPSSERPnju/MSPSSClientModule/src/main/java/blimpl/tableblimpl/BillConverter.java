@@ -8,11 +8,11 @@ import vo.*;
  * Created by thinkpad on 2017/12/27.
  */
 public class BillConverter {
-  private FinanceBill financeBill;
-  private CashCostBill cashCostBill;
-  private SalesOutBill salesOutBill;
-  private SalesInBill salesInBill;
-  private StockBill stockBill;
+  private FinanceBill financeBill = new FinanceBill();
+  private CashCostBill cashCostBill = new CashCostBill();
+  private SalesOutBill salesOutBill = new SalesOutBill();
+  private SalesInBill salesInBill = new SalesInBill();
+  private StockBill stockBill = new StockBill();
     public CashCostBillVO CashCostBill_PO_To_VO(CashCostBillPO cashCostBillPO){
           return cashCostBill.po_to_vo(cashCostBillPO);
     }
@@ -20,6 +20,7 @@ public class BillConverter {
 
 
     public FinanceBillVO FinanceBill_PO_To_VO(FinanceBillPO po){
+      System.out.println(po==null);
       return financeBill.po_to_vo(po);
     }
 

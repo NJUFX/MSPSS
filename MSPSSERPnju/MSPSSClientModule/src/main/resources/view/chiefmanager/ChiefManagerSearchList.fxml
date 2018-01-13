@@ -102,10 +102,10 @@
             <ComboBox fx:id="BillType" layoutX="367.0" layoutY="277.0" prefHeight="20.0" prefWidth="195.0" promptText="单据类型">
                <items>
                   <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="销售类单据" />
-                     <String fx:value="进货类单据" />
-                     <String fx:value="财务类单据" />
-                     <String fx:value="库存类单据" />
+                     <String fx:value="销售类" />
+                     <String fx:value="进货类" />
+                     <String fx:value="财务类" />
+                     <String fx:value="库存类" />
                   </FXCollections>
                </items>
             </ComboBox>

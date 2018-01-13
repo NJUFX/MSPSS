@@ -287,10 +287,12 @@ public class FinanceManagerSearchListController implements Initializable {
 			flag.setCustomerName(customerName);
 			flag.setOperatorName(operator);
 			flag.setStorage(storage);
-			SaleTableVO vo = tableBLService.checkSaleTable(flag);
-			FinanceManagerSearchSalesListController controller = (FinanceManagerSearchSalesListController) replaceSceneContent(
+			if(tableBLService.checkSaleTable(flag)!=null) {
+				SaleTableVO vo = tableBLService.checkSaleTable(flag);
+				FinanceManagerSearchSalesListController controller = (FinanceManagerSearchSalesListController) replaceSceneContent(
 						"/view/financemanager/FinanceManagerSearchSalesList.fxml");
-			controller.ShowSalesList(vo);
+				controller.ShowSalesList(vo);
+			}
 			break;
 		}
 		
@@ -324,12 +326,14 @@ public class FinanceManagerSearchListController implements Initializable {
 			flag.setCustomerName(customerName);
 			flag.setOperatorName(operator);
 			flag.setStorage(storage);
-			ProcessTableVO vo = tableBLService.checkProcessTable(flag);
+			if(tableBLService.checkProcessTable(flag)!=null) {
+				ProcessTableVO vo = tableBLService.checkProcessTable(flag);
 				FinanceManagerSearchProcessListController controller = (FinanceManagerSearchProcessListController) replaceSceneContent(
 						"/view/financemanager/FinanceManagerSearchProcessList.fxml");
-			controller.setBillType(billType);	
-			controller.showProcessTable(vo);
-			break;
+				controller.setBillType(billType);
+				controller.showProcessTable(vo);
+				break;
+			}
 		}
 		
 		}

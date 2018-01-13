@@ -111,13 +111,14 @@ public class BillCreateViewController implements Initializable {
     public void presentationCreateButtonAction(ActionEvent e) throws IOException {
         // System.out.println("SUSS");
         try {
-            PresentationCreateViewController controller = (PresentationCreateViewController) replaceSceneContent(
-                    "/view/stockmanager/PresentationCreate.fxml");
+            BillStatusCheckViewController controller = (BillStatusCheckViewController) replaceSceneContent(
+                    "/view/stockmanager/BillStatusCheck.fxml");
+            controller.screenPresentation();
+            controller.typeScreenBox.setValue("库存赠送单");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-
     }
 
     /**

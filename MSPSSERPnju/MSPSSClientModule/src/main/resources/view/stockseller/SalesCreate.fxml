@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,8 +17,8 @@
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="727.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0"
-      style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.112"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.SalesCreateViewController">
+      style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ui.stocksellerui.SalesCreateViewController">
     <children>
         <Pane id="Navbar" prefHeight="700.0" prefWidth="145.0" style="-fx-background-color: #0f88eb;"/>
         <Pane layoutX="132.0" prefHeight="40.0" prefWidth="768.0" style="-fx-background-color: #0f88eb;"/>
@@ -139,9 +144,8 @@
                         <Font name="Microsoft YaHei" size="14.0"/>
                     </font>
                 </Label>
-                <TextField id="userName" fx:id="customerField" onAction="#customerFieldAction" layoutX="238.0"
-                           layoutY="25.0" prefHeight="22.0"
-                           prefWidth="96.0">
+                <TextField id="userName" fx:id="customerField" layoutX="238.0" layoutY="25.0"
+                           onAction="#customerFieldAction" prefHeight="22.0" prefWidth="96.0">
                     <font>
                         <Font size="10.0"/>
                     </font>
@@ -226,7 +230,8 @@
                            prefWidth="668.0">
                     <columns>
                         <TableColumn fx:id="promotionTypeCol" prefWidth="150.0" sortable="false" text="类型"/>
-                        <TableColumn fx:id="promotionInfoCol" prefWidth="516.0" sortable="false" text="详情"/>
+                        <TableColumn fx:id="promotionInfoCol" prefWidth="420.0" sortable="false" text="详情"/>
+                        <TableColumn fx:id="promotionOperCol" prefWidth="100.0" text="操作"/>
                     </columns>
                 </TableView>
                 <Label layoutX="28.0" layoutY="476.0" text="备注">
@@ -276,12 +281,11 @@
                         <Font size="14.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="VoucherField" onAction="#VoucherDiscountFieldAction" layoutX="424.0" layoutY="435.0"
-                           prefHeight="25.0" prefWidth="132.0"
+                <TextField fx:id="VoucherField" layoutX="424.0" layoutY="435.0" onAction="#VoucherDiscountFieldAction"
+                           prefHeight="25.0" prefWidth="132.0" style="-fx-background-radius: 0;"/>
+                <TextField fx:id="SalesDiscountField" layoutX="158.0" layoutY="435.0"
+                           onAction="#SalesDiscountFieldAction" prefHeight="25.0" prefWidth="132.0"
                            style="-fx-background-radius: 0;"/>
-                <TextField fx:id="SalesDiscountField" onAction="#SalesDiscountFieldAction" layoutX="158.0"
-                           layoutY="435.0" prefHeight="25.0"
-                           prefWidth="132.0" style="-fx-background-radius: 0;"/>
                 <Label fx:id="TotalBeforeLabel" layoutX="25.0" layoutY="436.0" prefHeight="25.0" prefWidth="132.0"
                        stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true"/>
                 <Label fx:id="PromotionDiscountLabel" layoutX="292.0" layoutY="436.0" prefHeight="25.0"
@@ -290,23 +294,11 @@
                 <Label fx:id="TotalAfterLabel" layoutX="557.0" layoutY="435.0" prefHeight="25.0" prefWidth="132.0"
                        stylesheets="@../../css/stockseller/billCreate.css" textAlignment="CENTER" wrapText="true"/>
                 <Label fx:id="DAELabel" layoutX="403.0" layoutY="25.0" prefHeight="24.0" prefWidth="96.0"/>
-                <!--              <TableView fx:id="informationTableView" layoutX="24.0" layoutY="406.0" prefHeight="56.0"
-                                         prefWidth="668.0">
-                                  <columns>
-                                      <TableColumn fx:id="TotalBeforeCol" prefWidth="133.6" text="总额"/>
-                                      <TableColumn fx:id="DiscountBySalesCol" prefWidth="133.6" text="销售人员折让"/>
-                                      <TableColumn fx:id="DiscountByPromotionCol" prefWidth="133.6" text="促销折让"/>
-                                      <TableColumn fx:id="TotalVoucherCol" prefWidth="133.6" text="代金券"/>
-                                      <TableColumn fx:id="TotalAfterCol" prefWidth="133.6" text="折让后总额"/>
-                                  </columns>
-                              </TableView>
-                              -->
             </children>
         </Pane>
-        <Button id="sureButton" fx:id="sureButton" onAction="#sureButtonAction" layoutX="729.0" layoutY="648.0"
-                mnemonicParsing="false"
-                prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="提交"
-                textFill="WHITE">
+        <Button id="sureButton" fx:id="sureButton" layoutX="729.0" layoutY="648.0" mnemonicParsing="false"
+                onAction="#sureButtonAction" prefHeight="30.0" prefWidth="94.0"
+                stylesheets="@../../css/admin/addUser.css" text="提交" textFill="WHITE">
             <font>
                 <Font name="Microsoft YaHei" size="16.0"/>
             </font>

@@ -45,8 +45,8 @@ public class Encryptor {
     }
 
     public static void main(String[] args) {
-        System.out.println(Encryptor.encrypt("980626h"));
-        System.out.println(Encryptor.encrypt("980626ha"));
-        System.out.println(Encryptor.encrypt("980626han"));
+        System.out.println(Encryptor.encrypt("1"));
+        System.out.println(Encryptor.encrypt("123456"));
+        System.out.println(Encryptor.encrypt("wsxgy813"));
     }
 }

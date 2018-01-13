@@ -39,11 +39,11 @@
                 <Font size="16.0" />
             </font>
         </Label>
-        <TableView fx:id="groupView" layoutX="81.0" layoutY="132.0" prefHeight="148.0" prefWidth="389.0">
+        <TableView fx:id="groupView" layoutX="46.0" layoutY="132.0" prefHeight="148.0" prefWidth="450.0">
             <columns>
-                <TableColumn fx:id="GroupIdCol" prefWidth="120.0" sortable="false" text="编号" />
-                <TableColumn fx:id="GroupDiscountCol" prefWidth="120.0" sortable="false" text="折扣率" />
-                <TableColumn fx:id="GroupOperationCol" prefWidth="120.0" sortable="false" text="商品详情" />
+                <TableColumn fx:id="GroupIdCol" prefWidth="140.0" sortable="false" text="编号" />
+                <TableColumn fx:id="GroupDiscountCol" prefWidth="140.0" sortable="false" text="折扣率" />
+                <TableColumn fx:id="GroupOperationCol" prefWidth="140.0" sortable="false" text="商品详情" />
                 <TableColumn fx:id="GroupSelectCol" prefWidth="28.0" sortable="false" />
             </columns>
         </TableView>
