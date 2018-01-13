@@ -32,13 +32,13 @@ doc/md : document & images
 
 ## Contributors
 
-JiaXing Fu ,Njuid:161250025  [伏家兴](https://github.com/FuGaZn "悬停显示")
+JiaXing Fu ,NJUid:161250025  [伏家兴](https://github.com/FuGaZn "悬停显示")
 
 Xinhu Han ,NJUid:161250036 [韩新虎](https://github.com/hanxinhu "悬停显示")
 
-Yaxin Liu ,Njuid:161250080 [刘雅歆](https://github.com/HarperLiu "悬停显示")
+Yaxin Liu ,NJUid:161250080 [刘雅歆](https://github.com/HarperLiu "悬停显示")
 
-Guangyao Xu ,Njuid:161250164 [徐光耀](https://github.com/LuGaXu "悬停显示")
+Guangyao Xu ,NJUid:161250164 [徐光耀](https://github.com/LuGaXu "悬停显示")
 
 ## Copyright declaration
 
