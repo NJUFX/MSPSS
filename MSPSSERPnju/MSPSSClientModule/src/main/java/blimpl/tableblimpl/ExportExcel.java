@@ -4,6 +4,12 @@ package blimpl.tableblimpl;
  * Created by thinkpad on 2017/12/27.
  */
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.util.CellRangeAddress;
+
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
@@ -11,14 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.util.CellRangeAddress;
-import util.Time;
 
 /***
  * 导出List<Object>数据到excel（最多可导出65535行）
@@ -64,9 +62,13 @@ public final class ExportExcel {
 
 
     /**
-     * @param dataList  对象集合
-     * @param titleMap  表头信息（对象属性名称->要显示的标题值)[按顺序添加]
-     * @param sheetName sheet名称和表头值
+     *
+     * @param dataList
+     *        对象集合
+     * @param titleMap
+     *        表头信息（对象属性名称->要显示的标题值)[按顺序添加]
+     * @param sheetName
+     *        sheet名称和表头值
      */
     public static void excelExport(List<?> dataList, Map<String, String> titleMap, String sheetName) {
         // 初始化workbook
@@ -92,18 +94,13 @@ public final class ExportExcel {
             SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd hh：mm：ss");
             String retStrFormatNowDate = sdFormatter.format(nowTime);
 
-            String filedisplay = dataList.get(0).getClass().getName() + " " + retStrFormatNowDate + ".xls";
+            String filedisplay = dataList.get(0).getClass().getName()+" "+retStrFormatNowDate+".xls";
             //如果web项目，1、设置下载框的弹出（设置response相关参数)；2、通过httpservletresponse.getOutputStream()获取
-            ExportHelper exportHelper = new ExportHelper();
-            String path = exportHelper.getClass().getResource("").getPath();
-            int index = path.indexOf("MSPSSERPnju");
-            path = path.substring(0, index) + "resource/";
-            //String path = this.getClass().getResource("")
-            OutputStream out = new FileOutputStream(path + filedisplay);
-            //C:\Users\Administrator\OneDrive\重要！\大二\软件工程II\大作业\MSPSSERPnju\
+            OutputStream out = new FileOutputStream("E:\\" + filedisplay);
             workbook.write(out);
             out.close();
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -120,8 +117,7 @@ public final class ExportExcel {
 
     /**
      * 生成标题（第零行创建）
-     *
-     * @param titleMap  对象属性名称->表头显示名称
+     * @param titleMap 对象属性名称->表头显示名称
      * @param sheetName sheet名称
      */
     private static void createTitleRow(Map<String, String> titleMap, String sheetName) {
@@ -134,7 +130,6 @@ public final class ExportExcel {
 
     /**
      * 创建时间行（第一行创建）
-     *
      * @param titleMap 对象属性名称->表头显示名称
      */
     private static void createDateHeadRow(Map<String, String> titleMap) {
@@ -147,7 +142,6 @@ public final class ExportExcel {
 
     /**
      * 创建表头行（第二行创建）
-     *
      * @param titleMap 对象属性名称->表头显示名称
      */
     private static void createHeadRow(Map<String, String> titleMap) {
@@ -162,12 +156,13 @@ public final class ExportExcel {
     }
 
     /**
+     *
      * @param dataList 对象数据集合
      * @param titleMap 表头信息
      */
     private static void createContentRow(List<?> dataList, Map<String, String> titleMap) {
         try {
-            int i = 0;
+            int i=0;
             for (Object obj : dataList) {
                 HSSFRow textRow = sheet.createRow(CONTENT_START_POSITION + i);
                 int j = 0;
@@ -175,7 +170,7 @@ public final class ExportExcel {
 
                     String method = "get" + entry.substring(0, 1).toUpperCase() + entry.substring(1);
                     Method m = obj.getClass().getMethod(method, null);
-                    String value = m.invoke(obj, null).toString();
+                    String value =   m.invoke(obj, null).toString();
                     HSSFCell textcell = textRow.createCell(j);
                     textcell.setCellValue(value);
                     j++;
@@ -183,19 +178,35 @@ public final class ExportExcel {
                 i++;
             }
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     /**
      * 自动伸缩列（如非必要，请勿打开此方法，耗内存）
-     *
      * @param size 列数
      */
     private static void autoSizeColumn(Integer size) {
         for (int j = 0; j < size; j++) {
             sheet.autoSizeColumn(j);
         }
+    }
+
+    public static void main(String[] args) {
+        ExportHelper exportHelper = new ExportHelper();
+        String path = exportHelper.getClass().getResource("").getPath();
+
+        int index = path.indexOf("MSPSSERPnju");
+
+        path = path.substring(0, index);
+        System.out.println(path);
+        path += "resource/";
+        try {
+            FileOutputStream outputStream = new FileOutputStream(path + "xxx.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

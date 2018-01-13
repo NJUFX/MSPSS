@@ -1,7 +1,5 @@
 package blimpl.tableblimpl;
 
-import auxiliary.CustomerPromotion;
-import auxiliary.SalesOutBill;
 import network.*;
 import po.*;
 import util.CriteriaClause;
@@ -53,17 +51,18 @@ public class ProcessTable {
         ArrayList<CriteriaClause> salesOutBillCriteriaClauses = new ArrayList<CriteriaClause>();
         ArrayList<CriteriaClause> stockBillCriteriaClauses = new ArrayList<CriteriaClause>();
 
-        if(flags.getBegin()!=null&&flags.getBegin()!=null){
+        if (flags.getBegin() != null && flags.getBegin() != null && flags.getBegin().toString() != "" && flags.getEnd().toString() != "") {
            cashCostBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
            financeBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
            salesInBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
            salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
            stockBillCriteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
         }
-        if(flags.getCustomerName()!=null){
+        if (flags.getCustomerName() != null && flags.getCustomerName() != "") {
             ArrayList<CustomerPO> customerPOS = customerClientNetworkService.fullSearchCustomer("name",flags.getCustomerName());
             if(customerPOS.size()>=1) {
                 int id = customerPOS.get(0).getID();
+                System.out.println("Customer");
                 financeBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID", id,QueryMethod.Full));
                 salesInBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("provider", id,QueryMethod.Full));
                 salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID", id,QueryMethod.Full));
@@ -71,7 +70,7 @@ public class ProcessTable {
             }
             }
 
-        if(flags.getOperatorName()!=null){
+        if (flags.getOperatorName() != null && flags.getOperatorName() != "") {
 
             ArrayList<UserPO> userPOS = userClientNetworkService.fullSearchUser("name",flags.getOperatorName());
             if(userPOS.size()>=1){
@@ -83,7 +82,8 @@ public class ProcessTable {
             }
         }
 
-        if(flags.getStorage()!=null){
+        if (false) {
+            System.out.println("Storage");
             salesInBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("storage",flags.getStorage(),QueryMethod.Full));
             salesOutBillCriteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("storage",flags.getStorage(),QueryMethod.Full));
         }
@@ -93,8 +93,8 @@ public class ProcessTable {
         ArrayList<SalesInBillPO> salesInBillPOS = billClientNetworkService.mutilSearchSalesInBill(salesInBillCriteriaClauses);
         ArrayList<SalesOutBillPO> salesOutBillPOS = billClientNetworkService.mutilSearchSalesOutBill(salesOutBillCriteriaClauses);
         ArrayList<StockBillPO> stockBillPOS = billClientNetworkService.multiSearchStockBill(stockBillCriteriaClauses);
-
-
+        System.out.println("+++++" + cashCostBillPOS.size() + " " + financeBillPOS.size() + " " + salesInBillPOS.size() + " " + salesOutBillPOS.size() + " " + stockBillPOS.size());
+        System.out.println("++++" + flags.getStorage());
         for(int i=0;i<=cashCostBillPOS.size()-1;i++){
           cashCostBillList.add(billConverter.CashCostBill_PO_To_VO(cashCostBillPOS.get(i)));
         }

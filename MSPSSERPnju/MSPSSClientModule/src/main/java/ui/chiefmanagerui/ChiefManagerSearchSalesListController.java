@@ -1,10 +1,5 @@
 package ui.chiefmanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import auxiliary.SalesTableBill;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.tableblservice.TableBLService;
@@ -24,11 +19,15 @@ import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import vo.BusinessTableVO;
 import vo.SaleTableVO;
 import vo.SalesItemVO;
 import vo.SalesOutBillVO;
 import vo.UserVO;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class ChiefManagerSearchSalesListController implements Initializable{
 	@FXML
@@ -214,6 +213,8 @@ public class ChiefManagerSearchSalesListController implements Initializable{
 	 */
 	public void handleExportSalesListButtonAction(ActionEvent e) throws Exception{
 		tableBLService.exportSaleTable(tableVO);
+		Dialog d = new Dialog();
+		d.confirmDialog("导出报表成功！");
 	}
 	
 	/**

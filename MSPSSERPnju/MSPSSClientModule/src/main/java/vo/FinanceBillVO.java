@@ -56,8 +56,11 @@ public class FinanceBillVO {
 	 */
 	public ArrayList<FinanceItemVO> list;
 
+    public FinanceBillVO() {
+    }
+
 	public FinanceBillVO(String ID, UserVO operator, ArrayList<FinanceItemVO> list, BillStatus status, double sum,
-			UserVO managerVO, FinanceBillType type, Time init_time, Time commit_time, Time approval_time) {
+                         UserVO managerVO, FinanceBillType type, Time init_time, Time commit_time, Time approval_time) {
 		this.ID = ID;
 		this.status = status;
 		this.operator = operator;

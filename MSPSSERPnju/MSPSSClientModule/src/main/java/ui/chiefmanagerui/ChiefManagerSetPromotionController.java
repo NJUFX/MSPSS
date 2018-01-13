@@ -1,17 +1,7 @@
 package ui.chiefmanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import auxiliary.Bill;
 import auxiliary.PromotionCommodity;
 import blimpl.blfactory.BLFactoryImpl;
-import blservice.billblservice.ManagerBillBLService;
-import blservice.logblservice.LogBLService;
 import blservice.promotionblservice.PromotionBLService;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,12 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -33,11 +18,14 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.Time;
-import vo.CustomerPromotionVO;
-import vo.GrossPromotionVO;
-import vo.GroupPromotionVO;
-import vo.PresentationCommodityItemVO;
-import vo.UserVO;
+import vo.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class ChiefManagerSetPromotionController implements Initializable{
 	@FXML
@@ -303,8 +291,9 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 
 				promotionBLService.addCustomerPromotion(new CustomerPromotionVO(level,discount,voucher,promotionCommodity,start,end));
-
-			break;
+            Dialog d = new Dialog();
+            d.confirmDialog("制定促销策略成功！");
+            break;
 		}
 		
 		case"总额促销策略":{
@@ -330,10 +319,11 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			}
 			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 
-				promotionBLService.addGrossPromotion(new GrossPromotionVO(total,voucher,start,end));
+            promotionBLService.addGrossPromotion(new GrossPromotionVO(total, voucher, promotionCommodity, start, end));
 
-			
-			break;
+            Dialog d = new Dialog();
+            d.confirmDialog("制定促销策略成功！");
+            break;
 		}
 		
 		case"制定特价包":{
@@ -350,8 +340,9 @@ public class ChiefManagerSetPromotionController implements Initializable{
 			}
 			//PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
 			promotionBLService.addGroupPromotion(new GroupPromotionVO(discountRate,commodity,start,end));
-			
-			break;
+            Dialog d = new Dialog();
+            d.confirmDialog("制定促销策略成功！");
+            break;
 		}
 		
 		}

@@ -105,6 +105,9 @@ public class SalesOutBillVO {
         presentations = new ArrayList<>();
     }
 
+    public SalesOutBillVO() {
+    }
+
     public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, double allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager
             , ArrayList<SalesItemVO> salesItemVOS, Time init_time, Time commit_time, Time approval_time, BillStatus status) {
         this.ID = ID;

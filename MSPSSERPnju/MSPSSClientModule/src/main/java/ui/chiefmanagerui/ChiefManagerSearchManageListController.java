@@ -1,10 +1,5 @@
 package ui.chiefmanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.tableblservice.TableBLService;
 import javafx.event.ActionEvent;
@@ -13,10 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -28,6 +19,11 @@ import ui.adminui.LoginController;
 import ui.common.Dialog;
 import vo.BusinessTableVO;
 import vo.UserVO;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class ChiefManagerSearchManageListController implements Initializable{
 	@FXML
@@ -218,6 +214,8 @@ public class ChiefManagerSearchManageListController implements Initializable{
 	 */
 	public void handleExportManageListButtonAction(ActionEvent e) throws Exception{
 		tableBLService.exportBusinessTable(tableVO);
+		Dialog d = new Dialog();
+		d.confirmDialog("导出报表成功！");
 	}
 	
 	/**

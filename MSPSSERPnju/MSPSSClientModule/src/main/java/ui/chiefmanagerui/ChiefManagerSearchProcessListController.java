@@ -1,17 +1,6 @@
 package ui.chiefmanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import auxiliary.Bill;
-import auxiliary.CashCostBill;
-import auxiliary.FinanceBill;
-import auxiliary.SalesInBill;
-import auxiliary.SalesOutBill;
-import auxiliary.StockBill;
+import auxiliary.*;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.tableblservice.TableBLService;
 import javafx.collections.ObservableList;
@@ -21,25 +10,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import vo.BusinessTableVO;
-import vo.CashCostBillVO;
-import vo.FinanceBillVO;
-import vo.ProcessTableVO;
-import vo.SalesInBillVO;
-import vo.SalesOutBillVO;
-import vo.StockBillVO;
-import vo.UserVO;
+import vo.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class ChiefManagerSearchProcessListController implements Initializable {
 	
@@ -230,6 +214,7 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 		}
 		case "销售类": {
 			ArrayList<SalesOutBillVO> list = vo.getSalesOutBillList();
+			System.out.println();
 			for (int i = 0; i < list.size(); i++) {
 				SalesOutBillVO temp = list.get(i);
 				data.add(new SalesOutBill(temp.getID(), temp.getInit_time().toString(),
@@ -352,6 +337,8 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 	 */
 	public void handleExportProcessListButtonAction(ActionEvent e) throws Exception{
 		tableBLService.exportProcessTable(tableVO);
+		Dialog d = new Dialog();
+		d.confirmDialog("导出报表成功！");
 	}
 	
 	/**

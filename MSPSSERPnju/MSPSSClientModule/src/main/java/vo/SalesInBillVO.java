@@ -81,6 +81,9 @@ public class SalesInBillVO {
 
     public UserVO manager;
 
+    public SalesInBillVO() {
+    }
+
     public SalesInBillVO(String ID, String DAE, String provider, String storage, String ps, double sumMoney, String commentByManager) {
         this.ID = ID;
         this.DAE = DAE;
@@ -262,5 +265,6 @@ public class SalesInBillVO {
     public UserVO getOperator() {
         return operator;
     }
+
 
 }

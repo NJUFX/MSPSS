@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.collections.*?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchSalesList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchSalesListController">
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0"
+      prefWidth="900.0" style="-fx-background-color: #e0e0e0;"
+      stylesheets="@../../css/chiefManager/ChiefManagerSearchSalesList.css" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerSearchSalesListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -28,7 +26,8 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button fx:id="ExamineBill" layoutY="315.0" mnemonicParsing="false" onAction="#handleExamineBillButtonAction" prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
+        <Button fx:id="MakeBill" layoutY="315.0" mnemonicParsing="false" onAction="#handleMakeBillButtonAction"
+                prefHeight="35.0" prefWidth="145.0" text="制定单据" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
