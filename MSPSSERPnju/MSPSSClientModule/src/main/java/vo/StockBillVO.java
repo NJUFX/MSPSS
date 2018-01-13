@@ -1,6 +1,5 @@
 package vo;
 
-import blimpl.stockblimpl.Stock;
 import util.BillStatus;
 import util.StockBillType;
 import util.Time;
@@ -77,6 +76,9 @@ public class StockBillVO {
         this.itemVOS = itemVOS;
         this.commentByStockManager = commentByStockManager;
         this.stockManager = stockManager;
+    }
+
+    public StockBillVO() {
     }
 
     public StockBillVO(String id, StockBillType type, BillStatus status) {

@@ -8,7 +8,7 @@ import vo.GeneralAccountVO;
 import java.util.ArrayList;
 
 public class MockGeneralAccount extends GeneralAccount {
-    protected MockGeneralAccount() {
+    public MockGeneralAccount() {
         super();
     }
 

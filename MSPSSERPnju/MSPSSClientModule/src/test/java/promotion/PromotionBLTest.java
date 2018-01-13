@@ -18,6 +18,7 @@ import static org.junit.Assert.assertEquals;
  * Description:
  * Created by Hanxinhu at 15:21 2018/1/12/012
  */
+
 public class PromotionBLTest {
     PromotionBLService promotionBLService = new BLFactoryImpl().getPromotionBLService();
     PromotionBLInfo promotionBLInfo = new BLFactoryImpl().getPromotionBLInfo();

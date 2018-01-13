@@ -77,8 +77,9 @@ public class CommodityTest {
     public void test6() {
         ClassificationVO classificationVO = new ClassificationVO("test4");
         commodityBLService.addClassification(classificationVO);
-        CommodityVO commodityVO = new CommodityVO("littel deng", "sad", "test4", 1000, 1000);
+        CommodityVO commodityVO = new CommodityVO("littel deng", "sad", "C", 1000, 1000);
         commodityBLService.addCommodity(commodityVO);
+        System.out.println(commodityVO.getID());
         assertEquals(true, classificationVO.getID() != null);
     }
 

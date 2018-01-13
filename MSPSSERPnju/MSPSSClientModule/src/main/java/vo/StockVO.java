@@ -31,6 +31,9 @@ public class StockVO {
         this.commodityVO =commodityVO;
     }
 
+    public StockVO() {
+    }
+
     @Override
     public String toString() {
         return stockType.toString()+ " 金额: "+price +" 数额: "+number;
