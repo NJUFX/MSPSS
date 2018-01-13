@@ -2,7 +2,7 @@
 # MSPSS System For Software Engineering Ⅱ<br>
 [toc]
 
-##cover
+## cover
   ![cover](https://raw.githubusercontent.com/NJUFX/MSPSS/master/cover.png)
 
 
