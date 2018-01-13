@@ -13,159 +13,148 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="590.0" prefWidth="741.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.BillDetailsShowViewController">
+<AnchorPane prefHeight="590.0" prefWidth="741.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.BillDetailsShowViewController">
     <children>
         <Pane layoutX="14.0" layoutY="26.0" prefHeight="507.0" prefWidth="720.0" style="-fx-background-color: white;">
             <children>
                 <Label layoutX="28.0" layoutY="27.0" text="编号">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label layoutX="26.0" layoutY="58.0" text="商品列表" textFill="#0f88eb">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <Label id="userId" fx:id="billIdLabel" layoutX="65.0" layoutY="24.0" prefHeight="22.0" prefWidth="107.0"
-                       style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
+                <Label id="userId" fx:id="billIdLabel" layoutX="65.0" layoutY="24.0" prefHeight="22.0" prefWidth="107.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
                     <font>
-                        <Font size="10.0"/>
+                        <Font size="10.0" />
                     </font>
                 </Label>
                 <Label layoutX="187.0" layoutY="27.0" text="供应商">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label layoutX="352.0" layoutY="27.0" text="业务员">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label fx:id="totalLabelLabel" layoutX="26.0" layoutY="258.0" text="总额">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <TableView fx:id="purchaseBillTableView" layoutX="24.0" layoutY="86.0" prefHeight="156.0"
-                           prefWidth="668.0">
+                <TableView fx:id="purchaseBillTableView" layoutX="24.0" layoutY="86.0" prefHeight="156.0" prefWidth="668.0">
                     <columns>
-                        <TableColumn fx:id="NameCol" prefWidth="100.0" sortable="false" text="商品名称"/>
-                        <TableColumn fx:id="IdCol" prefWidth="75.0" sortable="false" text="商品编号"/>
-                        <TableColumn fx:id="TypeCol" prefWidth="75.0" sortable="false" text="型号"/>
-                        <TableColumn fx:id="PriceCol" prefWidth="75.0" sortable="false" text="单价"/>
-                        <TableColumn fx:id="NumberCol" prefWidth="75.0" sortable="false" text="数量"/>
-                        <TableColumn fx:id="TotalCol" prefWidth="75.0" sortable="false" text="金额"/>
-                        <TableColumn fx:id="RemarkCol" prefWidth="192.0" sortable="false" text="备注"/>
+                        <TableColumn fx:id="NameCol" prefWidth="100.0" sortable="false" text="商品名称" />
+                        <TableColumn fx:id="IdCol" prefWidth="75.0" sortable="false" text="商品编号" />
+                        <TableColumn fx:id="TypeCol" prefWidth="75.0" sortable="false" text="型号" />
+                        <TableColumn fx:id="PriceCol" prefWidth="75.0" sortable="false" text="单价" />
+                        <TableColumn fx:id="NumberCol" prefWidth="75.0" sortable="false" text="数量" />
+                        <TableColumn fx:id="TotalCol" prefWidth="75.0" sortable="false" text="金额" />
+                        <TableColumn fx:id="RemarkCol" prefWidth="192.0" sortable="false" text="备注" />
                     </columns>
                 </TableView>
-                <Label fx:id="billTotalMoney" layoutX="63.0" layoutY="256.0" prefHeight="23.0" prefWidth="96.0"
-                       style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
+                <Label fx:id="billTotalMoney" layoutX="63.0" layoutY="256.0" prefHeight="23.0" prefWidth="96.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
                     <font>
-                        <Font size="10.0"/>
+                        <Font size="10.0" />
                     </font>
                 </Label>
                 <Label layoutX="26.0" layoutY="292.0" text="备注">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <TextArea fx:id="billRemarkArea" layoutX="65.0" layoutY="290.0" prefHeight="70.0" prefWidth="626.0"/>
-                <Label id="userId" fx:id="DAELabel" layoutX="403.0" layoutY="26.0" prefHeight="22.0" prefWidth="96.0"
-                       style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
+                <TextArea fx:id="billRemarkArea" layoutX="65.0" layoutY="290.0" prefHeight="70.0" prefWidth="626.0" />
+                <Label id="userId" fx:id="DAELabel" layoutX="403.0" layoutY="26.0" prefHeight="22.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
                     <font>
-                        <Font size="10.0"/>
+                        <Font size="10.0" />
                     </font>
                 </Label>
                 <Label layoutX="527.0" layoutY="27.0" text="仓库">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label layoutX="28.0" layoutY="371.0" text="审批者">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label fx:id="chiefName" layoutX="77.0" layoutY="371.0" text="审批者">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label layoutX="180.0" layoutY="371.0" text="审批时间">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label fx:id="chiefTime" layoutX="244.0" layoutY="371.0" text="time1">
                     <font>
-                        <Font name="Microsoft YaHei" size="12.0"/>
+                        <Font name="Microsoft YaHei" size="12.0" />
                     </font>
                 </Label>
                 <Label layoutX="394.0" layoutY="371.0" text="提交时间">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
                 <Label fx:id="commitTime" layoutX="460.0" layoutY="372.0" text="time2">
                     <font>
-                        <Font name="Microsoft YaHei" size="12.0"/>
+                        <Font name="Microsoft YaHei" size="12.0" />
                     </font>
                 </Label>
                 <Label layoutX="28.0" layoutY="403.0" text="审批备注">
                     <font>
-                        <Font name="Microsoft YaHei" size="14.0"/>
+                        <Font name="Microsoft YaHei" size="14.0" />
                     </font>
                 </Label>
-                <TextArea fx:id="chiefRemarkArea" layoutX="65.0" layoutY="429.0" prefHeight="70.0" prefWidth="626.0"/>
-                <Label id="userId" fx:id="stockLabel" layoutX="563.0" layoutY="26.0" prefHeight="22.0" prefWidth="96.0"
-                       style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
+                <TextArea fx:id="chiefRemarkArea" layoutX="65.0" layoutY="429.0" prefHeight="70.0" prefWidth="626.0" />
+                <Label id="userId" fx:id="stockLabel" layoutX="563.0" layoutY="26.0" prefHeight="22.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
                     <font>
-                        <Font size="10.0"/>
+                        <Font size="10.0" />
                     </font>
                 </Label>
-                <Label id="userId" fx:id="supplierLabel" layoutX="240.0" layoutY="26.0" prefHeight="22.0"
-                       prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
+                <Label id="userId" fx:id="supplierLabel" layoutX="240.0" layoutY="26.0" prefHeight="22.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #bbbbbb;">
                     <font>
-                        <Font size="10.0"/>
+                        <Font size="10.0" />
                     </font>
                 </Label>
                 <Pane fx:id="salesPane" layoutX="24.0" layoutY="251.0" prefHeight="34.0" prefWidth="586.0">
                     <children>
                         <Label layoutX="6.0" layoutY="8.0" text="折让前总额">
                             <font>
-                                <Font name="Microsoft YaHei" size="14.0"/>
+                                <Font name="Microsoft YaHei" size="14.0" />
                             </font>
                         </Label>
-                        <Label fx:id="billTotalMoney1" layoutX="86.0" layoutY="6.0" prefHeight="23.0" prefWidth="96.0"
-                               style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
+                        <Label fx:id="billTotalMoney1" layoutX="86.0" layoutY="6.0" prefHeight="23.0" prefWidth="96.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
                             <font>
-                                <Font size="10.0"/>
+                                <Font size="10.0" />
                             </font>
                         </Label>
                         <Label layoutX="203.0" layoutY="8.0" text="折让">
                             <font>
-                                <Font name="Microsoft YaHei" size="14.0"/>
+                                <Font name="Microsoft YaHei" size="14.0" />
                             </font>
                         </Label>
-                        <Label fx:id="billTotalMoney11" layoutX="240.0" layoutY="6.0" prefHeight="23.0" prefWidth="96.0"
-                               style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
+                        <Label fx:id="billTotalMoney11" layoutX="240.0" layoutY="6.0" prefHeight="23.0" prefWidth="96.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
                             <font>
-                                <Font size="10.0"/>
+                                <Font size="10.0" />
                             </font>
                         </Label>
                         <Label layoutX="358.0" layoutY="8.0" text="折让后总额">
                             <font>
-                                <Font name="Microsoft YaHei" size="14.0"/>
+                                <Font name="Microsoft YaHei" size="14.0" />
                             </font>
                         </Label>
-                        <Label fx:id="billTotalMoney111" layoutX="436.0" layoutY="6.0" prefHeight="23.0"
-                               prefWidth="96.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;"
-                               text="0">
+                        <Label fx:id="billTotalMoney111" layoutX="436.0" layoutY="6.0" prefHeight="23.0" prefWidth="96.0" style="-fx-background-color: white; -fx-border-color: #bbbbbb;" text="0">
                             <font>
-                                <Font size="10.0"/>
+                                <Font size="10.0" />
                             </font>
                         </Label>
                     </children>
@@ -174,19 +163,17 @@
         </Pane>
         <Label fx:id="billStatus" layoutX="615.0" layoutY="14.0" text="单据状态">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
         <Label fx:id="billName" layoutX="38.0" layoutY="14.0" text="库存报损单" textFill="#0f88eb">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <Button id="sureButton" fx:id="returnButton" layoutX="604.0" layoutY="542.0" mnemonicParsing="false"
-                onAction="#returnButtonAction" prefHeight="30.0" prefWidth="94.0"
-                stylesheets="@../../css/admin/addUser.css" text="返回" textFill="WHITE">
+        <Button id="sureButton" fx:id="returnButton" layoutX="604.0" layoutY="542.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="30.0" prefWidth="94.0" stylesheets="@../../css/admin/addUser.css" text="返回" textFill="WHITE">
             <font>
-                <Font name="Microsoft YaHei" size="16.0"/>
+                <Font name="Microsoft YaHei" size="16.0" />
             </font>
         </Button>
     </children>
