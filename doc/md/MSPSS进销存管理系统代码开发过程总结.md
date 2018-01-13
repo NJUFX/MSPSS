@@ -2,6 +2,7 @@
 
 ![](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E6%96%87%E6%A1%A3%E5%B0%81%E9%9D%A2/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1%E6%8A%A5%E5%91%8A.png)
 
+[TOC]
 ### 1、采用Maven配置管理
 
 #### 1.1 原因
