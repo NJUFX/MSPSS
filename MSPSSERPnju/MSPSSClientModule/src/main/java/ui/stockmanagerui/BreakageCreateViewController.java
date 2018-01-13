@@ -85,6 +85,18 @@ public class BreakageCreateViewController implements Initializable {
 
     Label priceLabel = new Label();
 
+    public boolean isNumber(String str) {
+        if (str.length() == 0) {
+            return false;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void showTableView() {
         IdCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -182,6 +194,13 @@ public class BreakageCreateViewController implements Initializable {
     public void addRowButtonAction(ActionEvent e) {
         ObservableList<Breakage> data = breakageTableView.getItems();
         if (nameField.getText() != null && idField.getText() != null && systemStockLabel.getText() != null) {
+            if (isNumber(systemStockLabel.getText()) == false || isNumber(realStockField.getText()) == false) {
+                dialog.errorInfoDialog("You input wrong number");
+                return;
+            }
+            if (remarkField.getText() == null) {
+                remarkField.setText("");
+            }
             data.add(new Breakage(idField.getText(), nameField.getText(), systemStockLabel.getText(), realStockField.getText(),
                     remarkField.getText()));
             nameField.setText("");

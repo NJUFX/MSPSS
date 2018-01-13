@@ -92,6 +92,18 @@ public class OverflowCreateViewController implements Initializable {
         SelectCol.setCellValueFactory(new PropertyValueFactory<>("IsSelected"));
     }
 
+    public boolean isNumber(String str) {
+        if (str.length() == 0) {
+            return false;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @FXML
     public void saveButtonAction(ActionEvent e) {
         ArrayList<StockBillItemVO> list = new ArrayList<>();
@@ -196,6 +208,10 @@ public class OverflowCreateViewController implements Initializable {
     public void addRowButtonAction(ActionEvent e) {
         ObservableList<Breakage> data = breakageTableView.getItems();
         if (nameField.getText() != null && idField.getText() != null && systemStockLabel.getText() != null) {
+            if(isNumber(systemStockLabel.getText())==false||isNumber(realStockField.getText())==false){
+                dialog.errorInfoDialog("You input wrong number");
+                return;
+            }
             if (remarkField.getText() == null) {
                 remarkField.setText("");
             }

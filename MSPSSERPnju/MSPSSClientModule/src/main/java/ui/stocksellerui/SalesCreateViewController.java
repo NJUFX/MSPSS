@@ -5,6 +5,7 @@ import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.SalesmanBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
+import blservice.customerblservice.CustomerBLService;
 import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserInfo;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -47,6 +48,7 @@ public class SalesCreateViewController implements Initializable {
     Stage stage = StageSingleton.getStage();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
+    CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
@@ -138,8 +140,8 @@ public class SalesCreateViewController implements Initializable {
 
     public void customerFieldAction(ActionEvent e) {
         if (customerField.getText() != null && !customerField.getText().trim().equals("")) {
-            customerVO = customerBLInfo.getCustomerByID(customerField.getText().trim());
-            if (customerVO != null) {
+            if (customerBLService.getCustomerInfo(customerField.getText().trim()) != null) {
+                customerVO = customerBLInfo.getCustomerByID(customerField.getText().trim());
                 DAELabel.setText(customerVO.getDAE());
             } else {
                 dialog.errorInfoDialog("Supplier not exist!");
@@ -161,6 +163,10 @@ public class SalesCreateViewController implements Initializable {
     }
 
     public void VoucherDiscountFieldAction(ActionEvent e) {
+        if (isNumber(VoucherField.getText().trim()) == false) {
+            dialog.errorInfoDialog("Voucher is not correct");
+            return;
+        }
         TotalAfterLabel.setText(TotalBeforeLabel.getText());
         boolean b1 = false, b2 = false, b3 = false;
         if (SalesDiscountField.getText() != null && isNumber(SalesDiscountField.getText().trim()) == true) {
@@ -196,6 +202,10 @@ public class SalesCreateViewController implements Initializable {
     }
 
     public void SalesDiscountFieldAction(ActionEvent e) {
+        if (isNumber(SalesDiscountField.getText().trim()) == false) {
+            dialog.errorInfoDialog("Sales discount is not correct");
+            return;
+        }
         boolean b1 = false, b2 = false, b3 = false;
         TotalAfterLabel.setText(TotalBeforeLabel.getText());
         if (SalesDiscountField.getText() != null && isNumber(SalesDiscountField.getText().trim()) == true) {
@@ -249,14 +259,17 @@ public class SalesCreateViewController implements Initializable {
                         Btn.setOnMouseClicked((me) -> {
                             if (this.getTableView().getItems().get(this.getIndex()).customerPromotionVO != null) {
                                 salesmanBillBLService.unSetCustomerPromotion(this.getTableView().getItems().get(this.getIndex()).customerPromotionVO, salesOutBillVO);
+                                PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) - this.getTableView().getItems().get(this.getIndex()).DiscountMoney));
                                 this.getTableView().getItems().remove(this.getIndex());
                                 dialog.infoDialog("Remove a promotion successfully.");
                             } else if (this.getTableView().getItems().get(this.getIndex()).grossPromotionVO != null) {
                                 salesmanBillBLService.unSetGrossPromotion(this.getTableView().getItems().get(this.getIndex()).grossPromotionVO, salesOutBillVO);
+                                PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) - this.getTableView().getItems().get(this.getIndex()).DiscountMoney));
                                 this.getTableView().getItems().remove(this.getIndex());
                                 dialog.infoDialog("Remove a promotion successfully.");
                             } else if (this.getTableView().getItems().get(this.getIndex()).groupPromotionVO != null) {
                                 salesmanBillBLService.unSetGroupPromotion(this.getTableView().getItems().get(this.getIndex()).groupPromotionVO, salesOutBillVO);
+                                PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) - this.getTableView().getItems().get(this.getIndex()).DiscountMoney));
                                 this.getTableView().getItems().remove(this.getIndex());
                                 dialog.infoDialog("Remove a promotion successfully.");
                             }
@@ -305,11 +318,9 @@ public class SalesCreateViewController implements Initializable {
 
     public void numberFieldAction(ActionEvent e) {
         if (numberField.getText() != null && !numberField.getText().trim().equals("")) {
-            for (int i = 0; i < numberField.getText().trim().length(); i++) {
-                if (!Character.isDigit(numberField.getText().trim().charAt(i))) {
-                    dialog.errorInfoDialog("Number's format is not correct.");
-                    return;
-                }
+            if (isNumber(numberField.getText().trim()) == false) {
+                dialog.errorInfoDialog("The number of commodity you input is not correct.");
+                return;
             }
             rowtotalLabel.setText(String.valueOf(Double.parseDouble(priceLabel.getText()) * Integer.parseInt(numberField.getText().trim())));
         }
@@ -368,6 +379,10 @@ public class SalesCreateViewController implements Initializable {
             if (remarkField.getText() == null || remarkField.getText().trim().equals("")) {
                 re = "无";
             }
+            if (isNumber(numberField.getText().trim()) == false) {
+                dialog.errorInfoDialog("The number of commodity you input is not correct.");
+                return;
+            }
             if (Integer.parseInt(numberField.getText().trim()) > commodityInfoService.getCommodity(idField.getText().trim()).getNumberInStock()) {
                 dialog.errorInfoDialog("该商品系统库存为" + commodityInfoService.getCommodity(idField.getText().trim()).getNumberInStock() + '\n' + "所输入商品数量超出系统库存，请核对您的输入");
                 return;
@@ -383,6 +398,11 @@ public class SalesCreateViewController implements Initializable {
             } else {
                 TotalAfterLabel.setText(rowtotalLabel.getText().trim());
             }
+            nameField.setText("");
+            idField.setText("");
+            typeField.setText("");
+            numberField.setText("");
+            remarkField.setText("");
         } else {
             dialog.errorInfoDialog("Something null, please check your input.");
         }

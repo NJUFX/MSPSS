@@ -5,6 +5,7 @@ import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.SalesmanBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
+import blservice.customerblservice.CustomerBLService;
 import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserInfo;
 import javafx.collections.ObservableList;
@@ -49,6 +50,7 @@ public class SalesRetCreateViewController implements Initializable {
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
     UserInfo userInfo = new BLFactoryImpl().getUserInfo();
+    CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     Stage newStage = new Stage();
     CustomerVO customerVO;
     ArrayList<SalesItemVO> commodityVOArrayList = new ArrayList<>();
@@ -78,6 +80,18 @@ public class SalesRetCreateViewController implements Initializable {
     TextField typeField;
     @FXML
     TextArea billRemarkArea;
+
+    public boolean isNumber(String str) {
+        if (str.length() == 0) {
+            return false;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public SalesOutBillVO saveBill() {
         if (stockField.getText() == null || stockField.getText().trim().equals("") ||
@@ -163,8 +177,8 @@ public class SalesRetCreateViewController implements Initializable {
 
     public void billSupplierFieldAction(ActionEvent e) {
         if (billSupplierField.getText() != null && !billSupplierField.getText().trim().equals("")) {
-            customerVO = customerBLInfo.getCustomerByID(billSupplierField.getText().trim());
-            if (customerVO != null) {
+            if (customerBLService.getCustomerInfo(billSupplierField.getText().trim()) != null) {
+                customerVO = customerBLInfo.getCustomerByID(billSupplierField.getText().trim());
                 DAELabel.setText(customerVO.getDAE());
             } else {
                 dialog.errorInfoDialog("Supplier not exist!");
@@ -200,6 +214,10 @@ public class SalesRetCreateViewController implements Initializable {
 
     @FXML
     public void numberFieldAction(ActionEvent e) {
+        if (isNumber(numberField.getText().trim()) == false) {
+            dialog.errorInfoDialog("The number of commodity you input is not correct.");
+            return;
+        }
         totalLabel.setText(
                 String.valueOf(Double.parseDouble(priceLabel.getText()) * Double.parseDouble(numberField.getText())));
     }

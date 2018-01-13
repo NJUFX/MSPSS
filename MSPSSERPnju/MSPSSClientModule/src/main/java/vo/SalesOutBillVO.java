@@ -102,6 +102,7 @@ public class SalesOutBillVO {
         this.ID = ID;
         this.type = type;
         this.status = status;
+        presentations = new ArrayList<>();
     }
 
     public SalesOutBillVO(String ID, String DAE, String storage, SalesOutBillType type, double allowance, int voucher, CustomerVO customerVO, UserVO operator, UserVO manager

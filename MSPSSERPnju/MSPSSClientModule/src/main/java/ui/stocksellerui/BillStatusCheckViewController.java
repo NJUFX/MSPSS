@@ -260,8 +260,8 @@ public class BillStatusCheckViewController implements Initializable {
                                         BillDetailsShowViewController.salesOutBillVO = getTableView().getItems().get(this.getIndex()).getSalesOutBillVO();
                                         BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/BillDetailsShow.fxml", 741, 590);
                                     } else if (getTableView().getItems().get(this.getIndex()).getId().substring(0, 3).equals("XSD")) {
-                                        SalesBillDetailsShowViewController.salesOutBillVO = getTableView().getItems().get(this.getIndex()).getSalesOutBillVO();
-                                        SalesBillDetailsShowViewController controller = (SalesBillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/SalesBillDetailsShow.fxml", 741, 710);
+                                        BillDetailsShowViewController.salesOutBillVO = getTableView().getItems().get(this.getIndex()).getSalesOutBillVO();
+                                        BillDetailsShowViewController controller = (BillDetailsShowViewController) replaceAnotherSceneContent("/view/stockseller/BillDetailsShow.fxml", 741, 710);
                                     }
                                 }
                             } catch (Exception e2) {

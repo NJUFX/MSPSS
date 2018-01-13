@@ -43,13 +43,17 @@ public class BillDetailsShowViewController implements Initializable {
     @FXML
     Button returnButton;
     @FXML
-    Label billIdLabel, supplierLabel, DAELabel, stockLabel, chiefName, chiefTime, commitTime, billName, billStatus, billTotalMoney;
+    Button salesPane;
+    @FXML
+    Label billIdLabel, supplierLabel, DAELabel, stockLabel, chiefName, chiefTime, commitTime, billName, billStatus, billTotalMoney, billTotalMoney1, billTotalMoney11, billTotalMoney111;
     @FXML
     TextArea chiefRemarkArea, billRemarkArea;
     @FXML
     TableView<PurchaseBill> purchaseBillTableView;
     @FXML
     TableColumn<PurchaseBill, String> IdCol, NameCol, TypeCol, PriceCol, NumberCol, RemarkCol, TotalCol;
+    @FXML
+    Label totalLabelLabel;
 
     @FXML
     public void returnButtonAction(ActionEvent e) {
@@ -122,6 +126,17 @@ public class BillDetailsShowViewController implements Initializable {
                 billName.setText("销售单");
             } else {
                 billName.setText("销售退货单");
+            }
+            if (salesOutBillVO.getType() == SalesOutBillType.OUT) {
+                salesPane.setVisible(true);
+                billTotalMoney.setVisible(false);
+                totalLabelLabel.setVisible(false);
+                billTotalMoney1.setText(String.valueOf(salesOutBillVO.getSumBeforeDiscount()));
+                billTotalMoney11.setText(String.valueOf(salesOutBillVO.getSumAfterDiscount() - salesOutBillVO.getSumBeforeDiscount()));
+                billTotalMoney111.setText(String.valueOf(salesOutBillVO.getSumAfterDiscount()));
+            } else {
+                totalLabelLabel.setVisible(true);
+                salesPane.setVisible(false);
             }
             if (salesOutBillVO.getStatus() == BillStatus.rejected) {
                 billStatus.setText("审批未通过");

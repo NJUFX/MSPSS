@@ -5,6 +5,7 @@ import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.SalesmanBillBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.customerblservice.CustomerBLInfo;
+import blservice.customerblservice.CustomerBLService;
 import blservice.mainblservice.MainBLService;
 import blservice.userblservice.UserInfo;
 import exception.initclassexception.KeyColumnLostException;
@@ -47,6 +48,7 @@ public class PurchaseCreateViewController implements Initializable {
     static SalesInBillVO savedSalesInBill;
 
     Stage stage = StageSingleton.getStage();
+    CustomerBLService customerBLService = new BLFactoryImpl().getCustomerBLService();
     SalesmanBillBLService salesmanBillBLService = new BLFactoryImpl().getSalesmanBillBLService();
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     CustomerBLInfo customerBLInfo = new BLFactoryImpl().getCustomerBLInfo();
@@ -164,8 +166,8 @@ public class PurchaseCreateViewController implements Initializable {
 
     public void billSupplierFieldAction(ActionEvent e) {
         if (billSupplierField.getText() != null && !billSupplierField.getText().trim().equals("")) {
-            customerVO = customerBLInfo.getCustomerByID(billSupplierField.getText().trim());
-            if (customerVO != null) {
+            if (customerBLService.getCustomerInfo(billSupplierField.getText().trim()) != null) {
+                customerVO = customerBLInfo.getCustomerByID(billSupplierField.getText().trim());
                 DAELabel.setText(customerVO.getDAE());
             } else {
                 dialog.errorInfoDialog("Supplier not exist!");
@@ -202,6 +204,10 @@ public class PurchaseCreateViewController implements Initializable {
 
     @FXML
     public void numberFieldAction(ActionEvent e) {
+        if (isNumber(numberField.getText().trim()) == false) {
+            dialog.errorInfoDialog("The number of commodity you input is not correct.");
+            return;
+        }
         totalLabel.setText(
                 String.valueOf(Double.parseDouble(priceLabel.getText()) * Double.parseDouble(numberField.getText())));
     }
@@ -214,6 +220,17 @@ public class PurchaseCreateViewController implements Initializable {
         typeField.setText(commodityVO.getType());
 
     }
+    public boolean isNumber(String str) {
+        if (str.length() == 0) {
+            return false;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /**
      * 向库存赠送单列表添加一条信息
@@ -225,6 +242,10 @@ public class PurchaseCreateViewController implements Initializable {
         ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
         if (nameField.getText() != null && !nameField.getText().trim().equals("") && idField.getText() != null && !idField.getText().trim().equals("0") && priceLabel.getText() != null
                 && (numberField.getText().trim() != null && !numberField.getText().trim().equals("0"))) {
+            if (isNumber(numberField.getText().trim()) == false) {
+                dialog.errorInfoDialog("The number of commodity you input is not correct.");
+                return;
+            }
             data.add(new PurchaseBill(nameField.getText(), idField.getText(), typeField.getText().trim(),
                     priceLabel.getText(), numberField.getText(), totalLabel.getText(), remarkField.getText()));
             if (billTotalMoney.getText() != null) {

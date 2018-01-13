@@ -328,7 +328,10 @@ public class SalesOutBill {
     public SalesOutBillVO setGrossPromotion(GrossPromotionVO promotionVO, SalesOutBillVO salesOutBillVO) {
         double sum = salesOutBillVO.getSumAfterDiscount();
         if (sum <= promotionVO.getTotal()) {
-            salesOutBillVO.getPresentations().addAll(promotionVO.getPresentationCommodityItemVOS());
+            System.out.println(salesOutBillVO.getPresentations()==null);
+            System.out.println(salesOutBillVO.getPresentations().size());
+            System.out.println("salesout"+promotionVO.getPresentationCommodityItemVOS()==null);
+           salesOutBillVO.getPresentations().addAll(promotionVO.getPresentationCommodityItemVOS());
             salesOutBillVO.setPresentation_voucher(salesOutBillVO.getPresentation_voucher() + promotionVO.getVoucher());
         }
         return salesOutBillVO;

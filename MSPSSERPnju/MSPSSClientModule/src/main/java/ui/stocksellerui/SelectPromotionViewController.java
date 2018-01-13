@@ -80,9 +80,9 @@ public class SelectPromotionViewController implements Initializable {
         ArrayList<PromotionBySales> list = new ArrayList<>();
         if (selectRadio.isSelected()) {
             PromotionBySales a = new PromotionBySales("等级促销", customerPromotionInfoLabel.getText());
-            PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) + sum));
             salesmanBillBLService.setCustomerPromotion(customerPromotionVO, salesOutBillVO);
             a.customerPromotionVO = customerPromotionVO;
+            a.DiscountMoney = customerPromotionVO.getDiscount();
             list.add(a);
         }
         ObservableList<GroupBySales> groupData = groupView.getItems();
@@ -91,16 +91,17 @@ public class SelectPromotionViewController implements Initializable {
                 PromotionBySales b = new PromotionBySales("特价包", "编号" + groupData.get(i).getGroupPromotionVO().getId() + " 折扣" + groupData.get(i).getDiscount());
                 salesmanBillBLService.setGroupPromotion(groupData.get(i).getGroupPromotionVO(), salesOutBillVO);
                 b.groupPromotionVO = groupData.get(i).getGroupPromotionVO();
+                b.DiscountMoney = 0;
                 list.add(b);
             }
         }
         ObservableList<GrossBySales> grossData = grossView.getItems();
         for (int i = 0; i < grossData.size(); i++) {
             if (grossData.get(i).getIsSelected().isSelected()) {
-                PromotionBySales c = new PromotionBySales("满减", "编号" + grossData.get(i).getGrossPromotionVO().getId() + " " + grossData.get(i).getManJianInfo() + " 赠送代金券" + grossData.get(i).getVoucher());
-                PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) + grossData.get(i).getVoucher()));
+                PromotionBySales c = new PromotionBySales("满减", "编号 满" + grossData.get(i).getGrossPromotionVO().getId() + " " + grossData.get(i).getManJianInfo() + " 赠送代金券" + grossData.get(i).getVoucher());
                 salesmanBillBLService.setGrossPromotion(grossData.get(i).getGrossPromotionVO(), salesOutBillVO);
                 c.grossPromotionVO = grossData.get(i).getGrossPromotionVO();
+                c.DiscountMoney = grossData.get(i).getGrossPromotionVO().getVoucher();
                 list.add(c);
             }
         }
@@ -118,8 +119,10 @@ public class SelectPromotionViewController implements Initializable {
                     }
                 }
             }
-            if (isSec == false)
+            if (isSec == false) {
                 data.add(list.get(i));
+                PromotionDiscountLabel.setText(String.valueOf(Double.parseDouble(PromotionDiscountLabel.getText()) + list.get(i).DiscountMoney));
+            }
         }
         if (!TotalAfterLabel.getText().trim().equals("") && !PromotionDiscountLabel.getText().trim().equals("")) {
             TotalAfterLabel.setText(String.valueOf(Double.parseDouble(TotalAfterLabel.getText().trim()) - Double.parseDouble(PromotionDiscountLabel.getText().trim())));
@@ -139,6 +142,8 @@ public class SelectPromotionViewController implements Initializable {
                     customerPromotionVO = list.get(i);
                     if (list.get(i).getPresentationCommodityItemVOS() == null) {
                         customerPromotionVO.setPresentationCommodityItemVOS(new ArrayList<>());
+                    } else {
+                        customerPromotionVO.setPresentationCommodityItemVOS(list.get(i).getPresentationCommodityItemVOS());
                     }
                 }
             }
@@ -193,7 +198,7 @@ public class SelectPromotionViewController implements Initializable {
                 if (list.get(i).getTotal() <= total) {
                     String id = list.get(i).getId();
                     double voucher = list.get(i).getVoucher();
-                    String manJian = "满" + list.get(i).getTotal() + "减" + list.get(i).getVoucher();
+                    String manJian = String.valueOf(list.get(i).getTotal());
                     GrossBySales grossBySales = new GrossBySales(id, manJian, voucher);
                     grossBySales.setPresentationCommodityItemVOS(list.get(i).getPresentationCommodityItemVOS());
                     grossBySales.setGrossPromotionVO(list.get(i));
@@ -226,7 +231,7 @@ public class SelectPromotionViewController implements Initializable {
                             try {
                                 //TODO
                                 PresentationListShowViewController.idList = this.getTableView().getItems().get(this.getIndex()).getGroupPromotionVO().getCommodityIDs();
-                                PresentationListShowViewController controller = (PresentationListShowViewController) replaceAnotherSceneContent("/view/stockseller/PresentationListShow.fxml", 292, 326);
+                                PresentationListShowViewController controller = (PresentationListShowViewController) replaceAnotherSceneContent("/view/stockseller/GrossListShow.fxml", 292, 326);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }

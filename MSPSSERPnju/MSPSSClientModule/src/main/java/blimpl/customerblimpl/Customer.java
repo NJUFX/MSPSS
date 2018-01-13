@@ -61,6 +61,8 @@ public class Customer {
      */
     public CustomerVO getCustomerInfo(String ID) {
         CustomerPO po = networkService.searchCustomerByID(ID);
+        if (po==null)
+            return null;
         return po_to_vo(po);
     }
 

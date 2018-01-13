@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="326.0" prefWidth="292.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stocksellerui.PresentationListShowViewController">
+    <children>
+        <TableView fx:id="tableView" layoutX="21.0" layoutY="37.0" prefHeight="246.0" prefWidth="250.0">
+            <columns>
+                <TableColumn fx:id="NameCol" prefWidth="249.0" sortable="false" />
+                <TableColumn fx:id="NumberCol" minWidth="1.0" prefWidth="1.0" sortable="false" text="商品数量" />
+            </columns>
+        </TableView>
+        <Label layoutX="114.0" layoutY="10.0" text="商品清单" textFill="#0f88eb">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Button id="cancelButton" fx:id="returnButton" layoutX="214.0" layoutY="290.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="0.0" prefWidth="57.0" stylesheets="@../../css/admin/addUser.css" text="返回" textFill="#0f88eb" />
+    </children>
+</AnchorPane>

@@ -50,7 +50,7 @@
         <TableView fx:id="grossView" layoutX="48.0" layoutY="335.0" prefHeight="148.0" prefWidth="450.0">
             <columns>
                 <TableColumn fx:id="GrossIdCol" prefWidth="90.0" sortable="false" text="编号" />
-                <TableColumn fx:id="GrossManJianCol" prefWidth="130.0" sortable="false" text="满减" />
+                <TableColumn fx:id="GrossManJianCol" prefWidth="130.0" sortable="false" text="总价" />
                 <TableColumn fx:id="GrossVoucherCol" prefWidth="100.0" sortable="false" text="赠送代金券" />
                 <TableColumn fx:id="GrossOperationCol" prefWidth="100.0" sortable="false" text="赠品清单" />
                 <TableColumn fx:id="GrossSelectCol" prefWidth="30.0" sortable="false" />

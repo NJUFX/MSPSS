@@ -38,8 +38,6 @@ public class SalesBillDetailsShowViewController implements Initializable {
     Dialog dialog = new Dialog();
     @FXML
     TableView<PromotionBySales> promotionBySalesTableView;
-    @FXML
-    TableColumn<PromotionBySales, String> promotionTypeCol, promotionInfoCol;
 
     @FXML
     Button returnButton;
@@ -111,12 +109,6 @@ public class SalesBillDetailsShowViewController implements Initializable {
         }
 
     }
-    public void showPromotionTable() {
-        promotionTypeCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
-        promotionInfoCol.setCellValueFactory(new PropertyValueFactory<>("Information"));
-
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showTableView();

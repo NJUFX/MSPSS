@@ -11,6 +11,7 @@ public class PromotionBySales {
     public GrossPromotionVO grossPromotionVO;
     public GroupPromotionVO groupPromotionVO;
     public CustomerPromotionVO customerPromotionVO;
+    public double DiscountMoney;
 
     public PromotionBySales(String t, String i) {
         setInformation(i);
