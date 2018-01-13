@@ -322,9 +322,7 @@ MSPSS系统的测试从2017-12-20开始持续到2018-1-8，共持续18天，按�
 
 ​	使用Maven Cobertura工具进行度量。度量结果如下图示例
 
-![img](file:///C:\Users\thinkpad\AppData\Local\Temp\ksohtml\wps6F1B.tmp.jpg) 
-
-![img](file:///C:\Users\thinkpad\AppData\Local\Temp\ksohtml\wps6F2B.tmp.jpg) 
+ 
 
 图2.2.3.5 覆盖度度量
 
