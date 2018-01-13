@@ -113,7 +113,7 @@ MSPSS系统的测试从2017-12-20开始持续到2018-1-8，共持续18天，按�
 
 #### 2.1.2.2网络拓扑
 
-​              ![img](file:///C:\Users\thinkpad\AppData\Local\Temp\ksohtml\wps6EEB.tmp.jpg)
+​              ![img](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E7%BC%BA%E9%99%B7%E6%97%A5%E5%BF%97%E5%9B%BE%E7%89%87/wps6EEB.tmp.jpg)
 
 图2.1.2.2 应用服务器端和客户端（分布式系统）
 
@@ -376,7 +376,7 @@ MSPSS系统的测试从2017-12-20开始持续到2018-1-8，共持续18天，按�
 
 ### 2.4.2安装环境
 
-​	安装环境为windows10（经过测试），客户下载压缩包，解压之后直接使用单击.exe文件就可以使用![img](file:///C:\Users\thinkpad\AppData\Local\Temp\ksohtml\wps6F2C.tmp.jpg)。
+​	安装环境为windows10（经过测试），客户下载压缩包，解压之后直接使用单击.exe文件就可以使用![img](http://101.37.19.32:10080/FX/MSPSS/raw/master/doc/img/%E7%BC%BA%E9%99%B7%E6%97%A5%E5%BF%97%E5%9B%BE%E7%89%87/0ZS0TB%7D4I4$SIF2UO35%7B7%7DH.png)
 
 ### 2.4.3经验总结
 
