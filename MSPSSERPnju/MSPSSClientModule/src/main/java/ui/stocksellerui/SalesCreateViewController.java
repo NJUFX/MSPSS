@@ -94,14 +94,16 @@ public class SalesCreateViewController implements Initializable {
         }
 
         if (commodityVOArrayList != null) {
+            commodityVOArrayList.clear();
             ObservableList<SalesBill> data = commodityListView.getItems();
             for (int i = 0; i < data.size(); i++) {
                 SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
                 commodityVOArrayList.add(salesItemVO);
             }
-            salesOutBillVO.setDAE(DAELabel.getText());
+            salesOutBillVO.setDAE(customerVO.getDAE());
             salesOutBillVO.setStorage(stockField.getText());
             salesOutBillVO.setCustomerVO(customerVO);
+            salesOutBillVO.setSumBeforeDiscount(Double.parseDouble(TotalBeforeLabel.getText()));
             salesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             salesOutBillVO.setSumAfterDiscount(Double.parseDouble(TotalAfterLabel.getText()));
             salesOutBillVO.setItemVOS(commodityVOArrayList);

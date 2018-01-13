@@ -97,10 +97,11 @@ public class PurchaseCreateViewController implements Initializable {
             if (isSaved == true) {
                 salesInBillVO.setID(billIdLabel.getText());
             }
-            salesInBillVO.setDAE(DAELabel.getText());
+
             salesInBillVO.setStorage(stockField.getText());
             customerVO = customerBLInfo.getCustomerByID(billSupplierField.getText().trim());
             salesInBillVO.setProvider(customerVO.getID());
+            salesInBillVO.setDAE(customerVO.getDAE());
             salesInBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             salesInBillVO.setSumMoney(Double.parseDouble(billTotalMoney.getText()));
             salesInBillVO.setItemVOS(commodityVOArrayList);

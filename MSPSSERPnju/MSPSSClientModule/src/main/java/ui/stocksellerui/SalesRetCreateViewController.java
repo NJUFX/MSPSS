@@ -100,6 +100,7 @@ public class SalesRetCreateViewController implements Initializable {
             return null;
         }
         if (commodityVOArrayList != null) {
+            commodityVOArrayList.clear();
             ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
             for (int i = 0; i < data.size(); i++) {
                 SalesItemVO salesItemVO = new SalesItemVO(commodityInfoService.getCommodity(data.get(i).getId()), Integer.parseInt(data.get(i).getNumber()), Double.parseDouble(data.get(i).getPrice()));
@@ -108,10 +109,9 @@ public class SalesRetCreateViewController implements Initializable {
 
             SalesOutBillVO SalesOutBillVO = new SalesOutBillVO(null, SalesOutBillType.RETURN, BillStatus.commit);
 
-            SalesOutBillVO.setDAE(DAELabel.getText());
+            SalesOutBillVO.setDAE(customerVO.getDAE());
             SalesOutBillVO.setStorage(stockField.getText());
             SalesOutBillVO.setCustomerVO(customerBLInfo.getCustomerByID(billSupplierField.getText()));
-            System.out.println(customerVO.getID() + "bill");
             SalesOutBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             SalesOutBillVO.setSumAfterDiscount(Double.parseDouble(billTotalMoney.getText()));
             SalesOutBillVO.setItemVOS(commodityVOArrayList);

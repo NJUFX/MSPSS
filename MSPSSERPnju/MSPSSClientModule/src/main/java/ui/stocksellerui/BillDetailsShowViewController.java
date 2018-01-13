@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.common.Dialog;
@@ -43,7 +44,7 @@ public class BillDetailsShowViewController implements Initializable {
     @FXML
     Button returnButton;
     @FXML
-    Button salesPane;
+    Pane salesPane;
     @FXML
     Label billIdLabel, supplierLabel, DAELabel, stockLabel, chiefName, chiefTime, commitTime, billName, billStatus, billTotalMoney, billTotalMoney1, billTotalMoney11, billTotalMoney111;
     @FXML
@@ -72,6 +73,7 @@ public class BillDetailsShowViewController implements Initializable {
         ObservableList<PurchaseBill> data = purchaseBillTableView.getItems();
 
         if (isSalesIn == true) {
+            salesPane.setVisible(false);
             ArrayList<SalesItemVO> vos = salesInBillVO.getItemVOS();
             for (int i = 0; i < vos.size(); i++) {
                 SalesItemVO salesItemVO = vos.get(i);
@@ -96,6 +98,7 @@ public class BillDetailsShowViewController implements Initializable {
             billIdLabel.setText(salesInBillVO.getID());
             supplierLabel.setText(salesInBillVO.getProvider());
             DAELabel.setText(salesInBillVO.getDAE());
+            stockLabel.setText(salesInBillVO.getStorage());
             billTotalMoney.setText(String.valueOf(salesInBillVO.getSumMoney()));
             billRemarkArea.setText(salesInBillVO.getPs());
             billRemarkArea.setEditable(false);
@@ -132,6 +135,7 @@ public class BillDetailsShowViewController implements Initializable {
                 billTotalMoney.setVisible(false);
                 totalLabelLabel.setVisible(false);
                 billTotalMoney1.setText(String.valueOf(salesOutBillVO.getSumBeforeDiscount()));
+                System.out.println("before"+salesOutBillVO.getSumBeforeDiscount());
                 billTotalMoney11.setText(String.valueOf(salesOutBillVO.getSumAfterDiscount() - salesOutBillVO.getSumBeforeDiscount()));
                 billTotalMoney111.setText(String.valueOf(salesOutBillVO.getSumAfterDiscount()));
             } else {
@@ -148,9 +152,11 @@ public class BillDetailsShowViewController implements Initializable {
                 billStatus.setText("审批通过");
                 billStatus.setTextFill(Color.rgb(51, 200, 51));
             }
+            stockLabel.setText(salesOutBillVO.getStorage());
             billIdLabel.setText(salesOutBillVO.getID());
             supplierLabel.setText(salesOutBillVO.getCustomerVO().getName());
             DAELabel.setText(salesOutBillVO.getDAE());
+            System.out.println("DAE"+salesOutBillVO.getDAE());
             billTotalMoney.setText(String.valueOf(salesOutBillVO.getSumAfterDiscount()));
             billRemarkArea.setText(salesOutBillVO.getPs());
             billRemarkArea.setEditable(false);

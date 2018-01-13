@@ -112,9 +112,9 @@ public class PurcRetCreateViewController implements Initializable {
             }
             SalesInBillVO salesInBillVO = new SalesInBillVO(null, SalesInBillType.OUT, BillStatus.commit);
 
-            salesInBillVO.setDAE(DAELabel.getText());
             salesInBillVO.setStorage(stockField.getText());
             salesInBillVO.setProvider(customerVO.getID());
+            salesInBillVO.setDAE(customerVO.getDAE());
             salesInBillVO.setOperator(userInfo.getUser(LoginController.getCurrentUser().getID()));
             salesInBillVO.setSumMoney(Double.parseDouble(billTotalMoney.getText()));
             salesInBillVO.setItemVOS(commodityVOArrayList);
