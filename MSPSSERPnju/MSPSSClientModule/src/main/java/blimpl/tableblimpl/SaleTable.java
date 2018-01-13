@@ -1,9 +1,7 @@
 package blimpl.tableblimpl;
 
 
-import blimpl.billblimpl.SalesOutBill;
 import network.*;
-import network.commoditynetworkservice.CommodityServerNetworkService;
 import po.CommodityPO;
 import po.CustomerPO;
 import po.SalesOutBillPO;
@@ -43,31 +41,31 @@ public class SaleTable {
         ArrayList<SalesOutBillPO> salesOutBillPOS ;
 
         ArrayList<CriteriaClause> criteriaClauses = new ArrayList<CriteriaClause>();
-        if(flags.getBegin()!=null&&flags.getEnd()!=null){
-            criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("initTime",flags.getBegin().toString(),flags.getEnd().toString(), QueryMethod.Range));
+        if (flags.getBegin() != null && flags.getEnd() != null && flags.getBegin().toString() != "" && flags.getEnd().toString() != "") {
+            criteriaClauses.add(CriteriaClauseImpl.createRangeValueQuery("init_time", flags.getBegin().toString(), flags.getEnd().toString(), QueryMethod.Range));
         }
-        if(flags.getCommodityName()!=null){
+        if (false) {
             ArrayList<CommodityPO> commodityPOS = commodityClientNetworkService.fullSearchCommodity("name",flags.getCommodityName());
             if(commodityPOS.size()>=0){
                 criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID",commodityPOS.get(0).getID(),QueryMethod.Full));
             }
         }
 
-        if(flags.getOperatorName()!=null){
+        if (flags.getOperatorName() != null && flags.getOperatorName() != "" && flags.getOperatorName().length() != 0) {
             ArrayList<UserPO> userPOS = userClientNetworkService.fullSearchUser("name",flags.getOperatorName());
             if(userPOS.size()>=0){
                 criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("operatorID",userPOS.get(0).getID(),QueryMethod.Full));
             }
         }
 
-        if(flags.getCustomerName()!=null){
+        if (flags.getCustomerName() != null && flags.getCustomerName() != "" && flags.getCustomerName().length() != 0) {
             ArrayList<CustomerPO> customerPOS = customerClientNetworkService.fullSearchCustomer("name",flags.getCustomerName());
             if(customerPOS.size()>=0){
                 criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("customerID",customerPOS.get(0).getID(),QueryMethod.Full));
             }
         }
 
-        if(flags.getStorage()!=null){
+        if (flags.getStorage() != null && flags.getStorage() != "" && flags.getStorage().length() != 0) {
             criteriaClauses.add(CriteriaClauseImpl.createSingleValueQuery("storage",flags.getStorage(),QueryMethod.Full));
         }
 

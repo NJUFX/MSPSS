@@ -1,26 +1,14 @@
 package ui.chiefmanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.time.LocalDate;
-import java.util.ResourceBundle;
-
 import blimpl.blfactory.BLFactoryImpl;
-import blservice.logblservice.LogBLService;
 import blservice.tableblservice.TableBLService;
-import filterflags.ProcessTableFilterFlags;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -28,12 +16,13 @@ import main.StageSingleton;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
 import util.Time;
-import vo.BusinessTableVO;
-import vo.ProcessTableFilterFlagsVO;
-import vo.ProcessTableVO;
-import vo.SaleTableFilterFlagsVO;
-import vo.SaleTableVO;
-import vo.UserVO;
+import vo.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 public class ChiefManagerSearchListController implements Initializable{
 	@FXML
@@ -263,8 +252,10 @@ public class ChiefManagerSearchListController implements Initializable{
 	 * @throws Exception
 	 */
 	public void handleSearchButtonAction(ActionEvent e) throws Exception{
-		String tableType = TableType.getValue().toString();
-		switch(tableType) {
+        System.out.println();
+        String tableType = TableType.getValue().toString();
+        System.out.println(tableType);
+        switch(tableType) {
 		case"销售明细表":{
 			LocalDate startTime = StartTime.getValue();
 			LocalDate endTime = EndTime.getValue();
@@ -295,15 +286,17 @@ public class ChiefManagerSearchListController implements Initializable{
 		}
 		
 		case"经营情况表":{
-			LocalDate startTime = StartTime.getValue();
+            System.out.println();
+            System.out.println();
+            LocalDate startTime = StartTime.getValue();
 			LocalDate endTime = EndTime.getValue();
 			Time start = new Time(startTime.getYear(),startTime.getMonthValue(),startTime.getDayOfMonth(),0,0,0);
 			Time end = new Time(endTime.getYear(),endTime.getMonthValue(),endTime.getDayOfMonth(),0,0,0);
 			BusinessTableVO vo = tableBLService.checkBusinessTable(start, end);
 				ChiefManagerSearchManageListController controller = (ChiefManagerSearchManageListController) replaceSceneContent(
 						"/view/chiefmanager/ChiefManagerSearchManageList.fxml");
-			
-			break;
+            controller.showManageTable(vo);
+            break;
 		}
 		
 		case"经营历程表":{
@@ -324,8 +317,11 @@ public class ChiefManagerSearchListController implements Initializable{
 			flag.setCustomerName(customerName);
 			flag.setOperatorName(operator);
 			flag.setStorage(storage);
-			ProcessTableVO vo = tableBLService.checkProcessTable(flag);
-				ChiefManagerSearchProcessListController controller = (ChiefManagerSearchProcessListController) replaceSceneContent(
+            //System.out.println("storage is ::"+storage+"111");
+            ProcessTableVO vo = tableBLService.checkProcessTable(flag);
+            System.out.println("经营历程表");
+            //System.out.println(vo==null);
+            ChiefManagerSearchProcessListController controller = (ChiefManagerSearchProcessListController) replaceSceneContent(
 						"/view/chiefmanager/ChiefManagerSearchProcessList.fxml");
 			controller.setBillType(billType);	
 			controller.showProcessTable(vo);

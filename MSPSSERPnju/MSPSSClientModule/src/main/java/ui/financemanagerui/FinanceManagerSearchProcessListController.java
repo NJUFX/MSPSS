@@ -1,17 +1,6 @@
 package ui.financemanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import auxiliary.Bill;
-import auxiliary.CashCostBill;
-import auxiliary.FinanceBill;
-import auxiliary.SalesInBill;
-import auxiliary.SalesOutBill;
-import auxiliary.StockBill;
+import auxiliary.*;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.FinanceBillBLService;
 import blservice.tableblservice.TableBLService;
@@ -22,30 +11,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
-import ui.chiefmanagerui.ChiefManagerSearchListController;
-import ui.chiefmanagerui.ChiefManagerShowCashCostBillDetailController;
-import ui.chiefmanagerui.ChiefManagerShowFinanceBillDetailController;
-import ui.chiefmanagerui.ChiefManagerShowSalesInBillDetailController;
-import ui.chiefmanagerui.ChiefManagerShowSalesOutBillDetailController;
-import ui.chiefmanagerui.ChiefManagerShowStockBillDetailController;
 import ui.common.Dialog;
-import vo.CashCostBillVO;
-import vo.FinanceBillVO;
-import vo.ProcessTableVO;
-import vo.SalesInBillVO;
-import vo.SalesOutBillVO;
-import vo.StockBillVO;
-import vo.UserVO;
+import vo.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class FinanceManagerSearchProcessListController implements Initializable {
 
@@ -503,6 +482,8 @@ public class FinanceManagerSearchProcessListController implements Initializable 
 	 */
 	public void handleExportProcessListButtonAction(ActionEvent e) throws Exception{
 		tableBLService.exportProcessTable(tableVO);
+		Dialog d = new Dialog();
+		d.confirmDialog("导出报表成功！");
 	}
 	
 	/**
@@ -512,8 +493,8 @@ public class FinanceManagerSearchProcessListController implements Initializable 
 	 */
 	public void handleBackToSearchListButtonAction(ActionEvent e) throws Exception{
 		try {
-			FinanceManagerMakeBillMainController controller = (FinanceManagerMakeBillMainController) replaceSceneContent(
-					"/view/financemanager/FinanceManagerMakeBillMain.fxml");
+			FinanceManagerSearchListController controller = (FinanceManagerSearchListController) replaceSceneContent(
+					"/view/financemanager/FinanceManagerSearchList.fxml");
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

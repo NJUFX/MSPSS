@@ -1,10 +1,5 @@
 package ui.financemanagerui;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import auxiliary.SalesTableBill;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.tableblservice.TableBLService;
@@ -23,12 +18,16 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.StageSingleton;
 import ui.adminui.LoginController;
-import ui.chiefmanagerui.ChiefManagerSearchListController;
 import ui.common.Dialog;
 import vo.SaleTableVO;
 import vo.SalesItemVO;
 import vo.SalesOutBillVO;
 import vo.UserVO;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class FinanceManagerSearchSalesListController implements Initializable {
 
@@ -215,6 +214,8 @@ public class FinanceManagerSearchSalesListController implements Initializable {
 	 */
 	public void handleExportSalesListButtonAction(ActionEvent e) throws Exception{
 		tableBLService.exportSaleTable(tableVO);
+		Dialog d = new Dialog();
+		d.confirmDialog("导出报表成功！");
 	}
 	
 	/**

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.collections.*?>
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: #e0e0e0;" stylesheets="@../../css/chiefManager/ChiefManagerSearchList.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financemanagerui.FinanceManagerSearchListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
@@ -94,11 +90,11 @@
             <ComboBox fx:id="BillType" layoutX="367.0" layoutY="277.0" prefHeight="20.0" prefWidth="195.0" promptText="单据类型">
                <items>
                   <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="销售类单据" />
-                     <String fx:value="进货类单据" />
-                     <String fx:value="财务类单据" />
-                     <String fx:value="库存类单据" />
-                      <String fx:value="现金费用单" />
+                      <String fx:value="销售类"/>
+                      <String fx:value="进货类"/>
+                      <String fx:value="财务类"/>
+                      <String fx:value="库存类"/>
+                      <String fx:value="现金费用类"/>
                   </FXCollections>
                </items>
             </ComboBox>
