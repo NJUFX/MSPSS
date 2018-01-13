@@ -23,7 +23,6 @@ import ui.adminui.LoginController;
 import ui.common.Dialog;
 import vo.CommodityVO;
 import vo.FilterFlagVO;
-import vo.UserVO;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -126,19 +125,23 @@ public class CommoditySearchShowViewController implements Initializable {
                     filterFlagVO.name = keyword;
                     break;
                 case "进价（向上查找）":
+                    filterFlagVO.importCostMax = Integer.MAX_VALUE;
                     filterFlagVO.importCostMin = Double.parseDouble(keyword);
                     break;
                 case "进价（向下查找）":
+                    filterFlagVO.importCostMin = 0;
                     filterFlagVO.importCostMax = Double.parseDouble(keyword);
                     break;
                 case "零售价（向上查找）":
+                    filterFlagVO.exportCostMax = Integer.MAX_VALUE;
                     filterFlagVO.exportCostMin = Double.parseDouble(keyword);
                     break;
                 case "零售价（向下查找）":
+                    filterFlagVO.exportCostMin = 0;
                     filterFlagVO.exportCostMax = Double.parseDouble(keyword);
                     break;
             }
-            if (commodityInfoService.search(filterFlagVO) != null) {
+            if (commodityBLService.searchCommodity(filterFlagVO) != null) {
                 arrayList = commodityInfoService.search(filterFlagVO);
                 if (arrayList.size() == 0) {
                     dialog.infoDialog("No commodity matches conditions.");
@@ -183,7 +186,7 @@ public class CommoditySearchShowViewController implements Initializable {
     public void backButtonAction(ActionEvent e) throws IOException {
         try {
             CommoditySearchViewController controller = (CommoditySearchViewController) replaceSceneContent(
-                    "/view/stockmanager/commoditySearch.fxml");
+                    "/view/stockmanager/CommoditySearch.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -200,7 +203,7 @@ public class CommoditySearchShowViewController implements Initializable {
     public void commodityDelButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityDelViewController controller = (CommodityDelViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityDel.fxml");
+                    "/view/stockmanager/CommodityDel.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -217,7 +220,7 @@ public class CommoditySearchShowViewController implements Initializable {
     public void commodityAddButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityAddViewController controller = (CommodityAddViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityAdd.fxml");
+                    "/view/stockmanager/CommodityAdd.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -234,7 +237,7 @@ public class CommoditySearchShowViewController implements Initializable {
     public void commodityModButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityModifyFirst.fxml");
+                    "/view/stockmanager/CommodityModifyFirst.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -251,7 +254,7 @@ public class CommoditySearchShowViewController implements Initializable {
     public void nextOperationButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityModitySecondViewController controller = (CommodityModitySecondViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityModifySecond.fxml");
+                    "/view/stockmanager/CommodityModifySecond.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

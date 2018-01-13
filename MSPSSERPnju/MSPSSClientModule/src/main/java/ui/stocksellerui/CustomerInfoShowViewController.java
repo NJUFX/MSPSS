@@ -11,9 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.MainApp;
@@ -123,7 +121,7 @@ public class CustomerInfoShowViewController implements Initializable {
     public void backButtonAction(ActionEvent e) throws IOException {
         try {
             CustomerSearchShowViewController controller = (CustomerSearchShowViewController) replaceSceneContent(
-                    "/view/stockseller/customerSearchShow.fxml");
+                    "/view/stockseller/CustomerSearchShow.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

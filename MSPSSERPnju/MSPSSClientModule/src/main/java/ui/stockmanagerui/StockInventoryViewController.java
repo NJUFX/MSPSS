@@ -135,7 +135,7 @@ public class StockInventoryViewController implements Initializable {
     public void commodityManageButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityManage.fxml");
+                    "/view/stockmanager/CommodityManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -152,7 +152,7 @@ public class StockInventoryViewController implements Initializable {
     public void commodityClassifyButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityClassifyViewController controller = (CommodityClassifyViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityClassify.fxml");
+                    "/view/stockmanager/CommodityClassify.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

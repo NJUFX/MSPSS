@@ -87,7 +87,7 @@ public class CommodityDelViewController implements Initializable {
     public void cancelButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityManage.fxml");
+                    "/view/stockmanager/CommodityManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -104,7 +104,7 @@ public class CommodityDelViewController implements Initializable {
     public void commodityAddButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityAddViewController controller = (CommodityAddViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityAdd.fxml");
+                    "/view/stockmanager/CommodityAdd.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -121,7 +121,7 @@ public class CommodityDelViewController implements Initializable {
     public void commodityModButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityModifyFirst.fxml");
+                    "/view/stockmanager/CommodityModifyFirst.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -138,7 +138,7 @@ public class CommodityDelViewController implements Initializable {
     public void commoditySearchButtonAction(ActionEvent e) throws IOException {
         try {
             CommoditySearchViewController controller = (CommoditySearchViewController) replaceSceneContent(
-                    "/view/stockmanager/commoditySearch.fxml");
+                    "/view/stockmanager/CommoditySearch.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

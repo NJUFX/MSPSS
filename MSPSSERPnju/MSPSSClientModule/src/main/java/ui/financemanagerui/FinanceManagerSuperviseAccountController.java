@@ -281,7 +281,7 @@ public class FinanceManagerSuperviseAccountController implements Initializable {
 		ObservableList<Account> data = AccountTable.getItems();
 		data.add(new Account(AccountName,AccountMoney));
 		try {
-			accountBLService.addAccount(new AccountVO(AccountName, Double.parseDouble(AccountName), null));
+			accountBLService.addAccount(new AccountVO(AccountName, Double.parseDouble(AccountMoney)));
 		}catch (NegativeException E){
 			System.out.print(E);
 		}

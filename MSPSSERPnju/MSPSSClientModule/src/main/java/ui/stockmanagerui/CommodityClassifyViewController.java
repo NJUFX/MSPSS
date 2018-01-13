@@ -2,8 +2,6 @@ package ui.stockmanagerui;
 
 import auxiliary.ClassificationCell;
 import blimpl.blfactory.BLFactoryImpl;
-import blimpl.commodityblimpl.Classification;
-import blimpl.commodityblimpl.Commodity;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.commodityblservice.CommodityInfoService;
 import blservice.mainblservice.MainBLService;
@@ -31,7 +29,6 @@ import vo.CommodityVO;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -147,7 +144,7 @@ public class CommodityClassifyViewController implements Initializable {
     public void commodityManageButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityManage.fxml");
+                    "/view/stockmanager/CommodityManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();

@@ -221,7 +221,7 @@ public class User {
     }
 
     public UserVO getStockManager() {
-        ArrayList<UserVO> userVOS = searchUserByKind(Kind_Of_Users.ChiefManager);
+        ArrayList<UserVO> userVOS = searchUserByKind(Kind_Of_Users.StockManager);
         int random = (int) (userVOS.size() * Math.random());
         return userVOS.get(random);
     }

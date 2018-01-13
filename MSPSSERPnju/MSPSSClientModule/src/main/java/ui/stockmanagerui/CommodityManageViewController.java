@@ -85,7 +85,7 @@ public class CommodityManageViewController implements Initializable {
     public void commodityClassifyButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityClassifyViewController controller = (CommodityClassifyViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityClassify.fxml");
+                    "/view/stockmanager/CommodityClassify.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -138,7 +138,7 @@ public class CommodityManageViewController implements Initializable {
     public void commodityAddButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityAddViewController controller = (CommodityAddViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityAdd.fxml");
+                    "/view/stockmanager/CommodityAdd.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -155,7 +155,7 @@ public class CommodityManageViewController implements Initializable {
     public void commodityDelButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityDelViewController controller = (CommodityDelViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityDel.fxml");
+                    "/view/stockmanager/CommodityDel.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -172,7 +172,7 @@ public class CommodityManageViewController implements Initializable {
     public void commodityModButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityModifyFirst.fxml");
+                    "/view/stockmanager/CommodityModifyFirst.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -212,7 +212,7 @@ public class CommodityManageViewController implements Initializable {
                 CommoditySearchShowViewController.keyType = key_type;
                 CommoditySearchShowViewController.keyword = key_word;
                 CommoditySearchShowViewController controller = (CommoditySearchShowViewController) replaceSceneContent(
-                        "/view/stockmanager/commoditySearchShow.fxml");
+                        "/view/stockmanager/CommoditySearchShow.fxml");
             }
         } catch (Exception e1) {
             // TODO Auto-generated catch block

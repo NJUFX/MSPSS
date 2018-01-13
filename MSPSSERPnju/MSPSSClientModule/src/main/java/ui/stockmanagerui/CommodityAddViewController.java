@@ -3,8 +3,6 @@ package ui.stockmanagerui;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.commodityblservice.CommodityBLService;
 import blservice.mainblservice.MainBLService;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -22,16 +19,12 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
-import ui.stocksellerui.BillCreateViewController;
 import util.ResultMessage;
-import vo.ClassificationVO;
 import vo.CommodityVO;
 
-import javax.accessibility.AccessibleIcon;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -80,7 +73,7 @@ public class CommodityAddViewController implements Initializable {
             dialog.infoDialog("Add a commodity successfully.");
             try {
                 CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
-                        "/view/stockmanager/commodityManage.fxml");
+                        "/view/stockmanager/CommodityManage.fxml");
             } catch (Exception e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -102,7 +95,7 @@ public class CommodityAddViewController implements Initializable {
     public void cancelButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityManageViewController controller = (CommodityManageViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityManage.fxml");
+                    "/view/stockmanager/CommodityManage.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -119,7 +112,7 @@ public class CommodityAddViewController implements Initializable {
     public void commodityDelButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityDelViewController controller = (CommodityDelViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityDel.fxml");
+                    "/view/stockmanager/CommodityDel.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -136,7 +129,7 @@ public class CommodityAddViewController implements Initializable {
     public void commodityModButtonAction(ActionEvent e) throws IOException {
         try {
             CommodityModifyFirstViewController controller = (CommodityModifyFirstViewController) replaceSceneContent(
-                    "/view/stockmanager/commodityModifyFirst.fxml");
+                    "/view/stockmanager/CommodityModifyFirst.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
@@ -153,7 +146,7 @@ public class CommodityAddViewController implements Initializable {
     public void commoditySearchButtonAction(ActionEvent e) throws IOException {
         try {
             CommoditySearchViewController controller = (CommoditySearchViewController) replaceSceneContent(
-                    "/view/stockmanager/commoditySearch.fxml");
+                    "/view/stockmanager/CommoditySearch.fxml");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
