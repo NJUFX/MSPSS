@@ -3,6 +3,13 @@ package blimpl.tableblimpl;
 /**
  * Created by thinkpad on 2017/12/27.
  */
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.util.CellRangeAddress;
+
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
@@ -10,13 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.util.CellRangeAddress;
-import util.Time;
 
 /***
  * 导出List<Object>数据到excel（最多可导出65535行）
@@ -191,5 +191,22 @@ public final class ExportExcel {
         for (int j = 0; j < size; j++) {
             sheet.autoSizeColumn(j);
         }
+    }
+
+    public static void main(String[] args) {
+        ExportHelper exportHelper = new ExportHelper();
+        String path = exportHelper.getClass().getResource("").getPath();
+
+        int index = path.indexOf("MSPSSERPnju");
+
+        path = path.substring(0, index);
+        System.out.println(path);
+        path += "resource/";
+        try {
+            FileOutputStream outputStream = new FileOutputStream(path + "xxx.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

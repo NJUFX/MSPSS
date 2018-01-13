@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.adminui.LoginController;
+import vo.CommodityVO;
 import vo.PresentationCommodityItemVO;
 
 import java.net.URL;
@@ -23,6 +24,7 @@ public class PresentationListShowViewController implements Initializable {
 
     CommodityInfoService commodityInfoService = new BLFactoryImpl().getCommodityInfoService();
     static ArrayList<PresentationCommodityItemVO> presentationList;
+    static ArrayList<String> idList;
 
     @FXML
     Button returnButton;
@@ -40,9 +42,20 @@ public class PresentationListShowViewController implements Initializable {
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         NumberCol.setCellValueFactory(new PropertyValueFactory<>("Number"));
         ObservableList<PresentationList> data = tableView.getItems();
-        for (int i = 0; i < presentationList.size(); i++) {
-            PresentationList a = new PresentationList(commodityInfoService.getCommodity(presentationList.get(i).getCommodityID()).getName(), String.valueOf(presentationList.get(i).getNumber()));
+        if (presentationList != null) {
+            for (int i = 0; i < presentationList.size(); i++) {
+                CommodityVO commodityVO = commodityInfoService.getCommodity(presentationList.get(i).getCommodityID());
+                PresentationList a = new PresentationList(commodityVO.getName(), String.valueOf(presentationList.get(i).getNumber()));
+            }
+        } else if (idList != null) {
+            for (int i = 0; i < idList.size(); i++) {
+                CommodityVO commodityVO = commodityInfoService.getCommodity(idList.get(i));
+                PresentationList a = new PresentationList(commodityVO.getName(), String.valueOf("6"));
+                data.add(a);
+            }
         }
+        presentationList = null;
+        idList = null;
     }
 
 

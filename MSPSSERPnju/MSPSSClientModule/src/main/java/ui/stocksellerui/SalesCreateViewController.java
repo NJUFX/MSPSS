@@ -80,7 +80,7 @@ public class SalesCreateViewController implements Initializable {
     @FXML
     TableView<PromotionBySales> promotionBySalesTableView;
     @FXML
-    TableColumn<PromotionBySales, String> promotionTypeCol, promotionInfoCol;
+    TableColumn<PromotionBySales, String> promotionTypeCol, promotionInfoCol, promotionOperCol;
     @FXML
     TextArea billRemarkArea;
 
@@ -234,6 +234,39 @@ public class SalesCreateViewController implements Initializable {
     public void showPromotionTable() {
         promotionTypeCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
         promotionInfoCol.setCellValueFactory(new PropertyValueFactory<>("Information"));
+        promotionOperCol.setCellFactory((col) -> {
+            TableCell<PromotionBySales, String> cell = new TableCell<PromotionBySales, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    this.setText(null);
+                    this.setGraphic(null);
+                    if (!empty) {
+                        Button Btn = new Button("删除");
+                        Btn.setPrefSize(80, 10);
+                        Btn.getStylesheets().add("/css/stockseller/buttonInTable.css");
+                        this.setGraphic(Btn);
+                        Btn.setOnMouseClicked((me) -> {
+                            if (this.getTableView().getItems().get(this.getIndex()).customerPromotionVO != null) {
+                                salesmanBillBLService.unSetCustomerPromotion(this.getTableView().getItems().get(this.getIndex()).customerPromotionVO, salesOutBillVO);
+                                this.getTableView().getItems().remove(this.getIndex());
+                                dialog.infoDialog("Remove a promotion successfully.");
+                            } else if (this.getTableView().getItems().get(this.getIndex()).grossPromotionVO != null) {
+                                salesmanBillBLService.unSetGrossPromotion(this.getTableView().getItems().get(this.getIndex()).grossPromotionVO, salesOutBillVO);
+                                this.getTableView().getItems().remove(this.getIndex());
+                                dialog.infoDialog("Remove a promotion successfully.");
+                            } else if (this.getTableView().getItems().get(this.getIndex()).groupPromotionVO != null) {
+                                salesmanBillBLService.unSetGroupPromotion(this.getTableView().getItems().get(this.getIndex()).groupPromotionVO, salesOutBillVO);
+                                this.getTableView().getItems().remove(this.getIndex());
+                                dialog.infoDialog("Remove a promotion successfully.");
+                            }
+                        });
+                    }
+                }
+            };
+            cell.setStyle("-fx-alignment:CENTER;");
+            return cell;
+        });
     }
 
     public void showCommodityTable() {
@@ -249,13 +282,22 @@ public class SalesCreateViewController implements Initializable {
 
     public void choosePromotionButtonAction(ActionEvent e) {
         try {
-            SelectPromotionViewController.level=1;//customerBLInfo.getCustomerByID(customerField.getId()).getLevel();
-            SelectPromotionViewController controller = (SelectPromotionViewController) replaceAnotherSceneContent("/view/stockseller/SelectPromotion.fxml", 544, 541);
-            PromotionDiscountLabel.setText("0");
-            controller.PromotionDiscountLabel = PromotionDiscountLabel;
-            controller.TotalAfterLabel = TotalAfterLabel;
-            controller.salesOutBillVO = salesOutBillVO;
-            controller.tableView = promotionBySalesTableView;
+            if (!customerField.getText().trim().equals("") && customerBLInfo.getCustomerByID(customerField.getText().trim()) != null) {
+                salesOutBillVO.setCustomerVO(customerBLInfo.getCustomerByID(customerField.getText().trim()));
+                salesOutBillVO.setItemVOS(commodityVOArrayList);
+                salesmanBillBLService.saveSalesOutBill(salesOutBillVO);
+
+                SelectPromotionViewController.salesOutBillVO = salesOutBillVO;
+                SelectPromotionViewController.level = salesOutBillVO.getCustomerVO().getLevel();
+                SelectPromotionViewController controller = (SelectPromotionViewController) replaceAnotherSceneContent("/view/stockseller/SelectPromotion.fxml", 544, 541);
+                PromotionDiscountLabel.setText("0");
+                controller.PromotionDiscountLabel = PromotionDiscountLabel;
+                controller.TotalAfterLabel = TotalAfterLabel;
+
+                controller.tableView = promotionBySalesTableView;
+            } else {
+                dialog.errorInfoDialog("Customer id is wrong.");
+            }
         } catch (Exception e1) {
             e1.printStackTrace();
         }

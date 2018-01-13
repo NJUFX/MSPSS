@@ -8,6 +8,19 @@
     -fx-border-color: #0F88EB;
     -fx-border-radius:0;
 }
+
+#cancelButton2.button{
+    -fx-background-radius:25;
+    -fx-border-radius:25;
+    -fx-background-color:white;
+    -fx-border-color:#0f88eb;
+}
+
+#cancelButton2.button:hover{
+    -fx-background-color:#0F88EB;
+    -fx-text-fill:#FFFFFF;
+}
+
 #cancelButton.button:hover{
     -fx-background-color:#0F88EB;
     -fx-text-fill:#FFFFFF;

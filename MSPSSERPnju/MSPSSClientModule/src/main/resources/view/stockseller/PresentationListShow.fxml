@@ -17,7 +17,7 @@
                 <TableColumn fx:id="NumberCol" prefWidth="125.0" sortable="false" text="商品数量"/>
             </columns>
         </TableView>
-        <Label layoutX="114.0" layoutY="10.0" text="赠品清单" textFill="#0f88eb">
+        <Label layoutX="114.0" layoutY="10.0" text="商品清单" textFill="#0f88eb">
             <font>
                 <Font size="16.0"/>
             </font>
