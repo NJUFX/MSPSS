@@ -1,6 +1,6 @@
 [![build status](http://101.37.19.32:10080/FX/MSPSS/badges/master/build.svg)](http://101.37.19.32:10080/FX/MSPSS/commits/master)
 # MSPSS System For Software Engineering Ⅱ<br>
-[toc]
+
 
 ## cover
   ![cover](https://raw.githubusercontent.com/NJUFX/MSPSS/master/cover.png)
