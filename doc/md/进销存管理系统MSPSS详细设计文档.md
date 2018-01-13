@@ -16,6 +16,14 @@
 | FX全组 | 2017-11-10 | 重构业务逻辑层            | V1.3   |
 | FX全组 | 2017-12-29 | 根据实际项目调整文档         | V1.4   |
 
+## 目录
+
+[TOC]
+
+
+
+
+
 ## 1. 引言
 
 ### **1.1编制目的**
@@ -1860,22 +1868,22 @@ chiefManager界面各个类的职责如下表所示
 |                                          | 前置条件 | 点击按钮                                     |
 |                                          | 后置条件 | 显示跳转的界面                                  |
 | ChiefManagerSearchSalesListController.ShowSalesList | 语法   | public void ShowSalesList(SaleTableVO vo); |
-|                                          | 前置条件 | 查找销售明细表                                     |
-|                                          | 后置条件 | 显示符合条件的销售明细表                                  |
+|                                          | 前置条件 | 查找销售明细表                                  |
+|                                          | 后置条件 | 显示符合条件的销售明细表                             |
 | ChiefManagerSearchSalesListController.handleExportSalesListButtonAction | 语法   | public void handleExportSalesListButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击导出报表按钮                                     |
-|                                          | 后置条件 | 导出符合条件的销售明细表                                  |
+|                                          | 前置条件 | 点击导出报表按钮                                 |
+|                                          | 后置条件 | 导出符合条件的销售明细表                             |
 | ChiefManagerSearchSalesListController.handleBackToSearchListButtonAction(ActionEvent e) | 语法   | public void handleBackToSearchListButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击返回查看报表按钮                                     |
+|                                          | 前置条件 | 点击返回查看报表按钮                               |
 |                                          | 后置条件 | 返回查看报表界面                                 |
 
 
 
-| 需要的服务(需接口)                        |          |
-| --------------------------------- | -------- |
-| 服务名                               | 服务       |
-| loginController.getCurrentUser    | 获取当前登录用户 |
-| tableBLService.exportSaleTable    | 导出销售明细表  |
+| 需要的服务(需接口)                     |          |
+| ------------------------------ | -------- |
+| 服务名                            | 服务       |
+| loginController.getCurrentUser | 获取当前登录用户 |
+| tableBLService.exportSaleTable | 导出销售明细表  |
 
  4.1.4(2)-4 ChiefManagerSearchManageListController的接口规范
 
@@ -1904,22 +1912,22 @@ chiefManager界面各个类的职责如下表所示
 |                                          | 前置条件 | 点击按钮                                     |
 |                                          | 后置条件 | 显示跳转的界面                                  |
 | ChiefManagerSearchManageListController.ShowManageTable | 语法   | public void ShowManageTable(BusinessTableVO vo); |
-|                                          | 前置条件 | 查找经营情况表                                     |
-|                                          | 后置条件 | 显示符合条件的经营情况表                                  |
+|                                          | 前置条件 | 查找经营情况表                                  |
+|                                          | 后置条件 | 显示符合条件的经营情况表                             |
 | ChiefManagerSearchManageListController.handleExportManageListButtonAction | 语法   | public void handleExportManageListButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击导出报表按钮                                     |
-|                                          | 后置条件 | 导出符合条件的经营情况表                                  |
+|                                          | 前置条件 | 点击导出报表按钮                                 |
+|                                          | 后置条件 | 导出符合条件的经营情况表                             |
 | ChiefManagerSearchManageListController.handleBackToSearchListButtonAction(ActionEvent e) | 语法   | public void handleBackToSearchListButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击返回查看报表按钮                                     |
+|                                          | 前置条件 | 点击返回查看报表按钮                               |
 |                                          | 后置条件 | 返回查看报表界面                                 |
 
 
 
-| 需要的服务(需接口)                        |          |
-| --------------------------------- | -------- |
-| 服务名                               | 服务       |
-| loginController.getCurrentUser    | 获取当前登录用户 |
-| tableBLService.exportBusinessTable    | 导出经营情况表  |
+| 需要的服务(需接口)                         |          |
+| ---------------------------------- | -------- |
+| 服务名                                | 服务       |
+| loginController.getCurrentUser     | 获取当前登录用户 |
+| tableBLService.exportBusinessTable | 导出经营情况表  |
 
 4.1.4(2)-5 ChiefManagerSearchProcessListController的接口规范
 
@@ -1947,14 +1955,14 @@ chiefManager界面各个类的职责如下表所示
 | ChiefManagerSearchProcessListController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
 |                                          | 前置条件 | 点击按钮                                     |
 |                                          | 后置条件 | 显示跳转的界面                                  |
-| ChiefManagerSearchManageListController.showProcessTable| 语法   | public void showProcessTable(ProcessTableVO vo); |
-|                                          | 前置条件 | 查找经营历程表                                     |
-|                                          | 后置条件 | 显示符合条件的经营历程表                                  |
+| ChiefManagerSearchManageListController.showProcessTable | 语法   | public void showProcessTable(ProcessTableVO vo); |
+|                                          | 前置条件 | 查找经营历程表                                  |
+|                                          | 后置条件 | 显示符合条件的经营历程表                             |
 | ChiefManagerSearchManageListController.handleExportProcessListButtonAction | 语法   | public void handleExportProcessListButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击导出报表按钮                                     |
-|                                          | 后置条件 | 导出符合条件的经营历程表                                  |
+|                                          | 前置条件 | 点击导出报表按钮                                 |
+|                                          | 后置条件 | 导出符合条件的经营历程表                             |
 | ChiefManagerSearchManageListController.handleBackToSearchListButtonAction(ActionEvent e) | 语法   | public void handleBackToSearchListButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击返回查看报表按钮                                     |
+|                                          | 前置条件 | 点击返回查看报表按钮                               |
 |                                          | 后置条件 | 返回查看报表界面                                 |
 
 
@@ -1963,7 +1971,7 @@ chiefManager界面各个类的职责如下表所示
 | --------------------------------- | -------- |
 | 服务名                               | 服务       |
 | loginController.getCurrentUser    | 获取当前登录用户 |
-| tableBLService.exportProcessTable    | 导出经营历程表  |
+| tableBLService.exportProcessTable | 导出经营历程表  |
 
 4.1.4(2)-6 ChiefManagerExamineBillController的接口规范
 
@@ -1991,39 +1999,39 @@ chiefManager界面各个类的职责如下表所示
 | ChiefManagerExamineBillController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
 |                                          | 前置条件 | 点击按钮                                     |
 |                                          | 后置条件 | 显示跳转的界面                                  |
-| ChiefManagerSearchManageListController.ChooseBillType| 语法   | public void ChooseBillType(ActionEvent e); |
-|                                          | 前置条件 | 选择单据类型                                     |
+| ChiefManagerSearchManageListController.ChooseBillType | 语法   | public void ChooseBillType(ActionEvent e); |
+|                                          | 前置条件 | 选择单据类型                                   |
 |                                          | 后置条件 | 确定审批单据类型                                 |
 
 
 
 
-| 需要的服务(需接口)                        |          |
-| --------------------------------- | -------- |
-| 服务名                               | 服务       |
-| loginController.getCurrentUser    | 获取当前登录用户 |
-| managerBillService.getWaitingStockBill   | 获取待审批的库存单  |
-| managerBillService.getWaitingSalesOutBill   | 获取待审批的销售单  |
-| managerBillService.getWaitingSalesInBill   | 获取待审批的进货单  |
-| managerBillService.getWaitingFinanceBill   | 获取待审批的财务单  |
-| managerBillService.getWaitingCashCostBill   | 获取待审批的现金费用单  |
-|  managerBillService.approveStockBill         | 批准库存单    |
-|  managerBillService.approveSalesInBill         | 批准进货单    |
-|  managerBillService.approveSalesOutBill         | 批准销售单    |
-|  managerBillService.approveSalesFinanceBill         | 批准财务单    |
-|  managerBillService.approveCashCostBill         | 批准现金费用单    |
-|  managerBillService.rejectStockBill         | 批准库存单    |
-|  managerBillService.rejectSalesInBill         | 批准进货单    |
-|  managerBillService.rejectSalesOutBill         | 批准销售单    |
-|  managerBillService.rejectSalesFinanceBill         | 批准财务单    |
-|  managerBillService.rejectCashCostBill         | 批准现金费用单    |
+| 需要的服务(需接口)                               |             |
+| ---------------------------------------- | ----------- |
+| 服务名                                      | 服务          |
+| loginController.getCurrentUser           | 获取当前登录用户    |
+| managerBillService.getWaitingStockBill   | 获取待审批的库存单   |
+| managerBillService.getWaitingSalesOutBill | 获取待审批的销售单   |
+| managerBillService.getWaitingSalesInBill | 获取待审批的进货单   |
+| managerBillService.getWaitingFinanceBill | 获取待审批的财务单   |
+| managerBillService.getWaitingCashCostBill | 获取待审批的现金费用单 |
+| managerBillService.approveStockBill      | 批准库存单       |
+| managerBillService.approveSalesInBill    | 批准进货单       |
+| managerBillService.approveSalesOutBill   | 批准销售单       |
+| managerBillService.approveSalesFinanceBill | 批准财务单       |
+| managerBillService.approveCashCostBill   | 批准现金费用单     |
+| managerBillService.rejectStockBill       | 批准库存单       |
+| managerBillService.rejectSalesInBill     | 批准进货单       |
+| managerBillService.rejectSalesOutBill    | 批准销售单       |
+| managerBillService.rejectSalesFinanceBill | 批准财务单       |
+| managerBillService.rejectCashCostBill    | 批准现金费用单     |
 
 4.1.4(2)-7 ChiefManagerReadLogController的接口规范
 
 | 提供的服务(供接口)                               |      |                                          |
 | ---------------------------------------- | ---- | ---------------------------------------- |
 | 服务名                                      |      | 服务                                       |
-| ChiefManagerReadLogController.initalize | 语法   | public void initialize(URL url, ResourceBundle rb); |
+| ChiefManagerReadLogController.initalize  | 语法   | public void initialize(URL url, ResourceBundle rb); |
 |                                          | 前置条件 | 无                                        |
 |                                          | 后置条件 | 初始化界面                                    |
 | ChiefManagerReadLogController.handleSearchListButtonAction | 语法   | public void handleSearchListButtonAction(ActionEvent e); |
@@ -2044,18 +2052,18 @@ chiefManager界面各个类的职责如下表所示
 | ChiefManagerReadLogController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
 |                                          | 前置条件 | 点击按钮                                     |
 |                                          | 后置条件 | 显示跳转的界面                                  |
-| ChiefManagerReadLogController.handleSearchButtonAction| 语法   | public void handleSearchButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击查询日志按钮                                     |
-|                                          | 后置条件 | 显示选定日期内的日志                                 |
-| ChiefManagerReadLogController.handleClearButtonAction| 语法   | public void handleClearButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击清空按钮                                     |
-|                                          | 后置条件 | 清空日志列表                                 |
+| ChiefManagerReadLogController.handleSearchButtonAction | 语法   | public void handleSearchButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击查询日志按钮                                 |
+|                                          | 后置条件 | 显示选定日期内的日志                               |
+| ChiefManagerReadLogController.handleClearButtonAction | 语法   | public void handleClearButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空按钮                                   |
+|                                          | 后置条件 | 清空日志列表                                   |
 
-| 需要的服务(需接口)                        |          |
-| --------------------------------- | -------- |
-| 服务名                               | 服务       |
-| logBLService.timeSearchLog  | 根据日期搜索日志    |
-| loginController.getCurrentUser    | 获取当前登录用户 |
+| 需要的服务(需接口)                     |          |
+| ------------------------------ | -------- |
+| 服务名                            | 服务       |
+| logBLService.timeSearchLog     | 根据日期搜索日志 |
+| loginController.getCurrentUser | 获取当前登录用户 |
 
 
 
@@ -2086,30 +2094,30 @@ chiefManager界面各个类的职责如下表所示
 | ChiefManagerSetPromotionController.replaceSceneContent | 语法   | private Initializable replaceSceneContent(String fxml); |
 |                                          | 前置条件 | 点击按钮                                     |
 |                                          | 后置条件 | 显示跳转的界面                                  |
-| ChiefManagerSetPromotionController.ChoosePromotionType| 语法   | public void ChoosePromotionType(ActionEvent e); |
-|                                          | 前置条件 | 选择促销策略类型                                    |
+| ChiefManagerSetPromotionController.ChoosePromotionType | 语法   | public void ChoosePromotionType(ActionEvent e); |
+|                                          | 前置条件 | 选择促销策略类型                                 |
 |                                          | 后置条件 | 设定促销策略类型                                 |
-| ChiefManagerSetPromotionController.handleConfirmPromotionButtonAction| 语法   | public void handleConfirmPromotionButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击制定策略按钮                                     |
-|                                          | 后置条件 | 在数据库中加入制定的促销策略                                 |
-| ChiefManagerSetPromotionController.public void handleAddButtonButtonAction| 语法   | public void handleAddButtonButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击增加商品按钮                                     |
-|                                          | 后置条件 | 在商品列表中加入商品                              |
-| ChiefManagerSetPromotionController.public void handleClearConditionButtonAction| 语法   | public void handleClearConditionButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击清空条件按钮                                     |
-|                                          | 后置条件 | 清空用户填写的条件                             |
-| ChiefManagerSetPromotionController.public void handleSearchPromotionButtonAction| 语法   | public void handleSearchPromotionButtonAction(ActionEvent e); |
-|                                          | 前置条件 | 点击促销策略按钮                                     |
-|                                          | 后置条件 | 显示促销策略列表界面                            |
+| ChiefManagerSetPromotionController.handleConfirmPromotionButtonAction | 语法   | public void handleConfirmPromotionButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击制定策略按钮                                 |
+|                                          | 后置条件 | 在数据库中加入制定的促销策略                           |
+| ChiefManagerSetPromotionController.public void handleAddButtonButtonAction | 语法   | public void handleAddButtonButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击增加商品按钮                                 |
+|                                          | 后置条件 | 在商品列表中加入商品                               |
+| ChiefManagerSetPromotionController.public void handleClearConditionButtonAction | 语法   | public void handleClearConditionButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击清空条件按钮                                 |
+|                                          | 后置条件 | 清空用户填写的条件                                |
+| ChiefManagerSetPromotionController.public void handleSearchPromotionButtonAction | 语法   | public void handleSearchPromotionButtonAction(ActionEvent e); |
+|                                          | 前置条件 | 点击促销策略按钮                                 |
+|                                          | 后置条件 | 显示促销策略列表界面                               |
 
 
-| 需要的服务(需接口)                        |          |
-| --------------------------------- | -------- |
-| 服务名                               | 服务       |
-| loginController.getCurrentUser    | 获取当前登录用户 |
-| promotionBLService.addCustomerPromotion    | 增加分级促销策略  |
+| 需要的服务(需接口)                              |           |
+| --------------------------------------- | --------- |
+| 服务名                                     | 服务        |
+| loginController.getCurrentUser          | 获取当前登录用户  |
+| promotionBLService.addCustomerPromotion | 增加分级促销策略  |
 | promotionBLService.addGrossPromotion    | 增加总额促销策略  |
-| promotionBLService.addGroupPromotion    | 增加特价包促销策略  |
+| promotionBLService.addGroupPromotion    | 增加特价包促销策略 |
 
 4.1.4(2)-9 ChiefManagerSearchPromotionListController的接口规范
 
@@ -2146,16 +2154,16 @@ chiefManager界面各个类的职责如下表所示
 |                                          | 后置条件 | 返回制定促销策略界面                                |
 
 
-| 需要的服务(需接口)                        |          |
-| --------------------------------- | -------- |
-| 服务名                               | 服务       |
-| loginController.getCurrentUser    | 获取当前登录用户 |
-| promotionBLService.getAllCustomerPromotion();   | 获取所有分级促销策略  |
-| promotionBLService.getALLGrossPromotion    | 获取所有总额促销策略  |
-| promotionBLService.getAllGroupPromotion    | 获取所有特价包促销策略  |
-| promotionBLService.deleteCustomerPromotion();   | 删除分级促销策略  |
-| promotionBLService.deleteGrossPromotion    | 删除总额促销策略  |
-| promotionBLService.deleteGroupPromotion    | 删除特价包促销策略  |
+| 需要的服务(需接口)                               |             |
+| ---------------------------------------- | ----------- |
+| 服务名                                      | 服务          |
+| loginController.getCurrentUser           | 获取当前登录用户    |
+| promotionBLService.getAllCustomerPromotion(); | 获取所有分级促销策略  |
+| promotionBLService.getALLGrossPromotion  | 获取所有总额促销策略  |
+| promotionBLService.getAllGroupPromotion  | 获取所有特价包促销策略 |
+| promotionBLService.deleteCustomerPromotion(); | 删除分级促销策略    |
+| promotionBLService.deleteGrossPromotion  | 删除总额促销策略    |
+| promotionBLService.deleteGroupPromotion  | 删除特价包促销策略   |
 
 4.1.4(2)-10 ChiefManagerShowCashCostBillDetailController的接口规范
 界面复用，见表4.1.3(2)-12 FinanceManagerShowCashCostBillDetailController的接口规范，不实现红冲和红冲和复制功能
