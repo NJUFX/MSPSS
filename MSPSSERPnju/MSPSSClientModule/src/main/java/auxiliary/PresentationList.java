@@ -1,10 +1,14 @@
 package auxiliary;
 
 import javafx.beans.property.SimpleStringProperty;
+import vo.CustomerPromotionVO;
+import vo.GrossPromotionVO;
+import vo.GroupPromotionVO;
 
 public class PresentationList {
     private final SimpleStringProperty Name = new SimpleStringProperty("");
     private final SimpleStringProperty Number = new SimpleStringProperty("");
+
 
     public PresentationList() {
         this("", "");

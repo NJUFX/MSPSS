@@ -39,6 +39,7 @@ public class CommodityInfoShowViewController implements Initializable {
     Stage newStage = new Stage();
     String id_to_modify;
     static String keyType, keyword;
+    static CommodityVO commodityVO;
     private CommodityTable commodityTable;
 
     public void setCommodityTable(CommodityTable commodityTable) {
@@ -283,11 +284,11 @@ public class CommodityInfoShowViewController implements Initializable {
         nameOfCurrentUser.setText("姓名：" + LoginController.getCurrentUser().getName());
         categoryOfCurrentUser.setText("身份：" + LoginController.getCategory());
 
-        CommodityVO commodityVO = commodityInfoService.getCommodity(id_to_modify);
         id.setText(commodityVO.getID());
         name.setText(commodityVO.getName());
         type.setText(commodityVO.getType());
         category.setText(commodityVO.getClassificationName());
+        System.out.println("eee"+ commodityVO.getClassificationName());
         purchasingPrice.setText(String.valueOf(commodityVO.getImportCost()));
         sellingPrice.setText(String.valueOf(commodityVO.getExportCost()));
         stockAlertNumber.setText(String.valueOf(commodityVO.getAlertNumber()));

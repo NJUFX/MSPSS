@@ -217,6 +217,7 @@ public class ChiefManagerSearchProcessListController implements Initializable {
 	public void showProcessTable(ProcessTableVO vo) throws Exception{
 		tableVO  = vo;
 		ObservableList<Bill> data = BillTable.getItems();
+		System.out.println(billType);
 		switch (billType) {
 		case "库存类": {
 			ArrayList<StockBillVO> list = vo.getStockBillList();

@@ -18,9 +18,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
-<?import auxiliary.stockmanager.*?>
+<?import auxiliary.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/chiefManager/ChiefManagerExamineBill.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerExamineBillController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" stylesheets="@../../css/chiefManager/ChiefManagerExamineBill.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.chiefmanagerui.ChiefManagerSearchProcessListController">
     <children>
         <Pane id="Navbar" prefHeight="560.0" prefWidth="145.0">
             <effect>
@@ -121,19 +121,17 @@
                <PropertyValueFactory property="commitTime" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="100.0" text="创建者">
+          <TableColumn prefWidth="123.0" text="创建者">
             <cellValueFactory>
                <PropertyValueFactory property="operator" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="100.0" text="单据类型">
+          <TableColumn prefWidth="119.0" text="单据类型">
             <cellValueFactory>
                <PropertyValueFactory property="billType" />
             </cellValueFactory>
           </TableColumn>
-          <TableColumn fx:id="ShowDetail" prefWidth="50.0" text="详情" />
-            <TableColumn fx:id="HongChong" prefWidth="45.0" text="红冲" />
-            <TableColumn fx:id="HongChongAndCopy" prefWidth="90.0" text="红冲并复制" />
+          <TableColumn fx:id="ShowDetail" prefWidth="137.0" text="详情" />
         </columns>
       </TableView>
       <Button id="cancelButton" fx:id="ExportProcessList" layoutX="763.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleExportProcessListButtonAction" prefHeight="23.0" prefWidth="100.0" stylesheets="@../../css/admin/addUser.css" text="导出" textFill="#0d5ae1" />

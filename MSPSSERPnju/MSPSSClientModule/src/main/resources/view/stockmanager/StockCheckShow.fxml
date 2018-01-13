@@ -112,12 +112,12 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="billCreateButton" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
+        <Button id="billCreateButton" fx:id="stockInventoryButton" onAction="#stockInventoryButtonAction" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/common.css" text="库存盘点" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button id="billCreateButton" fx:id="stockInventoryButton" layoutY="424.0" mnemonicParsing="false" onAction="#stockInventoryButtonAction" prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="库存查看" textFill="#f8f4f4">
+        <Button id="billCreateButton"  layoutY="424.0" mnemonicParsing="false"  prefHeight="35.0" prefWidth="145.0" stylesheets="@../../css/stockseller/buttonpressed.css" text="库存查看" textFill="#f8f4f4">
             <font>
                 <Font size="16.0" />
             </font>

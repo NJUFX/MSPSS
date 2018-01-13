@@ -77,7 +77,6 @@ public class CommodityClassifyViewController implements Initializable {
         ClassificationCell commodityCell = new ClassificationCell("Root", "Root", "001", true);
         TreeItem<ClassificationCell> root = new TreeItem<>(commodityCell, rootIcon);//根分类
 
-        System.out.println("RootSize " + commodityBLService.getRootClassifications().size());
         if (commodityBLService.getRootClassifications() != null && commodityBLService.getRootClassifications().size() != 0) {
             addChildren(commodityBLService.getRootClassifications(), root);
         }
@@ -100,7 +99,6 @@ public class CommodityClassifyViewController implements Initializable {
                     if (commodityBLService.getChildrenClassification(childrenVO) != null && commodityBLService.getChildrenClassification(childrenVO).size() != 0) {
                         addChildren(commodityBLService.getChildrenClassification(childrenVO), childrenItem);
                     }
-                    System.out.println("Child ComList" + commodityBLService.getChildrenCommodity(childrenVO).size());
                     if (commodityBLService.getChildrenCommodity(childrenVO) != null && commodityBLService.getChildrenCommodity(childrenVO).size() != 0) {
                         addCommodity(commodityBLService.getChildrenCommodity(childrenVO), childrenItem);
                     }

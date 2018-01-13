@@ -1,5 +1,6 @@
 package ui.stocksellerui;
 
+import auxiliary.PromotionBySales;
 import auxiliary.PurchaseBill;
 import blimpl.blfactory.BLFactoryImpl;
 import blservice.billblservice.SalesmanBillBLService;
@@ -35,6 +36,10 @@ public class SalesBillDetailsShowViewController implements Initializable {
     UserInfo userInfo = new BLFactoryImpl().getUserInfo();
     Stage newStage = new Stage();
     Dialog dialog = new Dialog();
+    @FXML
+    TableView<PromotionBySales> promotionBySalesTableView;
+    @FXML
+    TableColumn<PromotionBySales, String> promotionTypeCol, promotionInfoCol;
 
     @FXML
     Button returnButton;
@@ -106,10 +111,16 @@ public class SalesBillDetailsShowViewController implements Initializable {
         }
 
     }
+    public void showPromotionTable() {
+        promotionTypeCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        promotionInfoCol.setCellValueFactory(new PropertyValueFactory<>("Information"));
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showTableView();
+        //showPromotionTable();
     }
 }
 

@@ -16,7 +16,7 @@
 
           <property name="endTime" column="end_time" type="string"></property>
 
-          <list name = "commodityIDs" lazy="false" table ="commoditys_in_group_promotion_po" cascade="all">
+          <list name = "commodityIDs" lazy="false" table ="commoditys_in_group_promotion" cascade="all">
               <key column="group_promotion_id"></key>
               <index column="_index" ></index>
              <element column="id" type="string"></element>

@@ -68,6 +68,18 @@ public class BillStatusCheckViewController implements Initializable {
         statusScreen();
     }
 
+    public void screenPresentation() {
+        ObservableList<BillCheckTable> data = tableTableView.getItems();
+        int size = data.size();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < data.size(); j++) {
+                if (!data.get(j).getName().equals("库存赠送单")) {
+                    data.remove(j);
+                }
+            }
+        }
+    }
+
     public void typeScreen() {
         ObservableList<BillCheckTable> data = tableTableView.getItems();
         if (typeScreenBox.getValue() != null && !typeScreenBox.getValue().equals("全部单据")) {

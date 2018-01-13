@@ -69,10 +69,10 @@ public class SelectClassOrCommodityViewController implements Initializable {
                     if (useType == true) {
                         commodityTypeField.setText(commodityVO.getType());
                     }
-                    sureButton.getScene().getWindow().hide();
                     if (isStockBill == true) {
                         systemStockLabel.setText(String.valueOf(commodityVO.getNumberInStock()));
                     }
+                    sureButton.getScene().getWindow().hide();
                 }
             } else {
                 if (selectItem.getValue().getIsClass() == false) {
@@ -83,11 +83,11 @@ public class SelectClassOrCommodityViewController implements Initializable {
                             dialog.errorInfoDialog("Unable to add a commodity in this classification.");
                         } else {
                             classificationName = selectItem.getValue().getName();
-                            classificationNameField.setText(classificationName);
                             classificationId = selectItem.getValue().getId();
-                            if(classificationName.equals("Root")){
+                            classificationNameField.setText(classificationName + " " + classificationId);
+                            if (classificationName.equals("Root")) {
                                 dialog.errorInfoDialog("Can not add a commodity in this class.");
-                            }else {
+                            } else {
                                 classificationVO = commodityBLService.getClassification(classificationId);
                                 sureButton.getScene().getWindow().hide();
                             }

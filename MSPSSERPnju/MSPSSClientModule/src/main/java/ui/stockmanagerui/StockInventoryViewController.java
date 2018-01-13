@@ -20,6 +20,7 @@ import main.StageSingleton;
 import status.Log_In_Out_Status;
 import ui.adminui.LoginController;
 import ui.common.Dialog;
+import util.ResultMessage;
 import vo.StockInventoryVO;
 
 import java.io.IOException;
@@ -56,7 +57,12 @@ public class StockInventoryViewController implements Initializable {
 
     @FXML
     public void exportToExcelButtonAction(ActionEvent e) {
-        dialog.infoDialog("Export to excel successfully.");
+        ResultMessage resultMessage = stockBLService.exportToExcel(stockBLService.viewInventory());
+        if(resultMessage==ResultMessage.SUCCESS) {
+            dialog.infoDialog("Export to excel successfully.");
+        }else{
+            dialog.errorInfoDialog("Fail to export to excel.");
+        }
     }
 
     @FXML
