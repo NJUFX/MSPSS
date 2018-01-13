@@ -1,9 +1,9 @@
 [![build status](http://101.37.19.32:10080/FX/MSPSS/badges/master/build.svg)](http://101.37.19.32:10080/FX/MSPSS/commits/master)
 # MSPSS System For Software Engineering Ⅱ<br>
-<a href="#mingzi"></a>
+[toc]
 
-
-
+##cover
+  ![cover](https://raw.githubusercontent.com/NJUFX/MSPSS/master/cover.png)
 
 
 ## Introduction
@@ -32,13 +32,13 @@ doc/md : document & images
 
 ## Contributors
 
-Xinhu Han ,Njuid:161250025
+JiaXing Fu ,Njuid:161250025  [伏家兴](https://github.com/FuGaZn "悬停显示")
 
-JiaXing Fu ,Njuid:161250036
+Xinhu Han ,NJUid:161250036 [韩新虎](https://github.com/hanxinhu "悬停显示")
 
-Yaxin Liu ,Njuid:161250080
+Yaxin Liu ,Njuid:161250080 [刘雅歆](https://github.com/HarperLiu "悬停显示")
 
-Guangyao Xu ,Njuid:161250164
+Guangyao Xu ,Njuid:161250164 [徐光耀](https://github.com/LuGaXu "悬停显示")
 
 ## Copyright declaration
 
